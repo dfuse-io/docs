@@ -1,0 +1,8 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "Dfuse"
+bookToC = 3
+theme = "book"
+
+[params]
+  BookLogo = 'img/dfuse-logo-02.png'
