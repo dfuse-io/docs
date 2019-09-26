@@ -5,7 +5,10 @@ title: GET /v0/transactions/:id
 
 # GET `/v0/transactions/:id`
 
-Fetching the transaction lifecycle associated with the provided path parameter `:id`.
+Fetching the transaction lifecycle associated with the provided parameter `:id`.
+
+
+## Usage
 
 {{< highlight shell >}}
 curl -H "Authorization: Bearer $TOKEN" \
@@ -20,7 +23,7 @@ argument pushed to the chain or created by a smart contract.
 Refers to the [TransactionLifecycle](#type-TransactionLifecycle) to have a better
 overview of lifecycle related properties that are available in the response.
 
-## Path parameters
+## Input parameters
 
 Name | Type | Options | Description
 -----|------|---------|------------

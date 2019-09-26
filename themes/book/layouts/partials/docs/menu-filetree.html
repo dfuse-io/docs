@@ -54,7 +54,7 @@
 {{ define "book-page-link" }}
 {{ with .Page }}
   <a href="{{ .RelPermalink }}" {{ if eq $.CurrentPage .Permalink }} class="active"{{ end }}>
-      {{ partial "docs/title" . }}
+      {{ partial "docs/title" . | markdownify }}
   </a>
 {{ end }}
 {{ end }}

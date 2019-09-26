@@ -5,6 +5,10 @@ title: GET /v0/block_id/by_time
 
 # GET `/v0/block_id/by_time`
 
+Get the block ID produced at a given time
+
+## Usage
+
 The following example fetches the block ID, time and block number for the timestamp `2019-03-04T10:36:14.6Z`.
 
 {{< tabs "example-req-res" >}}
@@ -24,8 +28,6 @@ curl -H "Authorization: Bearer $TOKEN" \
 {{< /tab >}}
 {{< /tabs >}}
 
-
-
 ## Input parameters
 
 Name | Type | Description
@@ -42,5 +44,3 @@ Name | Type | Description
 `id` | string | Block ID
 `num` | uint32 | Block Number
 `time` | DateTime | Timestamp of the matching block (according to its production schedule, so always aligned with 500ms time slots)
-
-

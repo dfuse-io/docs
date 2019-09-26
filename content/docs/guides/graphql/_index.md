@@ -166,11 +166,11 @@ When dealing with documents that were very recently added to a blockchain, there
 
 When this happens, you can be notified by retrieving the `undo` property of the API. It is your responsibility to ensure that you respond properly to transactions being forked out of the chain.
 
+[Try it on GraphiQL](https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMocXVlcnk6ICJ0bzoweDA2MDEyYzhjZjk3QkVhRDVkZUFlMjM3MDcwRjk1ODdmOEU3QTI2NmQiLCBsb3dCbG9ja051bTogLTEwMDApIHsKICAgIHVuZG8KICAgIG5vZGUgewogICAgICBoYXNoCiAgICB9CiAgfQp9)
+
 {{< important >}}
 Never forget to retrieve the `undo` property, as streaming results will re-send the matching transactions with `undo:true` upon micro-forks resolution.
 {{< /important >}}
-
-[Try it on GraphiQL](https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMocXVlcnk6ICJ0bzoweDA2MDEyYzhjZjk3QkVhRDVkZUFlMjM3MDcwRjk1ODdmOEU3QTI2NmQiLCBsb3dCbG9ja051bTogLTEwMDApIHsKICAgIHVuZG8KICAgIG5vZGUgewogICAgICBoYXNoCiAgICB9CiAgfQp9)
 
 ## Transports
 
@@ -201,9 +201,9 @@ In the browser, you can use the `apollo-client` npm library to connect
 and read responses. It uses WebSocket for Subscriptions and can also
 use it for Queries.
 
-See the
-[Apollo Client Introduction](https://www.apollographql.com/docs/react/)
-for more details.
+{{< tip >}}
+See the [Apollo Client Introduction](https://www.apollographql.com/docs/react/) for more details.
+{{< /tip >}}
 
 <!-- TODO: Add some links to sample code we have that uses `apollo-client` -->
 

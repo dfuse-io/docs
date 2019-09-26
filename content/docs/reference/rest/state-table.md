@@ -5,16 +5,18 @@ title: GET /v0/state/table
 
 # GET `/v0/state/table`
 
-> Sample request:
+Fetches the state of any table, at any block height.
+
+## Usage
+
+Sample request:
 
 {{< highlight shell >}}
 curl -H "Authorization: Bearer $TOKEN" \
     "https://mainnet.eos.dfuse.io/v0/state/table?account=eosio.token&scope=b1&table=accounts&block_num=25000000&json=true"
 {{< /highlight >}}
 
-Fetches the state of any table, at any block height.
-
-### Requesting past blocks
+## Requesting past blocks
 
 The `block_num` parameter determines for which block you want a table
 snapshot. This can be anywhere in the chain's history.
@@ -27,7 +29,7 @@ returned `up_to_block_id` parameter to understand from which longest
 chain the returned value is a snapshot of.
 
 
-### ABI handling
+## ABI handling
 
 The _dfuse_ API tracks ABI changes and will decode each row with the ABI
 in effect at the `block_num` requested.
@@ -40,7 +42,7 @@ row (ex: the ABI was not well formed at that `block_num`), the `hex`
 representation would be returned along with an `error` field
 containing the decoding error.
 
-### Input parameters
+## Input parameters
 
 Name | Type | Options | Description
 -----|------|---------|------------
@@ -53,11 +55,10 @@ Name | Type | Options | Description
 `with_block_num` | boolean | optional, _defaults_ to `false` | Will return one `block_num` with each row. Represents the block at which that row was last changed.
 `with_abi` | boolean | optional, _defaults_ to `false` | Will return the ABI in effect at block `block_num`.
 
-
 <!---
 FIXME: This KeyType is duplicated from `state-tables-scopes.md` and `state-table.md`
 -->
-### Key Type
+## Key Type
 
 The key type can be one of the following values:
 
@@ -66,11 +67,11 @@ The key type can be one of the following values:
  * `hex_be` for big endian hexadecimal encoding, ex: `9078563412efcdab`
  * `uint64` for *string* encoded uint64. Beware: uint64 can be very large numbers and some programming languages need special care to decode them without truncating their value. This is why they are returned as strings.
 
-
-### Response
+## Response
 
 Returns a [StateResponse](#type-StateResponse)
-### Table Row
+
+## Table Row
 
 Name | Type | Options | Description
 -----|------|---------|------------

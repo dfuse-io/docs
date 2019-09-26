@@ -5,6 +5,10 @@ title: POST push_transaction
 
 # POST `push_transaction`
 
+Drop-in replacement for submitting a transaction to the network, but can optionally block the request until the transaction is either in a block or in an irreversible block.
+
+## Usage
+
 **/v1/chain/push_transaction**
 
 Pushes a transaction to the blockchain, with the possibility to request

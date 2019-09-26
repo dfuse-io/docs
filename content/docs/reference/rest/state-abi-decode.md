@@ -8,7 +8,10 @@ title: POST /v0/state/abi/bin_to_json
 Decode binary rows (in hexadecimal string) for a given table against
 the ABI of a given contract account, at any block height.
 
-> Sample request:
+
+## Usage
+
+Sample request:
 
 {{< highlight shell >}}
 curl -X POST -H "Authorization: Bearer $TOKEN" \
@@ -16,7 +19,7 @@ curl -X POST -H "Authorization: Bearer $TOKEN" \
     "https://mainnet.eos.dfuse.io/v0/state/abi/bin_to_json"
 {{< /highlight >}}
 
-### Requesting past blocks
+## Requesting past blocks
 
 The `block_num` parameter determines for which block you want to decode rows
 against. This can be anywhere in the chain's history.
@@ -27,7 +30,7 @@ chain, decoding will be performed against this new ABI, but it is not guaranteed
 to be the view that will pass irreversibility. Inspect the returned `block_num`
 parameter of the response to understand from which longest chain the returned ABI is from.
 
-### Input body
+## Input Parameters
 
 The input body must be a valid JSON object. Here are the fields accepted in this JSON
 object.
@@ -39,9 +42,9 @@ Name | Type | Options | Description
 `hex_rows` | array&lt;string&gt; | required | An array of hexadecimal rows to decode. Each row must be a valid hexadecimal string representation of the row to decode against the ABI.
 `block_num` | number | optional, _defaults_ to head block num | The block number for which you want to retrieve the ABI. The returned ABI will be the one that was active at this given `block_num`.
 
-### Response
+## Response
 
-> Here is a sample response, for a request at `block_num: 8000`:
+Here is a sample response, for a request at `block_num: 8000`:
 
 {{< highlight json >}}
 {

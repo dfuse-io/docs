@@ -8,9 +8,7 @@ title: GET /v0/search/transactions
 Search an EOSIO blockchain for transactions based on free-form
 criterias, using the [**dfuse Search** query language](#dfuse-query-language).
 
-{{< note >}}
-Right now, SQE will provide search only in irreversible actions. It will be extended to longest-chain search, and real-time search later.
-{{< /note >}}
+## Usage
 
 Sample request:
 
@@ -25,6 +23,9 @@ curl --get \
      "https://mainnet.eos.dfuse.io/v0/search/transactions"
 {{< /highlight >}}
 
+{{< note >}}
+Right now, SQE will provide search only in irreversible actions. It will be extended to longest-chain search, and real-time search later.
+{{< /note >}}
 
 ## Pagination
 

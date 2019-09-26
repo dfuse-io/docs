@@ -27,9 +27,11 @@ If you haven't already, head out to our [self-service API management portal](htt
 
 Once you have this API key, call the [`https://auth.dfuse.io/v1/auth/issue` endpoint](#post-v1-auth-issue) to get a fresh Authentication Token (JWT).
 
-See <https://jwt.io/introduction/> to learn more about JWTs.
-
 By default, each JWT is **valid for a period of 24 hours**. Make sure you cache those values to avoid hitting rate limiting on JWT issuance.
+
+{{< tip >}}
+See <https://jwt.io/introduction/> to learn more about JWTs.
+{{< /tip >}}
 
 ## Lifecycle of Short-Lived JWTs
 

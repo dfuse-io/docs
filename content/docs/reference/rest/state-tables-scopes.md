@@ -8,6 +8,9 @@ title: GET /v0/state/tables/scopes
 Fetches all rows for a table in a given contract for a group of
 scopes, at any block height.
 
+
+## Usage
+
 Most parameters are similar to the `/v0/state/table` request, except
 for the `scopes` parameter, which accepts a list of name-encoded scopes
 separated by the pipe character (`|`).

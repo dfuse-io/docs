@@ -7,14 +7,17 @@ title: GET /v0/state/abi
 
 Fetches the ABI for a given contract account, at any block height.
 
-> Sample request:
+
+## Usage
+
+Sample request:
 
 {{< highlight shell >}}
 curl -H "Authorization: Bearer $TOKEN" \
     "https://mainnet.eos.dfuse.io/v0/state/abi?account=eosio&json=true"
 {{< /highlight >}}
 
-### Requesting past blocks
+## Requesting past blocks
 
 The `block_num` parameter determines for which block you want the given
 ABI. This can be anywhere in the chain's history.
@@ -27,7 +30,7 @@ of the response to understand from which longest chain the returned ABI is from.
 
 The returned ABI is the one that was active at the `block_num` requested.
 
-### Input parameters
+## Input parameters
 
 Name | Type | Options | Description
 -----|------|---------|------------
@@ -35,10 +38,9 @@ Name | Type | Options | Description
 `block_num` | number | optional, _defaults_ to head block num | The block number for which you want to retrieve the ABI. The returned ABI will be the one that was active at this given `block_num`.
 `json` | boolean | optional, _defaults_ to `false` | Returns the ABI in JSON form if set to `true`. When set to `false`, the packed ABI is returned in hexadecimal string form.
 
-### Response
+## Response
 
-> Here is a sample response, for a request at `block_num: 8000`:
-
+Here is a sample response, for a request at `block_num: 8000`:
 
 {{< highlight json >}}
 {

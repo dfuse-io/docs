@@ -7,6 +7,8 @@ title: GET /v0/state/table_scopes
 
 Fetches a list of scopes, for a given table on a contract account, at any block height.
 
+## Usage
+
 Sample request:
 
 {{< highlight shell >}}

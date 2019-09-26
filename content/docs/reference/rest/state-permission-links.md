@@ -5,7 +5,11 @@ title: GET /v0/state/permission_links
 
 # GET `/v0/state/permission_links`
 
-> Sample request:
+Fetches snapshots of any account’s linked authorizations on the blockchain, at any block height.
+
+## Usage
+
+Sample request:
 
 {{< highlight shell >}}
 curl -H "Authorization: Bearer $TOKEN" \
@@ -14,7 +18,7 @@ curl -H "Authorization: Bearer $TOKEN" \
 
 Fetches snapshots of any account's linked authorizations on the blockchain, at any block height.
 
-### Requesting past blocks
+## Requesting past blocks
 
 The `block_num` parameter determines for which block you want a linked
 authorizations snapshot. This can be anywhere in the chain's history.
@@ -26,14 +30,14 @@ guaranteed to be the view that will pass irreversibility. Inspect the
 returned `up_to_block_id` parameter to understand from which longest
 chain the returned value is a snapshot of.
 
-### Input parameters
+## Input parameters
 
 Name | Type | Options | Description
 -----|------|---------|------------
 `account` | [AccountName](#type-AccountName) | required | Account to query linked permissions from.
 `block_num` | number (uint32) | optional, _defaults_ head block num | The block number for which you want to retrieve the consistent linked permissions snapshot.
 
-### Response
+## Response
 
 > Here is a sample response, for a request at `block_num: 8`:
 
@@ -61,8 +65,7 @@ Name | Type | Options | Description
 `last_irreversible_block_num` | number (uint32) | optional | Block number extracted from `last_irreversible_block_num`, provided as a convenience so you don't need to extract it yourself.
 `linked_permissions` | array&lt;[LinkedPermission](#type-state-LinkedPermission)&gt; | required | An array of linked permissions for the account, sorted by the `contract` field and on `action` when there is a tie at the `contract` level.
 
-
-### `LinkedPermission`
+## `LinkedPermission`
 
 Name | Type | Options | Description
 -----|------|---------|------------

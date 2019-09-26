@@ -52,3 +52,12 @@ code {
     color: #e67e21;
   }
 }
+
+.admonition-tip {
+  background-color: #ecfaf0;
+  border-left-color: #2ccc71;
+
+  .admonition-title {
+    color: #2ccc71;
+  }
+}
