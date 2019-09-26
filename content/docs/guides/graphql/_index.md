@@ -277,9 +277,7 @@ cursor somewhere and press `Ctrl+<Space>` to see completion for current location
 
 #### Subscriptions
 
-`searchTransactionsForward`
-{: .argument-title}
-
+`searchTransactionsForward`<br>
 Search the blockchain forward for transaction execution traces based on query.
 
 {{< warning >}}
@@ -288,10 +286,9 @@ Always consider the undo field in forward searches, which signal that the matchi
 
 [Try it on GraphiQL](https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKHF1ZXJ5OiAicmVjZWl2ZXI6ZW9zaW8udG9rZW4gYWN0aW9uOnRyYW5zZmVyIikgewogICAgY3Vyc29yCiAgICB0cmFjZSB7CiAgICAgIGlkCiAgICAgIGJsb2NrIHsKICAgICAgICBudW0KICAgICAgICB0aW1lc3RhbXAKICAgICAgfQogICAgICBtYXRjaGluZ0FjdGlvbnMgewogICAgICAgIGFjY291bnQKICAgICAgICBuYW1lCiAgICAgICAgZGF0YQogICAgICB9CiAgICB9CiAgfQp9Cg==)
 
-<div class="argument-separator"></div>
+***
 
 `searchTransactionsBackward`
-{: .argument-title}
 
 Search the blockchain backward for transaction execution traces based on query.
 
@@ -304,18 +301,18 @@ The undo field is not used in backwards search.
 #### Queries
 
 `searchTransactionsForward`
-{: .argument-title}
 
 Search the blockchain forward for transaction execution traces based on query. When the returned cursor is empty, it means you have reached the end of the specified block range.
 
-Warning: Always consider the undo field in forward searches, which signal that the matching element was in fact __REMOVED__ from the chain because of blocks reorganization. <br />See also the streaming version under Subscription.
+{{< warning >}}
+Always consider the undo field in forward searches, which signal that the matching element was in fact __REMOVED__ from the chain because of blocks reorganization. <br />See also the streaming version under Subscription.
+{{< /warning >}}
 
 [Try it on GraphiQL](https://mainnet.eos.dfuse.io/graphiql/?query=cXVlcnkgeyAKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKHF1ZXJ5OiAicmVjZWl2ZXI6ZW9zaW8udG9rZW4gYWN0aW9uOnRyYW5zZmVyIiwgbG93QmxvY2tOdW06IC0zNjAsIGxpbWl0OiAxMCkgeyAKICAgIHJlc3VsdHMgeyAKICAgICAgY3Vyc29yCiAgICAgIHRyYWNlIHsKICAgICAgICBpZAogICAgICAgIG1hdGNoaW5nQWN0aW9ucyB7IAogICAgICAgICAgYWNjb3VudAogICAgICAgICAgbmFtZQogICAgICAgICAgZGF0YQogICAgICAgIH0KICAgICAgfSAKICAgIH0gCiAgfQp9)
 
-<div class="argument-separator"></div>
+***
 
 `searchTransactionsBackward`
-{: .argument-title}
 
 Search the blockchain backward for transaction execution traces based on query. When the returned cursor is empty, it means you have reached the end of the specified block range.
 
@@ -323,10 +320,9 @@ See also the streaming version under Subscription.
 
 [Try it on GraphiQL](https://mainnet.eos.dfuse.io/graphiql/?query=cXVlcnkgeyAKICBzZWFyY2hUcmFuc2FjdGlvbnNCYWNrd2FyZChxdWVyeTogInJlY2VpdmVyOmVvc2lvLnRva2VuIGFjdGlvbjp0cmFuc2ZlciIsIGxpbWl0OiAxMCkgeyAKICAgIHJlc3VsdHMgeyAKICAgICAgY3Vyc29yCiAgICAgIHRyYWNlIHsKICAgICAgICBpZAogICAgICAgIG1hdGNoaW5nQWN0aW9ucyB7IAogICAgICAgICAgYWNjb3VudAogICAgICAgICAgbmFtZQogICAgICAgICAgZGF0YQogICAgICAgIH0KICAgICAgfSAKICAgIH0gCiAgfQp9)
 
-<div class="argument-separator"></div>
+***
 
 `blockIDByTime`
-{: .argument-title}
 
 Return the block ID found around the given `time`, based on the comparator provided.
 
