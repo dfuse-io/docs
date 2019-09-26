@@ -10,9 +10,9 @@ First, obtain a long-term API key (go to https://app.dfuse.io).
 
 {{< highlight shell >}}
 curl -XPOST \
-     -H "Content-Type: application/json" \
-     --data '{"api_key":"web_ebf6733085d83117b0ad7f9999bd169c"}' \
-     "https://auth.dfuse.io/v1/auth/issue"
+  -H "Content-Type: application/json" \
+  --data '{"api_key":"web_ebf6733085d83117b0ad7f9999bd169c"}' \
+  "https://auth.dfuse.io/v1/auth/issue"
 {{< /highlight >}}
 
 ### JSON payload input parameters

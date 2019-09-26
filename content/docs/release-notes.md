@@ -114,16 +114,16 @@ weight: 50
 
   The format is as follow:
 
-  {{< highlight json >}}
-  {
-    "code": "a_unique_error_code_for_this_specific_error",
-    "trace_id": "unique_id_identifying_your_request",
-    "message": "A descriptive error message about the problem.",
-    "details": {
-      "key": "contextual key/values pairs specific to each error"
-    }
+{{< highlight json >}}
+{
+  "code": "a_unique_error_code_for_this_specific_error",
+  "trace_id": "unique_id_identifying_your_request",
+  "message": "A descriptive error message about the problem.",
+  "details": {
+    "key": "contextual key/values pairs specific to each error"
   }
-  {{< /highlight >}}
+}
+{{< /highlight >}}
 
   Each error returned to you has a unique `code` field which descriptively identifies
   the error. The error code is stable in time and can be programmatically relied upon

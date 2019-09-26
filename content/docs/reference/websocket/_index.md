@@ -15,7 +15,7 @@ Most operations can fetch a first state (with `fetch: true`), and stream subsequ
 
 {{< highlight json >}}
 {
- "type": "[REQUEST_NAME]"`,
+ "type": "[REQUEST_NAME]",
  "req_id": "some-string-of-your-choosing",
  "fetch": true,
  "listen": true,
