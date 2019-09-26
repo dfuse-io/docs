@@ -1,12 +1,22 @@
 {{ if .Parent }}
-  {{ $name := .Get 0 }}
+  {{ $title := .Get "title" }}
+  {{ $lang := .Get "lang" }}
+
+  {{ if eq $lang "go" }}
+    {{ $title = "Go" }}
+  {{ end }}
+
   {{ $group := printf "tabs-%s" (.Parent.Get 0) }}
 
   {{ if not (.Parent.Scratch.Get $group) }}
     {{ .Parent.Scratch.Set $group slice }}
   {{ end }}
-    
-  {{ .Parent.Scratch.Add $group (dict "Name" $name "Content" .Inner) }}
+  
+  {{ if $lang }}
+    {{ .Parent.Scratch.Add $group (dict "Name" $title "Content" (highlight .Inner $lang "")) }}
+  {{ else }}
+    {{ .Parent.Scratch.Add $group (dict "Name" $title "Content" .Inner) }}
+  {{ end }}
 {{ else }}
   {{ errorf "%q: 'tab' shortcode must be inside 'tabs' shortcode" .Page.Path }}
-{{ end}}
+{{ end }}

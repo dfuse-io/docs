@@ -1,16 +1,14 @@
 @import 'variables';
 
 .markdown {
-  line-height: 1.6;
+  line-height: 1.7;
 
   h1, h2, h3, h4, h5 {
-    font-weight: normal;
-    line-height: 1;
-    margin-top: 1.5em;
-    margin-bottom: $padding-16;
+    margin-top: 60px;
+    margin-bottom: 30px;
   }
 
-  // remove padding at the beginning of page
+  // remove margin at the beginning of page
   > :first-child {
     margin-top: 0;
   }
@@ -77,6 +75,10 @@
 
     tr:nth-child(2n) {
       background: $gray-100;
+    }
+
+    code {
+      word-break: keep-all;
     }
   }
 

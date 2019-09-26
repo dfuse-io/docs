@@ -60,8 +60,13 @@
     order: 999; //Move content blocks to the end
     width: 100%;
     border-top: $padding-1 solid $gray-100;
-    padding: $padding-16;
     display: none;
+    
+    pre {
+      margin: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
   }
 
   input[type="radio"]:checked + label {

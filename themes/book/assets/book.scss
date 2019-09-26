@@ -108,7 +108,7 @@ ul.pagination {
 
   nav {
     width: $menu-width;
-    padding: $padding-16;
+    padding: 2rem 1rem;
 
     @include fixed;
   }
@@ -136,7 +136,8 @@ ul.pagination {
 .book-page {
   min-width: $body-min-width;
   flex-grow: 1;
-  padding: $padding-16;
+  padding: 5rem;
+  max-width: 60rem;
 }
 
 .book-header {
@@ -193,6 +194,7 @@ ul.pagination {
   nav {
     width: $toc-width;
     padding: $padding-16;
+    padding-top: 5rem;
 
     @include fixed;
   }
@@ -261,6 +263,10 @@ aside nav,
   .book-menu {
     margin-left: -$menu-width;
     font-size: $font-size-base;
+  }
+
+  .book-page {
+    padding: 2rem 1rem;
   }
 
   .book-header {
