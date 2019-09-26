@@ -2,8 +2,20 @@
   {{ $title := .Get "title" }}
   {{ $lang := .Get "lang" }}
 
-  {{ if eq $lang "go" }}
-    {{ $title = "Go" }}
+  {{ if eq $title "" }}
+    {{ if eq $lang "go" }}
+      {{ $title = "Go" }}
+    {{ else if eq $lang "shell" }}
+      {{ $title = "Shell" }}
+    {{ else if eq $lang "bash" }}
+      {{ $title = "Bash" }}
+    {{ else if eq $lang "javascript" }}
+      {{ $title = "Javascript" }}
+    {{ else if eq $lang "python" }}
+    {{ $title = "Python" }}
+    {{ else }}
+      {{ $title = $lang }}
+    {{ end }}
   {{ end }}
 
   {{ $group := printf "tabs-%s" (.Parent.Get 0) }}

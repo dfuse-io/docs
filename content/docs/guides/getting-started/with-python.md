@@ -1,14 +1,27 @@
+---
+weight: 1
+---
+
 # Getting Started with Python
 
-This simple program demonstrates how easy it is to query our GraphQL API over gRPC in Python. It:
+This simple program demonstrates how easy it is to query our GraphQL API over gRPC in Python. Here is an overview of what it does.
 
-* Request a token from our authentication API
-* Creates a gRPC connection with credentials
-* Instantiates a GraphQL client
-* Executes a simple GraphQL query
-* Prints the response
+1. Request a token from our authentication API
+1. Creates a gRPC connection with credentials
+1. Instantiates a GraphQL client
+1. Executes a simple GraphQL query
+1. Prints the response
 
-{{< highlight python >}}
+## Requirements
+
+You will need to have Python3 (>= 3.4+) as well as `virtualenv` and `pip`
+`>= 15.0+`.
+
+We use a virtual environment for this example, all dependencies are listed
+in the `requirements.txt` at the root of this project.
+
+{{< tabs "getting-started-python" >}}
+{{< tab lang="python" >}}
 import http.client
 import json
 import ssl
@@ -66,15 +79,8 @@ stream = dfuse_graphql.Execute(Request(query=query))
 for rawResult in stream:
     result = json.loads(rawResult.data)
     print(result['searchTransactionsForward']['trace']['matchingActions'])
-{{< /highlight >}}
-
-## Requirements
-
-You will need to have Python3 (>= 3.4+) as well as `virtualenv` and `pip`
-`>= 15.0+`.
-
-We use a virtual environment for this example, all dependencies are listed
-in the `requirements.txt` at the root of this project.
+{{< /tab >}}
+{{< /tabs >}}
 
 ## Quickstart
 
@@ -83,22 +89,28 @@ a free API key for your project.
 
 First, clone this repository to your work folder:
 
-```bash
+{{< tabs "getting-started-python-clone-repo" >}}
+{{< tab lang="shell" >}}
 git clone https://github.com/dfuse-io/example-graphql-python.git
 cd example-graphql-python
-```
+{{< /tab >}}
+{{< /tabs >}}
 
 Setup the virtual environment and pull all dependencies:
 
-```bash
+{{< tabs "getting-started-python-setup-env" >}}
+{{< tab lang="shell" >}}
 ./install_deps.sh
-```
+{{< /tab >}}
+{{< /tabs >}}
 
 Once your environment is setup properly, simply run the `example.py` script:
 
-```bash
+{{< tabs "getting-started-python-run" >}}
+{{< tab lang="shell" >}}
 python3 example.py YOUR_API_KEY_HERE
-```
+{{< /tab >}}
+{{< /tabs >}}
 
 ## Useful links
 

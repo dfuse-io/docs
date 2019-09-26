@@ -65,10 +65,13 @@ aside nav ul {
 
   a {
     display: block;
-  }
 
-  a:hover {
-    opacity: 0.5;
+    &:hover {
+      opacity: 0.5;
+    }
+    &.active {
+      font-weight: bold;
+    }
   }
 
   ul {
@@ -138,6 +141,10 @@ ul.pagination {
   flex-grow: 1;
   padding: 5rem;
   max-width: 60rem;
+
+  ul li, ol li {
+    margin-bottom: 5px;
+  }
 }
 
 .book-header {

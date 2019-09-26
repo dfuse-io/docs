@@ -1,3 +1,7 @@
+---
+weight: 2
+---
+
 # Getting Started with Other Languages
 
 gRPC is available for [a multitude of languages](https://grpc.io/docs/quickstart/).

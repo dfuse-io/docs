@@ -1,13 +1,17 @@
+---
+weight: 1
+---
+
 # Getting Started with Javascript
 
-This simple program demonstrates how easy it is to query our GraphQL API. It:
+This simple program demonstrates how easy it is to query our GraphQL API. Here is an overview of what it does.
 
-* Uses our [client-js library](https://github.com/dfuse-io/client-js) to handle API token management
-* Instantiates an ApolloClient
-* Executes a simple GraphQL streaming search subscription
-* Prints out each message received
+1. Uses our [client-js library](https://github.com/dfuse-io/client-js) to handle API token management
+1. Executes a simple GraphQL streaming search subscription
+1. Prints out each message received
 
-{{< highlight javascript >}}
+{{< tabs "getting-started-js" >}}
+{{< tab lang="javascript" >}}
 const { createDfuseClient } = require("@dfuse/client")
 
 const client = createDfuseClient({
@@ -31,19 +35,23 @@ const stream = await client.graphql(`
     console.log(message.data);
   }
 })
-{{< /highlight >}}
+{{< /tab >}}
+{{< /tabs >}}
 
-## Running the example
+## Running the Example
 
 First of all, visit [https://app.dfuse.io](https://app.dfuse.io) to get `YOUR_API_KEY`.
 
+{{< tabs "running-js-example" >}}
+{{< tab lang="shell" >}}
+git clone https://github.com/dfuse-io/example-graphql-apollo.git
+cd example-graphql-apollo
+yarn install
+DFUSE_API_KEY=YOUR_API_KEY_HERE yarn start
+{{< /tab >}}
+{{< /tabs >}}
 
-- `git clone https://github.com/dfuse-io/example-graphql-apollo.git`
-- `cd example-graphql-apollo`
-- `yarn install`
-- `DFUSE_API_KEY=YOUR_API_KEY_HERE yarn start`
-
-## Useful links
+## Useful Links
 
 - GitHub: [@dfuse/client](https://github.com/dfuse-io/client-js)
 - Docs: [dfuse Search query language](#dfuse-query-language)

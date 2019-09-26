@@ -1,14 +1,18 @@
+---
+weight: 1
+---
+
 # Getting Started with Go
 
 This simple program demonstrates how easy it is to query our GraphQL API over gRPC. It:
 
-* Uses our `go client` to retrieve a JWT
-* Creates a gRPC connection with credentials
-* Instantiates a GraphQL client
-* Executes a simple GraphQL query
-* Prints the response
+1. Uses our `go client` to retrieve a JWT
+1. Creates a gRPC connection with credentials
+1. Instantiates a GraphQL client
+1. Executes a simple GraphQL query
+1. Prints the response
 
-## Before you begin
+## Before You Begin
 
 - Visit [golang gRPC prerequisites](https://grpc.io/docs/quickstart/go.html#prerequisites)
 - Then make sure that `protoc` is accessible from your $PATH
@@ -73,25 +77,42 @@ func main() {
 {{< /tab >}}
 {{< /tabs >}}
 
-## Get the source code
+## Get the Source Code
 
-- `git clone https://github.com/dfuse-io/example-graphql-grpc.git`
-- `git clone https://github.com/dfuse-io/graphql-over-grpc.git`
+{{< tabs "get-source-code" >}}
+{{< tab lang="shell" >}}
+git clone https://github.com/dfuse-io/example-graphql-grpc.git
+git clone https://github.com/dfuse-io/graphql-over-grpc.git
+{{< /tab >}}
+{{< /tabs >}}
 
 ## Generate `graphql.pb.go`
 
-- `protoc -I graphql-over-grpc graphql/graphql.proto --go_out=plugins=grpc:./example-graphql-grpc`
+{{< tabs "generate-pb-go" >}}
+{{< tab lang="shell" >}}
+protoc -I graphql-over-grpc graphql/graphql.proto --go_out=plugins=grpc:./example-graphql-grpc
+{{< /tab >}}
+{{< /tabs >}}
 
-## Get project dependencies
+## Get the Project Dependencies
 
-- `cd example-graphql-grpc`
-- `go mod init main`
-- `go mod tidy`
+{{< tabs "get-deps" >}}
+{{< tab lang="shell" >}}
+cd example-graphql-grpc
+go mod init main
+go mod tidy
+{{< /tab >}}
+{{< /tabs >}}
 
-## Run it!
+## Run it
 
-- Visit [https://app.dfuse.io](https://app.dfuse.io) to get YOUR_API_KEY
-- `go run main.go YOUR_API_KEY_HERE`
+First, you must visit [https://app.dfuse.io](https://app.dfuse.io) to get your API key. Then, you can proceed to run the following command
+
+{{< tabs "run-it" >}}
+{{< tab lang="shell" >}}
+go run main.go YOUR_API_KEY_HERE
+{{< /tab >}}
+{{< /tabs >}}
 
 ## Useful Links
 
