@@ -11,7 +11,7 @@ Most operations can fetch a first state (with `fetch: true`), and stream subsequ
 
 ## Request Message Format
 
-> Sample request message:
+Sample request message:
 
 {{< highlight json >}}
 {
@@ -35,56 +35,40 @@ These arguments are available for most commands (unless otherwise noted):
 
 #### Arguments
 
-`type` required string
-{: .argument-title}
-
+`type` `required string`<br>
 The type of the message. See [request types below](#websocket-request-types).
 
-<div class="argument-separator"></div>
+***
 
-`data` required object
-{: .argument-title}
-
+`data` `required object`<br>
 A free-form object, specific to the `type` of request. See [request types below](#websocket-request-types).
 
-<div class="argument-separator"></div>
+***
 
-`req_id` optional string
-{: .argument-title}
-
+`req_id` optional string<br>
 An ID to associate responses back with the request.
 
-<div class="argument-separator"></div>
+***
 
-`start_block` optional integer
-{: .argument-title}
-
+`start_block` `optional integer`<br>
 Block at which you want to start processing.  It can be an absolute block number, or a negative value, meaning how many blocks from the current head block on the chain. Ex: `-2500` means 2500 blocks in the past, relative to the head block. 0 means the beginning of the chain. See [Never missing a beat](#websocket-never-miss-a-beat).
 
-<div class="argument-separator"></div>
+***
 
-`irreversible_only` optional boolean
-{: .argument-title}
-
+`irreversible_only` `optional boolean`<br>
 Defaults to `false`. Limits output to events that happened in irreversible blocks. Only supported on `get_action_traces`.
 
-<div class="argument-separator"></div>
+***
 
-`fetch` optional boolean
-{: .argument-title}
-
+`fetch` `optional boolean`<br>
 Defaults to `false`. Whether to fetch an initial snapshot of the requested entity.
 
-<div class="argument-separator"></div>
+***
 
-`listen` optional boolean
-{: .argument-title}
-
+`listen` `optional boolean`<br>
 Defaults to `false`. Whether to start listening on changes to the requested entity.
 
-<div class="argument-separator"></div>
+***
 
-`with_progress` optional integer
-{: .argument-title}
-
+`with_progress` `optional integer`<br>
 Frequency of the progress of blocks processing (within the scope of a `req_id`). See [Never missing a beat](#websocket-never-miss-a-beat).

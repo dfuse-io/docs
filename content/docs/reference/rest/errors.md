@@ -9,7 +9,7 @@ weight: 100
 The _dfuse_ API uses the following HTTP error codes:
 
 Error Code | Meaning
----------- | -------
+:----------: | -------
 400 | Bad Request -- Your request is invalid.
 401 | Unauthorized -- Your API key is wrong.
 403 | Forbidden -- Your request `Origin` does not match or while authenticated, you do not have access to specified resource.
@@ -27,7 +27,7 @@ described below, please report this as a bug to our team.
 Each error message structure for both the REST API and WebSocket API is
 fully standardized across all our API calls.
 
-> The format is as follow:
+The format is as follows:
 
 {{< highlight json >}}
 {

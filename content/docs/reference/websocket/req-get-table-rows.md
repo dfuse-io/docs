@@ -17,9 +17,9 @@ followed by `table_delta` response messages that have occured *after* the snapsh
 If you are looking to fetch a snapshot only, see the REST API for
 state snapshots below.
 
-#### Request input data fields:
+## Usage
 
-> Example request
+Example request:
 
 {{< highlight json >}}
 {
@@ -36,31 +36,24 @@ state snapshots below.
 }
 {{< /highlight >}}
 
+#### Arguments
 
-`code` required [AccountName](#type-AccountName)
-{: .argument-title}
-
+`code` required [AccountName](#type-AccountName)<br>
 Contract account which wrote to tables.
 
-<div class="argument-separator"></div>
+***
 
-`scope` required [Name](#type-Name)
-{: .argument-title}
-
+`scope` required [Name](#type-Name)<br>
 Table _scope_ where table is stored.
 
-<div class="argument-separator"></div>
+***
 
-`table` required [Name](#type-Name)
-{: .argument-title}
-
+`table` required [Name](#type-Name)<br>
 Table _name_, shown in the contract ABI.
 
-<div class="argument-separator"></div>
+***
 
-`json` optional boolean
-{: .argument-title}
-
+`json` optional boolean<br>
 With `json=true` (or `1`), table rows will be decoded to JSON, using the ABIs active on the queried block. This endpoint automatically adapts to upgrades to the ABIs on chain.
 
 #### Responses
@@ -68,7 +61,7 @@ With `json=true` (or `1`), table rows will be decoded to JSON, using the ABIs ac
 * `fetch: true` requests will stream [TableSnapshotResponse](#type-TableSnapshotResponse) objects.
 * `listen: true` requests will stream [TableDeltaResponse](#type-TableDeltaResponse) objects.
 
-### Handling Forks
+## Handling Forks
 
 When navigating forks in the chain, _dfuse_ sends
 [TableDeltaResponse](#type-TableDeltaResponse) updates with the `step` field set to
