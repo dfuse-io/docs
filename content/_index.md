@@ -1,3 +1,6 @@
-# Foo
+---
+title: Introduction
+type: docs
+---
 
-foo
+Hello
