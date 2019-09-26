@@ -1,4 +1,9 @@
-# <span class="get">GET</span> `/v0/block_id/by_time`
+---
+weight: 1
+title: GET /v0/block_id/by_time
+---
+
+# GET `/v0/block_id/by_time`
 
 > Sample request:
 

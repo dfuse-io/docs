@@ -1,4 +1,9 @@
-## <span class="get">GET</span> `/v0/state/permission_links`
+---
+weight: 1
+title: GET /v0/state/permission_links
+---
+
+# GET `/v0/state/permission_links`
 
 > Sample request:
 

@@ -1,4 +1,9 @@
-## <span class="get">GET</span> `/v0/state/key_accounts`
+---
+weight: 1
+title: GET /v0/state/key_accounts
+---
+
+# GET `/v0/state/key_accounts`
 
 Fetches the accounts controlled by the given public key, at any block height.
 

@@ -1,3 +1,7 @@
+---
+weight: 100
+---
+
 # Errors
 
 ## HTTP Codes

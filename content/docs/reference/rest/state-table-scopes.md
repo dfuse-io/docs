@@ -1,4 +1,9 @@
-## <span class="get">GET</span> `/v0/state/table_scopes`
+---
+weight: 1
+title: GET /v0/state/table_scopes
+---
+
+# GET `/v0/state/table_scopes`
 
 Fetches a list of scopes, for a given table on a contract account, at any block height.
 

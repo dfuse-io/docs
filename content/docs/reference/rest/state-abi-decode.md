@@ -1,4 +1,9 @@
-## <span class="post">POST</span> `/v0/state/abi/bin_to_json`
+---
+weight: 1
+title: POST /v0/state/abi/bin_to_json
+---
+
+# POST `/v0/state/abi/bin_to_json`
 
 Decode binary rows (in hexadecimal string) for a given table against
 the ABI of a given contract account, at any block height.

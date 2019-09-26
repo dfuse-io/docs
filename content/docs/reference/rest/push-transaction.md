@@ -1,4 +1,9 @@
-# <span class="post">POST</span> `push_transaction`
+---
+weight: 1
+title: POST push_transaction
+---
+
+# POST `push_transaction`
 
 **/v1/chain/push_transaction**
 

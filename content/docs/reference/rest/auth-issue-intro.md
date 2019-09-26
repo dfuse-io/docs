@@ -1,4 +1,9 @@
-## <span class="post">POST</span> `/v1/auth/issue`
+---
+weight: 1
+title: POST /v1/auth/issue
+---
+
+# POST `/v1/auth/issue`
 
 <aside class="note">
 <strong>NOTE</strong>: This method is called on a DIFFERENT domain: <strong>https://auth.dfuse.io/v1/auth/issue</strong>

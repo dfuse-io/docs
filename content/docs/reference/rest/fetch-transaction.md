@@ -1,4 +1,9 @@
-# <span class="get">GET</span> `/v0/transactions/:id`
+---
+weight: 1
+title: GET /v0/transactions/:id
+---
+
+# GET `/v0/transactions/:id`
 
 Fetching the transaction lifecycle associated with the provided path parameter `:id`.
 
