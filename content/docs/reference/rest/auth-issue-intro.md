@@ -5,9 +5,9 @@ title: POST /v1/auth/issue
 
 # POST `/v1/auth/issue`
 
-<aside class="note">
-<strong>NOTE</strong>: This method is called on a DIFFERENT domain: <strong>https://auth.dfuse.io/v1/auth/issue</strong>
-</aside>
+{{< note >}}
+This method is called on a different domain: <strong>https://auth.dfuse.io/v1/auth/issue</strong>
+{{< /note >}}
 
 First, obtain a long-term API key (go to https://app.dfuse.io).
 

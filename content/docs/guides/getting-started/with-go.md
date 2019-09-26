@@ -14,8 +14,8 @@ This simple program demonstrates how easy it is to query our GraphQL API over gR
 
 ## Before You Begin
 
-- Visit [golang gRPC prerequisites](https://grpc.io/docs/quickstart/go.html#prerequisites)
-- Then make sure that `protoc` is accessible from your $PATH
+1. Visit [golang gRPC prerequisites](https://grpc.io/docs/quickstart/go.html#prerequisites)
+1. Then make sure that `protoc` is accessible from your $PATH
 
 {{< tabs "uniqueid" >}}
 {{< tab lang="go" >}}

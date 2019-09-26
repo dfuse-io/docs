@@ -4,3 +4,32 @@
 code {
   word-break: break-word;
 }
+
+.admonition {
+  padding: 15px;
+  border-left-width: 5px;
+  border-left-style: solid;
+  font-size: 14px;
+
+  .admonition-title {
+    font-weight: bold;
+    margin: 0 0 10px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+
+    .fas {
+      font-size: 18px;
+      margin-right: 5px;
+    }
+  }
+}
+
+.admonition-note {
+  background-color: #fdf9eb;
+  border-left-color: #f2c510;
+
+  .admonition-title {
+    color: #f2c510;
+  }
+}

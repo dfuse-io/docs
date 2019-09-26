@@ -6,14 +6,13 @@ title: GET /v0/search/transactions
 # GET `/v0/search/transactions`
 
 Search an EOSIO blockchain for transactions based on free-form
-criterias, using the simple
-[**dfuse Search** query language](#dfuse-query-language).
+criterias, using the [**dfuse Search** query language](#dfuse-query-language).
 
-NOTE: right now, SQE will provide search only in irreversible
-actions. It will be extended to longest-chain search, and real-time
-search later.
+{{< note >}}
+Right now, SQE will provide search only in irreversible actions. It will be extended to longest-chain search, and real-time search later.
+{{< /note >}}
 
-> Sample request:
+Sample request:
 
 {{< highlight shell >}}
 curl --get \
@@ -78,6 +77,6 @@ When `start_block` is unspecified (value: `0`), it takes a special meaning depen
 
 By default, a query that does not specify `start_block` nor `sort`, the results will be ascending (block-wise *and* transaction-wise)
 
-### Response
+## Response
 
 Returns a [SearchTransactionsResponse](#type-SearchTransactionsResponse).

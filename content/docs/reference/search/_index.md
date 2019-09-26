@@ -2,34 +2,21 @@
 
 ## dfuse Events
 
-dfuse Events are a powerful way to give smart contract developers a
-way to ask dfuse Search to index their transactions, with arbitrary
-key/value pairs.
+dfuse Events are a powerful way to give smart contract developers a way to ask dfuse Search to index their transactions, with arbitrary key/value pairs.
 
-From within you smart contract, by simply sending an inline action to
-`dfuseiohooks:event`, you can instruct dfuse Search to index some
-fields with arbitrary data (within limits).
+From within you smart contract, by simply sending an inline action to `dfuseiohooks:event`, you can instruct dfuse Search to index some fields with arbitrary data (within limits).
 
-Once on chain, the search term `event.field:value` will allow you to
-retrieve those actions, anywhere on the dfuse Platform.
+Once on chain, the search term `event.field:value` will allow you to retrieve those actions, anywhere on the dfuse Platform.
 
+## Getting Started
 
-### Getting Started
+Say a smart contract manages virtual pets. Each pet has a unique ID and a `kind` (`dog`, `cat`, `mouse`, `rabbit`).
 
-Say a smart contract manages virtual pets. Each pet has a unique ID and a
-`kind` (`dog`, `cat`, `mouse`, `rabbit`).
+Say you have an action `train(pet_id)` that trains and increases whatever features of your pet.
 
-Say you have an action `train(pet_id)` that trains and increases
-whatever features of your pet.
+If you want to list all trainings for dogs, you're short of luck: the action does not contain the `kind` of pet being trained here.
 
-If you want to list all trainings for dogs, you're short of luck: the
-action does not contain the `kind` of pet being trained here.
-
-By adding an inline action to `dfuseiohooks:event` in your smart
-contract, and exfiltrating the missing bit of data, such as `pet_kind=dog`
-in the `data` field, you will immediately be able to search for
-`event.pet_kind:dog action:train receiver:yourcontract` anywhere on the
-dfuse Platform.
+By adding an inline action to `dfuseiohooks:event` in your smart contract, and exfiltrating the missing bit of data, such as `pet_kind=dog` in the `data` field, you will immediately be able to search for `event.pet_kind:dog action:train receiver:yourcontract` anywhere on the dfuse Platform.
 
 The gist of the EOSIO contract implementation is:
 
@@ -50,45 +37,29 @@ eosio::action(
 {{< /highlight >}}
 
 
-### Example contract
+## Example contract
 
-See an
-[example implementation](https://github.com/dfuse-io/example-dfuse-events/blob/master/contract/src/eospetgameio.cpp)
-from a
-[sample smart contract](https://github.com/dfuse-io/example-dfuse-events/blob/master/contract).
+See an [example implementation](https://github.com/dfuse-io/example-dfuse-events/blob/master/contract/src/eospetgameio.cpp) from a [sample smart contract](https://github.com/dfuse-io/example-dfuse-events/blob/master/contract).
 
 
-### Specifications
+## Specifications
 
-**Destination**: The inline action must be sent to contract
-`dfuseiohooks` with the action name `event`. The action signature is:
-`event(string auth_key, string data)`.
+**Destination**: The inline action must be sent to contract `dfuseiohooks` with the action name `event`. The action signature is: `event(string auth_key, string data)`.
 
-**Cost**: be cheap, and use an inline _context-free_ action to have
-minimal impact on transaction costs.  Also, there will never be code
-deployed on `dfuseiohooks`, so it executes extremely fast.
+**Cost**: be cheap, and use an inline _context-free_ action to have minimal impact on transaction costs.  Also, there will never be code deployed on `dfuseiohooks`, so it executes extremely fast.
 
-**Authorization**: Specify no authorization
-(`std::vector<permission_level>()`) when issuing a _context-free_
-action.
+**Authorization**: Specify no authorization (`std::vector<permission_level>()`) when issuing a _context-free_ action.
 
-**Indexing**: Only ONE such event per action will be indexed. If
-  limits aren't breached, the parameters in `data` will be indexed as
-  `event.field` in dfuse Search, attached to the action that **created**
-  the inline to `dfuseiohooks:event`.  This allows you to search for
-  `receiver:yourcontract event.field:value` or other combinations.
+**Indexing**: Only ONE such event per action will be indexed. If limits aren't breached, the parameters in `data` will be indexed as `event.field` in dfuse Search, attached to the action that **created** the inline to `dfuseiohooks:event`.  This allows you to search for `receiver:yourcontract event.field:value` or other combinations.
 
-
-
-### Action parameters
+## Action parameters
 
 Name | Type | Options | Description
 -----|------|---------|------------
 `auth_key` | string | required | The empty string (limited access) or a valid _dfuse Events Key_ if you have one. See [Indexing Limits](#dfuse-events-indexing-limits) for details.
 `data` | string | required | A string containing the key/value pair list to index, as an [RFC 3986](https://tools.ietf.org/html/rfc3986) URL encoded string (i.e. `key1=value1&key2=value2`).
 
-
-### Indexing Limits
+## Indexing Limits
 
 An empty `auth_key` parameter imposes those limits to the indexing:
 
@@ -97,29 +68,24 @@ An empty `auth_key` parameter imposes those limits to the indexing:
     - the value has 64 characters or less
     - there are no more than 3 keys (for unauthenticated calls)
 
-If you need more than 3 key/values or want more than 64 bytes of value
-data, contact us to get a _dfuse Events Key_ for your contract. NOTE: If
-your `auth_key` is invalid or used within the wrong contract account,
-normal restrictions apply.
+If you need more than 3 key/values or want more than 64 bytes of value data, contact us to get a _dfuse Events Key_ for your contract.
+
+{{< note >}}
+If your `auth_key` is invalid or used within the wrong contract account, normal restrictions apply.
+{{< /note >}}
 
 ## Search Query Language Specs
 
-**dfuse Search** uses a simplified query language to reach
-unparalleled and predictable performances.
+**dfuse Search** uses a simplified query language to reach unparalleled and predictable performances.
 
-It is similar to GitHub's query language for issues and pull requests:
-it has a default `AND` operator between each query term. _Search_ adds
-a simple, one-level `OR` layer enclosed in parentheses.
+It is similar to GitHub's query language for issues and pull requests: it has a default `AND` operator between each query term. _Search_ adds a simple, one-level `OR` layer enclosed in parentheses.
 
 You can enclose parameters using double-quotes after the `:`, or use a
-single keyword. For example: `auth:eoscanadacom` or
-`auth:"eoscanadacom"`.
+single keyword. For example: `auth:eoscanadacom` or `auth:"eoscanadacom"`.
 
-**Boolean support**: only `true` and `false` have special meaning when
-not using quotes: `input:true` queries for a boolean value, while
-`input:"true"` searches for a string value.
+**Boolean support**: only `true` and `false` have special meaning when not using quotes: `input:true` queries for a boolean value, while `input:"true"` searches for a string value.
 
-### Example queries
+## Example queries
 
 * `account:eosio.token receiver:eosio.token (data.from:eoscanadacom OR data.to:eoscanadacom)`
 * `(auth:eoscanadacom OR receiver:eoscanadacom)`
@@ -128,8 +94,7 @@ not using quotes: `input:true` queries for a boolean value, while
 * `receiver:eosio.token db.key:"accounts/eoscanadacom/........ehbo5"`
 * `receiver:eosio.token db.table:stats`
 
-
-### Available query fields
+## Available query fields
 
 These are the prefixes or fields available for query:
 

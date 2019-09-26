@@ -14,26 +14,23 @@ separated by the pipe character (`|`).
 
 The output format is slightly different too.
 
-> Sample request:
+Sample request:
 
 {{< highlight shell >}}
 curl -H "Authorization: Bearer $TOKEN" \
     "https://mainnet.eos.dfuse.io/v0/state/tables/scopes?account=eosio&scopes=eosio.token|eosadddddddd|tokenbyeocat|ethsidechain|epraofficial|alibabapoole|hirevibeshvt|oo1122334455|irespotokens|publytoken11|parslseed123|trybenetwork|zkstokensr4u&table=delband&block_num=25000000&json=true"
 {{< /highlight >}}
 
-*NOTE*: Not to be confused with
-[/v0/state/table_scopes](#rest-get-v0-state-table-scopes) which
-retrieves the only the scope names. Paired with this endpoint, you can
-get a consistent view of all tables in a contract.
+{{< note >}}
+Not to be confused with [/v0/state/table_scopes](#rest-get-v0-state-table-scopes) which retrieves the only the scope names. Paired with this endpoint, you can get a consistent view of all tables in a contract.
+{{< /note >}}
 
-
-### Requesting past blocks & ABI handling
+## Requesting past blocks & ABI handling
 
 This request exhibits the same patterns as the simpler
 [`/v0/state/table`](#rest-get-v0-state-table) query.
 
-
-### Input parameters
+## Input parameters
 
 Name | Type | Options | Description
 -----|------|---------|------------
@@ -50,8 +47,7 @@ Name | Type | Options | Description
 FIXME: This KeyType is duplicated from `state-tables-scopes.md` and `state-table.md`
 -->
 
-
-### Key Type
+## Key Type
 
 The key type can be one of the following values:
 
@@ -60,6 +56,6 @@ The key type can be one of the following values:
  * `hex_be` for big endian hexadecimal encoding, ex: `9078563412efcdab`
  * `uint64` for *string* encoded uint64. Beware: uint64 can be very large numbers and some programming languages need special care to decode them without truncating their value. This is why they are returned as strings.
 
-### Response
+## Response
 
 Returns a [MultiStateResponse](#type-MultiStateResponse), same as the [multi-accounts endpoint](#rest-get-v0-state-tables-accounts).

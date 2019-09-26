@@ -14,7 +14,7 @@ To see which networks support GraphQL, view the [Endpoints](#endpoints) document
 
 ## Queries
 
-> Query the block hash that contains a specific transaction
+Query the block hash that contains a specific transaction:
 
 {{< highlight graphql >}}
 query {
@@ -26,7 +26,7 @@ query {
 }
 {{< /highlight >}}
 
-> Response
+Response:
 
 {{< highlight json >}}
 {
@@ -48,7 +48,7 @@ For example, we can use this to find the block hash that contains a specific tra
 
 ## Subscriptions
 
-> Stream all transactions to an account, in real-time
+Stream all transactions to an account, in real-time:
 
 {{< highlight graphql >}}
 subscription {
@@ -60,7 +60,7 @@ subscription {
 }
 {{< /highlight >}}
 
-> Response
+Response:
 
 {{< highlight json >}}
 {
@@ -80,7 +80,7 @@ For example, we can use this to obtain the hash of all transfers happening on th
 
 ## Paginated Queries
 
-> Query the most recent transactions to an address with 3 documents per page
+Query the most recent transactions to an address with 3 documents per page:
 
 {{< highlight graphql >}}
 query {
@@ -97,7 +97,7 @@ query {
 }
 {{< /highlight >}}
 
-> Response
+Response:
 
 {{< highlight json >}}
 {
@@ -136,7 +136,7 @@ Besides pagination, cursors are instrumental when using subscriptions to deal wi
 
 ## Navigating Forks
 
-> Stream all transactions to an account, keeping an eye on forks
+Stream all transactions to an account, keeping an eye on forks:
 
 {{< highlight graphql >}}
 subscription {
@@ -149,7 +149,7 @@ subscription {
 }
 {{< /highlight >}}
 
-> Response
+Response:
 
 {{< highlight json >}}
 {
@@ -210,13 +210,13 @@ for more details.
 
 ### Using `grpcurl`
 
-> List available gRPC methods with:
+List available gRPC methods with:
 
 {{< highlight shell >}}
 grpcurl mainnet.eos.dfuse.io:443 list
 {{< /highlight >}}
 
-> Stream live search query responses:
+Stream live search query responses:
 
 {{< highlight shell >}}
 echo '{"query": "subscription { searchTransactionsForward(limit: 10, query: \"status:executed\") { cursor undo trace { id matchingActions { receiver account name json } } } }"}' \
@@ -224,7 +224,7 @@ echo '{"query": "subscription { searchTransactionsForward(limit: 10, query: \"st
       mainnet.eos.dfuse.io:443 dfuse.eosio.v1.GraphQL/Execute
 {{< /highlight >}}
 
-> For a nice output, install `jq` and pipe the previous command into:
+For a nice output, install `jq` and pipe the previous command into:
 
 {{< highlight shell >}}
 jq '.data | fromjson | .data.searchTransactionsForward.trace'
@@ -236,7 +236,7 @@ jq -r .data
 1. Make a Graphql request, sending along a valid Authorization token.
 1. When viewing the output, you can find the GraphQL response wrapped as a string in the gRPC `data` field.
 
-> Launch grpcui
+Launch grpcui:
 
 {{< highlight shell >}}
 grpcui -port 6000 mainnet.eos.dfuse.io:443
@@ -248,7 +248,9 @@ grpcui -port 6000 mainnet.eos.dfuse.io:443
 1. Open [http://localhost:6000](http://localhost:6000) and explore the interface.
 1. Add the `authorization` header in the interface, in the format: `Bearer TOKEN` where `TOKEN` is a [valid JWT](#authentication).
 
-Note: `grpcui` doesn't handle streaming responses properly; it jams until the subscription is terminated.  To view streaming search results, use `grpcurl` instead ([see above](#graphql-over-grpc-grpcurl)).
+{{< note >}}
+`grpcui` doesn't handle streaming responses properly; it jams until the subscription is terminated.  To view streaming search results, use `grpcurl` instead ([see above](#graphql-over-grpc-grpcurl)).
+{{< /note >}}
 
 ## Searching Through GraphQL
 
@@ -290,7 +292,9 @@ Warning: always consider the undo field in forward searches, which signal that t
 
 Search the blockchain backward for transaction execution traces based on query.
 
-Note: The undo field is not used in backwards search.
+{{< note >}}
+The undo field is not used in backwards search.
+{{< /note >}}
 
 [Try it on GraphiQL](https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNCYWNrd2FyZChxdWVyeTogInJlY2VpdmVyOmVvc2lvLnRva2VuIGFjdGlvbjp0cmFuc2ZlciIsIGxvd0Jsb2NrTnVtOiAtMzYwKSB7CiAgICBjdXJzb3IKICAgIHRyYWNlIHsKICAgICAgaWQKICAgICAgYmxvY2sgewogICAgICAgIG51bQogICAgICAgIHRpbWVzdGFtcAogICAgICB9CiAgICAgIG1hdGNoaW5nQWN0aW9ucyB7CiAgICAgICAgYWNjb3VudAogICAgICAgIG5hbWUKICAgICAgICBkYXRhCiAgICAgIH0KICAgIH0KICB9Cn0K)
 
@@ -327,7 +331,7 @@ Return the block ID found around the given `time`, based on the comparator provi
 
 ## Sample Queries
 
-> Sample GraphQL Query
+Sample GraphQL Query:
 
 {{< highlight graphql >}}
 subscription {
@@ -368,7 +372,7 @@ The following query (try it on [GraphiQL](https://mainnet.eos.dfuse.io/graphiql/
 * Retrieve the matching actions; that's the `matchingActions` subquery. Note there could be many in a single transaction
 * For each matching action, we also retrieve the action that caused this transfer, if any.  If a token transfer was initiated by another smart contract, `creatorAction` will be non-null, and will point to the action which caused the creation (see the GraphQL schema for full details).
 
-> Sample from today's output:
+Sample from today's output:
 
 {{< highlight json >}}
 {
@@ -405,7 +409,7 @@ The following query (try it on [GraphiQL](https://mainnet.eos.dfuse.io/graphiql/
 
 The next query (try it on [GraphiQL](https://mainnet.eos.dfuse.io/graphiql/?query=ewogIHN0YXJ0OiBibG9ja0lEQnlUaW1lKHRpbWU6ICIyMDE5LTAxLTAxVDAwOjAwOjAwWiIpIHsKICAgIHRpbWUKICAgIG51bQogICAgaWQKICB9CiAgZW5kOiBibG9ja0lEQnlUaW1lKHRpbWU6ICIyMDE5LTAyLTAxVDAwOjAwOjAwWiIpIHsKICAgIHRpbWUKICAgIG51bQogICAgaWQKICB9Cn0K)):
 
-> Multiple GraphQL queries in one request
+Multiple GraphQL queries in one request:
 
 {{< highlight graphql >}}
 {
@@ -426,7 +430,7 @@ The next query (try it on [GraphiQL](https://mainnet.eos.dfuse.io/graphiql/?quer
 * Each querying the block ID and number less or equal to the date specified in `time`.
 * It remaps the result to `start` and `end` respectively.
 
-> Response
+Response:
 
 {{< highlight json >}}
 {
