@@ -166,8 +166,9 @@ When dealing with documents that were very recently added to a blockchain, there
 
 When this happens, you can be notified by retrieving the `undo` property of the API. It is your responsibility to ensure that you respond properly to transactions being forked out of the chain.
 
-**Important: Never forget to retrieve the `undo` property, as streaming results will re-send the matching transactions
-with `undo:true` upon micro-forks resolution.**
+{{< important >}}
+Never forget to retrieve the `undo` property, as streaming results will re-send the matching transactions with `undo:true` upon micro-forks resolution.
+{{< /important >}}
 
 [Try it on GraphiQL](https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMocXVlcnk6ICJ0bzoweDA2MDEyYzhjZjk3QkVhRDVkZUFlMjM3MDcwRjk1ODdmOEU3QTI2NmQiLCBsb3dCbG9ja051bTogLTEwMDApIHsKICAgIHVuZG8KICAgIG5vZGUgewogICAgICBoYXNoCiAgICB9CiAgfQp9)
 
@@ -281,7 +282,9 @@ cursor somewhere and press `Ctrl+<Space>` to see completion for current location
 
 Search the blockchain forward for transaction execution traces based on query.
 
-Warning: always consider the undo field in forward searches, which signal that the matching element was in fact removed from the chain because of blocks reorganization.
+{{< warning >}}
+Always consider the undo field in forward searches, which signal that the matching element was in fact removed from the chain because of blocks reorganization.
+{{< /warning >}}
 
 [Try it on GraphiQL](https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKHF1ZXJ5OiAicmVjZWl2ZXI6ZW9zaW8udG9rZW4gYWN0aW9uOnRyYW5zZmVyIikgewogICAgY3Vyc29yCiAgICB0cmFjZSB7CiAgICAgIGlkCiAgICAgIGJsb2NrIHsKICAgICAgICBudW0KICAgICAgICB0aW1lc3RhbXAKICAgICAgfQogICAgICBtYXRjaGluZ0FjdGlvbnMgewogICAgICAgIGFjY291bnQKICAgICAgICBuYW1lCiAgICAgICAgZGF0YQogICAgICB9CiAgICB9CiAgfQp9Cg==)
 

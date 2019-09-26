@@ -17,6 +17,7 @@ code {
     font-size: 14px;
     display: flex;
     align-items: center;
+    text-transform: uppercase;
 
     .fas {
       font-size: 18px;
@@ -31,5 +32,23 @@ code {
 
   .admonition-title {
     color: #f2c510;
+  }
+}
+
+.admonition-important {
+  background-color: #ecf4fb;
+  border-left-color: #3398da;
+
+  .admonition-title {
+    color: #3398da;
+  }
+}
+
+.admonition-warning {
+  background-color: #fdf2ea;
+  border-left-color: #e67e21;
+
+  .admonition-title {
+    color: #e67e21;
   }
 }
