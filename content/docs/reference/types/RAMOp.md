@@ -1,5 +1,8 @@
+---
+title: RAMOp
+---
 
-### `RAMOp`
+# `RAMOp`
 
 A RAM operation is a modification to the RAM consumed by an
 account. RAM operations on dfuse are scoped down to the `action`.

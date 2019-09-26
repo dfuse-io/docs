@@ -1,5 +1,8 @@
+---
+title: TableOp
+---
 
-### `TableOp`
+# `TableOp`
 
 A `TableOp` represents a table operation, creation or removal of a contract's table. The table is represents as
 triplet `<account>/<table>/<scope>`. No two tables can exist at the same time with the same triplet.

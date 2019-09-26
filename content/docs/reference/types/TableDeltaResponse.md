@@ -1,5 +1,8 @@
+---
+title: TableDeltaResponse
+---
 
-### `TableDeltaResponse`
+# `TableDeltaResponse`
 
 > Example `table_delta` response payload:
 

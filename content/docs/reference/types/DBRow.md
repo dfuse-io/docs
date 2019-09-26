@@ -1,5 +1,8 @@
+---
+title: DBRow
+---
 
-### `DBRow`
+# `DBRow`
 
 A `DBRow` represents the contents of a row in a [DBOp](#type-DBOp).
 

@@ -1,8 +1,10 @@
+---
+title: MultiStateResponse
+---
 
-### `MultiStateResponse`
+# `MultiStateResponse`
 
-> Here is a sample response, for a request at `block_num: 8`:
-
+Here is a sample response, for a request at `block_num: 8`:
 
 {{< highlight json >}}
 {

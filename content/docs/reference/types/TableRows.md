@@ -1,5 +1,8 @@
+---
+title: TableRows
+---
 
-### `TableRows`
+# `TableRows`
 
 Name | Type | Options | Description
 -----|------|---------|------------

@@ -1,7 +1,10 @@
+---
+title: TransactionLifecycleResponse
+---
 
-### `TransactionLifecycleResponse`
+# `TransactionLifecycleResponse`
 
-> Example `transaction_lifecycle` response payload:
+ Example `transaction_lifecycle` response payload:
 
 {{< highlight json >}}
 {

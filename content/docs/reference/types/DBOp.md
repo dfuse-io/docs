@@ -1,5 +1,8 @@
+---
+title: DBOp
+---
 
-### `DBOp`
+# `DBOp`
 
 A `DBOp` represents a database operation.  They appear in the `table_delta` and `table_snapshot` WS responses. They are also found in the responses from the REST [/v0/state/table](#rest-get-v0-state-table).
 

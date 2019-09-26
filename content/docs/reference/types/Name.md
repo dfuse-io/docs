@@ -1,6 +1,4 @@
-
-
-### `Name`
+# `Name`
 
 An `Name` is a string that represents a uint64 value,
 name-encoded using the base32 algorithm. It can only include

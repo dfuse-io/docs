@@ -1,4 +1,8 @@
-### `CreationTree`
+---
+title: CreationTree
+---
+
+# `CreationTree`
 
 A `CreationTree` represents the creation-ordered tree of notifications (`require_recipient` calls),
 inline actions (`send_inline` calls) and context free inline actions (`send_context_free_inline` calls) as defined

@@ -1,8 +1,10 @@
+---
+title: AuthTokenResponse
+---
 
-### `AuthTokenResponse`
+# `AuthTokenResponse`
 
-> Example payload:
-
+Example payload:
 
 {{< highlight json >}}
 {

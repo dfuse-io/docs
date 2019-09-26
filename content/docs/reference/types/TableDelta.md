@@ -1,7 +1,10 @@
+---
+title: TableDelta
+---
 
-### `TableDelta`
+# `TableDelta`
 
-> Example `table_delta` payload:
+Example `table_delta` payload:
 
 {{< highlight json >}}
 {

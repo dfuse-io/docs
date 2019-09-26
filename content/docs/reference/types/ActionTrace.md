@@ -1,8 +1,10 @@
+---
+title: ActionTrace
+---
 
-### `ActionTrace`
+# `ActionTrace`
 
-> Example `action_trace` payload
-
+Example `action_trace` payload:
 
 {{< highlight json >}}
 {

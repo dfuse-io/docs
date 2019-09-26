@@ -1,7 +1,10 @@
+---
+title: TransactionLifecycle
+---
 
-### `TransactionLifecycle`
+# `TransactionLifecycle`
 
-> Example TransactionLifecycle payload:
+Example TransactionLifecycle payload:
 
 {{< highlight json >}}
 {

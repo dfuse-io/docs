@@ -1,5 +1,8 @@
+---
+title: TableSnapshotResponse
+---
 
-### `TableSnapshotResponse`
+# `TableSnapshotResponse`
 
 > Example `table_snapshot` response payload:
 

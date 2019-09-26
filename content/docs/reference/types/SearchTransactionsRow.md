@@ -1,8 +1,10 @@
+---
+title: SearchTransactionsRow
+---
 
-### `SearchTransactionsRow`
+# `SearchTransactionsRow`
 
-> Example payload:
-
+Example payload:
 
 {{< highlight json >}}
 {

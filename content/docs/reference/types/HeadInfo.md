@@ -1,8 +1,10 @@
+---
+title: HeadInfo
+---
 
-### `HeadInfo`
+# `HeadInfo`
 
-> Example `head_info` payload:
-
+ Example `head_info` payload:
 
 {{< highlight json >}}
 {

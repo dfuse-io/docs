@@ -1,6 +1,10 @@
-### `StateTableRowResponse`
+---
+title: StateTableRowResponse
+---
 
-> Here is a sample response, for a request at `block_num: 8`:
+# `StateTableRowResponse`
+
+Here is a sample response, for a request at `block_num: 8`:
 
 {{< highlight json >}}
 {
