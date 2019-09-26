@@ -8,7 +8,7 @@ This simple program demonstrates how easy it is to query our GraphQL API over gR
 * Executes a simple GraphQL query
 * Prints the response
 
-~~~ python
+{{< highlight python >}}
 import http.client
 import json
 import ssl
@@ -66,8 +66,7 @@ stream = dfuse_graphql.Execute(Request(query=query))
 for rawResult in stream:
     result = json.loads(rawResult.data)
     print(result['searchTransactionsForward']['trace']['matchingActions'])
-
-~~~
+{{< /highlight >}}
 
 ## Requirements
 

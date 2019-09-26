@@ -13,7 +13,7 @@ This simple program demonstrates how easy it is to query our GraphQL API over gR
 - Visit [golang gRPC prerequisites](https://grpc.io/docs/quickstart/go.html#prerequisites)
 - Then make sure that `protoc` is accessible from your $PATH
 
-~~~ go
+{{< highlight go >}}
 import (
 	"context"
 	"fmt"
@@ -69,7 +69,7 @@ func main() {
 		fmt.Println("Received response:", response.Data)
 	}
 }
-~~~
+{{< /highlight >}}
 
 ## Get the source code
 

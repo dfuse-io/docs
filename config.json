@@ -1,0 +1,10 @@
+{
+  "baseURL": "http://example.org/",
+  "languageCode": "en-us",
+  "title": "Dfuse",
+  "theme": "book",
+  "params": {
+    "BookLogo": "img/dfuse-logo-02.png",
+    "BookToC": 2
+  }
+}

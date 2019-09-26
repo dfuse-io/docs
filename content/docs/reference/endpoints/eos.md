@@ -7,7 +7,6 @@ title: "EOS"
 The _dfuse_ API is available for multiple EOSIO networks. Should you need it on another network, contact us.
 
 ## Ethereum - Mainnet <small>(Alpha)</small>
-{: #eth-mainnet}
 
 Protocol: Ethereum<br>
 NetworkID: `1`
@@ -19,7 +18,6 @@ GraphQL | https://mainnet.eth.dfuse.io/graphql -- See [GraphiQL](https://mainnet
 ***
 
 ## Ethereum - Ropsten <small>(Alpha)</small>
-{: #ropsten-mainnet}
 
 Protocol: Ethereum<br>
 Network ID: `3`

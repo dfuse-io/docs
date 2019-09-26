@@ -7,7 +7,7 @@ This simple program demonstrates how easy it is to query our GraphQL API. It:
 * Executes a simple GraphQL streaming search subscription
 * Prints out each message received
 
-~~~ javascript
+{{< highlight javascript >}}
 const { createDfuseClient } = require("@dfuse/client")
 
 const client = createDfuseClient({
@@ -31,7 +31,7 @@ const stream = await client.graphql(`
     console.log(message.data);
   }
 })
-~~~
+{{< /highlight >}}
 
 ## Running the example
 
