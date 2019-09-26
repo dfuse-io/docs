@@ -67,11 +67,15 @@ aside nav ul {
     display: block;
 
     &:hover {
-      opacity: 0.5;
+      color: #fa4560;
     }
     &.active {
       font-weight: bold;
     }
+  }
+
+  span {
+    color: hsl(231.3, 10%, 70%);
   }
 
   ul {
