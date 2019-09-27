@@ -3,4 +3,4 @@ title: Introduction
 type: docs
 ---
 
-{{< include "docs/overview/_index.md" >}}
+{{< include "overview/_index.md" >}}

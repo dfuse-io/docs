@@ -1,3 +1,8 @@
+---
+layout: docs
+type: single
+---
+
 # Authentication
 
 There are two sorts of keys in the dfuse ecosystem:

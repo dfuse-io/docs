@@ -5,6 +5,7 @@
   "theme": "book",
   "params": {
     "BookLogo": "img/dfuse-logo-02.png",
-    "BookToC": 2
+    "BookToC": 2,
+    "BookSection": "*"
   }
 }
