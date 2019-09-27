@@ -231,8 +231,10 @@ ul.pagination {
 
 .book-footer {
   display: flex;
-  padding-top: $padding-16;
   font-size: $font-size-14;
+  border-top: 1px solid $gray-200;
+  padding-top: 30px;
+  margin-top: 80px;
 
   img {
     height: 1em;
