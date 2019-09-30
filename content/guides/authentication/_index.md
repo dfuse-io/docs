@@ -17,7 +17,7 @@ You use the following command to Generate a short-lived JTW from your API key. D
 
 {{< tabs "issuing-long-jwt">}}
 {{< tab title="Request" lang="shell" >}}
-curl <https://auth.dfuse.io/v1/auth/issue> -s --data-binary '{"api_key":"web_abcdef12345678900000000000"}'
+curl https://auth.dfuse.io/v1/auth/issue -s --data-binary '{"api_key":"web_abcdef12345678900000000000"}'
 {{< /tab >}}
 
 {{< tab title="Response" lang="json" >}}
