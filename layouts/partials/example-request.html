@@ -1,7 +1,5 @@
-{{ $url := .Scratch.Get "req-url" }}
-
+{{ $url := .Scratch.Get "url" }}
 {{ .Scratch.Set "tab-group" "req" }}
-
 
 {{ partial "open-tabs" . }}
 
@@ -9,26 +7,24 @@
 {{ .Scratch.Set "tab-idx" 0 }}
 {{ partial "open-tab" . }}
 
-<pre>
-curl -H "Authorization: Bearer web_abcdef12345678900000000000" \
-  "{{ $url }}"
-</pre>
+{{ $shell := printf `
+curl -H "Authorization: Bearer web_abcdef12345678900000000000" \ 
+  "%s"` $url }}
+{{ highlight $shell "shell" ""}}
 
 {{ partial "close-tab" . }}
-
-
 
 {{ .Scratch.Set "tab-name" "javascript" }}
 {{ .Scratch.Set "tab-idx" 1 }}
 {{ partial "open-tab" . }}
 
-<pre>
-fetch('{{ $url }}', {
+{{ $javascript := printf `
+fetch('%s', {
   headers: {
     'Authorization': 'Bearer web_abcdef12345678900000000000'
   }
-}).then(console.log)
-</pre>
+}).then(console.log)` $url }}
+{{ highlight $javascript "javascript" ""}}
 
 {{ partial "close-tab" . }}
 
@@ -37,12 +33,12 @@ fetch('{{ $url }}', {
 {{ .Scratch.Set "tab-idx" 2 }}
 {{ partial "open-tab" . }}
 
-<pre>
-headers = { 'Authorization' : 'Token web_abcdef12345678900000000000' }
-r = requests.get('https://address.of.opengear/api/v1/serialPorts/', headers=headers, verify=False)
+{{ $python := printf `
+headers = { 'Authorization' : 'Bearer web_abcdef12345678900000000000' }
+r = requests.get('%s', headers=headers, verify=False)
 j = json.loads(r.text)
-print(json.dumps(j, indent=4))
-</pre>
+print(json.dumps(j, indent=4))` $url }}
+{{ highlight $python "python" ""}}
 
 {{ partial "close-tab" . }}
 
@@ -51,19 +47,19 @@ print(json.dumps(j, indent=4))
 {{ .Scratch.Set "tab-idx" 3 }}
 {{ partial "open-tab" . }}
 
-<pre>
-req, err := http.NewRequest("GET", "{{ $url }}", nil)
+{{ $python := printf `
+req, err := http.NewRequest("GET", "%d", nil)
 if err != nil {
-	// handle err
+// handle err
 }
 req.Header.Set("Authorization", "Bearer web_abcdef12345678900000000000")
 
 resp, err := http.DefaultClient.Do(req)
 if err != nil {
-	// handle err
+// handle err
 }
-defer resp.Body.Close()
-</pre>
+defer resp.Body.Close()` $url }}
+{{ highlight $python "python" ""}}
 
 {{ partial "close-tab" . }}
 

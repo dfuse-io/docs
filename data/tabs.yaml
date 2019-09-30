@@ -2,5 +2,6 @@ labels:
   go: Go
   shell: Shell
   javascript: Javascript
-  jsonresponse: JSON
+  json: JSON
+  python: Python
   ruby: Ruby
