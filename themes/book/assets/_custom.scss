@@ -51,6 +51,8 @@ code {
     padding:0px 20px;
     background: $ternary-800;
     color:$white;
+    position:relative;
+    z-index:2000;
     &::placeholder {
       color: $ternary-400;
       opacity: 1;
@@ -66,10 +68,31 @@ code {
     }
     height: 40px;
 
-  }
 
+  }
   ul {
-    margin:0px;
+      position: absolute;
+      padding: 0px 20px 0px 40px;
+      background: $ternary-200;
+      width: 360px;
+      box-sizing: border-box;
+      top: -2px;
+      right: -2px;
+      border-radius: 20px 20px 20px 20px;
+      z-index: 1900;
+      margin: 0px;
+      list-style: square;
+      list-style-position: outside;
+      color: $ternary-400;  
+    li:first-child {
+      margin-top:60px;
+    }
+    li:last-child {
+      margin-bottom:30px;
+    }
+    li {
+      margin-bottom:4px;
+    }
   }
 }
 
