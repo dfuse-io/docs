@@ -1,11 +1,16 @@
-{{ $cnt = index .Params 0 }}
+{{ $url := .Scratch.Get "tab-id" }}
+{{ $cnt := .Scratch.Get "inner" }}
 
-{{ partial "open-tabs" "example-res"  }}
+{{ .Scratch.Set "tab-group" "resp" }}
 
-{{ partial "open-tab" "json-response" }}
+{{ partial "open-tabs" . }}
 
-{{ $cnt }}
+{{ .Scratch.Set "tab-name" "jsonresponse" }}
+{{ .Scratch.Set "tab-idx" 0 }}
+{{ partial "open-tab" . }}
 
-{{ partial "close-tab" }}
+{{ $cnt | markdownify }}
 
-{{ partial "close-tabs" }}
+{{ partial "close-tab" . }}
+
+{{ partial "close-tabs" . }}

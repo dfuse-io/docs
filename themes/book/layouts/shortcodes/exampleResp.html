@@ -1,2 +1,5 @@
-{{ $id := .Get "id" }}
-{{ partial "example-resp" . $id }}
+{{ .Scratch.Set "tab-id" (.Get "id") }}
+{{ .Scratch.Set "req-url" (.Get "url") }}
+{{ .Scratch.Set "inner" .Inner }}
+
+{{ partial "example-resp" . }}

@@ -1,10 +1,13 @@
-{{ $name := index .Params 0 }}
-{{ $index := index .Params 1 }}
-{{ $lang := index .Params 2 }}
-{{ $tabName := index .Data.tabLabels $lang }}
+{{ $group := .Scratch.Get "tab-group" }}
+{{ $id := .Scratch.Get "tab-id" }}
+{{ $idx := .Scratch.Get "tab-idx" }}
+{{ $lang := .Scratch.Get "tab-name" }}
+{{ $tabName := index .Site.Data.tabs.labels $lang }}
 
-  <input type="radio" class="hidden" name="{{ printf "tabs-%s" $name }}" id="{{ printf "tabs-%s-%d" $name $index }}" {{ if not $index }}checked="checked"{{ end }} />
-  <label for="{{ printf "tabs-%s-%d" $name $index }}">
+{{ $group := printf "tabs-%s-%s" $group $id }}
+
+  <input type="radio" class="hidden" name="{{ $group }}" id="{{ printf "%s-%d" $group $idx }}" {{ if not $idx }}checked="checked"{{ end }} />
+  <label for="{{ printf "%s-%d" $group $idx }}">
     {{ $tabName }}
   </label>
   <div class="book-tabs-content markdown-inner">

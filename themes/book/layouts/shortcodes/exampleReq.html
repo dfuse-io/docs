@@ -1,3 +1,4 @@
-{{ $id := .Get "id" }}
-{{ $url := .Get "url" }}
-{{ partial "example-req" . $id $url }}
+{{ .Scratch.Set "tab-id" (.Get "id") }}
+{{ .Scratch.Set "req-url" (.Get "url") }}
+
+{{ partial "example-req" . }}
