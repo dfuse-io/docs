@@ -1,7 +1,3 @@
----
-title: Ethereum
----
-
 # Ethereum API Endpoints
 
 The _dfuse_ API is available for multiple Ethereum networks. Should you need it on another network, please contact us.

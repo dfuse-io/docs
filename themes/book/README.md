@@ -1,60 +1,21 @@
-# Hugo Book Theme
-
-[![Hugo](https://img.shields.io/badge/hugo-0.55-blue.svg)](https://gohugo.io)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-
-### [Hugo](https://gohugo.io) documentation theme as simple as plain book
-
-![Screenshot](https://github.com/alex-shpak/hugo-book/blob/master/images/screenshot.png)
-
-- [Features](#features)
-- [Installation](#installation)
-- [Menu](#menu)
-- [Configuration](#configuration)
-- [Shortcodes](#shortcodes)
-- [Contributing](#contributing)
-
-## Features
-
-- Clean simple design
-- Mobile friendly
-- Customisable
-- Designed to not interfere with other layouts
-- Zero initial configuration
-- Handy shortcodes
-
 ## Requirements
 
 - Hugo 0.55 or higher
 - Hugo extended version, read more [here](https://gohugo.io/news/0.48-relnotes/)
 
-## Installation
+# Hugo Book Theme
 
-Navigate to your hugo project root and run:
+This project is based on the Book Hugo Theme.
 
-```
-git submodule add https://github.com/alex-shpak/hugo-book themes/book
-```
+[![Hugo](https://img.shields.io/badge/hugo-0.55-blue.svg)](https://gohugo.io)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-Then run hugo (or set `theme = "book"`/`theme: book` in configuration file)
+## Development
 
-```
-hugo server --minify --theme book
-```
-
-### Creating site from scratch
-
-Below is example how to create new site from scratch
+To start the hugo server, run this command:
 
 ```sh
-hugo new site mydocs; cd mydocs
-git init
-git submodule add https://github.com/alex-shpak/hugo-book themes/book
-cp -R themes/book/exampleSite/content .
-```
-
-```sh
-hugo server --minify --theme book
+hugo server
 ```
 
 ## Menu
@@ -276,16 +237,3 @@ x = \begin{cases}
 \end{cases}
 {{< /katex >}}
 ```
-
-## Contributing
-
-### [Extra credits to contributors](https://github.com/alex-shpak/hugo-book/graphs/contributors)
-
-Contributions are welcome and I will review and consider pull requests.  
-Primary goals are:
-
-- Keep it simple
-- Keep minimal (or zero) default configuration
-- Avoid interference with user-defined layouts
-
-Feel free to open issue if you missing some configuration or customisation option.

@@ -1,5 +1,5 @@
 ---
-title: "EOS"
+weight: 1
 ---
 
 # EOS API Endpoints
