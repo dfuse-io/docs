@@ -11,10 +11,7 @@ Fetches the state of any table, at any block height.
 
 Sample request:
 
-{{< highlight shell >}}
-curl -H "Authorization: Bearer $TOKEN" \
-    "https://mainnet.eos.dfuse.io/v0/state/table?account=eosio.token&scope=b1&table=accounts&block_num=25000000&json=true"
-{{< /highlight >}}
+{{< exampleRequest id="search-transactions" url="https://mainnet.eos.dfuse.io/v0/state/table?account=eosio.token&scope=b1&table=accounts&block_num=25000000&json=true" >}}
 
 ## Requesting past blocks
 

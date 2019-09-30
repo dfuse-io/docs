@@ -48,7 +48,7 @@ print(json.dumps(j, indent=4))` $url }}
 {{ partial "open-tab" . }}
 
 {{ $python := printf `
-req, err := http.NewRequest("GET", "%d", nil)
+req, err := http.NewRequest("GET", "%s", nil)
 if err != nil {
 // handle err
 }

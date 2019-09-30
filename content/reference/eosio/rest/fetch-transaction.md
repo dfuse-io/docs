@@ -10,10 +10,7 @@ Fetching the transaction lifecycle associated with the provided parameter `:id`.
 
 ## Usage
 
-{{< highlight shell >}}
-curl -H "Authorization: Bearer $TOKEN" \
-    "https://mainnet.eos.dfuse.io/v0/transactions/1d5f57e9392d045ef4d1d19e6976803f06741e11089855b94efcdb42a1a41253"
-{{< /highlight >}}
+{{< exampleRequest id="search-transactions" url="https://mainnet.eos.dfuse.io/v0/transactions/1d5f57e9392d045ef4d1d19e6976803f06741e11089855b94efcdb42a1a41253" >}}
 
 This method returns transaction information regardless of the actual lifecycle
 state be it deferred, executed, failed or cancelled. This means that deferred

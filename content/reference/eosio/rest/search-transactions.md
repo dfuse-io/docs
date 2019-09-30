@@ -12,16 +12,7 @@ criterias, using the [**dfuse Search** query language](#dfuse-query-language).
 
 Sample request:
 
-{{< highlight shell >}}
-curl --get \
-     -H "Authorization: Bearer $TOKEN" \
-     --data-urlencode "start_block=0" \
-     --data-urlencode "block_count=10000" \
-     --data-urlencode "limit=10" \
-     --data-urlencode "sort=desc" \
-     --data-urlencode "q=receiver:eosio.token action:transfer data.to:someaccount1" \
-     "https://mainnet.eos.dfuse.io/v0/search/transactions"
-{{< /highlight >}}
+{{< exampleRequest id="search-transactions" url="https://mainnet.eos.dfuse.io/v0/search/transactions?start_block=0&block_count=10000&limit=10&sort=desc&q=receiver:eosio.token action:transfer data.to:someaccount1" >}}
 
 {{< note >}}
 Right now, SQE will provide search only in irreversible actions. It will be extended to longest-chain search, and real-time search later.

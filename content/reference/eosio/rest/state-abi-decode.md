@@ -13,11 +13,71 @@ the ABI of a given contract account, at any block height.
 
 Sample request:
 
-{{< highlight shell >}}
-curl -X POST -H "Authorization: Bearer $TOKEN" \
+{{< tabs "abi-decode" >}}
+{{< tab lang="shell" >}}
+curl -X POST -H "Authorization: Bearer web_abcdef12345678900000000000" \
     -d '{"account":"eosio.token","table":"accounts","block_num":2500000,"hex_rows":["aa2c0b010000000004454f5300000000"]}' \
     "https://mainnet.eos.dfuse.io/v0/state/abi/bin_to_json"
-{{< /highlight >}}
+{{< /tab >}}
+
+{{< tab lang="javascript" >}}
+fetch("https://mainnet.eos.dfuse.io/v0/state/abi/bin_to_json", {
+  method: "POST",
+  body: JSON.stringify({
+    account: "eosio.token",
+    table: "accounts",
+    block_num: 2500000,
+    hex_rows: ["aa2c0b010000000004454f5300000000"]
+  }),
+  headers: {
+    Authorization: "Bearer web_abcdef12345678900000000000",
+    "Content-Type": "application/x-www-form-urlencoded"
+  }
+}).then(console.log)
+{{< /tab >}}
+
+{{< tab lang="python" >}}
+import requests
+
+headers = {
+  'Authorization': 'Bearer web_abcdef12345678900000000000',
+}
+
+data = '{"account":"eosio.token","table":"accounts","block_num":2500000,"hex_rows":["aa2c0b010000000004454f5300000000"]}'
+
+response = requests.post('https://mainnet.eos.dfuse.io/v0/state/abi/bin_to_json', headers=headers, data=data)
+{{< /tab >}}
+
+{{< tab lang="go" >}}
+package main
+
+import (
+	"fmt"
+	"io/ioutil"
+	"log"
+	"net/http"
+)
+
+func main() {
+	client := &http.Client{}
+	var data = []byte(`{{"account":"eosio.token","table":"accounts","block_num":2500000,"hex_rows":["aa2c0b010000000004454f5300000000"]}}`)
+	req, err := http.NewRequest("POST", "https://mainnet.eos.dfuse.io/v0/state/abi/bin_to_json", data)
+	if err != nil {
+		log.Fatal(err)
+	}
+	req.Header.Set("Authorization", "Bearer web_abcdef12345678900000000000")
+	resp, err := client.Do(req)
+	if err != nil {
+		log.Fatal(err)
+	}
+	bodyText, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("%s\n", bodyText)
+}
+{{< /tab >}}
+{{< /tabs >}}
 
 ## Requesting past blocks
 
