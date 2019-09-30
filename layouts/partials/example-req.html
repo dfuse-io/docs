@@ -1,0 +1,51 @@
+{{ $idx = index .Params 0 }}
+{{ $url = index .Params 1 }}
+
+{{ partial "open-tabs" . "example-req" $idx }}
+
+{{ partial "open-tab" . "shell" }}
+
+curl -H "Authorization: Bearer web_abcdef12345678900000000000" \
+  "{{ $url }}"
+
+{{ partial "close-tab" }}
+
+
+
+{{ partial "open-tab" . "req" $idx "javascript" }}
+
+fetch('{{ $url }}', {
+  headers: {
+    'Authorization': 'Bearer web_abcdef12345678900000000000'
+  }
+}).then(console.log)
+
+{{ partial "close-tab" }}
+
+
+{{ partial "open-tab" "python" }}
+
+headers = { 'Authorization' : 'Token web_abcdef12345678900000000000' }
+r = requests.get('https://address.of.opengear/api/v1/serialPorts/', headers=headers, verify=False)
+j = json.loads(r.text)
+print(json.dumps(j, indent=4))
+
+{{ partial "close-tab" }}
+
+
+{{ partial "open-tab" "go" }}
+req, err := http.NewRequest("GET", "{{ .Get 1 }}", nil)
+if err != nil {
+	// handle err
+}
+req.Header.Set("Authorization", "Bearer web_abcdef12345678900000000000")
+
+resp, err := http.DefaultClient.Do(req)
+if err != nil {
+	// handle err
+}
+defer resp.Body.Close()
+
+{{ partial "close-tab" }}
+
+{{ partial "close-tabs" }}

@@ -1,0 +1,10 @@
+{{ $name := index .Params 0 }}
+{{ $index := index .Params 1 }}
+{{ $lang := index .Params 2 }}
+{{ $tabName := index .Data.tabLabels $lang }}
+
+  <input type="radio" class="hidden" name="{{ printf "tabs-%s" $name }}" id="{{ printf "tabs-%s-%d" $name $index }}" {{ if not $index }}checked="checked"{{ end }} />
+  <label for="{{ printf "tabs-%s-%d" $name $index }}">
+    {{ $tabName }}
+  </label>
+  <div class="book-tabs-content markdown-inner">

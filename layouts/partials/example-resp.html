@@ -1,0 +1,11 @@
+{{ $cnt = index .Params 0 }}
+
+{{ partial "open-tabs" "example-res"  }}
+
+{{ partial "open-tab" "json-response" }}
+
+{{ $cnt }}
+
+{{ partial "close-tab" }}
+
+{{ partial "close-tabs" }}

@@ -1,0 +1,4 @@
+{{ $id := .Get "id" }}
+{{ $url := .Get "url" }}
+{{ partial "example-req" . $id $url }}
+{{ partial "example-resp" . $id }}
