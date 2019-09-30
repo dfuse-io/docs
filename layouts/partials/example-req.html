@@ -1,0 +1,70 @@
+{{ $url := .Scratch.Get "req-url" }}
+
+{{ .Scratch.Set "tab-group" "req" }}
+
+
+{{ partial "open-tabs" . }}
+
+{{ .Scratch.Set "tab-name" "shell" }}
+{{ .Scratch.Set "tab-idx" 0 }}
+{{ partial "open-tab" . }}
+
+<pre>
+curl -H "Authorization: Bearer web_abcdef12345678900000000000" \
+  "{{ $url }}"
+</pre>
+
+{{ partial "close-tab" . }}
+
+
+
+{{ .Scratch.Set "tab-name" "javascript" }}
+{{ .Scratch.Set "tab-idx" 1 }}
+{{ partial "open-tab" . }}
+
+<pre>
+fetch('{{ $url }}', {
+  headers: {
+    'Authorization': 'Bearer web_abcdef12345678900000000000'
+  }
+}).then(console.log)
+</pre>
+
+{{ partial "close-tab" . }}
+
+
+{{ .Scratch.Set "tab-name" "python" }}
+{{ .Scratch.Set "tab-idx" 2 }}
+{{ partial "open-tab" . }}
+
+<pre>
+headers = { 'Authorization' : 'Token web_abcdef12345678900000000000' }
+r = requests.get('https://address.of.opengear/api/v1/serialPorts/', headers=headers, verify=False)
+j = json.loads(r.text)
+print(json.dumps(j, indent=4))
+</pre>
+
+{{ partial "close-tab" . }}
+
+
+{{ .Scratch.Set "tab-name" "go" }}
+{{ .Scratch.Set "tab-idx" 3 }}
+{{ partial "open-tab" . }}
+
+<pre>
+req, err := http.NewRequest("GET", "{{ $url }}", nil)
+if err != nil {
+	// handle err
+}
+req.Header.Set("Authorization", "Bearer web_abcdef12345678900000000000")
+
+resp, err := http.DefaultClient.Do(req)
+if err != nil {
+	// handle err
+}
+defer resp.Body.Close()
+</pre>
+
+{{ partial "close-tab" . }}
+
+{{ partial "close-tabs" . }}

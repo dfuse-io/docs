@@ -1,0 +1,4 @@
+{{ .Scratch.Set "tab-id" (.Get "id") }}
+{{ .Scratch.Set "req-url" (.Get "url") }}
+
+{{ partial "example-req" . }}
