@@ -16,7 +16,8 @@ To see which networks support GraphQL, view the [Endpoints](#endpoints) document
 
 Query the block hash that contains a specific transaction:
 
-{{< highlight graphql >}}
+{{< tabs "graphql-query-request" >}}
+{{< tab lang="graphql" title="GraphQL Request" >}}
 query {
   transaction(hash: "0x1798aefe0fe6f15abcaed3901474c1bd4303ba0fafe32d232e5121e29d63841e") {
     block {
@@ -24,11 +25,11 @@ query {
     }
   }
 }
-{{< /highlight >}}
+{{< /tab >}}
+{{< /tabs >}}
 
-Response:
-
-{{< highlight json >}}
+{{< tabs "graphql-query-response" >}}
+{{< tab lang="json" title="JSON Response" >}}
 {
   "data": {
     "transaction": {
@@ -38,7 +39,8 @@ Response:
     }
   }
 }
-{{< /highlight >}}
+{{< /tab >}}
+{{< /tabs >}}
 
 The simplest type of call you can make is a GraphQL Query. This is a single network request that will allow you to query the API.
 
@@ -50,7 +52,8 @@ For example, we can use this to find the block hash that contains a specific tra
 
 Stream all transactions to an account, in real-time:
 
-{{< highlight graphql >}}
+{{< tabs "graphql-subscription-request" >}}
+{{< tab lang="graphql" title="GraphQL Request" >}}
 subscription {
   searchTransactions(query: "to:0x06012c8cf97BEaD5deAe237070F9587f8E7A266d", lowBlockNum: -1000) {
     node {
@@ -58,11 +61,11 @@ subscription {
     }
   }
 }
-{{< /highlight >}}
+{{< /tab >}}
+{{< /tabs >}}
 
-Response:
-
-{{< highlight json >}}
+{{< tabs "graphql-subscription-response" >}}
+{{< tab lang="json" title="JSON Response" >}}
 {
   "searchTransactions": {
     "node": {
@@ -70,7 +73,8 @@ Response:
     }
   }
 }
-{{< /highlight >}}
+{{< /tab >}}
+{{< /tabs >}}
 
 A more advanced method is the GraphQL Subscription. This gives you access to a a stream of transactions, essential for all kinds of real-time applications.
 
@@ -82,7 +86,8 @@ For example, we can use this to obtain the hash of all transfers happening on th
 
 Query the most recent transactions to an address with 3 documents per page:
 
-{{< highlight graphql >}}
+{{< tabs "graphql-paginated-request" >}}
+{{< tab lang="graphql" title="GraphQL Request" >}}
 query {
   searchTransactions(query: "to:0x06012c8cf97BEaD5deAe237070F9587f8E7A266d", sort: DESC, limit: 3) {
     pageInfo {
@@ -95,11 +100,11 @@ query {
     }
   }
 }
-{{< /highlight >}}
+{{< /tab >}}
+{{< /tabs >}}
 
-Response:
-
-{{< highlight json >}}
+{{< tabs "graphql-paginated-response" >}}
+{{< tab lang="json" title="JSON Response" >}}
 {
   "data": {
     "searchTransactions": {
@@ -126,7 +131,8 @@ Response:
     }
   }
 }
-{{< /highlight >}}
+{{< /tab >}}
+{{< /tabs >}}
 
 The GraphQL API provides cursors to enable pagination. With every response, you can receive a cursor that is a reference to a specific document. By providing this cursor in a subsequent request, the API will pick up where you left off.
 
@@ -138,7 +144,8 @@ Besides pagination, cursors are instrumental when using subscriptions to deal wi
 
 Stream all transactions to an account, keeping an eye on forks:
 
-{{< highlight graphql >}}
+{{< tabs "graphql-forks-request" >}}
+{{< tab lang="graphql" title="GraphQL Request" >}}
 subscription {
   searchTransactions(query: "to:0x06012c8cf97BEaD5deAe237070F9587f8E7A266d", lowBlockNum: -1000) {
     undo
@@ -147,11 +154,11 @@ subscription {
     }
   }
 }
-{{< /highlight >}}
+{{< /tab >}}
+{{< /tabs >}}
 
-Response:
-
-{{< highlight json >}}
+{{< tabs "graphql-forks-response" >}}
+{{< tab lang="json" title="JSON Response" >}}
 {
   "searchTransactions": {
     "undo": false,
@@ -160,7 +167,8 @@ Response:
     }
   }
 }
-{{< /highlight >}}
+{{< /tab >}}
+{{< /tabs >}}
 
 When dealing with documents that were very recently added to a blockchain, there is a risk that the block this document is currently in gets forked out.
 
@@ -330,9 +338,8 @@ Return the block ID found around the given `time`, based on the comparator provi
 
 ## Sample Queries
 
-Sample GraphQL Query:
-
-{{< highlight graphql >}}
+{{< tabs "sample-graphql-query" >}}
+{{< tab lang="graphql" title="Sample GraphQL Query" >}}
 subscription {
   searchTransactionsForward(
     query:"receiver:eosio.token account:eosio.token action:transfer",
@@ -358,7 +365,8 @@ subscription {
     }
   }
 }
-{{< /highlight >}}
+{{< /tab >}}
+{{< /tabs >}}
 
 To get you started, here are a few sample queries and how to read them.
 
@@ -371,9 +379,10 @@ The following query (try it on [GraphiQL](https://mainnet.eos.dfuse.io/graphiql/
 * Retrieve the matching actions; that's the `matchingActions` subquery. Note there could be many in a single transaction
 * For each matching action, we also retrieve the action that caused this transfer, if any.  If a token transfer was initiated by another smart contract, `creatorAction` will be non-null, and will point to the action which caused the creation (see the GraphQL schema for full details).
 
-Sample from today's output:
+Here is a sample from today's output.
 
-{{< highlight json >}}
+{{< tabs "query-sample-output" >}}
+{{< tab lang="json" title="JSON Response" >}}
 {
   "searchTransactionsForward": {
     "undo": false,
@@ -404,13 +413,15 @@ Sample from today's output:
     }
   }
 }
-{{< /highlight >}}
+{{< /tab >}}
+{{< /tabs >}}
 
 The next query (try it on [GraphiQL](https://mainnet.eos.dfuse.io/graphiql/?query=ewogIHN0YXJ0OiBibG9ja0lEQnlUaW1lKHRpbWU6ICIyMDE5LTAxLTAxVDAwOjAwOjAwWiIpIHsKICAgIHRpbWUKICAgIG51bQogICAgaWQKICB9CiAgZW5kOiBibG9ja0lEQnlUaW1lKHRpbWU6ICIyMDE5LTAyLTAxVDAwOjAwOjAwWiIpIHsKICAgIHRpbWUKICAgIG51bQogICAgaWQKICB9Cn0K)):
 
 Multiple GraphQL queries in one request:
 
-{{< highlight graphql >}}
+{{< tabs "multiple-graphql-queries" >}}
+{{< tab lang="graphql" title="GraphQL Request" >}}
 {
   start:blockIDByTime(time: "2019-01-01T00:00:00Z") {
     time
@@ -423,15 +434,15 @@ Multiple GraphQL queries in one request:
     id
   }
 }
-{{< /highlight >}}
+{{< /tab >}}
+{{< /tabs >}}
 
 * Issues a GraphQL _query_ that retrieves two queries at once
 * Each querying the block ID and number less or equal to the date specified in `time`.
 * It remaps the result to `start` and `end` respectively.
 
-Response:
-
-{{< highlight json >}}
+{{< tabs "multiple-graphql-queries-response" >}}
+{{< tab lang="json" title="JSON Response" >}}
 {
   "data": {
     "start": {
@@ -446,7 +457,8 @@ Response:
     }
   }
 }
-{{< /highlight >}}
+{{< /tab >}}
+{{< /tabs >}}
 
 <!--
 
