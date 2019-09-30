@@ -1,14 +1,15 @@
 {
-  "baseURL": "https://docs.dfuse.io/",
+  "baseURL": "/",
   "languageCode": "en-us",
   "title": "Dfuse",
   "theme": "book",
   "enableGitInfo": true,
   "params": {
-    "BookLogo": "img/dfuse-logo-02.png",
+    "DfuseLogo": "dfuse-logo.svg",
     "BookToC": 2,
     "BookSection": "*",
     "BookRepo": "https://github.com/eoscanada/dfuse-docs-2",
-    "BookEditPath": "edit/master/content"
+    "BookEditPath": "edit/master/content",
+    "tagline": "Documentation"
   }
 }
