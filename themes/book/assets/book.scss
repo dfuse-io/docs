@@ -266,6 +266,32 @@ aside nav,
   will-change: transform, margin-left;
 }
 
+.book-tabs {
+  position: relative;
+}
+
+.copy-code-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 0;
+  height: 44px;
+  padding: 0 20px;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  outline: 0;
+
+  &:hover {
+    background-color: #F2F2F2;
+  }
+  &:active {
+    background-color: #D9D9D9;
+  }
+}
+
+
 @media screen and (max-width: $md-breakpoint) {
   .book-toc {
     display: none;
