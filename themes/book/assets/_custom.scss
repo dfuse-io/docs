@@ -11,9 +11,13 @@ code {
 }
 
 .book-menu nav,
-.book-toc,
+.book-toc nav,
 .book-page  {
-  padding-top: 70px;
+  padding-top: 100px;
+}
+
+.book-menu nav {
+  background:  $ternary-100;
 }
 #tagline {
   top: 7px;
@@ -24,7 +28,7 @@ code {
   padding-left: 15px;
   border-left: 1px solid #fff;
 }
-#top-nav {
+#header {
   background-color: $ternary-1000;
   display:block;
   position:fixed;
@@ -36,16 +40,48 @@ code {
   z-index: 1000;
   box-sizing: border-box;
 }
+.book-search {
+  margin-left:30px;
+  margin-top:0px;
+  margin-bottom: 0px;
+  width: 240px;
+  position: relative;
+  input {
+    border-radius:20px;
+    padding:0px 20px;
+    background: $ternary-800;
+    color:$white;
+    &::placeholder {
+      color: $ternary-400;
+      opacity: 1;
+    }
+    &::-ms-input-placeholder {
+      color: $ternary-400;
+    }
+    &::-ms-input-placeholder {
+      color: $ternary-400;
+    }
+    &:focus {
+      outline:none !important;
+    }
+    height: 40px;
 
-#top-nav-content {
+  }
+
+  ul {
+    margin:0px;
+  }
+}
+
+#header>div {
   margin-right: auto;
   margin-left: auto;
   justify-content: flex-start;
   align-items: center;
-  flex-wrap: wrap;
   display: flex;
   height: 40px;
   box-sizing: border-box;
+  flex-direction: row;
 }
 
 #logo-main-nav img {
@@ -55,6 +91,15 @@ code {
 }
 #logo-main-nav a   {line-height:8px; }
 
+#top-nav {
+  margin-left: auto;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  display: flex;
+  height: 40px;
+  box-sizing: border-box;
+}
 
 .admonition {
   padding: 15px;

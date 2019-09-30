@@ -1,17 +1,23 @@
 {{ $currentPage := . }}
 
-<div id="top-nav" class="bg-primary-color-dark pv3 w-100" role="navigation">
+<div id="header" >
 
-    <div id="top-nav-content" class="relative center flex flex-wrap items-center justify-start mw9">
+    <div>
 
-        <div id="logo-main-nav" class="flex justify-center dim f3 lh-solid ml0-ns mv0 pl3 pl4-ns">
+        <div id="logo-main-nav" >
             <a href="{{ .Site.BaseURL }}" class="link white">
                 <img src="{{ .Site.BaseURL }}img/{{ .Site.Params.DfuseLogo }}" alt="{{ .Site.Title }}">
             </a>
         </div>
-        <div id="tagline" class="flex justify-center white pl3 f7 f4-m">
+        <div id="tagline" >
             {{ .Site.Params.tagline }}
         </div>
+        <div id="top-nav">
+            {{ partial "docs/search" . }}
+        </div>
+
+
+
     </div>
 
 </div>
