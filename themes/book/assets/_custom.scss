@@ -228,6 +228,10 @@ article {
   }
   #button-main-menu-mobile {
     color:$white;
+    img svg {
+      fill:blue!important;
+      background-color: #green;
+    }
   }
   #top-nav {
     position: absolute;
@@ -237,7 +241,7 @@ article {
     height: 0px;
     overflow-y: hidden;
     padding: 0px 0px;
-    background: #48617a;
+    background: $ternary-900;
     margin: 0px;
     min-height: 0px;
     box-sizing: border-box;
