@@ -1,6 +1,6 @@
 {{ $currentPage := . }}
-<div id="top-nav">
+<ul id="top-nav">
     {{ range .Site.Menus.main }}
-    <a class="{{ if eq $currentPage.FirstSection.Section .Identifier }}active{{ end }}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+   <li><a class="{{ if eq $currentPage.FirstSection.Section .Identifier }}active{{ end }}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a></li>
     {{ end }}
-</div>
+</ul>

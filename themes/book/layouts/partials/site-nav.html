@@ -4,6 +4,14 @@
 
     <div>
 
+        <div id="main-menu-mobile-wrapper">
+
+            <div id="button-main-menu-mobile">
+                <label for="main-menu-control">
+                     <img src="{{ "svg/menu.svg" | relURL }}" alt="Menu" />
+                </label>
+            </div>
+        </div>
         <div id="logo-main-nav" >
             <a href="{{ .Site.BaseURL }}" >
                 <img src="{{ .Site.BaseURL }}img/{{ .Site.Params.DfuseLogo }}" alt="{{ .Site.Title }}">
@@ -13,6 +21,7 @@
             </div>
         </div>
         <div id="top-nav-wrapper">
+            <input type="checkbox" class="hidden" name="menu-fist" id="main-menu-control" />
             {{ partial "docs/menu-top" . }}
             {{ partial "docs/search" . }}
 

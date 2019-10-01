@@ -102,6 +102,14 @@ article {
   }
 }
 
+#button-main-menu-mobile {
+  margin-right:15px;
+  display: none;
+  img {
+    width:40px;
+  }
+}
+
 #header>div {
   margin-right: auto;
   margin-left: auto;
@@ -145,7 +153,6 @@ article {
         &:hover {
           color: $secondary-1000;
         }
-
         &.active:before {
           content: ' ';
           background: #6c79e6;
@@ -163,10 +170,14 @@ article {
       }
     }
   }
-
 }
 
+
+
 @media (max-width:1200px) {
+  #button-main-menu-mobile {
+    display: none;
+  }
   .book-search {
     margin-left: 15px;
     width: 150px;
@@ -198,16 +209,39 @@ article {
 
 }
 @media (max-width:1023px){
+
+  #main-menu-control:checked + #top-nav{
+    height: 100px!important;
+
+    min-height:200px;
+  }
+  #button-main-menu-mobile {
+    display: block;
+  }
+  .book-search {
+    margin-left: 15px;
+    width: 120px;
+    ul {
+      width: 300px;
+      margin:0px;
+    }
+  }
+  #button-main-menu-mobile {
+    color:$white;
+  }
   #top-nav {
     position: absolute;
     left: 0px;
     top: 70px;
     width: 100%;
-    height: auto;
-    padding: 20px 0px;
+    height: 0px;
+    overflow-y: hidden;
+    padding: 0px 0px;
     background: #48617a;
     margin: 0px;
+    min-height: 0px;
     box-sizing: border-box;
+    transition: ease-in-out .5s;
     li {
       display: block;
       width: 100%;
