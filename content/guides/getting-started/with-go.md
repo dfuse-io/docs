@@ -114,9 +114,10 @@ go run main.go YOUR_API_KEY_HERE
 {{< /tab >}}
 {{< /tabs >}}
 
-## Useful Links
+<!-- Hiding these links for now, because they are all specific to EOSIO -->
+<!-- ## Useful Links
 
 - Docs: [dfuse Search query language](#dfuse-query-language)
 - On mainnet: [GraphiQL](https://mainnet.eos.dfuse.io/graphiql/) A graphic graphql editor and API documentation browser.
 - GitHub: [Push Notification Example](https://github.com/dfuse-io/example-push-notifications) A fully functional example sending push notifications base on a graphql query results.
-- GitHub: [Protobuf service definition](https://github.com/dfuse-io/graphql-over-grpc/blob/master/graphql/graphql.proto) for GraphQL
+- GitHub: [Protobuf service definition](https://github.com/dfuse-io/graphql-over-grpc/blob/master/graphql/graphql.proto) for GraphQL -->

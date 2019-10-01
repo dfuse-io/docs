@@ -4,7 +4,7 @@
 
 This example uses GraphQL Subscriptions & Apollo Client to display action rates per minutes, with a graph and a grid.
 
-[Source code](https://github.com/dfuse-io/example-stream-action-rates) & [Live demo](http://labs.dfuse.io/livesearch-example/)
+[Source code](https://github.com/dfuse-io/example-stream-action-rates) & [Live demo](https://labs.dfuse.io/livesearch-example/)
 
 
 ## Go: Push Notifications

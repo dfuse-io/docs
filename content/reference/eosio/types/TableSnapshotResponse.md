@@ -20,4 +20,4 @@ title: TableSnapshotResponse
 Name | Type | Options | Description
 -----|------|---------|------------
 `type` | string | required | The `table_snapshot` string
-`data` | [TableRows](#type-TableRows) | required | Rows for the corresponding `get_table_rows` request. The `TableRows` object will not contain `account` nor `scope` in this case.
+`data` | [TableRows]({{< ref "./TableRows" >}}) | required | Rows for the corresponding `get_table_rows` request. The `TableRows` object will not contain `account` nor `scope` in this case.

@@ -26,4 +26,4 @@ Here are the fields under `data`:
 Name | Type | Options | Description
 -----|------|---------|------------
 `type` | string | required | The `transaction_lifecycle` string
-`data.lifecycle` | [TransactionLifecycle](#type-TransactionLifecycle) | required | The lifecycle object being tracked.
+`data.lifecycle` | [TransactionLifecycle]({{< ref "./TransactionLifecycle" >}}) | required | The lifecycle object being tracked.

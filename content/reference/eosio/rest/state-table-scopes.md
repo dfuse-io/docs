@@ -14,7 +14,7 @@ Sample request:
 {{< exampleRequest id="search-transactions" url="https://mainnet.eos.dfuse.io/v0/state/table_scopes?account=eosforumdapp&table=proposal" >}}
 
 {{< note >}}
-Not to be confused with [/v0/state/tables/scopes](#rest-get-v0-state-tables-scopes) which retrieves the actual _tables_. Paired with this endpoint, you can get a consistent view of all tables in a contract.
+Not to be confused with [/v0/state/tables/scopes]({{< ref "./state-tables-scopes" >}}) which retrieves the actual _tables_. Paired with this endpoint, you can get a consistent view of all tables in a contract.
 {{< /note >}}
 
 ## Requesting past blocks
@@ -29,11 +29,11 @@ returned value moves as the chain reorganizes.
 
 ## Input parameters
 
-{{< method-list-item name="account" type="[AccountName](#type-AccountName)" required="true" >}}
+{{< method-list-item name="account" type="[AccountName](/reference/eosio/types/accountname)" required="true" >}}
   Contract account holding the requested table.
 {{< /method-list-item >}}
 
-{{< method-list-item name="table" type="[TableName](#type-TableName)" required="true" >}}
+{{< method-list-item name="table" type="[TableName](/reference/eosio/types/tablename)" required="true" >}}
   The _name-encoded_ table name you want to retrieve scopes from.  Refer to the contract's ABI for a list of available tables.  This is contract dependent.
 {{< /method-list-item >}}
 
@@ -48,7 +48,7 @@ returned value moves as the chain reorganizes.
   Block number used to serve your request. Will be the head `block_num` if it was not provided or `0` was passed as `block_num`, otherwise, will be the `block_num` you've passed in the request.
 {{< /method-list-item >}}
 
-{{< method-list-item name="scopes" type="Array&lt;[Name](#type-Name)&gt;" require="true" >}}
+{{< method-list-item name="scopes" type="Array&lt;[Name](/reference/eosio/types/name)&gt;" require="true" >}}
   Block number used to serve your request. Will be the head `block_num` if it was not provided or `0` was passed as `block_num`, otherwise, will be the `block_num` you've passed in the request.
 {{< /method-list-item >}}
 

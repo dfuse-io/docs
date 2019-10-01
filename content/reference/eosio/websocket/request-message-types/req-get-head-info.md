@@ -25,4 +25,4 @@ None.
 
 #### Responses
 
-When requesting `listen: true`, _dfuse_ will stream [HeadInfo](#type-HeadInfo) objects.
+When requesting `listen: true`, _dfuse_ will stream [HeadInfo]({{< ref "../../types/HeadInfo" >}}) objects.

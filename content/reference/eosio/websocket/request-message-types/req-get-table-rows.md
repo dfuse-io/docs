@@ -38,17 +38,17 @@ Example request:
 
 #### Arguments
 
-`code` required [AccountName](#type-AccountName)<br>
+`code` required [AccountName]({{< ref "../../types/AccountName" >}})<br>
 Contract account which wrote to tables.
 
 ***
 
-`scope` required [Name](#type-Name)<br>
+`scope` required [Name]({{< ref "../../types/Name" >}})<br>
 Table _scope_ where table is stored.
 
 ***
 
-`table` required [Name](#type-Name)<br>
+`table` required [Name]({{< ref "../../types/Name" >}})<br>
 Table _name_, shown in the contract ABI.
 
 ***
@@ -58,17 +58,17 @@ With `json=true` (or `1`), table rows will be decoded to JSON, using the ABIs ac
 
 #### Responses
 
-* `fetch: true` requests will stream [TableSnapshotResponse](#type-TableSnapshotResponse) objects.
-* `listen: true` requests will stream [TableDeltaResponse](#type-TableDeltaResponse) objects.
+* `fetch: true` requests will stream [TableSnapshotResponse]({{< ref "../../types/TableSnapshotResponse" >}}) objects.
+* `listen: true` requests will stream [TableDeltaResponse]({{< ref "../../types/TableDeltaResponse" >}}) objects.
 
 ## Handling Forks
 
 When navigating forks in the chain, _dfuse_ sends
-[TableDeltaResponse](#type-TableDeltaResponse) updates with the `step` field set to
+[TableDeltaResponse]({{< ref "../../types/TableDeltaResponse" >}}) updates with the `step` field set to
 `undo` and `redo`. When doing an `undo`, _dfuse_ actually **flips**
 the operation (`INS` becomes `REM`, `UPD` sees its `old` and `new`
 fields swapped, and `REM` becomes `INS`), so you can simply process
 the incoming stream as if it was normal actions.
 
 If you want to be aware of the chain reorganizations, verify the
-`step` field on the [TableDeltaResponse](#type-TableDeltaResponse) object.
+`step` field on the [TableDeltaResponse]({{< ref "../../types/TableDeltaResponse" >}}) object.

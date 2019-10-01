@@ -20,20 +20,20 @@ Sample request:
 ## Requesting past blocks & ABI handling
 
 This request exhibits the same patterns as the simpler
-[`/v0/state/table`](#rest-get-v0-state-table) query.
+[/v0/state/table]({{< ref "./state-table" >}}) query.
 
 
 #### Input Parameters
 
 {{< method-list-item name="accounts" type="String" required="true" >}}
-  An [AccountName](#type-AccountName) list, separated by the pipe character <code>&#124;</code>, a maximum of 1500 elements can be present in the list.
+  An [AccountName]({{< ref "../types/AccountName" >}}) list, separated by the pipe character <code>&#124;</code>, a maximum of 1500 elements can be present in the list.
 {{< /method-list-item >}}
 
-{{< method-list-item name="scope" type="[Name](#type-Name)" required="true" >}}
+{{< method-list-item name="scope" type="[Name](/reference/eosio/types/name)" required="true" >}}
   The _name-encoded_ scope of the table you are requesting.  For example, user balances for tokens live in their account name's scope. This is contract dependent, so inspect the ABI for the contract you are interested in.
 {{< /method-list-item >}}
 
-{{< method-list-item name="table" type="[TableName](#type-TableName)" required="true" >}}
+{{< method-list-item name="table" type="[TableName](/reference/eosio/types/tablename)" required="true" >}}
   The _name-encoded_ table name you want to retrieve.  For example, user balances for tokens live in the `accounts` table.  Refer to the contract's ABI for a list of available tables.  This is contract dependent.
 {{< /method-list-item >}}
 
@@ -72,4 +72,4 @@ The key type can be one of the following values:
 
 ## Response
 
-Returns a [MultiStateResponse](#type-MultiStateResponse), same as the [multi-scopes endpoint](#rest-get-v0-state-tables-scopes).
+Returns a [MultiStateResponse]({{< ref "../types/MultiStateResponse" >}}), same as the [multi-scopes endpoint]({{< ref "state-tables-scopes" >}}).

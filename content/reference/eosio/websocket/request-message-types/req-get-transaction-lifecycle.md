@@ -34,4 +34,4 @@ The transaction ID you want to keep track of
 
 #### Responses
 
-On both `fetch: true` and `listen: true` requests, _dfuse_ will stream back [TransactionLifecycle](#type-TransactionLifecycle) objects.
+On both `fetch: true` and `listen: true` requests, _dfuse_ will stream back [TransactionLifecycle]({{< ref "../../types/TransactionLifecycle" >}}) objects.

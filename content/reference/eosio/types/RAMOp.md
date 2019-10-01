@@ -11,7 +11,7 @@ Name | Type | Options | Description
 -----|------|---------|------------
 `op` | string | **required** | Operation. See enum below.
 `action_idx` | number (uint16) | **required** | Position of the action within the transaction, going depth-first in `inline_actions`. 0-based index.
-`payer` | [AccountName](#type-AccountName) | **required** | Payer that is credited or debited some RAM usage
+`payer` | [AccountName]({{< ref "./AccountName" >}}) | **required** | Payer that is credited or debited some RAM usage
 `delta` | number (int64) | **required** | Number of bytes freed (negative) or consumed (positive) by `payer`.
 `usage` | number (uint64) | **required** | Number of bytes available to `payer` *after* this operation affects his RAM balance.
 

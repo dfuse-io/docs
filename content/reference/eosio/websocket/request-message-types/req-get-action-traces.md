@@ -50,13 +50,13 @@ Defaults to the same value as `accounts`. Pipe <code>&#124;</code> separated lis
 ***
 
 `with_ramops` `optional boolean`<br>
-Stream RAM billing changes and reasons for costs of storage produced by each action (See [RAMOp](#type-RAMOp)).
+Stream RAM billing changes and reasons for costs of storage produced by each action (See [RAMOp]({{< ref "../../types/RAMOp" >}})).
 
 ***
 
 `with_tableops` `optional boolean`<br>
 
-Stream table operations produced by each action (See [TableOp](#type-TableOp)).
+Stream table operations produced by each action (See [TableOp]({{< ref "../../types/TableOp" >}})).
 
 ***
 
@@ -67,7 +67,7 @@ Stream the inline actions produced by each action.
 ***
 
 `with_dtrxops` `optional boolean`<br>
-Stream the modifications to deferred transactions produced by each action (See [DTrxOp](#type-DTrxOp)).
+Stream the modifications to deferred transactions produced by each action (See [DTrxOp]({{< ref "../../types/DTrxOp" >}})).
 
 <!--
 `with_dbops` | boolean | optional |  Stream changes to the database tables produced by each action.
@@ -76,5 +76,5 @@ Stream the modifications to deferred transactions produced by each action (See [
 #### Responses
 
 * `fetch: true` is not supported for `get_action_traces`
-* `listen: true` requests will stream [ActionTrace](#type-ActionTrace) objects.
+* `listen: true` requests will stream [ActionTrace]({{< ref "../../types/ActionTrace" >}}) objects.
 * `irreversible_only: true` ensure that you only get actions from irreversible blocks. If you call it with `start_block: (current head block)`, you will have to wait until that block becomes irreversible before you see any data streaming back.

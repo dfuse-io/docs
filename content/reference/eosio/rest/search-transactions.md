@@ -6,7 +6,7 @@ title: GET /v0/search/transactions
 # GET `/v0/search/transactions`
 
 Search an EOSIO blockchain for transactions based on free-form
-criterias, using the [**dfuse Search** query language](#dfuse-query-language).
+criterias, using the [_dfuse_ Search query language]({{< ref "../search" >}}).
 
 ## Usage
 
@@ -54,7 +54,7 @@ suddenly disappear.
 #### Input parameters
 
 {{< method-list-item name="q" type="String" required="true" >}}
-  Search query string. See [Search language specs](#ref-search-query-specs) for details.
+  Search query string. See [Search language specs]({{< ref "../search" >}}) for details.
 {{< /method-list-item >}}
 
 {{< method-list-item name="start_block" type="Number (uint32)" required="false" >}}
@@ -89,4 +89,4 @@ By default, a query that does not specify `start_block` nor `sort`, the results 
 
 #### Response
 
-Returns a [SearchTransactionsResponse](#type-SearchTransactionsResponse).
+Returns a [SearchTransactionsResponse]({{< ref "../types/SearchTransactionsResponse" >}}).

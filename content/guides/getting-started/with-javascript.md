@@ -51,9 +51,10 @@ DFUSE_API_KEY=YOUR_API_KEY_HERE yarn start
 {{< /tab >}}
 {{< /tabs >}}
 
-## Useful Links
+<!-- Hiding these links for now, because they are all specific to EOSIO -->
+<!-- ## Useful Links
 
-- GitHub: [@dfuse/client](https://github.com/dfuse-io/client-js)
-- Docs: [dfuse Search query language](#dfuse-query-language)
-- On mainnet: [GraphiQL](https://mainnet.eos.dfuse.io/graphiql/) A graphic graphql editor and API documentation browser.
-- GitHub: [Stream action rates example](https://github.com/dfuse-io/example-stream-action-rates) This example demonstrates how to use the dfuse GraphQL APIs in a React application to livestream the average rates from the top actions. A live demo is available [here](http://labs.dfuse.io/livesearch-example/)
+- GitHub: [@dfuse/client](https://github.com/dfuse-io/client-js) -->
+<!-- - Docs: [dfuse Search query language](#dfuse-query-language) -->
+<!-- - On mainnet: [GraphiQL](https://mainnet.eos.dfuse.io/graphiql/) A graphic graphql editor and API documentation browser. -->
+<!-- - GitHub: [Stream action rates example](https://github.com/dfuse-io/example-stream-action-rates) This example demonstrates how to use the dfuse GraphQL APIs in a React application to livestream the average rates from the top actions. A live demo is available [here](http://labs.dfuse.io/livesearch-example/) -->

@@ -21,5 +21,5 @@ Example `table_delta` payload:
 Name | Type | Options | Description
 -----|------|---------|------------
 `block_num` | number (uint32) | required | Block that produced such a change
-`step` | string | required, _one of_ `new`, `undo`, `redo` | Step in the [forks navigation](#websocket-navigating-forks)
-`dbop` | [DBOp](#type-DBOp) | required | Database operation
+`step` | string | required, _one of_ `new`, `undo`, `redo` | Step in the [forks navigation]({{< ref "../websocket/navigating-forks" >}})
+`dbop` | [DBOp]({{< ref "./DBOp" >}}) | required | Database operation

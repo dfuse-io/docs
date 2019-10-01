@@ -30,10 +30,10 @@ The returned ABI is the one that was active at the `block_num` requested.
 #### Input parameters
 
 {{< method-list-item name="q" type="String" required="true" >}}
-  Search query string. See [Search language specs](#ref-search-query-specs) for details.
+  Search query string. See [Search language specs]({{< ref "../search" >}}) for details.
 {{< /method-list-item >}}
 
-{{< method-list-item name="account" type="[AccountName](#type-AccountName)" required="true" >}}
+{{< method-list-item name="account" type="[AccountName](/reference/eosio/types/accountname)" required="true" >}}
   Contract account targeted by the action.
 {{< /method-list-item >}}
 
@@ -51,7 +51,7 @@ The returned ABI is the one that was active at the `block_num` requested.
   Block number closest to `block_num` at which the ABI was put on chain. For example, if ABI was last changed at block 1000 and you used a `block_num` of 20000 in the request, the response `block_num` will be 1000.
 {{< /method-list-item >}}
 
-{{< method-list-item name="account" type="[AccountName](#type-AccountName)" required="true" >}}
+{{< method-list-item name="account" type="[AccountName](/reference/eosio/types/accountname)" required="true" >}}
   Contract account this ABI is active for.
 {{< /method-list-item >}}
 

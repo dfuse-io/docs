@@ -89,4 +89,4 @@ This method is called on a different domain: <strong>https://auth.dfuse.io/v1/au
 
 #### Response
 
-Returns an [AuthTokenResponse](#type-AuthTokenResponse).
+Returns an [AuthTokenResponse]({{< ref "../types/AuthTokenResponse" >}}).

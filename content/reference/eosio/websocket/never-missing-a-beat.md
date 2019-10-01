@@ -10,7 +10,7 @@ Thankfully, the **dfuse** API has you covered, with the following WebSocket para
 ## Using `with_progress`
 
 When you specify `with_progress` as part of the
-[request message](#websocket-request-message-format), you will start
+[request message]({{< ref "/request-message-format" >}}), you will start
 receiving messages of type `progress` when blocks arrive. The value
 you pass is interval of blocks you want to get that message, or the
 precision.  A value of `5` means you will receive one `progress`

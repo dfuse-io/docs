@@ -92,9 +92,9 @@ Name | Type | Options | Description
 `trx_id` | string | required | ID of transaction that produced these traces
 `idx` | number (uint16) | required | Zero-based index of this action within the transaction. Actions being nestable, this index represents a depth-first search indexing: if action _A_ (index 0) produced an inline action _B_, then action _B_ is index 1.
 `depth` | number (uint16) | required | Depth of the action relative to the input actions (top-level actions that were defined in the originating transaction, and _not_ inlined as side effects of execution of top-level actions).  Actions with `depth = 0` are called input actions. Anything above 0 means this is an inline action.
-`trace` | [TransactionTrace](#type-TransactionTrace) | required | An execution trace object. This is a standard `nodeos` trace object. See the [reference C++ code here](https://github.com/EOSIO/eos/blob/master/libraries/chain/include/eosio/chain/trace.hpp).
-`ramops` | array&lt;[RAMOp](#type-RAMOp)&gt; | optional | A list of operations on RAM usage, including operation, payer, delta, resulting usage.
-`dtrxops` | array&lt;[DTrxOps](#type-DTrxOps)&gt; | optional | A list of operations on deferred transactions (create, cancel...).
+`trace` | [TransactionTrace]({{< ref "./TransactionTrace" >}}) | required | An execution trace object. This is a standard `nodeos` trace object. See the [reference C++ code here](https://github.com/EOSIO/eos/blob/master/libraries/chain/include/eosio/chain/trace.hpp).
+`ramops` | Array&lt;[RAMOp]({{< ref "./RAMOp" >}})&gt; | optional | A list of operations on RAM usage, including operation, payer, delta, resulting usage.
+`dtrxops` | Array&lt;[DTrxOps]({{< ref "./DTrxOp" >}})&gt; | optional | A list of operations on deferred transactions (create, cancel...).
 
 <!--
   * `dbops` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)**: list of database operations, including the payer, the type of the operation (insert, update or delete), the previous row value and the new row value (in case of updates for example).

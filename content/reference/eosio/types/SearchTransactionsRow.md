@@ -22,5 +22,5 @@ Example payload:
 
 Name | Type | Options | Description
 -----|------|---------|------------
-`lifecycle` | [TransactionLifecycle](#type-TransactionLifecycle) | required | Full transaction where some of its actions matched.
-`action_idx` | array<Number> | required | Indexes of the actions (indexed by depth-first search through `inline_traces`, base 0) that matched the search query.
+`lifecycle` | [TransactionLifecycle]({{< ref "./TransactionLifecycle" >}}) | required | Full transaction where some of its actions matched.
+`action_idx` | Array<Number> | required | Indexes of the actions (indexed by depth-first search through `inline_traces`, base 0) that matched the search query.

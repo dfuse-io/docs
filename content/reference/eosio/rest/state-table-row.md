@@ -30,15 +30,15 @@ If you requested a json-decoded form but it was impossible to decode a row (ex: 
 
 #### Input parameters
 
-{{< method-list-item name="account" type="[AccountName](#type-AccountName)" required="true" >}}
+{{< method-list-item name="account" type="[AccountName](/reference/eosio/types/accountname)" required="true" >}}
   Contract account targeted by the action.
 {{< /method-list-item >}}
 
-{{< method-list-item name="scope" type="[AccountName](#type-AccountName)" required="true" >}}
+{{< method-list-item name="scope" type="[AccountName](/reference/eosio/types/accountname)" required="true" >}}
   The _name-encoded_ scope of the table you are requesting.  For example, user balances for tokens live in their account name's scope. This is contract dependent, so inspect the ABI for the contract you are interested in.
 {{< /method-list-item >}}
 
-{{< method-list-item name="table" type="[TableName](#type-TableName)" required="true" >}}
+{{< method-list-item name="table" type="[TableName](/reference/eosio/types/tablename)" required="true" >}}
   The _name-encoded_ table name you want to retrieve.  For example, user balances for tokens live in the `accounts` table.  Refer to the contract's ABI for a list of available tables.  This is contract dependent.
 {{< /method-list-item >}}
 
@@ -85,6 +85,6 @@ The key type can be one of the following values:
 
 ## Response
 
-Returns a [StateTableRowResponse](#type-StateTableRowResponse)
+Returns a [StateTableRowResponse]({{< ref "../types/StateTableRowResponse" >}})
 
-See also [Table Row](#type-state-TableRow) for schema of the actual row returned.
+See also [Table Row]({{< ref "../types/StateTableRowResponse" >}}) for schema of the actual row returned.

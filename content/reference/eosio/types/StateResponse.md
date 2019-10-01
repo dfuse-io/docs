@@ -43,7 +43,7 @@ Name | Type | Options | Description
 `last_irreversible_block_id` | string | optional | Last irreversible block considered for this request. The returned snapshot is still for the requested `block_num`, even though the irreversible block shown here is more recent.
 `last_irreversible_block_num` | number (uint32) | optional | Block number extracted from `last_irreversible_block_num`, provided as a convenience so you don't need to extract it yourself.
 `abi` | object | optional | A JSON representation of the ABI that is stored within the account. It is the ABI in effect at the requested `block_num`.
-`rows` | array&lt;[DBRow](#type-DBRow)&gt; | required | An array of rows in the table, sorted by their uint64 key.
+`rows` | Array&lt;[DBRow]({{< ref "./DBRow" >}})&gt; | required | An array of rows in the table, sorted by their uint64 key.
 
 The main difference between a `StateResponse` and a
 `MultiStateResponse` is the `rows` field above.

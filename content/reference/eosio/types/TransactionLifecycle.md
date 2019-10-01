@@ -51,16 +51,16 @@ Name | Type | Options | Description
 -----|------|---------|------------
 `id` | string | required | the transaction ID
 `transaction_status` | string | required, _one of_ `pending`, `delayed`, `canceled`, `expired`, `executed`, `soft_fail`, `hard_fail` | Computed status for the transaction
-`transaction` | [Transaction](#type-Transaction) | required | Standard nodeos transaction object
-`execution_trace` | [TransactionTrace](#type-TransactionTrace) | optional | Traces of execution. In the case of a deferred transaction, you might not see execution traces
+`transaction` | Transaction | required | Standard nodeos transaction object
+`execution_trace` | [TransactionTrace]({{< ref "./TransactionTrace" >}}) | optional | Traces of execution. In the case of a deferred transaction, you might not see execution traces
 `execution_block_header` | BlockHeader | optional | Standard `block_header` object for the block where the transaction got executed
-`creation_tree` | [CreationTree](#type-CreationTree) | optional | Represents the creation order of actions within this transaction.
-`dtrxops` | array&lt;[DTrxOp](#type-DTrxOp)&gt; | optional | A list of operations on deferred transactions (create, cancel...).
-`ramops` | array&lt;[RAMOp](#type-RAMOp)&gt; | optional | A list of operations on RAM usage, including operation, payer, delta, resulting usage.
-`tableops` | array&lt;[TableOp](#type-TableOp)&gt; | optional | A list of table operations, including operation, contract account, table, scope and payer.
-`pub_keys` | array&lt;string&gt; | optional | List of public keys used to sign the transaction.
-`created_by` | [ExtDTrxop](#type-ExtDTrxOp) | optional | When querying a deferred transaction, reference to the transaction that created it.
-`canceled_by` | [ExtDTrxop](#type-ExtDTrxOp) | optional | Similar to `created_by`, the reference to another transaction that has canceled this one.
+`creation_tree` | [CreationTree]({{< ref "./CreationTree" >}}) | optional | Represents the creation order of actions within this transaction.
+`dtrxops` | Array&lt;[DTrxOp]({{< ref "./DTrxOp" >}})&gt; | optional | A list of operations on deferred transactions (create, cancel...).
+`ramops` | Array&lt;[RAMOp]({{< ref "./RAMOp" >}})&gt; | optional | A list of operations on RAM usage, including operation, payer, delta, resulting usage.
+`tableops` | Array&lt;[TableOp]({{< ref "./TableOp" >}})&gt; | optional | A list of table operations, including operation, contract account, table, scope and payer.
+`pub_keys` | Array&lt;string&gt; | optional | List of public keys used to sign the transaction.
+`created_by` | [ExtDTrxop]({{< ref "./ExtDTrxOp" >}}) | optional | When querying a deferred transaction, reference to the transaction that created it.
+`canceled_by` | [ExtDTrxop]({{< ref "./ExtDTrxOp" >}}) | optional | Similar to `created_by`, the reference to another transaction that has canceled this one.
 `execution_irreversible` | boolean | optional | Indicates execution passed irreversibility.
 `creation_irreversible` | boolean | optional | Indicates transaction creation passed irreversibility. Valid only for deferred transactions
 `cancelation_irreversible` | boolean | optional | Indicates cancelation passed irreversibility. Valid only for deferred transactions.

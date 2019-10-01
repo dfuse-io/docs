@@ -28,7 +28,7 @@ returned value moves as the chain reorganizes.
 
 #### Input parameters
 
-{{< method-list-item name="public_key" type="[PublicKey](#type-PublicKey)" required="true" >}}
+{{< method-list-item name="public_key" type="[PublicKey](/reference/eosio/types/publickey)" required="true" >}}
   The public key to fetch controlled accounts for.
 {{< /method-list-item >}}
 
@@ -42,7 +42,7 @@ returned value moves as the chain reorganizes.
   Block number used to serve your request. Will be the head `block_num` if it was not provided or `0` was passed as `block_num`, otherwise, will be the `block_num` you've passed in the request.
 {{< /method-list-item >}}
 
-{{< method-list-item name="account_names" type="Array&lt;[AccountName](#type-AccountName)&gt;" >}}
+{{< method-list-item name="account_names" type="Array&lt;[AccountName](/reference/eosio/types/accountname)&gt;" >}}
   An array of account names that the public key is associated with, sorted alphabetically.
 {{< /method-list-item >}}
 

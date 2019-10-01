@@ -23,4 +23,4 @@ title: TableDeltaResponse
 Name | Type | Options | Description
 -----|------|---------|------------
 `type` | string | required | The `transaction_lifecycle` string
-`data` | [TableDelta](#type-TableDelta) | required | The change operation from a table, navigating forks with the `step` element.
+`data` | [TableDelta]({{< ref "./TableDelta" >}}) | required | The change operation from a table, navigating forks with the `step` element.

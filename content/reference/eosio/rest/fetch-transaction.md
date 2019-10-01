@@ -17,7 +17,7 @@ state be it deferred, executed, failed or cancelled. This means that deferred
 transactions are handled by this method, via a transaction with a `delay_sec`
 argument pushed to the chain or created by a smart contract.
 
-Refers to the [TransactionLifecycle](#type-TransactionLifecycle) to have a better
+Refers to the [TransactionLifecycle]({{< ref "../types/TransactionLifecycle" >}}) to have a better
 overview of lifecycle related properties that are available in the response.
 
 #### Input parameters
@@ -74,4 +74,4 @@ Here is a sample response, for transaction id `1d5f57e9392d045ef4d1d19e6976803f0
 {{< /tab >}}
 {{< /tabs >}}
 
-Returns a [TransactionLifecycle](#type-TransactionLifecycle).
+Returns a [TransactionLifecycle]({{< ref "../types/TransactionLifecycle" >}}).
