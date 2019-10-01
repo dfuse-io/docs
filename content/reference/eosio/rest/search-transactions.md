@@ -51,17 +51,35 @@ suddenly disappear.
 
 
 
-## Input parameters
+#### Input parameters
 
-Name | Type | Options | Description
------|------|---------|------------
-`q` | string | **required** | Search query string. See [Search language specs](#ref-search-query-specs) for details.
-`start_block` | number (uint32) | optional | Block number to start search (inclusive). See below for the special meaning of value `0`.
-`sort` | string | optional | Defaults to _ascending_ search. Use `DESC` to sort descending.
-`block_count` | number (uint32) | optional | Number of blocks to search from `start_block`. Depending on `sort` order, the `block_count` will count upwards or downwards.
-`limit` | number (uint64) | optional | Cap the number of returned results to `limit`. Defaults to its maximum value: `100`.
-`cursor` | string | optional | If `cursor` is passed back (from a previous response)
-`with_reversible` | boolean | optional | If `with_reversible` is set to `true` actions included in blocks that are *not yet* irreversible will be included.
+{{< method-list-item name="q" type="String" required="true" >}}
+  Search query string. See [Search language specs](#ref-search-query-specs) for details.
+{{< /method-list-item >}}
+
+{{< method-list-item name="start_block" type="Number (uint32)" required="false" >}}
+  Block number to start search (inclusive). See below for the special meaning of value `0`.
+{{< /method-list-item >}}
+
+{{< method-list-item name="sort" type="String" required="false" >}}
+  Defaults to _ascending_ search. Use `DESC` to sort descending.
+{{< /method-list-item >}}
+
+{{< method-list-item name="block_count" type="Number (uint32)" required="false" >}}
+  Number of blocks to search from `start_block`. Depending on `sort` order, the `block_count` will count upwards or downwards.
+{{< /method-list-item >}}
+
+{{< method-list-item name="limit" type="Number (uint64)" required="false" >}}
+  Cap the number of returned results to `limit`. Defaults to its maximum value: `100`.
+{{< /method-list-item >}}
+
+{{< method-list-item name="cursor" type="String" required="false" >}}
+  If `cursor` is passed back (from a previous response)
+{{< /method-list-item >}}
+
+{{< method-list-item name="with_reversible" type="Boolean" required="false" >}}
+  If `with_reversible` is set to `true` actions included in blocks that are *not yet* irreversible will be included.
+{{< /method-list-item >}}
 
 When `start_block` is unspecified (value: `0`), it takes a special meaning depending on the context:
 * When the sort order is `ascending`, a start_block of `0` means the beginning of the chain.
@@ -69,6 +87,6 @@ When `start_block` is unspecified (value: `0`), it takes a special meaning depen
 
 By default, a query that does not specify `start_block` nor `sort`, the results will be ascending (block-wise *and* transaction-wise)
 
-## Response
+#### Response
 
 Returns a [SearchTransactionsResponse](#type-SearchTransactionsResponse).

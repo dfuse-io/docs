@@ -1,12 +1,16 @@
+{{ $required := .Get "required" }}
+
 <div class="method-list-item">
   <div class="method-list-item-label">
     <div class="method-list-item-name">{{ .Get "name" }}</div>
-
-    {{ if eq (.Get "required") "true" }}
-      <div class="method-list-item-required">required</div>
-    {{else}}
-      <div class="method-list-item-optional">Optional</div>
-    {{ end}}
+    
+    {{ if $required }}
+      {{ if eq $required "true" }}
+        <div class="method-list-item-required">required</div>
+      {{ else }}
+        <div class="method-list-item-optional">Optional</div>
+      {{ end }}
+    {{ end }}
   </div>
 
   <div class="method-list-item-description">

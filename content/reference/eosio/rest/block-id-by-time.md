@@ -25,20 +25,29 @@ The following example fetches the block ID, time and block number for the timest
 {{< /tab >}}
 {{< /tabs >}}
 
-## Input parameters
+#### Input parameters
 
-Name | Type | Description
------|------|------------
-`time` | DateTime | Reference timestamp (ISO8601 extended format, ex: `2019-03-04T10:36:14.5Z`)
-`comparator` | String | Comparison operator for the block time. Should be one of `gt`, `gte`, `lt`, `lte` or `eq`.
+{{< method-list-item name="time" type="DateTime" required="true" >}}
+  Reference timestamp (ISO8601 extended format, ex: `2019-03-04T10:36:14.5Z`)
+{{< /method-list-item >}}
+
+{{< method-list-item name="comparator" type="String" required="true" >}}
+  Comparison operator for the block time. Should be one of `gt`, `gte`, `lt`, `lte` or `eq`.
+{{< /method-list-item >}}
 
 
-## Response
+#### Response
 
 Returns a `block` JSON object, containing the following fields.
 
-Name | Type | Description
------|------|------------
-`id` | string | Block ID
-`num` | uint32 | Block Number
-`time` | DateTime | Timestamp of the matching block (according to its production schedule, so always aligned with 500ms time slots)
+{{< method-list-item name="id" type="uint32" >}}
+  Block ID
+{{< /method-list-item >}}
+
+{{< method-list-item name="num" type="Number" >}}
+  Block Number
+{{< /method-list-item >}}
+
+{{< method-list-item name="time" type="DateTime" >}}
+  Timestamp of the matching block (according to its production schedule, so always aligned with 500ms time slots)
+{{< /method-list-item >}}
