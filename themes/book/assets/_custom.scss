@@ -102,6 +102,14 @@ article {
   }
 }
 
+#button-main-menu-mobile {
+  margin-right:15px;
+  display: none;
+  img {
+    width:40px;
+  }
+}
+
 #header>div {
   margin-right: auto;
   margin-left: auto;
@@ -133,42 +141,52 @@ article {
   height: 40px;
   box-sizing: border-box;
   #top-nav {
+    list-style-type: none;
+    li {
+      display:inline-block;
 
-    a{
-      padding:0px 15px;
-      color:$white;
-      position: relative;
-      &:hover {
-        color:$secondary-1000;
-      }
-      &.active:before {
-        content: ' ';
-        background: #6c79e6;
-        width: 100%;
-        position: absolute;
-        bottom: -26px;
-        height: 5px;
-        left: 0;
-        border-width: 3px 20px 0px 20px;
-        border-style: solid;
-        border-color: #fff;
-        box-sizing: border-box;
-        border-radius: 7px 7px 0px 0px;
+      a {
+        padding: 0px 15px;
+        color: $white;
+        position: relative;
+
+        &:hover {
+          color: $secondary-1000;
+        }
+        &.active:before {
+          content: ' ';
+          background: #6c79e6;
+          width: 100%;
+          position: absolute;
+          bottom: -26px;
+          height: 5px;
+          left: 0;
+          border-width: 3px 20px 0px 20px;
+          border-style: solid;
+          border-color: #fff;
+          box-sizing: border-box;
+          border-radius: 7px 7px 0px 0px;
+        }
       }
     }
   }
-
 }
 
+
+
 @media (max-width:1200px) {
+  #button-main-menu-mobile {
+    display: none;
+  }
   .book-search {
     margin-left: 15px;
     width: 150px;
+    ul {
+      width: 200px;
+      margin:0px;
+    }
   }
-  ul {
-    width: 200px;
-    margin:0px;
-  }
+
   #logo-main-nav  {
     display: flex;
     flex-direction: column;
@@ -189,6 +207,66 @@ article {
     padding: 0 10px;
   }
 
+}
+@media (max-width:1023px){
+
+  #main-menu-control:checked + #top-nav{
+    height: 100px!important;
+
+    min-height:200px;
+  }
+  #button-main-menu-mobile {
+    display: block;
+  }
+  .book-search {
+    margin-left: 15px;
+    width: 120px;
+    ul {
+      width: 300px;
+      margin:0px;
+    }
+  }
+  #button-main-menu-mobile {
+    color:$white;
+  }
+  #top-nav {
+    position: absolute;
+    left: 0px;
+    top: 70px;
+    width: 100%;
+    height: 0px;
+    overflow-y: hidden;
+    padding: 0px 0px;
+    background: #48617a;
+    margin: 0px;
+    min-height: 0px;
+    box-sizing: border-box;
+    transition: ease-in-out .5s;
+    li {
+      display: block;
+      width: 100%;
+      padding:15px 20px;
+      &:hover {
+        background: rgba(255,255,255,.1);
+      }
+
+      a {
+        padding: 0px 0px!important;
+        color: $white;
+        position: relative;
+
+        &:hover {
+          color: $secondary-1000;
+        }
+        &.active {
+          color:$secondary-1000!important;
+        }
+        &.active:before {
+          display: none;
+        }
+      }
+    }
+  }
 }
 
 
