@@ -15,7 +15,7 @@ Sample request:
 {{< exampleRequest id="search-transactions" url="https://mainnet.eos.dfuse.io/v0/search/transactions?start_block=0&block_count=10000&limit=10&sort=desc&q=receiver:eosio.token action:transfer data.to:someaccount1" >}}
 
 {{< note >}}
-Right now, SQE will provide search only in irreversible actions. It will be extended to longest-chain search, and real-time search later.
+This search endpoint does not handle real-time search.  See the GraphQL endpoint for real-time, cursored search.
 {{< /note >}}
 
 ## Pagination
