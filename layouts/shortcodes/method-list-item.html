@@ -1,0 +1,15 @@
+<div class="method-list-item">
+  <div class="method-list-item-label">
+    <div class="method-list-item-name">{{ .Get "name" }}</div>
+
+    {{ if eq (.Get "required") "true" }}
+      <div class="method-list-item-required">required</div>
+    {{else}}
+      <div class="method-list-item-optional">Optional</div>
+    {{ end}}
+  </div>
+
+  <div class="method-list-item-description">
+    <span class="method-list-item-type">{{ .Get "type" | markdownify }}</span>. {{ $.Inner | markdownify }}
+  </div>
+</div>

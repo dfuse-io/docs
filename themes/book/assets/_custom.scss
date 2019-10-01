@@ -236,3 +236,63 @@ code {
     }
   }
 }
+
+.method-list-item {
+  display: flex;
+  padding: 16px 0;
+  border-bottom: 1px solid $ternary-200;
+}
+
+h4 + .method-list-item {
+  padding-top: 0;
+}
+
+.method-list-item-label {
+  width: 144px;
+  flex: 0 0 auto;
+  font-size: 13px;
+  font-weight: bold;
+
+  .method-list-item-name {
+    font-family: $code-font-family;
+    font-size: 15px;
+  }
+
+  .method-list-item-optional {
+    font-size: 10px;
+    color: $ternary-800;
+  }
+
+  .method-list-item-required {
+    color: $secondary-1000;
+    text-transform: uppercase;
+    font-size: 9px;
+  }
+}
+
+.method-list-item-type {
+  font-family: $code-font-family;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.method-list-item-description {
+  font-size: 14px;
+}
+
+@media screen and (max-width: $lg-breakpoint) {
+  .method-list-item {
+    flex-direction: column;
+  }
+
+  .method-list-item-label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 6px;
+    
+    .method-list-item-name {
+      margin-right: 6px;
+    }
+  }
+}

@@ -52,6 +52,9 @@ $body-background: white;
 $body-font-color: hsl(231.3, 20%, 30%);
 $body-font-weight: normal;
 
+$body-font-family: 'Lato', sans-serif;
+$code-font-family: 'Inconsolata', monospace;
+
 $body-min-width: 20rem;
 $container-max-width: 100%;
 
@@ -59,5 +62,6 @@ $header-height: 3.5rem;
 $menu-width: 18rem;
 $toc-width: 16rem;
 
+$lg-breakpoint: $menu-width + $body-min-width * 2 + $toc-width;
 $md-breakpoint: $menu-width + $body-min-width * 1.25 + $toc-width;
 $sm-breakpoint: $menu-width + $body-min-width;
