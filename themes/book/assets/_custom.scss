@@ -19,6 +19,10 @@ code {
 .book-menu nav {
   background:  $ternary-100;
 }
+
+article {
+  min-height: 70vh;
+}
 #tagline {
   top: 5px;
   position: relative;
@@ -27,6 +31,7 @@ code {
   font-weight: 400;
   padding-left: 15px;
   border-left: 1px solid #fff;
+  height: min-content;
 }
 #header {
   background-color: $ternary-1000;
@@ -46,6 +51,33 @@ code {
   margin-bottom: 0px;
   width: 240px;
   position: relative;
+  ul {
+    position: absolute;
+    padding: 0px 20px 0px 40px;
+    background: $ternary-200;
+    width: 360px;
+    box-sizing: border-box;
+    top: -2px;
+    right: -2px;
+    border-radius: 20px 20px 20px 20px;
+    z-index: 1900;
+    margin: 0px;
+    list-style: square;
+    list-style-position: outside;
+    color: $ternary-400;
+    li:first-child {
+      margin-top:60px;
+    }
+    li:last-child {
+      margin-bottom:30px;
+    }
+    li {
+      margin-bottom:4px;
+    }
+    li a:hover {
+      color:$secondary-1000;
+    }
+  }
   input {
     border-radius:20px;
     padding:0px 20px;
@@ -68,33 +100,6 @@ code {
     }
     height: 40px;
   }
-  ul {
-      position: absolute;
-      padding: 0px 20px 0px 40px;
-      background: $ternary-200;
-      width: 360px;
-      box-sizing: border-box;
-      top: -2px;
-      right: -2px;
-      border-radius: 20px 20px 20px 20px;
-      z-index: 1900;
-      margin: 0px;
-      list-style: square;
-      list-style-position: outside;
-      color: $ternary-400;
-    li:first-child {
-      margin-top:60px;
-    }
-    li:last-child {
-      margin-bottom:30px;
-    }
-    li {
-      margin-bottom:4px;
-    }
-    li a:hover {
-      color:$secondary-1000;
-    }
-  }
 }
 
 #header>div {
@@ -106,6 +111,11 @@ code {
   height: 40px;
   box-sizing: border-box;
   flex-direction: row;
+}
+#logo-main-nav  {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 #logo-main-nav img {
@@ -119,34 +129,67 @@ code {
   margin-left: auto;
   justify-content: flex-end;
   align-items: center;
-  flex-wrap: wrap;
   display: flex;
   height: 40px;
   box-sizing: border-box;
-  #top-nav a{
-    padding:0px 15px;
-    color:$white;
-    position: relative;
-    &:hover {
-      color:$secondary-1000;
-    }
-    &.active:before {
-      content: ' ';
-      background: #6c79e6;
-      width: 100%;
-      position: absolute;
-      bottom: -25px;
-      height: 5px;
-      left: 0;
-      border-width: 3px 20px 0px 20px;
-      border-style: solid;
-      border-color: #fff;
-      box-sizing: border-box;
-      border-radius: 7px 7px 0px 0px;
+  #top-nav {
+
+    a{
+      padding:0px 15px;
+      color:$white;
+      position: relative;
+      &:hover {
+        color:$secondary-1000;
+      }
+      &.active:before {
+        content: ' ';
+        background: #6c79e6;
+        width: 100%;
+        position: absolute;
+        bottom: -26px;
+        height: 5px;
+        left: 0;
+        border-width: 3px 20px 0px 20px;
+        border-style: solid;
+        border-color: #fff;
+        box-sizing: border-box;
+        border-radius: 7px 7px 0px 0px;
+      }
     }
   }
+
 }
 
+@media (max-width:1200px) {
+  .book-search {
+    margin-left: 15px;
+    width: 150px;
+  }
+  ul {
+    width: 200px;
+    margin:0px;
+  }
+  #logo-main-nav  {
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+  }
+  #tagline {
+    top: 0px;
+    position: relative;
+    margin-left: 0px;
+    padding-top: 4px;
+    padding-left:0px;
+    border-left: 0px solid #fff;
+    height: min-content;
+    width: max-content;
+    font-size: 12px;
+  }
+  #top-nav-wrapper #top-nav a {
+    padding: 0 10px;
+  }
+
+}
 
 
 .admonition {
