@@ -123,7 +123,31 @@ code {
   display: flex;
   height: 40px;
   box-sizing: border-box;
+  a{
+    padding:0px 15px;
+    color:$white;
+    position: relative;
+    &:hover {
+      color:$secondary-1000;
+    }
+    &.active:before {
+      content: ' ';
+      background: #6c79e6;
+      width: 100%;
+      position: absolute;
+      bottom: -25px;
+      height: 5px;
+      left: 0;
+      border-width: 3px 20px 0px 20px;
+      border-style: solid;
+      border-color: #fff;
+      box-sizing: border-box;
+      border-radius: 7px 7px 0px 0px;
+    }
+  }
 }
+
+
 
 .admonition {
   padding: 15px;

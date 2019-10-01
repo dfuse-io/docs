@@ -5,7 +5,7 @@
     <div>
 
         <div id="logo-main-nav" >
-            <a href="{{ .Site.BaseURL }}" class="link white">
+            <a href="{{ .Site.BaseURL }}" >
                 <img src="{{ .Site.BaseURL }}img/{{ .Site.Params.DfuseLogo }}" alt="{{ .Site.Title }}">
             </a>
         </div>
@@ -13,7 +13,9 @@
             {{ .Site.Params.tagline }}
         </div>
         <div id="top-nav">
+            {{ partial "docs/menu-top" . }}
             {{ partial "docs/search" . }}
+
         </div>
 
 

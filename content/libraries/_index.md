@@ -1,6 +1,12 @@
 ---
+title: Libraries
 bookFlatSection: false
 weight: 40
+menu:
+  main:
+    name: Libraries
+    identifier: libraries
+    weight: 5
 ---
 
 # Libraries

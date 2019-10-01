@@ -1,6 +1,12 @@
 ---
+title: Samples
 bookFlatSection: false
 weight: 30
+menu:
+  main:
+    name: Samples
+    identifier: samples
+    weight: 4
 ---
 
 # Samples

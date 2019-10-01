@@ -1,5 +1,11 @@
 ---
-weight: 1
+title: Overview
+weight: 40
+menu:
+  main:
+    name: Overview
+    identifier: overview
+    weight: 1 
 ---
 
 # Overview
