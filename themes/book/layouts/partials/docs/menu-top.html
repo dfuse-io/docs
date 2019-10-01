@@ -1,7 +1,6 @@
 {{ $currentPage := . }}
 <div id="top-nav">
     {{ range .Site.Menus.main }}
-    <a class="{{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}active{{ end }}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+    <a class="{{ if eq $currentPage.FirstSection.Section .Identifier }}active{{ end }}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
     {{ end }}
 </div>
-
