@@ -115,7 +115,7 @@ code {
 }
 #logo-main-nav a   {line-height:8px; }
 
-#top-nav {
+#top-nav-wrapper {
   margin-left: auto;
   justify-content: flex-end;
   align-items: center;
@@ -123,7 +123,7 @@ code {
   display: flex;
   height: 40px;
   box-sizing: border-box;
-  a{
+  #top-nav a{
     padding:0px 15px;
     color:$white;
     position: relative;
