@@ -1,5 +1,6 @@
 ---
 title: WebSocket API
+weight: 8
 ---
 
 # WebSocket API
