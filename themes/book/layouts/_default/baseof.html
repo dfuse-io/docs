@@ -8,13 +8,15 @@
 
 <body>
   <input type="checkbox" class="hidden" id="menu-control" />
+
   <main class="flex container">
+    {{ block "nav" . }}{{ partial "site-nav.html" . }}{{ end }}
 
     <aside class="book-menu fixed">
       {{ partial "docs/menu" . }}
     </aside>
 
-    <div class="book-page">
+    <div class="book-page fixed">
       {{ partial "docs/mobile-header" . }}
       {{ template "main" . }}
       {{ partial "docs/git-footer" . }}
