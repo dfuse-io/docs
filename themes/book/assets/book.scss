@@ -230,7 +230,6 @@ ul.pagination {
 }
 
 .book-footer {
-  display: flex;
   font-size: $font-size-14;
   border-top: 1px solid $gray-200;
   padding-top: 30px;
@@ -238,6 +237,12 @@ ul.pagination {
 
   img {
     height: 1em;
+  }
+
+  .git-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 

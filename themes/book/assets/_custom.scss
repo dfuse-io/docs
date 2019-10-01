@@ -206,3 +206,33 @@ code {
     color: #2ccc71;
   }
 }
+
+.next-pages-buttons {
+  display: flex;
+  padding-bottom: 30px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid $gray-200;
+
+  a {
+    display: flex;
+    align-items: center;
+    border: 1px solid $color-link;
+    border-radius: 2px;
+    padding: 6px 8px;
+
+    &.btn-next-page {
+      text-align: right;
+      
+      .fas {
+        margin-left: 5px;
+      }
+    }
+
+    &.btn-previous-page {
+      .fas {
+        font-size: 10px;
+        margin-right: 5px;
+      }
+    }
+  }
+}
