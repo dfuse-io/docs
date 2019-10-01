@@ -30,18 +30,39 @@ Not to be confused with [/v0/state/table_scopes](#rest-get-v0-state-table-scopes
 This request exhibits the same patterns as the simpler
 [`/v0/state/table`](#rest-get-v0-state-table) query.
 
-## Input parameters
+#### Input parameters
 
-Name | Type | Options | Description
------|------|---------|------------
-`account` | [AccountName](#type-AccountName) | required | Contract account targeted by the action.
-`scopes` | string | required | A [Name](#type-Name) list, separated by the pipe character <code>&#124;</code>, a maximum of 1500 elements can be present in the list.
-`table` | [TableName](#type-TableName) | required | The _name-encoded_ table name you want to retrieve.  For example, user balances for tokens live in the `accounts` table.  Refer to the contract's ABI for a list of available tables.  This is contract dependent.
-`block_num` | number | optional, _defaults_ to head block num | The block number for which you want to retrieve the consistent table snapshot.
-`json` | boolean | optional, _defaults_ to `false` | Decode each row from its binary form into JSON. If `json: false`, then hexadecimal representation of its binary data is returned instead.
-`key_type` | string | optional, _defaults_ to `name` | How to represent the row keys in the returned table.
-`with_block_num` | boolean | optional, _defaults_ to `false` | Will return one `block_num` with each row. Represents the block at which that row was last changed.
-`with_abi` | boolean | optional, _defaults_ to `false` | Return the ABI in effect at block `block_num`.
+{{< method-list-item name="account" type="[AccountName](#type-AccountName)" required="true" >}}
+  Contract account targeted by the action.
+{{< /method-list-item >}}
+
+{{< method-list-item name="scopes" type="String" required="true" >}}
+  A [Name](#type-Name) list, separated by the pipe character <code>&#124;</code>, a maximum of 1500 elements can be present in the list.
+{{< /method-list-item >}}
+
+{{< method-list-item name="table" type="[TableName](#type-TableName)" required="true" >}}
+  The _name-encoded_ table name you want to retrieve.  For example, user balances for tokens live in the `accounts` table.  Refer to the contract's ABI for a list of available tables.  This is contract dependent.
+{{< /method-list-item >}}
+
+{{< method-list-item name="block_num" type="Number" required="false" >}}
+  Defaults to head block num | The block number for which you want to retrieve the consistent table snapshot.
+{{< /method-list-item >}}
+
+{{< method-list-item name="json" type="Boolean" required="false" >}}
+  Defaults to `false` | Decode each row from its binary form into JSON. If `json: false`, then hexadecimal representation of its binary data is returned instead.
+{{< /method-list-item >}}
+
+{{< method-list-item name="key_type" type="String" required="false" >}}
+  Defaults to `name` | How to represent the row keys in the returned table.
+{{< /method-list-item >}}
+
+{{< method-list-item name="with_block_num" type="Boolean" required="false" >}}
+  Defaults to `false` | Will return one `block_num` with each row. Represents the block at which that row was last changed.
+{{< /method-list-item >}}
+
+{{< method-list-item name="with_abi" type="Boolean" required="false" >}}
+  Defaults to `false` | Return the ABI in effect at block `block_num`.
+{{< /method-list-item >}}
 
 <!---
 FIXME: This KeyType is duplicated from `state-tables-scopes.md` and `state-table.md`

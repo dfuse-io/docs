@@ -29,17 +29,33 @@ returned value moves as the chain reorganizes.
 
 ## Input parameters
 
-Name | Type | Options | Description
------|------|---------|------------
-`account` | [AccountName](#type-AccountName) | required | Contract account holding the requested table.
-`table` | [TableName](#type-TableName) | required | The _name-encoded_ table name you want to retrieve scopes from.  Refer to the contract's ABI for a list of available tables.  This is contract dependent.
-`block_num` | number | optional, _defaults_ to head block num | The block number for which you want to retrieve the consistent table scopes snapshot.
+{{< method-list-item name="account" type="[AccountName](#type-AccountName)" required="true" >}}
+  Contract account holding the requested table.
+{{< /method-list-item >}}
 
-## Response
+{{< method-list-item name="table" type="[TableName](#type-TableName)" required="true" >}}
+  The _name-encoded_ table name you want to retrieve scopes from.  Refer to the contract's ABI for a list of available tables.  This is contract dependent.
+{{< /method-list-item >}}
+
+{{< method-list-item name="block_num" type="Number" require="false" >}}
+  Defaults to head block num. The block number for which you want to retrieve the consistent table scopes snapshot.
+{{< /method-list-item >}}
+
+
+#### Response
+
+{{< method-list-item name="block_num" type="Number" require="true" >}}
+  Block number used to serve your request. Will be the head `block_num` if it was not provided or `0` was passed as `block_num`, otherwise, will be the `block_num` you've passed in the request.
+{{< /method-list-item >}}
+
+{{< method-list-item name="scopes" type="Array&lt;[Name](#type-Name)&gt;" require="true" >}}
+  Block number used to serve your request. Will be the head `block_num` if it was not provided or `0` was passed as `block_num`, otherwise, will be the `block_num` you've passed in the request.
+{{< /method-list-item >}}
 
 Here is a sample response, for a request at `block_num: 9000000`:
 
-{{< highlight json >}}
+{{< tabs "state-table-scopes-response" >}}
+{{< tab lang="json" >}}
 {
   "block_num": 9000000,
   "scopes": [
@@ -47,9 +63,5 @@ Here is a sample response, for a request at `block_num: 9000000`:
     "eoscanadacom"
   ]
 }
-{{< /highlight >}}
-
-Name | Type | Options | Description
------|------|---------|------------
-`block_num` | number | required | Block number used to serve your request. Will be the head `block_num` if it was not provided or `0` was passed as `block_num`, otherwise, will be the `block_num` you've passed in the request.
-`scopes` | array&lt;[Name](#type-Name)&gt; | required | An array of scopes for the given table, sorted alphabetically.
+{{< /tab >}}
+{{< /tabs >}}

@@ -91,13 +91,28 @@ Returns a [StateResponse](#type-StateResponse)
 
 ## Table Row
 
-Name | Type | Options | Description
------|------|---------|------------
-`key` | string | required | The encoded key (as requested with `key_type`) for the row
-`payer` | [AccountName](#type-AccountName) | required | The name-encoded account that was billed RAM to store this row.
-`block` | number (uint32) | optional | The block num when this row was last modified (as requested by `with_block_num`).
-`json` | Object | optional, *present* when `json: true` and ABI decoding succeeded, absent otherwise | A JSON representation of the binary data, decoded through the active ABI at that block height.
-`hex` | string | optional, *present* when `json: false`, absent otherwise | A string-encoded hexadecimal representation of the binary data in that row.
-`error` | string | optional | An error string in case the binary data failed to be decoded through the ABI.
+{{< method-list-item name="key" type="String" required="true" >}}
+  The encoded key (as requested with `key_type`) for the row
+{{< /method-list-item >}}
+
+{{< method-list-item name="payer" type="[AccountName](#type-AccountName)" required="true" >}}
+  The name-encoded account that was billed RAM to store this row.
+{{< /method-list-item >}}
+
+{{< method-list-item name="block" type="Number (uint32)" required="false" >}} 
+  The block num when this row was last modified (as requested by `with_block_num`).
+{{< /method-list-item >}}
+
+{{< method-list-item name="json" type="Object" required="false" >}}
+  Returned when `json: true` and ABI decoding succeeded, absent otherwise | A JSON representation of the binary data, decoded through the active ABI at that block height.
+{{< /method-list-item >}}
+
+{{< method-list-item name="hex" type="String" required="false" >}}
+  Returned when `json: false`, absent otherwise | A string-encoded hexadecimal representation of the binary data in that row.
+{{< /method-list-item >}}
+
+{{< method-list-item name="error" type="String" required="false" >}}
+  An error string in case the binary data failed to be decoded through the ABI.
+{{< /method-list-item >}}
 
 Each row will have one of `hex` or `json` present.

@@ -90,23 +90,49 @@ chain, decoding will be performed against this new ABI, but it is not guaranteed
 to be the view that will pass irreversibility. Inspect the returned `block_num`
 parameter of the response to understand from which longest chain the returned ABI is from.
 
-## Input Parameters
+#### Input Parameters
 
 The input body must be a valid JSON object. Here are the fields accepted in this JSON
 object.
 
-Name | Type | Options | Description
------|------|---------|------------
-`account` | [AccountName](#type-AccountName) | required | Contract account targeted by the action.
-`table` | [TableName](#type-TableName) | required | The _name-encoded_ table name you want to retrieve. For example, user balances for tokens live in the `accounts` table. Refer to the contract's ABI for a list of available tables. This is contract dependent.
-`hex_rows` | array&lt;string&gt; | required | An array of hexadecimal rows to decode. Each row must be a valid hexadecimal string representation of the row to decode against the ABI.
-`block_num` | number | optional, _defaults_ to head block num | The block number for which you want to retrieve the ABI. The returned ABI will be the one that was active at this given `block_num`.
+{{< method-list-item name="account" type="[AccountName](#type-AccountName)" required="true" >}}
+  Contract account targeted by the action.
+{{< /method-list-item >}}
 
-## Response
+{{< method-list-item name="table" type="[TableName](#type-TableName)" required="true" >}}
+  The _name-encoded_ table name you want to retrieve. For example, user balances for tokens live in the `accounts` table. Refer to the contract's ABI for a list of available tables. This is contract dependent.
+{{< /method-list-item >}}
+
+{{< method-list-item name="hex_rows" type="Array&lt;string&gt;" required="true" >}}
+  An array of hexadecimal rows to decode. Each row must be a valid hexadecimal string representation of the row to decode against the ABI.
+{{< /method-list-item >}}
+
+{{< method-list-item name="block_num" type="Number" required="false" >}}
+  Defaults to head block num. The block number for which you want to retrieve the ABI. The returned ABI will be the one that was active at this given `block_num`.
+{{< /method-list-item >}}
+
+#### Response
+
+{{< method-list-item name="block_num" type="String" required="false" >}}
+  Block number closest to `block_num` at which the ABI was put on chain. For example, if ABI was last changed at block 1000 and you used a `block_num` of 20000 in the request, the response `block_num` will be 1000.
+{{< /method-list-item >}}
+
+{{< method-list-item name="account" type="[AccountName](#type-AccountName)" required="false" >}}
+  Contract account this ABI is active for.
+{{< /method-list-item >}}
+
+{{< method-list-item name="table" type="[TableName](#type-TableName)" required="false" >}}
+  Contract table the rows were decoded against.
+{{< /method-list-item >}}
+
+{{< method-list-item name="rows" type="Array&lt;object&gt;" required="false" >}}
+  An array of decoded rows. Each element in the array is the decoded JSON representation of the encoded data against the active ABI at the requested `block_num`. Order of `hex_rows` request parameter is preserved.
+{{< /method-list-item >}}
 
 Here is a sample response, for a request at `block_num: 8000`:
 
-{{< highlight json >}}
+{{< tabs "abi-decode-response" >}}
+{{< tab lang="json" >}}
 {
   "block_num": 181,
   "account": "eosio.token",
@@ -118,11 +144,5 @@ Here is a sample response, for a request at `block_num: 8000`:
     ...
   ]
 }
-{{< /highlight >}}
-
-Name | Type | Options | Description
------|------|---------|------------
-`block_num` | string | required | Block number closest to `block_num` at which the ABI was put on chain. For example, if ABI was last changed at block 1000 and you used a `block_num` of 20000 in the request, the response `block_num` will be 1000.
-`account` | [AccountName](#type-AccountName) | required | Contract account this ABI is active for.
-`table` | [TableName](#type-TableName) | required | Contract table the rows were decoded against.
-`rows` | array&lt;object&gt; | required | An array of decoded rows. Each element in the array is the decoded JSON representation of the encoded data against the active ABI at the requested `block_num`. Order of `hex_rows` request parameter is preserved.
+{{< /tab >}}
+{{< /tabs >}}

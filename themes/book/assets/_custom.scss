@@ -291,7 +291,7 @@ h4 + .method-list-item {
 }
 
 .method-list-item-label {
-  width: 144px;
+  width: 160px;
   flex: 0 0 auto;
   font-size: 13px;
   font-weight: bold;
@@ -299,6 +299,8 @@ h4 + .method-list-item {
   .method-list-item-name {
     font-family: $code-font-family;
     font-size: 15px;
+    word-break: break-word;
+    padding-right: 10px;
   }
 
   .method-list-item-optional {

@@ -20,17 +20,18 @@ argument pushed to the chain or created by a smart contract.
 Refers to the [TransactionLifecycle](#type-TransactionLifecycle) to have a better
 overview of lifecycle related properties that are available in the response.
 
-## Input parameters
+#### Input parameters
 
-Name | Type | Options | Description
------|------|---------|------------
-`:id` | string | required | Contract account targeted by the action.
+{{< method-list-item name="id" type="String" required="true" >}}
+  Contract account targeted by the action.
+{{< /method-list-item >}}
 
-## Response
+#### Response
 
-> Here is a sample response, for transaction id `1d5f57e9392d045ef4d1d19e6976803f06741e11089855b94efcdb42a1a41253` on EOS Mainnet:
+Here is a sample response, for transaction id `1d5f57e9392d045ef4d1d19e6976803f06741e11089855b94efcdb42a1a41253` on EOS Mainnet:
 
-{{< highlight json >}}
+{{< tabs "fetch-transaction-example" >}}
+{{< tab lang="json" >}}
 {
   "transaction_status": "executed",
   "id": "1d5f57e9392d045ef4d1d19e6976803f06741e11089855b94efcdb42a1a41253",
@@ -70,6 +71,7 @@ Name | Type | Options | Description
     ]
   }
 }
-{{< /highlight >}}
+{{< /tab >}}
+{{< /tabs >}}
 
 Returns a [TransactionLifecycle](#type-TransactionLifecycle).
