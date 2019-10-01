@@ -12,9 +12,11 @@
   <main class="flex container">
     {{ block "nav" . }}{{ partial "site-nav.html" . }}{{ end }}
 
+    {{ if eq (index .Site.Params.BookSections .Page.Section) "show" }}
     <aside class="book-menu fixed">
       {{ partial "docs/menu" . }}
     </aside>
+    {{ end }}
 
     <div class="book-page fixed">
       {{ partial "docs/mobile-header" . }}

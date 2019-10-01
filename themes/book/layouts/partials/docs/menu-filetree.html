@@ -1,25 +1,9 @@
-{{ $bookSection := default "docs" .Site.Params.BookSection  }}
-{{ if eq $bookSection "*" }}
-  {{ .Scratch.Set "BookSections" .Site.Sections }}
-{{ else }}
-  {{ $bookSections := where .Site.Sections "Section" $bookSection }}
-  {{ .Scratch.Set "BookSections" $bookSections }}
-{{ end }}
+{{ $bookSections := where .Site.Sections "Section" .Page.Section }}
+{{ $section := index $bookSections 0 }}
 
+<h2>{{ $section.Title }}</h2>
 
-{{ $sections := .Scratch.Get "BookSections" }}
-{{/* If there is only one section to render then render its children, else render all sections */}}
-{{ if eq (len $sections) 1 }} 
-  {{ with index $sections 0 }}
-    {{ template "book-section-children" (dict "Section" . "CurrentPage" $.Permalink) }}
-  {{ end }}
-{{ else }}
-  <ul>
-  {{ range where $sections "Params.bookhidden" "!=" true }}
-    {{ template "book-section" (dict "Section" . "CurrentPage" $.Permalink) }}
-  {{ end }}
-  </ul>
-{{ end }}
+{{ template "book-section-children" (dict "Section" $section "CurrentPage" .Page.Permalink) }}
 
 {{ define "book-section" }}
 {{ with .Section }}

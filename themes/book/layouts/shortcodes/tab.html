@@ -12,7 +12,11 @@
     {{ else if eq $lang "javascript" }}
       {{ $title = "Javascript" }}
     {{ else if eq $lang "python" }}
-    {{ $title = "Python" }}
+      {{ $title = "Python" }}
+    {{ else if eq $lang "graphql" }}
+      {{ $title = "GraphQL" }}
+    {{ else if eq $lang "json" }}
+      {{ $title = "JSON" }}
     {{ else }}
       {{ $title = $lang }}
     {{ end }}

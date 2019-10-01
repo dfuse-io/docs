@@ -11,10 +11,7 @@ Fetches a list of scopes, for a given table on a contract account, at any block 
 
 Sample request:
 
-{{< highlight shell >}}
-curl -H "Authorization: Bearer $TOKEN" \
-    "https://mainnet.eos.dfuse.io/v0/state/table_scopes?account=eosforumdapp&table=proposal"
-{{< /highlight >}}
+{{< exampleRequest id="search-transactions" url="https://mainnet.eos.dfuse.io/v0/state/table_scopes?account=eosforumdapp&table=proposal" >}}
 
 {{< note >}}
 Not to be confused with [/v0/state/tables/scopes](#rest-get-v0-state-tables-scopes) which retrieves the actual _tables_. Paired with this endpoint, you can get a consistent view of all tables in a contract.

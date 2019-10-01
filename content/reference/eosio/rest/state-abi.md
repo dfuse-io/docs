@@ -12,10 +12,7 @@ Fetches the ABI for a given contract account, at any block height.
 
 Sample request:
 
-{{< highlight shell >}}
-curl -H "Authorization: Bearer $TOKEN" \
-    "https://mainnet.eos.dfuse.io/v0/state/abi?account=eosio&json=true"
-{{< /highlight >}}
+{{< exampleRequest id="search-transactions" url="https://mainnet.eos.dfuse.io/v0/state/abi?account=eosio&json=true" >}}
 
 ## Requesting past blocks
 
