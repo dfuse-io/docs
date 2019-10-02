@@ -174,13 +174,15 @@ article {
 
 
 
-@media (max-width:1200px) {
+@media (max-width: 1200px) {
   #button-main-menu-mobile {
     display: none;
   }
+
   .book-search {
     margin-left: 15px;
     width: 150px;
+
     ul {
       width: 200px;
       margin:0px;
@@ -192,6 +194,7 @@ article {
     flex-direction: column;
     align-items: self-start;
   }
+
   #tagline {
     top: 0px;
     position: relative;
@@ -203,35 +206,40 @@ article {
     width: max-content;
     font-size: 12px;
   }
+
   #top-nav-wrapper #top-nav a {
     padding: 0 10px;
   }
-
 }
-@media (max-width:1023px){
 
+@media (max-width: 900px){
   #main-menu-control:checked + #top-nav{
     height: 100px!important;
 
     min-height:200px;
   }
+
   #button-main-menu-mobile {
     display: block;
   }
+
   .book-search {
     margin-left: 15px;
     width: 120px;
+
     ul {
       width: 300px;
       margin:0px;
     }
   }
+
   #button-main-menu-mobile {
     color:$white;
     img svg {
       fill:blue !important;
     }
   }
+
   #top-nav {
     position: absolute;
     left: 0px;
@@ -245,10 +253,12 @@ article {
     min-height: 0px;
     box-sizing: border-box;
     transition: ease-out .3s;
+
     li {
       display: block;
       width: 100%;
       padding:15px 20px;
+
       &:hover {
         background: rgba(255,255,255,.1);
       }
