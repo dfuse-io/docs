@@ -420,9 +420,14 @@ h4 + .method-list-item {
     flex-direction: row;
     align-items: center;
     margin-bottom: 6px;
+    width: 100%;
     
     .method-list-item-name {
       margin-right: 6px;
     }
+  }
+
+  .book-toc {
+    display: none;
   }
 }
