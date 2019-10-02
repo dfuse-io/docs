@@ -5,9 +5,44 @@ code {
   word-break: break-word;
 }
 
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.375rem;
+}
+
+h4 {
+  font-size: 1.125rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+h6 {
+  font-size: 0.875rem;
+}
+
+p {
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.7;
+}
+
 #main {
   display: flex;
   flex-direction: column;
+}
+
+.full-width {
+  max-width:100%;
+  padding:0px;
 }
 
 .book-menu nav,
@@ -171,8 +206,26 @@ article {
     }
   }
 }
+.mt-1 {margin-top:.5rem;}
+.mt-2 {margin-top:1rem;}
+.mt-3 {margin-top:1.5rem;}
+.mt-4 {margin-top:2rem;}
+.mt-5 {margin-top:3rem;}
+.mt-6 {margin-top:4rem;}
 
+.bg-ternary-100 {background:$ternary-100;}
 
+button.cta {
+  width:auto;
+  padding:0px 20px;
+  background-color:$primary-1000;
+  color:$white;
+  font-size:14px;
+  line-height:14px;
+  border-radius: 20px;
+  height:40px;
+  border:none;
+}
 
 @media (max-width:1200px) {
   #button-main-menu-mobile {
@@ -334,7 +387,7 @@ article {
 
 
 
-// utility
+//Grid start >>> import from: https://simplegrid.io/
 
 .left {
   text-align: left;
@@ -358,7 +411,7 @@ article {
   display: none;
 }
 
-// grid
+
 
 $width: 96%;
 $gutter: 4%;
@@ -444,3 +497,5 @@ $breakpoint-large: 60em; // 960px
     display: block;
   }
 }
+
+//Grid end

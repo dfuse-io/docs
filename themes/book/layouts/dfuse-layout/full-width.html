@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+
+<head>
+    {{ partial "docs/html-head" . }}
+    {{ partial "docs/inject/head" . }}
+</head>
+
+<body>
+<input type="checkbox" class="hidden" name="menu-secondary" id="menu-control" />
+
+<main class="flex container">
+    {{ block "nav" . }}{{ partial "site-nav.html" . }}{{ end }}
+
+    {{ if eq (index .Site.Params.BookSections .Page.Section) "show" }}
+    <aside class="book-menu fixed">
+        {{ partial "docs/menu" . }}
+    </aside>
+    {{ end }}
+
+    <div class="book-page full-width fixed">
+        <div class="container ">
+            <div class="row">
+                <div class="col-8">
+                    <h1>GraphQL, WebSocket and REST Blockchain APIs</h1>
+                    <p>
+                        Build your project on Ethereum and EOS with <a href="https://www.dfuse.io" target="_blank">dfuse</a> — WebSocket and REST API")_ — the most powerful Streaming and REST API, to provide the best experience to your users. Works on Ethereum Mainnet & Ropsten, and EOS Mainnet, EOS Worbli, CryptoKylin & Jungle 2.0. [Get a free dfuse API key for EOS](https://app.dfuse.io/ "Get a free dfuse API key") to start.</span>
+                </div>
+                <div class="col-4 hidden-sm right">
+                    <button class="cta mt-3">GET STARTED FOR FREE</button>
+                </div>
+            </div>
+        </div>
+        <div class="container bg-ternary-100">
+            <div class="row">
+                <div class="col-8">
+                    <h1>GraphQL, WebSocket and REST Blockchain APIs</h1>
+                    <p>
+                        Build your project on Ethereum and EOS with <a href="https://www.dfuse.io" target="_blank">dfuse</a> — WebSocket and REST API")_ — the most powerful Streaming and REST API, to provide the best experience to your users. Works on Ethereum Mainnet & Ropsten, and EOS Mainnet, EOS Worbli, CryptoKylin & Jungle 2.0. [Get a free dfuse API key for EOS](https://app.dfuse.io/ "Get a free dfuse API key") to start.</span>
+                </div>
+                <div class="col-4 hidden-sm right">
+                    <button class="cta mt-3">GET STARTED FOR FREE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</main>
+
+{{ partial "docs/inject/body" . }}
+{{ template "_internal/google_analytics_async.html" . }}
+</body>
+
+</html>
