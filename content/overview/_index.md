@@ -10,7 +10,7 @@ menu:
 layout: overview
 ---
 
-
+{{< partial "overview-home.html" >}}
 
 # Overview
 
