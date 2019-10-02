@@ -4,7 +4,17 @@ title: SearchTransactionsRow
 
 # `SearchTransactionsRow`
 
-Example payload:
+#### Properties
+
+{{< method-list-item name="lifecycle" type="[TransactionLifecycle](/reference/eosio/types/transactionlifecycle)" required="true" >}}
+  Full transaction where some of its actions matched.
+{{< /method-list-item >}}
+
+{{< method-list-item name="action_idx" type="Array<Number>" required="true" >}}
+  Indexes of the actions (indexed by depth-first search through `inline_traces`, base 0) that matched the search query.
+{{< /method-list-item >}}
+
+## Example Payload
 
 {{< highlight json >}}
 {
@@ -18,9 +28,3 @@ Example payload:
   ]
 }
 {{< /highlight >}}
-
-
-Name | Type | Options | Description
------|------|---------|------------
-`lifecycle` | [TransactionLifecycle]({{< ref "./TransactionLifecycle" >}}) | required | Full transaction where some of its actions matched.
-`action_idx` | Array<Number> | required | Indexes of the actions (indexed by depth-first search through `inline_traces`, base 0) that matched the search query.

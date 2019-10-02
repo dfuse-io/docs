@@ -7,13 +7,27 @@ title: RAMOp
 A RAM operation is a modification to the RAM consumed by an
 account. RAM operations on dfuse are scoped down to the `action`.
 
-Name | Type | Options | Description
------|------|---------|------------
-`op` | string | **required** | Operation. See enum below.
-`action_idx` | number (uint16) | **required** | Position of the action within the transaction, going depth-first in `inline_actions`. 0-based index.
-`payer` | [AccountName]({{< ref "./AccountName" >}}) | **required** | Payer that is credited or debited some RAM usage
-`delta` | number (int64) | **required** | Number of bytes freed (negative) or consumed (positive) by `payer`.
-`usage` | number (uint64) | **required** | Number of bytes available to `payer` *after* this operation affects his RAM balance.
+#### Properties
+
+{{< method-list-item name="op" type="String" required="true" >}}
+  Operation. See enum below.
+{{< /method-list-item >}}
+
+{{< method-list-item name="action_idx" type="Number (uint16)" required="true" >}}
+  Position of the action within the transaction, going depth-first in `inline_actions`. 0-based index.
+{{< /method-list-item >}}
+
+{{< method-list-item name="payer" type="[AccountName](/reference/eosio/types/accountname)" required="true" >}}
+  Payer that is credited or debited some RAM usage
+{{< /method-list-item >}}
+
+{{< method-list-item name="delta" type="Number (int64)" required="true" >}}
+  Number of bytes freed (negative) or consumed (positive) by `payer`.
+{{< /method-list-item >}}
+
+{{< method-list-item name="usage" type="Number (uint64)" required="true" >}}
+  Number of bytes available to `payer` *after* this operation affects his RAM balance.
+{{< /method-list-item >}}
 
 Here is a list of operations with the reasons for the consumption:
 

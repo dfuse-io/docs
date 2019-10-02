@@ -4,7 +4,21 @@ title: SearchTransactionsResponse
 
 # `SearchTransactionsResponse`
 
-Example payload:
+#### Properties
+
+{{< method-list-item name="transactions" type="Array<[SearchTransactionsRow](/reference/eosio/types/searchtransactionsrow)>" required="true" >}}
+  List of `SearchTransactionsRow` objects.
+{{< /method-list-item >}}
+
+{{< method-list-item name="cursor" type="String" required="false" >}}
+  [Cursor to pass back]({{< ref "../rest/search-transactions" >}}) to continue your query. Only present when hitting the `limit` value. Will be null when reaching the end of the block span searched.
+{{< /method-list-item >}}
+
+{{< method-list-item name="forked_head_warning" type="Boolean" required="false" >}}
+  Signals that results previously fetched are at risk of being wrong because of network forks conditions. Will only show when `with_reversible` was set to `true`. See [pagination]({{< ref "../rest/search-transactions" >}}) for more details.
+{{< /method-list-item >}}
+
+## Example Payload
 
 {{< highlight json >}}
 {
@@ -23,9 +37,3 @@ Example payload:
   ]
 }
 {{< /highlight >}}
-
-Name | Type | Options | Description
------|------|---------|------------
-`cursor` | string | optional | [Cursor to pass back]({{< ref "../rest/search-transactions" >}}) to continue your query. Only present when hitting the `limit` value. Will be null when reaching the end of the block span searched.
-`transactions` | Array<[SearchTransactionsRow]({{< ref "./SearchTransactionsRow" >}})> | required | List of `SearchTransactionsRow` objects.
-`forked_head_warning` | boolean | optional | Signals that results previously fetched are at risk of being wrong because of network forks conditions. Will only show when `with_reversible` was set to `true`. See [pagination]({{< ref "../rest/search-transactions" >}}) for more details.

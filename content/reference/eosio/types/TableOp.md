@@ -7,11 +7,29 @@ title: TableOp
 A `TableOp` represents a table operation, creation or removal of a contract's table. The table is represents as
 triplet `<account>/<table>/<scope>`. No two tables can exist at the same time with the same triplet.
 
-Name | Type | Options | Description
------|------|---------|------------
-`op` | string | **required** | Operation, one of `REM` (removal) or `INS` (insertion).
-`action_idx` | number (uint16) | **required** | Position of the action within the transaction, going depth-first in `inline_actions`. 0-based index.
-`account` | [AccountName]({{< ref "./AccountName" >}}) | **required** | Contract account in which this table operation occurred.
-`table` | [TableName]({{< ref "./TableName" >}}) | **required** | Contract account's table affected by this table operation.
-`scope` | [Name]({{< ref "./Name" >}}) | **required** | Table's scope affected by this table operation.
-`payer` | [AccountName]({{< ref "./AccountName" >}}) | **required** | Represents the payer of this table, i.e. the table represented by the `account/table/scope` triplet.
+#### Properties
+
+{{< method-list-item name="op" type="String" required="true" >}}
+  Operation, one of `REM` (removal) or `INS` (insertion).
+{{< /method-list-item >}}
+
+{{< method-list-item name="action_idx" type="Number (uint16)" required="true" >}}
+  Position of the action within the transaction, going depth-first in `inline_actions`. 0-based index.
+{{< /method-list-item >}}
+
+{{< method-list-item name="account" type="[AccountName](/reference/eosio/types/accountname)" required="true" >}}
+  Contract account in which this table operation occurred.
+{{< /method-list-item >}}
+
+{{< method-list-item name="table" type="[TableName](/reference/eosio/types/tablename)" required="true" >}}
+  Contract account's table affected by this table operation.
+{{< /method-list-item >}}
+
+{{< method-list-item name="scope" type="[Name](/reference/eosio/types/name)" required="true" >}}
+  Table's scope affected by this table operation.
+{{< /method-list-item >}}
+
+{{< method-list-item name="payer" type="[AccountName](/reference/eosio/types/accountname)" required="true" >}}
+  Represents the payer of this table, i.e. the table represented by the `account/table/scope` triplet.
+{{< /method-list-item >}}
+
