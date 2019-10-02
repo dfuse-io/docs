@@ -440,3 +440,21 @@ h4 + .method-list-item {
     display: none;
   }
 }
+
+.nav-expandable {
+  // font-weight: bold;
+  font-size: 16px;
+  color: $ternary-1000;
+  display: flex;
+  align-items: center;
+
+  .fas {
+    font-size: 10px;
+    margin-left: 5px;
+    transition: transform .1s ease-out;
+  }
+}
+
+.nav-expand-control:checked ~ .nav-expandable .fas {
+  transform: rotate(90deg);
+}

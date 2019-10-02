@@ -59,6 +59,15 @@ aside nav ul {
   margin: 0;
   list-style: none;
 
+  .nav-expand-control {
+    display: none; // hides the checkbox
+
+    // Hides the collapsed menus
+    &:not(:checked) ~ ul {
+      display: none;
+    }
+  }
+
   li {
     margin: 1em 0;
   }
@@ -74,8 +83,13 @@ aside nav ul {
     }
   }
 
-  span {
+  span,
+  label {
     color: hsl(231.3, 10%, 70%);
+  }
+
+  label[for] {
+    cursor: pointer;
   }
 
   ul {
@@ -131,7 +145,8 @@ ul.pagination {
   }
 
   > a,
-  > span {
+  > span,
+  > label {
     font-weight: bolder;
   }
 

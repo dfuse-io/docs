@@ -100,7 +100,7 @@ const redirectMap = {
     "/#eosio---jungle-20",
     "/#worbli---mainnet",
   ],
-  "/reference/eosio/websocket/": [
+  "/reference/eosio/websocket/introduction": [
     "/#websocket",
     "/#websocket-request-types",
   ],
