@@ -1,6 +1,8 @@
 ---
 layout: docs
 type: single
+aliases:
+  - /#authentication
 ---
 
 # Authentication

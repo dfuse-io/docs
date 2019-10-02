@@ -55,7 +55,7 @@ chain the returned value is a snapshot of.
   Block number extracted from `last_irreversible_block_num`, provided as a convenience so you don't need to extract it yourself.
 {{< /method-list-item >}}
 
-{{< method-list-item name="linked_permissions" type="Array&lt;LinkedPermission&gt;" required="true" >}}
+{{< method-list-item name="linked_permissions" type="Array&lt;[LinkedPermission](/reference/eosio/types/linkedpermission)&gt;" required="true" >}}
   An array of linked permissions for the account, sorted by the `contract` field and on `action` when there is a tie at the `contract` level.
 {{< /method-list-item >}}
 
@@ -78,17 +78,3 @@ Here is a sample response, for a request at `block_num: 8`:
 }
 {{< /tab >}}
 {{< /tabs >}}
-
-## `LinkedPermission`
-
-{{< method-list-item name="contract" type="[AccountName](/reference/eosio/types/accountname)" required="true" >}}
-  Contract's account on which the permission is applied.
-{{< /method-list-item >}}
-
-{{< method-list-item name="action" type="[ActionName](/reference/eosio/types/actionname)" required="true" >}}
-  Action on which the permission is applied.
-{{< /method-list-item >}}
-
-{{< method-list-item name="permission_name" type="[PermissionName](/reference/eosio/types/permissionname)" required="true" >}}
-  Permission name that is required to perform the contract/action pair above.
-{{< /method-list-item >}}

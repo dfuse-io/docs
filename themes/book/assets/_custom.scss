@@ -347,6 +347,7 @@ article {
 
     &.btn-next-page {
       text-align: right;
+      margin-left: 10px;
       
       .fas {
         margin-left: 5px;
@@ -354,6 +355,8 @@ article {
     }
 
     &.btn-previous-page {
+      margin-right: 10px;
+
       .fas {
         font-size: 10px;
         margin-right: 5px;
