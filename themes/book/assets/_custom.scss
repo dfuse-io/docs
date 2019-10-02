@@ -229,8 +229,7 @@ article {
   #button-main-menu-mobile {
     color:$white;
     img svg {
-      fill:blue!important;
-      background-color: #green;
+      fill:blue !important;
     }
   }
   #top-nav {
@@ -245,7 +244,7 @@ article {
     margin: 0px;
     min-height: 0px;
     box-sizing: border-box;
-    transition: ease-in-out .5s;
+    transition: ease-out .3s;
     li {
       display: block;
       width: 100%;
