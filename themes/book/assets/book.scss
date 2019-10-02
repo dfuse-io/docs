@@ -233,6 +233,11 @@ ul.pagination {
     margin-top: 0;
   }
 
+  nav > ul {
+    border-left: 1px solid $color-link;
+    padding: 5px 0 2px 15px;
+  }
+
   // Classes to hide nested levels of ToC (can be replaced by @for, but it's more clear like this)
   &.level-1 ul ul,
   &.level-2 ul ul ul,
