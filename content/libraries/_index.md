@@ -23,6 +23,12 @@ dfuse JavaScript/TypeScript Client Library for dfuse.
 
 [Github](https://github.com/dfuse-io/client-js)
 
+## eosws-go
+
+Go bindings to the dfuse.io Streaming APIs.
+
+[Github](https://github.com/dfuse-io/eosws-go)
+
 ## Non-Official Python Library
 
 Python bindings for dfuse.
