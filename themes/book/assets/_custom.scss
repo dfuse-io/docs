@@ -218,17 +218,50 @@ article {
     }
   }
 }
+.sub-section {
 
+  .sub-section-title-row {
+    .col-12 {
+      border-bottom: 1px dashed $ternary-300;
+
+      h4 {
+        margin-bottom: 5px;
+        font-weight: 800;
+        color: $ternary-500;
+        letter-spacing: 1px;
+      }
+    }
+  }
+
+  .sub-section-title {
+    font-size: .9rem;
+  }
+  .sub-section-content-row {
+    h4 {
+      margin-bottom: 7px;
+    }
+  }
+}
+.ul-none {
+  list-style-type: none;
+  list-style-position: outside;
+  padding-left: 0px;
+}
 .ul-square {
-  list-style: none;
-  list-style-position: inside;
-  padding-left:1rem;
-  li::before {
+  list-style-type: none;
+  list-style-position: outside;
+  padding-left:30px;
+  position:relative;
+  li{
+    position:relative;
+    &::before {
       content: "\25AA";
-      color: $ternary-500;
+      color: #d8e1e9;
       display: inline-block;
       width: 1em;
-      margin-left: -1;
+      position: absolute;
+      left: -23px;
+    }
   }
 }
 .fs-1 {font-size:1rem;}
