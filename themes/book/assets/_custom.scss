@@ -218,27 +218,32 @@ article {
     }
   }
 }
-.sub-section {
+.section {
+  ul li a:hover {
+    color: $secondary-1000;
+  }
+  .sub-section {
+    .sub-section-title-row {
+      .col-12 {
+        border-bottom: 1px dashed $ternary-400;
 
-  .sub-section-title-row {
-    .col-12 {
-      border-bottom: 1px dashed $ternary-400;
-
-      h4 {
-        margin-bottom: 5px;
-        font-weight: 800;
-        color: $ternary-500;
-        letter-spacing: 1px;
+        h4 {
+          margin-bottom: 5px;
+          font-weight: 800;
+          color: $ternary-500;
+          letter-spacing: 1px;
+        }
       }
     }
-  }
 
-  .sub-section-title {
-    font-size: .9rem;
-  }
-  .sub-section-content-row {
-    h4 {
-      margin-bottom: 7px;
+    .sub-section-title {
+      font-size: .9rem;
+    }
+
+    .sub-section-content-row {
+      h4 {
+        margin-bottom: 7px;
+      }
     }
   }
 }
@@ -383,7 +388,7 @@ article {
   background-image: url("/img/eosq-logo-crypto-currency-eosio-01.svg");
 }
 
-.crypto-ethereum {
+.crypto-icon-ethereum {
   background-image: url("/img/eosq-logo-crypto-currency-ethereum-01.svg");
 }
 
