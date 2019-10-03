@@ -81,7 +81,7 @@ This example uses the <https://github.com/hashrocket/ws> command-line WebSocket 
 
 {{< tabs "websocket-auth" >}}
 {{< tab lang="shell" >}}
-ws -o <https://b2b.dfuse.io> wss://mainnet.eos.dfuse.io/v1/stream?token=YOURTOKENHERE
+ws -o https://b2b.dfuse.io wss://mainnet.eos.dfuse.io/v1/stream?token=YOURTOKENHERE
 {{< /tab >}}
 {{< /tabs >}}
 
