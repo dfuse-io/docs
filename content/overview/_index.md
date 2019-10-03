@@ -7,7 +7,7 @@ menu:
     name: Overview
     identifier: overview
     weight: 1 
-type : dfuse-layout
-layout : overview-home
+layout : full-width
 ---
 
+{{< partial "home-overview" >}}

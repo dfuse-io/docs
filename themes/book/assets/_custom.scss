@@ -1,6 +1,10 @@
 /* To be overridden by theme user */
 // @import "variables";
 
+body {
+  line-height: 1.5;
+}
+
 code {
   word-break: break-word;
 }
@@ -32,7 +36,6 @@ h6 {
 p {
   font-size: 1rem;
   font-weight: normal;
-  line-height: 1.7;
 }
 
 .font-light {
@@ -218,35 +221,45 @@ article {
     }
   }
 }
-.section {
+
+.section:nth-of-type(2n) {
+  background-color: $ternary-100;
+}
+
+.sub-section {
   ul li a:hover {
     color: $secondary-1000;
   }
-  .sub-section {
-    .sub-section-title-row {
-      .col-12 {
-        border-bottom: 1px dashed $ternary-400;
 
-        h4 {
-          margin-bottom: 5px;
-          font-weight: 800;
-          color: $ternary-500;
-          letter-spacing: 1px;
-        }
-      }
-    }
+  .sub-section-title-row {
+    .col-12 {
+      border-bottom: 1px dashed $ternary-400;
 
-    .sub-section-title {
-      font-size: .9rem;
-    }
-
-    .sub-section-content-row {
       h4 {
-        margin-bottom: 7px;
+        margin-bottom: 5px;
+        font-weight: 800;
+        color: $ternary-500;
+        letter-spacing: 1px;
       }
     }
   }
+
+  .sub-section-title {
+    font-size: .9rem;
+    margin-top: 0;
+  }
+  .sub-section-title__large {
+    font-size: 1.5rem;
+  }
+
+  .sub-section-content-row {
+    h4 {
+      margin-bottom: 7px;
+    }
+  }
 }
+
+
 .ul-none {
   list-style-type: none;
   list-style-position: outside;
@@ -307,14 +320,11 @@ article {
 .pb-6 {padding-bottom:4rem;}
 .pb-7 {padding-bottom:5rem;}
 
-.bg-ternary-100 {background:$ternary-100;}
-
-
 .crypto-icon-wrapper {
   margin-bottom: -30px;
   color: #fff;
   position: absolute;
-  top: -76px;
+  top: -93px;
   box-sizing: border-box;
 }
 
@@ -346,10 +356,9 @@ article {
 }
 
 .pill-icon-wrapper {
-  margin-bottom: -30px;
   color: #fff;
   position: absolute;
-  top: 12px;
+  top: -6px;
   left: -50px;
   box-sizing: border-box;
 }
@@ -364,6 +373,9 @@ article {
   height: 44px;
   box-sizing: border-box;
 
+  .crypto-icon {
+    background-size: 100%;
+  }
 }
 .pill-icon {
   width: 100%;
@@ -378,12 +390,12 @@ article {
   font-size: 18px;
 }
 
-
 @media (max-width:575px) {
   .row.sub-section-title-row {
     margin-left: 52px;
   }
 }
+
 .crypto-icon-eosio {
   background-image: url("/img/eosq-logo-crypto-currency-eosio-01.svg");
 }
@@ -402,6 +414,7 @@ button.cta {
   border-radius: 20px;
   height:40px;
   border:none;
+  cursor: pointer;
 }
 
 @media (max-width: 1200px) {
