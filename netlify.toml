@@ -8,6 +8,3 @@
 
   # Default build command.
   command = "hugo --gc --minify"
-
-[context.branch-deploy.environment]
-  HUGO_VERSION = "0.58.3"
