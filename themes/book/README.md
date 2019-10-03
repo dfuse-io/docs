@@ -237,3 +237,9 @@ x = \begin{cases}
 \end{cases}
 {{< /katex >}}
 ```
+
+## Redirection of old Slate URLs
+
+The old version of the docs (https://github.com/eoscanada/dfuse-documentation) was built on Slate, which has no routing at all. Everything was concatenated on one page, and all linking was done through #url-fragments, which don't get sent to the server, preventing us from using Hugo aliases. Because of this, we had to use client-side redirects in Javascript on page load.
+
+The configuration of the redirects can be found [here](https://github.com/eoscanada/dfuse-docs-2/blob/master/static/scripts/main.js). The keys of the map are the new urls, and the arrays are the old urls are need to map to them. As a general rule of thumb, if there is an exact match between the old page and the new page, we take the user there. If the page doesn't exist anymore, we try to take them to the most similar page if we can.

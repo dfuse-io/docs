@@ -39,18 +39,39 @@ row (ex: the ABI was not well formed at that `block_num`), the `hex`
 representation would be returned along with an `error` field
 containing the decoding error.
 
-## Input parameters
+#### Input parameters
 
-Name | Type | Options | Description
------|------|---------|------------
-`account` | [AccountName](#type-AccountName) | required | Contract account targeted by the action.
-`scope` | [AccountName](#type-AccountName) | required | The _name-encoded_ scope of the table you are requesting.  For example, user balances for tokens live in their account name's scope. This is contract dependent, so inspect the ABI for the contract you are interested in.
-`table` | [TableName](#type-TableName) | required | The _name-encoded_ table name you want to retrieve.  For example, user balances for tokens live in the `accounts` table.  Refer to the contract's ABI for a list of available tables.  This is contract dependent.
-`block_num` | number | optional, _defaults_ to head block num | The block number for which you want to retrieve the consistent table snapshot.
-`json` | boolean | optional, _defaults_ to `false` | Decode each row from its binary form into JSON. If `json: false`, then hexadecimal representation of its binary data is returned instead.
-`key_type` | string | optional, _defaults_ to `name`, see [KeyType](#state-table-KeyType) for valid values | How to represent the row keys in the returned table.
-`with_block_num` | boolean | optional, _defaults_ to `false` | Will return one `block_num` with each row. Represents the block at which that row was last changed.
-`with_abi` | boolean | optional, _defaults_ to `false` | Will return the ABI in effect at block `block_num`.
+{{< method-list-item name="account" type="[AccountName](/reference/eosio/types/accountname)" required="true" >}}
+  Contract account targeted by the action.
+{{< /method-list-item >}}
+
+{{< method-list-item name="scope" type="[AccountName](/reference/eosio/types/accountname)" required="true" >}}
+  Contract account targeted by the action.
+{{< /method-list-item >}}
+
+{{< method-list-item name="table" type="[TableName](/reference/eosio/types/tablename)" required="true" >}}
+  The _name-encoded_ table name you want to retrieve.  For example, user balances for tokens live in the `accounts` table.  Refer to the contract's ABI for a list of available tables.  This is contract dependent.
+{{< /method-list-item >}}
+
+{{< method-list-item name="block_num" type="Number" required="false" >}}
+  The block number for which you want to retrieve the consistent table snapshot.
+{{< /method-list-item >}}
+
+{{< method-list-item name="json" type="Boolean" required="false" >}}
+  Defaults to `false`. Decode each row from its binary form into JSON. If `json: false`, then hexadecimal representation of its binary data is returned instead.
+{{< /method-list-item >}}
+
+{{< method-list-item name="key_type" type="String" required="false" >}}
+  Defaults to `name`, see [KeyType](#state-table-KeyType) for valid values. How to represent the row keys in the returned table.
+{{< /method-list-item >}}
+
+{{< method-list-item name="with_block_num" type="Boolean" required="false" >}}
+  Defaults to `false`. Will return one `block_num` with each row. Represents the block at which that row was last changed.
+{{< /method-list-item >}}
+
+{{< method-list-item name="with_abi" type="Boolean" required="false" >}}
+  Defaults to `false`. Will return the ABI in effect at block `block_num`.
+{{< /method-list-item >}}
 
 <!---
 FIXME: This KeyType is duplicated from `state-tables-scopes.md` and `state-table.md`
@@ -66,17 +87,32 @@ The key type can be one of the following values:
 
 ## Response
 
-Returns a [StateResponse](#type-StateResponse)
+Returns a [StateResponse]({{< ref "../types/StateResponse" >}})
 
 ## Table Row
 
-Name | Type | Options | Description
------|------|---------|------------
-`key` | string | required | The encoded key (as requested with `key_type`) for the row
-`payer` | [AccountName](#type-AccountName) | required | The name-encoded account that was billed RAM to store this row.
-`block` | number (uint32) | optional | The block num when this row was last modified (as requested by `with_block_num`).
-`json` | Object | optional, *present* when `json: true` and ABI decoding succeeded, absent otherwise | A JSON representation of the binary data, decoded through the active ABI at that block height.
-`hex` | string | optional, *present* when `json: false`, absent otherwise | A string-encoded hexadecimal representation of the binary data in that row.
-`error` | string | optional | An error string in case the binary data failed to be decoded through the ABI.
+{{< method-list-item name="key" type="String" required="true" >}}
+  The encoded key (as requested with `key_type`) for the row
+{{< /method-list-item >}}
+
+{{< method-list-item name="payer" type="[AccountName](/reference/eosio/types/accountname)" required="true" >}}
+  The name-encoded account that was billed RAM to store this row.
+{{< /method-list-item >}}
+
+{{< method-list-item name="block" type="Number (uint32)" required="false" >}} 
+  The block num when this row was last modified (as requested by `with_block_num`).
+{{< /method-list-item >}}
+
+{{< method-list-item name="json" type="Object" required="false" >}}
+  Returned when `json: true` and ABI decoding succeeded, absent otherwise | A JSON representation of the binary data, decoded through the active ABI at that block height.
+{{< /method-list-item >}}
+
+{{< method-list-item name="hex" type="String" required="false" >}}
+  Returned when `json: false`, absent otherwise | A string-encoded hexadecimal representation of the binary data in that row.
+{{< /method-list-item >}}
+
+{{< method-list-item name="error" type="String" required="false" >}}
+  An error string in case the binary data failed to be decoded through the ABI.
+{{< /method-list-item >}}
 
 Each row will have one of `hex` or `json` present.

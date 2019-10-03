@@ -27,4 +27,4 @@ The `req_id` passed to previous commands which included `listen=true`.
 {"type":"unlistened","data":{"success":true}}
 {{< /highlight >}}
 
-If unlistened fails, you will receive a normal [error](#websocket-resp-error) message.
+If unlistened fails, you will receive a normal [error]({{< ref "../Responses" >}}) message.

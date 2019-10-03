@@ -1,45 +1,41 @@
 /* To be overridden by theme user */
 // @import "variables";
 
+body {
+  line-height: 1.5;
+}
+
 code {
   word-break: break-word;
 }
 
 h1 {
   font-size: 2.5rem;
-  color:$ternary-1000;
 }
 
 h2 {
   font-size: 2rem;
-  color:$ternary-1000;
 }
 
 h3 {
   font-size: 1.375rem;
-  color:$ternary-1000;
 }
 
 h4 {
   font-size: 1.125rem;
-  color:$ternary-1000;
 }
 
 h5 {
   font-size: 1rem;
-  color:$ternary-1000;
 }
 
 h6 {
   font-size: 0.875rem;
-  color:$ternary-1000;
 }
 
 p {
   font-size: 1rem;
   font-weight: normal;
-  line-height: 1.7;
-  color:$ternary-1000;
 }
 
 p > code {
@@ -48,7 +44,6 @@ p > code {
   border-radius: 4px;
   font-size: .875em;
   border: 1px solid $ternary-300!important;
-
 }
 
 .font-light {
@@ -234,35 +229,45 @@ article {
     }
   }
 }
-.section {
+
+.section:nth-of-type(2n) {
+  background-color: $ternary-100;
+}
+
+.sub-section {
   ul li a:hover {
     color: $secondary-1000;
   }
-  .sub-section {
-    .sub-section-title-row {
-      .col-12 {
-        border-bottom: 1px dashed $ternary-400;
 
-        h4 {
-          margin-bottom: 5px;
-          font-weight: 800;
-          color: $ternary-500;
-          letter-spacing: 1px;
-        }
-      }
-    }
+  .sub-section-title-row {
+    .col-12 {
+      border-bottom: 1px dashed $ternary-400;
 
-    .sub-section-title {
-      font-size: .9rem;
-    }
-
-    .sub-section-content-row {
       h4 {
-        margin-bottom: 7px;
+        margin-bottom: 5px;
+        font-weight: 800;
+        color: $ternary-500;
+        letter-spacing: 1px;
       }
     }
   }
+
+  .sub-section-title {
+    font-size: .9rem;
+    margin-top: 0;
+  }
+  .sub-section-title__large {
+    font-size: 1.5rem;
+  }
+
+  .sub-section-content-row {
+    h4 {
+      margin-bottom: 7px;
+    }
+  }
 }
+
+
 .ul-none {
   list-style-type: none;
   list-style-position: outside;
@@ -323,14 +328,11 @@ article {
 .pb-6 {padding-bottom:4rem;}
 .pb-7 {padding-bottom:5rem;}
 
-.bg-ternary-100 {background:$ternary-100;}
-
-
 .crypto-icon-wrapper {
   margin-bottom: -30px;
   color: #fff;
   position: absolute;
-  top: -76px;
+  top: -93px;
   box-sizing: border-box;
 }
 
@@ -362,10 +364,9 @@ article {
 }
 
 .pill-icon-wrapper {
-  margin-bottom: -30px;
   color: #fff;
   position: absolute;
-  top: 12px;
+  top: -6px;
   left: -50px;
   box-sizing: border-box;
 }
@@ -380,6 +381,9 @@ article {
   height: 44px;
   box-sizing: border-box;
 
+  .crypto-icon {
+    background-size: 100%;
+  }
 }
 .pill-icon {
   width: 100%;
@@ -394,12 +398,12 @@ article {
   font-size: 18px;
 }
 
-
 @media (max-width:575px) {
   .row.sub-section-title-row {
     margin-left: 52px;
   }
 }
+
 .crypto-icon-eosio {
   background-image: url("/img/eosq-logo-crypto-currency-eosio-01.svg");
 }
@@ -418,15 +422,18 @@ button.cta {
   border-radius: 20px;
   height:40px;
   border:none;
+  cursor: pointer;
 }
 
-@media (max-width:1200px) {
+@media (max-width: 1200px) {
   #button-main-menu-mobile {
     display: none;
   }
+
   .book-search {
     margin-left: 15px;
     width: 150px;
+
     ul {
       width: 200px;
       margin:0px;
@@ -438,6 +445,7 @@ button.cta {
     flex-direction: column;
     align-items: self-start;
   }
+
   #tagline {
     top: 0px;
     position: relative;
@@ -449,36 +457,40 @@ button.cta {
     width: max-content;
     font-size: 12px;
   }
+
   #top-nav-wrapper #top-nav a {
     padding: 0 10px;
   }
-
 }
-@media (max-width:1023px){
 
+@media (max-width: 900px){
   #main-menu-control:checked + #top-nav{
     height: 100px!important;
 
     min-height:200px;
   }
+
   #button-main-menu-mobile {
     display: block;
   }
+
   .book-search {
     margin-left: 15px;
     width: 120px;
+
     ul {
       width: 300px;
       margin:0px;
     }
   }
+
   #button-main-menu-mobile {
     color:$white;
     img svg {
-      fill:blue!important;
-      background-color: #green;
+      fill:blue !important;
     }
   }
+
   #top-nav {
     position: absolute;
     left: 0px;
@@ -491,11 +503,13 @@ button.cta {
     margin: 0px;
     min-height: 0px;
     box-sizing: border-box;
-    transition: ease-in-out .5s;
+    transition: ease-out .3s;
+
     li {
       display: block;
       width: 100%;
       padding:15px 20px;
+
       &:hover {
         background: rgba(255,255,255,.1);
       }
@@ -578,6 +592,128 @@ button.cta {
   }
 }
 
+.next-pages-buttons {
+  display: flex;
+  padding-bottom: 30px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid $gray-200;
+
+  a {
+    display: flex;
+    align-items: center;
+    border: 1px solid $color-link;
+    border-radius: 2px;
+    padding: 6px 8px;
+
+    &.btn-next-page {
+      text-align: right;
+      margin-left: 10px;
+      
+      .fas {
+        margin-left: 5px;
+      }
+    }
+
+    &.btn-previous-page {
+      margin-right: 10px;
+
+      .fas {
+        font-size: 10px;
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+.method-list-item {
+  display: flex;
+  padding: 16px 0;
+  border-bottom: 1px solid $ternary-200;
+}
+
+h4 + .method-list-item {
+  padding-top: 0;
+}
+
+.method-list-item-label {
+  width: 160px;
+  flex: 0 0 auto;
+  font-size: 13px;
+  font-weight: bold;
+
+  .method-list-item-name {
+    font-family: $code-font-family;
+    font-size: 15px;
+    word-break: break-word;
+    padding-right: 10px;
+  }
+
+  .method-list-item-optional {
+    font-size: 10px;
+    color: $ternary-800;
+  }
+
+  .method-list-item-required {
+    color: $secondary-1000;
+    text-transform: uppercase;
+    font-size: 9px;
+  }
+}
+
+.method-list-item-type {
+  font-family: $code-font-family;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.method-list-item-description {
+  font-size: 14px;
+}
+
+@media screen and (max-width: $lg-breakpoint) {
+  .method-list-item {
+    flex-direction: column;
+  }
+
+  .method-list-item-label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 6px;
+    width: 100%;
+    
+    .method-list-item-name {
+      margin-right: 6px;
+    }
+  }
+
+  .book-toc {
+    display: none;
+  }
+}
+
+.nav-expandable {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  color: $ternary-500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-size: 1rem;
+
+  .fas {
+    font-size: 10px;
+    margin-left: 5px;
+    transition: transform .1s ease-out;
+    color: $ternary-400;
+  }
+}
+
+.nav-expand-control:checked ~ .nav-expandable .fas {
+  transform: rotate(90deg);
+}
 
 
 //Grid start >>> import from: https://simplegrid.io/
@@ -694,38 +830,30 @@ $breakpoint-large: 60em; // 960px
 //Grid end
 
 // Side Menu
-
 aside.book-menu nav {
   ul {
     li {
       padding-top:30px;
-      span {
-        color: $ternary-500;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        font-weight: bold;
-        font-size: 1rem;
-      }
       ul {
         padding-left: 0px;
         padding-top:10px;
         li {
           padding-top:0px;
           padding-bottom:0px;
-          span {
+          .nav-expandable {
             color: $ternary-500;
             font-weight: normal;
             letter-spacing: 0px;
             font-size: .85rem;
-            text-transform: none;
-
           }
+
           a {
             color: $ternary-900;
             &:hover {
               color:$secondary-1000;
             }
           }
+
           ul {
             padding-left: 20px;
             padding-top:0px;

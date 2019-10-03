@@ -19,6 +19,18 @@ A demux-js action reader implementation for dfuse.
 
 ## client-js
 
-dfuse JavaScript/TypeScript Client Library for dfuse API.
+dfuse JavaScript/TypeScript Client Library for dfuse.
 
 [Github](https://github.com/dfuse-io/client-js)
+
+## eosws-go
+
+Go bindings to the dfuse.io Streaming APIs.
+
+[Github](https://github.com/dfuse-io/eosws-go)
+
+## Non-Official Python Library
+
+Python bindings for dfuse.
+
+[Github](https://github.com/th3ch33s3/dfuse-python)

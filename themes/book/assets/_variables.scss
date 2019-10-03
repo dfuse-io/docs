@@ -49,8 +49,11 @@ $color-visited-link: hsl(234, 71%, 65%);
 $color-dark-link: $gray-800;
 
 $body-background: white;
-$body-font-color: #0f2e4d;
+$body-font-color: $ternary-1000;
 $body-font-weight: normal;
+
+$body-font-family: 'Lato', sans-serif;
+$code-font-family: 'Inconsolata', monospace;
 
 $body-min-width: 20rem;
 $container-max-width: 100%;
@@ -59,6 +62,7 @@ $header-height: 3.5rem;
 $menu-width: 18rem;
 $toc-width: 16rem;
 
+$lg-breakpoint: $menu-width + $body-min-width * 2 + $toc-width;
 $md-breakpoint: $menu-width + $body-min-width * 1.25 + $toc-width;
 $sm-breakpoint: $menu-width + $body-min-width;
 

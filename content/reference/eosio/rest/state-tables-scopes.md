@@ -22,26 +22,47 @@ Sample request:
 {{< exampleRequest id="search-transactions" url="https://mainnet.eos.dfuse.io/v0/state/tables/scopes?account=eosio&scopes=eosio.token|eosadddddddd|tokenbyeocat|ethsidechain|epraofficial|alibabapoole|hirevibeshvt|oo1122334455|irespotokens|publytoken11|parslseed123|trybenetwork|zkstokensr4u&table=delband&block_num=25000000&json=true" >}}
 
 {{< note >}}
-Not to be confused with [/v0/state/table_scopes](#rest-get-v0-state-table-scopes) which retrieves the only the scope names. Paired with this endpoint, you can get a consistent view of all tables in a contract.
+Not to be confused with [/v0/state/table_scopes]({{< ref "./state-table-scopes" >}}) which retrieves the only the scope names. Paired with this endpoint, you can get a consistent view of all tables in a contract.
 {{< /note >}}
 
 ## Requesting past blocks & ABI handling
 
 This request exhibits the same patterns as the simpler
-[`/v0/state/table`](#rest-get-v0-state-table) query.
+[/v0/state/table]({{< ref "./state-table" >}}) query.
 
-## Input parameters
+#### Input parameters
 
-Name | Type | Options | Description
------|------|---------|------------
-`account` | [AccountName](#type-AccountName) | required | Contract account targeted by the action.
-`scopes` | string | required | A [Name](#type-Name) list, separated by the pipe character <code>&#124;</code>, a maximum of 1500 elements can be present in the list.
-`table` | [TableName](#type-TableName) | required | The _name-encoded_ table name you want to retrieve.  For example, user balances for tokens live in the `accounts` table.  Refer to the contract's ABI for a list of available tables.  This is contract dependent.
-`block_num` | number | optional, _defaults_ to head block num | The block number for which you want to retrieve the consistent table snapshot.
-`json` | boolean | optional, _defaults_ to `false` | Decode each row from its binary form into JSON. If `json: false`, then hexadecimal representation of its binary data is returned instead.
-`key_type` | string | optional, _defaults_ to `name` | How to represent the row keys in the returned table.
-`with_block_num` | boolean | optional, _defaults_ to `false` | Will return one `block_num` with each row. Represents the block at which that row was last changed.
-`with_abi` | boolean | optional, _defaults_ to `false` | Return the ABI in effect at block `block_num`.
+{{< method-list-item name="account" type="[AccountName](/reference/eosio/types/accountname)" required="true" >}}
+  Contract account targeted by the action.
+{{< /method-list-item >}}
+
+{{< method-list-item name="scopes" type="String" required="true" >}}
+  A [Name]({{< ref "../types/Name" >}}) list, separated by the pipe character <code>&#124;</code>, a maximum of 1500 elements can be present in the list.
+{{< /method-list-item >}}
+
+{{< method-list-item name="table" type="[TableName](/reference/eosio/types/tablename)" required="true" >}}
+  The _name-encoded_ table name you want to retrieve.  For example, user balances for tokens live in the `accounts` table.  Refer to the contract's ABI for a list of available tables.  This is contract dependent.
+{{< /method-list-item >}}
+
+{{< method-list-item name="block_num" type="Number" required="false" >}}
+  Defaults to head block num | The block number for which you want to retrieve the consistent table snapshot.
+{{< /method-list-item >}}
+
+{{< method-list-item name="json" type="Boolean" required="false" >}}
+  Defaults to `false` | Decode each row from its binary form into JSON. If `json: false`, then hexadecimal representation of its binary data is returned instead.
+{{< /method-list-item >}}
+
+{{< method-list-item name="key_type" type="String" required="false" >}}
+  Defaults to `name` | How to represent the row keys in the returned table.
+{{< /method-list-item >}}
+
+{{< method-list-item name="with_block_num" type="Boolean" required="false" >}}
+  Defaults to `false` | Will return one `block_num` with each row. Represents the block at which that row was last changed.
+{{< /method-list-item >}}
+
+{{< method-list-item name="with_abi" type="Boolean" required="false" >}}
+  Defaults to `false` | Return the ABI in effect at block `block_num`.
+{{< /method-list-item >}}
 
 <!---
 FIXME: This KeyType is duplicated from `state-tables-scopes.md` and `state-table.md`
@@ -58,4 +79,4 @@ The key type can be one of the following values:
 
 ## Response
 
-Returns a [MultiStateResponse](#type-MultiStateResponse), same as the [multi-accounts endpoint](#rest-get-v0-state-tables-accounts).
+Returns a [MultiStateResponse]({{< ref "../types/MultiStateResponse" >}}), same as the [multi-scopes endpoint]({{< ref "state-tables-scopes" >}}).

@@ -4,7 +4,17 @@ title: AuthTokenResponse
 
 # `AuthTokenResponse`
 
-Example payload:
+#### Properties
+
+{{< method-list-item name="token" type="String" >}}
+  The JWT to be used with all API calls, including WebSocket.
+{{< /method-list-item >}}
+
+{{< method-list-item name="expires_at" type="Timestamp" >}}
+  An UNIX timestamp (UTC) indicating when the JWT will expire.
+{{< /method-list-item >}}
+
+## Example payload
 
 {{< highlight json >}}
 {
@@ -12,8 +22,3 @@ Example payload:
   "expires_at": 1550692172
 }
 {{< /highlight >}}
-
-Name | Type | Description
------|------|------------
-`token` | string | The JWT to be used with all API calls, including WebSocket.
-`expires_at` | timestamp | An UNIX timestamp (UTC) indicating when the JWT will expire.

@@ -1,8 +1,6 @@
 @import 'variables';
 
 .markdown {
-  line-height: 1.7;
-
   h1, h2, h3, h4, h5 {
     margin-top: 60px;
     margin-bottom: 30px;
@@ -46,6 +44,8 @@
     background: $gray-200;
     border-radius: $border-radius;
     font-size: .875em;
+    font-weight: bold;
+    color: $ternary-900;
   }
 
   pre {
@@ -55,6 +55,7 @@
     overflow-x: auto;
 
     code {
+      color: white;
       padding: 0;
       background: none;
     }

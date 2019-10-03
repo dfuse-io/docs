@@ -4,7 +4,19 @@ title: TransactionLifecycleResponse
 
 # `TransactionLifecycleResponse`
 
- Example `transaction_lifecycle` response payload:
+#### Properties
+
+Here are the fields under `data`:
+
+{{< method-list-item name="type" type="String" required="true" >}}
+  The `transaction_lifecycle` string
+{{< /method-list-item >}}
+
+{{< method-list-item name="data.lifecycle" type="[TransactionLifecycle](/reference/eosio/types/transactionlifecycle)" required="true" >}}
+  The lifecycle object being tracked.
+{{< /method-list-item >}}
+
+## Example Payload
 
 {{< highlight json >}}
 {
@@ -20,10 +32,3 @@ title: TransactionLifecycleResponse
   }
 }
 {{< /highlight >}}
-
-Here are the fields under `data`:
-
-Name | Type | Options | Description
------|------|---------|------------
-`type` | string | required | The `transaction_lifecycle` string
-`data.lifecycle` | [TransactionLifecycle](#type-TransactionLifecycle) | required | The lifecycle object being tracked.

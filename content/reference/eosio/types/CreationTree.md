@@ -4,6 +4,20 @@ title: CreationTree
 
 # `CreationTree`
 
+#### Properties
+
+{{< method-list-item name="nodeId" type="Int" >}}
+  Index 0. Unique id for the node among all nodes in the tree.
+{{< /method-list-item >}}
+
+{{< method-list-item name="parentId" type="Int" >}}
+  Index 1. Parent's node id, a value of `-1` means it's a root node.
+{{< /method-list-item >}}
+
+{{< method-list-item name="actionIndex" type="Int" >}}
+  Index 2. Action index within the transaction to map this creation node to, going depth-first in `inline_actions`, 0-based indexed.
+{{< /method-list-item >}}
+
 A `CreationTree` represents the creation-ordered tree of notifications (`require_recipient` calls),
 inline actions (`send_inline` calls) and context free inline actions (`send_context_free_inline` calls) as defined
 in the smart contract. The `CreationTree` is per transaction and might not be present in the returned response. In
@@ -88,11 +102,3 @@ Creation Tree               (0, -1, actionIndex 0)
         ├── inline3         (8, 6, actionIndex 8)
         └── notify4         (9, 6, actionIndex 6)
 {{< /highlight >}}
-
-### Creation Tree Node
-
-Index | Symbolic Name | Type | Description
------|------|---------|------------
-0 | `nodeId` | int | Unique id for the node among all nodes in the tree.
-1 | `parentId` | int | Parent's node id, a value of `-1` means it's a root node.
-2 | `actionIndex` | int | Action index within the transaction to map this creation node to, going depth-first in `inline_actions`, 0-based indexed.

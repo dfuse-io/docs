@@ -27,18 +27,42 @@ guaranteed to be the view that will pass irreversibility. Inspect the
 returned `up_to_block_id` parameter to understand from which longest
 chain the returned value is a snapshot of.
 
-## Input parameters
+#### Input parameters
 
-Name | Type | Options | Description
------|------|---------|------------
-`account` | [AccountName](#type-AccountName) | required | Account to query linked permissions from.
-`block_num` | number (uint32) | optional, _defaults_ head block num | The block number for which you want to retrieve the consistent linked permissions snapshot.
+{{< method-list-item name="account" type="[AccountName](/reference/eosio/types/accountname)" required="true" >}}
+  Account to query linked permissions from.
+{{< /method-list-item >}}
 
-## Response
+{{< method-list-item name="block_num" type="Number (uint32)" required="false" >}}
+  Defaults to head block num. The block number for which you want to retrieve the consistent linked permissions snapshot.
+{{< /method-list-item >}}
 
-> Here is a sample response, for a request at `block_num: 8`:
+#### Response
 
-{{< highlight json >}}
+{{< method-list-item name="up_to_block_id" type="String" required="false" >}}
+  Block ID at which the snapshot was taken when querying the reversible chain segment. This will not be present if querying blocks older than the last irreversible block.
+{{< /method-list-item >}}
+
+{{< method-list-item name="up_to_block_num" type="Number (uint32)" required="false" >}}
+  Block number extracted from `up_to_block_id` if present, provided as a convenience so you don't need to extract it yourself.
+{{< /method-list-item >}}
+
+{{< method-list-item name="last_irreversible_block_id" type="String" required="false" >}}
+  Last irreversible block considered for this request. The returned snapshot is still for the requested `block_num`, even though the irreversible block shown here is more recent.
+{{< /method-list-item >}}
+
+{{< method-list-item name="last_irreversible_block_num" type="Number (uint32)" required="false" >}}
+  Block number extracted from `last_irreversible_block_num`, provided as a convenience so you don't need to extract it yourself.
+{{< /method-list-item >}}
+
+{{< method-list-item name="linked_permissions" type="Array&lt;[LinkedPermission](/reference/eosio/types/linkedpermission)&gt;" required="true" >}}
+  An array of linked permissions for the account, sorted by the `contract` field and on `action` when there is a tie at the `contract` level.
+{{< /method-list-item >}}
+
+Here is a sample response, for a request at `block_num: 8`:
+
+{{< tabs "state-permission-links-response" >}}
+{{< tab lang="json" >}}
 {
   "up_to_block_id": "0000001000000000000000000000000000000000000000000000000000000000",
   "up_to_block_num": 8,
@@ -52,20 +76,5 @@ Name | Type | Options | Description
     }
   ]
 }
-{{< /highlight >}}
-
-Name | Type | Options | Description
------|------|---------|------------
-`up_to_block_id` | string | optional | Block ID at which the snapshot was taken when querying the reversible chain segment. This will not be present if querying blocks older than the last irreversible block.
-`up_to_block_num` | number (uint32) | optional | Block number extracted from `up_to_block_id` if present, provided as a convenience so you don't need to extract it yourself.
-`last_irreversible_block_id` | string | optional | Last irreversible block considered for this request. The returned snapshot is still for the requested `block_num`, even though the irreversible block shown here is more recent.
-`last_irreversible_block_num` | number (uint32) | optional | Block number extracted from `last_irreversible_block_num`, provided as a convenience so you don't need to extract it yourself.
-`linked_permissions` | array&lt;[LinkedPermission](#type-state-LinkedPermission)&gt; | required | An array of linked permissions for the account, sorted by the `contract` field and on `action` when there is a tie at the `contract` level.
-
-## `LinkedPermission`
-
-Name | Type | Options | Description
------|------|---------|------------
-`contract`  | [AccountName](#type-AccountName) | required | Contract's account on which the permission is applied.
-`action` | [ActionName](#type-ActionName) | required | Action on which the permission is applied.
-`permission_name` | [PermissionName](#type-PermissionName) | required | Permission name that is required to perform the contract/action pair above.
+{{< /tab >}}
+{{< /tabs >}}

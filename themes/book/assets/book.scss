@@ -59,6 +59,15 @@ aside nav ul {
   margin: 0;
   list-style: none;
 
+  .nav-expand-control {
+    display: none; // hides the checkbox
+
+    // Hides the collapsed menus
+    &:not(:checked) ~ ul {
+      display: none;
+    }
+  }
+
   li {
     margin: 1em 0;
   }
@@ -74,8 +83,13 @@ aside nav ul {
     }
   }
 
-  span {
+  span,
+  label {
     color: hsl(231.3, 10%, 70%);
+  }
+
+  label[for] {
+    cursor: pointer;
   }
 
   ul {
@@ -117,6 +131,10 @@ ul.pagination {
     width: $menu-width;
     padding: 2rem 1rem;
 
+    & > h2 {
+      margin-top: 0;
+    }
+
     @include fixed;
   }
 
@@ -131,7 +149,8 @@ ul.pagination {
   }
 
   > a,
-  > span {
+  > span,
+  > label {
     font-weight: bolder;
   }
 
@@ -143,11 +162,11 @@ ul.pagination {
 .book-page {
   min-width: $body-min-width;
   flex-grow: 1;
-  padding: 5rem;
+  padding: 120px 5rem 5rem;
   max-width: 60rem;
 
   ul li, ol li {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
   }
 }
 
@@ -218,6 +237,11 @@ ul.pagination {
     margin-top: 0;
   }
 
+  nav > ul {
+    border-left: 1px solid $color-link;
+    padding: 5px 0 2px 15px;
+  }
+
   // Classes to hide nested levels of ToC (can be replaced by @for, but it's more clear like this)
   &.level-1 ul ul,
   &.level-2 ul ul ul,
@@ -230,7 +254,6 @@ ul.pagination {
 }
 
 .book-footer {
-  display: flex;
   font-size: $font-size-14;
   border-top: 1px solid $gray-200;
   padding-top: 30px;
@@ -238,6 +261,12 @@ ul.pagination {
 
   img {
     height: 1em;
+  }
+
+  .git-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 
@@ -274,7 +303,7 @@ aside nav,
   -webkit-appearance: none;
   -moz-appearance: none;
   border: 0;
-  height: 44px;
+  height: 39px;
   padding: 0 20px;
 
   position: absolute;

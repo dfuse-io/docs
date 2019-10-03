@@ -4,7 +4,53 @@ title: ActionTrace
 
 # `ActionTrace`
 
-Example `action_trace` payload:
+#### Properties
+
+{{< method-list-item name="comparator" type="String" required="true" >}}
+  Comparison operator for the block time. Should be one of `gt`, `gte`, `lt`, `lte` or `eq`.
+{{< /method-list-item >}}
+
+{{< method-list-item name="block_id" type="String" required="true" >}}
+  Block at which we are seeing this action being executed, and for which we are reporting traces.
+{{< /method-list-item >}}
+
+{{< method-list-item name="block_num" type="Number (uint32)" required="true" >}}
+  Block num corresponding to the `block_id`
+{{< /method-list-item >}}
+
+{{< method-list-item name="block_time" type="DateTime" required="true" >}}
+  Time at which `block_id` was produced.
+{{< /method-list-item >}}
+
+{{< method-list-item name="trx_id" type="String" required="true" >}}
+  ID of transaction that produced these traces
+{{< /method-list-item >}}
+
+{{< method-list-item name="idx" type="Number (uint16)" required="true" >}}
+  Zero-based index of this action within the transaction. Actions being nestable, this index represents a depth-first search indexing: if action _A_ (index 0) produced an inline action _B_, then action _B_ is index 1.
+{{< /method-list-item >}}
+
+{{< method-list-item name="depth" type="Number (uint16)" required="true" >}}
+  Depth of the action relative to the input actions (top-level actions that were defined in the originating transaction, and _not_ inlined as side effects of execution of top-level actions).  Actions with `depth = 0` are called input actions. Anything above 0 means this is an inline action.
+{{< /method-list-item >}}
+
+{{< method-list-item name="trace" type="[TransactionTrace](/reference/eosio/types/transactiontrace)" required="true" >}}
+  An execution trace object. This is a standard `nodeos` trace object. See the [reference C++ code here](https://github.com/EOSIO/eos/blob/master/libraries/chain/include/eosio/chain/trace.hpp).
+{{< /method-list-item >}}
+
+{{< method-list-item name="ramops" type="Array&lt;[RAMOp](/reference/eosio/types/ramop)&gt;" required="false" >}}
+  A list of operations on RAM usage, including operation, payer, delta, resulting usage.
+{{< /method-list-item >}}
+
+{{< method-list-item name="dtrxops" type="Array&lt;[DTrxOps](/reference/eosio/types/dtrxop)&gt;" required="false" >}}
+  A list of operations on deferred transactions (create, cancel...).
+{{< /method-list-item >}}
+
+<!--
+  * `dbops` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)**: list of database operations, including the payer, the type of the operation (insert, update or delete), the previous row value and the new row value (in case of updates for example).
+-->
+
+## Example payload
 
 {{< highlight json >}}
 {
@@ -82,20 +128,3 @@ Example `action_trace` payload:
   }
 }
 {{< /highlight >}}
-
-
-Name | Type | Options | Description
------|------|---------|------------
-`block_id` | string | required | Block at which we are seeing this action being executed, and for which we are reporting traces.
-`block_num` | number (uint32) | required | Block num corresponding to the `block_id`
-`block_time` | DateTime | required | Time at which `block_id` was produced.
-`trx_id` | string | required | ID of transaction that produced these traces
-`idx` | number (uint16) | required | Zero-based index of this action within the transaction. Actions being nestable, this index represents a depth-first search indexing: if action _A_ (index 0) produced an inline action _B_, then action _B_ is index 1.
-`depth` | number (uint16) | required | Depth of the action relative to the input actions (top-level actions that were defined in the originating transaction, and _not_ inlined as side effects of execution of top-level actions).  Actions with `depth = 0` are called input actions. Anything above 0 means this is an inline action.
-`trace` | [TransactionTrace](#type-TransactionTrace) | required | An execution trace object. This is a standard `nodeos` trace object. See the [reference C++ code here](https://github.com/EOSIO/eos/blob/master/libraries/chain/include/eosio/chain/trace.hpp).
-`ramops` | array&lt;[RAMOp](#type-RAMOp)&gt; | optional | A list of operations on RAM usage, including operation, payer, delta, resulting usage.
-`dtrxops` | array&lt;[DTrxOps](#type-DTrxOps)&gt; | optional | A list of operations on deferred transactions (create, cancel...).
-
-<!--
-  * `dbops` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)**: list of database operations, including the payer, the type of the operation (insert, update or delete), the previous row value and the new row value (in case of updates for example).
--->

@@ -3,42 +3,51 @@
 
 <h2>{{ $section.Title }}</h2>
 
-{{ template "book-section-children" (dict "Section" $section "CurrentPage" .Page.Permalink) }}
+{{ template "book-section-children" (dict "Section" $section "CurrentPage" .Page) }}
 
 {{ define "book-section" }}
-{{ with .Section }}
-  <li {{ if .Params.BookFlatSection}} class="book-section-flat" {{ end }}>
-    {{ if .Content }}
-      {{ template "book-page-link" (dict "Page" . "CurrentPage" $.CurrentPage) }}
-    {{ else }}
-      <span>{{ partial "docs/title" . }}</span>
-    {{ end }}
+  {{ with .Section }}
+    <li {{ if .Params.BookFlatSection}} class="book-section-flat" {{ end }}>
+      {{ if .Content }}
+      
+        {{ template "book-page-link" (dict "Page" . "CurrentPage" $.CurrentPage) }}
 
-    {{ template "book-section-children" (dict "Section" . "CurrentPage" $.CurrentPage) }}
-  </li>
-{{ end }}
+      {{ else }}
+
+        <input type="checkbox" id="nav-expand-control-{{ .File }}" class="nav-expand-control"
+          {{ if .Page.IsAncestor $.CurrentPage }}checked{{end}} />
+        <label class="nav-expandable" for="nav-expand-control-{{ .File }}">
+          {{ partial "docs/title" . }}
+          <i class="fas fa-chevron-right"></i>
+        </label>
+
+      {{ end }}
+
+      {{ template "book-section-children" (dict "Section" . "CurrentPage" $.CurrentPage) }}
+    </li>
+  {{ end }}
 {{ end }}
 
 {{ define "book-section-children" }}
-{{ with .Section }}
-  <ul>
-    {{ range where .Pages "Params.bookhidden" "!=" "true" }}
-      {{ if eq .Kind "section" }}
-        {{ template "book-section" (dict "Section" . "CurrentPage" $.CurrentPage) }}
-      {{ else if and (eq .Kind "page") .Content }}
-        <li>
-        {{- template "book-page-link" (dict "Page" . "CurrentPage" $.CurrentPage) -}}
-        </li>
+  {{ with .Section }}
+    <ul>
+      {{ range where .Pages "Params.bookhidden" "!=" "true" }}
+        {{ if eq .Kind "section" }}
+          {{ template "book-section" (dict "Section" . "CurrentPage" $.CurrentPage) }}
+        {{ else if and (eq .Kind "page") .Content }}
+          <li>
+            {{- template "book-page-link" (dict "Page" . "CurrentPage" $.CurrentPage) -}}
+          </li>
+        {{ end }}
       {{ end }}
-    {{ end }}
-  </ul>
-{{ end }}
+    </ul>
+  {{ end }}
 {{ end }}
 
 {{ define "book-page-link" }}
-{{ with .Page }}
-  <a href="{{ .RelPermalink }}" {{ if eq $.CurrentPage .Permalink }} class="active"{{ end }}>
+  {{ with .Page }}
+    <a href="{{ .RelPermalink }}" {{ if eq $.CurrentPage.Permalink .Permalink }} class="active"{{ end }}>
       {{ partial "docs/title" . | markdownify }}
-  </a>
-{{ end }}
+    </a>
+  {{ end }}
 {{ end }}

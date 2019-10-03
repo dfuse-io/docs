@@ -4,7 +4,71 @@ title: TransactionLifecycle
 
 # `TransactionLifecycle`
 
-Example TransactionLifecycle payload:
+#### Properties
+
+Here are the fields under `data`:
+
+{{< method-list-item name="id" type="String" required="true" >}}
+  The transaction ID
+{{< /method-list-item >}}
+
+{{< method-list-item name="transaction_status" type="String" required="true" >}}
+  One of_ `pending`, `delayed`, `canceled`, `expired`, `executed`, `soft_fail`, `hard_fail` | Computed status for the transaction
+{{< /method-list-item >}}
+
+{{< method-list-item name="transaction" type="Transaction" required="true" >}}
+  Standard nodeos transaction object
+{{< /method-list-item >}}
+
+{{< method-list-item name="execution_trace" type="[TransactionTrace](/reference/eosio/types/transactiontrace)" required="false" >}}
+  Traces of execution. In the case of a deferred transaction, you might not see execution traces
+{{< /method-list-item >}}
+
+{{< method-list-item name="execution_block_header" type="BlockHeader" required="false" >}}
+  Standard `block_header` object for the block where the transaction got executed
+{{< /method-list-item >}}
+
+{{< method-list-item name="creation_tree" type="[CreationTree](/reference/eosio/types/creationtree)" required="false" >}}
+  Represents the creation order of actions within this transaction.
+{{< /method-list-item >}}
+
+{{< method-list-item name="dtrxops" type="Array&lt;[DTrxOp](/reference/eosio/types/DTrxOp)&gt;" required="false" >}}
+  A list of operations on deferred transactions (create, cancel...).
+{{< /method-list-item >}}
+
+{{< method-list-item name="ramops" type="Array&lt;[RAMOp](/reference/eosio/types/RAMOp)&gt;" required="false" >}}
+  A list of operations on RAM usage, including operation, payer, delta, resulting usage.
+{{< /method-list-item >}}
+
+{{< method-list-item name="tableops" type="Array&lt;[TableOp](/reference/eosio/types/TableOp)&gt;" required="false" >}}
+  A list of table operations, including operation, contract account, table, scope and payer.
+{{< /method-list-item >}}
+
+{{< method-list-item name="pub_keys" type="Array&lt;string&gt;" required="false" >}}
+  List of public keys used to sign the transaction.
+{{< /method-list-item >}}
+
+{{< method-list-item name="created_by" type="[ExtDTrxop](/reference/eosio/types/extdtrxop)" required="false" >}}
+  When querying a deferred transaction, reference to the transaction that created it.
+{{< /method-list-item >}}
+
+{{< method-list-item name="canceled_by" type="[ExtDTrxop](/reference/eosio/types/extdtrxop)" required="false" >}}
+  Similar to `created_by`, the reference to another transaction that has canceled this one.
+{{< /method-list-item >}}
+
+{{< method-list-item name="execution_irreversible" type="Boolean" required="false" >}}
+  Indicates execution passed irreversibility.
+{{< /method-list-item >}}
+
+{{< method-list-item name="creation_irreversible" type="Boolean" required="false" >}}
+  Indicates transaction creation passed irreversibility. Valid only for deferred transactions
+{{< /method-list-item >}}
+
+{{< method-list-item name="cancelation_irreversible" type="Boolean" required="false" >}}
+  Indicates cancelation passed irreversibility. Valid only for deferred transactions.
+{{< /method-list-item >}}
+
+## Example Payload
 
 {{< highlight json >}}
 {
@@ -44,25 +108,5 @@ Example TransactionLifecycle payload:
   "cancelation_irreversible": false
 }
 {{< /highlight >}}
-
-Here are the fields under `data`:
-
-Name | Type | Options | Description
------|------|---------|------------
-`id` | string | required | the transaction ID
-`transaction_status` | string | required, _one of_ `pending`, `delayed`, `canceled`, `expired`, `executed`, `soft_fail`, `hard_fail` | Computed status for the transaction
-`transaction` | [Transaction](#type-Transaction) | required | Standard nodeos transaction object
-`execution_trace` | [TransactionTrace](#type-TransactionTrace) | optional | Traces of execution. In the case of a deferred transaction, you might not see execution traces
-`execution_block_header` | BlockHeader | optional | Standard `block_header` object for the block where the transaction got executed
-`creation_tree` | [CreationTree](#type-CreationTree) | optional | Represents the creation order of actions within this transaction.
-`dtrxops` | array&lt;[DTrxOp](#type-DTrxOp)&gt; | optional | A list of operations on deferred transactions (create, cancel...).
-`ramops` | array&lt;[RAMOp](#type-RAMOp)&gt; | optional | A list of operations on RAM usage, including operation, payer, delta, resulting usage.
-`tableops` | array&lt;[TableOp](#type-TableOp)&gt; | optional | A list of table operations, including operation, contract account, table, scope and payer.
-`pub_keys` | array&lt;string&gt; | optional | List of public keys used to sign the transaction.
-`created_by` | [ExtDTrxop](#type-ExtDTrxOp) | optional | When querying a deferred transaction, reference to the transaction that created it.
-`canceled_by` | [ExtDTrxop](#type-ExtDTrxOp) | optional | Similar to `created_by`, the reference to another transaction that has canceled this one.
-`execution_irreversible` | boolean | optional | Indicates execution passed irreversibility.
-`creation_irreversible` | boolean | optional | Indicates transaction creation passed irreversibility. Valid only for deferred transactions
-`cancelation_irreversible` | boolean | optional | Indicates cancelation passed irreversibility. Valid only for deferred transactions.
 
 Also see this [source code for reference](https://github.com/dfuse-io/eosws-go/blob/master/mdl/v1/transaction.go#L68)

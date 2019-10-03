@@ -26,27 +26,35 @@ If the requested `block_num` is irreversible, you will get an
 immutable list of accounts. Otherwise, there are chances that the
 returned value moves as the chain reorganizes.
 
-## Input parameters
+#### Input parameters
 
-Name | Type | Options | Description
------|------|---------|------------
-`public_key` | [PublicKey](#type-PublicKey) | required | The public key to fetch controlled accounts for.
-`block_num` | number | optional, _defaults_ to head block num | The block number for which you want to retrieve the list of accounts.
+{{< method-list-item name="public_key" type="[PublicKey](/reference/eosio/types/publickey)" required="true" >}}
+  The public key to fetch controlled accounts for.
+{{< /method-list-item >}}
 
-## Response
+{{< method-list-item name="block_num" type="Number" required="false" >}}
+  Defaults to head block num. The block number for which you want to retrieve the list of accounts.
+{{< /method-list-item >}}
+
+#### Response
+
+{{< method-list-item name="block_num" type="Number" >}}
+  Block number used to serve your request. Will be the head `block_num` if it was not provided or `0` was passed as `block_num`, otherwise, will be the `block_num` you've passed in the request.
+{{< /method-list-item >}}
+
+{{< method-list-item name="account_names" type="Array&lt;[AccountName](/reference/eosio/types/accountname)&gt;" >}}
+  An array of account names that the public key is associated with, sorted alphabetically.
+{{< /method-list-item >}}
 
 Here is a sample response, for a request at `block_num: 10000000`:
 
-{{< highlight json >}}
+{{< tabs "state-key-accounts-response" >}}
+{{< tab lang="json" >}}
 {
   "block_num": 10000000,
   "account_names": [
     "eoscanadacom"
   ]
 }
-{{< /highlight >}}
-
-Name | Type | Options | Description
------|------|---------|------------
-`block_num` | number | required | Block number used to serve your request. Will be the head `block_num` if it was not provided or `0` was passed as `block_num`, otherwise, will be the `block_num` you've passed in the request.
-`account_names` | array&lt;[AccountName](#type-AccountName)&gt; | required | An array of account names that the public key is associated with, sorted alphabetically.
+{{< /tab >}}
+{{< /tabs >}}

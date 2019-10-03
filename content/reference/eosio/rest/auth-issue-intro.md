@@ -81,12 +81,12 @@ func main() {
 This method is called on a different domain: <strong>https://auth.dfuse.io/v1/auth/issue</strong>
 {{< /note >}}
 
-## Input parameters
+#### Input parameters
 
-Name | Type | Options | Description
------|------|---------|------------
-`api_key` | string | **required** | Long-term API key
+{{< method-list-item name="api_key" type="String" required="true" >}}
+  Long-term API key
+{{< /method-list-item >}}
 
-## Response
+#### Response
 
-Returns an [AuthTokenResponse](#type-AuthTokenResponse).
+Returns an [AuthTokenResponse]({{< ref "../types/AuthTokenResponse" >}}).

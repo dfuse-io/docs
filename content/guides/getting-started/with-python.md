@@ -112,7 +112,8 @@ python3 example.py YOUR_API_KEY_HERE
 {{< /tab >}}
 {{< /tabs >}}
 
-## Useful links
+<!-- Hiding these links for now, because they are all specific to EOSIO -->
+<!-- ## Useful links
 
 - Docs: [dfuse Search query language](#dfuse-query-language)
-- On mainnet: [GraphiQL](https://mainnet.eos.dfuse.io/graphiql/) A graphic graphql editor and API documentation browser.
+- On mainnet: [GraphiQL](https://mainnet.eos.dfuse.io/graphiql/) A graphic graphql editor and API documentation browser. -->

@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Fira+Mono|Lato&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Inconsolata|Lato&display=swap');
 
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: $body-font-family;
 }
 
 code {
-  font-family: 'Fira Mono', monospace;
+  font-family: $code-font-family;
 }

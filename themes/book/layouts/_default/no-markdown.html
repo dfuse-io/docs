@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+
+<head>
+  {{ partial "docs/html-head" . }}
+  {{ partial "docs/inject/head" . }}
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" name="menu-secondary" id="menu-control" />
+
+  <main class="flex container">
+    {{ block "nav" . }}{{ partial "site-nav.html" . }}{{ end }}
+
+    {{ if eq (index .Site.Params.BookSections .Page.Section) "show" }}
+    <aside class="book-menu fixed">
+      {{ partial "docs/menu" . }}
+    </aside>
+    {{ end }}
+
+    <div class="book-page fixed">
+      {{ partial "docs/mobile-header" . }}
+      {{- .Content -}}
+      {{ partial "docs/git-footer" . }}
+      {{ partial "docs/inject/footer" . }}
+    </div>
+  </main>
+
+  {{ partial "docs/inject/body" . }}
+  {{ template "_internal/google_analytics_async.html" . }}
+</body>
+
+</html>
