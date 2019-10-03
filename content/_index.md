@@ -1,7 +1,7 @@
 ---
-title: Introduction
-type: docs
-hero_logo: eosc-logo-02.svg
+title: Overview
+weight: 40
+BookToC: false
+type : dfuse-layout
+layout : overview-home
 ---
-
-{{< include "overview/_index.md" >}}
