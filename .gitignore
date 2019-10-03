@@ -1,2 +1,2 @@
-./resources/_gen/*
+resources/_gen/*
 node_modules/
