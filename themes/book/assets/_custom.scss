@@ -222,7 +222,7 @@ article {
 
   .sub-section-title-row {
     .col-12 {
-      border-bottom: 1px dashed $ternary-300;
+      border-bottom: 1px dashed $ternary-400;
 
       h4 {
         margin-bottom: 5px;
@@ -309,7 +309,7 @@ article {
   margin-bottom: -30px;
   color: #fff;
   position: absolute;
-  top: -98px;
+  top: -76px;
   box-sizing: border-box;
 }
 
@@ -338,6 +338,46 @@ article {
   background-size: 70%;
   background-repeat: no-repeat;
   box-sizing: border-box;
+}
+
+.pill-icon-wrapper {
+  margin-bottom: -30px;
+  color: #fff;
+  position: absolute;
+  top: 12px;
+  left: -50px;
+  box-sizing: border-box;
+}
+
+.pill-icon-content {
+  border: 2px solid $ternary-300;
+  padding: 3px;
+  border-radius: 50%;
+  justify-content: center;
+  display: block;
+  width: 44px;
+  height: 44px;
+  box-sizing: border-box;
+
+}
+.pill-icon {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  background: $ternary-700;
+  border-radius: 50%;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  font-size: 18px;
+}
+
+
+@media (max-width:575px) {
+  .row.sub-section-title-row {
+    margin-left: 52px;
+  }
 }
 .crypto-icon-eosio {
   background-image: url("/img/eosq-logo-crypto-currency-eosio-01.svg");
@@ -545,8 +585,8 @@ button.cta {
 
 
 
-$width: 95%;
-$gutter: 5%;
+$width: 93%;
+$gutter: 7%;
 $breakpoint-small: 33.75em; // 540px
 $breakpoint-med: 45em; // 720px
 $breakpoint-large: 60em; // 960px
@@ -573,7 +613,7 @@ $breakpoint-large: 60em; // 960px
 
 .row [class^="col"] {
   float: left;
-  margin: 0.5rem 2.5%;
+  margin: 0.5rem 3.5%;
   min-height: 0.125rem;
 }
 
