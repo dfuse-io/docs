@@ -11,7 +11,7 @@
       "guides": "show",
       "reference": "show"
     },
-    "BookRepo": "https://github.com/eoscanada/dfuse-docs-2",
+    "BookRepo": "https://github.com/dfuse-io/docs",
     "BookEditPath": "edit/master/content",
     "tagline": "API Documentation",
     "SectionPagesMenu" :  "main"
