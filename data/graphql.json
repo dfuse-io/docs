@@ -1,0 +1,38 @@
+[
+  {
+    "name": "TransactionConnection",
+    "description": "The Connection type for a Transaction"
+  },
+  {
+    "name": "TransactionEdge",
+    "description": "A single transaction trace response.\n\nWARNING: when doing forward streaming seareches, do NOT forget to include the `undo` field to determine if the message is actually a REVERSAL of the transaction.\n\nNOTE: always check the value of `node.status` to make sure it is successfully executed before assuming it is."
+  },
+  {
+    "name": "Transaction",
+    "description": "Traces of the execution of a given transaction. This means the\ntransaction was executed on the chain. You also get context about the\nblock in which it was executed, and the status of the execution.\n\nWARN: Make sure to always check the `status` (in the `receipt`) to\nmake sure you're not considering a failed transaction as if it was\nsuccessful."
+  },
+  {
+    "name": "Signature",
+    "description": ""
+  },
+  {
+    "name": "TransactionReceipt",
+    "description": ""
+  },
+  {
+    "name": "EVMCall",
+    "description": ""
+  },
+  {
+    "name": "BalanceChange",
+    "description": ""
+  },
+  {
+    "name": "StorageChange",
+    "description": ""
+  },
+  {
+    "name": "EventLog",
+    "description": ""
+  }
+]
