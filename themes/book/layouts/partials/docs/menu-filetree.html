@@ -16,6 +16,7 @@
 
         <input type="checkbox" id="nav-expand-control-{{ .File }}" class="nav-expand-control"
           {{ if .Page.IsAncestor $.CurrentPage }}checked{{end}} />
+
         <label class="nav-expandable" for="nav-expand-control-{{ .File }}">
           {{ partial "docs/title" . }}
           <i class="fas fa-chevron-right"></i>
@@ -46,7 +47,7 @@
 
 {{ define "book-page-link" }}
   {{ with .Page }}
-    <a href="{{ .RelPermalink }}" {{ if eq $.CurrentPage.Permalink .Permalink }} class="active"{{ end }}>
+    <a href="{{ .RelPermalink }}" {{ if eq $.CurrentPage.Permalink .Permalink }} class="active" {{ end }}>
       {{ partial "docs/title" . | markdownify }}
     </a>
   {{ end }}

@@ -692,16 +692,29 @@ h4 + .method-list-item {
   }
 }
 
+.book-menu > nav > ul > li {
+  margin: 0;
+
+  & > a,
+  & > .nav-expandable {
+    display: flex;
+    align-items: center;
+    color: $ternary-500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+}
+
+.highlight pre {
+  background-color: $ternary-1100 !important;
+}
+
 .nav-expandable {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  
-  color: $ternary-500;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: bold;
-  font-size: 1rem;
 
   .fas {
     font-size: 10px;
