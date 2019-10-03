@@ -4,7 +4,7 @@ $padding-4: 0.25rem;
 $padding-8: 0.5rem;
 $padding-16: 1rem;
 
-$font-size-base: 16px;
+$font-size-base: 15px;
 $font-size-12: 0.75rem;
 $font-size-14: 0.875rem;
 $font-size-16: 1rem;
@@ -65,3 +65,7 @@ $toc-width: 16rem;
 $lg-breakpoint: $menu-width + $body-min-width * 2 + $toc-width;
 $md-breakpoint: $menu-width + $body-min-width * 1.25 + $toc-width;
 $sm-breakpoint: $menu-width + $body-min-width;
+
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-heavy: 700;
