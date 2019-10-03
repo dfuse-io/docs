@@ -9,8 +9,6 @@ menu:
 BookToC: false
 ---
 
-# Guides
-
 ## Ethereum
 
 {{< columns >}}
