@@ -2,7 +2,7 @@
   {{ if or .NextInSection .PrevInSection }}
     <div class="next-pages-buttons {{ if not .NextInSection }}justify-end{{ else }}justify-between{{ end }}">
       {{if .NextInSection}}
-        <a class="btn-previous-page" href="{{.NextInSection.Permalink}}">
+        <a class="btn-previous-page btn-outline" href="{{.NextInSection.Permalink}}">
           <i class="fas fa-chevron-left"></i>
           {{ if .NextInSection.Title }}
             {{.NextInSection.Title}}
@@ -12,7 +12,7 @@
         </a>
       {{end}}
       {{if .PrevInSection}}
-        <a class="btn-next-page" href="{{.PrevInSection.Permalink}}">
+        <a class="btn-next-page btn-outline" href="{{.PrevInSection.Permalink}}">
           {{ if .PrevInSection.Title }}
             {{.PrevInSection.Title}}
           {{ else }}
