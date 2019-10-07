@@ -1,0 +1,7 @@
+<div class="row sub-section-content-row ">
+  {{ range split .Inner "<--->" }}
+  <div class='{{ if $.Get "class" }}{{ $.Get "class" }}{{ end }}'>
+    {{ . | markdownify }}
+  </div>
+  {{ end }}
+</div>
