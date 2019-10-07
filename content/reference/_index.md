@@ -8,24 +8,25 @@ menu:
     weight: 3
 BookToC: false
 ---
+{{< row-wrapper >}}
 
-## Ethereum
 
-{{< columns >}}
+{{< sub-section-title title="Ethereum" awesome-icon="far fa-book-spells" icon-link="/img/icon-crypto-currency-ethereum-01.svg" >}}
+
+{{< sub-section-columns  class="col-4" >}}
 
 #### Reference
 
 * [Endpoints]({{< ref "./ethereum/endpoints" >}})
 * [Search]({{< ref "./ethereum/search" >}})
 
-<--->
 
-{{< /columns >}}
+{{< /sub-section-columns >}}
 
 
-## EOSIO
+{{< sub-section-title title="EOSIO" awesome-icon="far fa-book-spells" icon-link="/img/icon-crypto-currency-eosio-01.svg" >}}
 
-{{< columns >}}
+{{< sub-section-columns class="col-4" >}}
 
 #### Reference
 
@@ -40,4 +41,6 @@ BookToC: false
 * [REST API]({{< ref "./eosio/rest" >}})
 * [WebSocket API]({{< ref "./eosio/websocket" >}})
 
-{{< /columns >}}
+{{< /sub-section-columns >}}
+
+{{< row-wrapper-end >}}
