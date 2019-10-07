@@ -259,8 +259,19 @@ article {
   }
 
   .sub-section-content-row {
+    margin:0px 0px 70px 0px;
     h4 {
       margin-bottom: 7px;
+      border:none;
+      padding:0px;
+      margin:0px;
+      text-transform:  none;
+      font-weight: 400;
+    }
+    ul  {
+      list-style-type: none;
+      list-style-position: outside;
+      padding-left: 0;
     }
   }
 }
@@ -406,11 +417,11 @@ article {
 }
 
 .crypto-icon-eosio {
-  background-image: url("/img/eosq-logo-crypto-currency-eosio-01.svg");
+  background-image: url("/img/icon-crypto-currency-eosio-01.svg");
 }
 
 .crypto-icon-ethereum {
-  background-image: url("/img/eosq-logo-crypto-currency-ethereum-01.svg");
+  background-image: url("/img/icon-crypto-currency-ethereum-01.svg");
 }
 
 button.cta {
