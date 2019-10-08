@@ -9,7 +9,6 @@ title: "Getting Started with Javascript"
 
 Start by obtaining an API key. You can get one [here](https://app.dfuse.io).
 
-
 ## 2. Adding the Client Library
 
 The simplest way to query the dfuse GraphQL API is by using our [client library](https://github.com/dfuse-io/client-js).
@@ -48,7 +47,7 @@ const client = createDfuseClient({
 
 ## 4. Crafting our GraphQL Query
 
-Next, we will create ou GraphQL query. Here, we will use a GraphQL subscription to enable us to stream results as they come. We will use the `searchTransactionsForward` operation, with the `"receiver:eosio.token action:transfer"` query (See the [Search Query Language reference here]({{< ref "/reference/eosio/search" >}})).
+Next, we will create our GraphQL query. Here, we will use a GraphQL subscription to enable us to stream results as they come. We will use the `searchTransactionsForward` operation, with the `"receiver:eosio.token action:transfer"` query (See the [Search Query Language reference here]({{< ref "/reference/eosio/search" >}})).
 
 {{< tabs "getting-started-js-4" >}}
 {{< tab lang="javascript" title="main.js" opts="linenos=table,linenostart=7">}}
