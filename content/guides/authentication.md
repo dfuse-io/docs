@@ -11,9 +11,9 @@ There are two sorts of keys in the dfuse ecosystem:
 1. A long-lived API key, which will resemble `server_abcdef123123123000000000000000000`, used to generate short-lived <a href="https://jwt.io/" title="JSON Web Tokens">JWT</a>.
 2. A short-lived JWT, used when performing any call on the dfuse Platform, which will resemble: `eyJhbGciOiJLTVNFUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NTYxMzI4MjAsImp0aSI6IjQwNWVmOTUxLTAwZTYtNGJmNC1hZWMxLTU0NTU1ZWMzMTUwMiIsImlhdCI6MTU1NjA0NjQyMCwiaXNzIjoiZGZ1c2UuaW8iLCJzdWIiOiJ1aWQ6MHdlbnU2NmUwNzU4OWRhODY4MWNlIiwiYWtpIjoiM2NhYWEzYzA3M2FlZjVkMmYxOGUwNjJmZDkzYzg3YzMzYWIxYzA1YzEzNjI3NjU2OTgzN2Y5NDc5NzZlMjM0YSIsInRpZXIiOiJmcmVlLXYxIiwic3RibGsiOi0zNjAwLCJ2IjoxfQ.000HeTujIuS_LRvvPN6ZRCmtoZqZyV6P1enNBviwK8v7Tf7BLHJIrEpQoEREKSIMdZWPrMQl_OE55yJP0MxUDA`
 
-## Issuing a Long-Lived API Key
+## Obtaining a Long-Lived API Key
 
-Once you have created an account through the <a href="https://app.dfuse.io" title="dfuse API Portal">dfuse portal</a> you will be able to generate an API key. 
+Once you have created an account through the <a href="https://app.dfuse.io" title="dfuse API Portal">dfuse portal</a> you will be able to obtain an API key. 
 
 Click on "GENERATE NEW KEY" and you'll now be able to start customizing your key for your specific needs.
 First assign the API key a name so that you'll be able to differentiate it from other API keys that you generate.
@@ -24,13 +24,13 @@ Then, select the key-type between `mobile`, `web`, or `server`.
   
 For ease of identification, all keys will be prefixed by their key type. `Mobile` and `web` keys are safe to publish within your mobile or web application.
 
-## Issuing a Short-Lived JWT
+## Obtaining a Short-Lived JWT
 
-Once you have this API key, call the [`https://auth.dfuse.io/v1/auth/issue` endpoint](#post-v1-auth-issue) to generate a fresh Authentication Token using the following command. **Do not forget to replace the API key by your own!**
+Once you have this API key, call the [`https://auth.dfuse.io/v1/auth/issue` endpoint](#post-v1-auth-issue) to obtain a fresh Authentication Token using the following command. **Do not forget to replace the API key by your own!**
 
 {{< tabs "issuing-long-jwt">}}
 {{< tab title="Request" lang="shell" >}}
-curl <https://auth.dfuse.io/v1/auth/issue> -s --data-binary '{"api_key":"web_abcdef12345678900000000000"}'
+curl https://auth.dfuse.io/v1/auth/issue -s --data-binary '{"api_key":"web_abcdef12345678900000000000"}'
 {{< /tab >}}
 
 {{< tab title="Response" lang="json" >}}
@@ -55,7 +55,7 @@ Each JWT has an expiration date, so it is important to take that into account be
 
 1. Retrieve the JWT, and examine it's expiration time
 1. If the JWT is past its expiration time, is near expiration, or is absent from cache, fetch a new one through the `/v1/auth/issue` endpoint, and cache the response.
-1. Call dfuse with the valid JWT token.
+1. Call _dfuse_ with the valid JWT token.
 
 Each time you get a fresh JWT, it contains the updated expiration time and the token itself.
 
@@ -69,11 +69,11 @@ To achieve authentication over REST, specify the `Authorization: Bearer [token]`
 
 {{< tabs "rest-auth" >}}
 {{< tab lang="shell" >}}
-eosc -H "Authorization: Bearer YOURTOKENHERE" -u <https://mainnet.eos.dfuse.io> [ ... ]
+eosc -H "Authorization: Bearer YOURTOKENHERE" -u https://mainnet.eos.dfuse.io [ ... ]
 {{< /tab >}}
 {{< /tabs >}}
 
-Don't forget to replace the token in the above command with a valid JWT, retrieved using [`/v1/auth/issue`](#post-v1-auth-issue)
+Don't forget to replace the token in the above command with a valid JWT, retrieved using [`/v1/auth/issue`]({{< ref "/reference/eosio/rest/auth-issue-intro" >}})
 
 ## WebSocket Authentication
 
@@ -81,7 +81,7 @@ This example uses the <https://github.com/hashrocket/ws> command-line WebSocket 
 
 {{< tabs "websocket-auth" >}}
 {{< tab lang="shell" >}}
-ws -o <https://b2b.dfuse.io> wss://mainnet.eos.dfuse.io/v1/stream?token=YOURTOKENHERE
+ws -o https://b2b.dfuse.io wss://mainnet.eos.dfuse.io/v1/stream?token=YOURTOKENHERE
 {{< /tab >}}
 {{< /tabs >}}
 
