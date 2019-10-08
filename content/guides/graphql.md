@@ -11,7 +11,7 @@ The GraphQL API offers significantly more flexibility than the REST API. The abi
 
 The GraphQL API offers two types of requests, Queries and Subscriptions, allowing you to build flexible real-time applications.
 
-You can find the dfuse GraphQL endpoints within the [reference documentation](https://docs.dfuse.io/reference/) pertaining to the platform relevant to you.
+You can find the dfuse GraphQL endpoints within the [reference documentation]({{< ref "/reference" >}}) pertaining to the platform relevant to you.
 
 ## Queries
 
@@ -197,17 +197,13 @@ The _dfuse_ GraphQL endpoints support the following transports:
 
 ## GraphQL over REST
 
-You can run GraphQL queries by querying the `/graphql` path of _dfuse_
-endpoints.
+You can run GraphQL queries by querying the `/graphql` path of _dfuse_ endpoints.
 
 ## Apollo Subscription Transport
 
-dfuse GraphQL implements subscriptions using the
-[Apollo Websocket Transport protocol, version 0.9.16](https://github.com/apollographql/subscriptions-transport-ws/blob/v0.9.16/PROTOCOL.md).
+dfuse GraphQL implements subscriptions using the [Apollo Websocket Transport protocol, version 0.9.16](https://github.com/apollographql/subscriptions-transport-ws/blob/v0.9.16/PROTOCOL.md).
 
-In the browser, you can use the `apollo-client` npm library to connect
-and read responses. It uses WebSocket for Subscriptions and can also
-use it for Queries.
+In the browser, you can use the `apollo-client` npm library to connect and read responses. It uses WebSocket for Subscriptions and can also use it for Queries.
 
 {{< tip >}}
 See the [Apollo Client Introduction](https://www.apollographql.com/docs/react/) for more details.
@@ -266,17 +262,14 @@ grpcui -port 6000 mainnet.eos.dfuse.io:443
 The _dfuse Search_ engine exposed through the GraphQL endpoint has a few pecularities that are worthy to note here:
 
 1. The cursor property is chain-wide, and is returned with each result, so you can pick up where you left off at each transaction, and not worry that a block has been partially applied.
-2. It navigates forks in a slightly different way than the WebSocket `get_table_rows`.  See the section above on Navigating Forks. <!-- TODO: There is no anchor that exists. Commented out:[Navigating Forks](#navigating-forks-searching-graphql). -->
+2. It navigates forks in a slightly different way than the WebSocket `get_table_rows`. See [Navigating Forks](#navigating-forks).
 3. You can do a _backward_ search to get recent transactions up to a limit, and then use the _first_ cursor from those results to do a _forward_ search on the same query, and listen to real-time events happening in real-time, all the while navigating forks. Make sure you keep track of the `undo` property in forward searches.
 
 ## API Reference
 
-This section contains subscriptions and queries that can be performed
-against our GraphQL interface.
+This section contains subscriptions and queries that can be performed against our GraphQL interface.
 
-The best way to explore the GraphQL schemas, available subscriptions &
-queries as well as all arguments is to use the dfuse GraphiQL web page we provide for the different
-endpoints. <!-- TODO: There is no anchor that exists. Commented out: [Endpoints](#endpoints). -->
+The best way to explore the GraphQL schemas, available subscriptions & queries as well as all arguments is to use the dfuse GraphiQL web page we provide for the different endpoints. <!-- TODO: There is no anchor that exists. Commented out: [Endpoints](#endpoints). -->
 
 The GraphQL schema is fully documented and should answer most of your questions
 regarding the data it serves. Within GraphiQL, simply place your
