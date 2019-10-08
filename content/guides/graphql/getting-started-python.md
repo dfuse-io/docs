@@ -5,13 +5,7 @@ title: "Getting Started with Python"
 
 # Getting Started with Python
 
-This simple program demonstrates how easy it is to query our GraphQL API over gRPC in Python. Here is an overview of what it does.
-
-1. Request a token from our authentication API
-1. Creates a gRPC connection with credentials
-1. Instantiates a GraphQL client
-1. Executes a simple GraphQL query
-1. Prints the response
+In this guide, we will create a basic setup to use the dfuse GraphQL API using Python.
 
 ## Requirements
 
