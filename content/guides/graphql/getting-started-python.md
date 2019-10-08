@@ -5,7 +5,7 @@ title: "Getting Started with Python"
 
 # Getting Started with Python
 
-In this guide, we will create a basic setup to use the dfuse GraphQL API using Python.
+In this guide, we will create a basic setup to use the dfuse GraphQL API with Python.
 
 ## Requirements
 

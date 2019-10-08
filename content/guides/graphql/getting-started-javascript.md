@@ -5,7 +5,7 @@ title: "Getting Started with Javascript"
 
 # Getting Started with Javascript
 
-In this guide, we will create a basic setup to use the dfuse GraphQL API using Javascript.
+In this guide, we will create a basic setup to use the dfuse GraphQL API with Javascript.
 
 ## 1. Getting an API Key
 
