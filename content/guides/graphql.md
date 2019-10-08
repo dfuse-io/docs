@@ -446,6 +446,10 @@ The following query (try it on [GraphiQL](https://mainnet.eos.dfuse.io/graphiql/
 {{< /tab >}}
 {{< /tabs >}}
 
+{{< note >}}
+Batched operations are always as slow as the slowest operation in the batch.
+{{< /note >}}
+
 <!--
 
 ### Simple Go program
