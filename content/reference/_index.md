@@ -41,7 +41,7 @@ BookToC: false
 #### APIs
 
 * [REST API]({{< ref "./eosio/rest" >}})
-* [WebSocket API]({{< ref "./eosio/websocket" >}})
+* [WebSocket API]({{< ref "./eosio/websocket/introduction" >}})
 
 {{< /sub-section-columns >}}
 
