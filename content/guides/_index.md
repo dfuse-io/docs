@@ -18,8 +18,8 @@ BookToC: false
 #### Getting Started
 
 * [With Go]({{< ref "./getting-started/with-go" >}})
-* [With Javascript]({{< ref "./getting-started/with-javascript" >}})
-* [With Python]({{< ref "./getting-started/with-python" >}})
+* [With Javascript]({{< ref "./graphql/getting-started-javascript" >}})
+* [With Python]({{< ref "./graphql/getting-started-python" >}})
 * [With Other Languages]({{< ref "./getting-started/with-other-languages" >}})
 
 <--->
@@ -39,8 +39,8 @@ BookToC: false
 #### Getting Started
 
 * [With Go]({{< ref "./getting-started/with-go" >}})
-* [With Javascript]({{< ref "./getting-started/with-javascript" >}})
-* [With Python]({{< ref "./getting-started/with-python" >}})
+* [With Javascript]({{< ref "./graphql/getting-started-javascript" >}})
+* [With Python]({{< ref "./graphql/getting-started-python" >}})
 * [With Other Languages]({{< ref "./getting-started/with-other-languages" >}})
 
 <--->
