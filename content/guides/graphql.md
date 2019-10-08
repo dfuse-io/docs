@@ -339,8 +339,21 @@ Return the block ID found around the given `time`, based on the comparator provi
 
 ## Sample Queries
 
+To get you started, here are a few sample queries and how to read them.
+
+### Streaming Transactions
+
+The following query (try it on [GraphiQL](https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKAogICAgcXVlcnk6InJlY2VpdmVyOmVvc2lvLnRva2VuIGFjY291bnQ6ZW9zaW8udG9rZW4gYWN0aW9uOnRyYW5zZmVyIiwKICAgIGxvd0Jsb2NrTnVtOjAsCiAgICBsaW1pdDoyMCwKICApIHsKICAgIHVuZG8KICAgIGN1cnNvcgogICAgdHJhY2UgewogICAgICBpZAogICAgICBtYXRjaGluZ0FjdGlvbnMgewogICAgICAgIHJlY2VpdmVyCiAgICAgICAgYWNjb3VudAogICAgICAgIG5hbWUKICAgICAgICBqc29uCiAgICAgICAgY3JlYXRvckFjdGlvbiB7CiAgICAgICAgICByZWNlaXZlcgogICAgICAgICAgYWNjb3VudAogICAgICAgICAgbmFtZQogICAgICAgICAganNvbgogICAgICAgIH0KICAgICAgfQogICAgfQogIH0KfQ==)):
+
+* Issues a GraphQL subscription call (streaming results); that's the `subscription` prefix.
+* Starts at the head of the chain (new real-time blocks); that's `lowBlockNum: 0`, which defaults to the HEAD of the chain.
+* Streams the 20 next transactions to successfully execute, which include EOS transfers; that's the `query` (see [Release notes](#release-notes) for the note about implicit `status:executed`)
+* Once we got 20 transactions, close the subscription; that's the `limit`.
+* Retrieve the matching actions; that's the `matchingActions` subquery. Note there could be many in a single transaction
+* For each matching action, we also retrieve the action that caused this transfer, if any.  If a token transfer was initiated by another smart contract, `creatorAction` will be non-null, and will point to the action which caused the creation (see the GraphQL schema for full details).
+
 {{< tabs "sample-graphql-query" >}}
-{{< tab lang="graphql" title="Sample GraphQL Query" >}}
+{{< tab lang="graphql" title="GraphQL Query" >}}
 subscription {
   searchTransactionsForward(
     query:"receiver:eosio.token account:eosio.token action:transfer",
@@ -367,22 +380,7 @@ subscription {
   }
 }
 {{< /tab >}}
-{{< /tabs >}}
 
-To get you started, here are a few sample queries and how to read them.
-
-The following query (try it on [GraphiQL](https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKAogICAgcXVlcnk6InJlY2VpdmVyOmVvc2lvLnRva2VuIGFjY291bnQ6ZW9zaW8udG9rZW4gYWN0aW9uOnRyYW5zZmVyIiwKICAgIGxvd0Jsb2NrTnVtOjAsCiAgICBsaW1pdDoyMCwKICApIHsKICAgIHVuZG8KICAgIGN1cnNvcgogICAgdHJhY2UgewogICAgICBpZAogICAgICBtYXRjaGluZ0FjdGlvbnMgewogICAgICAgIHJlY2VpdmVyCiAgICAgICAgYWNjb3VudAogICAgICAgIG5hbWUKICAgICAgICBqc29uCiAgICAgICAgY3JlYXRvckFjdGlvbiB7CiAgICAgICAgICByZWNlaXZlcgogICAgICAgICAgYWNjb3VudAogICAgICAgICAgbmFtZQogICAgICAgICAganNvbgogICAgICAgIH0KICAgICAgfQogICAgfQogIH0KfQ==)):
-
-* Issues a GraphQL subscription call (streaming results); that's the `subscription` prefix.
-* Starts at the head of the chain (new real-time blocks); that's `lowBlockNum: 0`, which defaults to the HEAD of the chain.
-* Streams the 20 next transactions to successfully execute, which include EOS transfers; that's the `query` (see [Release notes](#release-notes) for the note about implicit `status:executed`)
-* Once we got 20 transactions, close the subscription; that's the `limit`.
-* Retrieve the matching actions; that's the `matchingActions` subquery. Note there could be many in a single transaction
-* For each matching action, we also retrieve the action that caused this transfer, if any.  If a token transfer was initiated by another smart contract, `creatorAction` will be non-null, and will point to the action which caused the creation (see the GraphQL schema for full details).
-
-Here is a sample from today's output.
-
-{{< tabs "query-sample-output" >}}
 {{< tab lang="json" title="JSON Response" >}}
 {
   "searchTransactionsForward": {
@@ -417,9 +415,13 @@ Here is a sample from today's output.
 {{< /tab >}}
 {{< /tabs >}}
 
-The next query (try it on [GraphiQL](https://mainnet.eos.dfuse.io/graphiql/?query=ewogIHN0YXJ0OiBibG9ja0lEQnlUaW1lKHRpbWU6ICIyMDE5LTAxLTAxVDAwOjAwOjAwWiIpIHsKICAgIHRpbWUKICAgIG51bQogICAgaWQKICB9CiAgZW5kOiBibG9ja0lEQnlUaW1lKHRpbWU6ICIyMDE5LTAyLTAxVDAwOjAwOjAwWiIpIHsKICAgIHRpbWUKICAgIG51bQogICAgaWQKICB9Cn0K)):
+### Multiple GraphQL queries in one request:
 
-Multiple GraphQL queries in one request:
+The follow query (try it on [GraphiQL](https://mainnet.eos.dfuse.io/graphiql/?query=ewogIHN0YXJ0OiBibG9ja0lEQnlUaW1lKHRpbWU6ICIyMDE5LTAxLTAxVDAwOjAwOjAwWiIpIHsKICAgIHRpbWUKICAgIG51bQogICAgaWQKICB9CiAgZW5kOiBibG9ja0lEQnlUaW1lKHRpbWU6ICIyMDE5LTAyLTAxVDAwOjAwOjAwWiIpIHsKICAgIHRpbWUKICAgIG51bQogICAgaWQKICB9Cn0K)):
+
+* Issues a GraphQL _query_ that retrieves two queries at once
+* Each querying the block ID and number less or equal to the date specified in `time`.
+* It remaps the result to `start` and `end` respectively.
 
 {{< tabs "multiple-graphql-queries" >}}
 {{< tab lang="graphql" title="GraphQL Request" >}}
@@ -436,13 +438,7 @@ Multiple GraphQL queries in one request:
   }
 }
 {{< /tab >}}
-{{< /tabs >}}
 
-* Issues a GraphQL _query_ that retrieves two queries at once
-* Each querying the block ID and number less or equal to the date specified in `time`.
-* It remaps the result to `start` and `end` respectively.
-
-{{< tabs "multiple-graphql-queries-response" >}}
 {{< tab lang="json" title="JSON Response" >}}
 {
   "data": {

@@ -1,4 +1,5 @@
 {{ $required := .Get "required" }}
+{{ $type := .Get "type" }}
 
 <div class="method-list-item">
   <div class="method-list-item-label">
@@ -14,6 +15,11 @@
   </div>
 
   <div class="method-list-item-description">
-    <span class="method-list-item-type">{{ .Get "type" | markdownify }}</span>. {{ $.Inner | markdownify }}
+    {{ if $type }}
+      <span class="method-list-item-type">
+        {{ $type | markdownify }}
+      </span>.&nbsp;
+    {{ end }}
+    {{ $.Inner | markdownify }}
   </div>
 </div>
