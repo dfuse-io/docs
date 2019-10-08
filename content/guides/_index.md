@@ -9,30 +9,11 @@ menu:
 BookToC: false
 ---
 
-## Ethereum
+{{< row-wrapper >}}
 
-{{< columns >}}
+{{< sub-section-title title="Ethereum" awesome-icon="far fa-book-spells" icon-link="/img/icon-crypto-currency-ethereum-01.svg" >}}
 
-#### Getting Started
-
-* [With Go]({{< ref "./getting-started/with-go" >}})
-* [With Javascript]({{< ref "./getting-started/with-javascript" >}})
-* [With Python]({{< ref "./getting-started/with-python" >}})
-* [With Other Languages]({{< ref "./getting-started/with-other-languages" >}})
-
-<--->
-
-#### Other Guides
-
-* [Authentication]({{< ref "./authentication" >}})
-* [GraphQL]({{< ref "./graphql" >}})
-
-{{< /columns >}}
-
-
-## EOSIO
-
-{{< columns >}}
+{{< sub-section-columns  class="col-4" >}}
 
 #### Getting Started
 
@@ -48,4 +29,27 @@ BookToC: false
 * [Authentication]({{< ref "./authentication" >}})
 * [GraphQL]({{< ref "./graphql" >}})
 
-{{< /columns >}}
+{{< /sub-section-columns >}}
+
+
+{{< sub-section-title title="EOSIO" awesome-icon="far fa-book-spells" icon-link="/img/icon-crypto-currency-eosio-01.svg" >}}
+
+{{< sub-section-columns class="col-4" >}}
+
+#### Getting Started
+
+* [With Go]({{< ref "./getting-started/with-go" >}})
+* [With Javascript]({{< ref "./getting-started/with-javascript" >}})
+* [With Python]({{< ref "./getting-started/with-python" >}})
+* [With Other Languages]({{< ref "./getting-started/with-other-languages" >}})
+
+<--->
+
+#### Other Guides
+
+* [Authentication]({{< ref "./authentication" >}})
+* [GraphQL]({{< ref "./graphql" >}})
+
+{{< /sub-section-columns >}}
+
+{{< row-wrapper-end >}}  
