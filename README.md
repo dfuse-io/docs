@@ -5,7 +5,6 @@ We welcome contributions to improve the documentation. Simply open a pull reques
 ## Requirements
 
 - Hugo 0.55 or higher
-- Hugo extended version, read more [here](https://gohugo.io/news/0.48-relnotes/)
 
 ## Development
 
