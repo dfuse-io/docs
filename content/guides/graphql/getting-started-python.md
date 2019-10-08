@@ -109,7 +109,7 @@ subscription {
 Finally, we will use the gRPC client to execute the GraphQL request, and we can loop over the results to print them to the console.
 
 {{< tabs "execute-query" >}}
-{{< tab lang="python" title="main.py" opts="linenos=table,linenostart=7" >}}
+{{< tab lang="python" title="main.py" opts="linenos=table,linenostart=44" >}}
 stream = dfuse_graphql.Execute(Request(query=query))
 
 for rawResult in stream:
