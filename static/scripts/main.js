@@ -72,7 +72,7 @@ const redirectMap = {
     "/#graphql-authentication",
     "/#graphql-over-grpc-authentication",
   ],
-  "/guides/graphql/": [
+  "/guides/graphql/introduction/": [
     "/#graphql",
     "/#getting-started-with-graphql",
     "/#queries",

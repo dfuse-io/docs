@@ -1,11 +1,8 @@
 ---
-title: GraphQL
-weight: 2
+weight: 1
 ---
 
-# GraphQL
-
-## Getting Started with GraphQL
+# Getting Started with GraphQL
 
 The GraphQL API offers significantly more flexibility than the REST API. The ability to define precisely the data you want—and only the data you want—is a powerful advantage over the REST API endpoints. GraphQL lets you replace multiple REST requests with a single call to fetch the data you specify.
 

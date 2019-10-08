@@ -1,6 +1,11 @@
 {{ if .Parent }}
   {{ $title := .Get "title" }}
   {{ $lang := .Get "lang" }}
+  {{ $opts := "" }}
+
+  {{ if .Get "opts" }}
+    {{ $opts = .Get "opts" }}
+  {{ end }}
 
   {{ if eq $title "" }}
     {{ if eq $lang "go" }}
@@ -29,7 +34,7 @@
   {{ end }}
   
   {{ if $lang }}
-    {{ .Parent.Scratch.Add $group (dict "Name" $title "Content" (highlight .Inner $lang "")) }}
+    {{ .Parent.Scratch.Add $group (dict "Name" $title "Content" (highlight (trim .Inner "\n") $lang $opts)) }}
   {{ else }}
     {{ .Parent.Scratch.Add $group (dict "Name" $title "Content" .Inner) }}
   {{ end }}

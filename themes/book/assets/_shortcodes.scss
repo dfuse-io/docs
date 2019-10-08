@@ -62,10 +62,13 @@
     width: 100%;
     border-top: $padding-1 solid $gray-100;
     display: none;
+
+    div {
+      background-color: $code-highlight-background !important;
+    }
     
     pre {
       margin: 0;
-      padding-top: 0;
       
       code {
         color: white;

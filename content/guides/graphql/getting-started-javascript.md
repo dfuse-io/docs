@@ -1,5 +1,6 @@
 ---
-weight: 1
+weight: 2
+title: "Getting Started with Javascript"
 ---
 
 # Getting Started with Javascript
