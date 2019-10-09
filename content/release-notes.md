@@ -1,8 +1,11 @@
 ---
+title: Releases
 weight: 50
+identifier: releases
 ---
 
-# Release Notes
+
+***
 
 ## 2019-08-07
 
@@ -11,6 +14,8 @@ weight: 50
 * Added support for `symbol` and `symbol_code` `key_type` in state REST API calls.
 * Added `POST` support for `/state/tables/scopes` and `/state/tables/accounts` which accepts a
   `application/x-www-form-urlencoded` content type.
+  
+***
 
 ## 2019-07-09
 
@@ -24,19 +29,26 @@ weight: 50
   * Searches for `receiver:account` will now see `eosio:onerror` actions on that `account`. Those `onerror` actions, when `soft_fail`ed, are actually successfully executed, and can therefore mutate state and do other things, so thay are included, but the deferred transaction that failed (and which state's mutations were not applied), is not going to be indexed anymore.
   * Ram consumption reported by `ram.consumed:account` and `ram.released:account` will not cover the `status:expired` and `status:hard_fail`ed transactions. Note that `status:expired` was already previously absent, so an imbalance was possible if computing the full amount of RAM for a given `account`.
 
+***
 
 ## 2019-05-07
 
 * **Beta** dfuse Events is now live.
+
+***
 
 ## 2019-04-24
 
 * Added in **PREVIEW** mode: `GET /v0/transaction/:id` to fetch the transaction lifecycle
   associated with the `:id` path parameter.
 
+***
+
 ## 2019-04-23
 
 * **Breaking change**  : `/v1/chain/push_transation` with `in-block` guarantee now requires authentication.
+
+***
 
 ## 2019-04-17
 
@@ -61,6 +73,8 @@ weight: 50
 
     * See [announcement](https://www.dfuse.io/en/blog/avoid-refreshing-provide-instant-ux-with-dfuse-streaming-search)
 
+***
+
 ## 2019-04-10
 
 * **Breaking change** (low risk): Search requests that do not specify
@@ -69,10 +83,13 @@ weight: 50
   receive failed transactions. This protects you from making wrong
   decisions because of an oversight.
 
+***
 
 ## 2019-03-21
 
 * Added `irreversible_only` flag to `get_action_traces` websocket request.
+
+***
 
 ## 2019-03-05
 
@@ -89,6 +106,7 @@ weight: 50
   Best way to consume this is through the [GraphQL](#graphql)
   interface.
 
+***
 
 ## 2019-01-29
 
@@ -96,7 +114,7 @@ weight: 50
 
 * Improved the documentation of the [query language](#ref-query-language).
 
-
+***
 
 ## 2019-02-18
 
@@ -104,6 +122,8 @@ weight: 50
   `handoff:1`, `handoffs:2` and `handoffs:3`, allowing more flexible
   rules to guarantee transaction delivery based on your application's
   requirements.  [See announcement](https://www.dfuse.io/en/blog/dfuse-adds-push-guarantee-producer-handoff)
+
+***
 
 ## 2019-01-22
 
@@ -141,6 +161,8 @@ weight: 50
   It contains error specific details about what went wrong for a given error code. It's unique
   per code, and can be used programmatically to extract information about the error.
 
+***
+
 ## 2018-12-18
 
 ### REST API
@@ -154,6 +176,7 @@ weight: 50
 
 * Renamed `TransactionLifecycle` to `TransactionLifecycleResponse`, and `TransactionLifecycle` is now the inner `data` field of that response.
 
+***
 
 ## 2018-12-13
 
@@ -166,6 +189,8 @@ weight: 50
   raw data of multiple rows against the ABI of a given account (contract) at any
   given block height.
 
+***
+
 ## 2018-12-12
 
 ### REST API
@@ -175,12 +200,16 @@ weight: 50
 
 * Bumped `GET /v0/state/tables/accounts` limit on `accounts` to 1500.
 
+***
+
 ## 2018-12-10
 
 ### REST API
 
 * Added in PREVIEW mode: `GET /v0/state/permission_links` to fetch authorization
   linked to a particular account at any given point in time.
+
+***
 
 ## 2018-11-28
 
@@ -199,6 +228,7 @@ weight: 50
   * Please use that instead of doing multiple parallel
     `get_action_traces`
 
+***
 
 ## 2018-11-22
 
@@ -226,6 +256,7 @@ weight: 50
 * Added `get_head_info` to get current state of chain (last block,
   current producer, etc.)
 
+***
 
 ## 2018-11-09
 
@@ -269,6 +300,7 @@ weight: 50
 
   * `action_trace` message now includes a `block_time`
 
+***
 
 ## 2018-10-15
 

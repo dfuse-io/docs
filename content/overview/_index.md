@@ -11,3 +11,5 @@ layout : full-width
 ---
 
 {{< partial "home-overview" >}}
+
+{{< partial "latest-release-notes" >}}
