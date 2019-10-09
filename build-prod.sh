@@ -1,1 +1,1 @@
-hugo --gc --minify
+hugo --gc --minify && npm install -g atomic-algolia && atomic-algolia

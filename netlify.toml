@@ -11,3 +11,6 @@
 
 [build.environment]
   HUGO_VERSION = "0.58.3"
+  ALGOLIA_APP_ID = "B918JPVEEL"
+  ALGOLIA_INDEX_NAME = "prod_DOCS"
+  ALGOLIA_INDEX_FILE = "public/algolia.json"
