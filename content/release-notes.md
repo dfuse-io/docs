@@ -1,9 +1,8 @@
 ---
-title: Releases
 weight: 50
-identifier: releases
 ---
 
+# Release Notes
 
 ***
 
