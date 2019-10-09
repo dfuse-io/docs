@@ -5,7 +5,7 @@ title: "Getting Started with Python"
 
 # Getting Started with Python
 
-In this guide, we will create a basic setup to use the dfuse GraphQL API with Python.
+In this guide, we will show you how to create a basic setup so you can benefit from the dfuse GraphQL API with Python.
 
 ## Requirements
 
@@ -17,7 +17,7 @@ Start by obtaining an API key. You can get one [here](https://app.dfuse.io).
 
 ## 2. Install the Dependencies
 
-First, we need to install a few dependencies using `pip`.
+First, you need to install a few dependencies using `pip`.
 
 {{< tabs "install-dependencies" >}}
 {{< tab lang="shell" >}}
@@ -27,7 +27,7 @@ pip install grpcio grpcio-tools protobuf six
 
 ## 3. Import the Depencies
 
-Next, we will start coding. The first thing we need to do is to import the dependencies we just installed.
+Next, you will start coding. Begin by importing the dependencies you just installed.
 
 {{< tabs "import-deps" >}}
 {{< tab lang="python" title="main.py" opts="linenos=table" >}}
@@ -40,9 +40,9 @@ from graphql.graphql_pb2 import Request
 {{< /tab >}}
 {{< /tabs >}}
 
-## 3. Authenticate with the API
+## 4. Authenticate with the API
 
-For our requests to work, we need to obtain a JWT token that we will send with every request. This can be obtained using the API key we created in step 1.
+To authenticate your requests, you will need to obtain a JWT token that you will send with each request. This can be obtained using the API key you created in step 1.
 
 {{< tabs "generate-jwt" >}}
 {{< tab lang="python" title="main.py" opts="linenos=table,linenostart=7" >}}
@@ -63,9 +63,9 @@ token = token_for_api_key("web_abcdef12345678900000000000")
 {{< /tab >}}
 {{< /tabs >}}
 
-## 4. Create a gRPC connection
+## 5. Create a gRPC connection
 
-Next, we will create a gRPC connection to the dfuse API. We must specify the [Ethereum API Endpoint]({{< ref "reference/ethereum/endpoints" >}}) or [EOSIO API Endpoint]({{< ref "reference/ethereum/endpoints" >}}) we want to connect to - in this case we are using `mainnet.eos.dfuse.io`.
+Next, you will create a gRPC connection to the dfuse API. You must specify the [Ethereum API Endpoint]({{< ref "reference/ethereum/endpoints" >}}) or [EOSIO API Endpoint]({{< ref "reference/ethereum/endpoints" >}}) you want to connect to. This example connectes to the EOS mainnet.
 
 {{< tabs "create-client" >}}
 {{< tab lang="python" title="main.py" opts="linenos=table,linenostart=21" >}}
@@ -80,9 +80,9 @@ dfuse_graphql = create_dfuse_client(token)
 {{< /tab >}}
 {{< /tabs >}}
 
-## 5. Crafting our GraphQL Query
+## 6. Crafting Your GraphQL Query
 
-Next, we will create our GraphQL query. Here, we will use a GraphQL subscription to enable us to stream results as they come. We will use the `searchTransactionsForward` operation, with the `"action:transfer"` query (See the [Search Query Language reference here]({{< ref "/reference/eosio/search" >}})).
+Next, you will create our GraphQL query. You will use a GraphQL subscription to stream results as they come. You will use the `searchTransactionsForward` operation, with the `"action:transfer"` query (See the [Search Query Language reference here]({{< ref "/reference/eosio/search" >}})).
 
 {{< tabs "graphql-query" >}}
 {{< tab lang="python" title="main.py" opts="linenos=table,linenostart=29" >}}
@@ -104,9 +104,9 @@ subscription {
 {{< /tab >}}
 {{< /tabs >}}
 
-## 6. Execute the Query and Parse the Results
+## 7. Execute the Query and Parse the Results
 
-Finally, we will use the gRPC client to execute the GraphQL request, and we can loop over the results to print them to the console.
+Finally, you will use the gRPC client to execute the GraphQL request, and you can loop over the results to print them to the console.
 
 {{< tabs "execute-query" >}}
 {{< tab lang="python" title="main.py" opts="linenos=table,linenostart=44" >}}

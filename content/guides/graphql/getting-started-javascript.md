@@ -5,7 +5,7 @@ title: "Getting Started with Javascript"
 
 # Getting Started with Javascript
 
-In this guide, we will create a basic setup to use the dfuse GraphQL API with Javascript.
+In this guide we will show you how to create a basic setup so that you can benefit from the dfuse GraphQL API with Javascript.
 
 ## 1. Getting an API Key
 
@@ -13,7 +13,7 @@ Start by obtaining an API key. You can get one [here](https://app.dfuse.io).
 
 ## 2. Adding the Client Library
 
-The simplest way to query the dfuse GraphQL API is by using our [client library](https://github.com/dfuse-io/client-js).
+The simplest way to query the dfuse GraphQL API is by using the [dfuse JS client library](https://github.com/dfuse-io/client-js).
 
 Here are a few of its key features:
 
@@ -34,7 +34,7 @@ yarn add @dfuse/client
 
 ## 3. Initializing the dfuse Client
 
-With the initial setup completed, we can start coding. The first thing we will do it initialize the dfuse client, using the API key we created in the first step and specifying the [Ethereum API Endpoint]({{< ref "reference/ethereum/endpoints" >}}) or [EOSIO API Endpoint]({{< ref "reference/ethereum/endpoints" >}}) we want to connect to.
+With the initial setup completed, you can start coding. The first thing we will do is initialize the dfuse client, using the API key you created in the first step and you'll now specify the [Ethereum API Endpoint]({{< ref "reference/ethereum/endpoints" >}}) or [EOSIO API Endpoint]({{< ref "reference/ethereum/endpoints" >}}) you want to connect to.
 
 {{< tabs "getting-started-js-3" >}}
 {{< tab lang="javascript" title="main.js" opts="linenos=table">}}
@@ -49,7 +49,7 @@ const client = createDfuseClient({
 
 ## 4. Crafting our GraphQL Query
 
-Next, we will create our GraphQL query. Here, we will use a GraphQL subscription to enable us to stream results as they come. We will use the `searchTransactionsForward` operation, with the `"receiver:eosio.token action:transfer"` query (See the [Search Query Language reference here]({{< ref "/reference/eosio/search" >}})).
+Next, we you create our GraphQL query. Here, you will use a GraphQL subscription to stream results as they come. You will use the `searchTransactionsForward` operation, with the `"receiver:eosio.token action:transfer"` query (See the [Search Query Language reference here]({{< ref "/reference/eosio/search" >}})).
 
 {{< tabs "getting-started-js-4" >}}
 {{< tab lang="javascript" title="main.js" opts="linenos=table,linenostart=7">}}
@@ -70,7 +70,7 @@ const query = `
 
 ## 5. Executing our Query
 
-Finally, we can combine the dfuse client instance we created in step 3 with the GraphQL query we created in step 4 to start streaming the results of our query.
+Finally, you can combine the dfuse client instance we created in step 3 with the GraphQL query you created in step 4 to start streaming the results of our query.
 
 The function passed as the 2nd parameter to `client.graphql()` will be called every time a new result is returned by the API.
 
