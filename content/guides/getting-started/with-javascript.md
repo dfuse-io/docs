@@ -1,25 +1,59 @@
 ---
 weight: 1
+title: "With Javascript"
 ---
 
 # Getting Started with Javascript
 
-This simple program demonstrates how easy it is to query our GraphQL API. Here is an overview of what it does.
+In this guide we will show you how to create a basic setup so that you can benefit from the dfuse GraphQL API with Javascript.
 
-1. Uses our [client-js library](https://github.com/dfuse-io/client-js) to handle API token management
-1. Executes a simple GraphQL streaming search subscription
-1. Prints out each message received
+## 1. Getting an API Key
 
-{{< tabs "getting-started-js" >}}
-{{< tab lang="javascript" >}}
+Start by obtaining an API key. You can get one [here](https://app.dfuse.io).
+
+## 2. Adding the Client Library
+
+The simplest way to query the dfuse GraphQL API is by using the [dfuse JS client library](https://github.com/dfuse-io/client-js).
+
+Here are a few of its key features:
+
+* Handles API token issuance
+* Refreshes your API token upon expiration
+* Automatically reconnects if the connection closes
+
+You can add it to your project using Yarn or NPM.
+
+{{< tabs "install-npm" >}}
+{{< tab lang="shell" title="NPM" >}}
+npm install @dfuse/client
+{{< /tab >}}
+{{< tab lang="shell" title="Yarn" >}}
+yarn add @dfuse/client
+{{< /tab >}}
+{{< /tabs >}}
+
+## 3. Initializing the dfuse Client
+
+With the initial setup completed, you can start coding. The first thing we will do is initialize the dfuse client, using the API key you created in the first step and you'll now specify the [Ethereum API Endpoint]({{< ref "reference/ethereum/endpoints" >}}) or [EOSIO API Endpoint]({{< ref "reference/ethereum/endpoints" >}}) you want to connect to.
+
+{{< tabs "getting-started-js-3" >}}
+{{< tab lang="javascript" title="main.js" opts="linenos=table">}}
 const { createDfuseClient } = require("@dfuse/client")
 
 const client = createDfuseClient({
-  apiKey: DFUSE_API_KEY,
-  network: DFUSE_API_NETWORK
+  apiKey: 'web_abcdef12345678900000000000', // Your API key goes here
+  network: 'mainnet.eth.dfuse.io' // Specify the API endpoint you want to connect to here
 })
+{{< /tab >}}
+{{< /tabs >}}
 
-const stream = await client.graphql(`
+## 4. Crafting our GraphQL Query
+
+Next, we you create our GraphQL query. Here, you will use a GraphQL subscription to stream results as they come. You will use the `searchTransactionsForward` operation, with the `"receiver:eosio.token action:transfer"` query (See the [Search Query Language reference here]({{< ref "/reference/eosio/search" >}})).
+
+{{< tabs "getting-started-js-4" >}}
+{{< tab lang="javascript" title="main.js" opts="linenos=table,linenostart=7">}}
+const query = `
   subscription {
     searchTransactionsForward(query: "receiver:eosio.token action:transfer") {
       cursor
@@ -30,24 +64,23 @@ const stream = await client.graphql(`
       }
     }
   }
-`, (message) => {
+`
+{{< /tab >}}
+{{< /tabs >}}
+
+## 5. Executing our Query
+
+Finally, you can combine the dfuse client instance we created in step 3 with the GraphQL query you created in step 4 to start streaming the results of our query.
+
+The function passed as the 2nd parameter to `client.graphql()` will be called every time a new result is returned by the API.
+
+{{< tabs "getting-started-js-5" >}}
+{{< tab lang="javascript" title="main.js" opts="linenos=table,linenostart=19">}}
+client.graphql(query, (message) => {
   if (message.type === "data") {
     console.log(message.data);
   }
 })
-{{< /tab >}}
-{{< /tabs >}}
-
-## Running the Example
-
-First of all, visit [https://app.dfuse.io](https://app.dfuse.io) to get `YOUR_API_KEY`.
-
-{{< tabs "running-js-example" >}}
-{{< tab lang="shell" >}}
-git clone https://github.com/dfuse-io/example-graphql-apollo.git
-cd example-graphql-apollo
-yarn install
-DFUSE_API_KEY=YOUR_API_KEY_HERE yarn start
 {{< /tab >}}
 {{< /tabs >}}
 
