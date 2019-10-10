@@ -55,6 +55,7 @@
     padding: $padding-8 $padding-16;
     border-bottom: $padding-1 transparent;
     cursor: pointer;
+    color: $ternary-500;
   }
 
   .book-tabs-content {
@@ -75,7 +76,8 @@
 
   input[type="radio"]:checked + label {
     border-bottom: 0px solid $primary-1000;
-    background:$gray-200;
+    background:$ternary-200;
+    color:$ternary-1000;
   }
   input[type="radio"]:checked + label + .book-tabs-content {
     display: block;
