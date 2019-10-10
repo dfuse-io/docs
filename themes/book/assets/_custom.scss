@@ -226,7 +226,7 @@ article {
   }
 }
 
-.section:nth-of-type(2n) {
+.section:nth-of-type(2n+1) {
   background-color: $ternary-100;
 }
 
@@ -276,6 +276,21 @@ article {
   }
 }
 
+.lastest-releases {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  h3 {
+    color: $ternary-400;
+    font-size: 1.2em;
+    font-weight: 900;
+  }
+  ul {
+    font-size: 1em;
+    font-weight: 400;
+    list-style-type: square;
+  }
+
+}
 
 .ul-none {
   list-style-type: none;

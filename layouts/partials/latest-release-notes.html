@@ -1,0 +1,27 @@
+
+
+<!--  Releases   -->
+<div class="container section pt-5 pb-7">
+  <div class="row">
+    <div class="col-12 pt-4">
+      <h2>What's new in dfuse API</h2>
+      <div class="lastest-releases">
+        {{ with .Site.GetPage "/release-notes"  }}
+          {{ $paragraphs :=  split .RawContent "***"  }}
+          {{ range $index, $element := first 3 $paragraphs }}
+            {{ if (eq $index 0) }}
+
+            {{ else }}
+              {{ . | markdownify }}
+            {{ end }}
+
+          {{ end }}
+        {{ end }}
+      </div>
+      <a href="/release-notes">See all releases</a>
+    </div>
+
+  </div>
+</div>
+
+
