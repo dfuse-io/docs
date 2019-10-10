@@ -298,22 +298,29 @@ aside nav,
 .book-tabs {
   position: relative;
 }
-
+.markdown-inner:hover .copy-code-button {
+  display:flex;
+}
 .copy-code-button {
+  display:none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  border: 0;
-  height: 38px;
-  padding: 0 20px;
-
+  border: 2px solid $primary-1000;
+  height: 31px;
+  border-radius: 15px;
+  padding: 0 15px;
+  color: #34cfbd;
+  font-weight: 700;
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 53px;
+  right: 15px;
   cursor: pointer;
   outline: 0;
+  background: rgba(11,36,59,.7);
 
   &:hover {
-    background-color: #F2F2F2;
+    background-color: $primary-1000;
+    color:$white;
   }
   &:active {
     background-color: #D9D9D9;
