@@ -1,5 +1,6 @@
 ---
 weight: 50
+BookToC: false
 ---
 
 # Release Notes
