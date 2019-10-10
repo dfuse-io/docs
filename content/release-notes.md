@@ -1,13 +1,12 @@
 ---
-title: Releases
 weight: 50
-identifier: releases
 ---
 
+# Release Notes
 
 ***
 
-## 2019-08-07
+### 2019-08-07
 
 * Added in **PREVIEW** mode: `GET /v0/state/table/row` to fetch a single row from a given table. The row
   fetched according to it's primary key.
@@ -17,7 +16,7 @@ identifier: releases
   
 ***
 
-## 2019-07-09
+### 2019-07-09
 
 * Deprecation of non-`executed` transactions in Search:
   * According to our analysis, this change touches close to 0% of our userbase.
@@ -31,26 +30,26 @@ identifier: releases
 
 ***
 
-## 2019-05-07
+### 2019-05-07
 
 * **Beta** dfuse Events is now live.
 
 ***
 
-## 2019-04-24
+### 2019-04-24
 
 * Added in **PREVIEW** mode: `GET /v0/transaction/:id` to fetch the transaction lifecycle
   associated with the `:id` path parameter.
 
 ***
 
-## 2019-04-23
+### 2019-04-23
 
 * **Breaking change**  : `/v1/chain/push_transation` with `in-block` guarantee now requires authentication.
 
 ***
 
-## 2019-04-17
+### 2019-04-17
 
 * **Beta** Brand new GraphQL interface to EOSIO chain
   data. [See documentation](#graphql) and
@@ -75,7 +74,7 @@ identifier: releases
 
 ***
 
-## 2019-04-10
+### 2019-04-10
 
 * **Breaking change** (low risk): Search requests that do not specify
   `status:` in the query will automatically search only for
@@ -85,13 +84,13 @@ identifier: releases
 
 ***
 
-## 2019-03-21
+### 2019-03-21
 
 * Added `irreversible_only` flag to `get_action_traces` websocket request.
 
 ***
 
-## 2019-03-05
+### 2019-03-05
 
 * Added in PREVIEW mode: `GET /v0/state/key_accounts` to fetch the list of accounts
   controlled by the given public key, at any block height.
@@ -108,7 +107,7 @@ identifier: releases
 
 ***
 
-## 2019-01-29
+### 2019-01-29
 
 * Clarified the use of `cursor`, and describe the behavior of `forked_head_warning`.
 
@@ -116,7 +115,7 @@ identifier: releases
 
 ***
 
-## 2019-02-18
+### 2019-02-18
 
 * `POST /v1/chain/push_transaction` now supports new push-guarantees:
   `handoff:1`, `handoffs:2` and `handoffs:3`, allowing more flexible
@@ -125,7 +124,7 @@ identifier: releases
 
 ***
 
-## 2019-01-22
+### 2019-01-22
 
 * Fully standardized error messages format returned to consumer.
 
@@ -163,9 +162,9 @@ identifier: releases
 
 ***
 
-## 2018-12-18
+### 2018-12-18
 
-### REST API
+#### REST API
 
 * Released **PREVIEW** of **dfuse Structured Query Engine** or (**SQE**).
     * `GET /v0/search/transactions` to [query the whole blockchain in a swift](#rest-get-v0-search-transactions)
@@ -178,9 +177,9 @@ identifier: releases
 
 ***
 
-## 2018-12-13
+### 2018-12-13
 
-### REST API
+#### REST API
 
 * Added in PREVIEW mode: `GET /v0/state/abi` to fetch the ABI of a given account
   (contract) at any given block height.
@@ -191,9 +190,9 @@ identifier: releases
 
 ***
 
-## 2018-12-12
+### 2018-12-12
 
-### REST API
+#### REST API
 
 * Added in PREVIEW mode: `GET /v0/state/tables/scopes` to fetch a given
   table/scope pair for multiple contracts in a single command (up to 1500).
@@ -202,18 +201,18 @@ identifier: releases
 
 ***
 
-## 2018-12-10
+### 2018-12-10
 
-### REST API
+#### REST API
 
 * Added in PREVIEW mode: `GET /v0/state/permission_links` to fetch authorization
   linked to a particular account at any given point in time.
 
 ***
 
-## 2018-11-28
+### 2018-11-28
 
-### WebSocket
+#### WebSocket
 
 * DEPRECATED: The `eosws.mainnet.eoscanada.com` domain, which some users
   used at the very beginning of _dfuse_ will be shutdown in 7 days. Use
@@ -230,14 +229,14 @@ identifier: releases
 
 ***
 
-## 2018-11-22
+### 2018-11-22
 
-### Breaking changes
+#### Breaking changes
 
 * Breaking change `get_table_rows` listen response fields `undo: true`
   and `redo: true` are replaced by `step: "undo"` and `step: "redo"`
 
-### REST API
+#### REST API
 
 * Added in PREVIEW mode: `GET /v0/state/tables/accounts` to fetch a given
   table/scope pair for multiple contracts in a single command (up to 500)
@@ -245,7 +244,7 @@ identifier: releases
 * `POST /v1/chain/push_transaction` supports anonymous access for
   `in-block` guarantees.
 
-### WebSocket
+#### WebSocket
 
 * `get_transaction_lifecycle` now correctly sends an update upon
   irreversibility. It also contains a "transaction_status" parameter.
@@ -258,9 +257,9 @@ identifier: releases
 
 ***
 
-## 2018-11-09
+### 2018-11-09
 
-### Breaking changes (within reason, during beta period)
+#### Breaking changes (within reason, during beta period)
 
 * `get_transaction` was renamed to: `get_transaction_lifecycle`
 * `get_transaction_lifecycle`:
@@ -281,7 +280,7 @@ identifier: releases
   * `dbop.key` is now a name-encoded value
   * `dbop.old` and `dbop.new` represent the old and new values, payers.zz
 
-### New features
+#### New features
 
   * Added REST endpoint `/v0/state/table` added. See docs for details.
   * Added REST endpoint `/v1/chain` as passthrough to a reliable node
@@ -302,7 +301,7 @@ identifier: releases
 
 ***
 
-## 2018-10-15
+### 2018-10-15
 
   * `get_actions` request: renamed parameter `with_ram_costs` to `with_ramops`
     (`get_actions` is now `get_action_traces`).
