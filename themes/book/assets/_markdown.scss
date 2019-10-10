@@ -40,9 +40,9 @@
   }
 
   code {
-    padding: 0 $padding-4;
-    background: $gray-200;
-    border-radius: $border-radius;
+    padding: 1px 4px;
+    background: $ternary-200;
+    border-radius: 4px;
     font-size: .875em;
     font-weight: bold;
     color: $ternary-900;
@@ -50,8 +50,8 @@
 
   pre {
     padding: $padding-16;
-    background: $gray-100;
-    border-radius: $border-radius;
+    background: none;
+    border-radius: none;
     overflow-x: auto;
 
     code {

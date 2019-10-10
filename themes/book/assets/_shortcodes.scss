@@ -60,7 +60,7 @@
   .book-tabs-content {
     order: 999; //Move content blocks to the end
     width: 100%;
-    border-top: $padding-1 solid $gray-100;
+    border-top: 0px solid $gray-100;
     display: none;
     
     pre {
@@ -74,7 +74,8 @@
   }
 
   input[type="radio"]:checked + label {
-    border-bottom: $padding-1 solid $color-link;
+    border-bottom: 0px solid $primary-1000;
+    background:$gray-200;
   }
   input[type="radio"]:checked + label + .book-tabs-content {
     display: block;

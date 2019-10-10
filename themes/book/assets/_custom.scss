@@ -38,14 +38,6 @@ p {
   font-weight: normal;
 }
 
-p > code {
-  background: $ternary-200!important;
-  padding: 1px 4px;
-  border-radius: 4px;
-  font-size: .875em;
-  border: 1px solid $ternary-300!important;
-}
-
 .font-light {
   font-weight: $font-weight-light;
 }
