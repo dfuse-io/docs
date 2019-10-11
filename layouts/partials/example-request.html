@@ -8,7 +8,7 @@
 {{ partial "open-tab" . }}
 
 {{ $shell := printf `
-curl -H "Authorization: Bearer web_abcdef12345678900000000000" \ 
+curl -H "Authorization: Bearer eyJhbGciOiJLTVNFUzI1Ni..." \
   "%s"` $url }}
 {{ highlight $shell "shell" ""}}
 
@@ -21,7 +21,7 @@ curl -H "Authorization: Bearer web_abcdef12345678900000000000" \
 {{ $javascript := printf `
 fetch('%s', {
   headers: {
-    'Authorization': 'Bearer web_abcdef12345678900000000000'
+    'Authorization': 'Bearer eyJhbGciOiJLTVNFUzI1Ni...'
   }
 }).then(console.log)` $url }}
 {{ highlight $javascript "javascript" ""}}
@@ -34,7 +34,7 @@ fetch('%s', {
 {{ partial "open-tab" . }}
 
 {{ $python := printf `
-headers = { 'Authorization' : 'Bearer web_abcdef12345678900000000000' }
+headers = { 'Authorization' : 'Bearer eyJhbGciOiJLTVNFUzI1Ni...' }
 r = requests.get('%s', headers=headers, verify=False)
 j = json.loads(r.text)
 print(json.dumps(j, indent=4))` $url }}
@@ -52,7 +52,7 @@ req, err := http.NewRequest("GET", "%s", nil)
 if err != nil {
 // handle err
 }
-req.Header.Set("Authorization", "Bearer web_abcdef12345678900000000000")
+req.Header.Set("Authorization", "Bearer eyJhbGciOiJLTVNFUzI1Ni...")
 
 resp, err := http.DefaultClient.Do(req)
 if err != nil {
