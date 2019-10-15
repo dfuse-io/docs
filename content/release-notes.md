@@ -9,11 +9,9 @@ BookToC: false
 
 ### 2019-08-07
 
-* Added in **PREVIEW** mode: `GET /v0/state/table/row` to fetch a single row from a given table. The row
-  fetched according to it's primary key.
+* Added in PREVIEW mode: `GET /v0/state/table/row` to fetch a single row from a given table. The row fetched according to it's primary key.
 * Added support for `symbol` and `symbol_code` `key_type` in state REST API calls.
-* Added `POST` support for `/state/tables/scopes` and `/state/tables/accounts` which accepts a
-  `application/x-www-form-urlencoded` content type.
+* Added `POST` support for `/state/tables/scopes` and `/state/tables/accounts` which accepts a `application/x-www-form-urlencoded` content type.
   
 ***
 

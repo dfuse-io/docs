@@ -12,8 +12,8 @@
             {{ if (eq $index 0) }}
 
             {{ else }}
-              {{ . | markdownify }}
-            {{ end }}
+              {{ markdownify . }}
+             {{ end }}
 
           {{ end }}
         {{ end }}
