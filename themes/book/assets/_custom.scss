@@ -83,18 +83,23 @@ article {
   border-left: 1px solid #fff;
   height: min-content;
 }
+
 #header {
-  background-color: $ternary-1000;
-  display:block;
   position:fixed;
   width: 100%;
+  min-height:70px;
+  background-color: $ternary-1000;
   color:$white;
-  min-height:40px;
   box-sizing:border-box;
-  padding:15px;
+  padding: 0 15px;
   z-index: 1000;
-  box-sizing: border-box;
+  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
 }
+
 .book-search {
   margin-left:50px;
   margin-top:0px;
@@ -160,16 +165,6 @@ article {
   }
 }
 
-#header>div {
-  margin-right: auto;
-  margin-left: auto;
-  justify-content: flex-start;
-  align-items: center;
-  display: flex;
-  height: 40px;
-  box-sizing: border-box;
-  flex-direction: row;
-}
 #logo-main-nav  {
   display: flex;
   flex-direction: row;
@@ -186,33 +181,42 @@ article {
 #top-nav-wrapper {
   margin-left: auto;
   justify-content: flex-end;
+  align-self: stretch;
   align-items: center;
   display: flex;
-  height: 40px;
   box-sizing: border-box;
-  #top-nav {
-    list-style-type: none;
-    li {
-      display:inline-block;
+}
 
-      a {
-        padding: 0px 15px;
-        color: $white;
-        position: relative;
+#top-nav {
+  list-style-type: none;
+  margin: 0;
+  
+  display: flex;
+  align-self: stretch;
+  align-items: stretch;
 
-        &:hover {
-          color: $secondary-1000;
-        }
-        &.active:before {
-          content: ' ';
-          background: $primary-1000;
-          width: 100%;
-          position: absolute;
-          bottom: -26px;
-          height: 5px;
-          left: 0;
-          box-sizing: border-box;
-        }
+  li {
+    display: flex;
+
+    a {
+      display: flex;
+      align-items: center;
+      padding: 0px 15px;
+      color: $white;
+      position: relative;
+
+      &:hover {
+        color: $secondary-1000;
+      }
+      &.active:before {
+        content: ' ';
+        background: $primary-1000;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        height: 5px;
+        left: 0;
+        box-sizing: border-box;
       }
     }
   }
@@ -499,7 +503,7 @@ button.cta {
     font-size: 12px;
   }
 
-  #top-nav-wrapper #top-nav a {
+  #top-nav a {
     padding: 0 10px;
   }
 }
@@ -510,6 +514,7 @@ button.cta {
     height: 100px !important;
     min-height: 293px;
     overflow-y: auto;
+    flex-direction: column;
   }
 
   #button-main-menu-mobile {
@@ -550,16 +555,17 @@ button.cta {
     li {
       display: block;
       width: 100%;
-      padding:15px 20px;
 
       &:hover {
         background: rgba(255,255,255,.1);
       }
 
       a {
-        padding: 0px 0px!important;
         color: $white;
         position: relative;
+        width: 100%;
+        justify-content: center;
+        padding: 15px 20px;
 
         &:hover {
           color: $secondary-1000;
