@@ -103,61 +103,13 @@ article {
   z-index: 1000;
   box-sizing: border-box;
 }
+
 .book-search {
   margin-left:50px;
   margin-top:0px;
   margin-bottom: 0px;
   width: 240px;
   position: relative;
-  ul {
-    position: absolute;
-    padding: 0px 20px 0px 40px;
-    background: $ternary-200;
-    width: 360px;
-    box-sizing: border-box;
-    top: -2px;
-    right: -2px;
-    border-radius: 20px 20px 20px 20px;
-    z-index: 1900;
-    margin: 0px;
-    list-style: square;
-    list-style-position: outside;
-    color: $ternary-400;
-    li:first-child {
-      margin-top:60px;
-    }
-    li:last-child {
-      margin-bottom:30px;
-    }
-    li {
-      margin-bottom:4px;
-    }
-    li a:hover {
-      color:$secondary-1000;
-    }
-  }
-  input {
-    border-radius:20px;
-    padding:0px 20px;
-    background: $ternary-800;
-    color:$white;
-    position:relative;
-    z-index:2000;
-    &::placeholder {
-      color: $ternary-400;
-      opacity: 1;
-    }
-    &::-ms-input-placeholder {
-      color: $ternary-400;
-    }
-    &::-ms-input-placeholder {
-      color: $ternary-400;
-    }
-    &:focus {
-      outline:none !important;
-    }
-    height: 40px;
-  }
 }
 
 #button-main-menu-mobile {
@@ -920,6 +872,45 @@ aside.book-menu nav {
   }
 }
 
+#algolia-searchbox {
+  input {
+    border-radius: 20px;
+    padding: 0px 20px;
+    background:  $ternary-800;
+    color: $white;
+    position: relative;
+    z-index: 2000;
+    height: 40px;
 
-// Highlight Override
+    &::placeholder {
+      color: $ternary-400;
+      opacity: 1;
+    }
+    &::-ms-input-placeholder {
+      color: $ternary-400;
+    }
+    &::-ms-input-placeholder {
+      color: $ternary-400;
+    }
+    &:focus {
+      outline: none !important;
+    }
+  }
 
+  button {
+    display: none;
+  }
+}
+
+#algolia-search-results {
+  display: none;
+  background-color: white;
+  border: 1px solid $gray-200;
+  border-radius: 6px;
+  padding: 20px;
+  color: $body-font-color;
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  width: 500px;
+}

@@ -1,6 +1,65 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/luminous-lightbox@2.3.2/dist/luminous-basic.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/luminous-lightbox@2.3.2/dist/luminous.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/algoliasearch@3.35.1/dist/algoliasearch.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@3.7.0/dist/instantsearch.production.min.js"></script>
 
 <script type="text/javascript">
+  // Lightboxes
   document.querySelectorAll('a[data-lightbox-enabled]').forEach(element => new Luminous(element));
+
+  function hitTemplate(hit) {
+    console.log(hit)
+    return `<div>
+      <h4>${hit.title}</h4>
+    </div>`;
+  }
+
+  const search = instantsearch({
+  indexName: "prod_DOCS",
+  searchClient: algoliasearch(
+    'B918JPVEEL',
+    'f4343714708da99ccafb523aae6c44f3'
+  ),
+  searchParameters: {
+    hitsPerPage: 3,
+    attributesToSnippet: ["content:14"],
+    snippetEllipsisText: " [...]"
+  },
+  searchFunction(helper) {
+    const container = document.querySelector('#algolia-search-results');
+
+    if (helper.state.query === '') {
+      container.style.display = 'none';
+    } else {
+      container.style.display = 'block';
+    }
+
+    helper.search();
+  }
+});
+
+search.addWidget(
+  instantsearch.widgets.hits({
+    container: "#algolia-search-results",
+    templates: {
+      empty: "No results found.",
+      item(hit) {
+        return hitTemplate(hit);
+      }
+    }
+  })
+);
+
+search.addWidget(
+  instantsearch.widgets.searchBox({
+    container: "#algolia-searchbox",
+    placeholder: "Search",
+    autofocus: false
+  })
+);
+
+
+search.start();
+
 </script>
