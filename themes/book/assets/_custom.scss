@@ -222,7 +222,7 @@ article {
   }
 }
 
-.section:nth-of-type(2n+1) {
+.section.bg-ternary-100 {
   background-color: $ternary-100;
 }
 
@@ -275,10 +275,14 @@ article {
 .lastest-releases {
   display: grid;
   grid-template-columns: 1fr 3fr;
+  @media (max-width:575px){
+    grid-template-columns: 1fr;
+  }
   h3 {
     color: $ternary-400;
     font-size: 1.2em;
     font-weight: 900;
+    margin-top:20px;
   }
   ul {
     font-size: 1em;

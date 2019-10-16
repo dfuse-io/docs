@@ -47,6 +47,9 @@
     font-weight: bold;
     color: $ternary-900;
   }
+  .section.bg-ternary-100 code {
+    background: $ternary-300;
+  }
 
   pre {
     padding: $padding-16;
