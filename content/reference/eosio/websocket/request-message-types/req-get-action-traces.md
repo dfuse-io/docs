@@ -70,10 +70,9 @@ Actions on the EOS blockchain are identified by a triplet `receiver`/`account`/`
   Stream RAM billing changes and reasons for costs of storage produced by each action (See [RAMOp]({{< ref "../../types/RAMOp" >}})).
 {{< /method-list-item >}}
 
-{{< method-list-item name="with_tableops" required="false" type="Boolean" >}}
-  Stream table operations produced by each action (See [TableOp]({{< ref "../../types/TableOp" >}})).
+{{< method-list-item name="with_tableops" required="false" type="Boolean" >}} Stream table operations produced by each action (See [TableOp]({{< ref "../../types/TableOp" >}})).
   {{< note >}}
-    Do not confuse, the latter being describing a row changes (i.e. for example, an account’s balance) while the former describe the actual creation/deletion of a contract’s table (i.e. the encompassing structure containing the actual rows).
+  Do not confuse, the latter being describing a row changes (i.e. for example, an account’s balance) while the former describe the actual creation/deletion of a contract’s table (i.e. the encompassing structure containing the actual rows).
   {{< /note >}}
 {{< /method-list-item >}}
 
