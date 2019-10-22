@@ -5,6 +5,17 @@
     margin-top: 60px;
     margin-bottom: 30px;
   }
+  .admonition-note {
+    background-color: $gray-100;
+    border-left-color: $color-link;
+    .admonition-title {
+      color: $color-link;
+    }
+    pre code {
+      color: $ternary-1000;
+      white-space: pre-wrap;
+    }
+  }
 
   h4 {
     border-bottom: 1px solid hsl(231.3, 20%, 85%);
