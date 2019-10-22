@@ -456,6 +456,9 @@ button.cta {
   height:40px;
   border:none;
   cursor: pointer;
+  &:hover {
+    opacity:.85;
+  }
 }
 
 .next-pages-buttons .btn-outline {
@@ -470,6 +473,9 @@ button.cta {
   cursor: pointer;
   display: flex;
   align-items: center;
+  &:hover{
+    background: $primary-100;
+  }
 }
 .next-pages-buttons .btn-previous-page.btn-outline i {
   font-size: 1.4em!important;

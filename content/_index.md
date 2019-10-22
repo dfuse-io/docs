@@ -1,6 +1,7 @@
 ---
 title: Home
 layout : full-width
+weight: 1
 menu:
  main:
    name: Overview
