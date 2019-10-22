@@ -38,6 +38,8 @@ p {
   font-weight: normal;
 }
 
+a {position:relative;}
+
 .font-light {
   font-weight: $font-weight-light;
 }
@@ -429,6 +431,19 @@ article {
   background-size: 80%;
   background-position: center;
   background-repeat: no-repeat;
+}
+.external-link:after {
+  content: '\f08e';
+  width: 10px;
+  height: 10px;
+  font-family: 'font awesome 5 pro';
+  font-size: 10px;
+  display: inline-block;
+  position: relative;
+  right: -4px;
+  top: -5px;
+  color: #c9cacf;
+  margin-right: 10px;
 }
 
 @media (max-width:575px) {
