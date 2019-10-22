@@ -4,7 +4,7 @@ We welcome contributions to improve the documentation. Simply open a pull reques
 
 ## Requirements
 
-- Hugo 0.55 or higher
+- Hugo **Extended** (with SCSS support), version 0.55 or higher
 
 ## Development
 
