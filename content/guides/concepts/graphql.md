@@ -1,6 +1,6 @@
 ---
 title: GraphQL
-weight: 2
+weight: 4
 ---
 
 # GraphQL

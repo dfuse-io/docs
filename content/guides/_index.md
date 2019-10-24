@@ -17,17 +17,17 @@ BookToC: false
 
 #### Getting Started
 
-* [With Go]({{< ref "./getting-started/with-go" >}})
-* [With Javascript]({{< ref "./getting-started/with-javascript" >}})
-* [With Python]({{< ref "./getting-started/with-python" >}})
-* [With Other Languages]({{< ref "./getting-started/with-other-languages" >}})
+* [With Go]({{< ref "./getting-started/ethereum/with-go" >}})
+* [With Javascript]({{< ref "./getting-started/ethereum/with-javascript" >}})
+* [With Python]({{< ref "./getting-started/ethereum/with-python" >}})
+* [With Other Languages]({{< ref "./getting-started/ethereum/with-other-languages" >}})
 
 <--->
 
 #### Other Guides
 
-* [Authentication]({{< ref "./authentication" >}})
-* [GraphQL]({{< ref "./graphql" >}})
+* [Authentication]({{< ref "./concepts/authentication" >}})
+* [GraphQL]({{< ref "./concepts/graphql" >}})
 
 {{< /sub-section-columns >}}
 
@@ -38,17 +38,17 @@ BookToC: false
 
 #### Getting Started
 
-* [With Go]({{< ref "./getting-started/with-go" >}})
-* [With Javascript]({{< ref "./getting-started/with-javascript" >}})
-* [With Python]({{< ref "./getting-started/with-python" >}})
-* [With Other Languages]({{< ref "./getting-started/with-other-languages" >}})
+* [With Go]({{< ref "./getting-started/eosio/with-go" >}})
+* [With Javascript]({{< ref "./getting-started/eosio/with-javascript" >}})
+* [With Python]({{< ref "./getting-started/eosio/with-python" >}})
+* [With Other Languages]({{< ref "./getting-started/eosio/with-other-languages" >}})
 
 <--->
 
 #### Other Guides
 
-* [Authentication]({{< ref "./authentication" >}})
-* [GraphQL]({{< ref "./graphql" >}})
+* [Authentication]({{< ref "./concepts/authentication" >}})
+* [GraphQL]({{< ref "./concepts/graphql" >}})
 
 {{< /sub-section-columns >}}
 
