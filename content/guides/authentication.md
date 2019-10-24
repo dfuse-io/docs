@@ -1,7 +1,7 @@
 ---
 layout: docs
 type: single
-weight: 3
+weight: 2
 ---
 
 # Authentication
