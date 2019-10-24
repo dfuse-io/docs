@@ -2,11 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="701cab7e-db6c-46e2-af90-4cc752dc4ca5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/docs.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/guides/concepts/_index.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/guides/getting-started/eosio/_index.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/guides/getting-started/ethereum/_index.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/guides/getting-started/ethereum/with-go.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/guides/getting-started/ethereum/with-javascript.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/guides/getting-started/ethereum/with-other-languages.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/guides/getting-started/ethereum/with-python.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/guides/tutorials/_index.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/guides/tutorials/eosio/_index.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/guides/tutorials/eosio/push_notification.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/guides/tutorials/eosio/recent_trx.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/guides/tutorials/eosio/shine.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/guides/tutorials/eosio/slack_notification.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/guides/tutorials/eosio/sync_database.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/guides/tutorials/eosio/sync_table_real_time.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/guides/tutorials/eosio/write_chain.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/guides/tutorials/ethereum/_index.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/guides/tutorials/ethereum/shine.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/guides/tutorials/ethereum/sync_database.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/guides/tutorials/ethereum/track_trx.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/guides/tutorials/ethereum/trx_lifecycle_widget.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/layouts/shortcodes/externalLink.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/guides/_index.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/guides/_index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/guides/authentication.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/guides/concepts/authentication.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/guides/concepts/authentication.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/guides/concepts/graphql.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/guides/concepts/graphql.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/guides/getting-started/with-go.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/guides/getting-started/eosio/with-go.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/guides/getting-started/with-javascript.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/guides/getting-started/eosio/with-javascript.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/guides/getting-started/with-other-languages.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/guides/getting-started/eosio/with-other-languages.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/guides/getting-started/with-python.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/guides/getting-started/eosio/with-python.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/guides/graphql.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layouts/shortcodes/include.html" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/shortcodes/include.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/book/layouts/_default/single.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/book/layouts/_default/single.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/book/layouts/partials/docs/toc.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/book/layouts/partials/docs/toc.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
