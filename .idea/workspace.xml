@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="701cab7e-db6c-46e2-af90-4cc752dc4ca5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/content/guides/concepts/cursor.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/guides/concepts/eosio/_index.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/guides/concepts/eosio/trx_lifecycle.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/guides/concepts/ethereum/_index.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/guides/concepts/ethereum/trx_lifecycle.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/guides/concepts/sqe.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/guides/concepts/authentication.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/guides/concepts/authentication.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/guides/concepts/graphql.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/guides/concepts/graphql.md" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="GOROOT" path="/usr/local/go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1SWjbVBVgzmDXdXqnB60JFkHmjS" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/layouts/shortcodes" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/content/guides/tutorials/ethereum" />
+      <recent name="$PROJECT_DIR$/content/guides/getting-started/ethereum" />
+      <recent name="$PROJECT_DIR$/content/guides/concepts" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/layouts/shortcodes" />
+      <recent name="$PROJECT_DIR$/content/guides/getting-started/eosio" />
+      <recent name="$PROJECT_DIR$/content/hello" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
