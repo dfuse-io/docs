@@ -38,6 +38,8 @@ p {
   font-weight: normal;
 }
 
+a {position:relative;}
+
 .font-light {
   font-weight: $font-weight-light;
 }
@@ -82,6 +84,11 @@ article {
   padding-left: 15px;
   border-left: 1px solid #fff;
   height: min-content;
+}
+
+.admonition-note {
+  background-color: $gray-500;
+  border-left-color: $gray-800;
 }
 
 #header {
@@ -139,7 +146,7 @@ article {
     background: $ternary-800;
     color:$white;
     position:relative;
-    z-index:2000;
+
     &::placeholder {
       color: $ternary-400;
       opacity: 1;
@@ -222,7 +229,8 @@ article {
   }
 }
 
-.section:nth-of-type(2n+1) {
+.section.section-crypto:nth-of-type(2n),
+.section.bg-ternary-100 {
   background-color: $ternary-100;
 }
 
@@ -275,10 +283,14 @@ article {
 .lastest-releases {
   display: grid;
   grid-template-columns: 1fr 3fr;
+  @media (max-width:575px){
+    grid-template-columns: 1fr;
+  }
   h3 {
     color: $ternary-400;
     font-size: 1.2em;
     font-weight: 900;
+    margin-top:20px;
   }
   ul {
     font-size: 1em;
@@ -420,6 +432,19 @@ article {
   background-position: center;
   background-repeat: no-repeat;
 }
+.external-link:after {
+  content: '\f08e';
+  width: 10px;
+  height: 10px;
+  font-family: 'font awesome 5 pro';
+  font-size: 10px;
+  display: inline-block;
+  position: relative;
+  right: -4px;
+  top: -5px;
+  color: #c9cacf;
+  margin-right: 10px;
+}
 
 @media (max-width:575px) {
   .row.sub-section-title-row {
@@ -446,6 +471,9 @@ button.cta {
   height:40px;
   border:none;
   cursor: pointer;
+  &:hover {
+    opacity:.85;
+  }
 }
 
 .next-pages-buttons .btn-outline {
@@ -460,6 +488,9 @@ button.cta {
   cursor: pointer;
   display: flex;
   align-items: center;
+  &:hover{
+    background: $primary-100;
+  }
 }
 .next-pages-buttons .btn-previous-page.btn-outline i {
   font-size: 1.4em!important;
@@ -956,4 +987,30 @@ thead {
 }
 .toc-level-H5 {
   padding-left: 40px;
+}
+
+// CSS Overides to make the algolia suggestions menu work
+// on mobile. Found here: https://github.com/algolia/docsearch/issues/181
+// Since some values are added by Javascript, we have 
+// To add the !important option to override these values
+.algolia-autocomplete {
+  // On a max-width of 768px
+  @media (max-width: 768px) {
+    .ds-dropdown-menu {
+      max-width: calc(100vw - 32px) !important;
+      min-width: calc(100vw - 32px) !important;      
+      width: calc(100vw - 32px) !important;
+      margin-left: 16px !important;
+    }
+    .algolia-docsearch-suggestion--content {
+      width: 100% !important;
+      padding-left: 0 !important;
+    }
+    .algolia-docsearch-suggestion--content:before  {
+      display: none !important;
+    }
+    .algolia-docsearch-suggestion--subcategory-column {
+      display: none !important;
+    }
+  }
 }
