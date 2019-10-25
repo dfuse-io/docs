@@ -1,0 +1,24 @@
+{{ range .Site.Data.graphql }}
+  <h2 id="{{ anchorize .name }}">{{ .name }}</h2>
+  <p>{{ .description | markdownify }}</p>
+
+  <table style="margin-bottom: 80px;">
+    <thead>
+      <tr>
+        <td>Field Name</td>
+        <td>Type</td>
+        <td>Description</td>
+      </tr>
+    </thead>
+    <tbody>
+      {{ range .fields }}
+        <tr>
+          <td><code>{{ .name }}</code></td>
+          <td>{{ .type }}</td>
+          <td>{{ markdownify .description }}</td>
+        </tr>
+      {{ end }}
+    </tbody>
+  </table>
+
+{{ end}}

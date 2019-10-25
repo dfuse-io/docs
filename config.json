@@ -6,7 +6,7 @@
   "enableGitInfo": true,
   "params": {
     "DfuseLogo": "dfuse-logo.svg",
-    "BookToC": 2,
+    "BookToC": 5,
     "BookSections": {
       "guides": "show",
       "reference": "show"

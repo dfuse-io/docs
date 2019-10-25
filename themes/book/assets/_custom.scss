@@ -934,5 +934,26 @@ aside.book-menu nav {
 }
 
 
-// Highlight Override
+thead {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 13px;
 
+  td {
+    border-bottom-width: 3px !important;
+    white-space: nowrap;
+  }
+}
+
+.toc-level-H2 {
+  padding-left: 10px;
+}
+.toc-level-H3 {
+  padding-left: 20px;
+}
+.toc-level-H4 {
+  padding-left: 30px;
+}
+.toc-level-H5 {
+  padding-left: 40px;
+}
