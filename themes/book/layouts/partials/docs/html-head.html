@@ -5,11 +5,6 @@
 {{- $styles := resources.Get "book.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
 
-{{ if default true .Site.Params.BookSearch }}
-{{- $searchJS := resources.Get "search.js" | resources.ExecuteAsTemplate "search.js" . | resources.Minify | resources.Fingerprint }}
-<script defer src="{{ $searchJS.RelPermalink }}" integrity="{{ $searchJS.Data.Integrity }}"></script>
-{{ end }}
-
 <script defer src="/scripts/main.js"></script>
 
 <link rel="icon" href="{{ "favicon.png" | relURL }}" type="image/x-icon">
