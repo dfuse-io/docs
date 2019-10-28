@@ -6,8 +6,13 @@ weight: 4
 
 ## Generate your GRPC client
 
-{{< tabs "HUMMMM">}}
-{{< tab title="GO" lang="go" >}}
+link to proto!
+
+{{< tabs "GO">}}
+{{< tab title="GO" lang="shell" >}}
+# Visit [golang gRPC prerequisites](https://grpc.io/docs/quickstart/go.html#prerequisites)
+# Then make sure that `protoc` is accessible from your $PATH
+
 {{< /tab >}}
 
 {{< tab title="Python" lang="python" >}}

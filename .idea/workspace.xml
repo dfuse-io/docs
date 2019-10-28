@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1b0a48e2-f1d3-46d3-87bd-1276896537e1" name="Default Changelist" comment="">
+    <list default="true" id="1b0a48e2-f1d3-46d3-87bd-1276896537e1" name="Default Changelist" comment="Get started structure proposal">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/guides/_index.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/guides/_index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/guides/ethereum/getting-started/how-to-work-with-your-free-account.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/guides/ethereum/getting-started/how-to-work-with-your-free-account.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/content/guides/ethereum/getting-started/other-languages.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/guides/ethereum/getting-started/other-languages.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,6 +27,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="GO_FMT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
@@ -43,6 +42,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Get started structure proposal" />
+    <option name="LAST_COMMIT_MESSAGE" value="Get started structure proposal" />
   </component>
   <component name="WindowStateProjectService">
     <state x="706" y="331" key="git4idea.branch.GitSmartOperationDialog" timestamp="1572288919666">
