@@ -1,8 +1,8 @@
 ---
-weight: 1
+weight: 3
 ---
 
-# Getting Started with Python
+# Python Quickstart
 
 This simple program demonstrates how easy it is to query our GraphQL API over gRPC in Python. Here is an overview of what it does.
 
@@ -65,7 +65,7 @@ subscription {
       matchingActions{
         account
         receiver
-        name 
+        name
         json
       }
     }

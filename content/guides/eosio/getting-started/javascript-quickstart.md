@@ -1,9 +1,9 @@
 ---
-weight: 1
-title: "With Javascript"
+weight: 2
+title: "Javascript Quickstart"
 ---
 
-# Getting Started with Javascript
+# Javascript Quickstart
 
 In this guide we will show you how to create a basic setup so that you can benefit from the dfuse GraphQL API with Javascript.
 

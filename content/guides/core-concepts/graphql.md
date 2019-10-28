@@ -3,6 +3,22 @@ title: GraphQL
 weight: 3
 ---
 
+<!--
+
+TODO: this article lists many examples.. disseminate the examples in the right sections.
+This should highlight only the main concepts.
+
+Eg:
+
+List benefits of GraphQL vs REST
+List how we use Subscriptions
+Error handling
+Our Error codes, how we handle 429 errors, how errors are in-stream.
+How we handle pagination generally (pageInfo)
+How Connections work, etc..
+
+-->
+
 # GraphQL
 
 ## Getting Started with GraphQL

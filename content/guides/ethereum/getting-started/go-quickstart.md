@@ -1,8 +1,8 @@
 ---
-weight: 1
+weight: 2
 ---
 
-# Getting Started with Go
+# Go Quickstart
 
 This simple program demonstrates how easy it is to query our GraphQL API over gRPC. It:
 

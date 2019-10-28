@@ -17,17 +17,18 @@ BookToC: false
 
 #### Getting Started
 
-* [With Go]({{< ref "./ethereum/getting-started/with-go" >}})
-* [With Javascript]({{< ref "./ethereum/getting-started/with-javascript" >}})
-* [With Python]({{< ref "./ethereum/getting-started/with-python" >}})
-* [With Other Languages]({{< ref "./ethereum/getting-started/with-other-languages" >}})
+* [Javascript Quickstart]({{< ref "./ethereum/getting-started/javascript-quickstart" >}})
+* [Go Quickstart]({{< ref "./ethereum/getting-started/go-quickstart" >}})
+* [Python Quickstart]({{< ref "./ethereum/getting-started/python-quickstart" >}})
+* [Other Languages]({{< ref "./ethereum/getting-started/other-languages" >}})
+* [GraphQL Quickstart]({{< ref "./ethereum/getting-started/graphql-quickstart" >}})
 
 <--->
 
 #### Other Guides
 
-* [Authentication]({{< ref "./concepts/authentication" >}})
-* [GraphQL]({{< ref "./concepts/graphql" >}})
+* [Authentication]({{< ref "./core-concepts/authentication" >}})
+* [GraphQL]({{< ref "./core-concepts/graphql" >}})
 
 {{< /sub-section-columns >}}
 
@@ -38,17 +39,18 @@ BookToC: false
 
 #### Getting Started
 
-* [With Go]({{< ref "./eosio/getting-started/with-go" >}})
-* [With Javascript]({{< ref "./eosio/getting-started/with-javascript" >}})
-* [With Python]({{< ref "./eosio/getting-started/with-python" >}})
-* [With Other Languages]({{< ref "./eosio/getting-started/with-other-languages" >}})
+* [Javascript Quickstart]({{< ref "./eosio/getting-started/javascript-quickstart" >}})
+* [Go Quickstart]({{< ref "./eosio/getting-started/go-quickstart" >}})
+* [Python Quickstart]({{< ref "./eosio/getting-started/python-quickstart" >}})
+* [Other Languages]({{< ref "./eosio/getting-started/other-languages" >}})
+* [GraphQL Quickstart]({{< ref "./eosio/getting-started/graphql-quickstart" >}})
 
 <--->
 
 #### Other Guides
 
-* [Authentication]({{< ref "./concepts/authentication" >}})
-* [GraphQL]({{< ref "./concepts/graphql" >}})
+* [Authentication]({{< ref "./core-concepts/authentication" >}})
+* [GraphQL]({{< ref "./core-concepts/graphql" >}})
 
 {{< /sub-section-columns >}}
 
