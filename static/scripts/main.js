@@ -236,3 +236,23 @@ const redirectMap = {
  if (redirectTo) {
    location.href = redirectTo;
  }
+
+ 
+ /**
+  * NOTE: The TOC is generated here at run-time. This is because shortcodes/partials are run AFTER
+  * the TOC is generated, so any headings created by a partial are not taken into account.
+  */
+ const tableOfContents = document.createElement('ul');
+ const parser = new DOMParser();
+
+ document.querySelector('.book-page').querySelectorAll('h1, h2, h3, h4, h5').forEach(heading => {
+   const link = document.createElement('a')
+   link.innerText = heading.innerText;
+   link.setAttribute('href', `#${heading.id}`);
+   link.setAttribute('class', `toc-level-${heading.tagName}`)
+
+   tableOfContents.appendChild(document.createElement('li').appendChild(link))
+   console.log(heading)
+ })
+
+ document.querySelector('#TableOfContents ul').replaceWith(tableOfContents)

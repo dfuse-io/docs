@@ -1,0 +1,24 @@
+{
+  "name": "dfusedocs2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "graphql.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eoscanada/dfuse-docs-2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eoscanada/dfuse-docs-2/issues"
+  },
+  "homepage": "https://github.com/eoscanada/dfuse-docs-2#readme",
+  "devDependencies": {
+    "graphql": "^14.5.8",
+    "graphql-tag": "^2.10.1"
+  },
+  "dependencies": {}
+}

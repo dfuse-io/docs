@@ -1,0 +1,546 @@
+[
+  {
+    "name": "Query",
+    "description": "",
+    "fields": [
+      {
+        "name": "block",
+        "type": "Block",
+        "description": ""
+      },
+      {
+        "name": "blockByNumber",
+        "type": "Block",
+        "description": ""
+      },
+      {
+        "name": "transaction",
+        "type": "Transaction",
+        "description": ""
+      },
+      {
+        "name": "searchTransactions",
+        "type": "TransactionConnection!",
+        "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\n\nWhen the returned `cursor` is empty, it means you have reached the end of the specified block\nrange.\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization.\n\nSee also the streaming version under `Subscription`"
+      }
+    ]
+  },
+  {
+    "name": "PageInfo",
+    "description": "",
+    "fields": [
+      {
+        "name": "startCursor",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "endCursor",
+        "type": "String!",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "Subscription",
+    "description": "",
+    "fields": [
+      {
+        "name": "searchTransactions",
+        "type": "TransactionEdge!",
+        "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization.  The `undo` field is always `false` in backward searches."
+      }
+    ]
+  },
+  {
+    "name": "TransactionConnection",
+    "description": "The Connection type for a Transaction",
+    "fields": [
+      {
+        "name": "edges",
+        "type": "[TransactionEdge]!",
+        "description": "A list of edges to transactions"
+      },
+      {
+        "name": "pageInfo",
+        "type": "PageInfo!",
+        "description": "Information to aid pagination"
+      }
+    ]
+  },
+  {
+    "name": "TransactionEdge",
+    "description": "A single transaction trace response.\n\nWARNING: when doing forward streaming seareches, do NOT forget to include the `undo` field to determine if the message is actually a REVERSAL of the transaction.\n\nNOTE: always check the value of `node.status` to make sure it is successfully executed before assuming it is.",
+    "fields": [
+      {
+        "name": "undo",
+        "type": "Boolean!",
+        "description": "Whether this response is an UNDO operation of a previously sent response.\n\nIn a forward search, make sure you catch this and always verify its value.. as to not double/triple count transactions.\n\nIn a backward searches, `undo` will always be `false`."
+      },
+      {
+        "name": "cursor",
+        "type": "String!",
+        "description": "Query cursor, allowing you to continue fetching results even after interruption of your connection, without missing a beat."
+      },
+      {
+        "name": "block",
+        "type": "Block!",
+        "description": ""
+      },
+      {
+        "name": "node",
+        "type": "Transaction",
+        "description": "The transaction object."
+      }
+    ]
+  },
+  {
+    "name": "Transaction",
+    "description": "Traces of the execution of a given transaction. This means the\ntransaction was executed on the chain. You also get context about the\nblock in which it was executed, and the status of the execution.\n\nWARN: Make sure to always check the `status` (in the `receipt`) to\nmake sure you're not considering a failed transaction as if it was\nsuccessful.",
+    "fields": [
+      {
+        "name": "status",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "to",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "nonce",
+        "type": "Uint64!",
+        "description": ""
+      },
+      {
+        "name": "gasPrice",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "gasLimit",
+        "type": "Uint64!",
+        "description": ""
+      },
+      {
+        "name": "gasUsed",
+        "type": "Uint64!",
+        "description": ""
+      },
+      {
+        "name": "cumulativeGasUsed",
+        "type": "Uint64!",
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "input",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "signature",
+        "type": "Signature!",
+        "description": ""
+      },
+      {
+        "name": "hash",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "from",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "publicKey",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "index",
+        "type": "Int!",
+        "description": ""
+      },
+      {
+        "name": "create",
+        "type": "Boolean!",
+        "description": ""
+      },
+      {
+        "name": "outcome",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "block",
+        "type": "Block",
+        "description": "Block in which this transaction is contained"
+      },
+      {
+        "name": "allLogs",
+        "type": "[EventLog!]!",
+        "description": "Lists all logs, flattened and ordered by execution time."
+      },
+      {
+        "name": "flatCalls",
+        "type": "[EVMCall!]!",
+        "description": "Lists all calls, flattened and ordered by execution time."
+      },
+      {
+        "name": "matchingCalls",
+        "type": "[EVMCall!]!",
+        "description": "Returns a flattened list of calls, in _execution_ order, of only the matching elements (from a search, or other filtering)."
+      },
+      {
+        "name": "matchingLogs",
+        "type": "[EventLog!]!",
+        "description": "Returns a flattened list of logs, in _execution_ order, of only the matching elements (from a search, or other filtering)."
+      },
+      {
+        "name": "balanceChanges",
+        "type": "[BalanceChange!]!",
+        "description": ""
+      },
+      {
+        "name": "storageChanges",
+        "type": "[StorageChange!]!",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "Signature",
+    "description": "",
+    "fields": [
+      {
+        "name": "v",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "r",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "s",
+        "type": "String!",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "TransactionReceipt",
+    "description": "",
+    "fields": [
+      {
+        "name": "stateRoot",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "cumulativeGasUsed",
+        "type": "Uint64!",
+        "description": ""
+      },
+      {
+        "name": "logsBloom",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "logs",
+        "type": "[EventLog!]!",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "EVMCall",
+    "description": "",
+    "fields": [
+      {
+        "name": "index",
+        "type": "Uint32!",
+        "description": ""
+      },
+      {
+        "name": "parentIndex",
+        "type": "Uint32!",
+        "description": ""
+      },
+      {
+        "name": "depth",
+        "type": "Uint32!",
+        "description": ""
+      },
+      {
+        "name": "callType",
+        "type": "CALL_TYPE!",
+        "description": ""
+      },
+      {
+        "name": "caller",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "address",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "value",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "gasConsumed",
+        "type": "Uint64!",
+        "description": ""
+      },
+      {
+        "name": "gasBilled",
+        "type": "Uint64!",
+        "description": ""
+      },
+      {
+        "name": "gasLimit",
+        "type": "Uint64!",
+        "description": ""
+      },
+      {
+        "name": "failed",
+        "type": "Boolean!",
+        "description": ""
+      },
+      {
+        "name": "reverted",
+        "type": "Boolean!",
+        "description": ""
+      },
+      {
+        "name": "returnData",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "input",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "storageChanges",
+        "type": "[StorageChange!]!",
+        "description": ""
+      },
+      {
+        "name": "balanceChanges",
+        "type": "[BalanceChange!]!",
+        "description": ""
+      },
+      {
+        "name": "logs",
+        "type": "[EventLog!]!",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "BalanceChange",
+    "description": "",
+    "fields": [
+      {
+        "name": "address",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "oldValue",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "newValue",
+        "type": "String!",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "StorageChange",
+    "description": "",
+    "fields": [
+      {
+        "name": "key",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "address",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "oldValue",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "newValue",
+        "type": "String!",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "EventLog",
+    "description": "",
+    "fields": [
+      {
+        "name": "address",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "topics",
+        "type": "[String!]!",
+        "description": ""
+      },
+      {
+        "name": "data",
+        "type": "String!",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "Block",
+    "description": "",
+    "fields": [
+      {
+        "name": "hash",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "number",
+        "type": "Uint64!",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "Uint64!",
+        "description": ""
+      },
+      {
+        "name": "header",
+        "type": "BlockHeader!",
+        "description": ""
+      },
+      {
+        "name": "uncles",
+        "type": "[BlockHeader!]!",
+        "description": ""
+      },
+      {
+        "name": "transactions",
+        "type": "TransactionConnection!",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "BlockHeader",
+    "description": "",
+    "fields": [
+      {
+        "name": "parentHash",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "unclesHash",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "coinbase",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "stateRoot",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "transactionsRoot",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "receiptRoot",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "logsBloom",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "difficulty",
+        "type": "Uint64!",
+        "description": ""
+      },
+      {
+        "name": "number",
+        "type": "Uint64!",
+        "description": ""
+      },
+      {
+        "name": "gasLimit",
+        "type": "Uint64!",
+        "description": ""
+      },
+      {
+        "name": "gasUsed",
+        "type": "Uint64!",
+        "description": ""
+      },
+      {
+        "name": "timestamp",
+        "type": "Uint64!",
+        "description": ""
+      },
+      {
+        "name": "extraData",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "mixHash",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "nonce",
+        "type": "Uint64!",
+        "description": ""
+      },
+      {
+        "name": "hash",
+        "type": "String!",
+        "description": ""
+      }
+    ]
+  }
+]
