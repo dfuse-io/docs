@@ -1,44 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="701cab7e-db6c-46e2-af90-4cc752dc4ca5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/guides/concepts/_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/guides/getting-started/eosio/_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/guides/getting-started/ethereum/_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/guides/getting-started/ethereum/with-go.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/guides/getting-started/ethereum/with-javascript.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/guides/getting-started/ethereum/with-other-languages.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/guides/getting-started/ethereum/with-python.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/guides/tutorials/_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/guides/tutorials/eosio/_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/guides/tutorials/eosio/push_notification.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/guides/tutorials/eosio/recent_trx.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/guides/tutorials/eosio/shine.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/guides/tutorials/eosio/slack_notification.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/guides/tutorials/eosio/sync_database.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/guides/tutorials/eosio/sync_table_real_time.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/guides/tutorials/eosio/write_chain.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/guides/tutorials/ethereum/_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/guides/tutorials/ethereum/shine.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/guides/tutorials/ethereum/sync_database.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/guides/tutorials/ethereum/track_trx.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/guides/tutorials/ethereum/trx_lifecycle_widget.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/layouts/shortcodes/externalLink.html" afterDir="false" />
+    <list default="true" id="1b0a48e2-f1d3-46d3-87bd-1276896537e1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/content/guides/_index.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/guides/_index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/guides/authentication.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/guides/concepts/authentication.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/guides/concepts/authentication.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/guides/concepts/graphql.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/guides/concepts/graphql.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/guides/getting-started/with-go.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/guides/getting-started/eosio/with-go.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/guides/getting-started/with-javascript.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/guides/getting-started/eosio/with-javascript.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/guides/getting-started/with-other-languages.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/guides/getting-started/eosio/with-other-languages.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/guides/getting-started/with-python.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/guides/getting-started/eosio/with-python.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/guides/graphql.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/shortcodes/include.html" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/shortcodes/include.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/book/layouts/_default/single.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/book/layouts/_default/single.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/book/layouts/partials/docs/toc.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/book/layouts/partials/docs/toc.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/guides/ethereum/getting-started/how-to-work-with-your-free-account.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/guides/ethereum/getting-started/how-to-work-with-your-free-account.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/guides/ethereum/getting-started/other-languages.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/guides/ethereum/getting-started/other-languages.md" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,64 +14,40 @@
   </component>
   <component name="GOROOT" path="/usr/local/go" />
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IgnoredFileRootStore">
-    <option name="generatedRoots">
-      <set>
-        <option value="$PROJECT_DIR$/.idea" />
-      </set>
-    </option>
-  </component>
-  <component name="ProjectId" id="1SWjbVBVgzmDXdXqnB60JFkHmjS" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
+  <component name="ProjectId" id="1SqLb8FAh28Nu4OtfhiPEpWz29t" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/layouts/shortcodes" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/content/guides/tutorials/ethereum" />
-      <recent name="$PROJECT_DIR$/content/guides/getting-started/ethereum" />
-      <recent name="$PROJECT_DIR$/content/guides/concepts" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/layouts/shortcodes" />
-      <recent name="$PROJECT_DIR$/content/guides/getting-started/eosio" />
-      <recent name="$PROJECT_DIR$/content/hello" />
-    </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
+  <component name="WindowStateProjectService">
+    <state x="706" y="331" key="git4idea.branch.GitSmartOperationDialog" timestamp="1572288919666">
+      <screen x="0" y="23" width="1920" height="1177" />
+    </state>
+    <state x="706" y="331" key="git4idea.branch.GitSmartOperationDialog/1920.-1791.1440.2537/0.23.1920.1177@0.23.1920.1177" timestamp="1572288919666" />
   </component>
 </project>

@@ -16,10 +16,8 @@ BookToC: false
 {{< sub-section-columns  class="col-4" >}}
 
 #### Getting Started
-
+* [How to work with your free dfuse account] ({{< ref "./ethereum/getting-started/how-to-work-with-your-free-account" >}})
 * [Javascript Quickstart]({{< ref "./ethereum/getting-started/javascript-quickstart" >}})
-* [Go Quickstart]({{< ref "./ethereum/getting-started/go-quickstart" >}})
-* [Python Quickstart]({{< ref "./ethereum/getting-started/python-quickstart" >}})
 * [Other Languages]({{< ref "./ethereum/getting-started/other-languages" >}})
 * [GraphQL Quickstart]({{< ref "./ethereum/getting-started/graphql-quickstart" >}})
 
