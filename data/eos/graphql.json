@@ -1,0 +1,802 @@
+[
+  {
+    "name": "Query",
+    "description": "",
+    "fields": [
+      {
+        "name": "searchTransactionsForward",
+        "type": "SearchTransactionsForwardResponse!",
+        "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\n\nWhen the returned `cursor` is empty, it means you have reached the end of the specified block\nrange.\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization.\n\nSee also the streaming version under `Subscription`"
+      },
+      {
+        "name": "searchTransactionsBackward",
+        "type": "SearchTransactionsBackwardResponse!",
+        "description": "Search the blockchain backward for transaction *execution traces* based on `query`.\n\nWhen the returned `cursor` is empty, it means you have reached the end of the specified block\nrange.\n\nSee also the streaming version under `Subscription`"
+      },
+      {
+        "name": "blockIDByTime",
+        "type": "BlockIDResponse!",
+        "description": "Return the block ID found around the given `time`, based on the `comparator` provided."
+      },
+      {
+        "name": "blockIDAtAccountCreation",
+        "type": "BlockIDResponse!",
+        "description": "Return the block Number where given `account` was created."
+      }
+    ]
+  },
+  {
+    "name": "Subscription",
+    "description": "",
+    "fields": [
+      {
+        "name": "searchTransactionsForward",
+        "type": "SearchTransactionForwardResponse!",
+        "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization."
+      },
+      {
+        "name": "searchTransactionsBackward",
+        "type": "SearchTransactionBackwardResponse!",
+        "description": "Search the blockchain backward for transaction execution traces based on `query`.\n\nNOTE: The `undo` field is not used in backwards search."
+      }
+    ]
+  },
+  {
+    "name": "DecodedObject",
+    "description": "",
+    "fields": [
+      {
+        "name": "object",
+        "type": "JSON",
+        "description": ""
+      },
+      {
+        "name": "error",
+        "type": "String",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "SearchTransactionsForwardResponse",
+    "description": "",
+    "fields": [
+      {
+        "name": "cursor",
+        "type": "String",
+        "description": "This is a chain-wide cursor, indicating the progress of a search. You can pass it back to the different search methods to continue fetching more results, in *either directions* (even in the reverse direction). A `null` cursor means the end of range has been reached."
+      },
+      {
+        "name": "results",
+        "type": "[SearchTransactionForwardResponse!]",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "SearchTransactionsBackwardResponse",
+    "description": "",
+    "fields": [
+      {
+        "name": "cursor",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "results",
+        "type": "[SearchTransactionBackwardResponse!]",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "SearchTransactionForwardResponse",
+    "description": "A single transaction trace response, matching a forward search query.\n\nWARNING: do NOT forget to include the `undo` field to determine if the message is actually a REVERSAL of the transaction.\n\nNOTE: always check the value of `trace.status` to make sure it is `executed` if you want to make sure a transaction made it to the chain.",
+    "fields": [
+      {
+        "name": "undo",
+        "type": "Boolean!",
+        "description": "Whether this response is an UNDO operation of a previously sent response.\n\nIn a forward search, make sure you catch this and always verify its value.. as to not double or triple count transactions."
+      },
+      {
+        "name": "cursor",
+        "type": "String!",
+        "description": "Chain-wide cursor, allowing you to continue querying when connection is interrupted"
+      },
+      {
+        "name": "isIrreversible",
+        "type": "Boolean!",
+        "description": "Whether the block represented here is irreversible"
+      },
+      {
+        "name": "irreversibleBlockNum",
+        "type": "Uint32!",
+        "description": "The last known irreversible block when processing this transaction.  This number can be equal to the current block num (under `trace.block.num`), in which case, `isIrreversible` is true.  In the reversible segment of the chain, this number will be drifting away by the number of blocks separating head block and LIB."
+      },
+      {
+        "name": "block",
+        "type": "BlockHeader!",
+        "description": ""
+      },
+      {
+        "name": "trace",
+        "type": "TransactionTrace",
+        "description": "Traces of execution of the transaction containing matching actions.\n\nCheck `matchingActions` below to limit the response to only actions matching your search query. Although, all actions from the transactions are available (see `executedActions`)."
+      }
+    ]
+  },
+  {
+    "name": "SearchTransactionBackwardResponse",
+    "description": "A single transaction trace response, matching a backward search query.\n\nNOTE: always check the value of `trace.status` to make sure it is `executed` if you want to make sure a transaction made it to the chain.",
+    "fields": [
+      {
+        "name": "cursor",
+        "type": "String!",
+        "description": "Chain-wide cursor, allowing you to continue querying when connection is interrupted"
+      },
+      {
+        "name": "isIrreversible",
+        "type": "Boolean!",
+        "description": "Whether the block represented here is irreversible"
+      },
+      {
+        "name": "irreversibleBlockNum",
+        "type": "Uint32!",
+        "description": "The last known irreversible block when processing this transaction.  This number can be equal to the current block num (under `trace.block.num`), in which case, `isIrreversible` is true.  In the reversible segment of the chain, this number will be drifting away by the number of blocks separating head block and LIB."
+      },
+      {
+        "name": "block",
+        "type": "BlockHeader!",
+        "description": ""
+      },
+      {
+        "name": "trace",
+        "type": "TransactionTrace",
+        "description": "Traces of execution of the transaction containing matching actions.\n\nCheck `matchingActions` below to limit the response to only actions matching your search query. Although, all actions from the transactions are available (see `executedActions`)."
+      }
+    ]
+  },
+  {
+    "name": "TransactionTrace",
+    "description": "Traces of the execution of a given transaction. This means the\ntransaction was executed on the chain. You also get context about the\nblock in which it was executed, and the status of the execution.\n\nWARN: Make sure to always check the `status` (in the `receipt`) to\nmake sure you're not considering a failed transaction as if it was\nsuccessful.",
+    "fields": [
+      {
+        "name": "id",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "block",
+        "type": "BlockHeader!",
+        "description": "Block in which this transaction trace occurred"
+      },
+      {
+        "name": "status",
+        "type": "TRANSACTION_STATUS!",
+        "description": "This is a short-hand for `receipt.status`."
+      },
+      {
+        "name": "receipt",
+        "type": "TransactionReceiptHeader!",
+        "description": ""
+      },
+      {
+        "name": "elapsed",
+        "type": "Int64!",
+        "description": ""
+      },
+      {
+        "name": "netUsage",
+        "type": "Uint64!",
+        "description": "Amount of network bandwidth consumed (for the sake of the rate limiting engine) by this whole transaction, in bytes (short-hand for `receipt.net_usage_words * 8`."
+      },
+      {
+        "name": "scheduled",
+        "type": "Boolean!",
+        "description": "Whether this transaction was originally a scheduled transaction."
+      },
+      {
+        "name": "executedActions",
+        "type": "[ActionTrace!]!",
+        "description": "Lists all action traces, flattened and ordered by execution time."
+      },
+      {
+        "name": "matchingActions",
+        "type": "[ActionTrace!]!",
+        "description": "Returns a flattened list of action traces, in _execution_ order, of only the matching transactions (from a search, or other filtering)."
+      },
+      {
+        "name": "topLevelActions",
+        "type": "[ActionTrace]!",
+        "description": "Traces of actions at depth=0, those part of the original Transaction. In `nodeos` version 1.7.0 and below, this corresponds to the `action_traces` field."
+      },
+      {
+        "name": "exceptJSON",
+        "type": "JSON",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "BlockHeader",
+    "description": "BlockHeader is the header of a block, excluding the transactions in that block.",
+    "fields": [
+      {
+        "name": "id",
+        "type": "String!",
+        "description": "ID of the block"
+      },
+      {
+        "name": "num",
+        "type": "Uint32!",
+        "description": "Block number in the chain"
+      },
+      {
+        "name": "timestamp",
+        "type": "Time!",
+        "description": ""
+      },
+      {
+        "name": "producer",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "confirmed",
+        "type": "Uint32!",
+        "description": ""
+      },
+      {
+        "name": "previous",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "transactionMRoot",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "actionMRoot",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "scheduleVersion",
+        "type": "Uint32!",
+        "description": ""
+      },
+      {
+        "name": "newProducers",
+        "type": "ProducerSchedule",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "ProducerSchedule",
+    "description": "",
+    "fields": [
+      {
+        "name": "version",
+        "type": "Uint32!",
+        "description": ""
+      },
+      {
+        "name": "producers",
+        "type": "[ProducerKey!]!",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "ProducerKey",
+    "description": "",
+    "fields": [
+      {
+        "name": "producerName",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "blockSigningKey",
+        "type": "String!",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "TransactionReceiptHeader",
+    "description": "",
+    "fields": [
+      {
+        "name": "status",
+        "type": "TRANSACTION_STATUS!",
+        "description": ""
+      },
+      {
+        "name": "cpuUsageMicroSeconds",
+        "type": "Uint32!",
+        "description": ""
+      },
+      {
+        "name": "netUsageWords",
+        "type": "Uint32!",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "ActionTrace",
+    "description": "ActionTrace holds the traces of execution of a single action within a transaction.",
+    "fields": [
+      {
+        "name": "seq",
+        "type": "Uint64!",
+        "description": "Global sequence ID for this action in this chain (shorthand for receipt.global_sequence). NOTE: if this is a failed action, seq will be 0."
+      },
+      {
+        "name": "executionIndex",
+        "type": "Uint32!",
+        "description": "Zero-based index of this action within the transaction, in _execution_ order."
+      },
+      {
+        "name": "receipt",
+        "type": "ActionReceipt",
+        "description": "Action receipt (which differs from the Transaction receipt).\n\nThe receipt will be null when failures occur. Verify the `status`\nfield on the TransactionTrace object."
+      },
+      {
+        "name": "receiver",
+        "type": "String!",
+        "description": "Account which code was executed to produce this execution trace.\n\nShorthand for receipt.receiver"
+      },
+      {
+        "name": "account",
+        "type": "String!",
+        "description": "Target method's account name.  This does *not* correspond to the contract code being executed, that is what `receiver` means.  This value namespaces your actions.\n\nShorthand for act.account in `nodeos` traces"
+      },
+      {
+        "name": "name",
+        "type": "String!",
+        "description": "Target method's action name. This value, combined with the `account`, determines which code path will be executed in the `receiver` contract code.\n\nShorthand for act.name in `nodeos` traces."
+      },
+      {
+        "name": "authorization",
+        "type": "[PermissionLevel!]!",
+        "description": "Signatories required to execute this action.\n\nShorthand for `act.authorization` in `nodeos` traces."
+      },
+      {
+        "name": "data",
+        "type": "JSON",
+        "description": "Data payload. Might be a string or a JSON object, depending on whether it was possible to unpack it using an ABI.\n\nShorthand for `act.data` in `nodeos` traces."
+      },
+      {
+        "name": "json",
+        "type": "JSON",
+        "description": "JSON Object representing the action parameters, decoded through the ABI. Will be `null` if it wasn't possible to decode it.\n\nShorthand for action.json"
+      },
+      {
+        "name": "hexData",
+        "type": "String!",
+        "description": "Hex-encoded string representing the raw data for the action.\n\nShorthand for `act.hex_data` in `nodeos` traces."
+      },
+      {
+        "name": "ramOps",
+        "type": "[RAMOp!]!",
+        "description": "A list of RAM mutation operations, produced by this transaction.\n\nNOTE: the RAM ops on an action never include operations that are mutations of the transaction itself (like creation of a deferred, or removal of a deferred from RAM). For this, check `ramOps` on the TransactionTrace object."
+      },
+      {
+        "name": "dtrxOps",
+        "type": "[DTrxOp!]!",
+        "description": "A list of all operations affecting deferred transactions, like creation, deletion, modification, produced by this action."
+      },
+      {
+        "name": "tableOps",
+        "type": "[TableOp!]!",
+        "description": "A list of table mutation operations (creation or deletion of a _table_, not a _row_)."
+      },
+      {
+        "name": "dbOps",
+        "type": "[DBOp!]!",
+        "description": "A list of database operations produced by this action. Insertions, modifications and deletions of any table _rows_ in the scope of this action's `receiver`."
+      },
+      {
+        "name": "console",
+        "type": "String!",
+        "description": "Output of the action's `print()` statements from within the smart contract."
+      },
+      {
+        "name": "contextFree",
+        "type": "Boolean!",
+        "description": "Whether this action is a context-free action."
+      },
+      {
+        "name": "elapsed",
+        "type": "Int64!",
+        "description": "Elapsed time between the beginning of the execution of this action, relative to the time the whole transaction started to be processed"
+      },
+      {
+        "name": "exceptJSON",
+        "type": "JSON",
+        "description": "If non-null, this action failed. The stack and reasons will be found within the raw JSON payload provided."
+      },
+      {
+        "name": "isNotify",
+        "type": "Boolean!",
+        "description": "Whether this action is a notification, meaning that it was triggered as a side effect rom another contract, and copied the exact same payload from the original transaction.  This happens when you call the `require_notify` method from the EOSIO intrinsics (from within a smart-contract)."
+      },
+      {
+        "name": "isMatchingQuery",
+        "type": "Boolean!",
+        "description": "Whether or not this action matched the dfuse search query"
+      },
+      {
+        "name": "createdActions",
+        "type": "[ActionTrace]!",
+        "description": "Traces of actions _created_ by this action. WARN: this doesn't infer that the operations were written to the blockchain in this order, only that it was created by this action. To obtain execution order, see `executedActions` on the TransactionTrace object."
+      },
+      {
+        "name": "creatorAction",
+        "type": "ActionTrace",
+        "description": "Trace of the action that created this one, the one which _created_ this action. WARN: it is not necessarily the parent in execution order, but will reflect which smart contract did the creation of either the notification, action or context_free_action."
+      },
+      {
+        "name": "closestUnnotifiedAncestorAction",
+        "type": "ActionTrace",
+        "description": "Use this to rebuild the execution tree, using the `nodeos` dispatch algorithm of notifications, actions and context-free actions.\n\nThis is similar to what you would have gotten in `nodeos` prior to version 1.8.0."
+      }
+    ]
+  },
+  {
+    "name": "RAMOp",
+    "description": "Represents a change in consumption of RAM for a given account",
+    "fields": [
+      {
+        "name": "operation",
+        "type": "RAM_OPERATION!",
+        "description": "What happened to justify this change in RAM."
+      },
+      {
+        "name": "payer",
+        "type": "String!",
+        "description": "The account being debited or credited RAM"
+      },
+      {
+        "name": "delta",
+        "type": "Int64!",
+        "description": "Number of bytes that were either consumed (positive) or released (negative)"
+      },
+      {
+        "name": "usage",
+        "type": "Uint64!",
+        "description": "Number of bytes now used by the `payer` account, after applying this RAM operation.\n\nTo have a precise view of the RAM left on an account after this transaction was applied, go through all actions in execution order (`TransactionTrace.executedActions`) and use the last RAMOp for the given account."
+      }
+    ]
+  },
+  {
+    "name": "DTrxOp",
+    "description": "A change in deferred transactions in the chain's memory.",
+    "fields": [
+      {
+        "name": "operation",
+        "type": "DTRX_OPERATION!",
+        "description": "The source or cause of creation/modification/deletion of a deferred transaction"
+      },
+      {
+        "name": "sender",
+        "type": "String",
+        "description": ""
+      },
+      {
+        "name": "senderID",
+        "type": "String",
+        "description": ""
+      },
+      {
+        "name": "payer",
+        "type": "String",
+        "description": "The account being debited or credited to store this deferred transaction"
+      },
+      {
+        "name": "publishedAt",
+        "type": "Time",
+        "description": "The time this deferred was published at"
+      },
+      {
+        "name": "delayUntil",
+        "type": "Time",
+        "description": "The time at which Block Producers will start attempting to execute this transaction"
+      },
+      {
+        "name": "expirationAt",
+        "type": "Time",
+        "description": "The time at which Block Producers will evict this transaction from memory if it fails execution."
+      },
+      {
+        "name": "trxID",
+        "type": "String",
+        "description": "The transaction ID of the `transaction`"
+      },
+      {
+        "name": "transaction",
+        "type": "Transaction",
+        "description": "The deferred transaction payload itself."
+      }
+    ]
+  },
+  {
+    "name": "TableOp",
+    "description": "Creation or deletion of a table",
+    "fields": [
+      {
+        "name": "operation",
+        "type": "TABLE_OPERATION!",
+        "description": ""
+      },
+      {
+        "name": "table",
+        "type": "TableOpKey!",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "DBOp",
+    "description": "Represents the mutation of a row, in a contract table.",
+    "fields": [
+      {
+        "name": "operation",
+        "type": "DB_OPERATION!",
+        "description": ""
+      },
+      {
+        "name": "oldPayer",
+        "type": "String",
+        "description": "Previous paying account.  This is null in the case of an insertion."
+      },
+      {
+        "name": "newPayer",
+        "type": "String",
+        "description": "New paying account.  This is null in the case of a deletion."
+      },
+      {
+        "name": "key",
+        "type": "DBOpKey!",
+        "description": "Primary key of the row in the table."
+      },
+      {
+        "name": "oldData",
+        "type": "String",
+        "description": "Contents (hex data) of the row before a REM or UPD operation."
+      },
+      {
+        "name": "newData",
+        "type": "String",
+        "description": "Contents (hex data) of the row after an INS or UPD operation."
+      },
+      {
+        "name": "oldJSON",
+        "type": "DecodedObject!",
+        "description": "Decoded version of oldData"
+      },
+      {
+        "name": "newJSON",
+        "type": "DecodedObject!",
+        "description": "Decoded version of newData"
+      }
+    ]
+  },
+  {
+    "name": "DBOpKey",
+    "description": "",
+    "fields": [
+      {
+        "name": "code",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "table",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "scope",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "key",
+        "type": "String!",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "TableOpKey",
+    "description": "",
+    "fields": [
+      {
+        "name": "code",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "table",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "scope",
+        "type": "String!",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "ActionReceipt",
+    "description": "Execution receipt for a given ActionTrace.\n\nThe `nodeos` field `auth_sequence` is not yet present. Contact us if you need it.",
+    "fields": [
+      {
+        "name": "receiver",
+        "type": "String!",
+        "description": "Account for which code is being triggered. Beware that this might not be the same value as `account`, or the target account of the action, in the case of notifications. See documentation for `require_notify` in EOSIO contracts"
+      },
+      {
+        "name": "digest",
+        "type": "String!",
+        "description": "Hash of the action payload. Also known as `act_digest` from `nodeos`"
+      },
+      {
+        "name": "globalSequence",
+        "type": "Uint64!",
+        "description": "Globally unique sequence number in all actions from the longest chain. This will never be reused, and is guaranteed to monotonically increment with each action.\n\nThis property can be relied on to keep track of forks in your database, at the action level.\n\nWARNING: when micro-forks happens, global sequences from the different forks will be reused, but will be associated with other actions. This is why it's important to navigate forks properly."
+      },
+      {
+        "name": "codeSequence",
+        "type": "Uint64!",
+        "description": ""
+      },
+      {
+        "name": "abiSequence",
+        "type": "Uint64!",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "Transaction",
+    "description": "",
+    "fields": [
+      {
+        "name": "expiration",
+        "type": "Time!",
+        "description": ""
+      },
+      {
+        "name": "refBlockNum",
+        "type": "Uint32!",
+        "description": "TaPoS reference block num.\n\nThis value holds only 16 bits of the blockNum (instead of 32).\nThe other 16 bits are in the current blockNum (unless overflown)."
+      },
+      {
+        "name": "refBlockPrefix",
+        "type": "Uint32!",
+        "description": "TaPoS block prefix (bytes 8-16 of the block ID), in order to identify the correct fork for a given block number."
+      },
+      {
+        "name": "maxNetUsageWords",
+        "type": "Uint32!",
+        "description": ""
+      },
+      {
+        "name": "maxCPUUsageMS",
+        "type": "Uint32!",
+        "description": ""
+      },
+      {
+        "name": "delaySec",
+        "type": "Uint32!",
+        "description": ""
+      },
+      {
+        "name": "contextFreeActions",
+        "type": "[Action!]!",
+        "description": ""
+      },
+      {
+        "name": "actions",
+        "type": "[Action!]!",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "Action",
+    "description": "",
+    "fields": [
+      {
+        "name": "account",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "name",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "authorization",
+        "type": "[PermissionLevel]!",
+        "description": ""
+      },
+      {
+        "name": "json",
+        "type": "JSON",
+        "description": ""
+      },
+      {
+        "name": "data",
+        "type": "JSON",
+        "description": ""
+      },
+      {
+        "name": "hexData",
+        "type": "String!",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "PermissionLevel",
+    "description": "",
+    "fields": [
+      {
+        "name": "actor",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "permission",
+        "type": "String!",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "AuthSequence",
+    "description": "",
+    "fields": [
+      {
+        "name": "account",
+        "type": "String",
+        "description": ""
+      },
+      {
+        "name": "sequence",
+        "type": "Uint64!",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "BlockIDResponse",
+    "description": "",
+    "fields": [
+      {
+        "name": "time",
+        "type": "Time!",
+        "description": "\"true\" if a block id was found"
+      },
+      {
+        "name": "num",
+        "type": "Uint32!",
+        "description": ""
+      },
+      {
+        "name": "id",
+        "type": "String!",
+        "description": ""
+      }
+    ]
+  }
+]
