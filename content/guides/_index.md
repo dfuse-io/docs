@@ -17,10 +17,10 @@ BookToC: false
 
 #### Getting Started
 
-* [With Go]({{< ref "./getting-started/ethereum/with-go" >}})
-* [With Javascript]({{< ref "./getting-started/ethereum/with-javascript" >}})
-* [With Python]({{< ref "./getting-started/ethereum/with-python" >}})
-* [With Other Languages]({{< ref "./getting-started/ethereum/with-other-languages" >}})
+* [With Go]({{< ref "./ethereum/getting-started/with-go" >}})
+* [With Javascript]({{< ref "./ethereum/getting-started/with-javascript" >}})
+* [With Python]({{< ref "./ethereum/getting-started/with-python" >}})
+* [With Other Languages]({{< ref "./ethereum/getting-started/with-other-languages" >}})
 
 <--->
 
@@ -38,10 +38,10 @@ BookToC: false
 
 #### Getting Started
 
-* [With Go]({{< ref "./getting-started/eosio/with-go" >}})
-* [With Javascript]({{< ref "./getting-started/eosio/with-javascript" >}})
-* [With Python]({{< ref "./getting-started/eosio/with-python" >}})
-* [With Other Languages]({{< ref "./getting-started/eosio/with-other-languages" >}})
+* [With Go]({{< ref "./eosio/getting-started/with-go" >}})
+* [With Javascript]({{< ref "./eosio/getting-started/with-javascript" >}})
+* [With Python]({{< ref "./eosio/getting-started/with-python" >}})
+* [With Other Languages]({{< ref "./eosio/getting-started/with-other-languages" >}})
 
 <--->
 
@@ -52,4 +52,4 @@ BookToC: false
 
 {{< /sub-section-columns >}}
 
-{{< row-wrapper-end >}}  
+{{< row-wrapper-end >}}

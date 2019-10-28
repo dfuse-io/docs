@@ -1,5 +1,21 @@
 [
   {
+    "name": "Subscription",
+    "description": "",
+    "fields": [
+      {
+        "name": "searchTransactions",
+        "type": "TransactionEdge!",
+        "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization.  The `undo` field is always `false` in backward searches."
+      },
+      {
+        "name": "trackTransactionState",
+        "type": "TransactionState!",
+        "description": ""
+      }
+    ]
+  },
+  {
     "name": "Query",
     "description": "",
     "fields": [
@@ -42,17 +58,6 @@
     ]
   },
   {
-    "name": "Subscription",
-    "description": "",
-    "fields": [
-      {
-        "name": "searchTransactions",
-        "type": "TransactionEdge!",
-        "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization.  The `undo` field is always `false` in backward searches."
-      }
-    ]
-  },
-  {
     "name": "TransactionConnection",
     "description": "The Connection type for a Transaction",
     "fields": [
@@ -89,20 +94,66 @@
       },
       {
         "name": "node",
-        "type": "Transaction",
+        "type": "TransactionTrace",
         "description": "The transaction object."
       }
     ]
   },
   {
     "name": "Transaction",
-    "description": "Traces of the execution of a given transaction. This means the\ntransaction was executed on the chain. You also get context about the\nblock in which it was executed, and the status of the execution.\n\nWARN: Make sure to always check the `status` (in the `receipt`) to\nmake sure you're not considering a failed transaction as if it was\nsuccessful.",
+    "description": "",
     "fields": [
       {
-        "name": "status",
+        "name": "to",
         "type": "String!",
-        "description": ""
+        "description": "The recipient address of a transfer, or target contract of a call.  [VERIFY: will be empty for contract-creating calls / if untrue, resurface the `create: true` variable like in a TransactioNTrace for consistency.]"
       },
+      {
+        "name": "nonce",
+        "type": "Uint64!",
+        "description": "nonce is an ever incrementing counter of transactions issued by the `from` account."
+      },
+      {
+        "name": "gasPrice",
+        "type": "String!",
+        "description": "gasPrice is the price offered to miners for gas, in wei per unit."
+      },
+      {
+        "name": "gasLimit",
+        "type": "Uint64!",
+        "description": "gasLimit is the maximum amount of gas this transaction can consume. Other Ethereum nodes often name this field simply `gas`. Alias the field name if you prefer. See: https://graphql.org/learn/queries/#aliases"
+      },
+      {
+        "name": "value",
+        "type": "String!",
+        "description": "value is the Ether value (in wei) sent along with this transaction."
+      },
+      {
+        "name": "inputData",
+        "type": "String!",
+        "description": "inputData is the data supplied to the target contract of the transaction."
+      },
+      {
+        "name": "hash",
+        "type": "String!",
+        "description": "hash is the hash of this transaction. It is also a universally unique pointer to this transaction."
+      },
+      {
+        "name": "from",
+        "type": "String!",
+        "description": "from is the account that sent this transaction - this will always be an externally owned account."
+      },
+      {
+        "name": "signature",
+        "type": "Signature!",
+        "description": "signature holds the V, R and S values representing the cryptographic signature for this transaction. It is based on these values that the `from` address is derived"
+      }
+    ]
+  },
+  {
+    "name": "TransactionTrace",
+    "description": "Traces of the execution of a given transaction. This means the\ntransaction was executed on the chain. You also get context about the\nblock in which it was executed, and the status of the execution.\n\nWARN: Make sure to always check the `status` (in the `receipt`) to\nmake sure you're not considering a failed transaction as if it was\nsuccessful.",
+    "fields": [
       {
         "name": "to",
         "type": "String!",
@@ -124,28 +175,13 @@
         "description": ""
       },
       {
-        "name": "gasUsed",
-        "type": "Uint64!",
-        "description": ""
-      },
-      {
-        "name": "cumulativeGasUsed",
-        "type": "Uint64!",
-        "description": ""
-      },
-      {
         "name": "value",
         "type": "String!",
         "description": ""
       },
       {
-        "name": "input",
+        "name": "inputData",
         "type": "String!",
-        "description": ""
-      },
-      {
-        "name": "signature",
-        "type": "Signature!",
         "description": ""
       },
       {
@@ -156,6 +192,26 @@
       {
         "name": "from",
         "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "signature",
+        "type": "Signature!",
+        "description": ""
+      },
+      {
+        "name": "status",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "gasUsed",
+        "type": "Uint64!",
+        "description": ""
+      },
+      {
+        "name": "cumulativeGasUsed",
+        "type": "Uint64!",
         "description": ""
       },
       {
@@ -202,16 +258,6 @@
         "name": "matchingLogs",
         "type": "[EventLog!]!",
         "description": "Returns a flattened list of logs, in _execution_ order, of only the matching elements (from a search, or other filtering)."
-      },
-      {
-        "name": "balanceChanges",
-        "type": "[BalanceChange!]!",
-        "description": ""
-      },
-      {
-        "name": "storageChanges",
-        "type": "[StorageChange!]!",
-        "description": ""
       }
     ]
   },
@@ -417,6 +463,16 @@
       {
         "name": "data",
         "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "blockIndex",
+        "type": "Uint32!",
+        "description": ""
+      },
+      {
+        "name": "transactionIndex",
+        "type": "Uint32!",
         "description": ""
       }
     ]

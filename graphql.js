@@ -38,7 +38,7 @@ const jsonSchema = gql(schema).definitions.map(def => {
     description: description ? description.value : '',
     fields: fields.map(field => {
       const { name, type, description } = field;
-      
+
       let typeName = getFieldType(type)
 
       return {
@@ -52,4 +52,4 @@ const jsonSchema = gql(schema).definitions.map(def => {
 
 console.log('Done!')
 
-fs.writeFileSync('data/graphql.json', JSON.stringify(jsonSchema, null, 2));
+fs.writeFileSync('data/eth-graphql.json', JSON.stringify(jsonSchema, null, 2));
