@@ -1,0 +1,3 @@
+{{ $chain := .Get 0 }}
+{{ .Scratch.Set "chain" $chain }}
+{{ partial "graphql-reference" . }}

@@ -1,8 +1,8 @@
 ---
-weight: 1
+weight: 20
 ---
 
-# Search
+# Search Terms for EOSIO
 
 ## dfuse Events
 

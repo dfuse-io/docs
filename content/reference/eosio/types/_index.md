@@ -1,4 +1,4 @@
 ---
 weight: 10
-title: Types
+title: REST/WS Types
 ---

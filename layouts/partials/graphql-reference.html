@@ -1,4 +1,6 @@
-{{ range .Site.Data.graphql }}
+{{ $chain := .Scratch.Get "chain" }}
+
+{{ range (index .Site.Data $chain).graphql }}
   <h2 id="{{ anchorize .name }}">{{ .name }}</h2>
   <p>{{ .description | markdownify }}</p>
 

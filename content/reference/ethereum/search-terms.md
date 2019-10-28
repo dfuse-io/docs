@@ -1,4 +1,8 @@
-# Search Query Language
+---
+weight: 20
+---
+
+# Search Terms for Ethereum
 
 The dfuse Search Query Language resembles the one exposed by Kibana or GitHub for sifting through issues. It is a simple, flat `key1:value1 key2:value2` string, yet allows negation clauses and combinations of `OR` clauses.
 

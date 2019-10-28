@@ -1,7 +1,8 @@
 ---
+weight: 30
 title: GraphQL Schema
 ---
 
 # GraphQL Schema
 
-{{< partial graphql-reference >}}
+{{< graphql-ref "eos" >}}
