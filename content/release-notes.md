@@ -5,6 +5,20 @@ BookToC: false
 
 # Release Notes
 
+
+***
+
+### 2019-10-24
+
+* GraphQL-over-gRPC endpoint changed to
+  `dfuse.graphql.v1.GraphQL`. Regenerate your code based on the latest
+  `.proto` files within
+  https://github.com/dfuse-io/graphql-over-grpc. **NOTE**: the
+  previous endpoint will still respond to queries, but gRPC reflection
+  will show only the new endpoint.
+
+
+
 ***
 
 ### 2019-08-07
@@ -12,7 +26,7 @@ BookToC: false
 * Added in PREVIEW mode: `GET /v0/state/table/row` to fetch a single row from a given table. The row fetched according to it's primary key.
 * Added support for `symbol` and `symbol_code` `key_type` in state REST API calls.
 * Added `POST` support for `/state/tables/scopes` and `/state/tables/accounts` which accepts a `application/x-www-form-urlencoded` content type.
-  
+
 ***
 
 ### 2019-07-09

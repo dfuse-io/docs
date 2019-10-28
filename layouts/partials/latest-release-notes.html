@@ -9,7 +9,7 @@
         <div class="lastest-releases">
           {{ with .Site.GetPage "/release-notes"  }}
             {{ $paragraphs :=  split .RawContent "***"  }}
-            {{ range $index, $element := first 3 $paragraphs }}
+            {{ range $index, $element := first 4 $paragraphs }}
               {{ if (eq $index 0) }}
 
               {{ else }}
@@ -25,5 +25,3 @@
     </div>
   </div>
 </div>
-
-
