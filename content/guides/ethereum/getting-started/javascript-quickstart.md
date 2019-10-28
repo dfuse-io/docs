@@ -48,7 +48,7 @@ const client = createDfuseClient({
 
 ## 4. Crafting our GraphQL Query
 
-Next, we you create our GraphQL query. Here, you will use a GraphQL subscription to stream results as they come. You will use the `searchTransactionsForward` operation, with the `"receiver:eosio.token action:transfer"` query (See the [Search Query Language reference here]({{< ref "/reference/eosio/search" >}})).
+Next, we you create our GraphQL query. Here, you will use a GraphQL subscription to stream results as they come. You will use the `searchTransactionsForward` operation, with the `"receiver:eosio.token action:transfer"` query (See the [Search Query Language reference here]({{< ref "/reference/eosio/search-terms" >}})).
 
 {{< tabs "getting-started-js-4" >}}
 {{< tab lang="javascript" title="main.js" opts="linenos=table,linenostart=7">}}

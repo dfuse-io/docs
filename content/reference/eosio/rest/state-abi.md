@@ -30,7 +30,7 @@ The returned ABI is the one that was active at the `block_num` requested.
 #### Input parameters
 
 {{< method-list-item name="q" type="String" required="true" >}}
-  Search query string. See [Search language specs]({{< ref "../search" >}}) for details.
+  Search query string. See [Search language specs]({{< ref "../search-terms" >}}) for details.
 {{< /method-list-item >}}
 
 {{< method-list-item name="account" type="[AccountName](/reference/eosio/types/accountname)" required="true" >}}

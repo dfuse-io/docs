@@ -1,4 +1,5 @@
 ---
+weight: 30
 title: GraphQL Schema
 ---
 

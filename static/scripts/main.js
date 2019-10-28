@@ -45,9 +45,9 @@ if (navigator && navigator.clipboard) {
  * which has no routing at all. Everything was concatenated on one page, and all linking was done
  * through #url-fragments, which don't get sent to the server, preventing us from using Hugo aliases.
  * This list should not be extended, use Hugo aliases instead.
- * 
+ *
  * The keys of the map are the new urls, and the arrays are the old urls are need to map to them
- * 
+ *
  * As a general rule of thumb, if there is an exact match between the old page and the new page, we take
  * the user there. If the page doesn't exist anymore, we try to take them to the most similar page if we can.
  */
@@ -174,7 +174,7 @@ const redirectMap = {
   ],
   "/reference/eosio/rest/state-tables-scopes/": ["/#rest-get-v0-state-tables-scopes"],
   "/reference/eosio/rest/errors/": ["/#rest-errors"],
-  "/reference/eosio/search/": [
+  "/reference/eosio/search-terms/": [
     "/#search",
     "/#dfuse-query-language",
     "/#dfuse-events",
@@ -237,7 +237,7 @@ const redirectMap = {
    location.href = redirectTo;
  }
 
- 
+
  /**
   * NOTE: The TOC is generated here at run-time. This is because shortcodes/partials are run AFTER
   * the TOC is generated, so any headings created by a partial are not taken into account.

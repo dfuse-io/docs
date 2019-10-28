@@ -8,8 +8,8 @@ menu:
     weight: 3
 BookToC: false
 ---
-              
-     
+
+
 {{< row-wrapper >}}
 
 {{< sub-section-title title="Ethereum" awesome-icon="far fa-book-spells" icon-link="/img/icon-crypto-currency-ethereum-01.svg" >}}
@@ -20,7 +20,7 @@ BookToC: false
 #### Reference
 
 * [Endpoints]({{< ref "./ethereum/endpoints" >}})
-* [Search]({{< ref "./ethereum/search" >}})
+* [Search]({{< ref "./ethereum/search-terms" >}})
 
 
 {{< /sub-section-columns >}}
@@ -33,7 +33,7 @@ BookToC: false
 #### Reference
 
 * [Endpoints]({{< ref "./eosio/endpoints" >}})
-* [Search]({{< ref "./eosio/search" >}})
+* [Search]({{< ref "./eosio/search-terms" >}})
 * [Types]({{< ref "./eosio/types" >}})
 
 <--->
@@ -45,4 +45,4 @@ BookToC: false
 
 {{< /sub-section-columns >}}
 
-{{< row-wrapper-end >}}  
+{{< row-wrapper-end >}}
