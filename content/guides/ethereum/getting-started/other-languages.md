@@ -79,6 +79,18 @@ brew install grpcurl
 go get github.com/fullstorydev/grpcurl
 go install github.com/fullstorydev/grpcurl/cmd/grpcurl
 {{< /tab >}}
+{{< tab title="other" lang="shell" >}}
+# download from git
+git clone https://github.com/dfuse-io/graphql-over-grpc
+
+# download from a zip archive
+curl -sLO https://github.com/dfuse-io/graphql-over-grpc/archive/master.zip
+unzip -q master.zip
+
+# generate your code
+cd graphql-over-grpc
+protoc graphql/graphql.proto # add your language-specific flags here
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -232,3 +244,12 @@ python main.py {your_api_key} eth
 
 {{< /tab >}}
 {{< /tabs >}}
+
+# 6. What to do next ?
+* Look at our graphql API reference FIXME (where is that?)
+* Look at one of our tutorials FIXME (link to all tutorials?)
+* [Authentication]({{< relref "/guides/core-concepts/authentication" >}})
+* [Cursors]({{< relref "/guides/core-concepts/cursors" >}})
+* [GraphQL]({{< relref "/guides/core-concepts/graphql" >}})
+* [Search Features]({{< relref "/guides/core-concepts/search-features" >}})
+
