@@ -5,93 +5,119 @@ weight: 4
 
 # Getting Started with Other Languages
 
-dfuse exposes its data through a GraphQL over gRPC interface defined in [protobuf files](https://github.com/dfuse-io/graphql-over-grpc/tree/master/pb) # FIXME repo structure
+dfuse exposes its data through a GraphQL over gRPC interface defined in [protobuf files](https://github.com/dfuse-io/graphql-over-grpc)
+The code from these examples lives [in this github repository](https://github.com/dfuse-io/quickstart-tutorials)
 
-## Get the client stub for your language
+## 1. Get a dfuse API Key
 
-For your convenience, we provide [client stubs for multiple languages](https://github.com/dfuse-io/graphql-over-grpc/tree/master/client-stubs) # FIXME write these stubs
-If your language is not in this list, you can still [generate your own](https://grpc.io/docs/quickstart/).
+* Create your account on https://app.dfuse.io
+* Click "Create New Key" and give it a name, a category (and value of the "Origin" header for a web key, see [Authentication]({{< relref "/guides/core-concepts/authentication" >}})).
 
-{{< tabs "get-client-stub">}}
-{{< tab title="Go" lang="shell" >}}
-# requires go 1.12+
 
-# get the client stub
-git clone https://github.com/dfuse-io/graphql-over-grpc
-cd graphql-over-grpc/go
+## 2. Generate a JWT from your API key
 
-# test your installation
-export DFUSE_TOKEN={YOUR_DFUSE_TOKEN}
-export DFUSE_CHAIN=eth-mainnet
-go test
+The JWT is a token with a short expiration period, used to communicate with dfuse services. A new JWT must be requested before expiration (see [Authentication]({{< relref "/guides/core-concepts/authentication" >}})).
+{{< tabs "generate-jwt">}}
+{{< tab title="Go" lang="go" >}}
+func getToken(dfuseAPIKey string) (token string, expiration time.Time, err error) {
+    reqBody := bytes.NewBuffer([]byte(fmt.Sprintf(`{"api_key":"%s"}`, dfuseAPIKey)))
+    resp, err := http.Post("https://auth.dfuse.io/v1/auth/issue", "application/json", reqBody)
+    if err != nil || resp.StatusCode != 200 {
+        err = fmt.Errorf("status code: %d, error: %s", resp.StatusCode, err)
+        return
+    }
+    if body, err := ioutil.ReadAll(resp.Body); err == nil {
+        token = gjson.GetBytes(body, "token").String()
+        expiration = time.Unix(gjson.GetBytes(body, "expires_at").Int(), 0)
+    }
+    return
+}
 {{< /tab >}}
 {{< tab title="Python" lang="shell" >}}
-# requires Python2.7+ or Python3.4+
-
-# get the client stub
-git clone https://github.com/dfuse-io/graphql-over-grpc
-cd graphql-over-grpc/python
-python -m pip install grpcio --ignore-installed
-
-# test your installation
-python getblock.py eth-mainnet {YOUR_DFUSE_TOKEN} # FIXME write this code
+def get_token(dfuse_api_key):
+    connection = http.client.HTTPSConnection("auth.dfuse.io")
+    connection.request('POST', '/v1/auth/issue', json.dumps({"api_key": apiKey}), {'Content-type': 'application/json'})
+    response = connection.getresponse()
+    if response.status != 200:
+        raise Exception(" Status: {response.status} reason: {response.reason}")
+    decoded = json.loads(response.read().decode())
+    connection.close()
+    return decoded['token'], decoded['expires_at']
+{{< /tab >}}
+{{< tab title="Shell" lang="shell" >}}
+curl https://auth.dfuse.io/v1/auth/issue -s --data-binary '{"api_key":"web_abcdef12345678900000000000"}'
 {{< /tab >}}
 {{< /tabs >}}
 
-## Run your first query
+## 3. Get the client stub and dependencies for your language
+
+The protobuf files defining our graphql-over-grpc interface are defined available [in this github repository](https://github.com/dfuse-io/graphql-over-grpc)
+
+A lot of languages provide tools to generate client stubs from protobuf files, presented [in this gRPC guide](https://grpc.io/docs/quickstart/).
+
+For your convenience, we also provide pre-generated client stubs for some languages [in this github repository](https://github.com/dfuse-io/quickstart-tutorials)
+
+{{< tabs "get-client-stub">}}
+{{< tab title="Go" lang="shell" >}}
+git clone https://github.com/dfuse-io/quickstart-tutorials
+cd quickstart-tutorials/go
+go test # gets dependencies
+{{< /tab >}}
+{{< tab title="Python" lang="shell" >}}
+git clone https://github.com/dfuse-io/quickstart-tutorials
+cd quickstart-tutorials/python
+python -m pip install grpcio --ignore-installed
+{{< /tab >}}
+{{< /tabs >}}
+
+## 4. Run your first query
 
 {{< tabs "run-query">}}
 {{< tab title="Go" lang="go" >}}
-// FIXME remove EOS references
-package main
-
 import (
-	"context"
-	"fmt"
-	"log"
-	pbgraphql "main/graphql"
-	"os"
+      // ...
 
-	"github.com/dfuse-io/eosws-go"
-	"golang.org/x/oauth2"
-	"google.golang.org/grpc"
-	"google.golang.org/grpc/credentials"
-	"google.golang.org/grpc/credentials/oauth"
-	"io"
+      // generated protobuf files
+      pb "github.com/dfuse-io/quickstart-tutorials/pb"
+      "golang.org/x/oauth2"
+      "google.golang.org/grpc"
+      "google.golang.org/grpc/credentials"
+      "google.golang.org/grpc/credentials/oauth"
 )
 
 func main() {
-	token, _, err := eosws.Auth(os.Args[1])
-	if err != nil {
-		log.Fatalf("cannot get auth token: %s", err)
-	}
+    token := getToken(...) // JWT from earlier
+    credential := oauth.NewOauthAccess(&oauth2.Token{AccessToken: token, TokenType: "Bearer"})
+    transportCreds := credentials.NewClientTLSFromCert(nil, "")
 
-	credential := oauth.NewOauthAccess(&oauth2.Token{AccessToken: token, TokenType: "Bearer"})
-	connection, err := grpc.Dial("mainnet.eos.dfuse.io:443", grpc.WithPerRPCCredentials(credential), grpc.WithTransportCredentials(credentials.NewClientTLSFromCert(nil, "")))
-	graphqlClient := pbgraphql.NewGraphQLClient(connection)
+    endpoint := "mainnet.eth.dfuse.io:443"
+    conn, err := grpc.Dial(endpoint,
+                           grpc.WithPerRPCCredentials(credential),
+                           grpc.WithTransportCredentials(transportCreds))
+    checkErr(err)
 
-	q := `subscription  {
-		  searchTransactionsForward(query: "action:transfer", limit:10) {
-			trace { matchingActions {receiver account name json }}}}`
+    req := &pb.Request{Query: `subscription {
+         searchTransactions(query: "method:\"transfer(address,uint256)\"",
+           sort:DESC, limit:1) {
+           node{
+             hash
+           }
+           block{
+             number
+           }
+         }
+       }`}
+    client := pb.NewGraphQLClient(conn)
+    executor, err := client.Execute(context.Background(), req)
+    checkErr(err)
 
-	executionClient, err := graphqlClient.Execute(context.Background(), &pbgraphql.Request{Query: q})
-	if err != nil {
-		log.Fatalf("execution error: %s", err)
-	}
-
-	for {
-		response, err := executionClient.Recv()
-		if err != nil {
-			if err != io.EOF {
-				log.Fatalf("reception error: %s", err)
-			}
-			fmt.Println("No more result available")
-			break
-		}
-		fmt.Println("Received response:", response.Data)
-	}
+    resp, err := executor.Recv()
+    checkErr(err)
+    fmt.Println("ETH Mainnet last transfer", resp.Data)
 }
+
 {{< /tab >}}
+
 {{< tab title="Python" lang="python" >}}
 # FIXME remove EOS references, only ETH
 import http.client
@@ -157,4 +183,25 @@ for rawResult in stream:
       print(result['searchTransactionsForward']['trace']['matchingActions'])
 {{< /tab >}}
 {{< /tabs >}}
+
+
+# 5. Full working examples
+
+{{< tabs "full-working">}}
+{{< tab title="Go" lang="shell" >}}
+git clone https://github.com/dfuse-io/quickstart-tutorials
+cd quickstart-tutorials/go
+export DFUSE_API_KEY={your_api_key}
+go run -v
+{{< /tab >}}
+{{< tab title="Python" lang="shell" >}}
+git clone https://github.com/dfuse-io/quickstart-tutorials
+cd quickstart-tutorials/python
+python -m pip install grpcio --ignore-installed
+export DFUSE_API_KEY={your_api_key}
+python main.py
+{{< /tab >}}
+{{< /tabs >}}
+
+
 
