@@ -6,22 +6,105 @@
       {
         "name": "searchTransactionsForward",
         "type": "SearchTransactionsForwardResponse!",
-        "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\n\nWhen the returned `cursor` is empty, it means you have reached the end of the specified block\nrange.\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization.\n\nSee also the streaming version under `Subscription`"
+        "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\n\nWhen the returned `cursor` is empty, it means you have reached the end of the specified block\nrange.\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization.\n\nSee also the streaming version under `Subscription`",
+        "arguments": [
+          {
+            "name": "query",
+            "type": "String!",
+            "description": "dfuse Search Query Language string"
+          },
+          {
+            "name": "lowBlockNum",
+            "type": "Int64",
+            "description": "Lower block num boundary, inclusively. A negative value means a block relative to the head or last irreversible block (depending on `irreversibleOnly`)."
+          },
+          {
+            "name": "highBlockNum",
+            "type": "Int64",
+            "description": "Higher block num boundary, inclusively. A zero or negative value means a block relative to the head or last irreversible block (depending on `irreversibleOnly`)."
+          },
+          {
+            "name": "cursor",
+            "type": "String",
+            "description": "Opaque data piece that you can pass back to continue your search if it ever disconnected. Retrieve it from the `cursor` field in the responses of this call. It is safe to use the same cursor in BOTH directions (forward and backward)."
+          },
+          {
+            "name": "limit",
+            "type": "Int64",
+            "description": "Limit the number of results per page of results (max 200)."
+          },
+          {
+            "name": "irreversibleOnly",
+            "type": "Boolean",
+            "description": "When true, only stream back results once they pass the irreversibility boundary. Otherwise, allow fetching results up to the head block."
+          }
+        ]
       },
       {
         "name": "searchTransactionsBackward",
         "type": "SearchTransactionsBackwardResponse!",
-        "description": "Search the blockchain backward for transaction *execution traces* based on `query`.\n\nWhen the returned `cursor` is empty, it means you have reached the end of the specified block\nrange.\n\nSee also the streaming version under `Subscription`"
+        "description": "Search the blockchain backward for transaction *execution traces* based on `query`.\n\nWhen the returned `cursor` is empty, it means you have reached the end of the specified block\nrange.\n\nSee also the streaming version under `Subscription`",
+        "arguments": [
+          {
+            "name": "query",
+            "type": "String!",
+            "description": "dfuse Search Query Language string"
+          },
+          {
+            "name": "lowBlockNum",
+            "type": "Int64",
+            "description": "Lower block num boundary, inclusively. A value of 0 means the beginning of the chain. A negative value means a block relative to the head or last irreversible block (depending on `irreversibleOnly`)."
+          },
+          {
+            "name": "highBlockNum",
+            "type": "Int64",
+            "description": "Higher block num boundary, inclusively. A zero or negative value means a block relative to the head or last irreversible block (depending on `irreversibleOnly`)."
+          },
+          {
+            "name": "cursor",
+            "type": "String",
+            "description": "Opaque data piece that you can pass back to continue your search if it ever disconnected. Retrieve it from the `cursor` field in the responses of this call. It is safe to use the same cursor in BOTH directions (forward and backward)."
+          },
+          {
+            "name": "limit",
+            "type": "Int64",
+            "description": "Limit the number of results per page of results (max 200)."
+          },
+          {
+            "name": "irreversibleOnly",
+            "type": "Boolean",
+            "description": "When true, only stream back results once they pass the irreversibility boundary. Otherwise, allow fetching results up to the head block."
+          }
+        ]
       },
       {
         "name": "blockIDByTime",
         "type": "BlockIDResponse!",
-        "description": "Return the block ID found around the given `time`, based on the `comparator` provided."
+        "description": "Return the block ID found around the given `time`, based on the `comparator` provided.",
+        "arguments": [
+          {
+            "name": "time",
+            "type": "Time!",
+            "description": ""
+          },
+          {
+            "name": "comparator",
+            "type": "COMPARATOR",
+            "description": ""
+          }
+        ]
       },
       {
         "name": "blockIDAtAccountCreation",
         "type": "BlockIDResponse!",
-        "description": "Return the block Number where given `account` was created."
+        "description": "Return the block Number where given `account` was created.",
+        "arguments": [
+          {
+            "name": "account",
+            "type": "String!",
+            "description": ""
+          }
+        ]
       }
     ]
   },
@@ -32,12 +115,81 @@
       {
         "name": "searchTransactionsForward",
         "type": "SearchTransactionForwardResponse!",
-        "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization."
+        "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization.",
+        "arguments": [
+          {
+            "name": "query",
+            "type": "String!",
+            "description": "dfuse Search Query Language string"
+          },
+          {
+            "name": "lowBlockNum",
+            "type": "Int64",
+            "description": "Lower block num boundary, inclusively. A negative value means a block relative to the head or last irreversible block (depending on `irreversibleOnly`)."
+          },
+          {
+            "name": "highBlockNum",
+            "type": "Int64",
+            "description": "Higher block num boundary, inclusively. A negative value means a block relative to the head or last irreversible block (depending on `irreversibleOnly`). A `null` value means no higher limits, therefore searching into the future of the chain."
+          },
+          {
+            "name": "cursor",
+            "type": "String",
+            "description": "Opaque data piece that you can pass back to continue your search if it ever disconnected. Retrieve it from the `cursor` field in the responses of this call. It is safe to use the same cursor in BOTH directions (forward and backward)."
+          },
+          {
+            "name": "limit",
+            "type": "Int64",
+            "description": "Limit the number of results streamed back."
+          },
+          {
+            "name": "irreversibleOnly",
+            "type": "Boolean",
+            "description": "When true, only stream back results once they pass the irreversibility boundary. Otherwise, allow fetching results up to the head block."
+          },
+          {
+            "name": "liveMarkerInterval",
+            "type": "Uint32",
+            "description": "If non-zero, indicates you want to mark the stream when reaching live blocks. A marker is a response with a `trace` equal to `null`, which will be sent at each `liveMarkerInterval` blocks. The first `trace` to be equal to `null` in a stream indicates you are now processing live blocks.\n\nThe value for `liveMarkerInterval` is a number of blocks."
+          }
+        ]
       },
       {
         "name": "searchTransactionsBackward",
         "type": "SearchTransactionBackwardResponse!",
-        "description": "Search the blockchain backward for transaction execution traces based on `query`.\n\nNOTE: The `undo` field is not used in backwards search."
+        "description": "Search the blockchain backward for transaction execution traces based on `query`.\n\nNOTE: The `undo` field is not used in backwards search.",
+        "arguments": [
+          {
+            "name": "query",
+            "type": "String!",
+            "description": "dfuse Search Query Language string"
+          },
+          {
+            "name": "lowBlockNum",
+            "type": "Int64",
+            "description": "Lower block num boundary, inclusively. The absence of a value, or a value of 0 means the beginning of the chain. A negative value means a block relative to the head or last irreversible block (depending on `irreversibleOnly`)."
+          },
+          {
+            "name": "highBlockNum",
+            "type": "Int64",
+            "description": "Higher block num boundary, inclusively. A negative value means a block relative to the head or last irreversible block (depending on `irreversibleOnly`), -1 being the head block."
+          },
+          {
+            "name": "cursor",
+            "type": "String",
+            "description": "Opaque data piece that you can pass back to continue your search if it ever disconnected. Retrieve it from the `cursor` field in the responses of this call. It is safe to use the same cursor in BOTH directions (forward and backward)."
+          },
+          {
+            "name": "limit",
+            "type": "Int64",
+            "description": "Limit the number of results streamed back."
+          },
+          {
+            "name": "irreversibleOnly",
+            "type": "Boolean",
+            "description": "When true, only stream back results that have passed the irreversibility boundary. Otherwise, allow fetching results up to the head block."
+          }
+        ]
       }
     ]
   },
@@ -48,12 +200,14 @@
       {
         "name": "object",
         "type": "JSON",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "error",
         "type": "String",
-        "description": ""
+        "description": "",
+        "arguments": []
       }
     ]
   },
@@ -64,12 +218,14 @@
       {
         "name": "cursor",
         "type": "String",
-        "description": "This is a chain-wide cursor, indicating the progress of a search. You can pass it back to the different search methods to continue fetching more results, in *either directions* (even in the reverse direction). A `null` cursor means the end of range has been reached."
+        "description": "This is a chain-wide cursor, indicating the progress of a search. You can pass it back to the different search methods to continue fetching more results, in *either directions* (even in the reverse direction). A `null` cursor means the end of range has been reached.",
+        "arguments": []
       },
       {
         "name": "results",
         "type": "[SearchTransactionForwardResponse!]",
-        "description": ""
+        "description": "",
+        "arguments": []
       }
     ]
   },
@@ -80,12 +236,14 @@
       {
         "name": "cursor",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "results",
         "type": "[SearchTransactionBackwardResponse!]",
-        "description": ""
+        "description": "",
+        "arguments": []
       }
     ]
   },
@@ -96,32 +254,38 @@
       {
         "name": "undo",
         "type": "Boolean!",
-        "description": "Whether this response is an UNDO operation of a previously sent response.\n\nIn a forward search, make sure you catch this and always verify its value.. as to not double or triple count transactions."
+        "description": "Whether this response is an UNDO operation of a previously sent response.\n\nIn a forward search, make sure you catch this and always verify its value.. as to not double or triple count transactions.",
+        "arguments": []
       },
       {
         "name": "cursor",
         "type": "String!",
-        "description": "Chain-wide cursor, allowing you to continue querying when connection is interrupted"
+        "description": "Chain-wide cursor, allowing you to continue querying when connection is interrupted",
+        "arguments": []
       },
       {
         "name": "isIrreversible",
         "type": "Boolean!",
-        "description": "Whether the block represented here is irreversible"
+        "description": "Whether the block represented here is irreversible",
+        "arguments": []
       },
       {
         "name": "irreversibleBlockNum",
         "type": "Uint32!",
-        "description": "The last known irreversible block when processing this transaction.  This number can be equal to the current block num (under `trace.block.num`), in which case, `isIrreversible` is true.  In the reversible segment of the chain, this number will be drifting away by the number of blocks separating head block and LIB."
+        "description": "The last known irreversible block when processing this transaction.  This number can be equal to the current block num (under `trace.block.num`), in which case, `isIrreversible` is true.  In the reversible segment of the chain, this number will be drifting away by the number of blocks separating head block and LIB.",
+        "arguments": []
       },
       {
         "name": "block",
         "type": "BlockHeader!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "trace",
         "type": "TransactionTrace",
-        "description": "Traces of execution of the transaction containing matching actions.\n\nCheck `matchingActions` below to limit the response to only actions matching your search query. Although, all actions from the transactions are available (see `executedActions`)."
+        "description": "Traces of execution of the transaction containing matching actions.\n\nCheck `matchingActions` below to limit the response to only actions matching your search query. Although, all actions from the transactions are available (see `executedActions`).",
+        "arguments": []
       }
     ]
   },
@@ -132,27 +296,32 @@
       {
         "name": "cursor",
         "type": "String!",
-        "description": "Chain-wide cursor, allowing you to continue querying when connection is interrupted"
+        "description": "Chain-wide cursor, allowing you to continue querying when connection is interrupted",
+        "arguments": []
       },
       {
         "name": "isIrreversible",
         "type": "Boolean!",
-        "description": "Whether the block represented here is irreversible"
+        "description": "Whether the block represented here is irreversible",
+        "arguments": []
       },
       {
         "name": "irreversibleBlockNum",
         "type": "Uint32!",
-        "description": "The last known irreversible block when processing this transaction.  This number can be equal to the current block num (under `trace.block.num`), in which case, `isIrreversible` is true.  In the reversible segment of the chain, this number will be drifting away by the number of blocks separating head block and LIB."
+        "description": "The last known irreversible block when processing this transaction.  This number can be equal to the current block num (under `trace.block.num`), in which case, `isIrreversible` is true.  In the reversible segment of the chain, this number will be drifting away by the number of blocks separating head block and LIB.",
+        "arguments": []
       },
       {
         "name": "block",
         "type": "BlockHeader!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "trace",
         "type": "TransactionTrace",
-        "description": "Traces of execution of the transaction containing matching actions.\n\nCheck `matchingActions` below to limit the response to only actions matching your search query. Although, all actions from the transactions are available (see `executedActions`)."
+        "description": "Traces of execution of the transaction containing matching actions.\n\nCheck `matchingActions` below to limit the response to only actions matching your search query. Although, all actions from the transactions are available (see `executedActions`).",
+        "arguments": []
       }
     ]
   },
@@ -163,57 +332,68 @@
       {
         "name": "id",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "block",
         "type": "BlockHeader!",
-        "description": "Block in which this transaction trace occurred"
+        "description": "Block in which this transaction trace occurred",
+        "arguments": []
       },
       {
         "name": "status",
         "type": "TRANSACTION_STATUS!",
-        "description": "This is a short-hand for `receipt.status`."
+        "description": "This is a short-hand for `receipt.status`.",
+        "arguments": []
       },
       {
         "name": "receipt",
         "type": "TransactionReceiptHeader!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "elapsed",
         "type": "Int64!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "netUsage",
         "type": "Uint64!",
-        "description": "Amount of network bandwidth consumed (for the sake of the rate limiting engine) by this whole transaction, in bytes (short-hand for `receipt.net_usage_words * 8`."
+        "description": "Amount of network bandwidth consumed (for the sake of the rate limiting engine) by this whole transaction, in bytes (short-hand for `receipt.net_usage_words * 8`.",
+        "arguments": []
       },
       {
         "name": "scheduled",
         "type": "Boolean!",
-        "description": "Whether this transaction was originally a scheduled transaction."
+        "description": "Whether this transaction was originally a scheduled transaction.",
+        "arguments": []
       },
       {
         "name": "executedActions",
         "type": "[ActionTrace!]!",
-        "description": "Lists all action traces, flattened and ordered by execution time."
+        "description": "Lists all action traces, flattened and ordered by execution time.",
+        "arguments": []
       },
       {
         "name": "matchingActions",
         "type": "[ActionTrace!]!",
-        "description": "Returns a flattened list of action traces, in _execution_ order, of only the matching transactions (from a search, or other filtering)."
+        "description": "Returns a flattened list of action traces, in _execution_ order, of only the matching transactions (from a search, or other filtering).",
+        "arguments": []
       },
       {
         "name": "topLevelActions",
         "type": "[ActionTrace]!",
-        "description": "Traces of actions at depth=0, those part of the original Transaction. In `nodeos` version 1.7.0 and below, this corresponds to the `action_traces` field."
+        "description": "Traces of actions at depth=0, those part of the original Transaction. In `nodeos` version 1.7.0 and below, this corresponds to the `action_traces` field.",
+        "arguments": []
       },
       {
         "name": "exceptJSON",
         "type": "JSON",
-        "description": ""
+        "description": "",
+        "arguments": []
       }
     ]
   },
@@ -224,52 +404,62 @@
       {
         "name": "id",
         "type": "String!",
-        "description": "ID of the block"
+        "description": "ID of the block",
+        "arguments": []
       },
       {
         "name": "num",
         "type": "Uint32!",
-        "description": "Block number in the chain"
+        "description": "Block number in the chain",
+        "arguments": []
       },
       {
         "name": "timestamp",
         "type": "Time!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "producer",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "confirmed",
         "type": "Uint32!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "previous",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "transactionMRoot",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "actionMRoot",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "scheduleVersion",
         "type": "Uint32!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "newProducers",
         "type": "ProducerSchedule",
-        "description": ""
+        "description": "",
+        "arguments": []
       }
     ]
   },
@@ -280,12 +470,14 @@
       {
         "name": "version",
         "type": "Uint32!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "producers",
         "type": "[ProducerKey!]!",
-        "description": ""
+        "description": "",
+        "arguments": []
       }
     ]
   },
@@ -296,12 +488,14 @@
       {
         "name": "producerName",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "blockSigningKey",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       }
     ]
   },
@@ -312,17 +506,20 @@
       {
         "name": "status",
         "type": "TRANSACTION_STATUS!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "cpuUsageMicroSeconds",
         "type": "Uint32!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "netUsageWords",
         "type": "Uint32!",
-        "description": ""
+        "description": "",
+        "arguments": []
       }
     ]
   },
@@ -333,117 +530,157 @@
       {
         "name": "seq",
         "type": "Uint64!",
-        "description": "Global sequence ID for this action in this chain (shorthand for receipt.global_sequence). NOTE: if this is a failed action, seq will be 0."
+        "description": "Global sequence ID for this action in this chain (shorthand for receipt.global_sequence). NOTE: if this is a failed action, seq will be 0.",
+        "arguments": []
       },
       {
         "name": "executionIndex",
         "type": "Uint32!",
-        "description": "Zero-based index of this action within the transaction, in _execution_ order."
+        "description": "Zero-based index of this action within the transaction, in _execution_ order.",
+        "arguments": []
       },
       {
         "name": "receipt",
         "type": "ActionReceipt",
-        "description": "Action receipt (which differs from the Transaction receipt).\n\nThe receipt will be null when failures occur. Verify the `status`\nfield on the TransactionTrace object."
+        "description": "Action receipt (which differs from the Transaction receipt).\n\nThe receipt will be null when failures occur. Verify the `status`\nfield on the TransactionTrace object.",
+        "arguments": []
       },
       {
         "name": "receiver",
         "type": "String!",
-        "description": "Account which code was executed to produce this execution trace.\n\nShorthand for receipt.receiver"
+        "description": "Account which code was executed to produce this execution trace.\n\nShorthand for receipt.receiver",
+        "arguments": []
       },
       {
         "name": "account",
         "type": "String!",
-        "description": "Target method's account name.  This does *not* correspond to the contract code being executed, that is what `receiver` means.  This value namespaces your actions.\n\nShorthand for act.account in `nodeos` traces"
+        "description": "Target method's account name.  This does *not* correspond to the contract code being executed, that is what `receiver` means.  This value namespaces your actions.\n\nShorthand for act.account in `nodeos` traces",
+        "arguments": []
       },
       {
         "name": "name",
         "type": "String!",
-        "description": "Target method's action name. This value, combined with the `account`, determines which code path will be executed in the `receiver` contract code.\n\nShorthand for act.name in `nodeos` traces."
+        "description": "Target method's action name. This value, combined with the `account`, determines which code path will be executed in the `receiver` contract code.\n\nShorthand for act.name in `nodeos` traces.",
+        "arguments": []
       },
       {
         "name": "authorization",
         "type": "[PermissionLevel!]!",
-        "description": "Signatories required to execute this action.\n\nShorthand for `act.authorization` in `nodeos` traces."
+        "description": "Signatories required to execute this action.\n\nShorthand for `act.authorization` in `nodeos` traces.",
+        "arguments": []
       },
       {
         "name": "data",
         "type": "JSON",
-        "description": "Data payload. Might be a string or a JSON object, depending on whether it was possible to unpack it using an ABI.\n\nShorthand for `act.data` in `nodeos` traces."
+        "description": "Data payload. Might be a string or a JSON object, depending on whether it was possible to unpack it using an ABI.\n\nShorthand for `act.data` in `nodeos` traces.",
+        "arguments": []
       },
       {
         "name": "json",
         "type": "JSON",
-        "description": "JSON Object representing the action parameters, decoded through the ABI. Will be `null` if it wasn't possible to decode it.\n\nShorthand for action.json"
+        "description": "JSON Object representing the action parameters, decoded through the ABI. Will be `null` if it wasn't possible to decode it.\n\nShorthand for action.json",
+        "arguments": []
       },
       {
         "name": "hexData",
         "type": "String!",
-        "description": "Hex-encoded string representing the raw data for the action.\n\nShorthand for `act.hex_data` in `nodeos` traces."
+        "description": "Hex-encoded string representing the raw data for the action.\n\nShorthand for `act.hex_data` in `nodeos` traces.",
+        "arguments": []
       },
       {
         "name": "ramOps",
         "type": "[RAMOp!]!",
-        "description": "A list of RAM mutation operations, produced by this transaction.\n\nNOTE: the RAM ops on an action never include operations that are mutations of the transaction itself (like creation of a deferred, or removal of a deferred from RAM). For this, check `ramOps` on the TransactionTrace object."
+        "description": "A list of RAM mutation operations, produced by this transaction.\n\nNOTE: the RAM ops on an action never include operations that are mutations of the transaction itself (like creation of a deferred, or removal of a deferred from RAM). For this, check `ramOps` on the TransactionTrace object.",
+        "arguments": []
       },
       {
         "name": "dtrxOps",
         "type": "[DTrxOp!]!",
-        "description": "A list of all operations affecting deferred transactions, like creation, deletion, modification, produced by this action."
+        "description": "A list of all operations affecting deferred transactions, like creation, deletion, modification, produced by this action.",
+        "arguments": []
       },
       {
         "name": "tableOps",
         "type": "[TableOp!]!",
-        "description": "A list of table mutation operations (creation or deletion of a _table_, not a _row_)."
+        "description": "A list of table mutation operations (creation or deletion of a _table_, not a _row_).",
+        "arguments": []
       },
       {
         "name": "dbOps",
         "type": "[DBOp!]!",
-        "description": "A list of database operations produced by this action. Insertions, modifications and deletions of any table _rows_ in the scope of this action's `receiver`."
+        "description": "A list of database operations produced by this action. Insertions, modifications and deletions of any table _rows_ in the scope of this action's `receiver`.",
+        "arguments": [
+          {
+            "name": "code",
+            "type": "String",
+            "description": ""
+          },
+          {
+            "name": "table",
+            "type": "String",
+            "description": ""
+          }
+        ]
       },
       {
         "name": "console",
         "type": "String!",
-        "description": "Output of the action's `print()` statements from within the smart contract."
+        "description": "Output of the action's `print()` statements from within the smart contract.",
+        "arguments": []
       },
       {
         "name": "contextFree",
         "type": "Boolean!",
-        "description": "Whether this action is a context-free action."
+        "description": "Whether this action is a context-free action.",
+        "arguments": []
       },
       {
         "name": "elapsed",
         "type": "Int64!",
-        "description": "Elapsed time between the beginning of the execution of this action, relative to the time the whole transaction started to be processed"
+        "description": "Elapsed time between the beginning of the execution of this action, relative to the time the whole transaction started to be processed",
+        "arguments": []
       },
       {
         "name": "exceptJSON",
         "type": "JSON",
-        "description": "If non-null, this action failed. The stack and reasons will be found within the raw JSON payload provided."
+        "description": "If non-null, this action failed. The stack and reasons will be found within the raw JSON payload provided.",
+        "arguments": []
       },
       {
         "name": "isNotify",
         "type": "Boolean!",
-        "description": "Whether this action is a notification, meaning that it was triggered as a side effect rom another contract, and copied the exact same payload from the original transaction.  This happens when you call the `require_notify` method from the EOSIO intrinsics (from within a smart-contract)."
+        "description": "Whether this action is a notification, meaning that it was triggered as a side effect rom another contract, and copied the exact same payload from the original transaction.  This happens when you call the `require_notify` method from the EOSIO intrinsics (from within a smart-contract).",
+        "arguments": []
       },
       {
         "name": "isMatchingQuery",
         "type": "Boolean!",
-        "description": "Whether or not this action matched the dfuse search query"
+        "description": "Whether or not this action matched the dfuse search query",
+        "arguments": []
       },
       {
         "name": "createdActions",
         "type": "[ActionTrace]!",
-        "description": "Traces of actions _created_ by this action. WARN: this doesn't infer that the operations were written to the blockchain in this order, only that it was created by this action. To obtain execution order, see `executedActions` on the TransactionTrace object."
+        "description": "Traces of actions _created_ by this action. WARN: this doesn't infer that the operations were written to the blockchain in this order, only that it was created by this action. To obtain execution order, see `executedActions` on the TransactionTrace object.",
+        "arguments": [
+          {
+            "name": "sort",
+            "type": "ACTION_SORT_ORDER",
+            "description": ""
+          }
+        ]
       },
       {
         "name": "creatorAction",
         "type": "ActionTrace",
-        "description": "Trace of the action that created this one, the one which _created_ this action. WARN: it is not necessarily the parent in execution order, but will reflect which smart contract did the creation of either the notification, action or context_free_action."
+        "description": "Trace of the action that created this one, the one which _created_ this action. WARN: it is not necessarily the parent in execution order, but will reflect which smart contract did the creation of either the notification, action or context_free_action.",
+        "arguments": []
       },
       {
         "name": "closestUnnotifiedAncestorAction",
         "type": "ActionTrace",
-        "description": "Use this to rebuild the execution tree, using the `nodeos` dispatch algorithm of notifications, actions and context-free actions.\n\nThis is similar to what you would have gotten in `nodeos` prior to version 1.8.0."
+        "description": "Use this to rebuild the execution tree, using the `nodeos` dispatch algorithm of notifications, actions and context-free actions.\n\nThis is similar to what you would have gotten in `nodeos` prior to version 1.8.0.",
+        "arguments": []
       }
     ]
   },
@@ -454,22 +691,26 @@
       {
         "name": "operation",
         "type": "RAM_OPERATION!",
-        "description": "What happened to justify this change in RAM."
+        "description": "What happened to justify this change in RAM.",
+        "arguments": []
       },
       {
         "name": "payer",
         "type": "String!",
-        "description": "The account being debited or credited RAM"
+        "description": "The account being debited or credited RAM",
+        "arguments": []
       },
       {
         "name": "delta",
         "type": "Int64!",
-        "description": "Number of bytes that were either consumed (positive) or released (negative)"
+        "description": "Number of bytes that were either consumed (positive) or released (negative)",
+        "arguments": []
       },
       {
         "name": "usage",
         "type": "Uint64!",
-        "description": "Number of bytes now used by the `payer` account, after applying this RAM operation.\n\nTo have a precise view of the RAM left on an account after this transaction was applied, go through all actions in execution order (`TransactionTrace.executedActions`) and use the last RAMOp for the given account."
+        "description": "Number of bytes now used by the `payer` account, after applying this RAM operation.\n\nTo have a precise view of the RAM left on an account after this transaction was applied, go through all actions in execution order (`TransactionTrace.executedActions`) and use the last RAMOp for the given account.",
+        "arguments": []
       }
     ]
   },
@@ -480,47 +721,56 @@
       {
         "name": "operation",
         "type": "DTRX_OPERATION!",
-        "description": "The source or cause of creation/modification/deletion of a deferred transaction"
+        "description": "The source or cause of creation/modification/deletion of a deferred transaction",
+        "arguments": []
       },
       {
         "name": "sender",
         "type": "String",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "senderID",
         "type": "String",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "payer",
         "type": "String",
-        "description": "The account being debited or credited to store this deferred transaction"
+        "description": "The account being debited or credited to store this deferred transaction",
+        "arguments": []
       },
       {
         "name": "publishedAt",
         "type": "Time",
-        "description": "The time this deferred was published at"
+        "description": "The time this deferred was published at",
+        "arguments": []
       },
       {
         "name": "delayUntil",
         "type": "Time",
-        "description": "The time at which Block Producers will start attempting to execute this transaction"
+        "description": "The time at which Block Producers will start attempting to execute this transaction",
+        "arguments": []
       },
       {
         "name": "expirationAt",
         "type": "Time",
-        "description": "The time at which Block Producers will evict this transaction from memory if it fails execution."
+        "description": "The time at which Block Producers will evict this transaction from memory if it fails execution.",
+        "arguments": []
       },
       {
         "name": "trxID",
         "type": "String",
-        "description": "The transaction ID of the `transaction`"
+        "description": "The transaction ID of the `transaction`",
+        "arguments": []
       },
       {
         "name": "transaction",
         "type": "Transaction",
-        "description": "The deferred transaction payload itself."
+        "description": "The deferred transaction payload itself.",
+        "arguments": []
       }
     ]
   },
@@ -531,12 +781,14 @@
       {
         "name": "operation",
         "type": "TABLE_OPERATION!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "table",
         "type": "TableOpKey!",
-        "description": ""
+        "description": "",
+        "arguments": []
       }
     ]
   },
@@ -547,42 +799,50 @@
       {
         "name": "operation",
         "type": "DB_OPERATION!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "oldPayer",
         "type": "String",
-        "description": "Previous paying account.  This is null in the case of an insertion."
+        "description": "Previous paying account.  This is null in the case of an insertion.",
+        "arguments": []
       },
       {
         "name": "newPayer",
         "type": "String",
-        "description": "New paying account.  This is null in the case of a deletion."
+        "description": "New paying account.  This is null in the case of a deletion.",
+        "arguments": []
       },
       {
         "name": "key",
         "type": "DBOpKey!",
-        "description": "Primary key of the row in the table."
+        "description": "Primary key of the row in the table.",
+        "arguments": []
       },
       {
         "name": "oldData",
         "type": "String",
-        "description": "Contents (hex data) of the row before a REM or UPD operation."
+        "description": "Contents (hex data) of the row before a REM or UPD operation.",
+        "arguments": []
       },
       {
         "name": "newData",
         "type": "String",
-        "description": "Contents (hex data) of the row after an INS or UPD operation."
+        "description": "Contents (hex data) of the row after an INS or UPD operation.",
+        "arguments": []
       },
       {
         "name": "oldJSON",
         "type": "DecodedObject!",
-        "description": "Decoded version of oldData"
+        "description": "Decoded version of oldData",
+        "arguments": []
       },
       {
         "name": "newJSON",
         "type": "DecodedObject!",
-        "description": "Decoded version of newData"
+        "description": "Decoded version of newData",
+        "arguments": []
       }
     ]
   },
@@ -593,22 +853,38 @@
       {
         "name": "code",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "table",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "scope",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": [
+          {
+            "name": "encoding",
+            "type": "UINT64_ENCODING",
+            "description": ""
+          }
+        ]
       },
       {
         "name": "key",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": [
+          {
+            "name": "encoding",
+            "type": "UINT64_ENCODING",
+            "description": ""
+          }
+        ]
       }
     ]
   },
@@ -619,17 +895,26 @@
       {
         "name": "code",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "table",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "scope",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": [
+          {
+            "name": "encoding",
+            "type": "UINT64_ENCODING",
+            "description": ""
+          }
+        ]
       }
     ]
   },
@@ -640,27 +925,32 @@
       {
         "name": "receiver",
         "type": "String!",
-        "description": "Account for which code is being triggered. Beware that this might not be the same value as `account`, or the target account of the action, in the case of notifications. See documentation for `require_notify` in EOSIO contracts"
+        "description": "Account for which code is being triggered. Beware that this might not be the same value as `account`, or the target account of the action, in the case of notifications. See documentation for `require_notify` in EOSIO contracts",
+        "arguments": []
       },
       {
         "name": "digest",
         "type": "String!",
-        "description": "Hash of the action payload. Also known as `act_digest` from `nodeos`"
+        "description": "Hash of the action payload. Also known as `act_digest` from `nodeos`",
+        "arguments": []
       },
       {
         "name": "globalSequence",
         "type": "Uint64!",
-        "description": "Globally unique sequence number in all actions from the longest chain. This will never be reused, and is guaranteed to monotonically increment with each action.\n\nThis property can be relied on to keep track of forks in your database, at the action level.\n\nWARNING: when micro-forks happens, global sequences from the different forks will be reused, but will be associated with other actions. This is why it's important to navigate forks properly."
+        "description": "Globally unique sequence number in all actions from the longest chain. This will never be reused, and is guaranteed to monotonically increment with each action.\n\nThis property can be relied on to keep track of forks in your database, at the action level.\n\nWARNING: when micro-forks happens, global sequences from the different forks will be reused, but will be associated with other actions. This is why it's important to navigate forks properly.",
+        "arguments": []
       },
       {
         "name": "codeSequence",
         "type": "Uint64!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "abiSequence",
         "type": "Uint64!",
-        "description": ""
+        "description": "",
+        "arguments": []
       }
     ]
   },
@@ -671,42 +961,50 @@
       {
         "name": "expiration",
         "type": "Time!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "refBlockNum",
         "type": "Uint32!",
-        "description": "TaPoS reference block num.\n\nThis value holds only 16 bits of the blockNum (instead of 32).\nThe other 16 bits are in the current blockNum (unless overflown)."
+        "description": "TaPoS reference block num.\n\nThis value holds only 16 bits of the blockNum (instead of 32).\nThe other 16 bits are in the current blockNum (unless overflown).",
+        "arguments": []
       },
       {
         "name": "refBlockPrefix",
         "type": "Uint32!",
-        "description": "TaPoS block prefix (bytes 8-16 of the block ID), in order to identify the correct fork for a given block number."
+        "description": "TaPoS block prefix (bytes 8-16 of the block ID), in order to identify the correct fork for a given block number.",
+        "arguments": []
       },
       {
         "name": "maxNetUsageWords",
         "type": "Uint32!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "maxCPUUsageMS",
         "type": "Uint32!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "delaySec",
         "type": "Uint32!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "contextFreeActions",
         "type": "[Action!]!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "actions",
         "type": "[Action!]!",
-        "description": ""
+        "description": "",
+        "arguments": []
       }
     ]
   },
@@ -717,32 +1015,38 @@
       {
         "name": "account",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "name",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "authorization",
         "type": "[PermissionLevel]!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "json",
         "type": "JSON",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "data",
         "type": "JSON",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "hexData",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       }
     ]
   },
@@ -753,12 +1057,14 @@
       {
         "name": "actor",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "permission",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       }
     ]
   },
@@ -769,12 +1075,14 @@
       {
         "name": "account",
         "type": "String",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "sequence",
         "type": "Uint64!",
-        "description": ""
+        "description": "",
+        "arguments": []
       }
     ]
   },
@@ -785,17 +1093,20 @@
       {
         "name": "time",
         "type": "Time!",
-        "description": "\"true\" if a block id was found"
+        "description": "\"true\" if a block id was found",
+        "arguments": []
       },
       {
         "name": "num",
         "type": "Uint32!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "id",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       }
     ]
   }

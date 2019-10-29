@@ -6,12 +6,56 @@
       {
         "name": "searchTransactions",
         "type": "TransactionEdge!",
-        "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization.  The `undo` field is always `false` in backward searches."
+        "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization.  The `undo` field is always `false` in backward searches.",
+        "arguments": [
+          {
+            "name": "query",
+            "type": "String!",
+            "description": "dfuse Search Query Language string"
+          },
+          {
+            "name": "lowBlockNum",
+            "type": "Int64",
+            "description": "Lower block num boundary, inclusive. A negative value means a block relative to the head block. Omitting this value means unbounded (since the genesis block)."
+          },
+          {
+            "name": "highBlockNum",
+            "type": "Int64",
+            "description": "Higher block num boundary, inclusive. A value of 0 means live-searching on any incoming blocks (the default behavior). A negative value means a block relative to the head block, ex: -1 means the head block, -2 means the second to last block, etc.."
+          },
+          {
+            "name": "cursor",
+            "type": "String",
+            "description": "Opaque data piece that you can pass back to continue your search if it ever disconnected. Retrieve it from the `cursor` field in the responses of this call. It is safe to use the same cursor in BOTH directions (forward and backward)."
+          },
+          {
+            "name": "limit",
+            "type": "Int64",
+            "description": "Limit the number of results streamed back. 0 means unlimited"
+          },
+          {
+            "name": "sort",
+            "type": "SORT",
+            "description": "From which end to start. ASC means from the past, going into the future. DESC means recent to older transactions."
+          },
+          {
+            "name": "liveMarkerInterval",
+            "type": "Uint32",
+            "description": "If non-zero, indicates you want to mark the stream when reaching live blocks. A marker is a response with a `trace` equal to `null`, which will be sent at each `liveMarkerInterval` blocks. The first `trace` to be equal to `null` in a stream indicates you are now processing live blocks.\n\nThe value for `liveMarkerInterval` is a number of blocks."
+          }
+        ]
       },
       {
         "name": "trackTransactionState",
         "type": "TransactionState!",
-        "description": ""
+        "description": "",
+        "arguments": [
+          {
+            "name": "hash",
+            "type": "String!",
+            "description": "hash of the transaction you want to track the state"
+          }
+        ]
       }
     ]
   },
@@ -22,22 +66,75 @@
       {
         "name": "block",
         "type": "Block",
-        "description": ""
+        "description": "",
+        "arguments": [
+          {
+            "name": "hash",
+            "type": "String!",
+            "description": ""
+          }
+        ]
       },
       {
         "name": "blockByNumber",
         "type": "Block",
-        "description": ""
+        "description": "",
+        "arguments": [
+          {
+            "name": "number",
+            "type": "Uint64!",
+            "description": ""
+          }
+        ]
       },
       {
         "name": "transaction",
         "type": "Transaction",
-        "description": ""
+        "description": "",
+        "arguments": [
+          {
+            "name": "hash",
+            "type": "String!",
+            "description": ""
+          }
+        ]
       },
       {
         "name": "searchTransactions",
         "type": "TransactionConnection!",
-        "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\n\nWhen the returned `cursor` is empty, it means you have reached the end of the specified block\nrange.\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization.\n\nSee also the streaming version under `Subscription`"
+        "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\n\nWhen the returned `cursor` is empty, it means you have reached the end of the specified block\nrange.\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization.\n\nSee also the streaming version under `Subscription`",
+        "arguments": [
+          {
+            "name": "query",
+            "type": "String!",
+            "description": ""
+          },
+          {
+            "name": "lowBlockNum",
+            "type": "Int64",
+            "description": ""
+          },
+          {
+            "name": "highBlockNum",
+            "type": "Int64",
+            "description": ""
+          },
+          {
+            "name": "cursor",
+            "type": "String",
+            "description": ""
+          },
+          {
+            "name": "limit",
+            "type": "Int64",
+            "description": ""
+          },
+          {
+            "name": "sort",
+            "type": "SORT",
+            "description": ""
+          }
+        ]
       }
     ]
   },
@@ -48,12 +145,14 @@
       {
         "name": "startCursor",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "endCursor",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       }
     ]
   },
@@ -64,12 +163,14 @@
       {
         "name": "edges",
         "type": "[TransactionEdge]!",
-        "description": "A list of edges to transactions"
+        "description": "A list of edges to transactions",
+        "arguments": []
       },
       {
         "name": "pageInfo",
         "type": "PageInfo!",
-        "description": "Information to aid pagination"
+        "description": "Information to aid pagination",
+        "arguments": []
       }
     ]
   },
@@ -80,22 +181,26 @@
       {
         "name": "undo",
         "type": "Boolean!",
-        "description": "Whether this response is an UNDO operation of a previously sent response.\n\nIn a forward search, make sure you catch this and always verify its value.. as to not double/triple count transactions.\n\nIn a backward searches, `undo` will always be `false`."
+        "description": "Whether this response is an UNDO operation of a previously sent response.\n\nIn a forward search, make sure you catch this and always verify its value.. as to not double/triple count transactions.\n\nIn a backward searches, `undo` will always be `false`.",
+        "arguments": []
       },
       {
         "name": "cursor",
         "type": "String!",
-        "description": "Query cursor, allowing you to continue fetching results even after interruption of your connection, without missing a beat."
+        "description": "Query cursor, allowing you to continue fetching results even after interruption of your connection, without missing a beat.",
+        "arguments": []
       },
       {
         "name": "block",
         "type": "Block!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "node",
         "type": "TransactionTrace",
-        "description": "The transaction object."
+        "description": "The transaction object.",
+        "arguments": []
       }
     ]
   },
@@ -106,47 +211,68 @@
       {
         "name": "to",
         "type": "String!",
-        "description": "The recipient address of a transfer, or target contract of a call.  [VERIFY: will be empty for contract-creating calls / if untrue, resurface the `create: true` variable like in a TransactioNTrace for consistency.]"
+        "description": "The recipient address of a transfer, or target contract of a call.  [VERIFY: will be empty for contract-creating calls / if untrue, resurface the `create: true` variable like in a TransactioNTrace for consistency.]",
+        "arguments": []
       },
       {
         "name": "nonce",
         "type": "Uint64!",
-        "description": "nonce is an ever incrementing counter of transactions issued by the `from` account."
+        "description": "nonce is an ever incrementing counter of transactions issued by the `from` account.",
+        "arguments": []
       },
       {
         "name": "gasPrice",
         "type": "String!",
-        "description": "gasPrice is the price offered to miners for gas, in wei per unit."
+        "description": "gasPrice is the price offered to miners for gas, in wei per unit.",
+        "arguments": [
+          {
+            "name": "encoding",
+            "type": "WEI_ENCODING",
+            "description": ""
+          }
+        ]
       },
       {
         "name": "gasLimit",
         "type": "Uint64!",
-        "description": "gasLimit is the maximum amount of gas this transaction can consume. Other Ethereum nodes often name this field simply `gas`. Alias the field name if you prefer. See: https://graphql.org/learn/queries/#aliases"
+        "description": "gasLimit is the maximum amount of gas this transaction can consume. Other Ethereum nodes often name this field simply `gas`. Alias the field name if you prefer. See: https://graphql.org/learn/queries/#aliases",
+        "arguments": []
       },
       {
         "name": "value",
         "type": "String!",
-        "description": "value is the Ether value (in wei) sent along with this transaction."
+        "description": "value is the Ether value (in wei) sent along with this transaction.",
+        "arguments": [
+          {
+            "name": "encoding",
+            "type": "WEI_ENCODING",
+            "description": ""
+          }
+        ]
       },
       {
         "name": "inputData",
         "type": "String!",
-        "description": "inputData is the data supplied to the target contract of the transaction."
+        "description": "inputData is the data supplied to the target contract of the transaction.",
+        "arguments": []
       },
       {
         "name": "hash",
         "type": "String!",
-        "description": "hash is the hash of this transaction. It is also a universally unique pointer to this transaction."
+        "description": "hash is the hash of this transaction. It is also a universally unique pointer to this transaction.",
+        "arguments": []
       },
       {
         "name": "from",
         "type": "String!",
-        "description": "from is the account that sent this transaction - this will always be an externally owned account."
+        "description": "from is the account that sent this transaction - this will always be an externally owned account.",
+        "arguments": []
       },
       {
         "name": "signature",
         "type": "Signature!",
-        "description": "signature holds the V, R and S values representing the cryptographic signature for this transaction. It is based on these values that the `from` address is derived"
+        "description": "signature holds the V, R and S values representing the cryptographic signature for this transaction. It is based on these values that the `from` address is derived",
+        "arguments": []
       }
     ]
   },
@@ -157,107 +283,140 @@
       {
         "name": "to",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "nonce",
         "type": "Uint64!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "gasPrice",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": [
+          {
+            "name": "encoding",
+            "type": "WEI_ENCODING",
+            "description": ""
+          }
+        ]
       },
       {
         "name": "gasLimit",
         "type": "Uint64!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "value",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": [
+          {
+            "name": "encoding",
+            "type": "WEI_ENCODING",
+            "description": ""
+          }
+        ]
       },
       {
         "name": "inputData",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "hash",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "from",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "signature",
         "type": "Signature!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "status",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "gasUsed",
         "type": "Uint64!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "cumulativeGasUsed",
         "type": "Uint64!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "publicKey",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "index",
         "type": "Int!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "create",
         "type": "Boolean!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "outcome",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "block",
         "type": "Block",
-        "description": "Block in which this transaction is contained"
+        "description": "Block in which this transaction is contained",
+        "arguments": []
       },
       {
         "name": "allLogs",
         "type": "[EventLog!]!",
-        "description": "Lists all logs, flattened and ordered by execution time."
+        "description": "Lists all logs, flattened and ordered by execution time.",
+        "arguments": []
       },
       {
         "name": "flatCalls",
         "type": "[EVMCall!]!",
-        "description": "Lists all calls, flattened and ordered by execution time."
+        "description": "Lists all calls, flattened and ordered by execution time.",
+        "arguments": []
       },
       {
         "name": "matchingCalls",
         "type": "[EVMCall!]!",
-        "description": "Returns a flattened list of calls, in _execution_ order, of only the matching elements (from a search, or other filtering)."
+        "description": "Returns a flattened list of calls, in _execution_ order, of only the matching elements (from a search, or other filtering).",
+        "arguments": []
       },
       {
         "name": "matchingLogs",
         "type": "[EventLog!]!",
-        "description": "Returns a flattened list of logs, in _execution_ order, of only the matching elements (from a search, or other filtering)."
+        "description": "Returns a flattened list of logs, in _execution_ order, of only the matching elements (from a search, or other filtering).",
+        "arguments": []
       }
     ]
   },
@@ -268,17 +427,20 @@
       {
         "name": "v",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "r",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "s",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       }
     ]
   },
@@ -289,22 +451,26 @@
       {
         "name": "stateRoot",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "cumulativeGasUsed",
         "type": "Uint64!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "logsBloom",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "logs",
         "type": "[EventLog!]!",
-        "description": ""
+        "description": "",
+        "arguments": []
       }
     ]
   },
@@ -315,87 +481,116 @@
       {
         "name": "index",
         "type": "Uint32!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "parentIndex",
         "type": "Uint32!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "depth",
         "type": "Uint32!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "callType",
         "type": "CALL_TYPE!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "caller",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "address",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": [
+          {
+            "name": "encoding",
+            "type": "ADDRESS_ENCODING",
+            "description": ""
+          }
+        ]
       },
       {
         "name": "value",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": [
+          {
+            "name": "encoding",
+            "type": "WEI_ENCODING",
+            "description": ""
+          }
+        ]
       },
       {
         "name": "gasConsumed",
         "type": "Uint64!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "gasBilled",
         "type": "Uint64!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "gasLimit",
         "type": "Uint64!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "failed",
         "type": "Boolean!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "reverted",
         "type": "Boolean!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "returnData",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "input",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "storageChanges",
         "type": "[StorageChange!]!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "balanceChanges",
         "type": "[BalanceChange!]!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "logs",
         "type": "[EventLog!]!",
-        "description": ""
+        "description": "",
+        "arguments": []
       }
     ]
   },
@@ -406,17 +601,38 @@
       {
         "name": "address",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": [
+          {
+            "name": "encoding",
+            "type": "ADDRESS_ENCODING",
+            "description": ""
+          }
+        ]
       },
       {
         "name": "oldValue",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": [
+          {
+            "name": "encoding",
+            "type": "WEI_ENCODING",
+            "description": ""
+          }
+        ]
       },
       {
         "name": "newValue",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": [
+          {
+            "name": "encoding",
+            "type": "WEI_ENCODING",
+            "description": ""
+          }
+        ]
       }
     ]
   },
@@ -427,22 +643,32 @@
       {
         "name": "key",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "address",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": [
+          {
+            "name": "encoding",
+            "type": "ADDRESS_ENCODING",
+            "description": ""
+          }
+        ]
       },
       {
         "name": "oldValue",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "newValue",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       }
     ]
   },
@@ -453,27 +679,38 @@
       {
         "name": "address",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": [
+          {
+            "name": "encoding",
+            "type": "ADDRESS_ENCODING",
+            "description": ""
+          }
+        ]
       },
       {
         "name": "topics",
         "type": "[String!]!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "data",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "blockIndex",
         "type": "Uint32!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "transactionIndex",
         "type": "Uint32!",
-        "description": ""
+        "description": "",
+        "arguments": []
       }
     ]
   },
@@ -484,32 +721,59 @@
       {
         "name": "hash",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "number",
         "type": "Uint64!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "size",
         "type": "Uint64!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "header",
         "type": "BlockHeader!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "uncles",
         "type": "[BlockHeader!]!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "transactions",
         "type": "TransactionConnection!",
-        "description": ""
+        "description": "",
+        "arguments": [
+          {
+            "name": "first",
+            "type": "Uint32",
+            "description": ""
+          },
+          {
+            "name": "last",
+            "type": "Uint32",
+            "description": ""
+          },
+          {
+            "name": "before",
+            "type": "String",
+            "description": ""
+          },
+          {
+            "name": "after",
+            "type": "String",
+            "description": ""
+          }
+        ]
       }
     ]
   },
@@ -520,82 +784,98 @@
       {
         "name": "parentHash",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "unclesHash",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "coinbase",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "stateRoot",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "transactionsRoot",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "receiptRoot",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "logsBloom",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "difficulty",
         "type": "Uint64!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "number",
         "type": "Uint64!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "gasLimit",
         "type": "Uint64!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "gasUsed",
         "type": "Uint64!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "timestamp",
         "type": "Uint64!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "extraData",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "mixHash",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "nonce",
         "type": "Uint64!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "hash",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       }
     ]
   }

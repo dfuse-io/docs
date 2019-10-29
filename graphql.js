@@ -13,19 +13,30 @@ function processSources(schemaSources, destination) {
     const { name, description, fields } = def;
 
     if (def.kind !== 'ObjectTypeDefinition') return null
+    // TODO: Add support for Enum types
 
     return {
       name: name.value,
       description: description ? description.value : '',
       fields: fields.map(field => {
-        const { name, type, description } = field;
+        const { name, type, description, arguments } = field;
 
         let typeName = getFieldType(type)
 
         return {
           name: name.value,
           type: typeName,
-          description: description ? description.value : ''
+          description: description ? description.value : '',
+          arguments: arguments.map(arg => {
+            const  { name, type, description, defaultValue } = arg;
+
+            let typeName = getFieldType(type)
+            return {
+              name: name.value,
+              type: typeName,
+              description: description ? description.value : '',
+            }
+          })
         }
       })
     }

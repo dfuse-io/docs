@@ -1,6 +1,6 @@
 ---
 title: GraphQL
-weight: 3
+weight: 30
 ---
 
 <!--
@@ -16,6 +16,8 @@ Error handling
 Our Error codes, how we handle 429 errors, how errors are in-stream.
 How we handle pagination generally (pageInfo)
 How Connections work, etc..
+
+Steal everything from: https://developer.github.com/v4/guides/forming-calls/#the-graphql-endpoint
 
 -->
 
