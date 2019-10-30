@@ -2,9 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b0a48e2-f1d3-46d3-87bd-1276896537e1" name="Default Changelist" comment="Get started structure proposal">
+      <change afterPath="$PROJECT_DIR$/content/guides/ethereum/concepts/trx_state_tracker.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/guides/ethereum/getting-started/other-languages.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/guides/ethereum/getting-started/other-languages.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/guides/_index.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/guides/_index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/guides/eosio/tutorials/push_notification.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/guides/eosio/tutorials/push_notification.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/guides/ethereum/tutorials/track_trx.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/guides/ethereum/tutorials/track_trx.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/guides/ethereum/tutorials/trx_lifecycle_widget.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/eth/graphql.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/eth/graphql.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphql.js" beforeDir="false" afterPath="$PROJECT_DIR$/graphql.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/book/layouts/partials/docs/toc.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/book/layouts/partials/docs/toc.html" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,6 +29,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1SqLb8FAh28Nu4OtfhiPEpWz29t" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -28,6 +40,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="GO_FMT" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
@@ -40,8 +53,31 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Get started structure proposal" />

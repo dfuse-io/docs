@@ -4,6 +4,11 @@
     "description": "",
     "fields": [
       {
+        "name": "blocks",
+        "type": "BlockEdge!",
+        "description": ""
+      },
+      {
         "name": "searchTransactions",
         "type": "TransactionEdge!",
         "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization.  The `undo` field is always `false` in backward searches.",
@@ -176,7 +181,7 @@
   },
   {
     "name": "TransactionEdge",
-    "description": "A single transaction trace response.\n\nWARNING: when doing forward streaming seareches, do NOT forget to include the `undo` field to determine if the message is actually a REVERSAL of the transaction.\n\nNOTE: always check the value of `node.status` to make sure it is successfully executed before assuming it is.",
+    "description": "A single transaction response.\n\nWARNING: when doing forward streaming searches, do NOT forget to include the `undo` field to determine if the message is actually a REVERSAL of the transaction.\n\nNOTE: always check the value of `node.status` to make sure it is successfully executed before assuming it is.",
     "fields": [
       {
         "name": "undo",
@@ -273,6 +278,48 @@
         "type": "Signature!",
         "description": "signature holds the V, R and S values representing the cryptographic signature for this transaction. It is based on these values that the `from` address is derived",
         "arguments": []
+      }
+    ]
+  },
+  {
+    "name": "TransactionTraceConnection",
+    "description": "The Connection type for a TransactionTrace",
+    "fields": [
+      {
+        "name": "edges",
+        "type": "[TransactionTraceEdge]!",
+        "description": "A list of edges to transaction traces"
+      },
+      {
+        "name": "pageInfo",
+        "type": "PageInfo!",
+        "description": "Information to aid pagination"
+      }
+    ]
+  },
+  {
+    "name": "TransactionTraceEdge",
+    "description": "A single transaction trace response.\n\nWARNING: when doing forward streaming searches, do NOT forget to include the `undo` field to determine if the message is actually a REVERSAL of the transaction.\n\nNOTE: always check the value of `node.status` to make sure it is successfully executed before assuming it is.",
+    "fields": [
+      {
+        "name": "undo",
+        "type": "Boolean!",
+        "description": ""
+      },
+      {
+        "name": "cursor",
+        "type": "String!",
+        "description": "Query cursor, allowing you to continue fetching results even after interruption of your connection, without missing a beat."
+      },
+      {
+        "name": "block",
+        "type": "Block!",
+        "description": ""
+      },
+      {
+        "name": "node",
+        "type": "TransactionTrace",
+        "description": "The transaction trace object."
       }
     ]
   },
@@ -876,6 +923,63 @@
         "type": "String!",
         "description": "",
         "arguments": []
+      }
+    ]
+  },
+  {
+    "name": "BlockEdge",
+    "description": "",
+    "fields": [
+      {
+        "name": "undo",
+        "type": "Boolean!",
+        "description": "Whether this response is an UNDO operation of a previously sent response.\n\nMake sure you catch this and always verify its value, as to not double/triple count blocks."
+      },
+      {
+        "name": "cursor",
+        "type": "String!",
+        "description": "Stream cursor, allowing you to continue fetching results even after interruption of your connection, without missing a beat."
+      },
+      {
+        "name": "node",
+        "type": "MinedBlock",
+        "description": "The block object."
+      }
+    ]
+  },
+  {
+    "name": "MinedBlock",
+    "description": "",
+    "fields": [
+      {
+        "name": "hash",
+        "type": "String!",
+        "description": ""
+      },
+      {
+        "name": "number",
+        "type": "Uint64!",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "Uint64!",
+        "description": ""
+      },
+      {
+        "name": "header",
+        "type": "BlockHeader!",
+        "description": ""
+      },
+      {
+        "name": "uncles",
+        "type": "[BlockHeader!]!",
+        "description": ""
+      },
+      {
+        "name": "transactionTraces",
+        "type": "TransactionTraceConnection!",
+        "description": ""
       }
     ]
   }

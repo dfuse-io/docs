@@ -16,7 +16,7 @@ function processSources(schemaSources, destination) {
     // TODO: Add support for Enum types
 
     return {
-      name: name.value,
+      name: name.value,``
       description: description ? description.value : '',
       fields: fields.map(field => {
         const { name, type, description, arguments } = field;
