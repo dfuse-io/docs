@@ -89,11 +89,9 @@ You can pass the `token` query string parameter to authenticate REST or WebSocke
 
 ## The `Origin` Header
 
-When the `Origin` header is present in a WebSocket connection, it must match the `origin` provided in your API header key.
+The `Origin` header is currently not mandatory on websocket connections, as it can be a burden to implement on server side.
 
-An `Origin` HTTP request header (ex. `Origin: https://yourcompany.com`) is **mandatory** when initiating a WebSocket connection. A `403` error will be returned otherwise.
-
-The `Origin` header will be enforced on all `web` keys. As the `Origin` header becomes enforced, it will need to match the origin you registered along with your API key identity.
+It will, however, become mandatory at a later date, but only for `web` keys. It will then need to match the origin that you registered along with your API key identity. In a web environment, this is usually added automatically from the client's browser without requiring extra work.
 
 ## GraphQL Authentication
 
