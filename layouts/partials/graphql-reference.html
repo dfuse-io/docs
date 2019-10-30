@@ -1,6 +1,53 @@
 {{ $chain := .Scratch.Get "chain" }}
 
-{{ range (index .Site.Data $chain).graphql }}
+
+<h1 id="{{ anchorize "Top-level actions" }}">Top-level actions</h1>
+{{ range (index .Site.Data $chain).graphql }}{{ if (or (eq .name "Query") (eq .name "Subscription")) }}
+  <h2 id="{{ anchorize .name }}">{{ .name }}</h2>
+  {{ .description | markdownify }}
+      {{ $parentName := .name }}
+      {{ range .fields }}
+      {{ $sectionName := (print $parentName "-" .name ) }}
+      <h3 id="{{anchorize $sectionName }}"><code>{{ .name }}</code></h3>
+          <ul>
+            <li>Type: {{ .type }}</li>
+              {{ if ne .description nil }}
+              {{ if ne .description "" }}
+            <li>Description: {{ markdownify .description }}</li>
+            {{ end }}
+            {{ end }}
+              {{ if ne .arguments nil }}
+              {{ if gt ( len .arguments ) 0 }}
+            <li>Arguments:</li>
+          </ul>
+
+          <table>
+            <thead>
+              <tr>
+                <td>Name</td>
+                <td>Type</td>
+                <td>Description</td>
+              </tr>
+            </thead>
+              {{ range .arguments }}
+            <tbody>
+              <tr>
+              <td>{{ .name }}</td>
+              <td>{{ .type }}</td>
+              <td>{{ markdownify .description }}</td>
+              </tr>
+              {{ end }}
+              {{ else }}</ul>
+              {{ end }}
+              {{ else }}</ul>
+              {{ end }}
+            </tbody>
+          </table>
+      {{ end }}
+  {{ end }}{{ end }}
+
+<h1 id="{{ anchorize "GraphQL Types" }}">GraphQL Types</h1>
+{{ range (index .Site.Data $chain).graphql }}{{ if (and (ne .name "Query") (ne .name "Subscription")) }}
   <h2 id="{{ anchorize .name }}">{{ .name }}</h2>
   <p>{{ .description | markdownify }}</p>
 
@@ -10,6 +57,7 @@
         <td>Field Name</td>
         <td>Type</td>
         <td>Description</td>
+        <td>Arguments</td>
       </tr>
     </thead>
     <tbody>
@@ -18,9 +66,11 @@
           <td><code>{{ .name }}</code></td>
           <td>{{ .type }}</td>
           <td>{{ markdownify .description }}</td>
+          <td>{{ range .arguments }}<strong>{{ .name }}</strong>: {{ .type }}{{ end }}</td>
         </tr>
       {{ end }}
     </tbody>
   </table>
 
+  {{ end }}
 {{ end}}

@@ -21,6 +21,7 @@ BookToC: false
 
 * [Endpoints]({{< ref "./ethereum/endpoints" >}})
 * [Search]({{< ref "./ethereum/search-terms" >}})
+* [GraphQL Schema]({{< ref "./ethereum/graphql" >}})
 
 
 {{< /sub-section-columns >}}
@@ -35,6 +36,7 @@ BookToC: false
 * [Endpoints]({{< ref "./eosio/endpoints" >}})
 * [Search]({{< ref "./eosio/search-terms" >}})
 * [Types]({{< ref "./eosio/types" >}})
+* [GraphQL Schema]({{< ref "./eosio/graphql" >}})
 
 <--->
 
