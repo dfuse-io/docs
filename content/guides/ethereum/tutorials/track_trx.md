@@ -10,6 +10,7 @@ We will use the {{< externalLink href="https://github.com/facebook/create-react-
 
 {{< tabs "create-react-app">}}
 {{< tab title="Shell" lang="shell" >}}
+# get create-react-app: https://github.com/facebook/create-react-app
 npx create-react-app track-trx
 cd track-trx
 npm start
@@ -32,6 +33,7 @@ then open ({{< externalLink href="http://localhost:3000/">}})
 
 {{< tabs "create-react-app-import">}}
 {{< tab title="Shell" lang="shell" >}}
+# https://www.npmjs.com/package/@dfuse/client
 npm install --save @dfuse/client
 {{< /tab >}}
 {{< /tabs >}}
@@ -58,7 +60,7 @@ function App() {
   return (
     <div className="App">
       <p>Enter a transaction hash</p>
-      <input type={"text"} value={transactionHash} onChange={(e) => setTransactionHash(e.value)} className={'trx-id'} /> <br/>
+      <input type={"text"} value={transactionHash} onChange={(e) => setTransactionHash(e.target.value)} className={'trx-id'} /> <br/>
       <button className={'submit'} onClick={() => fetchTransaction()}>Search Transaction</button>
     </div>
   );
@@ -111,7 +113,19 @@ SCREENSHOT HERE
 
 ## Setting up dfuse client
 
-Let initialize the dfuse client. Replace the code: 
+Let initialize the dfuse client. First lets import the necessary functions from `dfuse/client` a the top of `src/App.js`
+
+{{< tabs "starter-code-app-js-import">}}
+{{< tab title="src/App.js" lang="javascript" >}}
+import React, { useState } from 'react';
+import { createDfuseClient, waitFor } from "@dfuse/client"
+import './App.css';
+...
+
+{{< /tab >}}
+{{< /tabs >}}
+
+. Replace the code: 
 
 `const dfuseClient = null // initialize your dfuse client` 
 
@@ -120,16 +134,12 @@ with the following code and replacing `DFUSE_API_KEY` with the API key you got i
 
 {{< tabs "starter-code-app-js">}}
 {{< tab title="src/App.js" lang="javascript" >}}
-
 ...
-
 const dfuseClient = createDfuseClient({
-apiKey: "DFUSE_API_KEY",
-network: "mainnet.eth.dfuse.io"
+apiKey: 'DFUSE_API_KEY',
+        network: 'mainnet.eth.dfuse.io'
 });
-
 ...
-
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -159,118 +169,116 @@ with:
 {{< tabs "starter-code-graphql">}}
 {{< tab title="GraphQL Query" lang="javascript" >}}
 let streamTransactionQuery = `
-    subscription{
-      trackTransactionState(hash: "9fa1575e5c4a93c97493d57271ac49b881b9934155343705668b036d6d24a43f"){
-        previousState
-        currentState
-        transition{
-            __typename
-          ... on TrxTransitionInit {
-            transaction {
-              ...transactionFields
-            }
-            blockHeader {
-              ...bloackHeaderFields
-            }
-            traces {
-              ...transactionTraceFields
-            }
-            confirmations
-            shadowedById
+  subscription{
+    trackTransactionState(hash: "0x665095a3d745f7ef91f85b402bcb981d2b54fc8b3756544cb869227175fd2aa4"){
+      previousState
+      currentState
+      transition{
+        __typename
+
+      ... on TrxTransitionInit {
+          transaction {
+          ...transactionFields
           }
-          
-          ...on Received {
-            transaction {
-              ...transactionFields
-            }
+          blockHeader {
+          ...bloackHeaderFields
           }
-          
-          ...on Mined {
-            blockHeader {
-              ...bloackHeaderFields
-            }
-            traces {
-              ...transactionFields
-            }
-            confirmations
+          traces {
+          ...transactionTraceFields
           }
-          
-          ...on Forked {
-            transaction {
-              ...transactionFields
-            }
-          }
-          
-          ...on Confirmed {
-            confirmations
-          }
-          
-          ...on Replaced {
-            shadowedById
-          }
-          
+          confirmations
+          shadowedById
         }
+
+      ...on TrxTransitionReceived {
+          transaction {
+          ...transactionFields
+          }
+        }
+
+      ...on TrxTransitionMined {
+          blockHeader {
+          ...bloackHeaderFields
+          }
+          traces {
+          ...transactionFields
+          }
+          confirmations
+        }
+
+      ...on TrxTransitionForked {
+          transaction {
+          ...transactionFields
+          }
+        }
+
+      ...on TrxTransitionConfirmed {
+          confirmations
+        }
+
+      ...on TrxTransitionReplaced {
+          shadowedById
+        }
+
       }
     }
-    
-    
-    fragment transactionFields on Transaction {
-      hash
-      from
-      to
-      nonce
-      gasPrice
-      gasLimit
-      value
-      input
-      signature {
-        v
-        s
-        r
-      }
+  }
+
+  fragment transactionFields on Transaction {
+    hash
+    from
+    to
+    nonce
+    gasPrice
+    gasLimit
+    value
+    inputData
+    signature {
+      v
+      s
+      r
     }
-    
-    fragment transactionTraceFields on TransactionTrace {
-      hash
-      from
-      to
-      nonce
-      gasPrice
-      gasLimit
-      value
-      input
-      signature {
-        v
-        s
-        r
-      }
-      cumulativeGasUsed
-        publicKey
-        index
-        create
-      outcome
+  }
+
+  fragment transactionTraceFields on TransactionTrace {
+    hash
+    from
+    to
+    nonce
+    gasPrice
+    gasLimit
+    value
+    inputData
+    signature {
+      v
+      s
+      r
     }
-    
-    
-    fragment bloackHeaderFields on BlockHeader {
-      parentHash
-        unclesHash
-        coinbase
-        stateRoot
-        transactionsRoot
-        receiptRoot
-        logsBloom
-        difficulty
-        number
-        gasLimit
-        gasUsed
-        timestamp
-        extraData
-        mixHash
-        nonce
-        hash
-    }
-`
+    cumulativeGasUsed
+    publicKey
+    index
+    create
+    outcome
+  }
+
+  fragment bloackHeaderFields on BlockHeader {
+    parentHash
+    unclesHash
+    coinbase
+    stateRoot
+    transactionsRoot
+    receiptRoot
+    logsBloom
+    difficulty
+    number
+    gasLimit
+    gasUsed
+    timestamp
+    extraData
+    mixHash
+    nonce
+    hash
+  }`;
 {{< /tab >}}
 {{< /tabs >}}
 
