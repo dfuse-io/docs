@@ -9,14 +9,14 @@ date:
 {{< sub-section-title title="Push notifications from the chain" awesome-icon="far fa-book-spells" icon-link="/img/icon-crypto-currency-ethereum-01.svg" >}}
 ## Token Management
 
-First, head on to our self-service API management portal ({{< externalLink href="https://app.dfuse.io">}}), after signing up you will be able to create long-term API keys.
+First, head on to our self-service API management portal ({{<externalLink href="https://app.dfuse.io">}}), after signing up you will be able to create long-term API keys.
 
 Once you have this API key, call the  endpoint {{< externalLink href="https://auth.dfuse.io/v1/auth/issue">}} to get a fresh Authentication Token (JWT). 
 
 {{< tabs "authentication" >}}
 {{< tab lang="go" >}}
 payload := `{"api_key":"YOUR_API_KEY_HERE"}`
-
+w
 httpResp, err := http.Post("https://auth.dfuse.io/v1/auth/issue", "application/json", bytes.NewBuffer([]byte(payload)))
 if err != nil {
     return nil, fmt.Errorf("request creation: %s", err)
