@@ -2,7 +2,7 @@
 weight: 1
 ---
 
-# Javascript Quickstart
+# JavaScript Quickstart
 
 In this guide we will show you how to create a basic setup so that you can benefit from the dfuse GraphQL API with Javascript.
 

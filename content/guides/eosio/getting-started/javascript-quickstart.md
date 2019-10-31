@@ -1,11 +1,11 @@
 ---
 weight: 2
-title: "Javascript Quickstart"
+title: "JavaScript Quickstart"
 ---
 
-# Javascript Quickstart
+# JavaScript Quickstart
 
-In this guide we will show you how to create a basic setup so that you can benefit from the dfuse GraphQL API with Javascript.
+In this guide we will show you how to create a basic setup so that you can benefit from the dfuse GraphQL API with JavaScript.
 
 ## 1. Getting an API Key
 

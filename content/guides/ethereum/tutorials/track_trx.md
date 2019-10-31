@@ -1,9 +1,9 @@
 ---
 weight: 3
-title: Track transaction in real-time (React/TypeScript) 
+title: Track transaction in real-time (React/TypeScript)
 ---
 
-# Track transaction in Realtime (React/Javascript)
+# Track transaction in Realtime (React/JavaScript)
 
 ## Create React App
 We will use the {{< externalLink href="https://github.com/facebook/create-react-app">}} to sets up your development environment so that you can use the latest JavaScript features. You’ll need to have Node >= 8.10 and npm >= 5.6 on your machine. To create a project, run:
@@ -248,11 +248,11 @@ import './App.css';
 {{< /tab >}}
 {{< /tabs >}}
 
-. Replace the code: 
+. Replace the code:
 
-`const dfuseClient = null // initialize your dfuse client` 
+`const dfuseClient = null // initialize your dfuse client`
 
-with the following code and replacing `DFUSE_API_KEY` with the API key you got in the prior step 
+with the following code and replacing `DFUSE_API_KEY` with the API key you got in the prior step
 
 
 {{< tabs "starter-code-app-js">}}
@@ -284,10 +284,10 @@ Do not worry this query may see intimidating but we it breakdown in detail in  {
 
 
 Lets replace:
- 
+
  ```let streamTransactionQuery = `ENTER GRAPHQL QUERY`;```
- 
-with: 
+
+with:
 
 {{< tabs "starter-code-graphql">}}
 {{< tab title="GraphQL Query" lang="javascript" >}}

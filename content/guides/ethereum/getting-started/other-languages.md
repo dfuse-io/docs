@@ -195,7 +195,7 @@ echo '{"query": "subscription { ' \
           'limit: 2,'\
           'sort: DESC)' \
        '{ node{ hash } block{ number } } }' \
-     '"}' | 
+     '"}' |
    grpcurl -H "Authorization: Bearer $DFUSE_TOKEN" \
            -d @ \
            mainnet.eth.dfuse.io:443  \
@@ -246,7 +246,7 @@ python main.py {your_api_key} eth
 {{< /tabs >}}
 
 # 6. What to do next ?
-* Look at our graphql API reference FIXME (where is that?)
+* Look at our GraphQL API reference FIXME (where is that?)
 * Look at one of our tutorials FIXME (link to all tutorials?)
 * [Authentication]({{< relref "/guides/core-concepts/authentication" >}})
 * [Cursors]({{< relref "/guides/core-concepts/cursors" >}})
