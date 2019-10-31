@@ -4,9 +4,25 @@ weight: 40
 
 # Search Features/Language
 
+**dfuse Search** uses a simplified query language to reach unparalleled and predictable performances.
+
+It is similar to GitHub's query language for issues and pull requests, and similiar also to Kibana's language over ElasticSearch's:
+
+* it has a default `AND` operator between each query term.
+* it adds a simple, one-level `OR` layer enclosed in parentheses.
+* it supports negation with the `-` prefix, in front of the terms or `OR` groups (within `()` parentheses)
+* it supports _boolean_ values: `true` and `false` have special meaning when not using quotes: `input:true` queries for a boolean value, while `input:"true"` searches for a string value.
+
+You can enclose parameters using double-quotes after the `:`, or use a
+single keyword. For example: `auth:eoscanadacom` or `auth:"eoscanadacom"`.
+
 **dfuse Search** on all chains are aware of the chain's particular
 consensus rules (like longest chain), and allow you to navigate any
 forks, through the use of [cursors]({{< ref "cursors" >}})
+
+
+
+The field `undo`
 
 ## Implicit `AND`
 
