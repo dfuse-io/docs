@@ -99,21 +99,25 @@ global.WebSocket = require('ws')
 {{< /tab >}}
 {{< /tabs >}}
 
+{{< note >}}
+You prefer to not pollute the global scope? Check {{< externalLink title="Node.js Configuration Example" href="https://github.com/dfuse-io/client-js/blob/master/examples/advanced/nodejs-fetch-and-websocket-options.ts#L3">}} to see how you can pass the options directly when instantiating the client instead of polluting the global scope.
+{{< /note >}}
+
 ## 3. Initializing the dfuse Client using your API key
 
 With the initial setup completed, you can start coding. The first thing we will do is initialize
 the dfuse client using the API key you created in the first step and the network you want to
 connect to.
 
-Replace `web_abcdef12345678900000000000` by the API key you retrieved at step 1. Valid
-networks can be found at [Ethereum API Endpoint]({{< ref "reference/ethereum/endpoints" >}})
+Valid networks can be found at [Ethereum API Endpoints]({{< ref "reference/ethereum/endpoints" >}})
 
 {{< tabs "getting-started-js-3" >}}
 {{< tab lang="javascript" title="Node.js" opts="linenos=table">}}
 const { createDfuseClient } = require("@dfuse/client")
 
 const client = createDfuseClient({
-  apiKey: 'web_abcdef12345678900000000000',
+  // Replace `server_abcdef12345678900000000000` by the API key you retrieved at step 1. Valid
+  apiKey: 'server_abcdef12345678900000000000',
   network: 'mainnet.eth.dfuse.io'
 })
 {{< /tab >}}
@@ -122,6 +126,7 @@ const client = createDfuseClient({
 import { createDfuseClient } from "@dfuse/client"
 
 const client = createDfuseClient({
+  // Replace `web_abcdef12345678900000000000` by the API key you retrieved at step 1. Valid
   apiKey: 'web_abcdef12345678900000000000',
   network: 'mainnet.eth.dfuse.io'
 })
@@ -132,6 +137,7 @@ const client = createDfuseClient({
   <style> li { font-family: monospace; margin: 0.15; }</style>
   <script src="https://unpkg.com/@dfuse/client"></script>
   <script>
+    // Replace `web_abcdef12345678900000000000` by the API key you retrieved at step 1. Valid
     const client = createDfuseClient({
       apiKey: 'web_abcdef12345678900000000000',
       network: 'mainnet.eth.dfuse.io'
@@ -217,7 +223,7 @@ The function passed as the 2nd parameter to `client.graphql()` will be called ev
     if (message.type === "data") {
       const { undo, cursor, node: { hash, value, matchingCalls }} = message.data.searchTransactions
       matchingCalls.forEach(({ caller, address, value }) => {
-        // Ensure you correctly with the `undo` field
+        // Ensure you correctly deal with the `undo` field
         console.log(`Transfer ${caller} -> ${address} [${value} Ether]${undo ? " REVERTED" : ""}`)
       })
 
@@ -246,7 +252,7 @@ The function passed as the 2nd parameter to `client.graphql()` will be called ev
       const { undo, cursor, node: { hash, value, matchingCalls }} = message.data.searchTransactions
       matchingCalls.forEach(({ caller, address, value }) => {
         const paragraphNode = document.createElement("li")
-        // Ensure you correctly with the `undo` field
+        // Ensure you correctly deal with the `undo` field
         paragraphNode.innerText = `Transfer ${caller} -> ${address} [${value} Ether]${undo ? " REVERTED" : ""}`
 
         document.body.prepend(paragraphNode)
@@ -284,7 +290,7 @@ The function passed as the 2nd parameter to `client.graphql()` will be called ev
       const { undo, cursor, node: { hash, value, matchingCalls }} = message.data.searchTransactions
       matchingCalls.forEach(({ caller, address, value }) => {
         const paragraphNode = document.createElement("li")
-        // Ensure you correctly with the `undo` field
+        // Ensure you correctly deal with the `undo` field
         paragraphNode.innerText = `Transfer ${caller} -> ${address} [${value} Ether]${undo ? " REVERTED" : ""}`
 
         document.body.prepend(paragraphNode)
@@ -324,7 +330,7 @@ git clone https://github.com/dfuse-io/quickstart-tutorials
 cd quickstart-tutorials/javascript/node.js
 npm install
 
-export DFUSE_API_KEY=web_abcdef12345678900000000000
+export DFUSE_API_KEY=server_abcdef12345678900000000000
 node index.ethereum.js
 {{< /tab >}}
 
