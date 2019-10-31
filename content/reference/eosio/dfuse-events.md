@@ -1,5 +1,6 @@
 ---
 weight: 70
+title: dfuse Events
 ---
 
 # dfuse Events
