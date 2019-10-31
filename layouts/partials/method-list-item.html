@@ -1,0 +1,27 @@
+{{ $required := .Scratch.Get "mli-required" }}
+{{ $type := .Scratch.Get "mli-type" }}
+{{ $name := .Scratch.Get "mli-name" }}
+{{ $inner := .Scratch.Get "mli-inner" }}
+
+<div class="method-list-item">
+  <div class="method-list-item-label">
+    <div class="method-list-item-name">{{ $name }}</div>
+
+    {{ if $required }}
+      {{ if eq $required "true" }}
+        <div class="method-list-item-required">required</div>
+      {{ else }}
+        <div class="method-list-item-optional">Optional</div>
+      {{ end }}
+    {{ end }}
+  </div>
+
+  <div class="method-list-item-description">
+    {{ if $type }}
+      <span class="method-list-item-type">
+        {{- $type | markdownify -}}
+      </span>.&nbsp;&nbsp;&nbsp;&nbsp;
+    {{ end }}
+    {{ $inner | markdownify }}
+  </div>
+</div>
