@@ -1,12 +1,29 @@
 [
   {
     "name": "Subscription",
-    "description": "",
+    "description": "Subscription holds the top-level calls that return streams of data. Call them with the `subscription` keyword from your top-level GraphQL query",
     "fields": [
       {
         "name": "blocks",
         "type": "BlockEdge!",
-        "description": ""
+        "description": "",
+        "arguments": [
+          {
+            "name": "lowBlockNum",
+            "type": "Int64",
+            "description": "Lower block num boundary, inclusive. A negative value means a block relative to the head block. Omitting this value means unbounded (since the genesis block)."
+          },
+          {
+            "name": "cursor",
+            "type": "String",
+            "description": "Opaque data piece that you can pass back to continue your stream if it ever disconnected. Retrieve it from the `cursor` field in the responses of this call."
+          },
+          {
+            "name": "limit",
+            "type": "Int64",
+            "description": "Limit the number of results streamed back. 0 means unlimited"
+          }
+        ]
       },
       {
         "name": "searchTransactions",
@@ -66,7 +83,7 @@
   },
   {
     "name": "Query",
-    "description": "",
+    "description": "Query holds the top-level calls that return single responses of data. Call them with the `query` keyword from your top-level GraphQL query",
     "fields": [
       {
         "name": "block",
@@ -94,7 +111,7 @@
       },
       {
         "name": "transaction",
-        "type": "Transaction",
+        "type": "TransactionTrace",
         "description": "",
         "arguments": [
           {
@@ -288,12 +305,14 @@
       {
         "name": "edges",
         "type": "[TransactionTraceEdge]!",
-        "description": "A list of edges to transaction traces"
+        "description": "A list of edges to transaction traces",
+        "arguments": []
       },
       {
         "name": "pageInfo",
         "type": "PageInfo!",
-        "description": "Information to aid pagination"
+        "description": "Information to aid pagination",
+        "arguments": []
       }
     ]
   },
@@ -304,22 +323,26 @@
       {
         "name": "undo",
         "type": "Boolean!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "cursor",
         "type": "String!",
-        "description": "Query cursor, allowing you to continue fetching results even after interruption of your connection, without missing a beat."
+        "description": "Query cursor, allowing you to continue fetching results even after interruption of your connection, without missing a beat.",
+        "arguments": []
       },
       {
         "name": "block",
         "type": "Block!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "node",
         "type": "TransactionTrace",
-        "description": "The transaction trace object."
+        "description": "The transaction trace object.",
+        "arguments": []
       }
     ]
   },
@@ -933,17 +956,20 @@
       {
         "name": "undo",
         "type": "Boolean!",
-        "description": "Whether this response is an UNDO operation of a previously sent response.\n\nMake sure you catch this and always verify its value, as to not double/triple count blocks."
+        "description": "Whether this response is an UNDO operation of a previously sent response.\n\nMake sure you catch this and always verify its value, as to not double/triple count blocks.",
+        "arguments": []
       },
       {
         "name": "cursor",
         "type": "String!",
-        "description": "Stream cursor, allowing you to continue fetching results even after interruption of your connection, without missing a beat."
+        "description": "Stream cursor, allowing you to continue fetching results even after interruption of your connection, without missing a beat.",
+        "arguments": []
       },
       {
         "name": "node",
         "type": "MinedBlock",
-        "description": "The block object."
+        "description": "The block object.",
+        "arguments": []
       }
     ]
   },
@@ -954,32 +980,59 @@
       {
         "name": "hash",
         "type": "String!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "number",
         "type": "Uint64!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "size",
         "type": "Uint64!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "header",
         "type": "BlockHeader!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "uncles",
         "type": "[BlockHeader!]!",
-        "description": ""
+        "description": "",
+        "arguments": []
       },
       {
         "name": "transactionTraces",
         "type": "TransactionTraceConnection!",
-        "description": ""
+        "description": "",
+        "arguments": [
+          {
+            "name": "first",
+            "type": "Uint32",
+            "description": ""
+          },
+          {
+            "name": "last",
+            "type": "Uint32",
+            "description": ""
+          },
+          {
+            "name": "before",
+            "type": "String",
+            "description": ""
+          },
+          {
+            "name": "after",
+            "type": "String",
+            "description": ""
+          }
+        ]
       }
     ]
   }

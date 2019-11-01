@@ -1,76 +1,54 @@
 {{ $chain := .Scratch.Get "chain" }}
 
 
-<h1 id="{{ anchorize "Top-level actions" }}">Top-level actions</h1>
-{{ range (index .Site.Data $chain).graphql }}{{ if (or (eq .name "Query") (eq .name "Subscription")) }}
-  <h2 id="{{ anchorize .name }}">{{ .name }}</h2>
-  {{ .description | markdownify }}
-      {{ $parentName := .name }}
-      {{ range .fields }}
-      {{ $sectionName := (print $parentName "-" .name ) }}
-      <h3 id="{{anchorize $sectionName }}"><code>{{ .name }}</code></h3>
-          <ul>
-            <li>Type: {{ .type }}</li>
-              {{ if ne .description nil }}
-              {{ if ne .description "" }}
-            <li>Description: {{ markdownify .description }}</li>
-            {{ end }}
-            {{ end }}
-              {{ if ne .arguments nil }}
-              {{ if gt ( len .arguments ) 0 }}
-            <li>Arguments:</li>
-          </ul>
+<!-- TODO: list ENUMs, and make them linked when specified in parameters.
+Rework the RETURNS section.. has no description, should link instead, and doesn't fit the model for a list of elements like it is right now.
 
-          <table>
-            <thead>
-              <tr>
-                <td>Name</td>
-                <td>Type</td>
-                <td>Description</td>
-              </tr>
-            </thead>
-              {{ range .arguments }}
-            <tbody>
-              <tr>
-              <td>{{ .name }}</td>
-              <td>{{ .type }}</td>
-              <td>{{ markdownify .description }}</td>
-              </tr>
-              {{ end }}
-              {{ else }}</ul>
-              {{ end }}
-              {{ else }}</ul>
-              {{ end }}
-            </tbody>
-          </table>
-      {{ end }}
-  {{ end }}{{ end }}
+* Do we list all of them, or only the Query and Subscription levels? Is ordering sufficient?
+      -->
 
-<h1 id="{{ anchorize "GraphQL Types" }}">GraphQL Types</h1>
-{{ range (index .Site.Data $chain).graphql }}{{ if (and (ne .name "Query") (ne .name "Subscription")) }}
-  <h2 id="{{ anchorize .name }}">{{ .name }}</h2>
-  <p>{{ .description | markdownify }}</p>
+{{ range (index .Site.Data $chain).graphql }}
+  {{ $type := . }}
 
-  <table style="margin-bottom: 80px;">
-    <thead>
-      <tr>
-        <td>Field Name</td>
-        <td>Type</td>
-        <td>Description</td>
-        <td>Arguments</td>
-      </tr>
-    </thead>
-    <tbody>
-      {{ range .fields }}
-        <tr>
-          <td><code>{{ .name }}</code></td>
-          <td>{{ .type }}</td>
-          <td>{{ markdownify .description }}</td>
-          <td>{{ range .arguments }}<strong>{{ .name }}</strong>: {{ .type }}{{ end }}</td>
-        </tr>
-      {{ end }}
-    </tbody>
-  </table>
+  <h2 id="{{ anchorize $type.name }}">{{ $type.name }}</h2>
 
+  {{ with $type.description }}
+  <div class="graphql-type description">{{ . | markdownify }}</div>
   {{ end }}
-{{ end}}
+
+  {{ range .fields }}
+    {{ $field := . }}
+
+    <h3 class="graphql-type hidden">{{ $field.name }}</h3>
+    <div class="graphql-type header" id="{{anchorize (print $type.name "-" $field.name ) }}"><span class="field">{{ $field.name }}</span>
+      {{- with .arguments }}(
+        {{- range $idx, $arg := .}}{{ if ne $idx 0 }}, {{ end }}<span class="name">{{ $arg.name }} </span><span class="type">{{ $arg.type }}</span>{{end -}}
+    ){{ end -}}</div>
+
+    <div class="graphql-type description">{{ $field.description | markdownify }}</div>
+
+    {{ with .arguments }}
+      <div class="graphql-type params-header">Parameters</div>
+
+      {{ range . }}
+        {{ $arg := . }}
+        {{ $.Scratch.Set "mli-name" $arg.name }}
+        {{ $.Scratch.Set "mli-required" (strings.HasSuffix $arg.type "!") }}
+        {{ $.Scratch.Set "mli-type" $arg.type }}
+        {{ $.Scratch.Set "mli-inner" $arg.description }}
+
+        {{ partial "method-list-item" $ }}
+      {{ end }}
+    {{ end }}
+
+    <div class="graphql-type params-header">Returns</div>
+
+    {{ $arg := . }}
+    {{ $.Scratch.Set "mli-name" $arg.name }}
+    {{ $.Scratch.Set "mli-required" (strings.HasSuffix $arg.type "!") }}
+    {{ $.Scratch.Set "mli-type" $arg.type }}
+    {{ $.Scratch.Set "mli-inner" "" }}
+    {{ partial "method-list-item" $ }}
+  {{ end }}
+
+{{ end }}

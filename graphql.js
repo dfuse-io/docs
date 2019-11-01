@@ -16,7 +16,7 @@ function processSources(schemaSources, destination) {
     // TODO: Add support for Enum types
 
     return {
-      name: name.value,``
+      name: name.value,
       description: description ? description.value : '',
       fields: fields.map(field => {
         const { name, type, description, arguments } = field;
@@ -48,15 +48,18 @@ function processSources(schemaSources, destination) {
 // Recursively parses the field name
 function getFieldType(field) {
   const { type, kind, name } = field;
+  console.log("BVOOOOOOOOOOOOOO", field);
 
-  if (kind === 'NonNullType') {
+  switch (kind) {
+  case 'NonNullType':
     return `${getFieldType(type)}!`
-  }
-  if (kind === 'ListType') {
+  case 'ListType':
     return `[${getFieldType(type)}]`
+  case 'NamedType':
+    return name.value
+  default:
+    throw("Wutz that kind?", kind)
   }
-
-  return name.value
 }
 
 

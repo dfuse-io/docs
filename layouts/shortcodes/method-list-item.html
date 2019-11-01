@@ -1,5 +1,5 @@
 {{ .Scratch.Set "mli-name" (.Get "name") }}
-{{ .Scratch.Set "mli-required" (.Get "required") }}
+{{ .Scratch.Set "mli-required" (eq (.Get "required") "true") }}
 {{ .Scratch.Set "mli-type" (.Get "type") }}
 {{ .Scratch.Set "mli-inner" $.Inner }}
 
