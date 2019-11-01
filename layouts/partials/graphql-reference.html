@@ -37,7 +37,7 @@ Rework the RETURNS section.. has no description, should link instead, and doesn'
         {{ $.Scratch.Set "mli-type" $arg.type }}
         {{ $.Scratch.Set "mli-inner" $arg.description }}
 
-        {{ partial "method-list-item" $ }}
+        <div class="graphql-type">{{ partial "method-list-item" $ }}</div>
       {{ end }}
     {{ end }}
 
@@ -48,7 +48,7 @@ Rework the RETURNS section.. has no description, should link instead, and doesn'
     {{ $.Scratch.Set "mli-required" (strings.HasSuffix $arg.type "!") }}
     {{ $.Scratch.Set "mli-type" $arg.type }}
     {{ $.Scratch.Set "mli-inner" "" }}
-    {{ partial "method-list-item" $ }}
+    <div class="graphql-type">{{ partial "method-list-item" $ }}</div>
   {{ end }}
 
 {{ end }}
