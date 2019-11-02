@@ -1,0 +1,12 @@
+{{ $type := $.Scratch.Get "graphql-type" }}
+
+<h2 id="{{ anchorize $type.name }}">{{ $type.name }}</h2>
+
+{{ with $type.description }}
+  <div class="graphql-type description">{{ . | markdownify }}</div>
+{{ end }}
+
+{{ range $type.fields }}
+  {{ $.Scratch.Set "graphql-field" . }}
+  {{ partial "graphql-field" $  }}
+{{ end }}

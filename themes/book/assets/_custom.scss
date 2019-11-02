@@ -994,8 +994,9 @@ aside.book-menu nav {
 .graphql-type {
   .type, .method-list-item-type {
     font-family: monospace;
-    font-size: 80%;
+    font-size: 85%;
     color: #005cc5;
+    font-weight: 700;
   }
   .name {
     color: #e36209;
@@ -1008,7 +1009,8 @@ aside.book-menu nav {
   }
   &.description {
     padding-left: 20px;
-    margin-bottom: 10px;
+    padding-bottom: 10px;
+    padding-top: 3px;
   }
   &.header {
     margin-top: 60px;

@@ -5,50 +5,11 @@
 Rework the RETURNS section.. has no description, should link instead, and doesn't fit the model for a list of elements like it is right now.
 
 * Do we list all of them, or only the Query and Subscription levels? Is ordering sufficient?
+
+* The types that are lists, split the chunks
       -->
 
 {{ range (index .Site.Data $chain).graphql }}
-  {{ $type := . }}
-
-  <h2 id="{{ anchorize $type.name }}">{{ $type.name }}</h2>
-
-  {{ with $type.description }}
-  <div class="graphql-type description">{{ . | markdownify }}</div>
-  {{ end }}
-
-  {{ range .fields }}
-    {{ $field := . }}
-
-    <h3 class="graphql-type hidden">{{ $field.name }}</h3>
-    <div class="graphql-type header" id="{{anchorize (print $type.name "-" $field.name ) }}"><span class="field">{{ $field.name }}</span>
-      {{- with .arguments }}(
-        {{- range $idx, $arg := .}}{{ if ne $idx 0 }}, {{ end }}<span class="name">{{ $arg.name }} </span><span class="type">{{ $arg.type }}</span>{{end -}}
-    ){{ end -}}</div>
-
-    <div class="graphql-type description">{{ $field.description | markdownify }}</div>
-
-    {{ with .arguments }}
-      <div class="graphql-type params-header">Parameters</div>
-
-      {{ range . }}
-        {{ $arg := . }}
-        {{ $.Scratch.Set "mli-name" $arg.name }}
-        {{ $.Scratch.Set "mli-required" (strings.HasSuffix $arg.type "!") }}
-        {{ $.Scratch.Set "mli-type" $arg.type }}
-        {{ $.Scratch.Set "mli-inner" $arg.description }}
-
-        <div class="graphql-type">{{ partial "method-list-item" $ }}</div>
-      {{ end }}
-    {{ end }}
-
-    <div class="graphql-type params-header">Returns</div>
-
-    {{ $arg := . }}
-    {{ $.Scratch.Set "mli-name" $arg.name }}
-    {{ $.Scratch.Set "mli-required" (strings.HasSuffix $arg.type "!") }}
-    {{ $.Scratch.Set "mli-type" $arg.type }}
-    {{ $.Scratch.Set "mli-inner" "" }}
-    <div class="graphql-type">{{ partial "method-list-item" $ }}</div>
-  {{ end }}
-
+  {{ $.Scratch.Set "graphql-type" . }}
+  {{ partial "graphql-type" $ }}
 {{ end }}
