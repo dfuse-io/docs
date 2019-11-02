@@ -6,8 +6,7 @@ Rework the RETURNS section.. has no description, should link instead, and doesn'
 
 * Do we list all of them, or only the Query and Subscription levels? Is ordering sufficient?
 
-* The types that are lists, split the chunks
-      -->
+ -->
 
 {{ range (index .Site.Data $chain).graphql }}
   {{ $.Scratch.Set "graphql-type" . }}

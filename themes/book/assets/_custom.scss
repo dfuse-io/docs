@@ -1007,19 +1007,28 @@ aside.book-menu nav {
     color: #6f42c1;
     font-family: monospace;
   }
+  .gql-default, .method-list-item-default {
+    color: #43A047;
+    font-family: monospace;
+    font-weight: 700;
+  }
   &.description {
     padding-left: 20px;
     padding-bottom: 10px;
     padding-top: 3px;
   }
   &.header {
-    margin-top: 60px;
+    margin-top: 30px;
     margin-bottom: 15px;
   }
   &.hidden {
     display: none;
   }
 
+  &.params-list {
+    padding-left: 30px;
+    padding-bottom: 15px;
+  }
   &.params-header {
     border-bottom: 1px solid #d1d3e0;
     margin-top: 30px;

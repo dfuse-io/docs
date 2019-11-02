@@ -5,76 +5,113 @@
     "fields": [
       {
         "name": "blocks",
-        "type": "BlockEdge!",
+        "type": {
+          "reqType": true,
+          "name": "BlockEdge"
+        },
         "description": "",
         "arguments": [
           {
             "name": "lowBlockNum",
-            "type": "Int64",
+            "type": {
+              "name": "Int64"
+            },
             "description": "Lower block num boundary, inclusive. A negative value means a block relative to the head block. Omitting this value means unbounded (since the genesis block)."
           },
           {
             "name": "cursor",
-            "type": "String",
+            "type": {
+              "name": "String"
+            },
             "description": "Opaque data piece that you can pass back to continue your stream if it ever disconnected. Retrieve it from the `cursor` field in the responses of this call."
           },
           {
             "name": "limit",
-            "type": "Int64",
+            "type": {
+              "name": "Int64",
+              "default": "0"
+            },
             "description": "Limit the number of results streamed back. 0 means unlimited"
           }
         ]
       },
       {
         "name": "searchTransactions",
-        "type": "TransactionEdge!",
+        "type": {
+          "reqType": true,
+          "name": "TransactionEdge"
+        },
         "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization.  The `undo` field is always `false` in backward searches.",
         "arguments": [
           {
             "name": "query",
-            "type": "String!",
+            "type": {
+              "reqType": true,
+              "name": "String"
+            },
             "description": "dfuse Search Query Language string"
           },
           {
             "name": "lowBlockNum",
-            "type": "Int64",
+            "type": {
+              "name": "Int64"
+            },
             "description": "Lower block num boundary, inclusive. A negative value means a block relative to the head block. Omitting this value means unbounded (since the genesis block)."
           },
           {
             "name": "highBlockNum",
-            "type": "Int64",
+            "type": {
+              "name": "Int64"
+            },
             "description": "Higher block num boundary, inclusive. A value of 0 means live-searching on any incoming blocks (the default behavior). A negative value means a block relative to the head block, ex: -1 means the head block, -2 means the second to last block, etc.."
           },
           {
             "name": "cursor",
-            "type": "String",
+            "type": {
+              "name": "String"
+            },
             "description": "Opaque data piece that you can pass back to continue your search if it ever disconnected. Retrieve it from the `cursor` field in the responses of this call. It is safe to use the same cursor in BOTH directions (forward and backward)."
           },
           {
             "name": "limit",
-            "type": "Int64",
+            "type": {
+              "name": "Int64",
+              "default": "0"
+            },
             "description": "Limit the number of results streamed back. 0 means unlimited"
           },
           {
             "name": "sort",
-            "type": "SORT",
+            "type": {
+              "name": "SORT",
+              "default": "ASC"
+            },
             "description": "From which end to start. ASC means from the past, going into the future. DESC means recent to older transactions."
           },
           {
             "name": "liveMarkerInterval",
-            "type": "Uint32",
+            "type": {
+              "name": "Uint32",
+              "default": "0"
+            },
             "description": "If non-zero, indicates you want to mark the stream when reaching live blocks. A marker is a response with a `trace` equal to `null`, which will be sent at each `liveMarkerInterval` blocks. The first `trace` to be equal to `null` in a stream indicates you are now processing live blocks.\n\nThe value for `liveMarkerInterval` is a number of blocks."
           }
         ]
       },
       {
         "name": "trackTransactionState",
-        "type": "TransactionState!",
+        "type": {
+          "reqType": true,
+          "name": "TransactionState"
+        },
         "description": "",
         "arguments": [
           {
             "name": "hash",
-            "type": "String!",
+            "type": {
+              "reqType": true,
+              "name": "String"
+            },
             "description": "hash of the transaction you want to track the state"
           }
         ]
@@ -87,73 +124,106 @@
     "fields": [
       {
         "name": "block",
-        "type": "Block",
+        "type": {
+          "name": "Block"
+        },
         "description": "",
         "arguments": [
           {
             "name": "hash",
-            "type": "String!",
+            "type": {
+              "reqType": true,
+              "name": "String"
+            },
             "description": ""
           }
         ]
       },
       {
         "name": "blockByNumber",
-        "type": "Block",
+        "type": {
+          "name": "Block"
+        },
         "description": "",
         "arguments": [
           {
             "name": "number",
-            "type": "Uint64!",
+            "type": {
+              "reqType": true,
+              "name": "Uint64"
+            },
             "description": ""
           }
         ]
       },
       {
         "name": "transaction",
-        "type": "TransactionTrace",
+        "type": {
+          "name": "TransactionTrace"
+        },
         "description": "",
         "arguments": [
           {
             "name": "hash",
-            "type": "String!",
+            "type": {
+              "reqType": true,
+              "name": "String"
+            },
             "description": ""
           }
         ]
       },
       {
         "name": "searchTransactions",
-        "type": "TransactionConnection!",
+        "type": {
+          "reqType": true,
+          "name": "TransactionConnection"
+        },
         "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\n\nWhen the returned `cursor` is empty, it means you have reached the end of the specified block\nrange.\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization.\n\nSee also the streaming version under `Subscription`",
         "arguments": [
           {
             "name": "query",
-            "type": "String!",
+            "type": {
+              "reqType": true,
+              "name": "String"
+            },
             "description": ""
           },
           {
             "name": "lowBlockNum",
-            "type": "Int64",
+            "type": {
+              "name": "Int64"
+            },
             "description": ""
           },
           {
             "name": "highBlockNum",
-            "type": "Int64",
+            "type": {
+              "name": "Int64"
+            },
             "description": ""
           },
           {
             "name": "cursor",
-            "type": "String",
+            "type": {
+              "name": "String"
+            },
             "description": ""
           },
           {
             "name": "limit",
-            "type": "Int64",
+            "type": {
+              "name": "Int64",
+              "default": "100"
+            },
             "description": ""
           },
           {
             "name": "sort",
-            "type": "SORT",
+            "type": {
+              "name": "SORT",
+              "default": "ASC"
+            },
             "description": ""
           }
         ]
@@ -166,13 +236,19 @@
     "fields": [
       {
         "name": "startCursor",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "endCursor",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": []
       }
@@ -184,13 +260,20 @@
     "fields": [
       {
         "name": "edges",
-        "type": "[TransactionEdge]!",
+        "type": {
+          "isList": true,
+          "reqList": true,
+          "name": "TransactionEdge"
+        },
         "description": "A list of edges to transactions",
         "arguments": []
       },
       {
         "name": "pageInfo",
-        "type": "PageInfo!",
+        "type": {
+          "reqType": true,
+          "name": "PageInfo"
+        },
         "description": "Information to aid pagination",
         "arguments": []
       }
@@ -202,25 +285,36 @@
     "fields": [
       {
         "name": "undo",
-        "type": "Boolean!",
+        "type": {
+          "reqType": true,
+          "name": "Boolean"
+        },
         "description": "Whether this response is an UNDO operation of a previously sent response.\n\nIn a forward search, make sure you catch this and always verify its value.. as to not double/triple count transactions.\n\nIn a backward searches, `undo` will always be `false`.",
         "arguments": []
       },
       {
         "name": "cursor",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "Query cursor, allowing you to continue fetching results even after interruption of your connection, without missing a beat.",
         "arguments": []
       },
       {
         "name": "block",
-        "type": "Block!",
+        "type": {
+          "reqType": true,
+          "name": "Block"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "node",
-        "type": "TransactionTrace",
+        "type": {
+          "name": "TransactionTrace"
+        },
         "description": "The transaction object.",
         "arguments": []
       }
@@ -232,67 +326,100 @@
     "fields": [
       {
         "name": "to",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "The recipient address of a transfer, or target contract of a call.  [VERIFY: will be empty for contract-creating calls / if untrue, resurface the `create: true` variable like in a TransactioNTrace for consistency.]",
         "arguments": []
       },
       {
         "name": "nonce",
-        "type": "Uint64!",
+        "type": {
+          "reqType": true,
+          "name": "Uint64"
+        },
         "description": "nonce is an ever incrementing counter of transactions issued by the `from` account.",
         "arguments": []
       },
       {
         "name": "gasPrice",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "gasPrice is the price offered to miners for gas, in wei per unit.",
         "arguments": [
           {
             "name": "encoding",
-            "type": "WEI_ENCODING",
+            "type": {
+              "name": "WEI_ENCODING",
+              "default": "HEXADECIMAL"
+            },
             "description": ""
           }
         ]
       },
       {
         "name": "gasLimit",
-        "type": "Uint64!",
+        "type": {
+          "reqType": true,
+          "name": "Uint64"
+        },
         "description": "gasLimit is the maximum amount of gas this transaction can consume. Other Ethereum nodes often name this field simply `gas`. Alias the field name if you prefer. See: https://graphql.org/learn/queries/#aliases",
         "arguments": []
       },
       {
         "name": "value",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "value is the Ether value (in wei) sent along with this transaction.",
         "arguments": [
           {
             "name": "encoding",
-            "type": "WEI_ENCODING",
+            "type": {
+              "name": "WEI_ENCODING",
+              "default": "HEXADECIMAL"
+            },
             "description": ""
           }
         ]
       },
       {
         "name": "inputData",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "inputData is the data supplied to the target contract of the transaction.",
         "arguments": []
       },
       {
         "name": "hash",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "hash is the hash of this transaction. It is also a universally unique pointer to this transaction.",
         "arguments": []
       },
       {
         "name": "from",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "from is the account that sent this transaction - this will always be an externally owned account.",
         "arguments": []
       },
       {
         "name": "signature",
-        "type": "Signature!",
+        "type": {
+          "reqType": true,
+          "name": "Signature"
+        },
         "description": "signature holds the V, R and S values representing the cryptographic signature for this transaction. It is based on these values that the `from` address is derived",
         "arguments": []
       }
@@ -304,13 +431,20 @@
     "fields": [
       {
         "name": "edges",
-        "type": "[TransactionTraceEdge]!",
+        "type": {
+          "isList": true,
+          "reqList": true,
+          "name": "TransactionTraceEdge"
+        },
         "description": "A list of edges to transaction traces",
         "arguments": []
       },
       {
         "name": "pageInfo",
-        "type": "PageInfo!",
+        "type": {
+          "reqType": true,
+          "name": "PageInfo"
+        },
         "description": "Information to aid pagination",
         "arguments": []
       }
@@ -322,25 +456,36 @@
     "fields": [
       {
         "name": "undo",
-        "type": "Boolean!",
+        "type": {
+          "reqType": true,
+          "name": "Boolean"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "cursor",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "Query cursor, allowing you to continue fetching results even after interruption of your connection, without missing a beat.",
         "arguments": []
       },
       {
         "name": "block",
-        "type": "Block!",
+        "type": {
+          "reqType": true,
+          "name": "Block"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "node",
-        "type": "TransactionTrace",
+        "type": {
+          "name": "TransactionTrace"
+        },
         "description": "The transaction trace object.",
         "arguments": []
       }
@@ -352,139 +497,215 @@
     "fields": [
       {
         "name": "to",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "nonce",
-        "type": "Uint64!",
+        "type": {
+          "reqType": true,
+          "name": "Uint64"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "gasPrice",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": [
           {
             "name": "encoding",
-            "type": "WEI_ENCODING",
+            "type": {
+              "name": "WEI_ENCODING",
+              "default": "HEXADECIMAL"
+            },
             "description": ""
           }
         ]
       },
       {
         "name": "gasLimit",
-        "type": "Uint64!",
+        "type": {
+          "reqType": true,
+          "name": "Uint64"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "value",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": [
           {
             "name": "encoding",
-            "type": "WEI_ENCODING",
+            "type": {
+              "name": "WEI_ENCODING",
+              "default": "HEXADECIMAL"
+            },
             "description": ""
           }
         ]
       },
       {
         "name": "inputData",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "hash",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "from",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "signature",
-        "type": "Signature!",
+        "type": {
+          "reqType": true,
+          "name": "Signature"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "status",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "gasUsed",
-        "type": "Uint64!",
+        "type": {
+          "reqType": true,
+          "name": "Uint64"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "cumulativeGasUsed",
-        "type": "Uint64!",
+        "type": {
+          "reqType": true,
+          "name": "Uint64"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "publicKey",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "index",
-        "type": "Int!",
+        "type": {
+          "reqType": true,
+          "name": "Int"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "create",
-        "type": "Boolean!",
+        "type": {
+          "reqType": true,
+          "name": "Boolean"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "outcome",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "block",
-        "type": "Block",
+        "type": {
+          "name": "Block"
+        },
         "description": "Block in which this transaction is contained",
         "arguments": []
       },
       {
         "name": "allLogs",
-        "type": "[EventLog!]!",
+        "type": {
+          "isList": true,
+          "reqList": true,
+          "reqType": true,
+          "name": "EventLog"
+        },
         "description": "Lists all logs, flattened and ordered by execution time.",
         "arguments": []
       },
       {
         "name": "flatCalls",
-        "type": "[EVMCall!]!",
+        "type": {
+          "isList": true,
+          "reqList": true,
+          "reqType": true,
+          "name": "EVMCall"
+        },
         "description": "Lists all calls, flattened and ordered by execution time.",
         "arguments": []
       },
       {
         "name": "matchingCalls",
-        "type": "[EVMCall!]!",
+        "type": {
+          "isList": true,
+          "reqList": true,
+          "reqType": true,
+          "name": "EVMCall"
+        },
         "description": "Returns a flattened list of calls, in _execution_ order, of only the matching elements (from a search, or other filtering).",
         "arguments": []
       },
       {
         "name": "matchingLogs",
-        "type": "[EventLog!]!",
+        "type": {
+          "isList": true,
+          "reqList": true,
+          "reqType": true,
+          "name": "EventLog"
+        },
         "description": "Returns a flattened list of logs, in _execution_ order, of only the matching elements (from a search, or other filtering).",
         "arguments": []
       }
@@ -496,19 +717,28 @@
     "fields": [
       {
         "name": "v",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "r",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "s",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": []
       }
@@ -520,25 +750,39 @@
     "fields": [
       {
         "name": "stateRoot",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "cumulativeGasUsed",
-        "type": "Uint64!",
+        "type": {
+          "reqType": true,
+          "name": "Uint64"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "logsBloom",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "logs",
-        "type": "[EventLog!]!",
+        "type": {
+          "isList": true,
+          "reqList": true,
+          "reqType": true,
+          "name": "EventLog"
+        },
         "description": "",
         "arguments": []
       }
@@ -550,115 +794,178 @@
     "fields": [
       {
         "name": "index",
-        "type": "Uint32!",
+        "type": {
+          "reqType": true,
+          "name": "Uint32"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "parentIndex",
-        "type": "Uint32!",
+        "type": {
+          "reqType": true,
+          "name": "Uint32"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "depth",
-        "type": "Uint32!",
+        "type": {
+          "reqType": true,
+          "name": "Uint32"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "callType",
-        "type": "CALL_TYPE!",
+        "type": {
+          "reqType": true,
+          "name": "CALL_TYPE"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "caller",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "address",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": [
           {
             "name": "encoding",
-            "type": "ADDRESS_ENCODING",
+            "type": {
+              "name": "ADDRESS_ENCODING",
+              "default": "CHECKSUMED"
+            },
             "description": ""
           }
         ]
       },
       {
         "name": "value",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": [
           {
             "name": "encoding",
-            "type": "WEI_ENCODING",
+            "type": {
+              "name": "WEI_ENCODING",
+              "default": "HEXADECIMAL"
+            },
             "description": ""
           }
         ]
       },
       {
         "name": "gasConsumed",
-        "type": "Uint64!",
+        "type": {
+          "reqType": true,
+          "name": "Uint64"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "gasBilled",
-        "type": "Uint64!",
+        "type": {
+          "reqType": true,
+          "name": "Uint64"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "gasLimit",
-        "type": "Uint64!",
+        "type": {
+          "reqType": true,
+          "name": "Uint64"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "failed",
-        "type": "Boolean!",
+        "type": {
+          "reqType": true,
+          "name": "Boolean"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "reverted",
-        "type": "Boolean!",
+        "type": {
+          "reqType": true,
+          "name": "Boolean"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "returnData",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "input",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "storageChanges",
-        "type": "[StorageChange!]!",
+        "type": {
+          "isList": true,
+          "reqList": true,
+          "reqType": true,
+          "name": "StorageChange"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "balanceChanges",
-        "type": "[BalanceChange!]!",
+        "type": {
+          "isList": true,
+          "reqList": true,
+          "reqType": true,
+          "name": "BalanceChange"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "logs",
-        "type": "[EventLog!]!",
+        "type": {
+          "isList": true,
+          "reqList": true,
+          "reqType": true,
+          "name": "EventLog"
+        },
         "description": "",
         "arguments": []
       }
@@ -670,36 +977,54 @@
     "fields": [
       {
         "name": "address",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": [
           {
             "name": "encoding",
-            "type": "ADDRESS_ENCODING",
+            "type": {
+              "name": "ADDRESS_ENCODING",
+              "default": "CHECKSUMED"
+            },
             "description": ""
           }
         ]
       },
       {
         "name": "oldValue",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": [
           {
             "name": "encoding",
-            "type": "WEI_ENCODING",
+            "type": {
+              "name": "WEI_ENCODING",
+              "default": "HEXADECIMAL"
+            },
             "description": ""
           }
         ]
       },
       {
         "name": "newValue",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": [
           {
             "name": "encoding",
-            "type": "WEI_ENCODING",
+            "type": {
+              "name": "WEI_ENCODING",
+              "default": "HEXADECIMAL"
+            },
             "description": ""
           }
         ]
@@ -712,31 +1037,46 @@
     "fields": [
       {
         "name": "key",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "address",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": [
           {
             "name": "encoding",
-            "type": "ADDRESS_ENCODING",
+            "type": {
+              "name": "ADDRESS_ENCODING",
+              "default": "CHECKSUMED"
+            },
             "description": ""
           }
         ]
       },
       {
         "name": "oldValue",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "newValue",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": []
       }
@@ -748,37 +1088,57 @@
     "fields": [
       {
         "name": "address",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": [
           {
             "name": "encoding",
-            "type": "ADDRESS_ENCODING",
+            "type": {
+              "name": "ADDRESS_ENCODING",
+              "default": "CHECKSUMED"
+            },
             "description": ""
           }
         ]
       },
       {
         "name": "topics",
-        "type": "[String!]!",
+        "type": {
+          "isList": true,
+          "reqList": true,
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "data",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "blockIndex",
-        "type": "Uint32!",
+        "type": {
+          "reqType": true,
+          "name": "Uint32"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "transactionIndex",
-        "type": "Uint32!",
+        "type": {
+          "reqType": true,
+          "name": "Uint32"
+        },
         "description": "",
         "arguments": []
       }
@@ -790,57 +1150,85 @@
     "fields": [
       {
         "name": "hash",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "number",
-        "type": "Uint64!",
+        "type": {
+          "reqType": true,
+          "name": "Uint64"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "size",
-        "type": "Uint64!",
+        "type": {
+          "reqType": true,
+          "name": "Uint64"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "header",
-        "type": "BlockHeader!",
+        "type": {
+          "reqType": true,
+          "name": "BlockHeader"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "uncles",
-        "type": "[BlockHeader!]!",
+        "type": {
+          "isList": true,
+          "reqList": true,
+          "reqType": true,
+          "name": "BlockHeader"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "transactions",
-        "type": "TransactionConnection!",
+        "type": {
+          "reqType": true,
+          "name": "TransactionConnection"
+        },
         "description": "",
         "arguments": [
           {
             "name": "first",
-            "type": "Uint32",
+            "type": {
+              "name": "Uint32"
+            },
             "description": ""
           },
           {
             "name": "last",
-            "type": "Uint32",
+            "type": {
+              "name": "Uint32"
+            },
             "description": ""
           },
           {
             "name": "before",
-            "type": "String",
+            "type": {
+              "name": "String"
+            },
             "description": ""
           },
           {
             "name": "after",
-            "type": "String",
+            "type": {
+              "name": "String"
+            },
             "description": ""
           }
         ]
@@ -853,97 +1241,145 @@
     "fields": [
       {
         "name": "parentHash",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "unclesHash",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "coinbase",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "stateRoot",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "transactionsRoot",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "receiptRoot",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "logsBloom",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "difficulty",
-        "type": "Uint64!",
+        "type": {
+          "reqType": true,
+          "name": "Uint64"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "number",
-        "type": "Uint64!",
+        "type": {
+          "reqType": true,
+          "name": "Uint64"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "gasLimit",
-        "type": "Uint64!",
+        "type": {
+          "reqType": true,
+          "name": "Uint64"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "gasUsed",
-        "type": "Uint64!",
+        "type": {
+          "reqType": true,
+          "name": "Uint64"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "timestamp",
-        "type": "Uint64!",
+        "type": {
+          "reqType": true,
+          "name": "Uint64"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "extraData",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "mixHash",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "nonce",
-        "type": "Uint64!",
+        "type": {
+          "reqType": true,
+          "name": "Uint64"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "hash",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": []
       }
@@ -955,19 +1391,27 @@
     "fields": [
       {
         "name": "undo",
-        "type": "Boolean!",
+        "type": {
+          "reqType": true,
+          "name": "Boolean"
+        },
         "description": "Whether this response is an UNDO operation of a previously sent response.\n\nMake sure you catch this and always verify its value, as to not double/triple count blocks.",
         "arguments": []
       },
       {
         "name": "cursor",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "Stream cursor, allowing you to continue fetching results even after interruption of your connection, without missing a beat.",
         "arguments": []
       },
       {
         "name": "node",
-        "type": "MinedBlock",
+        "type": {
+          "name": "MinedBlock"
+        },
         "description": "The block object.",
         "arguments": []
       }
@@ -979,57 +1423,85 @@
     "fields": [
       {
         "name": "hash",
-        "type": "String!",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "number",
-        "type": "Uint64!",
+        "type": {
+          "reqType": true,
+          "name": "Uint64"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "size",
-        "type": "Uint64!",
+        "type": {
+          "reqType": true,
+          "name": "Uint64"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "header",
-        "type": "BlockHeader!",
+        "type": {
+          "reqType": true,
+          "name": "BlockHeader"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "uncles",
-        "type": "[BlockHeader!]!",
+        "type": {
+          "isList": true,
+          "reqList": true,
+          "reqType": true,
+          "name": "BlockHeader"
+        },
         "description": "",
         "arguments": []
       },
       {
         "name": "transactionTraces",
-        "type": "TransactionTraceConnection!",
+        "type": {
+          "reqType": true,
+          "name": "TransactionTraceConnection"
+        },
         "description": "",
         "arguments": [
           {
             "name": "first",
-            "type": "Uint32",
+            "type": {
+              "name": "Uint32"
+            },
             "description": ""
           },
           {
             "name": "last",
-            "type": "Uint32",
+            "type": {
+              "name": "Uint32"
+            },
             "description": ""
           },
           {
             "name": "before",
-            "type": "String",
+            "type": {
+              "name": "String"
+            },
             "description": ""
           },
           {
             "name": "after",
-            "type": "String",
+            "type": {
+              "name": "String"
+            },
             "description": ""
           }
         ]

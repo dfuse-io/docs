@@ -2,6 +2,7 @@
 {{ $type := .Scratch.Get "mli-type" }}
 {{ $name := .Scratch.Get "mli-name" }}
 {{ $inner := .Scratch.Get "mli-inner" }}
+{{ $default := .Scratch.Get "mli-default" }}
 
 <div class="method-list-item">
   <div class="method-list-item-label">
@@ -18,7 +19,15 @@
     {{ if $type }}
       <span class="method-list-item-type">
         {{- $type | markdownify -}}
-      </span>&nbsp;&nbsp;&nbsp;&nbsp;
+      </span>
+
+      {{- with $default -}}
+      <span class="method-list-item-default" title="Default value">
+        = {{ . -}}
+      </span>
+      {{- end -}}
+
+      &nbsp;&nbsp;&nbsp;&nbsp;
     {{ end }}
     {{ $inner | markdownify }}
   </div>

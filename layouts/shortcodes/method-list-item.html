@@ -1,6 +1,7 @@
 {{ .Scratch.Set "mli-name" (.Get "name") }}
 {{ .Scratch.Set "mli-required" (eq (.Get "required") "true") }}
 {{ .Scratch.Set "mli-type" (.Get "type") }}
+{{ .Scratch.Set "mli-default" (.Get "default") }}
 {{ .Scratch.Set "mli-inner" $.Inner }}
 
 {{ partial "method-list-item" . }}
