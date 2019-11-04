@@ -990,6 +990,14 @@ aside.book-menu nav {
   }
 }
 
+// GraphQL Docs pages
+
+h3.graphql-type {
+  // This is a hack so that the ToC shows those links, without showing them on the page.
+  font-size: 1px;
+  line-height: 2px;
+  margin: 0px;
+}
 
 .graphql-type {
   .type, .method-list-item-type {

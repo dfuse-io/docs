@@ -3,7 +3,7 @@
 <h2 id="{{ anchorize $type.name }}">{{ $type.name }}</h2>
 
 {{ with $type.description }}
-  <div class="graphql-type description">{{ . | markdownify }}</div>
+  <div class="graphql-type description">{{ replace . "(https://docs.dfuse.io/" "(/" | markdownify }}</div>
 {{ end }}
 
 {{ range $type.fields }}

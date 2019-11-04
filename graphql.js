@@ -4,7 +4,7 @@ const fs = require('fs');
 function processSources(schemaSources, destination) {
 
   console.log(`Generating GraphQL schema data from source files:
-  ${schemaSources.map(path => ` * ${path}`).join('\n')}`);
+${schemaSources.map(path => ` * ${path}`).join('\n')}`);
 
   const schema = schemaSources.map(path => fs.readFileSync(path, 'utf-8')).join(' ')
 
@@ -20,7 +20,7 @@ function processSources(schemaSources, destination) {
       description: description ? description.value : '',
       fields: fields.map(field => {
         const { name, type, description, arguments, defaultValue } = field;
-        console.log("MAMA", JSON.stringify(field))
+        //console.log("MAMA", JSON.stringify(field))
         let typeDef = getFieldType(type)
 
         return {
@@ -49,7 +49,7 @@ function processSources(schemaSources, destination) {
 // Recursively parses the field name
 function getFieldType(field, defaultValue) {
   const { type, kind, name } = field;
-  console.log("BVOOOOOOOOOOOOOO", defaultValue);
+  //console.log("BVOOOOOOOOOOOOOO", defaultValue);
 
 
   if (field.kind === 'NonNullType') {
