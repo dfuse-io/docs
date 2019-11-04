@@ -93,7 +93,7 @@ and `WebSocket` objects provided by the browser).
 {{< /important >}}
 
 {{< tabs "configure-dependencies" >}}
-{{< tab lang="javascript" title="Node.js" opts="linenos=table">}}
+{{< tab lang="javascript" title="Node.js" >}}
 global.fetch = require('node-fetch')
 global.WebSocket = require('ws')
 {{< /tab >}}
@@ -103,7 +103,7 @@ global.WebSocket = require('ws')
 You prefer to not pollute the global scope? Check {{< externalLink title="Node.js Configuration Example" href="https://github.com/dfuse-io/client-js/blob/master/examples/advanced/nodejs-fetch-and-websocket-options.ts#L3">}} to see how you can pass the options directly when instantiating the client instead of polluting the global scope.
 {{< /note >}}
 
-## 3. Initializing the dfuse Client using your API key
+## 3. Create the client
 
 With the initial setup completed, you can start coding. The first thing we will do is initialize
 the dfuse client using the API key you created in the first step and the network you want to
@@ -111,236 +111,85 @@ connect to.
 
 Valid networks can be found at [Ethereum API Endpoints]({{< ref "reference/ethereum/endpoints" >}})
 
-{{< tabs "getting-started-js-3" >}}
-{{< tab lang="javascript" title="Node.js" opts="linenos=table">}}
-const { createDfuseClient } = require("@dfuse/client")
-
-const client = createDfuseClient({
-  // Replace `server_abcdef12345678900000000000` by the API key you retrieved at step 1. Valid
-  apiKey: 'server_abcdef12345678900000000000',
-  network: 'mainnet.eth.dfuse.io'
-})
-{{< /tab >}}
-
-{{< tab lang="javascript" title="Bundler" opts="linenos=table">}}
-import { createDfuseClient } from "@dfuse/client"
-
-const client = createDfuseClient({
-  // Replace `web_abcdef12345678900000000000` by the API key you retrieved at step 1. Valid
-  apiKey: 'web_abcdef12345678900000000000',
-  network: 'mainnet.eth.dfuse.io'
-})
-{{< /tab >}}
-
-{{< tab lang="html" title="Browser" opts="linenos=table">}}
-<head>
-  <style> li { font-family: monospace; margin: 0.15; }</style>
-  <script src="https://unpkg.com/@dfuse/client"></script>
-  <script>
-    // Replace `web_abcdef12345678900000000000` by the API key you retrieved at step 1. Valid
-    const client = createDfuseClient({
-      apiKey: 'web_abcdef12345678900000000000',
-      network: 'mainnet.eth.dfuse.io'
-    })
-  </script>
-</head>
-{{< /tab >}}
-
+{{< tabs "create-client" >}}
+{{< tab-code title="Node.js" filename="./quickstarts/javascript/node.js/index.ethereum.js" range=4:9 >}}
+{{< tab-code title="Bundler" filename="./quickstarts/javascript/bundler/index.ethereum.js" range=1:6 >}}
+{{< tab-code title="Browser" filename="./quickstarts/javascript/browser/index.ethereum.html" range=1:11 >}}
 {{< /tabs >}}
 
-## 4. Crafting your GraphQL Query
+## 4. Stream your first results
 
-Next, we you create our GraphQL query. Here, you will use a GraphQL subscription to stream results as they come. You will use the `searchTransactionsForward` operation, with the `"receiver:eosio.token action:transfer"` query (See the [Search Query Language reference here]({{< ref "/reference/eosio/search-terms" >}})).
+Let's first define the GraphQL operation, as a string, that we will use to perform
+GraphQL subscription. This element tells the backend server what fields to return
+to you, you get to choose and pick only what you are interested in.
 
-{{< tabs "getting-started-js-4" >}}
-{{< tab lang="javascript" title="Node.js" opts="linenos=table,linenostart=7">}}
-async function main() {
-  // You must use a `$cursor` variable so stream starts back at last marked cursor on reconnect
-  const operation = `subscription($cursor: String!) {
-    searchTransactions(query:"-value:0 type:call", lowBlockNum: -1, cursor: $cursor) {
-      undo cursor
-      node {
-        hash matchingCalls { caller address value(encoding:ETHER) }
-      }
-    }
-  }`
-}
+{{< note >}}
+Want to inspect the full set of available fields you can retrieve?
 
-main().catch((error) => console.log("Unexpected error", error))
-{{< /tab >}}
+* [GraphQL API Reference]({{< ref "/reference/ethereum/graphql" >}})
+* {{< externalLink href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMocXVlcnk6ICItdmFsdWU6MCB0eXBlOmNhbGwiLCBsb3dCbG9ja051bTogLTEpIHsKICAgIHVuZG8gY3Vyc29yCiAgICBub2RlIHsgaGFzaCBtYXRjaGluZ0NhbGxzIHsgY2FsbGVyIGFkZHJlc3MgdmFsdWUoZW5jb2Rpbmc6RVRIRVIpIH0gfQogIH0KfQ==" title="GraphiQL, online query editor with completion and docs">}}
+{{< /note >}}
 
-{{< tab lang="javascript" title="Bundler" opts="linenos=table,linenostart=7">}}
-// You would normally use your framework entry point and render using components,
-// we are using pure HTML manipulation for sake of example simplicity.
-
-async function main() {
-  // You must use a `$cursor` variable so stream starts back at last marked cursor on reconnect
-  const operation = `subscription($cursor: String!) {
-    searchTransactions(query:"-value:0 type:call", lowBlockNum: -1, cursor: $cursor) {
-      undo cursor
-      node {
-        hash matchingCalls { caller address value(encoding:ETHER) }
-      }
-    }
-  }`
-}
-
-main().catch((error) => document.body.innerHTML = `<p>${error}</p>`)
-{{< /tab >}}
-
-{{< tab lang="html" title="Browser" opts="linenos=table,linenostart=7">}}
-<body>
-<script>
-async function main() {
-  // You must use a `$cursor` variable so stream starts back at last marked cursor on reconnect
-  const query = `subscription($cursor: String!) {
-    searchTransactions(query:"-value:0 type:call", lowBlockNum: -1, cursor: $cursor) {
-      undo cursor
-      node {
-        hash matchingCalls { caller address value(encoding:ETHER) }
-      }
-    }
-  }`
-}
-
-main().catch((error) => document.body.innerHTML = `<p>${error}</p>`)
-</script>
-</body>
-{{< /tab >}}
+{{< tabs "define-query">}}
+{{< tab-code title="Node.js" filename="./quickstarts/javascript/node.js/index.ethereum.js" range=11:17 >}}
+{{< tab-code title="Bundler" filename="./quickstarts/javascript/bundler/index.ethereum.js" range=8:14 >}}
+{{< tab-code title="Browser" filename="./quickstarts/javascript/browser/index.ethereum.html" range=13:21 >}}
 {{< /tabs >}}
 
-## 5. Executing our Query
+Next, you create the GraphQL subscription to stream transfers as they come. You will use the `searchTransactions` operation, with the `"-value:0 type:call"` query (See the [Search Query Language reference here]({{< ref "/reference/ethereum/search-terms" >}})). This basically means, give me all transactions containing one or more
+EVM calls for which the `value` field (amount of Ether the call is transferring) is **not** `0`.
 
-Finally, you can combine the dfuse client instance we created in step 3 with the GraphQL query you created in step 4 to start streaming the results of our query,
-simply launch the wrapping function
+You can combine the dfuse client instance we created in step 3 with the GraphQL document we defined above in
+a `main` function:
 
-The function passed as the 2nd parameter to `client.graphql()` will be called every time a new result is returned by the API.
-
-{{< tabs "getting-started-js-5" >}}
-{{< tab lang="javascript" title="Node.js" opts="linenos=table,linenostart=19">}}
-  // Goes inside `main` function
-  const stream = await client.graphql(operation, (message) => {
-    if (message.type === "data") {
-      const { undo, cursor, node: { hash, value, matchingCalls }} = message.data.searchTransactions
-      matchingCalls.forEach(({ caller, address, value }) => {
-        // Ensure you correctly deal with the `undo` field
-        console.log(`Transfer ${caller} -> ${address} [${value} Ether]${undo ? " REVERTED" : ""}`)
-      })
-
-      // Mark stream at cursor location, on re-connect, we will start back at cursor
-      stream.mark({ cursor })
-    }
-
-    if (message.type === "error") {
-      console.log("An error occurred", message.errors, message.terminal)
-    }
-
-    if (message.type === "complete") {
-      console.log("Completed")
-    }
-  })
-
-  // Waits until the stream completes, or forever
-  await stream.join()
-  await client.release()
-{{< /tab >}}
-
-{{< tab lang="javascript" title="Bundler" opts="linenos=table,linenostart=19">}}
-  // Goes inside `main` function
-  const stream = await client.graphql(operation, (message) => {
-    if (message.type === "data") {
-      const { undo, cursor, node: { hash, value, matchingCalls }} = message.data.searchTransactions
-      matchingCalls.forEach(({ caller, address, value }) => {
-        const paragraphNode = document.createElement("li")
-        // Ensure you correctly deal with the `undo` field
-        paragraphNode.innerText = `Transfer ${caller} -> ${address} [${value} Ether]${undo ? " REVERTED" : ""}`
-
-        document.body.prepend(paragraphNode)
-      })
-
-      // Mark stream at cursor location, on re-connect, we will start back at cursor
-      stream.mark({ cursor })
-    }
-
-    if (message.type === "error") {
-      const { errors, terminal } = message
-      const paragraphNode = document.createElement("li")
-      paragraphNode.innerText = `An error occurred ${JSON.stringify({ errors, terminal })}`
-
-      document.body.prepend(paragraphNode)
-    }
-
-    if (message.type === "complete") {
-        const paragraphNode = document.createElement("li")
-        paragraphNode.innerText = "Completed"
-
-        document.body.prepend(paragraphNode)
-    }
-  })
-
-  // Waits until the stream completes, or forever
-  await stream.join()
-  await client.release()
-{{< /tab >}}
-
-{{< tab lang="javascript" title="Browser" opts="linenos=table,linenostart=19">}}
-  // Goes inside `main` function
-  const stream = await client.graphql(operation, (message) => {
-    if (message.type === "data") {
-      const { undo, cursor, node: { hash, value, matchingCalls }} = message.data.searchTransactions
-      matchingCalls.forEach(({ caller, address, value }) => {
-        const paragraphNode = document.createElement("li")
-        // Ensure you correctly deal with the `undo` field
-        paragraphNode.innerText = `Transfer ${caller} -> ${address} [${value} Ether]${undo ? " REVERTED" : ""}`
-
-        document.body.prepend(paragraphNode)
-      })
-
-      // Mark stream at cursor location, on re-connect, we will start back at cursor
-      stream.mark({ cursor })
-    }
-
-    if (message.type === "error") {
-      const { errors, terminal } = message
-      const paragraphNode = document.createElement("li")
-      paragraphNode.innerText = `An error occurred ${JSON.stringify({ errors, terminal })}`
-
-      document.body.prepend(paragraphNode)
-    }
-
-    if (message.type === "complete") {
-        const paragraphNode = document.createElement("li")
-        paragraphNode.innerText = "Completed"
-
-        document.body.prepend(paragraphNode)
-    }
-  })
-
-  // Waits until the stream completes, or forever
-  await stream.join()
-  await client.release()
-{{< /tab >}}
+{{< tabs "execute-query">}}
+{{< tab-code title="Node.js" filename="./quickstarts/javascript/node.js/index.ethereum.js" range=19:43 >}}
+{{< tab-code title="Bundler" filename="./quickstarts/javascript/bundler/index.ethereum.js" range=16:52 >}}
+{{< tab-code title="Browser" filename="./quickstarts/javascript/browser/index.ethereum.html" range=23:60 >}}
 {{< /tabs >}}
+
+The function passed as the 2nd parameter to `client.graphql()` will be called every time a new result is returned
+by the API. And here a sample of the prints you can see from as a result of execution the streaming operation
+above:
+
+<!-- **Note** We use python for all languages for a nicer output rendering -->
+{{< code-block lang="python" >}}
+Transfer 0xd7afbf5141a7f1d6b0473175f7a6b0a7954ed3d2 -> 0x43d2b8827218752ffe5a35cefc3bbe50ca79af47 [0.000497522732 Ether]
+Transfer 0x43d2b8827218752ffe5a35cefc3bbe50ca79af47 -> 0xd7e2cfd68a66b0f085d6b011df17ce03230278b7 [0.001180743062 Ether]
+Transfer 0x81c5cc877b61fa836bd3ffe83ab4659868183492 -> 0xb3199b592b4e6841839d1c83a0719d2f2a5db2a8 [0.19705971 Ether]
+Transfer 0x3fee97826b2630d1fed97a35d4559937a5d183c3 -> 0xbea4e9f3a7752a5b44b13aaee4aaba2505cc60a6 [0.061404268 Ether]
+Transfer 0x1c22fa9495d1d65df8e48d61d217732eb5b06b23 -> 0x298aca39f7bc65f9c7537c790b81968220bc1fc7 [0.00335537974 Ether]
+...
+{{< /code-block >}}
 
 # 6. Full Working Examples
 
+Here the small glue code containing the `main` function, imports and other helper functions to run the example:
+
+{{< tabs "support-code">}}
+{{< tab-code title="Node.js" filename="./quickstarts/javascript/node.js/index.ethereum.js" range=45:45 >}}
+{{< tab-code title="Bundler" filename="./quickstarts/javascript/bundler/index.ethereum.js" range=54:54 >}}
+{{< tab-code title="Browser" filename="./quickstarts/javascript/browser/index.ethereum.html" range=61:63 >}}
+{{< /tabs >}}
+
 {{< tabs "full-working">}}
-{{< tab lang="shell" title="Node.js" opts="linenos=table">}}
-git clone https://github.com/dfuse-io/quickstart-tutorials
-cd quickstart-tutorials/javascript/node.js
+
+{{< tab lang="shell" title="Node.js">}}
+git clone https://github.com/dfuse-io/docs
+cd docs/quickstarts/javascript/node.js
 npm install
 
-export DFUSE_API_KEY=server_abcdef12345678900000000000
-node index.ethereum.js
+# Replace 'server_abcdef12345678900000000000' with your own API key!
+DFUSE_API_KEY=server_abcdef12345678900000000000 node index.ethereum.js
 {{< /tab >}}
 
-{{< tab lang="shell" title="Bundler" opts="linenos=table">}}
-git clone https://github.com/dfuse-io/quickstart-tutorials
-cd quickstart-tutorials/javascript/bundler
+{{< tab lang="shell" title="Bundler">}}
+git clone https://github.com/dfuse-io/docs
+cd docs/quickstarts/javascript/bundler
 npm install
 
-export DFUSE_API_KEY=web_abcdef12345678900000000000
-npm run build:ethereum
+# Replace 'web_abcdef12345678900000000000' with your own API key!
+DFUSE_API_KEY=web_abcdef12345678900000000000 npm run build:ethereum
 
 # Open `index.ethereum.html` directly in your favorite Browser
 open index.ethereum.html       # Mac
@@ -348,9 +197,9 @@ xdg-open index.ethereum.html   # Ubuntu
 start index.ethereum.thml      # Windows
 {{< /tab >}}
 
-{{< tab lang="shell" title="Browser" opts="linenos=table">}}
-git clone https://github.com/dfuse-io/quickstart-tutorials
-cd quickstart-tutorials/javascript/browser
+{{< tab lang="shell" title="Browser">}}
+git clone https://github.com/dfuse-io/docs
+cd docs/quickstarts/javascript/browser
 # Manually edit index.ethereum.html changing `web_abcdef12345678900000000000` with your own API key
 
 # Open `index.ethereum.html` directly in your favorite Browser
@@ -358,5 +207,6 @@ open index.ethereum.html       # Mac
 xdg-open index.ethereum.html   # Ubuntu
 start index.ethereum.thml      # Windows
 {{< /tab >}}
+
 {{< /tabs >}}
 

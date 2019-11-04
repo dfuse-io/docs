@@ -1,8 +1,8 @@
 ---
 weight: 8
-title: GraphQL Quickstart
+title: GraphiQL Quickstart
 ---
 
-# GraphQL Quickstart
+# GraphiQL Quickstart
 
 * TODO: Quick introduction to GraphiQL
