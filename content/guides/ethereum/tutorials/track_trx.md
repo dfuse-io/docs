@@ -1,8 +1,10 @@
 ---
 weight: 3
-title: Track transaction in real-time (React/TypeScript)
+title: Track transaction in real-time
 ---
-# Track transaction in Realtime (React/JavaScript)
+{{< row-wrapper >}}
+{{< sub-section-title title="Track transaction in Realtime (React/JavaScript)" awesome-icon="far fa-book-spells" icon-link="/img/icon-crypto-currency-ethereum-01.svg" >}}
+
 In this guide we will create a simple React application that will use dfuse's Transaction State Tracker API to keep track of the state of an ethereum transaction in realtime. We will be using {{< externalLink href="https://reactjs.org/docs/hooks-intro.html" title="react hooks">}}. 
 
 {{< note >}}
@@ -24,7 +26,7 @@ npm start
 
 then open ({{< externalLink href="http://localhost:3000/">}})
 
-## 2. Sign up to dfuse and get your api key
+## 2. Get your api key
 
 {{< note >}}
 1. Visit {{< externalLink href="https://app.dfuse.io">}} and signup
@@ -174,3 +176,5 @@ The source code for this tutorial is available on github. Here are the code file
 {{< tab-code title="src/App.js" filename="./tutorials/eth/track_tx/App.js" range=1:206 >}}
 {{< tab-code title="src/App.css" filename="./tutorials/eth/track_tx/App.css" range=1:83 >}}
 {{< /tabs >}}
+
+{{< row-wrapper-end >}}
