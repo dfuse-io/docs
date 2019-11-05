@@ -6,52 +6,85 @@ weight: 20
 
 The dfuse Search Query Language resembles the one exposed by Kibana or GitHub for sifting through issues. It is a simple, flat `key1:value1 key2:value2` string, yet allows negation clauses and combinations of `OR` clauses.
 
-dfuse Search indexes each EVM call on the blockchain, as well as each Log, giving unprecedented granularity to your queries.
+dfuse allows search ETH transactions based on two types of documents:
+ * EVM call (type: "call")
+ * Log (type: "log")
 
-## Querying EVM Calls
+## Searching by EVM Call
 
-To return all transactions signed by a specific address, use:
+The following terms are supported:
 
-`signer:0x59a5208B32e627891C389EbafC644145224006E8`
+### `callType` _string_
 
-To get all calls to a given contract (as opposed to delegate calls, or callcodes), run:
+* description: type of this EVM **call**
+* accepted values: `CALL`, `CALLCODE`, `DELEGATE`, `STATIC` or `CREATE`
 
-`callType:call to:0x5df9b87991262f6ba471f09758cde1c0fc1de734`
+### `signer` _address_
 
-To match transactions that provided a given input to a contract, use:
+* description: address used to sign the **transaction**
+* example: `signer:0x59a5208B32e627891C389EbafC644145224006E8`
 
-`input.0:00000000000000000000000084ae8708798c74ef8d00f540c4012963955106ff to:0x06012c8cf97bead5deae237070f9587f8e7a266d`
+### `nonce` _uint_
 
-To match any transactions that invoked a given method on a contract:
+* description: nonce of the **transaction**
+* example: `nonce:80023`
 
-`method:a9059cbb to:0x8fdcc30eda7e94f1c12ce0280df6cd531e8365c5`
+### `address` _address_
 
-Or you can use an alternate form:
+* description: address of the contract in the **call**
+* example: `address:0x774af44fc5ad4eab986e989fa274b0dd2159be7b`
 
-`method:'transfer(address,uint256)'`
+### `value` _integer_
 
-To match any EVM call that tweaked storage for a given key in a contract:
+* description: Ether value of the transfer in WEI in this **call**
+* example: `value:60000000000`
 
-`to:0xa327075af2a223a1c83a36ada1126afe7430f955 storageChange:0x3`
+### `method` _string_ or _4-bytes hexdata_
 
-You can also use `value` to match the amount of value transferred from a call to another, use `nonce` and `from` to find a specific transaction from a user, and then start mixing and matching.
+* description: either the signature in ascii form or the first 4 bytes (in hex format) of the keccak-256 of that signature (which can be found in the first 4 bytes of the `input`) of the **method called**
+* example: `method:transfer(address,uint256)` or `method:a9059cbb`
 
-## Querying Logs
+### `balanceChange` _address_
 
-When searching for logs, try the following queries:
+* description: address that has its balance affected by the **call**
+* example: `balanceChange:0x8cb02139d217b2fce7940902e6826cae8366d358`
 
-`address:dac17f958d2ee523a2206206994597c13d831ec7`
+### `storageChange` _hexdata_
 
-Search by indexed topics or data directly:
+* description: storage key that was written to by the **call**
+* example: `storageChange:0x3`
 
-`data.0:1eda1ceca1274d6ab9101c30abd6b8b205861286`
+### `input` _32-bytes hexdata_
 
-Or using `topic.0`:
+* description: bytes that are passed to the **call**
+* example: `balanceChange:0x8cb02139d217b2fce7940902e6826cae8366d358`
 
-`topic.0:ddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef`
+## Searching by Log
 
-Or a combination of such things, to find transfers relevant to you:
+The following terms are supported:
 
-`topic.0:ddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef (topic.1:91b356c3e5e0d7cbe261dfa29e11a554b7bc6406 OR topic.2:91b356c3e5e0d7cbe261dfa29e11a554b7bc6406)`
+### `topic` _32-bytes hexdata_
 
-Mix and match with `signer` and a few other fields.
+* description: hex data output as a topic in the log. Request will be 0-padded to 32 bytes. The index must be appended to the 'topic' term, as seen in the following examples.
+* example: `topic.0:0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef` or `topic.1:0x91b356c3e5e0d7cbe261dfa29e11a554b7bc6406`
+
+### `data` _32-bytes hexdata_
+
+* description: hex data output as 'data' in the log, truncated to 32-bytes chunks. Request will be 0-padded to 32 bytes. The index of those chunks of 32 bytes must be appended to the 'data' term, as seen in the following examples.
+* example: `data.0:1eda1ceca1274d6ab9101c30abd6b8b205861286`
+
+### `address` _address_
+
+* description: address of the contract in the **call**
+* example: `address:0x774af44fc5ad4eab986e989fa274b0dd2159be7b`
+
+### `signer` _address_
+
+* description: address used to sign the **transaction**
+* example: `signer:0x59a5208B32e627891C389EbafC644145224006E8`
+
+### `method` _string_ or _4-bytes hexdata_
+
+* description: either the signature in ascii form or the first 4 bytes (in hex format) of the keccak-256 of that signature (which can be found in the first 4 bytes of the `input`) of the **method called**
+* example: `method:transfer(address,uint256)` or `method:a9059cbb`
+
