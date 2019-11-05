@@ -10,7 +10,7 @@ title: Concepts
 In this section, you will find the list of dfuse concepts that apply specifically to the EOSIO
 chains supported by dfuse APIs.
 
-- [Transaction State Tracker]({{< ref "./trx_lifecycle" >}})
+- [Transaction Lifecycle]({{< ref "./trx_lifecycle" >}})
 - [Search Ranges]({{< ref "./search-ranges" >}})
 
 {{< row-wrapper-end >}}
