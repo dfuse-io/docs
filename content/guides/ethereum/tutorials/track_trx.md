@@ -26,13 +26,7 @@ then open ({{< externalLink href="http://localhost:3000/">}})
 
 ## 2. Sign up to dfuse and get your api key
 
-{{< note >}}
-1. Visit {{< externalLink href="https://app.dfuse.io">}} and signup
-2. Create an API key
-    - Api Key: `transaction-tracker`
-    - Category: `Web (Browser)`
-    - Origin: `http://localhost:3000`
-{{< /note >}}
+{{< dfuse-account-creation api-key="eth-transaction-tracker" category="Web (browser)" origin="http://localhost:3000">}}
 
 ## 3. Add the dfuse client library
 

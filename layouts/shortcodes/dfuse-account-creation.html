@@ -1,0 +1,23 @@
+{{ $apiKey := .Get "api-key" }}
+{{ $category := .Get "category" }}
+{{ $origin := .Get "origin" }}
+
+<div class="admonition admonition-note">
+  <p class="admonition-title">
+    Get an API key
+  </p>
+  <ol>
+    <li>Create your account on <a href="https://app.dfuse.io" class="external-link" target="_blank">https://app.dfuse.io</a> </li>
+    <li>
+      Create a new Api key by clicking on "Create New Key"
+      <ul>
+        <li><code>Api Key</code>: {{ $apiKey | default "Used to identify your key in the portal. It should refer to your application" }}</li>
+        <li><code>Category</code>: {{ $category| default "Select how the api key will be used"  }}</li>
+        <li><code>Origin</code>: {{ $origin | default "Where the traffic is comming from" }}</li>
+      </ul>
+    </li>
+  </ol>
+  <i>See <a href="/guides/core-concepts/authentication/">Authentication</a> for further details</i>
+</div>
+
+
