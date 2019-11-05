@@ -18,7 +18,7 @@ The code from the examples on this page lives {{< externalLink href="https://git
 The JWT is a token with a short expiration period, used to communicate with dfuse services. You will have to implement token caching and manage renewal upon expiration. See [Authentication]({{< relref "/guides/core-concepts/authentication" >}}) for details.
 
 {{< tabs "generate-jwt">}}
-{{< tab-code title="Go" filename="./quickstarts/go/main.go" range=21:39 >}}
+{{< tab-code title="Go" filename="./quickstarts/go/main-eos.go" range=21:39 >}}
 {{< tab-code title="Python" filename="./quickstarts/python/main.py" range=17:28 >}}
 {{< tab title="Shell" lang="shell" >}}
 curl https://auth.dfuse.io/v1/auth/issue -s \
@@ -79,7 +79,7 @@ requests and streams you need to do, it should be properly cached at the appropr
 level for your use case.
 
 {{< tabs "create-client" >}}
-{{< tab-code title="Go" filename="./quickstarts/go/main.go" range=41:59 >}}
+{{< tab-code title="Go" filename="./quickstarts/go/main-eos.go" range=41:59 >}}
 {{< tab-code title="Python" filename="./quickstarts/python/main.py" range=30:41 >}}
 {{< /tabs >}}
 
@@ -97,7 +97,7 @@ Want to inspect the full set of available fields you can retrieve?
 {{< /note >}}
 
 {{< tabs "define-query">}}
-{{< tab-code title="Go" filename="./quickstarts/go/main.go" range=126:144 >}}
+{{< tab-code title="Go" filename="./quickstarts/go/main-eos.go" range=126:144 >}}
 {{< tab-code title="Python" filename="./quickstarts/python/main.py" range=73:78 >}}
 {{< /tabs >}}
 
@@ -106,7 +106,7 @@ dfuse Search. The snippet initiate the connection with dfuse servers and start
 streaming transfers forever.
 
 {{< tabs "run-query">}}
-{{< tab-code title="Go" filename="./quickstarts/go/main.go" range=146:180 >}}
+{{< tab-code title="Go" filename="./quickstarts/go/main-eos.go" range=146:180 >}}
 {{< tab-code title="Python" filename="./quickstarts/python/main.py" range=80:94 >}}
 {{< /tabs >}}
 
@@ -127,7 +127,7 @@ Transfer bluebetproxy -> bluebetbulls [0.6000 EOS]
 Here the small glue code containing the `main` function, imports and other helper functions to run the example:
 
 {{< tabs "support-code">}}
-{{< tab-code title="Go" filename="./quickstarts/go/main.go" range=1:19,182:201 >}}
+{{< tab-code title="Go" filename="./quickstarts/go/main-eos.go" range=1:19,182:201 >}}
 {{< tab-code title="Python" filename="./quickstarts/python/main.py" range=1:15,96:104 >}}
 {{< /tabs >}}
 
