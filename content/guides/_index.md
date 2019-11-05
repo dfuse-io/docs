@@ -38,7 +38,6 @@ BookToC: false
 
 * [JavaScript Quickstart]({{< ref "./eosio/getting-started/javascript-quickstart" >}})
 * [Other Languages]({{< ref "./eosio/getting-started/other-languages" >}})
-* [GraphQL Quickstart]({{< ref "./eosio/getting-started/graphiql-quickstart" >}})
 
 <--->
 
