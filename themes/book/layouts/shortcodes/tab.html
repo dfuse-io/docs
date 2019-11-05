@@ -10,7 +10,7 @@
     {{ else if eq $lang "bash" }}
       {{ $title = "Bash" }}
     {{ else if eq $lang "javascript" }}
-      {{ $title = "Javascript" }}
+      {{ $title = "JavaScript" }}
     {{ else if eq $lang "python" }}
       {{ $title = "Python" }}
     {{ else if eq $lang "graphql" }}
@@ -27,7 +27,7 @@
   {{ if not (.Parent.Scratch.Get $group) }}
     {{ .Parent.Scratch.Set $group slice }}
   {{ end }}
-  
+
   {{ if $lang }}
     {{ .Parent.Scratch.Add $group (dict "Name" $title "Content" (highlight .Inner $lang "")) }}
   {{ else }}

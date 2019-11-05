@@ -100,7 +100,7 @@ article {
   box-sizing:border-box;
   padding: 0 15px;
   z-index: 1000;
-  
+
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -197,7 +197,7 @@ article {
 #top-nav {
   list-style-type: none;
   margin: 0;
-  
+
   display: flex;
   align-self: stretch;
   align-items: stretch;
@@ -438,7 +438,7 @@ article {
   height: 10px;
   font-family: 'font awesome 5 pro';
   font-size: 10px;
-  display: inline-block;
+  display: inline;
   position: relative;
   right: -4px;
   top: -5px;
@@ -687,7 +687,7 @@ button.cta {
     &.btn-next-page {
       text-align: right;
       margin-left: 10px;
-      
+
       .fas {
         margin-left: 5px;
       }
@@ -764,7 +764,7 @@ h4 + .method-list-item {
     align-items: center;
     margin-bottom: 6px;
     width: 100%;
-    
+
     .method-list-item-name {
       margin-right: 6px;
     }
@@ -966,14 +966,14 @@ aside.book-menu nav {
 
 // CSS Overides to make the algolia suggestions menu work
 // on mobile. Found here: https://github.com/algolia/docsearch/issues/181
-// Since some values are added by Javascript, we have 
+// Since some values are added by JavaScript, we have
 // To add the !important option to override these values
 .algolia-autocomplete {
   // On a max-width of 768px
   @media (max-width: 768px) {
     .ds-dropdown-menu {
       max-width: calc(100vw - 32px) !important;
-      min-width: calc(100vw - 32px) !important;      
+      min-width: calc(100vw - 32px) !important;
       width: calc(100vw - 32px) !important;
       margin-left: 16px !important;
     }
@@ -990,6 +990,64 @@ aside.book-menu nav {
   }
 }
 
+// GraphQL Docs pages
+
+h3.graphql-type {
+  // This is a hack so that the ToC shows those links, without showing them on the page.
+  font-size: 1px;
+  line-height: 2px;
+  margin: 0px;
+}
+
+.graphql-type {
+  .type, .method-list-item-type {
+    font-family: monospace;
+    font-size: 85%;
+    color: #005cc5;
+    font-weight: 700;
+  }
+  .name {
+    color: #e36209;
+    font-family: monospace;
+    font-size: 90%;
+  }
+  .field {
+    color: #6f42c1;
+    font-family: monospace;
+  }
+  .gql-default, .method-list-item-default {
+    color: #43A047;
+    font-family: monospace;
+    font-weight: 700;
+  }
+  &.description {
+    padding-left: 20px;
+    padding-bottom: 10px;
+    padding-top: 3px;
+  }
+  &.header {
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+  &.hidden {
+    display: none;
+  }
+
+  &.params-list {
+    padding-left: 30px;
+    padding-bottom: 15px;
+  }
+  &.params-header {
+    border-bottom: 1px solid #d1d3e0;
+    margin-top: 30px;
+    margin-bottom: 0px;
+    width: 100%;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding-bottom: 5px;
+  }
+}
 
 thead {
   text-transform: uppercase;

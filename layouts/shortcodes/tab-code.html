@@ -1,0 +1,61 @@
+{{ if .Parent }}
+  {{ $title := .Get "title" }}
+  {{ $filename := .Get "filename" }}
+  {{ $range := .Get "range" }}
+
+  {{ $extension := index (split $filename "." | last 1) 0 }}
+
+  {{ $lang := $extension }}
+  {{ if eq $extension "go" }}
+    {{ $lang = "Go" }}
+  {{ else if eq $extension "shell" }}
+    {{ $lang = "Shell" }}
+  {{ else if eq $extension "sh" }}
+    {{ $lang = "Bash" }}
+  {{ else if eq $extension "js" }}
+    {{ $lang = "JavaScript" }}
+  {{ else if eq $extension "html" }}
+    {{ $lang = "HTML" }}
+  {{ else if eq $extension "py" }}
+    {{ $lang = "Python" }}
+  {{ else if eq $extension "gql" }}
+    {{ $lang = "GraphQL" }}
+  {{ else if eq $extension "json" }}
+    {{ $lang = "JSON" }}
+  {{ end }}
+
+  {{ $group := printf "tabs-%s" (.Parent.Get 0) }}
+
+  {{ $lines := split (readFile $filename) "\n" }}
+
+  {{ $content := "" }}
+  {{ $rangePairs := split $range "," }}
+  {{ range $index, $range := $rangePairs }}
+    {{ $start := sub (index (split $range ":") 0 | int) 1 }}
+    {{ $end := index (split $range ":") 1 | int }}
+    {{ $length := sub $end $start }}
+    {{ $lineRange := $lines }}
+    {{ if gt $start 0 }}
+    {{   $lineRange = $lineRange | after $start }}
+    {{ end }}
+    // Add check min (length(lines) - $end, $length)
+    {{ $lineRange = $lineRange | first $length }}
+    {{ $separator := "\n\n"}}
+    {{ if eq $index 0 }}
+    {{   $separator ="\n" }}
+    {{ end }}
+    {{ $content = printf "%s%s%s" $content $separator (delimit ($lineRange) "\n") }}
+  {{ end }}
+
+  {{ if not (.Parent.Scratch.Get $group) }}
+    {{ .Parent.Scratch.Set $group slice }}
+  {{ end }}
+
+  {{ if $lang }}
+    {{ .Parent.Scratch.Add $group (dict "Name" $title "Content" (highlight $content $lang "")) }}
+  {{ else }}
+    {{ .Parent.Scratch.Add $group (dict "Name" $title "Content" $content) }}
+  {{ end }}
+{{ else }}
+  {{ errorf "%q: 'tab-code' shortcode must be inside 'tabs' shortcode" .Page.Path }}
+{{ end }}

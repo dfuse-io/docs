@@ -1,0 +1,64 @@
+<head>
+    <style> li { font-family: monospace; margin: 0.15; }</style>
+    <script src="https://unpkg.com/@dfuse/client"></script>
+    <script>
+        const client = dfuseClient.createDfuseClient({
+          // Replace 'web_abcdef12345678900000000000' with your own API key!
+          apiKey: 'web_abcdef12345678900000000000',
+          network: 'mainnet.eth.dfuse.io'
+        })
+    </script>
+</head>
+<body>
+<script>
+// You must use a `$cursor` variable so stream starts back at last marked cursor on reconnect!
+const operation = `subscription($cursor: String!) {
+  searchTransactions(query:"-value:0 type:call", lowBlockNum: -1, cursor: $cursor) {
+    undo cursor
+    node { hash matchingCalls { caller address value(encoding:ETHER) } }
+  }
+}`
+</script>
+
+<script>
+async function main() {
+  const stream = await client.graphql(operation, (message) => {
+    if (message.type === "data") {
+      const { undo, cursor, node: { hash, value, matchingCalls }} = message.data.searchTransactions
+      matchingCalls.forEach(({ caller, address, value }) => {
+        const paragraphNode = document.createElement("li")
+        paragraphNode.innerText = `Transfer ${caller} -> ${address} [${value} Ether]${undo ? " REVERTED" : ""}`
+
+        document.body.prepend(paragraphNode)
+      })
+
+      // Mark stream at cursor location, on re-connect, we will start back at cursor
+      stream.mark({ cursor })
+    }
+
+    if (message.type === "error") {
+      const { errors, terminal } = message
+      const paragraphNode = document.createElement("li")
+      paragraphNode.innerText = `An error occurred ${JSON.stringify({ errors, terminal })}`
+
+      document.body.prepend(paragraphNode)
+    }
+
+    if (message.type === "complete") {
+        const paragraphNode = document.createElement("li")
+        paragraphNode.innerText = "Completed"
+
+        document.body.prepend(paragraphNode)
+    }
+  })
+
+  // Waits until the stream completes, or forever
+  await stream.join()
+  await client.release()
+}
+</script>
+
+<script>
+main().catch((error) => document.body.innerHTML = `<p>${error}</p>`)
+</script>
+</body>

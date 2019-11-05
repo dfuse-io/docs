@@ -21,12 +21,16 @@ All content can be found in the `/content` directory. The structure of the websi
 ## Style guide
 
 ### Links
+
   - [1.1](#types--primitives) **external**: When you insert an external link use the `externalLink` shortcode
+
     ```markdown
     {{<externalLink href="https://app.dfuse.io" title="dfuseio>}}
     {{<externalLink href="https://app.dfuse.io">}}
     ```
- 
+
+  - Please put all _internal references_ as _full paths_, for greppability and refactoring.
+
 ## Deployment
 
 Any commit to master automatically triggers a deployment. For this reason, the master branch is locked, requiring all changes to go through an approved pull request.

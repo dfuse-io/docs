@@ -15,7 +15,7 @@ menu:
 
 | Description | Source |
 | :--- | :---: |
-| Example of dfuse GraphQL API over gRPC | [Github](https://github.com/dfuse-io/example-graphql-grpc) 
+| Example of dfuse GraphQL API over gRPC | [Github](https://github.com/dfuse-io/example-graphql-grpc)
 | Using Push Notifications | [Github](https://github.com/dfuse-io/example-push-notifications) |
 
 ## Typescript
@@ -31,7 +31,7 @@ menu:
 | How to use dfuse guaranteed `push_transaction` with eosjs library | [Github](https://github.com/dfuse-io/example-push-guaranteed) |
 
 
-## Javascript
+## JavaScript
 
 | Description | Source |
 | :--- | :---: |

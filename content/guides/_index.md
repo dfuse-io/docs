@@ -17,7 +17,7 @@ BookToC: false
 
 #### Getting Started
 * [How to work with your free dfuse account] ({{< ref "./ethereum/getting-started/how-to-work-with-your-free-account" >}})
-* [Javascript Quickstart]({{< ref "./ethereum/getting-started/javascript-quickstart" >}})
+* [JavaScript Quickstart]({{< ref "./ethereum/getting-started/javascript-quickstart" >}})
 * [Other Languages]({{< ref "./ethereum/getting-started/other-languages" >}})
 
 <--->
@@ -36,7 +36,7 @@ BookToC: false
 
 #### Getting Started
 
-* [Javascript Quickstart]({{< ref "./eosio/getting-started/javascript-quickstart" >}})
+* [JavaScript Quickstart]({{< ref "./eosio/getting-started/javascript-quickstart" >}})
 * [Go Quickstart]({{< ref "./eosio/getting-started/go-quickstart" >}})
 * [Python Quickstart]({{< ref "./eosio/getting-started/python-quickstart" >}})
 * [Other Languages]({{< ref "./eosio/getting-started/other-languages" >}})
