@@ -3,7 +3,9 @@ weight: 1
 title: Search Ranges
 ---
 
-## Search Ranges
+{{< row-wrapper >}}
+
+{{< sub-section-title title="EOSIO Search Ranges" awesome-icon="far fa-book-spells" icon-link="/img/icon-crypto-currency-eos-01.svg" >}}
 
 This page gives information about the searched range for various combinations of `lowBlockNum` and
 `highBlockNum` when using our search engine as well as the implications of using a Cursor or deciding

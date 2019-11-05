@@ -1,5 +1,6 @@
 ---
 weight: 1
+title: JavaScript Quickstart
 ---
 
 # JavaScript Quickstart
@@ -210,3 +211,13 @@ start index.eosio.thml      # Windows
 
 {{< /tabs >}}
 
+# 7. What to do next ?
+
+* [GraphQL API Reference]({{< ref "/reference/eosio/graphql" >}})
+* [REST API Reference]({{< ref "/reference/eosio/rest" >}})
+* [WebSocket API Reference]({{< ref "/reference/eosio/websocket" >}})
+* [Check dfuse Core Concepts]({{< ref "/guides/core-concepts" >}})
+* [Look at one of our tutorials]({{< ref "/guides/eosio/tutorials" >}})
+* {{< externalLink title="The `@dfuse/client-js` overview document" href="https://github.com/dfuse-io/client-js/blob/master/README.md#dfuse-javascripttypescript-client-library" >}}
+* {{< externalLink title="The `@dfuse/client-js` quick API reference" href="https://github.com/dfuse-io/client-js/blob/master/README.md#api" >}} ({{< externalLink title="Full API reference" href="https://dfuse-io.github.io/client-js/" >}})
+* {{< externalLink title="GraphiQL, online query editor with completion and docs" href="https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKHF1ZXJ5OiJyZWNlaXZlcjplb3Npby50b2tlbiBhY3Rpb246dHJhbnNmZXIgLWRhdGEucXVhbnRpdHk6JzAuMDAwMSBFT1MnIikgewogICAgdW5kbyBjdXJzb3IKICAgIHRyYWNlIHsgaWQgbWF0Y2hpbmdBY3Rpb25zIHsganNvbiB9IH0KICB9Cn0=" >}}
