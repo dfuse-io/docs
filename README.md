@@ -31,6 +31,17 @@ All content can be found in the `/content` directory. The structure of the websi
 
   - Please put all _internal references_ as _full paths_, for greppability and refactoring.
 
+## Lexicon guide
+
+- web application
+- website
+- dfuse
+- real-time
+- GraphQL
+
+
 ## Deployment
 
 Any commit to master automatically triggers a deployment. For this reason, the master branch is locked, requiring all changes to go through an approved pull request.
+
+
