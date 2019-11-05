@@ -20,7 +20,7 @@ BookToC: false
 #### Reference
 
 * [Endpoints]({{< ref "./ethereum/endpoints" >}})
-* [Search]({{< ref "./ethereum/search-terms" >}})
+* [Search Terms]({{< ref "./ethereum/search-terms" >}})
 * [GraphQL Schema]({{< ref "./ethereum/graphql" >}})
 
 
@@ -34,9 +34,8 @@ BookToC: false
 #### Reference
 
 * [Endpoints]({{< ref "./eosio/endpoints" >}})
-* [Search]({{< ref "./eosio/search-terms" >}})
+* [Search Terms]({{< ref "./eosio/search-terms" >}})
 * [Types]({{< ref "./eosio/types" >}})
-* [GraphQL Schema]({{< ref "./eosio/graphql" >}})
 
 <--->
 
@@ -44,6 +43,7 @@ BookToC: false
 
 * [REST API]({{< ref "./eosio/rest" >}})
 * [WebSocket API]({{< ref "./eosio/websocket/introduction" >}})
+* [GraphQL Schema]({{< ref "./eosio/graphql" >}})
 
 {{< /sub-section-columns >}}
 

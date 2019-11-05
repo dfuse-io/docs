@@ -307,7 +307,7 @@
           "reqType": true,
           "name": "Block"
         },
-        "description": "",
+        "description": "`block` is the block in which this transaction was mined",
         "arguments": []
       },
       {
@@ -315,7 +315,7 @@
         "type": {
           "name": "TransactionTrace"
         },
-        "description": "The transaction object.",
+        "description": "The TransactionTrace object.",
         "arguments": []
       }
     ]
@@ -330,7 +330,7 @@
           "reqType": true,
           "name": "String"
         },
-        "description": "The recipient address of a transfer, or target contract of a call.  [VERIFY: will be empty for contract-creating calls / if untrue, resurface the `create: true` variable like in a TransactioNTrace for consistency.]",
+        "description": "`to` is the recipient address of a transfer, or target contract of a call.  [VERIFY: will be empty for contract-creating calls / if untrue, resurface the `create: true` variable like in a TransactioNTrace for consistency.]",
         "arguments": []
       },
       {
@@ -339,7 +339,7 @@
           "reqType": true,
           "name": "Uint64"
         },
-        "description": "nonce is an ever incrementing counter of transactions issued by the `from` account.",
+        "description": "`nonce` is an ever incrementing counter of transactions issued by the `from` account.",
         "arguments": []
       },
       {
@@ -348,7 +348,7 @@
           "reqType": true,
           "name": "String"
         },
-        "description": "gasPrice is the price offered to miners for gas, in wei per unit.",
+        "description": "`gasPrice` is the price offered to miners for gas, in wei per unit.",
         "arguments": [
           {
             "name": "encoding",
@@ -366,7 +366,7 @@
           "reqType": true,
           "name": "Uint64"
         },
-        "description": "gasLimit is the maximum amount of gas this transaction can consume. Other Ethereum nodes often name this field simply `gas`. Alias the field name if you prefer. See: https://graphql.org/learn/queries/#aliases",
+        "description": "`gasLimit` is the maximum amount of gas this transaction can consume. Other Ethereum nodes often name this field simply `gas`. Alias the field name if you prefer. See: https://graphql.org/learn/queries/#aliases",
         "arguments": []
       },
       {
@@ -375,7 +375,7 @@
           "reqType": true,
           "name": "String"
         },
-        "description": "value is the Ether value (in wei) sent along with this transaction.",
+        "description": "`value` is the Ether value (in wei) sent along with this transaction.",
         "arguments": [
           {
             "name": "encoding",
@@ -393,7 +393,7 @@
           "reqType": true,
           "name": "String"
         },
-        "description": "inputData is the data supplied to the target contract of the transaction.",
+        "description": "`inputData` is the data supplied to the target contract of the transaction. It is sometimes named `input` elsewhere.",
         "arguments": []
       },
       {
@@ -402,7 +402,7 @@
           "reqType": true,
           "name": "String"
         },
-        "description": "hash is the hash of this transaction. It is also a universally unique pointer to this transaction.",
+        "description": "`hash` is the hash of this transaction. It is also a universally unique pointer to this transaction.",
         "arguments": []
       },
       {
@@ -411,7 +411,7 @@
           "reqType": true,
           "name": "String"
         },
-        "description": "from is the account that sent this transaction - this will always be an externally owned account.",
+        "description": "`from` is the account that sent this transaction - this will always be an externally owned account in the context of this object.",
         "arguments": []
       },
       {
@@ -420,7 +420,7 @@
           "reqType": true,
           "name": "Signature"
         },
-        "description": "signature holds the V, R and S values representing the cryptographic signature for this transaction. It is based on these values that the `from` address is derived",
+        "description": "`signature` holds the V, R and S values representing the cryptographic signature for this transaction. It is based on these values that the `from` address is derived",
         "arguments": []
       }
     ]
@@ -493,7 +493,7 @@
   },
   {
     "name": "TransactionTrace",
-    "description": "Traces of the execution of a given transaction. This means the\ntransaction was executed on the chain. You also get context about the\nblock in which it was executed, and the status of the execution.\n\nWARN: Make sure to always check the `status` (in the `receipt`) to\nmake sure you're not considering a failed transaction as if it was\nsuccessful.",
+    "description": "Traces of the execution of a given transaction. This means the\ntransaction was executed on the chain. You also get context about the\nblock in which it was executed, and the status of the execution.\n\nWARN: Make sure to always check the `status` to make sure you're not\nconsidering a failed transaction as if it was successful.",
     "fields": [
       {
         "name": "to",
@@ -501,7 +501,7 @@
           "reqType": true,
           "name": "String"
         },
-        "description": "",
+        "description": "`to` is the recipient address of a transfer, or target contract of a call.\n\nNOTE: this field will *always* be set, even when the transaction creates a contract.  To distinguish contract creations, use the `create` field.",
         "arguments": []
       },
       {
@@ -510,7 +510,7 @@
           "reqType": true,
           "name": "Uint64"
         },
-        "description": "",
+        "description": "`nonce` is an ever incrementing counter of transactions issued by the `from` account.",
         "arguments": []
       },
       {
@@ -519,7 +519,7 @@
           "reqType": true,
           "name": "String"
         },
-        "description": "",
+        "description": "`gasPrice` is the price offered to miners for gas, in wei per unit. You can encode it differently with the `encoding` parameter.",
         "arguments": [
           {
             "name": "encoding",
@@ -537,7 +537,7 @@
           "reqType": true,
           "name": "Uint64"
         },
-        "description": "",
+        "description": "`gasLimit` is the maximum amount of gas this transaction can consume. Other Ethereum nodes often name this field simply `gas`. Alias the field name if you prefer. See: https://graphql.org/learn/queries/#aliases",
         "arguments": []
       },
       {
@@ -546,7 +546,7 @@
           "reqType": true,
           "name": "String"
         },
-        "description": "",
+        "description": "`value` is the Ether value (in wei) sent along with this transaction.",
         "arguments": [
           {
             "name": "encoding",
@@ -564,7 +564,7 @@
           "reqType": true,
           "name": "String"
         },
-        "description": "",
+        "description": "`inputData` is the data supplied to the target contract of the transaction. It is sometimes named `input` elsewhere.",
         "arguments": []
       },
       {
@@ -573,7 +573,7 @@
           "reqType": true,
           "name": "String"
         },
-        "description": "",
+        "description": "`hash` is the hash of this transaction. It is also a universally unique pointer to this transaction.",
         "arguments": []
       },
       {
@@ -582,7 +582,7 @@
           "reqType": true,
           "name": "String"
         },
-        "description": "",
+        "description": "`from` is the account that sent this transaction - this will always be an externally owned account in the context of this object.",
         "arguments": []
       },
       {
@@ -591,7 +591,7 @@
           "reqType": true,
           "name": "Signature"
         },
-        "description": "",
+        "description": "`signature` holds the V, R and S values representing the cryptographic signature for this transaction. It is based on these values that the `from` address is derived",
         "arguments": []
       },
       {
@@ -609,7 +609,7 @@
           "reqType": true,
           "name": "Uint64"
         },
-        "description": "",
+        "description": "`gasUsed` is the quantity of gas units that was consumed processing this transaction.",
         "arguments": []
       },
       {
@@ -618,7 +618,7 @@
           "reqType": true,
           "name": "Uint64"
         },
-        "description": "",
+        "description": "`cumulativeGasUsed` is [TODO: Define properly].",
         "arguments": []
       },
       {
@@ -627,7 +627,7 @@
           "reqType": true,
           "name": "String"
         },
-        "description": "",
+        "description": "TODO: detail, which type of encoding.. and is it even present?",
         "arguments": []
       },
       {
@@ -636,7 +636,7 @@
           "reqType": true,
           "name": "Int"
         },
-        "description": "",
+        "description": "`index` is the 0-based index of this transaction's execution within the block. TODO: REVIEW",
         "arguments": []
       },
       {
@@ -645,7 +645,7 @@
           "reqType": true,
           "name": "Boolean"
         },
-        "description": "",
+        "description": "`create` is true when the transaction represents a contract deployment",
         "arguments": []
       },
       {
@@ -662,7 +662,7 @@
         "type": {
           "name": "Block"
         },
-        "description": "Block in which this transaction is contained",
+        "description": "`block` is the block in which this transaction was mined.",
         "arguments": []
       },
       {
@@ -673,7 +673,7 @@
           "reqType": true,
           "name": "EventLog"
         },
-        "description": "Lists all logs, flattened and ordered by execution time.",
+        "description": "`allLogs` is a list of all log events within the transaction, flattened and ordered by execution time.",
         "arguments": []
       },
       {

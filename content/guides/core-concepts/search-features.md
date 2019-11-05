@@ -11,24 +11,102 @@ It is similar to GitHub's query language for issues and pull requests, and simil
 * it has a default `AND` operator between each query term.
 * it adds a simple, one-level `OR` layer enclosed in parentheses.
 * it supports negation with the `-` prefix, in front of the terms or `OR` groups (within `()` parentheses)
-* it supports _boolean_ values: `true` and `false` have special meaning when not using quotes: `input:true` queries for a boolean value, while `input:"true"` searches for a string value.
+* it supports _boolean_ values: `true` and `false` have special meaning when not using quotes: `term:true` queries for a boolean value, while `term:"true"` searches for a string value.
 
 You can enclose parameters using double-quotes after the `:`, or use a
-single keyword. For example: `auth:eoscanadacom` or `auth:"eoscanadacom"`.
+single keyword. For example: `term:value` or `term:"value"`.
 
 **dfuse Search** on all chains are aware of the chain's particular
 consensus rules (like longest chain), and allow you to navigate any
-forks, through the use of [cursors]({{< ref "cursors" >}})
+forks, through the use of [cursors]({{< ref "/guides/core-concepts/cursors" >}}).
 
 
+## Operators
 
-The field `undo`
+### Implicit `AND`
 
-## Implicit `AND`
+Merely separating fields by a space imply an `AND` clause.  Therefore:
 
-## `OR` operator
+```javascript
+term1:value1 term2:value2
+```
 
-## `NOT` operator
+is equivalent to:
+
+```javascript
+(term1 == "value1") && (term2 == "value2")
+```
+
+### `OR`
+
+The `OR` operator is supported within parentheses, as a single depth level.  For example:
+
+```javascript
+(term1: value1 OR term2: value2)
+```
+
+which is equivalent to:
+
+```javascript
+(term1 == "value1") || (term2 == "value2")
+```
+
+### Mixed `AND` and `OR`
+
+A combination of the two previous operators would look like:
+
+```
+term1: value1 (term2: value2 OR term3: value3)
+```
+
+which would be equivalent to:
+
+```javascript
+(term1 == "value1") && ((term2 == "value2" || term3: "value3"))
+```
+
+
+### `NOT`
+
+The `NOT` operator is specified with a dash prefix (`-`) in front of the term to negate, or the `OR` group to negate. For example:
+
+```
+-term1: "undesired"
+```
+
+which is equivalent to:
+
+```javascript
+(term1 != "undesired")
+```
+
+or more generally:
+
+```javascript
+!(term1 == "undesired")
+```
+
+You can negate an `OR` group by prefixing the group with a dash (`-`) as such:
+
+```
+term1: "value1" -(term2: "value2" OR term3: value3")
+```
+
+which is equivalent to:
+
+```javascript
+(term1 == "value1") && ((term2 != "value2") && (term3 != "value3"))
+```
+
+or more generally:
+
+```javascript
+(term1 == "value1") && !((term2 == "value2") || (term3 == "value3"))
+```
+
+Take out your logic textbook to flip `AND`s and `OR`s!
+
+
 
 ## Block Range
 
