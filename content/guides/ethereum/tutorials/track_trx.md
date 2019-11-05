@@ -1,6 +1,6 @@
 ---
 weight: 3
-title: Track transaction in real-time (React/TypeScript)
+title: Track transaction in real-time (React/JavaScript)
 ---
 
 # Track transaction in Realtime (React/JavaScript)
@@ -53,23 +53,23 @@ function App() {
   const [transitions, setTransitions] = useState([]);
   const [state, setState] = useState("initialize");
   const [error, setError] = useState("");
-  
-  const dfuseClient = null // initialize your dfuse client 
-  
+
+  const dfuseClient = null // initialize your dfuse client
+
   let streamTransactionQuery = `ENTER TRANSACTION TRACKER QUERY HERE`
 
   async function fetchTransaction() {
     return (state === "completed");
   }
-  
+
   function isCompleted(){
     return (state === "streaming");
   }
-  
+
   function isStreaming(){
     // complete function
   }
-  
+
   function renderTransition(key, previousState, currentState, transition, data) {
     return (
       <div className={"transition"} key={key}>
@@ -80,12 +80,12 @@ function App() {
       </div>
     )
   }
-  
+
   function renderData() {
       if(error !== ""){
         return null
       }
-  
+
       return (
         <div>
           <label className={"state"}>{state}</label>
@@ -99,7 +99,7 @@ function App() {
         </div>
       )
    }
-  
+
   function renderInfo() {
     return (
         <div>
@@ -107,12 +107,12 @@ function App() {
         </div>
     )
   }
-  
+
   function renderError() {
     if(error === ""){
        return null
     }
-  
+
     return (
       <div className='error'>{ error }</div>
     )
@@ -408,7 +408,7 @@ let streamTransactionQuery = `
 
 ## Retrieve a transactions state with graphql and dfuse client
 
-Lets create the `fetchTransaction` function that will use dfuse's JS client to execute the Graphql query we have crafted above. 
+Lets create the `fetchTransaction` function that will use dfuse's JS client to execute the Graphql query we have crafted above.
 
 1. Initialize a few state variables so that our UI look good
 
@@ -421,7 +421,7 @@ Lets create the `fetchTransaction` function that will use dfuse's JS client to e
     setTransitions([]);             // clears the transitions when starting a new search
     var currentTransitions = [];    // local variable to store transition in callback function
     var count = 0;                  // reset transition count
-  
+
    ...
   }
   ...
@@ -440,7 +440,7 @@ Lets create the `fetchTransaction` function that will use dfuse's JS client to e
     setTransitions([]);             // clears the transitions when starting a new search
     var currentTransitions = [];    // local variable to store transition in callback function
     var count = 0;                  // reset transition count
-    
+
     const stream = await client.graphql(streamTransactionQuery, (message) => {
         ...
     },{
@@ -448,7 +448,7 @@ Lets create the `fetchTransaction` function that will use dfuse's JS client to e
         hash:  transactionHash
      }
    });
-   
+
    await stream.join() // continues untils graphql subscription disconnects and/or completes
   }
   ...
@@ -456,15 +456,15 @@ Lets create the `fetchTransaction` function that will use dfuse's JS client to e
 {{< /tab >}}
 {{< /tabs >}}
 
-3. Let's create the handler that will process each transition. 
+3. Let's create the handler that will process each transition.
     - First we need to handle the case where graphql return an error in this case we simply store it in our `error` state variable:
-    
+
     {{< code-block title="foo" lang="javascript" >}}
     if (message.type === "error") {
         setError(message.errors[0]['message'])
     }
     {{< /code-block >}}
-    
+
     - If we get a message type `data` we create a `newTransition` object that will contain the relevant information that will be used for rendering. We increment our transition account, append the `newTransition` to our `currentTransitions` array and use that to update our `transitions` state variable.
     {{< code-block title="foo" lang="javascript" >}}var newTransition = {
         key: `transition-${count}`,
@@ -476,14 +476,14 @@ Lets create the `fetchTransaction` function that will use dfuse's JS client to e
     count++;
     currentTransitions = [...currentTransitions, newTransition]
     setTransitions(currentTransitions.reverse());{{< /code-block >}}
-    
+
     - Finally we handle the complete message type
     {{< code-block title="foo" lang="javascript" >}}if (message.type === "complete") {
         setState("completed");
     }{{< /code-block >}}
 
 Putting all this together we get the following functions
-    
+
 {{< tabs "fetch-transaction-3">}}
 {{< tab title="src/App.js" lang="javascript" >}}
   ...
@@ -493,13 +493,13 @@ Putting all this together we get the following functions
     setTransitions([]);             // clears the transitions when starting a new search
     var currentTransitions = [];    // local variable to store transition in callback function
     var count = 0;                  // reset transition count
-    
+
     const stream = await client.graphql(streamTransactionQuery, (message) => {
-   
+
      if (message.type === "error") {
        setError(message.errors[0]['message'])
      }
-    
+
      if (message.type === "data") {
        var newTransition = {
          key: `transition-${count}`,
@@ -512,7 +512,7 @@ Putting all this together we get the following functions
        currentTransitions = [...currentTransitions, newTransition]
        setTransitions(currentTransitions.reverse());
      }
-    
+
      if (message.type === "complete") {
        setState("completed");
      }
@@ -522,7 +522,7 @@ Putting all this together we get the following functions
         hash:  transactionHash
      }
    });
-   
+
    await stream.join() // continues until graphql subscription disconnects and/or completes
   }
   ...
@@ -533,8 +533,8 @@ Putting all this together we get the following functions
 
 If you read throught the `App.js` file you will notice we added a few extra functions to help us render our transition list
 
-- `function isCompleted()`: This returns `true` when the state of our GraphQL subscription is completed 
-- `function isStreaming()`: This returns `true` when the state of our GraphQL subscription is streaming, a.k.a we are receiving messages. 
+- `function isCompleted()`: This returns `true` when the state of our GraphQL subscription is completed
+- `function isStreaming()`: This returns `true` when the state of our GraphQL subscription is streaming, a.k.a we are receiving messages.
 - `renderTransition(key, previousState, currentState, transition, data)`: This function renders a given transition
 - `renderData()`: This function renders the wrapper and the transitions
 - `renderInfo()`: This function renders a small information wrapper to initiate our UI

@@ -1,7 +1,11 @@
 ---
+weight: 20
+title: Using dfuse Events
 ---
 
-# Using dfuse Events
+{{< row-wrapper >}}
+
+{{< sub-section-title title="Using dfuse Events" awesome-icon="far fa-book-spells" icon-link="/img/icon-crypto-currency-eosio-01.svg" >}}
 
 dfuse Events are a powerful way to give smart contract developers a
 way to ask dfuse Search to index their transactions, with arbitrary
@@ -43,3 +47,5 @@ eosio::action(
 ## Example contract
 
 See an [example implementation](https://github.com/dfuse-io/example-dfuse-events/blob/master/contract/src/eospetgameio.cpp) from a [sample smart contract](https://github.com/dfuse-io/example-dfuse-events/blob/master/contract).
+
+{{< row-wrapper-end >}}
