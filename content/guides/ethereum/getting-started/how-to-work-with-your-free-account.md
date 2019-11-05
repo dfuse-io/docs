@@ -5,14 +5,20 @@ weight: 1
 # How to Work with your Free dfuse Account
 
 ## Create a free dfuse account
-Visite [https://app.dfuse.io](https://app.dfuse.io)
-
-Meat here
+Visit [https://app.dfuse.io](https://app.dfuse.io)
 
 ## Create an api key
-Visite [https://app.dfuse.io/keys](https://app.dfuse.io/keys)
+Visit [https://app.dfuse.io/keys](https://app.dfuse.io/keys)
 
-Meat here 
+![](/img/api_key_creation.png)
+
+Create a new API key for your application:
+
+* API Key Name: Used to identify your key in the portal. It should refer to your application.
+* Category:
+  - Web: You want to embed your API key in the client-side of a web application. Specify your website as the origin {{< externalLink title="as it will appear in the HTTP header" href="https://tools.ietf.org/html/rfc6454#section-7">}}
+  - Mobile: You want to embed your API key in a mobile application deployed on an app store.
+  - Server: You want to connect your server backend directly with our service.
 
 ## Obtaining a Short-Lived JWT
 
@@ -24,10 +30,11 @@ curl https://auth.dfuse.io/v1/auth/issue -s --data-binary '{"api_key":"web_abcde
 {{< /tab >}}
 
 {{< tab title="Response" lang="json" >}}
-{       
+{
   "token":"eyJhbGciOiJLTVNFUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NTYxMzI4MjAsImp0aSI6IjQwNWVmOTUxLTAwZTYtNGJmNC1hZWMxLTU0NTU1ZWMzMTUwMiIsImlhdCI6MTU1NjA0NjQyMCwiaXNzIjoiZGZ1c2UuaW8iLCJzdWIiOiJ1aWQ6MHdlbnU2NmUwNzU4OWRhODY4MWNlIiwiYWtpIjoiM2NhYWEzYzA3M2FlZjVkMmYxOGUwNjJmZDkzYzg3YzMzYWIxYzA1YzEzNjI3NjU2OTgzN2Y5NDc5NzZlMjM0YSIsInRpZXIiOiJmcmVlLXYxIiwic3RibGsiOi0zNjAwLCJ2IjoxfQ.000HeTujIuS_LRvvPN6ZRCmtoZqZyV6P1enNBviwK8v7Tf7BLHJIrEpQoEREKSIMdZWPrMQl_OE55yJP0MxUDA",
   "expires_at":1556132820
 }
 {{< /tab >}}
 {{< /tabs >}}
+
 ### See our complete Authentication Guide [here]({{< ref "/guides/core-concepts/authentication" >}})

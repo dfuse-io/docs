@@ -1,17 +1,18 @@
 ---
-weight: 4
+weight: 10
 title: Push notifications from the chain
-date: 
+date:
 ---
 
 {{< row-wrapper >}}
 
-{{< sub-section-title title="Push notifications from the chain" awesome-icon="far fa-book-spells" icon-link="/img/icon-crypto-currency-ethereum-01.svg" >}}
+{{< sub-section-title title="Push notifications from the chain" awesome-icon="far fa-book-spells" icon-link="/img/icon-crypto-currency-eosio-01.svg" >}}
+
 ## Token Management
 
 First, head on to our self-service API management portal ({{<externalLink href="https://app.dfuse.io">}}), after signing up you will be able to create long-term API keys.
 
-Once you have this API key, call the  endpoint {{< externalLink href="https://auth.dfuse.io/v1/auth/issue">}} to get a fresh Authentication Token (JWT). 
+Once you have this API key, call the  endpoint {{< externalLink href="https://auth.dfuse.io/v1/auth/issue">}} to get a fresh Authentication Token (JWT).
 
 {{< tabs "authentication" >}}
 {{< tab lang="go" >}}
@@ -39,8 +40,8 @@ Has documented {{< externalLink href="https://docs.dfuse.io/#rest-api-post-https
 ## Refreshing your JWT token
 Tokens have a life span of 24h (that can vary) and need to be refreshed before they expire. Please see {{< externalLink href="https://docs.dfuse.io/#authentication" title="Lifecycle of short-lived JWTs">}}
 
-https://auth.dfuse.io/v1/auth/issue endpoint is rated limited. Full documentation can be found here {{< externalLink href="https://docs.dfuse.io/#authentication" title="API key types & Rate limiting">}} 
-     
+https://auth.dfuse.io/v1/auth/issue endpoint is rated limited. Full documentation can be found here {{< externalLink href="https://docs.dfuse.io/#authentication" title="API key types & Rate limiting">}}
+
 {{< tabs "jwt-refresh" >}}
 {{< tab lang="go" >}}
 func (jwt JWT) NeedRefresh() bool {
@@ -72,7 +73,8 @@ func (jwt JWT) NeedRefresh() bool {
 
 
 ## Initiating dfuse Graphql Server connection
-Sever addresses can be found at {{< externalLink href="https://docs.dfuse.io/#endpoints" title="dfuse enpoints !!!need to add gRPC addresses!!!">}}
+Sever addresses can be found at [EOSIO API Endpoints]({{< ref "reference/eosio/endpoints" >}}).
+
 {{< tabs "grpc-oauth" >}}
 {{< tab lang="go" >}}
 ...
@@ -94,9 +96,10 @@ graphqlClient := pbgraphql.NewGraphQLClient(connection)
 {{< /tabs >}}
 
 ## GraphQL query
-- dfuse GraphQL documention can be found {{< externalLink href="https://docs.dfuse.io/#graphql" title="here">}}
-- If you are not familiar with GraphQL. Take a look at {{< externalLink href="https://graphql.org/learn/" title="Introduction to GraphQL">}} 
-- To help you construct your query and access our api documentation you can use {{< externalLink href="https://mainnet.eos.dfuse.io/graphiql/" title="GraphiQL">}} _"A graphical interactive in-browser GraphQL IDE."_ 
+
+- dfuse GraphQL documentation can be found {{< externalLink href="https://docs.dfuse.io/#graphql" title="here">}}
+- If you are not familiar with GraphQL. Take a look at {{< externalLink href="https://graphql.org/learn/" title="Introduction to GraphQL">}}
+- To help you construct your query and access our api documentation you can use {{< externalLink href="https://mainnet.eos.dfuse.io/graphiql/" title="GraphiQL">}} _"A graphical interactive in-browser GraphQL IDE."_
 https://mainnet.eos.dfuse.io/graphiql/
 
 ## Executing a query
@@ -128,14 +131,14 @@ if err != nil {
 }
 ...
 {{< /tab >}}
-{{< /tabs >}} 
+{{< /tabs >}}
 
 This query `account:eosio.msig action:propose` will stream transactions containing action of type `propose` action for the account `eosio.msig`
 
-Take a look at {{< externalLink href="https://docs.dfuse.io/#search-query-language-specs" title="Search query language specs">}} for complete documentation.   
- 
+Take a look at {{< externalLink href="https://docs.dfuse.io/#search-query-language-specs" title="Search query language specs">}} for complete documentation.
+
 ## Cursor and block numbers management
-Complete api documentation is accessible through {{< externalLink href="https://mainnet.eos.dfuse.io/graphiql/" title="GraphiQL">}} 
+Complete api documentation is accessible through {{< externalLink href="https://mainnet.eos.dfuse.io/graphiql/" title="GraphiQL">}}
 - `lowBlockNum` parameter is the lower block num boundary, inclusively. A zero or negative value means a block relative to the head or last irreversible block (depending on irreversibleOnly).
 - `cursor` parameter is an opaque data piece that you can pass back to continue your search if it ever disconnected. Retrieve it from the cursor field in the responses of this call. It is safe to use the same cursor in BOTH directions (forward and backward).
 
@@ -145,7 +148,7 @@ The cursors are part of each responses stream from server and should always stor
 {{< tab lang="go" >}}
 ...
 cursor := s.db.LoadCursor()
-... 
+...
 // execute your query and read response
 ...
 cursor := gjson.Get(response.Data, "data.searchTransactionsForward.cursor").Str
@@ -153,9 +156,9 @@ fmt.Println("Cursor:", cursor)
 s.db.StoreCursor(cursor)
 ...
 {{< /tab >}}
-{{< /tabs >}} 
+{{< /tabs >}}
 
- 
+
 ## Reading server response
 {{< tabs "reading-server" >}}
 {{< tab lang="go" >}}
@@ -171,26 +174,26 @@ s.db.StoreCursor(cursor)
  			break
  		}
  		fmt.Println("Received response:", response.Data)
- 
+
  		//Handling error from lib subscription
- 
+
  		if len(response.Errors) > 0 {
- 
+
  			for _, e := range response.Errors {
  				fmt.Println("Error:", e.Message)
  			}
  			return nil
  		}
- 
+
  		cursor := gjson.Get(response.Data, "searchTransactionsForward.cursor").Str
  		fmt.Println("Cursor:", cursor)
  		s.storage.StoreCursor(cursor)
- 
+
      ...
  }
  ...
 {{< /tab >}}
-{{< /tabs >}} 
+{{< /tabs >}}
 
 ## Handling fork
 see {{< externalLink href="https://docs.dfuse.io/#searching-through-graphql" title="handling fork">}}
@@ -207,7 +210,7 @@ if !undo {
 }
 ...
 {{< /tab >}}
-{{< /tabs >}} 
+{{< /tabs >}}
 
 
-{{< row-wrapper-end >}}  
+{{< row-wrapper-end >}}

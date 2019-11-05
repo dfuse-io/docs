@@ -26,7 +26,7 @@ function App() {
             trace {
             ...TransactionTraceFragment
             }
-            confirmations
+            confirmationscontent/guides/ethereum/tutorials/track_trx.md
             replacedById
           }
   
