@@ -1,10 +1,13 @@
 ---
 weight: 1
-title: State Transaction Tracker
+title: Transaction Lifecycle
 ---
 
-# Ethereum Transaction Lifecycle
-## How TransactionLifecycle Works
+{{< row-wrapper >}}
+
+{{< sub-section-title title="Ethereum Transaction Lifecycle" awesome-icon="far fa-book-spells" icon-link="/img/icon-crypto-currency-ethereum-01.svg" >}}
+
+## How Transaction Lifecycle Works
 ### Transaction State
 
 An ethereum transaction progresses through a series of states, starting with the unknown state, until it is in block
@@ -35,14 +38,14 @@ __Replaced__: A transaction that moves from the pending state to the shadowed st
 
 The initial transaction that has been replaced is said to be shadowed by the replacer.
 
-__Forked__: A forked transaction occurs when a mined transaction, in other words a transaction in the in block state, is part of a block that gets reversed by the network. All transactions within the reversed block will subsequently be forked thus moving them from the in block state to the pending.state. 
+__Forked__: A forked transaction occurs when a mined transaction, in other words a transaction in the in block state, is part of a block that gets reversed by the network. All transactions within the reversed block will subsequently be forked thus moving them from the in block state to the pending.state.
 
 __Unshadowed__: A transaction can be unshawdowed when the conditions that caused it to be shawdowed are no more.
 
-__Confirmed__: A transaction in the in block state is confirmed every time subsequent, child block gets created. 
+__Confirmed__: A transaction in the in block state is confirmed every time subsequent, child block gets created.
 
 ## How Transaction Lifecycle Is Used:
-With GraphQL you can subscribe to transitions of a specific ethereum transaction in real-time. Furthermore, you have the ability to define precisely the data you want per transition. 
+With GraphQL you can subscribe to transitions of a specific ethereum transaction in real-time. Furthermore, you have the ability to define precisely the data you want per transition.
 ### Subscriptions
 Stream all transition for transaction `0x3be3b44ae48a074d3b79e3054bb3b62b5c5e5a8fc2210cd1dc7c7932ae5addcd` in real-time. Do not be scared we will breakdown the query
 
@@ -54,7 +57,7 @@ subscription{
       currentState
       transition{
         __typename
-    
+
       ... on TrxTransitionInit {
           transaction {
           ...transactionFields
@@ -68,13 +71,13 @@ subscription{
           confirmations
           shadowedById
         }
-    
+
       ...on TrxTransitionReceived {
           transaction {
           ...transactionFields
           }
         }
-    
+
       ...on TrxTransitionMined {
           blockHeader {
           ...bloackHeaderFields
@@ -84,21 +87,21 @@ subscription{
           }
           confirmations
         }
-    
+
       ...on TrxTransitionForked {
           transaction {
           ...transactionFields
           }
         }
-    
+
       ...on TrxTransitionConfirmed {
           confirmations
         }
-    
+
       ...on TrxTransitionReplaced {
           shadowedById
         }
-    
+
       }
     }
   }
@@ -202,8 +205,8 @@ subscription{
 - `TrxTransitionReceived`: This transition will be sent when the transaction has first been seen in our memory pool
 - `TrxTransitionMined`: This transition occurs when the transaction has been mined in a block
 - `TrxTransitionForked`: This transition occurs when the transaction has been forked.
-- `TrxTransitionConfirmed`: This transition will occur everytime your mined transaction's block has a new child block.  
-- `TrxTransitionReplaced`: This transition occurs when another transaction shadows your transaction. 
+- `TrxTransitionConfirmed`: This transition will occur everytime your mined transaction's block has a new child block.
+- `TrxTransitionReplaced`: This transition occurs when another transaction shadows your transaction.
 
 Each of these fields have specifc attributes that you can choose to display
 
@@ -215,27 +218,27 @@ subscription{
     currentState
     transition{
       __typename
-      
+
     ... on TrxTransitionInit {
         // insert desired TrxTransitionInit attributes
     }
-  
+
     ...on TrxTransitionReceived {
         // insert desired TrxTransitionReceived attributes
     }
-  
+
     ...on TrxTransitionMined {
       // insert desired TrxTransitionMined attributes
     }
-  
+
     ...on TrxTransitionForked {
         // insert desired TrxTransitionForked attributes
     }
-  
+
     ...on TrxTransitionConfirmed {
         // insert desired TrxTransitionConfirmed attributes
     }
-  
+
     ...on TrxTransitionReplaced {
         // insert desired TrxTransitionReplaced attributes
     }
@@ -254,33 +257,33 @@ subscription{
     currentState
     transition{
       __typename
-      
+
     ... on TrxTransitionInit {
         transaction {
             ...transactionFields
         }
     }
-  
+
     ...on TrxTransitionReceived {
         transaction {
           ...transactionFields
         }
     }
-  
+
     ...on TrxTransitionMined {
       // insert desired TrxTransitionMined attributes
     }
-  
+
     ...on TrxTransitionForked {
         transaction {
           ...transactionFields
         }
     }
-  
+
     ...on TrxTransitionConfirmed {
         // insert desired TrxTransitionConfirmed attributes
     }
-  
+
     ...on TrxTransitionReplaced {
         // insert desired TrxTransitionReplaced attributes
     }
@@ -306,4 +309,6 @@ fragment transactionFields on Transaction {
 {{< /tab >}}
 {{< /tabs >}}
 
-Putting all this together we get the full query we started with. 
+Putting all this together we get the full query we started with.
+
+{{< row-wrapper-end >}}

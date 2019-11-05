@@ -1,12 +1,14 @@
 ---
 weight: 3
-title: Track transaction in real-time (React/JavaScript)
+title: Track transaction in real-time
 ---
 
-# Track transaction in Realtime (React/JavaScript)
+{{< row-wrapper >}}
+
+{{< sub-section-title title="Track transaction in Realtime (React/JavaScript)" awesome-icon="far fa-book-spells" icon-link="/img/icon-crypto-currency-ethereum-01.svg" >}}
 
 ## Create React App
-We will use the {{< externalLink href="https://github.com/facebook/create-react-app">}} to sets up your development environment so that you can use the latest JavaScript features. You’ll need to have Node >= 8.10 and npm >= 5.6 on your machine. To create a project, run:
+We will use the {{< externalLink href="https://github.com/facebook/create-react-app">}} to set up your development environment so that you can use the latest JavaScript features. You’ll need to have Node >= 8.10 and npm >= 5.6 on your machine. To create a project, run:
 
 {{< tabs "create-react-app">}}
 {{< tab title="Shell" lang="shell" >}}
@@ -544,3 +546,4 @@ If you read throught the `App.js` file you will notice we added a few extra func
 
 In this tutorial we create a react application, added a dfuse client, configured it with out API keys and pulled transaction transitions.
 
+{{< row-wrapper-end >}}
