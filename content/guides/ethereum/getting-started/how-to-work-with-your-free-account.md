@@ -7,13 +7,21 @@ weight: 1
 ## Create a free dfuse account
 Visite [https://app.dfuse.io](https://app.dfuse.io)
 
-Meat here
-
 ## Create an api key
 Visite [https://app.dfuse.io/keys](https://app.dfuse.io/keys)
 
-Meat here 
+![](/img/api_key_creation.png)
 
+Create a new API key for your application
+
+Please identify the category of application you want to use your API key for:
+
+- Web: You want to embed your API key in the client-side of a Web application. Specify an Origin for such keys.
+ 
+- Mobile: You want to embed your API key in a mobile application deployed on an app store.
+ 
+- Server: You want to connect your server backend directly with our service.
+ 
 ## Obtaining a Short-Lived JWT
 
 Once you have this API key, call the [`https://auth.dfuse.io/v1/auth/issue` endpoint](#post-v1-auth-issue) to obtain a fresh Authentication Token using the following command. **Do not forget to replace the API key by your own!**
