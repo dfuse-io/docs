@@ -1,17 +1,14 @@
 ---
 weight: 3
-title: Track transaction in real-time (React/TypeScript)
+title: Track transaction in real-time (React/JavaScript)
 ---
-# Track transaction in Realtime (React/JavaScript)
-In this guide we will create a simple React application that will use dfuse's Transaction State Tracker API to keep track of the state of an ethereum transaction in realtime. We will be using {{< externalLink href="https://reactjs.org/docs/hooks-intro.html" title="react hooks">}}. 
 
-{{< note >}}
-Installing {{< externalLink href="https://reactjs.org/tutorial/tutorial.html#developer-tools" title="React Dev Tools">}} for your browser is optional, but really useful for seeing what goes on in the application
-{{< /note >}}
+{{< row-wrapper >}}
 
-    
-## 1. Create React App
-Use the {{< externalLink href="https://github.com/facebook/create-react-app">}} to sets up your development environment so that you can use the latest JavaScript features. You’ll need to have Node >= 8.10 and npm >= 5.6 on your machine. To create a project, run:
+{{< sub-section-title title="Track transaction in Realtime (React/JavaScript)" awesome-icon="far fa-book-spells" icon-link="/img/icon-crypto-currency-ethereum-01.svg" >}}
+
+## Create React App
+We will use the {{< externalLink href="https://github.com/facebook/create-react-app">}} to set up your development environment so that you can use the latest JavaScript features. You’ll need to have Node >= 8.10 and npm >= 5.6 on your machine. To create a project, run:
 
 {{< tabs "create-react-app">}}
 {{< tab title="Shell" lang="shell" >}}
@@ -432,9 +429,4 @@ Add some CSS to style this html a bit. Replace the contents of `src/App.css` wit
 
 ## 10. Full Working Example
 
-The source code for this tutorial is available on github. Here are the code files discussed on this page.
-
-{{< tabs "fetch-transaction-full-app">}}
-{{< tab-code title="src/App.js" filename="./tutorials/eth/track_tx/App.js" range=1:206 >}}
-{{< tab-code title="src/App.css" filename="./tutorials/eth/track_tx/App.css" range=1:83 >}}
-{{< /tabs >}}
+{{< row-wrapper-end >}}
