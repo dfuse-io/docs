@@ -458,9 +458,12 @@ Lets create the `fetchTransaction` function that will use dfuse's JS client to e
 
 3. Let's create the handler that will process each transition. 
     - First we need to handle the case where graphql return an error in this case we simply store it in our `error` state variable:
-    {{< code-block title="foo" lang="javascript" >}}if (message.type === "error") {
+    
+    {{< code-block title="foo" lang="javascript" >}}
+    if (message.type === "error") {
         setError(message.errors[0]['message'])
-    }{{< /code-block >}}
+    }
+    {{< /code-block >}}
     
     - If we get a message type `data` we create a `newTransition` object that will contain the relevant information that will be used for rendering. We increment our transition account, append the `newTransition` to our `currentTransitions` array and use that to update our `transitions` state variable.
     {{< code-block title="foo" lang="javascript" >}}var newTransition = {
