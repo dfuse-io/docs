@@ -43,8 +43,7 @@ yarn init -y
 
 ## 1. Get a dfuse API Key
 
-* Create your account on {{< externalLink href="https://app.dfuse.io">}}
-* Click "Create New Key" and give it a name, a category (and value of the "Origin" header in the case of a web key). See [Authentication]({{< relref "/guides/core-concepts/authentication" >}}) for details.
+{{< dfuse-account-creation >}}
 
 ## 2. Adding the Client Library
 

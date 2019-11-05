@@ -10,8 +10,7 @@ The code from the examples on this page lives {{< externalLink href="https://git
 
 ## 1. Get a dfuse API Key
 
-* Create your account on https://app.dfuse.io
-* Click "Create New Key" and give it a name, a category (and value of the "Origin" header in the case of a web key). See [Authentication]({{< relref "/guides/core-concepts/authentication" >}}) for details.
+{{< dfuse-account-creation >}}
 
 ## 2. Generate a JWT from your API key
 
