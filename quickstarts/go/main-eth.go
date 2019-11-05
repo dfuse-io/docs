@@ -18,6 +18,27 @@ import (
 	"google.golang.org/grpc/credentials/oauth"
 )
 
+func main() {
+
+	dfuseAPIKey := os.Getenv("DFUSE_API_KEY")
+	if dfuseAPIKey == "" || dfuseAPIKey == "your dfuse api key here" {
+		panic("you must specify a DFUSE_API_KEY environment variable")
+	}
+
+	token, _, err := getToken(dfuseAPIKey)
+	panicIfError(err)
+
+	client := createClient("mainnet.eth.dfuse.io:443", token)
+
+	streamEthereum(context.Background(), client)
+}
+
+func panicIfError(err error) {
+	if err != nil {
+		panic(err)
+	}
+}
+
 func getToken(apiKey string) (token string, expiration time.Time, err error) {
 	reqBody := bytes.NewBuffer([]byte(fmt.Sprintf(`{"api_key":"%s"}`, apiKey)))
 	resp, err := http.Post("https://auth.dfuse.io/v1/auth/issue", "application/json", reqBody)
@@ -73,9 +94,7 @@ type ethereumDocument struct {
 	}
 }
 
-func streamEthereum(ctx context.Context, token string) {
-	/* The client can be re-used for all requests, cache it at the appropriate level */
-	client := createClient("mainnet.eth.dfuse.io:443", token)
+func streamEthereum(ctx context.Context, client pb.GraphQLClient) {
 
 	executor, err := client.Execute(ctx, &pb.Request{Query: operationETH})
 	panicIfError(err)
@@ -106,32 +125,5 @@ func streamEthereum(ctx context.Context, token string) {
 		for _, call := range result.Node.MatchingCalls {
 			fmt.Printf("Transfer %s -> %s [%s Ether]%s\n", call.Caller, call.Address, call.Value, reverted)
 		}
-	}
-}
-
-/*
-		To run this code execute these command
-
-		go mod init my-project
-	 	DFUSE_API_KEY="your dfuse api key here" go run main.go
-
-*/
-
-func main() {
-
-	dfuseAPIKey := os.Getenv("DFUSE_API_KEY")
-	if dfuseAPIKey == "" {
-		panic("you must specify a DFUSE_API_KEY environment variable")
-	}
-
-	token, _, err := getToken(dfuseAPIKey)
-	panicIfError(err)
-
-	streamEthereum(context.Background(), token)
-}
-
-func panicIfError(err error) {
-	if err != nil {
-		panic(err)
 	}
 }
