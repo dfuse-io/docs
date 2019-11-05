@@ -6,9 +6,10 @@ weight: 20
 
 The dfuse Search Query Language resembles the one exposed by Kibana or GitHub for sifting through issues. It is a simple, flat `key1:value1 key2:value2` string, yet allows negation clauses and combinations of `OR` clauses.
 
-dfuse allows search ETH transactions based on two types of documents:
- * EVM call (type: "call")
- * Log (type: "log")
+dfuse offers two indexes for searching ETH transactions
+
+ * EVM call (`indexName: "call"`)
+ * Log (`indexName: "log"`)
 
 ## Searching by EVM Call
 
