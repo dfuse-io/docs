@@ -10,6 +10,6 @@ title: Concepts
 In this section, you will find the list of dfuse concepts that apply specifically to the EOSIO
 chains supported by dfuse APIs.
 
-- [Search Ranges]({{< ref "./search-ranges" >}})
+- [Search Ranges]({{< ref "/guides/eosio/concepts/search-ranges" >}})
 
 {{< row-wrapper-end >}}

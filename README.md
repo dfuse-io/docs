@@ -29,7 +29,7 @@ All content can be found in the `/content` directory. The structure of the websi
     {{<externalLink href="https://app.dfuse.io">}}
     ```
 
-  - Please put all _internal references_ as _full paths_, for greppability and refactoring.
+- [1.2](#types--primitives) **internal references**: Please put all _internal references_ as _full paths_, for greppability and refactoring.
 
 ## Lexicon guide
 

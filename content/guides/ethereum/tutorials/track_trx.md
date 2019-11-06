@@ -3,9 +3,9 @@ weight: 3
 title: Track transaction in real-time
 ---
 {{< row-wrapper >}}
-{{< sub-section-title title="Track transaction in Realtime (React/JavaScript)" awesome-icon="far fa-book-spells" icon-link="/img/icon-crypto-currency-ethereum-01.svg" >}}
+{{< sub-section-title title="Track transaction in Real-time (React/JavaScript)" awesome-icon="far fa-book-spells" icon-link="/img/icon-crypto-currency-ethereum-01.svg" >}}
 
-In this guide we will create a simple React application that will use dfuse's Transaction State Tracker API to keep track of the state of an ethereum transaction in realtime. We will be using {{< externalLink href="https://reactjs.org/docs/hooks-intro.html" title="react hooks">}}.
+In this guide we will create a simple React application that will use dfuse's Transaction State Tracker API to keep track of the state of an ethereum transaction in real-time. We will be using {{< externalLink href="https://reactjs.org/docs/hooks-intro.html" title="react hooks">}}.
 
 {{< note >}}
 Installing {{< externalLink href="https://reactjs.org/tutorial/tutorial.html#developer-tools" title="React Dev Tools">}} for your browser is optional, but really useful for seeing what goes on in the application
@@ -79,7 +79,7 @@ Lets setup a few hooks that will help us keep track of our transaction states an
 
 * `transactionHash`: keeps track of the transaction's hash
 * `transitions`: array that stores all the received transaction transitions
-* `state`: store the current state of the graphql subscription
+* `state`: store the current state of the GraphQL subscription
 * `error`: store our errors
 
 {{< tabs "setup-hooks">}}
@@ -136,7 +136,7 @@ Use the dfuse client with GraphQL query and set our transaction hash as a variab
 {{< /tab >}}
 {{< /tabs >}}
 
-The `message` returned from the graphql stream can have 3 different types that need to be handled in our code:
+The `message` returned from the GraphQL stream can have 3 different types that need to be handled in our code:
 
 * `error`: This is an error return by the stream. We simply store it in our state.
 * `data`: This contains the transition state tracker payload. We create a `newTransition` object and store in our transitions array.
