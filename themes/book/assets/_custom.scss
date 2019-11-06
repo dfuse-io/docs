@@ -40,6 +40,17 @@ p {
 
 a {position:relative;}
 
+.tag {
+  display: inline-block;
+  font-size: .7em;
+  vertical-align: super;
+  text-transform: capitalize;
+}
+.tag.stable { color:$primary-1000;}
+.tag.preview { color:$secondary-1000;}
+.tag.alpha { color:$secondary-1000;}
+.tag.beta { color:$secondary-1000;}
+
 .font-light {
   font-weight: $font-weight-light;
 }
