@@ -17,6 +17,7 @@
     "typescript": "^3.1.6"
   },
   "dependencies": {
+    "@dfuse/client": "^0.3.0",
     "eosjs": "^20.0.0-beta3",
     "node-fetch": "^2.2.1",
     "text-encoding": "^0.7.0"

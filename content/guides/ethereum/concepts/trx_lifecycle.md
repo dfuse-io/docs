@@ -78,7 +78,7 @@ Next we specify the fields we want the subscription to return. In this example w
 - `TrxTransitionConfirmed`: This transition will occur every time the mined transaction's block has a new child block.
 - `TrxTransitionReplaced`: This transition occurs when another transaction replaces the transaction.
 
-Each of these fields have specif attributes that you can choose to display
+Each of these fields have specific attributes that you can choose to display
 
 
 {{< tabs "trx-lifecycle-query-fields-transition">}}

@@ -39,7 +39,7 @@ First, let's create the project and add the required dependencies
 mkdir -p example-push-guaranteed
 cd example-push-guaranteed
 npm init -y
-npm install eosjs node-fetch text-encoding
+npm install @dfuse/client eosjs node-fetch text-encoding
 npm install --save-dev typescript ts-node @types/node @types/node-fetch @types/text-encoding
 {{< /tab >}}
 
@@ -47,18 +47,38 @@ npm install --save-dev typescript ts-node @types/node @types/node-fetch @types/t
 mkdir -p example-push-guaranteed
 cd example-push-guaranteed
 yarn init -y
-yarn add eosjs node-fetch text-encoding
+yarn add @dfuse/client eosjs node-fetch text-encoding
 yarn add --dev typescript ts-node @types/node @types/node-fetch @types/text-encoding
 {{< /tab >}}
 
 {{< /tabs >}}
 
-### 2. Define HTTP Override
+### 2. Configure & Create dfuse Client
 
-When `eosjs` push a transaction, it simply does it by doing an HTTP call. Since
-dfuse Push Guaranteed is a drop-in replacement of the native EOSIO `push_transaction`
-call, the important call to perform in your application is overriding
-`eosjs` HTTP handling so that some extra headers are passed.
+All dfuse API calls must be authenticated using a an API token that is generated
+by using your API key. The easiest way to go for this is using the `@dfuse/client`
+that will make all the heavy lifting of managing the API token for us.
+
+You will also see a `readConfig` function that reads the script configuration form
+the various environment variables, check at the end of this page to see the
+definition of this code.
+
+{{< tabs "config-and-client" >}}
+{{< tab-code title="Node.js" filename="./tutorials/eosio/push-guaranteed/index.ts" range="7:12" >}}
+{{< /tabs >}}
+
+{{< note >}}
+Explaining the `@dfuse/client` is out of scope for this tutorial. Refer to the
+[JavaScript Quickstart]({{< ref "/guides/eosio/getting-started/javascript-quickstart" >}}) for
+further details about the `@dfuse/client` library.
+{{< /note >}}
+
+### 3. Define HTTP Override
+
+When `eosjs` push a transaction (or make any `/v1/chain` calls in fact), it simply does
+it by doing an HTTP call. Since dfuse Push Guaranteed is a drop-in replacement of the
+native EOSIO `push_transaction` call, the most important part to perform in your
+application is overriding `eosjs` HTTP handling so that some extra headers are passed.
 
 The headers that are required:
   - `Authorization: Bearer $DFUSE_API_TOKEN`
@@ -71,74 +91,109 @@ those situations.
 {{< /important >}}
 
 {{< tabs "custom-fetch" >}}
-{{< tab-code title="Node.js" filename="./tutorials/eosio/push-guaranteed/index.ts" range="4:4,23:33" >}}
+{{< tab-code title="Node.js" filename="./tutorials/eosio/push-guaranteed/index.ts" range="5:5,31:44" >}}
 {{< /tabs >}}
 
 {{< note >}}
-This add the headers to **all** HTTP queries. It should not be a problem since those headers
-would be ignored. You could adapt the code above to only make the changes when the request
-is for the push transaction endpoint if you prefer.
+This adds the headers to **all** HTTP queries and routes all traffic to dfuse endpoint.
+You could adapt the code above to only make the changes when the request is for the
+push transaction endpoint if you prefer and route all other requests to a different endpoint.
 {{< /note >}}
 
-### 3. Transfer Transaction
+### 4. Transfer Transaction
 
 Now, let's define our `main` function that will create the transfer action, package
 it in a signed transaction and send it to the EOSIO network.
 
+We go fast over it, but the code is simply creating an `eosio.token:transfer` action
+with the correct parameters and push all that through
+
 {{< tabs "main-transfer" >}}
-{{< tab-code title="Node.js" filename="./tutorials/eosio/push-guaranteed/index.ts" range="1:3,43:85" >}}
+{{< tab-code title="Node.js" filename="./tutorials/eosio/push-guaranteed/index.ts" range="1:3,54:96" >}}
 {{< /tabs >}}
 
-### 4. Execute Code
+#### Security
 
-Create a `.env` file with the following content:
+We use an environment variable via `JsSignatureProvider` to store the
+private key for **testing** purposes. In a real production environment, always ensure
+security of your private keys.
+
+Better yet, like stated directly in `eosjs` library, use a third-party signing provider:
+
+> The Signature Provider holds private keys and is responsible for signing transactions.
+> Using the JsSignatureProvider in the browser is not secure and should only be used for development purposes. Use a secure vault outside of the context of the webpage to ensure security when signing transactions in production
+
+### 5. Execute Code
+
+Run the following commands from your terminal:
 
 {{< code-block lang="shell" >}}
-export DFUSE_API_TOKEN=<dfuse API token here>
-export TRANSFER_FROM_ACCOUNT=<account name that will send the token>
-export SIGNING_PRIVATE_KEY=<account private key here>
+export DFUSE_API_KEY="<dfuse API key here>"
+export TRANSFER_FROM_ACCOUNT="<account name that will send the token>"
+export SIGNING_PRIVATE_KEY="<account private key here>"
 {{< /code-block >}}
 
-The `<dfuse API token here>` should be replaced with your dfuse API token,
+The `<dfuse API key here>` should be replaced with your dfuse API key,
 `<account name that will send the token>` should be replaced with the
-account name that will transfer money to someone else (`junglefaucet`) and
+account name that will transfer money to someone else and
 `<account private key here>` should be replaced with the private key
 controlling the Jungle test net account defined in `TRANSFER_FROM_ACCOUNT`.
 
-**Note** The private key must be able to fullfilled `<from>@active` where the
+**Note** The private key must be able to fulfill `<from>@active` where the
 `<from>` is actually the account name specified in `TRANSFER_FROM_ACCOUNT`.
 
-Load it in your environment (or simple type the `export` commands in your
-terminal):
+Then launch the `index.ts` script to see the transaction being pushed to
+the network and waiting for the guaranteed condition to be met prior returning
+from the `api.transac` call:
 
-    source .env
+{{< tabs "execute-script" >}}
 
-Adapt the `push-transaction.ts` script to fit your need
+{{< tab lang="shell" title="NPM" >}}
+./node_modules/bin/ts-node index.ts
+{{< /tab >}}
 
-Launch the `push-transaction.ts` script:
+{{< tab lang="shell" title="Yarn" >}}
+yarn ts-node index.ts
+{{< /tab >}}
 
-    yarn run ts-node push-transaction.ts
+{{< /tabs >}}
 
-### Mainnet/Kylin
-
-If you want to try on Mainnet or Kylin instead, you can provide the following
+{{< note >}}
+If you want to try on EOS Mainnet or Kylin instead, you can provide the following
 extra environment variables:
 
-    export DFUSE_API_URL=<https://mainnet.eos.dfuse.io OR https://kylin.eos.dfuse.io>
-    export TRANSFER_TO_ACCOUNT=<account name that will receive the token>
-    export TRANSFER_QUANTITY=<quantity to transfer, defaults to 0.0001 EOS if unset>
+{{< highlight text >}}
+export DFUSE_API_NETWORK="<mainnet.eos.dfuse.io OR kylin.eos.dfuse.io>"
+export TRANSFER_TO_ACCOUNT="<account name that will receive the token>"
+export TRANSFER_QUANTITY="<quantity to transfer, defaults to 0.0001 EOS if unset>"
+{{< /highlight >}}
+{{< /note >}}
 
-### Security
+### 6. Support Code
 
-This repository use an environment variable via `JsSignatureProvider` to store the
-private key for **testing** purposes. In a real production environment, always ensure
-security of private keys.
+And for sake of completion, here are the supporting code used throughout the
+tutorial to make reading easier:
 
-Better yet, like state directly in `eosjs` library, use a third-party signing provider:
+{{< tabs "support-code" >}}
+{{< tab-code title="Node.js" filename="./tutorials/eosio/push-guaranteed/index.ts" range="98:170" >}}
+{{< /tabs >}}
 
-> The Signature Provider holds private keys and is responsible for signing transactions.
+## 7. Full Working Example
 
-> Using the JsSignatureProvider in the browser is not secure and should only be used for development purposes. Use a secure vault outside of the context of the webpage to ensure security when signing transactions in production
+{{< tabs "full-working">}}
 
+{{< tab lang="shell" title="Node.js">}}
+git clone https://github.com/dfuse-io/docs
+cd docs/tutorials/eosio/push-guaranteed
+yarn install
+
+# Replace '<dfuse API key here>' with your own API key!
+export DFUSE_API_KEY="<dfuse API key here>"
+export TRANSFER_FROM_ACCOUNT="<account name that will send the token>"
+export SIGNING_PRIVATE_KEY="<account private key here>"
+
+yarn ts-node index.ts
+{{< /tab >}}
+{{< /tabs >}}
 
 {{< row-wrapper-end >}}
