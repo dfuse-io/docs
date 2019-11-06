@@ -162,7 +162,7 @@ Transfer bluebetproxy -> bluebetbulls [0.6000 EOS]
 ...
 {{< /code-block >}}
 
-# 6. Full Working Examples
+## 5. Full Working Examples
 
 Here the small glue code containing the `main` function, imports and other helper functions to run the example:
 
@@ -210,7 +210,7 @@ start index.eosio.thml      # Windows
 
 {{< /tabs >}}
 
-# 7. What to do next ?
+## 6. What's next?
 
 * [GraphQL API Reference]({{< ref "/reference/eosio/graphql" >}})
 * [REST API Reference]({{< ref "/reference/eosio/rest" >}})

@@ -162,7 +162,7 @@ Transfer 0x1c22fa9495d1d65df8e48d61d217732eb5b06b23 -> 0x298aca39f7bc65f9c7537c7
 ...
 {{< /code-block >}}
 
-# 6. Full Working Examples
+## 5. Full Working Examples
 
 Here the small glue code containing the `main` function, imports and other helper functions to run the example:
 
@@ -210,7 +210,7 @@ start index.ethereum.thml      # Windows
 
 {{< /tabs >}}
 
-# 7. What to do next ?
+## 7. What's next ?
 
 * [GraphQL API Reference]({{< ref "/reference/ethereum/graphql" >}})
 * [Check dfuse Core Concepts]({{< ref "/guides/core-concepts" >}})
