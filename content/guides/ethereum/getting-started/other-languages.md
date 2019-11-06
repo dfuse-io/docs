@@ -75,8 +75,8 @@ protoc graphql/graphql.proto # add your language-specific flags here
 ### Start by adding this code to your "main" 
 
 {{< tabs "initial code">}}
-    {{< tab-code title="Go" filename="./quickstarts/go/main-eth.go" range=1:40 >}}
-    {{< tab-code title="Python" filename="./quickstarts/python/main-eth-inital.py" range=1:30 >}}
+    {{< tab-code title="Go" filename="./quickstarts/go/main-eth.go" range="1:40" >}}
+    {{< tab-code title="Python" filename="./quickstarts/python/main-eth-inital.py" range="1:30" >}}
 {{< /tabs >}}
 
 The code from the examples on this page lives {{< externalLink href="https://github.com/dfuse-io/docs/tree/master/quickstarts" title="in the quickstarts folder of this docs GitHub repository">}}.
@@ -86,8 +86,8 @@ The code from the examples on this page lives {{< externalLink href="https://git
 The JWT is a token with a short expiration period, used to communicate with dfuse services. You will have to implement token caching and manage renewal upon expiration. See [Authentication]({{< relref "/guides/core-concepts/authentication" >}}) for details.
 
 {{< tabs "generate-jwt">}}
-{{< tab-code title="Go" filename="./quickstarts/go/main-eth.go" range=42:60 >}}
-{{< tab-code title="Python" filename="./quickstarts/python/main-eth.py" range=17:28 >}}
+{{< tab-code title="Go" filename="./quickstarts/go/main-eth.go" range="42:60" >}}
+{{< tab-code title="Python" filename="./quickstarts/python/main-eth.py" range="17:28" >}}
 {{< tab title="Shell" lang="shell" >}}
 curl https://auth.dfuse.io/v1/auth/issue -s \
   --data-binary '{"api_key":"server_abcdef12345678900000000000"}'
@@ -100,8 +100,8 @@ curl https://auth.dfuse.io/v1/auth/issue -s \
 We can now define the client creation code. The client can be re-used across all the requests and streams you need to do, it should be properly cached at the appropriate level for your use case.
 
 {{< tabs "create-client" >}}
-{{< tab-code title="Go" filename="./quickstarts/go/main-eth.go" range=62:73 >}}
-{{< tab-code title="Python" filename="./quickstarts/python/main-eth.py" range=30:37 >}}
+{{< tab-code title="Go" filename="./quickstarts/go/main-eth.go" range="62:73" >}}
+{{< tab-code title="Python" filename="./quickstarts/python/main-eth.py" range="30:37" >}}
 {{< /tabs >}}
 
 ## Stream your first results
@@ -118,8 +118,8 @@ Want to inspect the full set of available fields you can retrieve?
 {{< /note >}}
 
 {{< tabs "define-query">}}
-{{< tab-code title="Go" filename="./quickstarts/go/main-eth.go" range=75:95 >}}
-{{< tab-code title="Python" filename="./quickstarts/python/main-eth.py" range=39:44 >}}
+{{< tab-code title="Go" filename="./quickstarts/go/main-eth.go" range="75:95" >}}
+{{< tab-code title="Python" filename="./quickstarts/python/main-eth.py" range="39:44" >}}
 {{< /tabs >}}
 
 And we can finally define the code needed to perform your first stream using
@@ -127,8 +127,8 @@ dfuse Search. The snippet initiate the connection with dfuse servers and start
 streaming transfers forever.
 
 {{< tabs "run-query">}}
-{{< tab-code title="Go" filename="./quickstarts/go/main-eth.go" range=97:129 >}}
-{{< tab-code title="Python" filename="./quickstarts/python/main-eth.py" range=46:58 >}}
+{{< tab-code title="Go" filename="./quickstarts/go/main-eth.go" range="97:129" >}}
+{{< tab-code title="Python" filename="./quickstarts/python/main-eth.py" range="46:58" >}}
 {{< /tabs >}}
 
 ## Run the code
