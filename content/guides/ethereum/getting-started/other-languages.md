@@ -81,7 +81,7 @@ protoc graphql/graphql.proto # add your language-specific flags here
 
 The code from the examples on this page lives {{< externalLink href="https://github.com/dfuse-io/docs/tree/master/quickstarts" title="in the quickstarts folder of this docs GitHub repository">}}.
 
-## 3. Generate a JWT from your API key
+## Generate a JWT from your API key
 
 The JWT is a token with a short expiration period, used to communicate with dfuse services. You will have to implement token caching and manage renewal upon expiration. See [Authentication]({{< relref "/guides/core-concepts/authentication" >}}) for details.
 
@@ -95,7 +95,7 @@ curl https://auth.dfuse.io/v1/auth/issue -s \
 {{< /tabs >}}
 
 
-## 4. Create the client
+## Create the client
 
 We can now define the client creation code. The client can be re-used across all the requests and streams you need to do, it should be properly cached at the appropriate level for your use case.
 
@@ -104,7 +104,7 @@ We can now define the client creation code. The client can be re-used across all
 {{< tab-code title="Python" filename="./quickstarts/python/main-eth.py" range=30:37 >}}
 {{< /tabs >}}
 
-## 5. Stream your first results
+## Stream your first results
 
 Let's first define the GraphQL operation, as a string, that we will use to perform
 GraphQL subscription. This element tells the backend server what fields to return
@@ -135,11 +135,11 @@ streaming transfers forever.
 {{< tabs "run-your-project">}}
 
 {{< tab title="Go" lang="shell" >}}
-    DFUSE_API_KEY="your dfuse api key here" go run main.go
+DFUSE_API_KEY="your dfuse api key here" go run main.go
 {{< /tab >}}
 
 {{< tab title="Python" lang="shell" >}}
-    DFUSE_API_KEY="your dfuse api key here" python main.py
+DFUSE_API_KEY="your dfuse api key here" python main.py
 {{< /tab >}}
 
 {{< /tabs >}}
