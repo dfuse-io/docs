@@ -32,7 +32,7 @@ subscription {
                 trace {
                     ...TransactionTraceFragment
                 }
-                confirmations
+                confirmationsher
             }
 
             ...on TrxTransitionForked {

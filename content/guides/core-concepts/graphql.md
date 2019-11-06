@@ -157,7 +157,7 @@ query {
 
 The GraphQL API provides cursors to enable pagination. With every response, you can receive a cursor that is a reference to a specific document. By providing this cursor in a subsequent request, the API will pick up where you left off.
 
-Besides pagination, cursors are instrumental when using subscriptions to deal with network disconnections. By using the cursor of your last succesful request, you can reconnect and continue streaming without missing any documents.
+Besides pagination, cursors are instrumental when using subscriptions to deal with network disconnections. By using the cursor of your last successful request, you can reconnect and continue streaming without missing any documents.
 
 [Try it on GraphiQL](https://mainnet.eth.dfuse.io/graphiql/?query=cXVlcnkgewogIHNlYXJjaFRyYW5zYWN0aW9ucyhxdWVyeTogInRvOjB4MDYwMTJjOGNmOTdCRWFENWRlQWUyMzcwNzBGOTU4N2Y4RTdBMjY2ZCIsIHNvcnQ6IERFU0MsIGxpbWl0OiAzKSB7CiAgICBwYWdlSW5mbyB7CiAgICAgIGVuZEN1cnNvcgogICAgfQogICAgZWRnZXMgewogICAgICBub2RlIHsKICAgICAgICBoYXNoCiAgICAgIH0KICAgIH0KICB9Cn0=)
 

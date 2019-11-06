@@ -12,20 +12,21 @@ Its use as a pointer in an interrupted search query.
 Describe how it applies to our technology, where it's used:
   * In search,
 -->
-A cursor is a control structure that enables traversal over records. Cursors facilitate subsequent processing of the traversal. It is akin to programming language concept of iterator. Cursors are a core concept within the dfuse ecosystem and is heavily used in dfuse Search. 
+A cursor is a control structure that enables traversal over records. Cursors facilitate subsequent processing of the traversal. It is akin to programming language concept of iterator. Cursors are a core concept within the dfuse ecosystem and is heavily used in dfuse Search.
+
+Besides pagination, cursors are instrumental when using subscriptions to deal with network disconnections. By using the cursor of your last successful request, you can reconnect and continue streaming without missing any documents. 
 
 We have a designed our cursor as an opaque structure that enables your query to sequential process the rows in your result set. This design gives us flexibility that if the pagination model changes in the future, the cursor format will remain the same.
 
 ## In search
+
+Our cursor is a chain-wide cursor. In other words it points to a specific transaction within a block, within a range. This allows to display results by pagionation or stream from that specific point in both directions. In addition the cursor is fork aware. If the paginated query of stream return a transaction that was forked, you will be notified that said transaction is forked via the `undo` field.
+
 <!--
-* Unlike other databases, our search cursor works in both direction.
-* It's a pointer to a transaction within a block, within a range.
-* It assumes the _same query_ is sent with the cursor.
-* A cursor cannot be used if the query doesn't include the range where it left off.
+Insert JC Diagram
 -->
 
-
-## In other pagination
+## Pagination in Ethereum
 <!--
 
 * In general, we also use cursors in Connection objects in GraphQL
