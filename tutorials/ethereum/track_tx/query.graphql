@@ -15,7 +15,7 @@ subscription {
                 trace {
                     ...TransactionTraceFragment
                 }
-                confirmationscontent/guides/ethereum/tutorials/track_trx.md
+                confirmations
                 replacedById
             }
 

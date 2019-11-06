@@ -26,7 +26,7 @@ function App() {
             trace {
             ...TransactionTraceFragment
             }
-            confirmationscontent/guides/ethereum/tutorials/track_trx.md
+            confirmations
             replacedById
           }
   
@@ -141,9 +141,9 @@ function App() {
             if (message.type === "data") {
                 var newTransition = {
                     key: `transition-${count}`,
-                    transition: message['data']['trackTransactionState']['transition']['__typename'],
-                    from: message['data']['trackTransactionState']['previousState'],
-                    to: message['data']['trackTransactionState']['currentState'],
+                    transition: message['data']['transaction']['transition']['__typename'],
+                    from: message['data']['transaction']['previousState'],
+                    to: message['data']['transaction']['currentState'],
                     data: message['data']
                 };
                 count++;
