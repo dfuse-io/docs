@@ -1,18 +1,20 @@
 ---
 weight: 1
+title: Work with your free Account
 ---
+{{< row-wrapper >}}
+{{< sub-section-title title="How to Work with your Free dfuse Account" protocol="ETH" >}}
+## 1. Create a free dfuse account
 
-# How to Work with your Free dfuse Account
+Visit {{< externalLink href="https://app.dfuse.io">}} to create an account.
 
-## Create a free dfuse account
-Visit [https://app.dfuse.io](https://app.dfuse.io)
+## 2. Create an api key
 
-## Create an api key
-Visit [https://app.dfuse.io/keys](https://app.dfuse.io/keys)
+Visit {{< externalLink href="https://app.dfuse.io/keys">}} to create your first api key.
 
 ![](/img/api_key_creation.png)
 
-Create a new API key for your application:
+To create a new API key for your application:
 
 * API Key Name: Used to identify your key in the portal. It should refer to your application.
 * Category:
@@ -20,9 +22,9 @@ Create a new API key for your application:
   - Mobile: You want to embed your API key in a mobile application deployed on an app store.
   - Server: You want to connect your server backend directly with our service.
 
-## Obtaining a Short-Lived JWT
+## 3. Obtaining a Short-Lived JWT
 
-Once you have this API key, call the [`https://auth.dfuse.io/v1/auth/issue` endpoint](#post-v1-auth-issue) to obtain a fresh Authentication Token using the following command. **Do not forget to replace the API key by your own!**
+Once you have this API key, call the [`https://auth.dfuse.io/v1/auth/issue` endpoint](#post-v1-auth-issue) to obtain a fresh authentication token using the following command. **Do not forget to replace the API key by your own!**
 
 {{< tabs "issuing-long-jwt">}}
 {{< tab title="Request" lang="shell" >}}
@@ -37,4 +39,8 @@ curl https://auth.dfuse.io/v1/auth/issue -s --data-binary '{"api_key":"web_abcde
 {{< /tab >}}
 {{< /tabs >}}
 
-### See our complete Authentication Guide [here]({{< ref "/guides/core-concepts/authentication" >}})
+## 4. What's next? 
+
+* [Review Authentication Guide]({{< ref "/guides/core-concepts/authentication" >}})
+
+{{< row-wrapper-end >}}

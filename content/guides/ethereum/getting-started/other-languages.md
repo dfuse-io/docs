@@ -1,15 +1,15 @@
 ---
-weight: 4
+weight: 20
 ---
 
-# Getting Started with Other Languages
+{{< row-wrapper >}}
+{{< sub-section-title title="Getting Started with Other Languages"  protocol="ETH" >}}
 
 The code from the examples on this page lives {{< externalLink href="https://github.com/dfuse-io/docs/tree/master/quickstarts" title="in the quickstarts folder of this docs GitHub repository">}}.
 
-## Get a dfuse API Key
+## 1. Get a dfuse API Key
 
-* Create your account on https://app.dfuse.io
-* Click "Create New Key" and give it a name, a category (and value of the "Origin" header in the case of a web key). See [Authentication]({{< relref "/guides/core-concepts/authentication" >}}) for details.
+{{< dfuse-account-creation >}}
 
 ## Initiate your project
 ### Generate the client stub and dependencies for your language
@@ -25,7 +25,7 @@ git clone https://github.com/dfuse-io/graphql-over-grpc.git
 mkdir my-project
 cd my-project
 
-# You can install protoc by following those instructions 
+# You can install protoc by following those instructions
 # https://grpc.io/docs/quickstart/go.html#before-you-begin
 
 protoc -I ../graphql-over-grpc ../graphql-over-grpc/graphql/graphql.proto --go_out=plugins=grpc:.
@@ -74,7 +74,7 @@ protoc graphql/graphql.proto # add your language-specific flags here
 
 The code from the examples on this page lives {{< externalLink href="https://github.com/dfuse-io/docs/tree/master/quickstarts" title="in the quickstarts folder of this docs GitHub repository">}}.
 
-## Generate a JWT from your API key
+## 3. Generate a JWT from your API key
 
 The JWT is a token with a short expiration period, used to communicate with dfuse services. You will have to implement token caching and manage renewal upon expiration. See [Authentication]({{< relref "/guides/core-concepts/authentication" >}}) for details.
 
@@ -88,7 +88,7 @@ curl https://auth.dfuse.io/v1/auth/issue -s \
 {{< /tabs >}}
 
 
-## Create the client
+## 4. Create the client
 
 We can now define the client creation code. The client can be re-used across all the requests and streams you need to do, it should be properly cached at the appropriate level for your use case.
 
@@ -97,7 +97,7 @@ We can now define the client creation code. The client can be re-used across all
 {{< tab-code title="Python" filename="./quickstarts/python/main.py" range=30:41 >}}
 {{< /tabs >}}
 
-## Stream your first results
+## 5. Stream your first results
 
 Let's first define the GraphQL operation, as a string, that we will use to perform
 GraphQL subscription. This element tells the backend server what fields to return
@@ -137,7 +137,7 @@ streaming transfers forever.
 {{< /tabs >}}
 
 
-# What to do next ?
+# What to do next?
 
 * [GraphQL API Reference]({{< ref "/reference/ethereum/graphql" >}})
 * {{< externalLink href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMocXVlcnk6ICItdmFsdWU6MCB0eXBlOmNhbGwiLCBsb3dCbG9ja051bTogLTEpIHsKICAgIHVuZG8gY3Vyc29yCiAgICBub2RlIHsgaGFzaCBtYXRjaGluZ0NhbGxzIHsgY2FsbGVyIGFkZHJlc3MgdmFsdWUoZW5jb2Rpbmc6RVRIRVIpIH0gfQogIH0KfQ==" title="GraphiQL, online query editor with completion and docs">}}
@@ -147,3 +147,4 @@ streaming transfers forever.
 * [GraphQL]({{< relref "/guides/core-concepts/graphql" >}})
 * [Search Features]({{< relref "/guides/core-concepts/search-features" >}})
 
+{{< row-wrapper-end >}}

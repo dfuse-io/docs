@@ -5,7 +5,7 @@ title: Using dfuse Events
 
 {{< row-wrapper >}}
 
-{{< sub-section-title title="Using dfuse Events" awesome-icon="far fa-book-spells" icon-link="/img/icon-crypto-currency-eosio-01.svg" >}}
+{{< sub-section-title title="Using dfuse Events" protocol="EOS" >}}
 
 dfuse Events are a powerful way to give smart contract developers a
 way to ask dfuse Search to index their transactions, with arbitrary

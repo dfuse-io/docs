@@ -1,9 +1,10 @@
 ---
-weight: 1
+weight: 10
 title: JavaScript Quickstart
 ---
 
-# JavaScript Quickstart
+{{< row-wrapper >}}
+{{< sub-section-title title="JavaScript Quickstart" protocol="EOS" >}}
 
 In this guide we will show you how to create a basic setup so you can benefit from the dfuse GraphQL API under
 on of supported JavaScript environment:
@@ -43,8 +44,7 @@ yarn init -y
 
 ## 1. Get a dfuse API Key
 
-* Create your account on {{< externalLink href="https://app.dfuse.io">}}
-* Click "Create New Key" and give it a name, a category (and value of the "Origin" header in the case of a web key). See [Authentication]({{< relref "/guides/core-concepts/authentication" >}}) for details.
+{{< dfuse-account-creation >}}
 
 ## 2. Adding the Client Library
 
@@ -113,9 +113,9 @@ connect to.
 Valid networks can be found at [EOSIO API Endpoints]({{< ref "reference/eosio/endpoints" >}})
 
 {{< tabs "create-client" >}}
-{{< tab-code title="Node.js" filename="./quickstarts/javascript/node.js/index.eosio.js" range=4:9 >}}
-{{< tab-code title="Bundler" filename="./quickstarts/javascript/bundler/index.eosio.js" range=1:6 >}}
-{{< tab-code title="Browser" filename="./quickstarts/javascript/browser/index.eosio.html" range=1:11 >}}
+{{< tab-code title="Node.js" filename="./quickstarts/javascript/node.js/index.eosio.js" range="4:9" >}}
+{{< tab-code title="Bundler" filename="./quickstarts/javascript/bundler/index.eosio.js" range="1:6" >}}
+{{< tab-code title="Browser" filename="./quickstarts/javascript/browser/index.eosio.html" range="1:11" >}}
 {{< /tabs >}}
 
 ## 4. Stream your first results
@@ -132,9 +132,9 @@ Want to inspect the full set of available fields you can retrieve?
 {{< /note >}}
 
 {{< tabs "define-query">}}
-{{< tab-code title="Node.js" filename="./quickstarts/javascript/node.js/index.eosio.js" range=11:17 >}}
-{{< tab-code title="Bundler" filename="./quickstarts/javascript/bundler/index.eosio.js" range=8:14 >}}
-{{< tab-code title="Browser" filename="./quickstarts/javascript/browser/index.eosio.html" range=13:21 >}}
+{{< tab-code title="Node.js" filename="./quickstarts/javascript/node.js/index.eosio.js" range="11:17" >}}
+{{< tab-code title="Bundler" filename="./quickstarts/javascript/bundler/index.eosio.js" range="8:14" >}}
+{{< tab-code title="Browser" filename="./quickstarts/javascript/browser/index.eosio.html" range="13:21" >}}
 {{< /tabs >}}
 
 Next, you create the GraphQL subscription to stream transfers as they come. You will use the `searchTransactionsForward` operation, with the `"receiver:eosio.token action:transfer -data.quantity:'0.0001 EOS'"` query (See the [Search Query Language reference here]({{< ref "/reference/eosio/search-terms" >}})). This basically means, give me all transactions containing one or more
@@ -144,9 +144,9 @@ You can combine the dfuse client instance we created in step 3 with the GraphQL 
 a `main` function:
 
 {{< tabs "execute-query">}}
-{{< tab-code title="Node.js" filename="./quickstarts/javascript/node.js/index.eosio.js" range=19:43 >}}
-{{< tab-code title="Bundler" filename="./quickstarts/javascript/bundler/index.eosio.js" range=16:52 >}}
-{{< tab-code title="Browser" filename="./quickstarts/javascript/browser/index.eosio.html" range=23:60 >}}
+{{< tab-code title="Node.js" filename="./quickstarts/javascript/node.js/index.eosio.js" range="19:43" >}}
+{{< tab-code title="Bundler" filename="./quickstarts/javascript/bundler/index.eosio.js" range="16:52" >}}
+{{< tab-code title="Browser" filename="./quickstarts/javascript/browser/index.eosio.html" range="23:60" >}}
 {{< /tabs >}}
 
 The function passed as the 2nd parameter to `client.graphql()` will be called every time a new result is returned
@@ -163,14 +163,14 @@ Transfer bluebetproxy -> bluebetbulls [0.6000 EOS]
 ...
 {{< /code-block >}}
 
-# 6. Full Working Examples
+## 5. Full Working Examples
 
 Here the small glue code containing the `main` function, imports and other helper functions to run the example:
 
 {{< tabs "support-code">}}
-{{< tab-code title="Node.js" filename="./quickstarts/javascript/node.js/index.eosio.js" range=45:45 >}}
-{{< tab-code title="Bundler" filename="./quickstarts/javascript/bundler/index.eosio.js" range=54:54 >}}
-{{< tab-code title="Browser" filename="./quickstarts/javascript/browser/index.eosio.html" range=61:63 >}}
+{{< tab-code title="Node.js" filename="./quickstarts/javascript/node.js/index.eosio.js" range="45:45" >}}
+{{< tab-code title="Bundler" filename="./quickstarts/javascript/bundler/index.eosio.js" range="54:54" >}}
+{{< tab-code title="Browser" filename="./quickstarts/javascript/browser/index.eosio.html" range="61:63" >}}
 {{< /tabs >}}
 
 {{< tabs "full-working">}}
@@ -211,7 +211,7 @@ start index.eosio.thml      # Windows
 
 {{< /tabs >}}
 
-# 7. What to do next ?
+## 6. What's next?
 
 * [GraphQL API Reference]({{< ref "/reference/eosio/graphql" >}})
 * [REST API Reference]({{< ref "/reference/eosio/rest" >}})
@@ -221,3 +221,5 @@ start index.eosio.thml      # Windows
 * {{< externalLink title="The `@dfuse/client-js` overview document" href="https://github.com/dfuse-io/client-js/blob/master/README.md#dfuse-javascripttypescript-client-library" >}}
 * {{< externalLink title="The `@dfuse/client-js` quick API reference" href="https://github.com/dfuse-io/client-js/blob/master/README.md#api" >}} ({{< externalLink title="Full API reference" href="https://dfuse-io.github.io/client-js/" >}})
 * {{< externalLink title="GraphiQL, online query editor with completion and docs" href="https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKHF1ZXJ5OiJyZWNlaXZlcjplb3Npby50b2tlbiBhY3Rpb246dHJhbnNmZXIgLWRhdGEucXVhbnRpdHk6JzAuMDAwMSBFT1MnIikgewogICAgdW5kbyBjdXJzb3IKICAgIHRyYWNlIHsgaWQgbWF0Y2hpbmdBY3Rpb25zIHsganNvbiB9IH0KICB9Cn0=" >}}
+
+{{< row-wrapper-end >}}

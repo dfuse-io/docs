@@ -2,8 +2,8 @@
 title: Cursors
 weight: 30
 ---
-
-# Cursors
+{{< row-wrapper >}}
+{{< sub-section-title title="Cursors" >}}
 
 <!--
 
@@ -37,3 +37,4 @@ Describe how it applies to our technology, where it's used:
 * Link to Facebook's doc, and link to Pagination/Connection article in this section.
 
 -->
+{{< row-wrapper-end >}}

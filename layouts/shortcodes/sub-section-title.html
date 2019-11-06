@@ -1,0 +1,34 @@
+<div class="row sub-section-title-row">
+    <div class="col-12">
+        {{ $protocol := .Get "protocol" }}
+        {{ with (eq $protocol "ETH") }}
+          <div class="pill-icon-wrapper">
+            <div class="pill-icon-content">
+              <div class="pill-icon" style="background-image: url('/img/icon-crypto-currency-ethereum-01.svg');">
+              </div>
+            </div>
+          </div>
+        {{ end }}
+        {{ with (eq $protocol "EOS") }}
+          <div class="pill-icon-wrapper">
+            <div class="pill-icon-content">
+              <div class="pill-icon" style="background-image: url('/img/icon-crypto-currency-eosio-01.svg');">
+              </div>
+            </div>
+          </div>
+        {{ end }}
+        {{ with (eq $protocol "") }}
+          <div class="pill-icon-wrapper">
+            <div class="pill-icon-content">
+              <div class="pill-icon" style="background-image: url('/img/dfuse-logo.svg');">
+              </div>
+            </div>
+          </div>
+        {{ end }}
+        <h1 class="sub-section-title">
+            {{ if .Get "title" }}{{ .Get "title" }}{{ end }}
+        </h1>
+    </div>
+</div>
+
+

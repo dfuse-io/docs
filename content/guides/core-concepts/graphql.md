@@ -3,6 +3,7 @@ title: GraphQL
 weight: 20
 ---
 
+
 <!--
 
 TODO: this article lists many examples.. disseminate the examples in the right sections.
@@ -21,7 +22,8 @@ Steal everything from: https://developer.github.com/v4/guides/forming-calls/#the
 
 -->
 
-# GraphQL
+{{< row-wrapper >}}
+{{< sub-section-title title="GraphQL" >}}
 
 ## Getting Started with GraphQL
 
@@ -487,3 +489,5 @@ Batched operations are always as slow as the slowest operation in the batch.
 [insert PHP example]
 
 -->
+
+{{< row-wrapper-end >}}

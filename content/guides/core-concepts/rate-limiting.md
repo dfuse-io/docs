@@ -13,7 +13,8 @@ TODO: list all our rate limiting features,
 
 -->
 
-# Rate Limiting
+{{< row-wrapper >}}
+{{< sub-section-title title="Rate Limiting" >}}
 
 ## Authentication
 
@@ -22,3 +23,5 @@ TODO: list all our rate limiting features,
 ## REST endpoints
 
 ## Websocket endpoints
+
+{{< row-wrapper-end >}}

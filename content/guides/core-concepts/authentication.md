@@ -1,17 +1,19 @@
 ---
 weight: 10
 ---
-
-# Authentication
+{{< row-wrapper >}}
+{{< sub-section-title title="Authentication" >}}
 
 There are two sorts of keys in the dfuse ecosystem:
 
 1. A long-lived API key, which will resemble `server_abcdef123123123000000000000000000`, used to generate short-lived <a href="https://jwt.io/" title="JSON Web Tokens">JWT</a>.
 2. A short-lived JWT, used when performing any call on the dfuse Platform, which looks like:
 
-```
+{{< tabs "auth-token" >}}
+{{< tab lang="shell" title="JWT token" >}}
 eyJhbGciOiJLTVNFUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NTYxMzI4MjAsImp0aSI6IjQwNWVmOTUxLTAwZTYtNGJmNC1hZWMxLTU0NTU1ZWMzMTUwMiIsImlhdCI6MTU1NjA0NjQyMCwiaXNzIjoiZGZ1c2UuaW8iLCJzdWIiOiJ1aWQ6MHdlbnU2NmUwNzU4OWRhODY4MWNlIiwiYWtpIjoiM2NhYWEzYzA3M2FlZjVkMmYxOGUwNjJmZDkzYzg3YzMzYWIxYzA1YzEzNjI3NjU2OTgzN2Y5NDc5NzZlMjM0YSIsInRpZXIiOiJmcmVlLXYxIiwic3RibGsiOi0zNjAwLCJ2IjoxfQ.000HeTujIuS_LRvvPN6ZRCmtoZqZyV6P1enNBviwK8v7Tf7BLHJIrEpQoEREKSIMdZWPrMQl_OE55yJP0MxUDA
-```
+{{< /tab >}}
+{{< /tabs >}}
 
 ## Obtaining a Long-Lived API Key
 
@@ -106,3 +108,5 @@ When doing `POST` calls to the `/graphql` endpoint, you must specify the `Author
 ## GraphQL over gRPC Authentication
 
 Using the language of your choice, use the `OAuth2` authentication method with gRPC. Set the `OAuth2 Access Token` to be your JWT, and if required, specify `Bearer` as the method, then proceed normally. This will set the `authorization` gRPC header, similiar to the HTTP header of the same name.
+
+{{< row-wrapper-end >}}

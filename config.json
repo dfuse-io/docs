@@ -11,6 +11,7 @@
       "guides": "show",
       "reference": "show"
     },
+    "CustomCss" : ["css/override.css"],
     "BookRepo": "https://github.com/dfuse-io/docs",
     "BookEditPath": "edit/master/content",
     "tagline": "API Documentation",

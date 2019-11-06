@@ -2,7 +2,9 @@
 weight: 40
 ---
 
-# Search Features/Language
+{{< row-wrapper >}}
+{{< sub-section-title title="Search Features/Language" >}}
+
 
 **dfuse Search** uses a simplified query language to reach unparalleled and predictable performances.
 
@@ -142,3 +144,5 @@ using. Refers to the following specific search range pages for the blockchain yo
 
 - [EOSIO]({{< ref "/guides/eosio/concepts/search-ranges" >}})
 - [Ethereum]({{< ref "/guides/ethereum/concepts/search-ranges" >}})
+
+{{< row-wrapper-end >}}

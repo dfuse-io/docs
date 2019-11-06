@@ -38,7 +38,7 @@ This project was bootstrapped using those commands:
 ```
 npm init -y
 npm install @dfuse/client
-npm install --only=dev webpack webpack-cli
+npm install --save-dev webpack webpack-cli
 
 cat <<EOD > webpack.prod.js
 const { EnvironmentPlugin } = require('webpack')

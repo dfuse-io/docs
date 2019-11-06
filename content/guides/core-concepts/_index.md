@@ -5,7 +5,7 @@ title: Core Concepts
 
 {{< row-wrapper >}}
 
-{{< sub-section-title title="Core Concepts" awesome-icon="far fa-book-spells" icon-link="/img/dfuse-logo.svg" >}}
+{{< sub-section-title title="Core Concepts" >}}
 
 Working with dfuse should be dead simple while remaining highly powerful ensuring you
 retrieve all the data you need while never missing a single piece of information in
@@ -18,11 +18,11 @@ grade dapps.
 Everything in this section are general dfuse concepts that are chain agnostic, i.e.
 that works across all supported chains and over the entire dfuse APIs.
 
-- [Authentication]({{< ref "./authentication" >}})
-- [Billing]({{< ref "./billing" >}})
-- [Cursors]({{< ref "./cursors" >}})
-- [GraphQL]({{< ref "./graphql" >}})
-- [Rate Limiting]({{< ref "./rate-limiting" >}})
-- [Search Languages & Features]({{< ref "./search-features" >}})
+- [Authentication]({{< ref "/guides/core-concepts/authentication" >}})
+- [Billing]({{< ref "/guides/core-concepts/billing" >}})
+- [Cursors]({{< ref "/guides/core-concepts/cursors" >}})
+- [GraphQL]({{< ref "/guides/core-concepts/graphql" >}})
+- [Rate Limiting]({{< ref "/guides/core-concepts/rate-limiting" >}})
+- [Search Languages & Features]({{< ref "/guides/core-concepts/search-features" >}})
 
 {{< row-wrapper-end >}}
