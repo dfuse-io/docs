@@ -4,7 +4,14 @@ We welcome contributions to improve the documentation. Simply open a pull reques
 
 ## Requirements
 
-- Hugo **Extended** (with SCSS support), version 0.55 or higher
+- Hugo **Extended** (with SCSS support), version 0.58.3 or higher
+- Install from source (with SCSS support) with:
+
+```
+git checkout github.com/gohugoio/hugo
+cd hugo
+go install -v --tags extended
+```
 
 ## Development
 
@@ -43,5 +50,3 @@ All content can be found in the `/content` directory. The structure of the websi
 ## Deployment
 
 Any commit to master automatically triggers a deployment. For this reason, the master branch is locked, requiring all changes to go through an approved pull request.
-
-
