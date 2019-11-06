@@ -1,9 +1,10 @@
 ---
-weight: 20
+weight: 10
 title: JavaScript Quickstart
 ---
 
-# JavaScript Quickstart
+{{< row-wrapper >}}
+{{< sub-section-title title="JavaScript Quickstart" protocol="EOS" >}}
 
 In this guide we will show you how to create a basic setup so you can benefit from the dfuse GraphQL API under
 on of supported JavaScript environment:
@@ -220,3 +221,5 @@ start index.eosio.thml      # Windows
 * {{< externalLink title="The `@dfuse/client-js` overview document" href="https://github.com/dfuse-io/client-js/blob/master/README.md#dfuse-javascripttypescript-client-library" >}}
 * {{< externalLink title="The `@dfuse/client-js` quick API reference" href="https://github.com/dfuse-io/client-js/blob/master/README.md#api" >}} ({{< externalLink title="Full API reference" href="https://dfuse-io.github.io/client-js/" >}})
 * {{< externalLink title="GraphiQL, online query editor with completion and docs" href="https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKHF1ZXJ5OiJyZWNlaXZlcjplb3Npby50b2tlbiBhY3Rpb246dHJhbnNmZXIgLWRhdGEucXVhbnRpdHk6JzAuMDAwMSBFT1MnIikgewogICAgdW5kbyBjdXJzb3IKICAgIHRyYWNlIHsgaWQgbWF0Y2hpbmdBY3Rpb25zIHsganNvbiB9IH0KICB9Cn0=" >}}
+
+{{< row-wrapper-end >}}

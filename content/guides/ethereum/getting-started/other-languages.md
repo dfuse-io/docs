@@ -2,7 +2,8 @@
 weight: 20
 ---
 
-# Getting Started with Other Languages
+{{< row-wrapper >}}
+{{< sub-section-title title="Getting Started with Other Languages"  protocol="ETH" >}}
 
 The code from the examples on this page lives {{< externalLink href="https://github.com/dfuse-io/docs/tree/master/quickstarts" title="in the quickstarts folder of this docs GitHub repository">}}.
 
@@ -137,3 +138,4 @@ The code from the examples on this page lives {{< externalLink href="https://git
 * [GraphQL]({{< relref "/guides/core-concepts/graphql" >}})
 * [Search Features]({{< relref "/guides/core-concepts/search-features" >}})
 
+{{< row-wrapper-end >}}
