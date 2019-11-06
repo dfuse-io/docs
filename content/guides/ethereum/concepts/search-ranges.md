@@ -5,7 +5,7 @@ title: Search Ranges
 
 {{< row-wrapper >}}
 
-{{< sub-section-title title="Ethereum Search Ranges" awesome-icon="far fa-book-spells" icon-link="/img/icon-crypto-currency-ethereum-01.svg" >}}
+{{< sub-section-title title="Ethereum Search Ranges" protocol="ETH" >}}
 
 This page gives information about the searched range for various combinations of `lowBlockNum` and
 `highBlockNum` when using our search engine as well as the implications of using a `cursor` or deciding

@@ -5,7 +5,7 @@ title: Tutorials
 
 {{< row-wrapper >}}
 
-{{< sub-section-title title="Ethereum Tutorials" awesome-icon="far fa-book-spells" icon-link="/img/icon-crypto-currency-ethereum-01.svg" >}}
+{{< sub-section-title title="Ethereum Tutorials" protocol="ETH" >}}
 
 In this section, you will find the list of tutorials currently written when you
 can more easily map your use case to one or more dfuse concepts under a concrete

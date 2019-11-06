@@ -6,7 +6,7 @@ date:
 
 {{< row-wrapper >}}
 
-{{< sub-section-title title="Push notifications from the chain" awesome-icon="far fa-book-spells" icon-link="/img/icon-crypto-currency-eosio-01.svg" >}}
+{{< sub-section-title title="Push notifications from the chain"  protocol="EOS" >}}
 
 ## Token Management
 

@@ -5,7 +5,7 @@ title: Core Concepts
 
 {{< row-wrapper >}}
 
-{{< sub-section-title title="Core Concepts" awesome-icon="far fa-book-spells" icon-link="/img/dfuse-logo.svg" >}}
+{{< sub-section-title title="Core Concepts" >}}
 
 Working with dfuse should be dead simple while remaining highly powerful ensuring you
 retrieve all the data you need while never missing a single piece of information in

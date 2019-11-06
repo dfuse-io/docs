@@ -5,7 +5,7 @@ title: Tutorials
 
 {{< row-wrapper >}}
 
-{{< sub-section-title title="EOSIO Tutorials" awesome-icon="far fa-book-spells" icon-link="/img/icon-crypto-currency-eosio-01.svg" >}}
+{{< sub-section-title title="EOSIO Tutorials" protocol="EOS" >}}
 
 In this section, you will find the list of tutorials currently written when you
 can more easily map your use case to one or more dfuse concepts under a concrete

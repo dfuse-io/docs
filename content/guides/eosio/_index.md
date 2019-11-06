@@ -4,7 +4,7 @@ weight: 1
 
 {{< row-wrapper >}}
 
-{{< sub-section-title title="EOSIO" awesome-icon="far fa-book-spells" icon-link="/img/icon-crypto-currency-eosio-01.svg" >}}
+{{< sub-section-title title="EOSIO" protocol="EOS" >}}
 
 {{< sub-section-columns class="col-4" >}}
 
