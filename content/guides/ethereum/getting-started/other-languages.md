@@ -153,6 +153,6 @@ DFUSE_API_KEY="your dfuse api key here" python main.py
 * [Authentication]({{< relref "/guides/core-concepts/authentication" >}})
 * [Cursors]({{< relref "/guides/core-concepts/cursors" >}})
 * [GraphQL]({{< relref "/guides/core-concepts/graphql" >}})
-* [Search Features]({{< relref "/guides/core-concepts/search-features" >}})
+* [Search Query Language]({{< relref "/guides/core-concepts/search-query-language" >}})
 
 {{< row-wrapper-end >}}

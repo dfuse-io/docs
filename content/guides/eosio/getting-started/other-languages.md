@@ -162,6 +162,6 @@ DFUSE_API_KEY="server_abcdef12345678900000000000" python main.py eosio
 * [Authentication]({{< relref "/guides/core-concepts/authentication" >}})
 * [Cursors]({{< relref "/guides/core-concepts/cursors" >}})
 * [GraphQL]({{< relref "/guides/core-concepts/graphql" >}})
-* [Search Features]({{< relref "/guides/core-concepts/search-features" >}})
+* [Search Query Language]({{< relref "/guides/core-concepts/search-query-language" >}})
 
 {{< row-wrapper-end >}}
