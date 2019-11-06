@@ -84,7 +84,7 @@ Each of these fields have specific attributes that you can choose to display
 {{< tabs "trx-lifecycle-query-fields-transition">}}
 {{< tab title="Graphql Query" lang="graphql" >}}
 subscription{
-  trackTransactionState(hash: "0x3be3b44ae48a074d3b79e3054bb3b62b5c5e5a8fc2210cd1dc7c7932ae5addcd"){
+  transaction(hash: "0x3be3b44ae48a074d3b79e3054bb3b62b5c5e5a8fc2210cd1dc7c7932ae5addcd"){
     previousState
     currentState
     transition {

@@ -10,7 +10,7 @@ function App() {
 
     let streamTransactionQuery = `
      subscription($hash: String!){
-      trackTransactionState(hash: $hash){
+      transaction(hash: $hash){
         previousState
         currentState
         transition{

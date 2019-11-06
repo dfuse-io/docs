@@ -8,13 +8,11 @@ body {
     letter-spacing: 1px;
     border: none!important;
     padding: 0;
-    text-transform: uppercase;
     font-size: .9rem;
     margin-top: 0;
 }
 
 .toc-level-H1 {
-    text-transform: lowercase;
 }
 
 h1 {
