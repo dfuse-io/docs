@@ -1,7 +1,8 @@
 {{ $bookSections := where .Site.Sections "Section" .Page.Section }}
 {{ $section := index $bookSections 0 }}
 
-<h2>{{ $section.Title }}</h2>
+<h2><a href="{{ $section.RelPermalink }}">{{ $section.Title }}</a></h2>
+
 
 {{ template "book-section-children" (dict "Section" $section "CurrentPage" .Page) }}
 
