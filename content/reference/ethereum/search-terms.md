@@ -1,5 +1,6 @@
 ---
 weight: 20
+title: Search Terms
 ---
 
 # Search Terms for Ethereum
@@ -19,6 +20,12 @@ The following terms are supported:
 
 * description: type of this EVM **call**
 * accepted values: `CALL`, `CALLCODE`, `DELEGATE`, `STATIC` or `CREATE`
+
+### `callIndex` _uint_
+
+* description: Index of this call in the transaction. The transaction's `to` and `from` fields will match the call's `to` and `from` fields at callIndex=0
+* example: `callIndex:0 from:0x59a5208B32e627891C389EbafC644145224006E8`
+
 
 ### `signer` _address_
 

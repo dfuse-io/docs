@@ -23,6 +23,6 @@ that works across all supported chains and over the entire dfuse APIs.
 - [Cursors]({{< ref "/guides/core-concepts/cursors" >}})
 - [GraphQL]({{< ref "/guides/core-concepts/graphql" >}})
 - [Rate Limiting]({{< ref "/guides/core-concepts/rate-limiting" >}})
-- [Search Languages & Features]({{< ref "/guides/core-concepts/search-features" >}})
+- [Search Query Language]({{< ref "/guides/core-concepts/search-query-language" >}})
 
 {{< row-wrapper-end >}}

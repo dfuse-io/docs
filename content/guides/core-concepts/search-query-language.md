@@ -3,8 +3,7 @@ weight: 40
 ---
 
 {{< row-wrapper >}}
-{{< sub-section-title title="Search Features/Language" >}}
-
+{{< sub-section-title title="Search Query Language" >}}
 
 **dfuse Search** uses a simplified query language to reach unparalleled and predictable performances.
 
