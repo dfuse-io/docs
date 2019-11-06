@@ -30,15 +30,20 @@ The following terms are supported:
 * description: nonce of the **transaction**
 * example: `nonce:80023`
 
-### `address` _address_
+### `to` _address_
 
-* description: address of the contract in the **call**
-* example: `address:0x774af44fc5ad4eab986e989fa274b0dd2159be7b`
+* description: address of the called contract or target account of a transfer **call**
+* example: `to:0x774af44fc5ad4eab986e989fa274b0dd2159be7b`
 
-### `value` _integer_
+### `from` _address_
 
-* description: Ether value of the transfer in WEI in this **call**
-* example: `value:60000000000`
+* description: the account performing the **call**. This can be an Externally Owned Account, in the case of the top-level transaction, or another contract account, in the case of internal transactions
+* example: `from:0x774af44fc5ad4eab986e989fa274b0dd2159be7b`
+
+### `value` _integer_ or _hex_
+
+* description: Ether value of a transfer **call** in WEI
+* example: `value:60000000000` or `value:0xdf8475800`
 
 ### `method` _string_ or _4-bytes hexdata_
 
