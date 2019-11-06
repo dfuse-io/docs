@@ -24,7 +24,7 @@ git clone https://github.com/dfuse-io/graphql-over-grpc.git
 mkdir my-project
 cd my-project
 
-# You can install protoc by following those instructions 
+# You can install protoc by following those instructions
 # https://grpc.io/docs/quickstart/go.html#before-you-begin
 
 protoc -I ../graphql-over-grpc ../graphql-over-grpc/graphql/graphql.proto --go_out=plugins=grpc:.
@@ -71,8 +71,8 @@ protoc graphql/graphql.proto # add your language-specific flags here
 The JWT is a token with a short expiration period, used to communicate with dfuse services. You will have to implement token caching and manage renewal upon expiration. See [Authentication]({{< relref "/guides/core-concepts/authentication" >}}) for details.
 
 {{< tabs "generate-jwt">}}
-{{< tab-code title="Go" filename="./quickstarts/go/main-eth.go" range=21:39 >}}
-{{< tab-code title="Python" filename="./quickstarts/python/main.py" range=17:28 >}}
+{{< tab-code title="Go" filename="./quickstarts/go/main-eth.go" range="21:39" >}}
+{{< tab-code title="Python" filename="./quickstarts/python/main.py" range="17:28" >}}
 {{< tab title="Shell" lang="shell" >}}
 curl https://auth.dfuse.io/v1/auth/issue -s \
   --data-binary '{"api_key":"server_abcdef12345678900000000000"}'
@@ -88,8 +88,8 @@ requests and streams you need to do, it should be properly cached at the appropr
 level for your use case.
 
 {{< tabs "create-client" >}}
-{{< tab-code title="Go" filename="./quickstarts/go/main-eth.go" range=41:59 >}}
-{{< tab-code title="Python" filename="./quickstarts/python/main.py" range=30:41 >}}
+{{< tab-code title="Go" filename="./quickstarts/go/main-eth.go" range="41:59" >}}
+{{< tab-code title="Python" filename="./quickstarts/python/main.py" range="30:41" >}}
 {{< /tabs >}}
 
 ## 5. Stream your first results
@@ -106,8 +106,8 @@ Want to inspect the full set of available fields you can retrieve?
 {{< /note >}}
 
 {{< tabs "define-query">}}
-{{< tab-code title="Go" filename="./quickstarts/go/main-eth.go" range=54:74 >}}
-{{< tab-code title="Python" filename="./quickstarts/python/main.py" range=47:52 >}}
+{{< tab-code title="Go" filename="./quickstarts/go/main-eth.go" range="54:74" >}}
+{{< tab-code title="Python" filename="./quickstarts/python/main.py" range="47:52" >}}
 {{< /tabs >}}
 
 And we can finally define the code needed to perform your first stream using
@@ -115,8 +115,8 @@ dfuse Search. The snippet initiate the connection with dfuse servers and start
 streaming transfers forever.
 
 {{< tabs "run-query">}}
-{{< tab-code title="Go" filename="./quickstarts/go/main-eth.go" range=76:109 >}}
-{{< tab-code title="Python" filename="./quickstarts/python/main.py" range=54:68 >}}
+{{< tab-code title="Go" filename="./quickstarts/go/main-eth.go" range="76:109" >}}
+{{< tab-code title="Python" filename="./quickstarts/python/main.py" range="54:68" >}}
 {{< /tabs >}}
 
 ## 6. Full working examples
@@ -124,8 +124,8 @@ streaming transfers forever.
 The code from the examples on this page lives {{< externalLink href="https://github.com/dfuse-io/docs/tree/master/quickstarts" title="in the quickstarts folder of this docs GitHub repository">}}.
 
 {{< tabs "full-working">}}
-{{< tab-code title="Go" filename="./quickstarts/go/main-eth.go" range=1:163 >}}
-{{< tab-code title="Python" filename="./quickstarts/python/main.py" range=1:109 >}}
+{{< tab-code title="Go" filename="./quickstarts/go/main-eth.go" range="1:163" >}}
+{{< tab-code title="Python" filename="./quickstarts/python/main.py" range="1:109" >}}
 {{< /tabs >}}
 
 ## 7. What's next?

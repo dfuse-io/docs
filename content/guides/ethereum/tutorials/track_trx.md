@@ -46,13 +46,13 @@ npm install --save @dfuse/client
 Import the necessary functions from `dfuse/client` a the top of `src/App.js`
 
 {{< tabs "setting-up-dfuse-client1-import">}}
-{{< tab-code title="src/App.js" filename="./tutorials/ethereum/track_tx/App.js" range=1:3 >}}
+{{< tab-code title="src/App.js" filename="./tutorials/ethereum/track_tx/App.js" range="1:3" >}}
 {{< /tabs >}}
 
 Initialize the dfuse client using the API key you created in the first step. Lets create the `dfuseClient` right after the `function App()` declaration.
 
 {{< tabs "setting-up-dfuse-client1-initialize">}}
-{{< tab-code title="src/App.js" filename="./tutorials/ethereum/track_tx/App.js" range=6:10 >}}
+{{< tab-code title="src/App.js" filename="./tutorials/ethereum/track_tx/App.js" range="6:10" >}}
 {{< /tabs >}}
 
 ## 5. Craft the graphQL query
@@ -70,7 +70,7 @@ Do not worry this query may see intimidating but it is broken down in  {{< exter
 {{< /tip >}}
 
 {{< tabs "tracker-query">}}
-{{< tab-code title="src/App.js" filename="./tutorials/ethereum/track_tx/App.js" range=11:121 >}}
+{{< tab-code title="src/App.js" filename="./tutorials/ethereum/track_tx/App.js" range="11:121" >}}
 {{< /tabs >}}
 
 ## 6. Setup Our Hooks
@@ -83,7 +83,7 @@ Lets setup a few hooks that will help us keep track of our transaction states an
 * `error`: store our errors
 
 {{< tabs "setup-hooks">}}
-{{< tab-code title="src/App.js" filename="./tutorials/ethereum/track_tx/App.js" range=123:126 >}}
+{{< tab-code title="src/App.js" filename="./tutorials/ethereum/track_tx/App.js" range="123:126" >}}
 {{< /tabs >}}
 
 ## 7. Get a transaction state
@@ -143,7 +143,7 @@ The `message` returned from the GraphQL stream can have 3 different types that n
 * `complete`: This message occurs when the stream is closed. We update our stream state.
 
 {{< tabs "fetch-transaction-func-handler">}}
-{{< tab-code title="src/App.js" filename="./tutorials/ethereum/track_tx/App.js" range=128:164 >}}
+{{< tab-code title="src/App.js" filename="./tutorials/ethereum/track_tx/App.js" range="128:164" >}}
 {{< /tabs >}}
 
 ## 8. Render function
@@ -151,7 +151,7 @@ The `message` returned from the GraphQL stream can have 3 different types that n
 Build the `render` method for this component. It will include an input for the transaction hash, and handles the different possible states of our component.
 
 {{< tabs "fetch-transaction-render">}}
-{{< tab-code title="src/App.js" filename="./tutorials/ethereum/track_tx/App.js" range=166:202 >}}
+{{< tab-code title="src/App.js" filename="./tutorials/ethereum/track_tx/App.js" range="166:202" >}}
 {{< /tabs >}}
 
 ## 9. Prettifying it with CSS
@@ -159,7 +159,7 @@ Build the `render` method for this component. It will include an input for the t
 Add some CSS to style this html a bit. Replace the contents of `src/App.css` with the following:
 
 {{< tabs "fetch-transaction-css">}}
-{{< tab-code title="src/App.css" filename="./tutorials/ethereum/track_tx/App.css" range=1:83 >}}
+{{< tab-code title="src/App.css" filename="./tutorials/ethereum/track_tx/App.css" range="1:83" >}}
 {{< /tabs >}}
 
 ## 10. Full Working Example
@@ -167,8 +167,8 @@ Add some CSS to style this html a bit. Replace the contents of `src/App.css` wit
 The source code for this tutorial is available on GitHub. Here are the code files discussed on this page.
 
 {{< tabs "fetch-transaction-full-app">}}
-{{< tab-code title="src/App.js" filename="./tutorials/ethereum/track_tx/App.js" range=1:206 >}}
-{{< tab-code title="src/App.css" filename="./tutorials/ethereum/track_tx/App.css" range=1:83 >}}
+{{< tab-code title="src/App.js" filename="./tutorials/ethereum/track_tx/App.js" range="1:206" >}}
+{{< tab-code title="src/App.css" filename="./tutorials/ethereum/track_tx/App.css" range="1:83" >}}
 {{< /tabs >}}
 
 {{< row-wrapper-end >}}
