@@ -31,7 +31,11 @@ the code in here to pure JavaScript if it's what you targets.
 
 ### 1. Project Set Up & Dependencies
 
-First, let's create the project and add the required dependencies
+Foremost, be sure to have a valid dfuse API key at hand.
+
+{{< dfuse-account-creation >}}
+
+Let's create the project and add the required dependencies.
 
 {{< tabs "create-project-folder" >}}
 
