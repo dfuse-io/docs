@@ -29,85 +29,84 @@ forks, through the use of [cursors]({{< ref "/guides/core-concepts/cursors" >}})
 
 Merely separating fields by a space imply an `AND` clause.  Therefore:
 
-```javascript
-term1:value1 term2:value2
-```
+{{< highlight ruby >}}
+term1:value term2:"another value"
+{{< / highlight >}}
 
 is equivalent to:
 
-```javascript
-(term1 == "value1") && (term2 == "value2")
-```
+{{< highlight javascript >}}
+(term1 == "value") && (term2 == "another value")
+{{< / highlight >}}
 
 ### `OR`
 
 The `OR` operator is supported within parentheses, as a single depth level.  For example:
 
-```javascript
-(term1: value1 OR term2: value2)
-```
+{{< highlight ruby >}}
+(term1:value1 OR term2:value2)
+{{< / highlight >}}
 
 which is equivalent to:
 
-```javascript
+{{< highlight javascript >}}
 (term1 == "value1") || (term2 == "value2")
-```
+{{< / highlight >}}
 
 ### Mixed `AND` and `OR`
 
 A combination of the two previous operators would look like:
 
-```
-term1: value1 (term2: value2 OR term3: value3)
-```
+{{< highlight ruby >}}
+term1:value1 (term2:value2 OR term3:value3)
+{{< / highlight >}}
 
 which would be equivalent to:
 
-```javascript
-(term1 == "value1") && ((term2 == "value2" || term3: "value3"))
-```
+{{< highlight javascript >}}
+(term1 == "value1") && ((term2 == "value2" || term3 == "value3"))
+{{< / highlight >}}
 
 
 ### `NOT`
 
 The `NOT` operator is specified with a dash prefix (`-`) in front of the term to negate, or the `OR` group to negate. For example:
 
-```
--term1: "undesired"
-```
+{{< highlight ruby >}}
+-term1:"undesired"
+{{< / highlight >}}
 
 which is equivalent to:
 
-```javascript
+{{< highlight javascript >}}
 (term1 != "undesired")
-```
+{{< / highlight >}}
 
 or more generally:
 
-```javascript
+{{< highlight javascript >}}
 !(term1 == "undesired")
-```
+{{< / highlight >}}
 
 You can negate an `OR` group by prefixing the group with a dash (`-`) as such:
 
-```
-term1: "value1" -(term2: "value2" OR term3: value3")
-```
+{{< highlight ruby >}}
+term1:value1 -(term2:"value2" OR term3:value3)
+{{< / highlight >}}
 
 which is equivalent to:
 
-```javascript
+{{< highlight javascript >}}
 (term1 == "value1") && ((term2 != "value2") && (term3 != "value3"))
-```
+{{< / highlight >}}
 
 or more generally:
 
-```javascript
+{{< highlight javascript >}}
 (term1 == "value1") && !((term2 == "value2") || (term3 == "value3"))
-```
+{{< / highlight >}}
 
 Take out your logic textbook to flip `AND`s and `OR`s!
-
 
 
 ## Block Range
