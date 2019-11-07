@@ -1,5 +1,5 @@
 ---
-weight: 60
+weight: 50
 title: GraphQL Schema
 protocol: EOS
 ---

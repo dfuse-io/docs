@@ -26,7 +26,9 @@ It also offers an access to the [documented GraphQL schema](/reference/ethereum/
   }
 }
 {{< / highlight >}}
+<div style="text-align: right">
 {{<externalLink href="https://mainnet.eth.dfuse.io/graphiql/?query=ewogIHRyYW5zYWN0aW9uKGhhc2g6ICIweDFmNzNiNDNkYzljNDhjYzEzMWE5MzFmYWM3MDk1ZGU5ZTVlYmEwYzUxODRlYzBjNWM1ZjFmMzJlZmEyYTZiYWIiKSB7CiAgICBmcm9tCiAgICB0bwogICAgZ2FzVXNlZAogICAgZ2FzUHJpY2UoZW5jb2Rpbmc6IEVUSEVSKQogIH0KfQo=" title="Try it on GraphiQL" class="graphiql" >}}
+</div>
 
 * Get a block:
 {{< highlight ruby >}}
@@ -37,7 +39,9 @@ It also offers an access to the [documented GraphQL schema](/reference/ethereum/
   }
 }
 {{< / highlight >}}
+<div style="text-align: right">
 {{<externalLink href="https://mainnet.eth.dfuse.io/graphiql/?query=ewogIGJsb2NrQnlOdW1iZXIobnVtYmVyOiA3MjgwMDAwKSB7CiAgICBoYXNoCiAgICBoZWFkZXIgewogICAgICBwYXJlbnRIYXNoCiAgICAgIGRpZmZpY3VsdHkKICAgIH0KICB9Cn0K" title="Try it on GraphiQL" class="graphiql" >}}
+</div>
 
 ### Stream
 
@@ -53,22 +57,26 @@ subscription{
   }
 }
 {{< / highlight >}}
+<div style="text-align: right">
 {{<externalLink href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBibG9ja3MobG93QmxvY2tOdW06IC0xKSB7CiAgICBub2RlIHsKICAgICAgbnVtYmVyCiAgICAgIGhhc2gKICAgICAgdHJhbnNhY3Rpb25UcmFjZXMgewogICAgICAgIGVkZ2VzIHsKICAgICAgICAgIG5vZGUgewogICAgICAgICAgICBoYXNoCiAgICAgICAgICB9CiAgICAgICAgfQogICAgICB9CiAgICAgIHVuY2xlcyB7CiAgICAgICAgaGFzaAogICAgICB9CiAgICB9CiAgfQp9Cg==" title="Try it on GraphiQL" class="graphiql" >}}
+</div>
 
 * Stream transactions based on a **search query**
 {{< highlight ruby >}}
- subscription {
-    searchTransactions( indexName: call, lowBlockNum: 8500000, limit:100,
-                        query: "method:'transfer(address,uint256)' -value:0") {
-      undo cursor
-      node {
-        block{ number }
-        matchingCalls { from to value(encoding: ETHER) }
+   subscription {
+     searchTransactions( indexName: CALLS, lowBlockNum: -1,
+                        query: "-value:0") {
+        undo cursor
+        node {
+          block{ number }
+          matchingCalls { from to value(encoding: ETHER) }
+        }
       }
     }
-  }
 {{< / highlight >}}
-{{<externalLink href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMoaW5kZXhOYW1lOiBjYWxsLCBsb3dCbG9ja051bTogODUwMDAwMCwgbGltaXQ6IDEwMCwgcXVlcnk6ICJtZXRob2Q6J3RyYW5zZmVyKGFkZHJlc3MsdWludDI1NiknIC12YWx1ZTowIikgewogICAgdW5kbwogICAgY3Vyc29yCiAgICBub2RlIHsKICAgICAgYmxvY2sgewogICAgICAgIG51bWJlcgogICAgICB9CiAgICAgIG1hdGNoaW5nQ2FsbHMgewogICAgICAgIGZyb20KICAgICAgICB0bwogICAgICAgIHZhbHVlKGVuY29kaW5nOiBFVEhFUikKICAgICAgfQogICAgfQogIH0KfQo=" title="Try it on GraphiQL" class="graphiql" >}}
+<div style="text-align: right">
+{{<externalLink href="http://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMoaW5kZXhOYW1lOiBDQUxMUywgbG93QmxvY2tOdW06IC0xLCBxdWVyeTogIi12YWx1ZTowIikgewogICAgdW5kbwogICAgY3Vyc29yCiAgICBub2RlIHsKICAgICAgYmxvY2sgewogICAgICAgIG51bWJlcgogICAgICB9CiAgICAgIG1hdGNoaW5nQ2FsbHMgewogICAgICAgIGZyb20KICAgICAgICB0bwogICAgICAgIHZhbHVlKGVuY29kaW5nOiBFVEhFUikKICAgICAgfQogICAgfQogIH0KfQo=" title="Try it on GraphiQL" class="graphiql" >}}
+</div>
 
 ### Search
 
@@ -77,63 +85,86 @@ See the [Ethereum Search Terms Reference](/reference/ethereum/search-terms) for 
 
 You can try those search queries directly in the {{<externalLink href="https://ethq.app" title="https://ethq.app">}} search bar, or in the "query" parameter of the searchTransaction method in GraphiQL.
 
-* To return all transactions signed by a specific address, use:
+dfuse offers two (2) distinct indexes to match transactions: **CALLS** and **LOGS**
+
+* To search for transactions which contain an ETHER transfer (non-zero) from or to a specific address
 
 {{< highlight ruby >}}
+# with indexName = CALLS
+-value:0 (to:0x32be343b94f860124dc4fee278fdcbd38c102d88 OR
+          from:0x32be343b94f860124dc4fee278fdcbd38c102d88)
+{{< / highlight >}}
+<div style="text-align: right">
+{{<externalLink href="https://mainnet.eth.dfuse.io/graphiql/?query=ewogIHNlYXJjaFRyYW5zYWN0aW9ucyhpbmRleE5hbWU6IENBTExTLCBxdWVyeTogIih0bzoweDMyYmUzNDNiOTRmODYwMTI0ZGM0ZmVlMjc4ZmRjYmQzOGMxMDJkODggT1IgZnJvbToweDMyYmUzNDNiOTRmODYwMTI0ZGM0ZmVlMjc4ZmRjYmQzOGMxMDJkODgpIC12YWx1ZTowIiwgbG93QmxvY2tOdW06IDAsIGhpZ2hCbG9ja051bTogLTEsIGxpbWl0OiA1LCBzb3J0OiBERVNDKSB7CiAgICBlZGdlcyB7CiAgICAgIG5vZGUgewogICAgICAgIHZhbHVlKGVuY29kaW5nOiBERUNJTUFMKQogICAgICAgIGhhc2gKICAgICAgICBub25jZQogICAgICAgIGdhc0xpbWl0CiAgICAgICAgZ2FzUHJpY2UKICAgICAgICB0bwogICAgICAgIGJsb2NrIHsKICAgICAgICAgIG51bWJlcgogICAgICAgICAgaGFzaAogICAgICAgICAgc2l6ZQogICAgICAgICAgaGVhZGVyIHsKICAgICAgICAgICAgdGltZXN0YW1wCiAgICAgICAgICB9CiAgICAgICAgfQogICAgICAgIG1hdGNoaW5nQ2FsbHMgewogICAgICAgICAgaW5kZXgKICAgICAgICAgIHBhcmVudEluZGV4CiAgICAgICAgICBjYWxsVHlwZQogICAgICAgICAgZnJvbQogICAgICAgICAgdG8KICAgICAgICAgIHZhbHVlKGVuY29kaW5nOiBERUNJTUFMKQogICAgICAgICAgZ2FzQ29uc3VtZWQKICAgICAgICAgIGdhc0JpbGxlZAogICAgICAgICAgcmV0dXJuRGF0YQogICAgICAgICAgbG9ncyB7CiAgICAgICAgICAgIGFkZHJlc3MKICAgICAgICAgICAgdG9waWNzCiAgICAgICAgICAgIGRhdGEKICAgICAgICAgIH0KICAgICAgICAgIGJhbGFuY2VDaGFuZ2VzIHsKICAgICAgICAgICAgYWRkcmVzcwogICAgICAgICAgICBvbGRWYWx1ZShlbmNvZGluZzogREVDSU1BTCkKICAgICAgICAgICAgbmV3VmFsdWUKICAgICAgICAgICAgcmVhc29uCiAgICAgICAgICB9CiAgICAgICAgfQogICAgICB9CiAgICB9CiAgfQp9Cg==" title="Try it on GraphiQL" class="graphiql" >}}
+{{<externalLink href="https://ethq.app/search?q=-value%3A0%20%28to%3A0x32be343b94f860124dc4fee278fdcbd38c102d88%20OR%20from%3A0x32be343b94f860124dc4fee278fdcbd38c102d88%29" title="Try it on ETHQ" class="ethq" >}}
+</div>
+
+* To search for transactions which contain a `transfer(address, uint256)` method on a known ERC-20 token contract (the actual value transferred has to be decoded from the 'data' in the logs)
+
+{{< highlight ruby >}}
+# with indexName = CALLS
+method:'transfer(address,uint256)' to:0xdac17f958d2ee523a2206206994597c13d831ec7
+{{< / highlight >}}
+<div style="text-align: right">
+{{<externalLink href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMoaW5kZXhOYW1lOiBDQUxMUywgcXVlcnk6ICIodG86MHgzMmJlMzQzYjk0Zjg2MDEyNGRjNGZlZTI3OGZkY2JkMzhjMTAyZDg4IE9SIGZyb206MHgzMmJlMzQzYjk0Zjg2MDEyNGRjNGZlZTI3OGZkY2JkMzhjMTAyZDg4KSAtdmFsdWU6MCIsIGxvd0Jsb2NrTnVtOiAtNSwgaGlnaEJsb2NrTnVtOiAtMSwgc29ydDogQVNDKSB7CiAgICBjdXJzb3IKICAgIHVuZG8KICAgIG5vZGUgewogICAgICB2YWx1ZShlbmNvZGluZzogREVDSU1BTCkKICAgICAgaGFzaAogICAgICBub25jZQogICAgICBnYXNMaW1pdAogICAgICBnYXNQcmljZQogICAgICB0bwogICAgICBibG9jayB7CiAgICAgICAgbnVtYmVyCiAgICAgICAgaGFzaAogICAgICAgIHNpemUKICAgICAgICBoZWFkZXIgewogICAgICAgICAgdGltZXN0YW1wCiAgICAgICAgfQogICAgICB9CiAgICAgIG1hdGNoaW5nQ2FsbHMgewogICAgICAgIGluZGV4CiAgICAgICAgcGFyZW50SW5kZXgKICAgICAgICBjYWxsVHlwZQogICAgICAgIGZyb20KICAgICAgICB0bwogICAgICAgIHZhbHVlKGVuY29kaW5nOiBERUNJTUFMKQogICAgICAgIGdhc0NvbnN1bWVkCiAgICAgICAgZ2FzQmlsbGVkCiAgICAgICAgcmV0dXJuRGF0YQogICAgICAgIGxvZ3MgewogICAgICAgICAgYWRkcmVzcwogICAgICAgICAgdG9waWNzCiAgICAgICAgICBkYXRhCiAgICAgICAgfQogICAgICAgIGJhbGFuY2VDaGFuZ2VzIHsKICAgICAgICAgIGFkZHJlc3MKICAgICAgICAgIG9sZFZhbHVlKGVuY29kaW5nOiBERUNJTUFMKQogICAgICAgICAgbmV3VmFsdWUKICAgICAgICAgIHJlYXNvbgogICAgICAgIH0KICAgICAgfQogICAgfQogIH0KfQo=" title="Try it on GraphiQL" class="graphiql" >}}
+{{<externalLink href="https://ethq.app/search?q=method%3A%27transfer%28address%2Cuint256%29%27%20to%3A0xdac17f958d2ee523a2206206994597c13d831ec7&ts=1573141723074" title="Try it on ETHQ" class="ethq" >}}
+</div>
+
+{{< note >}} The method can also be specified with the 8-bytes prefix of its keccak hash, ex: `method:a9059cbb` {{< /note >}} 
+
+
+* To search for transactions signed by a specific address, use:
+
+{{< highlight ruby >}}
+# with indexName = CALLS
 signer:0x59a5208B32e627891C389EbafC644145224006E8
 {{< / highlight >}}
 <div style="text-align: right">
-{{<externalLink href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMocXVlcnk6ICJzaWduZXI6MHg1OWE1MjA4QjMyZTYyNzg5MUMzODlFYmFmQzY0NDE0NTIyNDAwNkU4IiwgbG93QmxvY2tOdW06IDAsIGhpZ2hCbG9ja051bTogLTEsIGxpbWl0OiAxMCwgc29ydDogREVTQykgewogICAgY3Vyc29yCiAgICB1bmRvCiAgICBub2RlIHsKICAgICAgdmFsdWUoZW5jb2Rpbmc6IERFQ0lNQUwpCiAgICAgIGhhc2gKICAgICAgbm9uY2UKICAgICAgZ2FzTGltaXQKICAgICAgZ2FzUHJpY2UKICAgICAgdG8KICAgICAgYmxvY2sgewogICAgICAgIG51bWJlcgogICAgICAgIGhhc2gKICAgICAgICBzaXplCiAgICAgICAgaGVhZGVyIHsKICAgICAgICAgIHRpbWVzdGFtcAogICAgICAgIH0KICAgICAgfQogICAgICBmbGF0Q2FsbHMgewogICAgICAgIGluZGV4CiAgICAgICAgcGFyZW50SW5kZXgKICAgICAgICBjYWxsVHlwZQogICAgICAgIGNhbGxlcgogICAgICAgIGFkZHJlc3MKICAgICAgICB2YWx1ZQogICAgICAgIGdhc0NvbnN1bWVkCiAgICAgICAgZ2FzQmlsbGVkCiAgICAgICAgcmV0dXJuRGF0YQogICAgICAgIGxvZ3MgewogICAgICAgICAgYWRkcmVzcwogICAgICAgICAgdG9waWNzCiAgICAgICAgICBkYXRhCiAgICAgICAgfQogICAgICAgIGJhbGFuY2VDaGFuZ2VzIHsKICAgICAgICAgIGFkZHJlc3MKICAgICAgICAgIG9sZFZhbHVlKGVuY29kaW5nOiBERUNJTUFMKQogICAgICAgICAgbmV3VmFsdWUKICAgICAgICB9CiAgICAgICAgc3RvcmFnZUNoYW5nZXMgewogICAgICAgICAga2V5CiAgICAgICAgICBhZGRyZXNzCiAgICAgICAgICBvbGRWYWx1ZQogICAgICAgICAgbmV3VmFsdWUKICAgICAgICB9CiAgICAgIH0KICAgIH0KICB9Cn0K" title="Try it on GraphiQL" class="graphiql" >}}
+{{<externalLink href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMoaW5kZXhOYW1lOiBDQUxMUywgcXVlcnk6ICJzaWduZXI6MHg1OWE1MjA4QjMyZTYyNzg5MUMzODlFYmFmQzY0NDE0NTIyNDAwNkU4IiwgbG93QmxvY2tOdW06IDAsIGhpZ2hCbG9ja051bTogLTEsIGxpbWl0OiAxMCwgc29ydDogREVTQykgewogICAgY3Vyc29yCiAgICB1bmRvCiAgICBub2RlIHsKICAgICAgdmFsdWUoZW5jb2Rpbmc6IERFQ0lNQUwpCiAgICAgIGhhc2gKICAgICAgbm9uY2UKICAgICAgZ2FzTGltaXQKICAgICAgZ2FzUHJpY2UKICAgICAgdG8KICAgICAgYmxvY2sgewogICAgICAgIG51bWJlcgogICAgICAgIGhhc2gKICAgICAgICBzaXplCiAgICAgICAgaGVhZGVyIHsKICAgICAgICAgIHRpbWVzdGFtcAogICAgICAgIH0KICAgICAgfQogICAgICBmbGF0Q2FsbHMgewogICAgICAgIGluZGV4CiAgICAgICAgcGFyZW50SW5kZXgKICAgICAgICBjYWxsVHlwZQogICAgICAgIGZyb20KICAgICAgICB0bwogICAgICAgIHZhbHVlCiAgICAgICAgZ2FzQ29uc3VtZWQKICAgICAgICBnYXNCaWxsZWQKICAgICAgICByZXR1cm5EYXRhCiAgICAgICAgbG9ncyB7CiAgICAgICAgICBhZGRyZXNzCiAgICAgICAgICB0b3BpY3MKICAgICAgICAgIGRhdGEKICAgICAgICB9CiAgICAgICAgYmFsYW5jZUNoYW5nZXMgewogICAgICAgICAgYWRkcmVzcwogICAgICAgICAgb2xkVmFsdWUoZW5jb2Rpbmc6IERFQ0lNQUwpCiAgICAgICAgICBuZXdWYWx1ZQogICAgICAgIH0KICAgICAgICBzdG9yYWdlQ2hhbmdlcyB7CiAgICAgICAgICBrZXkKICAgICAgICAgIGFkZHJlc3MKICAgICAgICAgIG9sZFZhbHVlCiAgICAgICAgICBuZXdWYWx1ZQogICAgICAgIH0KICAgICAgfQogICAgfQogIH0KfQo=" title="Try it on GraphiQL" class="graphiql" >}}
 {{<externalLink href="https://ethq.app/search?q=signer%3A0x59a5208B32e627891C389EbafC644145224006E8" title="Try it on ETHQ" class="ethq" >}}
 </div>
 
-* To get all calls to a given contract (as opposed to delegate calls, or callcodes), run:
+* To search for transactions that provided a given input to a contract, use:
 
 {{< highlight ruby >}}
-callType:call to:0x5df9b87991262f6ba471f09758cde1c0fc1de734
-{{< / highlight >}}
-<div style="text-align: right">
-{{<externalLink href="https://ethq.app/search?q=callType%3Acall%20to%3A0x5df9b87991262f6ba471f09758cde1c0fc1de734" title="Try it on ETHQ" class="ethq" >}}
-</div>
-
-* To match transactions that provided a given input to a contract, use:
-
-{{< highlight ruby >}}
+# with indexName = CALLS
 input.0:0x84ae8708798c74ef8d00f540c4012963955106ff to:0x06012c8cf97bead5deae237070f9587f8e7a266d
 {{< / highlight >}}
 <div style="text-align: right">
+{{<externalLink href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMoaW5kZXhOYW1lOiBDQUxMUywgcXVlcnk6ICJpbnB1dC4wOjB4ODRhZTg3MDg3OThjNzRlZjhkMDBmNTQwYzQwMTI5NjM5NTUxMDZmZiB0bzoweDA2MDEyYzhjZjk3YmVhZDVkZWFlMjM3MDcwZjk1ODdmOGU3YTI2NmQiLCBsb3dCbG9ja051bTogMCwgaGlnaEJsb2NrTnVtOiAtMSwgc29ydDogREVTQywgbGltaXQ6IDEpIHsKICAgIGN1cnNvcgogICAgdW5kbwogICAgbm9kZSB7CiAgICAgIGhhc2gKICAgICAgbm9uY2UKICAgICAgZ2FzTGltaXQKICAgICAgZ2FzUHJpY2UKICAgICAgdG8KICAgICAgYmxvY2sgewogICAgICAgIG51bWJlcgogICAgICAgIGhhc2gKICAgICAgICBzaXplCiAgICAgICAgaGVhZGVyIHsKICAgICAgICAgIHRpbWVzdGFtcAogICAgICAgIH0KICAgICAgfQogICAgICBtYXRjaGluZ0NhbGxzIHsKICAgICAgICBpbmRleAogICAgICAgIHBhcmVudEluZGV4CiAgICAgICAgY2FsbFR5cGUKICAgICAgICBmcm9tCiAgICAgICAgdG8KICAgICAgICB2YWx1ZShlbmNvZGluZzogREVDSU1BTCkKICAgICAgICBzdG9yYWdlQ2hhbmdlcyB7CiAgICAgICAgICBrZXkKICAgICAgICAgIGFkZHJlc3MKICAgICAgICAgIG9sZFZhbHVlCiAgICAgICAgICBuZXdWYWx1ZQogICAgICAgIH0KICAgICAgfQogICAgfQogIH0KfQo=" title="Try it on GraphiQL" class="graphiql" >}}
 {{<externalLink href="https://ethq.app/search?q=input.0%3A0x84ae8708798c74ef8d00f540c4012963955106ff%20to%3A0x06012c8cf97bead5deae237070f9587f8e7a266d" title="Try it on ETHQ" class="ethq" >}}
 </div>
 
-* To match any transactions that invoked a given method on a contract:
+* To search for transactions with an EVM call that tweaked storage for a given key in a contract (that's very specific!):
 
 {{< highlight ruby >}}
-method:'transfer(address,uint256)' to:0x8fdcc30eda7e94f1c12ce0280df6cd531e8365c5
-{{< / highlight >}}
-<div style="text-align: right">
-{{<externalLink href="https://ethq.app/search?q=method%3A'transfer(address%2Cuint256)'%20to%3A0x8fdcc30eda7e94f1c12ce0280df6cd531e8365c5" title="Try it on ETHQ" class="ethq" >}}
-</div>
-
-Or alternatively specifying the method signature with the 8-bytes prefix of the keccak hash:
-
-{{< highlight ruby >}}
-method:a9059cbb to:0x8fdcc30eda7e94f1c12ce0280df6cd531e8365c5
-{{< / highlight >}}
-
-* To match any EVM call that tweaked storage for a given key in a contract:
-
-{{< highlight ruby >}}
+# with indexName = CALLS
 to:0xa327075af2a223a1c83a36ada1126afe7430f955 storageChange:0x3
 {{< / highlight >}}
 <div style="text-align: right">
-{{<externalLink href="https://ethq.app/search?q=to%3A0xa327075af2a223a1c83a36ada1126afe7430f955%20storageChange%3A0x3" title="Try it on ETHQ" class="ethq" >}}
+{{<externalLink href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMoaW5kZXhOYW1lOiBDQUxMUywgcXVlcnk6ICJ0bzoweGEzMjcwNzVhZjJhMjIzYTFjODNhMzZhZGExMTI2YWZlNzQzMGY5NTUgc3RvcmFnZUNoYW5nZToweDMiLCBsb3dCbG9ja051bTogMCwgaGlnaEJsb2NrTnVtOiAtMSwgc29ydDogQVNDLCBsaW1pdDogMSkgewogICAgY3Vyc29yCiAgICB1bmRvCiAgICBub2RlIHsKICAgICAgaGFzaAogICAgICBub25jZQogICAgICBnYXNMaW1pdAogICAgICBnYXNQcmljZQogICAgICB0bwogICAgICBibG9jayB7CiAgICAgICAgbnVtYmVyCiAgICAgICAgaGFzaAogICAgICAgIHNpemUKICAgICAgICBoZWFkZXIgewogICAgICAgICAgdGltZXN0YW1wCiAgICAgICAgfQogICAgICB9CiAgICAgIG1hdGNoaW5nQ2FsbHMgewogICAgICAgIGluZGV4CiAgICAgICAgcGFyZW50SW5kZXgKICAgICAgICBjYWxsVHlwZQogICAgICAgIGZyb20KICAgICAgICB0bwogICAgICAgIHZhbHVlKGVuY29kaW5nOiBERUNJTUFMKQogICAgICAgIHN0b3JhZ2VDaGFuZ2VzIHsKICAgICAgICAgIGtleQogICAgICAgICAgYWRkcmVzcwogICAgICAgICAgb2xkVmFsdWUKICAgICAgICAgIG5ld1ZhbHVlCiAgICAgICAgfQogICAgICB9CiAgICB9CiAgfQp9Cg==" title="Try it on GraphiQL" class="graphiql" >}}
 </div>
 
-* You can also use `value` to match the amount of ETH transferred from an address to another (negating 0 is a useful pattern), along with `from` or `to` to find a specific transaction from/to a user, and then start mixing and matching.
+* To search for transactions that match a specific topic in the **logs** of an EVM call
 
 {{< highlight ruby >}}
-method:'transfer(address,uint256)' (to:0xa327075af2a223a1c83a36ada1126afe7430f955 OR from:0xa327075af2a223a1c83a36ada1126afe7430f955) -value:0
+# with indexName = LOGS
+topic.0:0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef
 {{< / highlight >}}
+<div style="text-align: right">
+{{<externalLink href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMoaW5kZXhOYW1lOiBMT0dTLCBxdWVyeTogInRvcGljLjA6MHhkZGYyNTJhZDFiZTJjODliNjljMmIwNjhmYzM3OGRhYTk1MmJhN2YxNjNjNGExMTYyOGY1NWE0ZGY1MjNiM2VmIiwgbG93QmxvY2tOdW06IDAsIGhpZ2hCbG9ja051bTogLTEsIHNvcnQ6IERFU0MsIGxpbWl0OiAxKSB7CiAgICBjdXJzb3IKICAgIHVuZG8KICAgIG5vZGUgewogICAgICBoYXNoCiAgICAgIG5vbmNlCiAgICAgIGdhc0xpbWl0CiAgICAgIGdhc1ByaWNlCiAgICAgIHRvCiAgICAgIGJsb2NrIHsKICAgICAgICBudW1iZXIKICAgICAgICBoYXNoCiAgICAgICAgc2l6ZQogICAgICAgIGhlYWRlciB7CiAgICAgICAgICB0aW1lc3RhbXAKICAgICAgICB9CiAgICAgIH0KICAgICAgbWF0Y2hpbmdMb2dzIHsKICAgICAgICBhZGRyZXNzCiAgICAgICAgdG9waWNzCiAgICAgICAgZGF0YQogICAgICAgIGJsb2NrSW5kZXgKICAgICAgICB0cmFuc2FjdGlvbkluZGV4CiAgICAgIH0KICAgIH0KICB9Cn0K" title="Try it on GraphiQL" class="graphiql" >}}
+</div>
+
+* To search for transactions that match a specific data chunk (32-bytes) in the **logs** of an EVM call (that's very specific!):
+
+{{< highlight ruby >}}
+# with indexName = LOGS
+data.0:0x0000000000000000000000004a220e6096b25eadb88358cb44068a3248254675
+{{< / highlight >}}
+<div style="text-align: right">
+{{<externalLink href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMoaW5kZXhOYW1lOiBMT0dTLCBxdWVyeTogImRhdGEuMDoweDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDRhMjIwZTYwOTZiMjVlYWRiODgzNThjYjQ0MDY4YTMyNDgyNTQ2NzUiLCBsb3dCbG9ja051bTogMCwgaGlnaEJsb2NrTnVtOiAtMSwgc29ydDogREVTQywgbGltaXQ6IDEpIHsKICAgIGN1cnNvcgogICAgdW5kbwogICAgbm9kZSB7CiAgICAgIGhhc2gKICAgICAgbm9uY2UKICAgICAgZ2FzTGltaXQKICAgICAgZ2FzUHJpY2UKICAgICAgdG8KICAgICAgYmxvY2sgewogICAgICAgIG51bWJlcgogICAgICAgIGhhc2gKICAgICAgICBzaXplCiAgICAgICAgaGVhZGVyIHsKICAgICAgICAgIHRpbWVzdGFtcAogICAgICAgIH0KICAgICAgfQogICAgICBtYXRjaGluZ0xvZ3MgewogICAgICAgIGFkZHJlc3MKICAgICAgICB0b3BpY3MKICAgICAgICBkYXRhCiAgICAgICAgYmxvY2tJbmRleAogICAgICAgIHRyYW5zYWN0aW9uSW5kZXgKICAgICAgfQogICAgfQogIH0KfQo=" title="Try it on GraphiQL" class="graphiql" >}}
+</div>
+
 
 ## Learn more
 

@@ -42,4 +42,3 @@ curl https://auth.dfuse.io/v1/auth/issue -s --data-binary '{"api_key":"web_abcde
 ## 4. What's next? 
 
 * [Review Authentication Guide]({{< ref "/guides/core-concepts/authentication" >}})
-

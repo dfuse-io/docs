@@ -13,8 +13,36 @@ h1 {
   font-size: 2.5rem;
 }
 
+.sub-section-title-row-h1 {
+  margin-bottom:70px;
+  margin-top:10px;
+  .col-12 {
+    margin:10px 0px!important;
+
+    .pill-icon-wrapper {
+      top: 11px;
+      left: -56px;
+    }
+
+    h1 {
+      font-weight: 800;
+      color: #9fadbc;
+      letter-spacing: 1px;
+      border: none !important;
+      padding: 0;
+      font-size: 2em !important;
+      margin-top: 0;
+      margin-bottom: 34px;
+    }
+  }
+}
+
+
 h2 {
   font-size: 2rem;
+  &.crypto-title {
+    margin-top:10px;
+  }
 }
 
 h3 {
@@ -40,8 +68,16 @@ p {
 
 a {position:relative;}
 
+ul.supported-on {
+  list-style-type: square;
+  font-size: .8rem;
+  line-height: .8rem;
+  list-style-position: inside;
+  padding: 0px 0px 0px 5px;
+}
+
 .tag.tag-h1 {
-  font-size: .85em;
+  font-size: .85 em;
   vertical-align: bottom!important;
   float: right;
   padding: 2px 8px;
@@ -272,10 +308,10 @@ article {
       h4 {
         margin-bottom: 5px;
         font-weight: 800;
-        color: $ternary-500;
         letter-spacing: 1px;
         border:none!important;
         padding:0px;
+        color:$ternary-600;
       }
     }
   }
@@ -289,20 +325,27 @@ article {
   }
 
   .sub-section-content-row {
-    margin:0px 0px 70px 0px;
+    margin:0px 0px 30px 0px;
     h4 {
       margin-bottom: 7px;
       border:none;
       padding:0px;
       margin:0px;
       text-transform:  none;
-      font-weight: 400;
+      font-weight: 700;
+      color:$ternary-1000;
+      a, a:visited {
+        color:$ternary-1000;
+      }
     }
     ul  {
       list-style-type: none;
       list-style-position: outside;
       padding-left: 0;
+      li {    margin-bottom: 6px;
+      }
     }
+
   }
 }
 
@@ -469,7 +512,7 @@ article {
   right: -4px;
   top: -5px;
   color: #c9cacf;
-  margin-right: 10px;
+  margin-right: 6px;
 }
 
 @media (max-width:575px) {
@@ -801,9 +844,34 @@ h4 + .method-list-item {
   }
 }
 
+.book-menu .release {
+  &.release-alpha a:after {
+    background-color: $release-alpha;
+  }
+  &.release-beta a:after {
+    background-color: $release-beta;
+  }
+  &.release-stable a:after {
+    background-color: $release-stable;
+  }
+  &.release-new a:after {
+    background-color:$release-new;
+  }
+    a:after {
+
+    content: " ";
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    border-radius: 50%;
+    position: relative;
+    top: -4px;
+    left: 3px;
+  }
+}
+
 .book-menu > nav > ul > li {
   margin: 0;
-
   & > a,
   & > .nav-expandable {
     display: flex;
