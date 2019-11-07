@@ -844,9 +844,34 @@ h4 + .method-list-item {
   }
 }
 
+.book-menu .release {
+  &.release-alpha a:after {
+    background-color: $release-alpha;
+  }
+  &.release-beta a:after {
+    background-color: $release-beta;
+  }
+  &.release-stable a:after {
+    background-color: $release-stable;
+  }
+  &.release-new a:after {
+    background-color:$release-new;
+  }
+    a:after {
+
+    content: " ";
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    border-radius: 50%;
+    position: relative;
+    top: -4px;
+    left: 3px;
+  }
+}
+
 .book-menu > nav > ul > li {
   margin: 0;
-
   & > a,
   & > .nav-expandable {
     display: flex;
