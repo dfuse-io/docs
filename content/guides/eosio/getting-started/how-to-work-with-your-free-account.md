@@ -1,27 +1,28 @@
 ---
 weight: 1
-menuTitle: Work with your free Account
-title: How to Work with your Free dfuse Account
+menuTitle: Working with your free account
+title: Working with your free account
 ---
+
 ## 1. Create a free dfuse account
 
-Visit {{< external-link href="https://app.dfuse.io">}} to create an account.
+Visit our self-service portal {{< externalLink href="https://app.dfuse.io">}} to create an account.
 
 ## 2. Create an API key
 
-Visit {{< external-link href="https://app.dfuse.io/keys">}} to create your first api key.
+Go to {{< externalLink href="https://app.dfuse.io/keys">}} to create your first api key.
 
 ![](/img/api_key_creation.png)
 
 To create a new API key for your application:
 
-* API Key Name: Used to identify your key in the portal. It should refer to your application.
+* **API Key Name**: Identifies the purpose of your key in the portal. 
 * Category:
-  - Web: You want to embed your API key in the client-side of a web application. Specify your website as the origin {{< external-link title="as it will appear in the HTTP header" href="https://tools.ietf.org/html/rfc6454#section-7">}}
-  - Mobile: You want to embed your API key in a mobile application deployed on an app store.
-  - Server: You want to connect your server backend directly with our service.
+  - **Web**: You want to embed your API key in the client-side of a web application. Specify your website as the origin {{< externalLink title="as it will appear in the HTTP header" href="https://tools.ietf.org/html/rfc6454#section-7">}}
+  - **Mobile**: You want to embed your API key in a mobile application deployed on an app store.
+  - **Server**: You want to connect your server backend directly with our service.
 
-## 3. Obtaining a Short-Lived JWT
+## 3. Get a short-lived JWT
 
 Once you have this API key, call the [`https://auth.dfuse.io/v1/auth/issue` endpoint](#post-v1-auth-issue) to obtain a fresh authentication token using the following command. **Do not forget to replace the API key by your own!**
 

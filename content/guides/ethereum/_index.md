@@ -6,7 +6,7 @@ title: Ethereum
 {{< sub-section-columns  class="col-4" >}}
 
 #### Getting Started
-* [Work with your free dfuse account] ({{< ref "/guides/ethereum/getting-started/how-to-work-with-your-free-account" >}})
+* [Working with your free dfuse account] ({{< ref "/guides/ethereum/getting-started/how-to-work-with-your-free-account" >}})
 * [Explore ETH Through dfuse] ({{< ref "/guides/ethereum/getting-started/explore-eth-through-dfuse" >}})
 * [JavaScript Quickstart]({{< ref "/guides/ethereum/getting-started/javascript-quickstart" >}})
 * [Other Languages]({{< ref "/guides/ethereum/getting-started/other-languages" >}})

@@ -15,7 +15,7 @@ menu:
 {{< sub-section-columns  class="col-4" >}}
 
 #### Getting Started
-* [How to work with your free dfuse account] ({{< ref "/guides/ethereum/getting-started/how-to-work-with-your-free-account" >}})
+* [Working with your free dfuse account] ({{< ref "/guides/ethereum/getting-started/how-to-work-with-your-free-account" >}})
 * [JavaScript Quickstart]({{< ref "/guides/ethereum/getting-started/javascript-quickstart" >}})
 * [Other Languages]({{< ref "/guides/ethereum/getting-started/other-languages" >}})
 
