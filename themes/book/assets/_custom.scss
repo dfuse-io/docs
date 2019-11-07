@@ -40,6 +40,9 @@ h1 {
 
 h2 {
   font-size: 2rem;
+  &.crypto-title {
+    margin-top:10px;
+  }
 }
 
 h3 {
@@ -64,6 +67,14 @@ p {
 }
 
 a {position:relative;}
+
+ul.supported-on {
+  list-style-type: square;
+  font-size: .8rem;
+  line-height: .8rem;
+  list-style-position: inside;
+  padding: 0px 0px 0px 5px;
+}
 
 .tag.tag-h1 {
   font-size: .85 em;
@@ -297,10 +308,10 @@ article {
       h4 {
         margin-bottom: 5px;
         font-weight: 800;
-        color: $ternary-500;
         letter-spacing: 1px;
         border:none!important;
         padding:0px;
+        color:$ternary-600;
       }
     }
   }
@@ -314,20 +325,27 @@ article {
   }
 
   .sub-section-content-row {
-    margin:0px 0px 70px 0px;
+    margin:0px 0px 30px 0px;
     h4 {
       margin-bottom: 7px;
       border:none;
       padding:0px;
       margin:0px;
       text-transform:  none;
-      font-weight: 400;
+      font-weight: 700;
+      color:$ternary-1000;
+      a, a:visited {
+        color:$ternary-1000;
+      }
     }
     ul  {
       list-style-type: none;
       list-style-position: outside;
       padding-left: 0;
+      li {    margin-bottom: 6px;
+      }
     }
+
   }
 }
 
