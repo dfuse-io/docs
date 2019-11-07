@@ -2,7 +2,7 @@
 weight: 1
 menuTitle: Search Ranges
 title: EOSIO Search Ranges
-release: beta
+release: stable
 ---
 
 This page gives information about the searched range for various combinations of `lowBlockNum` and
