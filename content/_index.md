@@ -6,8 +6,8 @@ menu:
  main:
    name: Overview
    identifier: overview
-   weight: 1 
+   weight: 1
 ---
 {{< partial "home-overview" >}}
-{{< partial "latest-release-notes" >}}
 
+{{< partial "latest-release-notes" >}}

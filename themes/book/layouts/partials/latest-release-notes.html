@@ -1,10 +1,10 @@
-<!--  Releases   -->
+<!--  Releases -->
 <div class="markdown">
   <div class="container section bg-ternary-100 pt-5 pb-7">
     <div class="row">
       <div class="col-12 pt-4">
         <h2>What's new in dfuse API</h2>
-        <div class="lastest-releases">
+        <div class="release-notes">
           {{ with .Site.GetPage "/release-notes"  }}
             {{ $paragraphs :=  split .RawContent "***"  }}
             {{ range $index, $element := first 4 $paragraphs }}
@@ -19,7 +19,6 @@
         </div>
         <a href="/release-notes">See all releases</a>
       </div>
-
     </div>
   </div>
 </div>
