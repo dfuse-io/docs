@@ -1,8 +1,7 @@
 ---
 weight: 10
+title: Authentication
 ---
-{{< row-wrapper >}}
-{{< sub-section-title title="Authentication" >}}
 
 There are two sorts of keys in the dfuse ecosystem:
 
@@ -108,5 +107,3 @@ When doing `POST` calls to the `/graphql` endpoint, you must specify the `Author
 ## GraphQL over gRPC Authentication
 
 Using the language of your choice, use the `OAuth2` authentication method with gRPC. Set the `OAuth2 Access Token` to be your JWT, and if required, specify `Bearer` as the method, then proceed normally. This will set the `authorization` gRPC header, similiar to the HTTP header of the same name.
-
-{{< row-wrapper-end >}}

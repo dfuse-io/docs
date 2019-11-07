@@ -3,8 +3,6 @@ weight: 1
 title: GET /v0/block_id/by_time
 ---
 
-# GET `/v0/block_id/by_time`
-
 Get the block ID produced at a given time
 
 ## Usage

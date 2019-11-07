@@ -2,8 +2,6 @@
 weight: 5
 title: Explore ETH through dfuse
 ---
-{{< row-wrapper >}}
-{{< sub-section-title title="Explore ETH through dfuse" protocol="ETH" >}}
 
 ## Try our API from your browser
 
@@ -143,5 +141,3 @@ method:'transfer(address,uint256)' (to:0xa327075af2a223a1c83a36ada1126afe7430f95
 * [Concepts: Search Query Language](/guides/core-concepts/search-query-language)
 * [Reference: Ethereum GraphQL schema](/reference/ethereum/graphql/)
 * [Reference: Ethereum Search Terms](/reference/ethereum/search-terms)
-
-{{< row-wrapper-end >}}

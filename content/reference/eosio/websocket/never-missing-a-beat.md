@@ -1,4 +1,8 @@
-# Never Missing a Beat
+---
+weight: 50
+title: Never Missing a Beat
+protocol: EOS
+---
 
 Sometimes, disconnections happen. Indeed, you will want to plan for disconnections.
 

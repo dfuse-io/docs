@@ -1,12 +1,11 @@
 ---
 title: Libraries
-bookFlatSection: false
-weight: 40
+layout: topnav-overview
 menu:
   main:
     name: Libraries
     identifier: libraries
-    weight: 5
+    weight: 50
 ---
 
 {{< row-wrapper >}}

@@ -1,11 +1,10 @@
 ---
 weight: 20
-title: Tutorials
+title: Ethereum Tutorials
+menuTitle: Tutorials
+protocol: ETH
 ---
 
-{{< row-wrapper >}}
-
-{{< sub-section-title title="Ethereum Tutorials" protocol="ETH" >}}
 
 In this section, you will find the list of tutorials currently written when you
 can more easily map your use case to one or more dfuse concepts under a concrete
@@ -21,4 +20,3 @@ code repository.
       - Reliably sync a database (cursors + navigating forks concepts)
 -->
 
-{{< row-wrapper-end >}}

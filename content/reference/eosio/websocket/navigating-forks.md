@@ -1,4 +1,8 @@
-# Navigating Forks
+---
+weight: 40
+title: Navigating Fork
+protocol: EOS
+---
 
 The *dfuse* API allows remote endpoints to navigate forks without
 fuss, with the guarantee that you will receive all the information you

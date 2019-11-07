@@ -1,4 +1,5 @@
 ---
-weight: 40
-title: REST/WS Types
+weight: 50
+title: Types
+protocol: EOS
 ---

@@ -3,9 +3,6 @@ weight: 10
 title: JavaScript Quickstart
 ---
 
-{{< row-wrapper >}}
-{{< sub-section-title title="JavaScript Quickstart"  protocol="ETH" >}}
-
 In this guide we will show you how to create a basic setup so you can benefit from the dfuse GraphQL API under
 on of supported JavaScript environment:
 
@@ -219,5 +216,3 @@ start index.ethereum.thml      # Windows
 * {{< externalLink title="The `@dfuse/client-js` overview document" href="https://github.com/dfuse-io/client-js/blob/master/README.md#dfuse-javascripttypescript-client-library" >}}
 * {{< externalLink title="The `@dfuse/client-js` quick API reference" href="https://github.com/dfuse-io/client-js/blob/master/README.md#api" >}} ({{< externalLink title="Full API reference" href="https://dfuse-io.github.io/client-js/" >}})
 * {{< externalLink href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMocXVlcnk6ICItdmFsdWU6MCB0eXBlOmNhbGwiLCBsb3dCbG9ja051bTogLTEpIHsKICAgIHVuZG8gY3Vyc29yCiAgICBub2RlIHsgaGFzaCBtYXRjaGluZ0NhbGxzIHsgY2FsbGVyIGFkZHJlc3MgdmFsdWUoZW5jb2Rpbmc6RVRIRVIpIH0gfQogIH0KfQ==" title="GraphiQL, online query editor with completion and docs" >}}
-
-{{< row-wrapper-end >}}

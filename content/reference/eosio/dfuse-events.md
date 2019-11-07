@@ -1,10 +1,8 @@
 ---
 weight: 70
 title: dfuse Events
+protocol: EOS
 ---
-{{< row-wrapper >}}
-{{< sub-section-title title="dfuse Events"  protocol="EOS" >}}
-
 dfuse Events are a powerful way to give smart contract developers a
 way to ask dfuse Search to index their transactions, with arbitrary
 key/value pairs.
@@ -45,5 +43,3 @@ If you need more than 3 key/values or want more than 64 bytes of value data, con
 {{< note >}}
 If your `auth_key` is invalid or used within the wrong contract account, normal restrictions apply.
 {{< /note >}}
-
-{{< row-wrapper-end >}}

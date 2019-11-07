@@ -2,11 +2,6 @@
 weight: 30
 title: Writing reliably to the chain (push guarantee)
 ---
-
-{{< row-wrapper >}}
-
-{{< sub-section-title title="Writing reliably to the chain (push guarantee)" protocol="EOS">}}
-
 In this tutorial, we will demonstrate you how to setup `eosjs` to push a
 transaction through dfuse API Push Guaranteed endpoint.
 
@@ -199,5 +194,3 @@ export SIGNING_PRIVATE_KEY="<account private key here>"
 yarn ts-node index.ts
 {{< /tab >}}
 {{< /tabs >}}
-
-{{< row-wrapper-end >}}

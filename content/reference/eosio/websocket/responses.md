@@ -1,4 +1,8 @@
-# Responses
+---
+weight: 30
+title: Responses
+protocol: EOS
+---
 
 These are the messages you can receive from the server.
 

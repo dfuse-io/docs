@@ -1,12 +1,11 @@
 ---
 title: Guides
-weight: 10
+layout: topnav-overview
 menu:
   main:
     name: Guides
     identifier: guides
-    weight: 2
-BookToC: false
+    weight: 20
 ---
 
 {{< row-wrapper >}}

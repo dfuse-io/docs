@@ -1,11 +1,11 @@
 ---
 title: Reference
-weight: 20
+layout: topnav-overview
 menu:
   main:
     name: Reference
     identifier: reference
-    weight: 3
+    weight: 30
 BookToC: false
 ---
 

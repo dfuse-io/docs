@@ -1,9 +1,8 @@
 ---
 weight: 20
+title: Getting Started with Other Languages
+menuTitle: Other Languages
 ---
-
-{{< row-wrapper >}}
-{{< sub-section-title title="Getting Started with Other Languages"  protocol="ETH" >}}
 
 The code from the examples on this page lives {{< externalLink href="https://github.com/dfuse-io/docs/tree/master/quickstarts" title="in the quickstarts folder of this docs GitHub repository">}}.
 
@@ -154,5 +153,3 @@ DFUSE_API_KEY="your dfuse api key here" python main.py
 * [Cursors]({{< relref "/guides/core-concepts/cursors" >}})
 * [GraphQL]({{< relref "/guides/core-concepts/graphql" >}})
 * [Search Query Language]({{< relref "/guides/core-concepts/search-query-language" >}})
-
-{{< row-wrapper-end >}}

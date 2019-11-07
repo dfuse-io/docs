@@ -2,8 +2,6 @@
 weight: 100
 ---
 
-# Errors
-
 ## HTTP Codes
 
 The _dfuse_ API uses the following HTTP error codes:

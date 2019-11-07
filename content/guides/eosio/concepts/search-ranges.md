@@ -1,10 +1,9 @@
 ---
 weight: 1
-title: Search Ranges
+menuTitle: Search Ranges
+title: EOSIO Search Ranges
+release: beta
 ---
-
-{{< row-wrapper >}}
-{{< sub-section-title title="EOSIO Search Ranges"  protocol="EOS" >}}
 
 This page gives information about the searched range for various combinations of `lowBlockNum` and
 `highBlockNum` when using our search engine as well as the implications of using a Cursor or deciding
@@ -102,5 +101,3 @@ In the tables that follow, we use a few semantics to make the table easier to re
 | `C`    | `0`    | `0`    | `[HEAD - 1, C]`                |
 | `C`    | `-1`   | `-1`   | `[HEAD - 2, C]`                |
 | `C`    | `-L`   | `-H`   | `[HEAD - 1 - L, C]`            |
-
-{{< row-wrapper-end >}}

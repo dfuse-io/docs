@@ -1,7 +1,10 @@
 {{ define "main" }}
 <article class="markdown">
-  {{- .Content -}}
-{{ end }}
+  <div class="container sub-section">
+      {{ partial "docs/section-title" . }}
+      {{- .Content -}}
+  </div>
+    {{ end }}
 {{ define "toc" }}
   {{ partial "docs/toc" . }}
 {{ end }}

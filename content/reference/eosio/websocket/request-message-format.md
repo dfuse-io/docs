@@ -1,4 +1,8 @@
-# Request Message Format
+---
+weight: 20
+title: Request Message Format
+protocol: EOS
+---
 
 Sample request message:
 

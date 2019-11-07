@@ -1,11 +1,9 @@
 ---
-weight: 2
-title: Tutorials
+weight: 20
+title: EOSIO Tutorials
+menuTitle: Tutorials
+protocol: EOS
 ---
-
-{{< row-wrapper >}}
-
-{{< sub-section-title title="EOSIO Tutorials" protocol="EOS" >}}
 
 In this section, you will find the list of tutorials currently written when you
 can more easily map your use case to one or more dfuse concepts under a concrete
@@ -22,5 +20,3 @@ code repository.
       - Slack notification from on-chain events (Workers I think)
       - Reliably sync a database (cursors + navigating forks concepts)
 -->
-
-{{< row-wrapper-end >}}

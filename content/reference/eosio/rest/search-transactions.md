@@ -2,9 +2,6 @@
 weight: 1
 title: GET /v0/search/transactions
 ---
-
-# GET `/v0/search/transactions`
-
 Search an EOSIO blockchain for transactions based on free-form
 criterias, using the [_dfuse_ Search query language]({{< ref "../search-terms" >}}).
 

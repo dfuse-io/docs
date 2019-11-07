@@ -1,12 +1,8 @@
 ---
 weight: 10
 title: Push notifications from the chain
-date:
+
 ---
-
-{{< row-wrapper >}}
-
-{{< sub-section-title title="Push notifications from the chain"  protocol="EOS" >}}
 
 ## Token Management
 
@@ -211,6 +207,3 @@ if !undo {
 ...
 {{< /tab >}}
 {{< /tabs >}}
-
-
-{{< row-wrapper-end >}}

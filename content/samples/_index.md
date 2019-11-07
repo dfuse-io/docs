@@ -1,12 +1,11 @@
 ---
 title: Samples
-bookFlatSection: false
-weight: 30
+layout: topnav-overview
 menu:
   main:
     name: Samples
     identifier: samples
-    weight: 4
+    weight: 40
 ---
 
 {{< row-wrapper >}}

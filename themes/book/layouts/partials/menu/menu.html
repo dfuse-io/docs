@@ -1,13 +1,7 @@
 <nav>
-{{ partial "docs/inject/menu-before" . }}
-
-{{ if .Site.Params.BookMenuBundle }}
-    {{ partial "docs/menu-bundle" . }}
-{{ else }}
-    {{ partial "docs/menu-filetree" . }}
-{{ end }}
-
-{{ partial "docs/inject/menu-after" . }}
+{{ partial "menu/menu-before" . }}
+{{ partial "menu/menu-filetree" . }}
+{{ partial "menu/menu-after" . }}
 </nav>
 
 <!-- Restore menu position as soon as possible to avoid flickering -->

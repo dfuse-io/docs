@@ -1,6 +1,7 @@
 ---
-weight: 50
+weight: 60
 title: GraphQL Schema
+protocol: EOS
 ---
 
 # GraphQL Schema

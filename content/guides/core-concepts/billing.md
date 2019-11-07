@@ -1,10 +1,8 @@
 ---
-title: Billing
 weight: 70
+title: Billing
 ---
 
-{{< row-wrapper >}}
-{{< sub-section-title title="Billing" >}}
 
 ## Subscription plans
 
@@ -47,5 +45,3 @@ Opening a connection does not incur any charge. All of our WebSocket APIs are st
 ### GraphQL (over WebSocket or gRPC)
 
 Opening a connection does not incur any charge. A GraphQL **Query** response will either count as one (1) **Document** or multiple **Documents** in the case of a list of results (ex. `searchTransactionsForward`). Similarly, a streaming GraphQL **Subscription** will be charged as many **Documents** as you receive response payloads during its lifetime.
-
-{{< row-wrapper-end >}}

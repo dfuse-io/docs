@@ -2,11 +2,7 @@
 weight: 1
 title: GET /v0/state/abi
 ---
-
-# GET `/v0/state/abi`
-
 Fetches the ABI for a given contract account, at any block height.
-
 
 ## Usage
 

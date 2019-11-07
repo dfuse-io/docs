@@ -1,9 +1,7 @@
 ---
-title: Cursors
 weight: 30
+title: Cursors
 ---
-{{< row-wrapper >}}
-{{< sub-section-title title="Cursors" >}}
 
 ## All About Cursor
 <!--
@@ -146,4 +144,3 @@ query {
 
 {{< /tab >}}
 {{< /tabs >}}
-{{< row-wrapper-end >}}

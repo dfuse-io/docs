@@ -1,14 +1,13 @@
 ---
 weight: 1
-title: Work with your free Account
+menuTitle: Work with your free Account
+title: How to Work with your Free dfuse Account
 ---
-{{< row-wrapper >}}
-{{< sub-section-title title="How to Work with your Free dfuse Account" protocol="EOS" >}}
 ## 1. Create a free dfuse account
 
 Visit {{< externalLink href="https://app.dfuse.io">}} to create an account.
 
-## 2. Create an api key
+## 2. Create an API key
 
 Visit {{< externalLink href="https://app.dfuse.io/keys">}} to create your first api key.
 
@@ -42,5 +41,3 @@ curl https://auth.dfuse.io/v1/auth/issue -s --data-binary '{"api_key":"web_abcde
 ## 4. What's next? 
 
 * [Review Authentication Guide]({{< ref "/guides/core-concepts/authentication" >}})
-
-{{< row-wrapper-end >}}

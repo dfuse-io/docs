@@ -1,10 +1,8 @@
 ---
-weight: 60
+weight: 20
+menuTitle: Search Terms
+title: Search Terms for EOSIO
 ---
-
-{{< row-wrapper >}}
-{{< sub-section-title title="Search Terms for EOSIO"  protocol="EOS" >}}
-
 ## Example queries
 
 * `account:eosio.token receiver:eosio.token (data.from:eoscanadacom OR data.to:eoscanadacom)`
@@ -49,5 +47,3 @@ These are the prefixes or fields available for query:
          * `[table_name]`
     * `db.scope:[scope]`
     * All the fields therein are name-encoded (even if somethings it can be the empty string), and are separated by the `/` character.
-
-{{< row-wrapper-end >}}

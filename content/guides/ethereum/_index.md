@@ -1,10 +1,8 @@
 ---
-weight: 1
+weight: 20
+title: Ethereum
+protocol: ETH
 ---
-
-{{< row-wrapper >}}
-
-{{< sub-section-title title="Ethereum" protocol="ETH" >}}
 
 {{< sub-section-columns  class="col-4" >}}
 
@@ -32,4 +30,3 @@ weight: 1
 
 {{< /sub-section-columns >}}
 
-{{< row-wrapper-end >}}

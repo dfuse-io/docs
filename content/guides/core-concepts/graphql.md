@@ -1,8 +1,7 @@
 ---
-title: GraphQL
 weight: 20
+title: GraphQL
 ---
-
 
 <!--
 
@@ -21,9 +20,6 @@ How Connections work, etc..
 Steal everything from: https://developer.github.com/v4/guides/forming-calls/#the-graphql-endpoint
 
 -->
-
-{{< row-wrapper >}}
-{{< sub-section-title title="GraphQL" >}}
 
 ## Getting Started with GraphQL
 
@@ -489,5 +485,3 @@ Batched operations are always as slow as the slowest operation in the batch.
 [insert PHP example]
 
 -->
-
-{{< row-wrapper-end >}}

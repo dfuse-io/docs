@@ -1,20 +1,11 @@
 ---
-weight: 20
+weight: 10
 title: Getting started
+protocol: ETH
 ---
-
-{{< row-wrapper >}}
-
-{{< sub-section-title title="Getting Started" protocol="ETH" >}}
-
 In this section, you will find the list of quickstart guides
 
-- [Track transaction in real-time]({{< ref "/guides/ethereum/tutorials/track_trx" >}}) (<small>Keywords: dfuse Lifecycle, JavaScript, React, Browser</small>)
-
-- [Work with your free Account](/guides/ethereum/getting-started/how-to-work-with-your-free-account)
-- [Explore ETH through dfuse](/guides/ethereum/getting-started/explore-eth-through-dfuse)
-- [JavaScript Quickstart](/guides/ethereum/getting-started/javascript-quickstart)
-- [Other Languages](/guides/ethereum/getting-started/other-languages)
-
-
-{{< row-wrapper-end >}}
+- [Work with your free Account]({{< ref "/guides/ethereum/getting-started/how-to-work-with-your-free-account" >}}) 
+- [Explore ETH through dfuse]({{< ref "/guides/ethereum/getting-started/explore-eth-through-dfuse" >}})
+- [JavaScript Quickstart]({{< ref "/guides/ethereum/getting-started/javascript-quickstart" >}})
+- [Other Languages]({{< ref "/guides/ethereum/getting-started/other-languages" >}})

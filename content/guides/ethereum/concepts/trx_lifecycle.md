@@ -1,11 +1,8 @@
 ---
 weight: 1
-title: Transaction Lifecycle
+menuTitle: Transaction Lifecycle
+title: Ethereum Transaction Lifecycle
 ---
-
-{{< row-wrapper >}}
-
-{{< sub-section-title title="Ethereum Transaction Lifecycle"  protocol="ETH" >}}
 
 ## How Transaction Lifecycle Works
 
@@ -132,5 +129,3 @@ the fragment can de defined like this:
 {{< /tabs >}}
 
 Putting all this together we get the full query we started with.
-
-{{< row-wrapper-end >}}

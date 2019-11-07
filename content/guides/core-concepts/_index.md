@@ -1,11 +1,8 @@
 ---
-weight: 3
+weight: 30
 title: Core Concepts
+protocol: DFUSE
 ---
-
-{{< row-wrapper >}}
-
-{{< sub-section-title title="Core Concepts" >}}
 
 Working with dfuse should be dead simple while remaining highly powerful ensuring you
 retrieve all the data you need while never missing a single piece of information in
@@ -25,4 +22,3 @@ that works across all supported chains and over the entire dfuse APIs.
 - [Billing]({{< ref "/guides/core-concepts/billing" >}})
 - [Rate Limiting]({{< ref "/guides/core-concepts/rate-limiting" >}})
 
-{{< row-wrapper-end >}}

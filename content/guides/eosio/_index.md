@@ -1,10 +1,8 @@
 ---
-weight: 1
+weight: 10
+title: EOSIO
+protocol: EOS
 ---
-
-{{< row-wrapper >}}
-
-{{< sub-section-title title="EOSIO" protocol="EOS" >}}
 
 {{< sub-section-columns class="col-4" >}}
 
@@ -33,4 +31,3 @@ weight: 1
 
 {{< /sub-section-columns >}}
 
-{{< row-wrapper-end >}}

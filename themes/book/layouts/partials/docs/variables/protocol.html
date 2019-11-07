@@ -1,0 +1,10 @@
+{{ $protocol := "" }}
+
+{{ if  and .Page.Params.Protocol }}
+    {{ $protocol = .Page.Params.Protocol }}
+{{ else if .Page.CurrentSection.Params.Protocol }}
+    {{ $protocol = .Page.CurrentSection.Params.Protocol }}
+{{  end }}
+
+{{ return  $protocol }}
+

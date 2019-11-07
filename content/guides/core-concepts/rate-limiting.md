@@ -3,9 +3,6 @@ title: Rate Limiting
 weight: 100
 ---
 
-{{< row-wrapper >}}
-{{< sub-section-title title="Rate Limiting" >}}
-
 ## Acceptable use limits
 
 In order to guarantee great performance and reliability for all of our users, we reserve the right to throttle certain API requests.
@@ -27,5 +24,3 @@ At the moment we do not have any rate limiting in place for those endpoints.
 ## GraphQL (WebSocket and gRPC)
 
 At the moment we do not have any rate limiting in place for those endpoints.
-
-{{< row-wrapper-end >}}

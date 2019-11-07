@@ -3,8 +3,6 @@ weight: 1
 title: POST /v1/auth/issue
 ---
 
-# POST `/v1/auth/issue`
-
 Exchange a long-term API key for a short-lived (24 hours) API Authentication Token (JWT).
 
 

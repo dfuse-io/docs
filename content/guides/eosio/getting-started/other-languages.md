@@ -1,9 +1,9 @@
 ---
 weight: 20
+menuTitle: "Other Languages"
+title: "Getting Started with Other Languages"
 ---
 
-{{< row-wrapper >}}
-{{< sub-section-title title="Getting Started with Other Languages" protocol="EOS" >}}
 
 dfuse exposes its data through a GraphQL over gRPC interface. The protobuf files are {{< externalLink href="https://github.com/dfuse-io/graphql-over-grpc" title="in this github repository">}}.
 
@@ -163,5 +163,3 @@ DFUSE_API_KEY="server_abcdef12345678900000000000" python main.py eosio
 * [Cursors]({{< relref "/guides/core-concepts/cursors" >}})
 * [GraphQL]({{< relref "/guides/core-concepts/graphql" >}})
 * [Search Query Language]({{< relref "/guides/core-concepts/search-query-language" >}})
-
-{{< row-wrapper-end >}}

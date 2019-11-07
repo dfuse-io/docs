@@ -3,7 +3,6 @@
 
 <h2><a href="{{ $section.RelPermalink }}">{{ $section.Title }}</a></h2>
 
-
 {{ template "book-section-children" (dict "Section" $section "CurrentPage" .Page) }}
 
 {{ define "book-section" }}
@@ -19,7 +18,11 @@
           {{ if .Page.IsAncestor $.CurrentPage }}checked{{end}} />
 
         <label class="nav-expandable" for="nav-expand-control-{{ .File }}">
-          {{ partial "docs/title" . }}
+          {{ if .Page.Params.MenuTitle }}
+            {{ .Page.Params.MenuTitle }}
+          {{ else }}
+            {{ partial "docs/variables/title" . }}
+          {{ end }}
           <i class="fas fa-chevron-right"></i>
         </label>
 
@@ -37,7 +40,7 @@
         {{ if eq .Kind "section" }}
           {{ template "book-section" (dict "Section" . "CurrentPage" $.CurrentPage) }}
         {{ else if and (eq .Kind "page") .Content }}
-          <li>
+          <li class="{{ if $.CurrentPage.Params.Release }}release release-{{$.CurrentPage.Params.Release}}{{ end }}">
             {{- template "book-page-link" (dict "Page" . "CurrentPage" $.CurrentPage) -}}
           </li>
         {{ end }}
@@ -48,8 +51,12 @@
 
 {{ define "book-page-link" }}
   {{ with .Page }}
-    <a href="{{ .RelPermalink }}" {{ if eq $.CurrentPage.Permalink .Permalink }} class="active" {{ end }}>
-      {{ partial "docs/title" . | markdownify }}
+    <a href="{{ .RelPermalink }}"   class="{{ if eq $.CurrentPage.Permalink .Permalink }}active{{ end }}">
+      {{ if .Page.Params.MenuTitle }}
+          {{ .Page.Params.MenuTitle }}
+      {{ else }}
+          {{ partial "docs/variables/title" . | markdownify }}
+      {{ end }}
     </a>
   {{ end }}
 {{ end }}

@@ -2,9 +2,6 @@
 weight: 1
 title: GET /v0/state/tables/scopes
 ---
-
-# GET `/v0/state/tables/scopes`
-
 Fetches all rows for a table in a given contract for a group of
 scopes, at any block height.
 

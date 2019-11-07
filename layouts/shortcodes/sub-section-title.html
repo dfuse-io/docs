@@ -27,7 +27,7 @@
         {{ end }}
         <h1 class="sub-section-title">
             {{ if .Get "title" }}{{ .Get "title" }}{{ end }}
-            {{ if .Get "tag" }}<div class="tag tag-h1 tag-{{ .Get "tag" }}">{{ .Get "tag" }}</div>{{ end }}
+            {{ if .Page.Params.release }}<div class="tag tag-h1 tag-{{ .Page.Params.release }}">{{ .Page.Params.release }}</div>{{ end }}
         </h1>
     </div>
 </div>

@@ -1,11 +1,8 @@
 ---
 weight: 1
-title: Search Ranges
+menuTitle: Search Ranges
+title: Ethereum Search Ranges
 ---
-
-{{< row-wrapper >}}
-
-{{< sub-section-title title="Ethereum Search Ranges" protocol="ETH" >}}
 
 This page gives information about the searched range for various combinations of `lowBlockNum` and
 `highBlockNum` when using our search engine as well as the implications of using a `cursor` or deciding
@@ -90,5 +87,3 @@ In the tables that follow, we use a few semantics to make the table easier to re
 | `DESC`     | `C`    | `0`    | `0`    | `[0, C]`               |
 | `DESC`     | `C`    | `-1`   | `-1`   | `[HEAD, C]`            |
 | `DESC`     | `C`    | `-L`   | `-H`   | `[HEAD - L, C]`        |
-
-{{< row-wrapper-end >}}

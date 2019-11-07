@@ -1,9 +1,8 @@
 ---
 weight: 10
+menuTitle: Endpoints
+title: EOS API Endpoints
 ---
-
-{{< row-wrapper >}}
-{{< sub-section-title title="EOS API Endpoints"  protocol="EOS" >}}
 
 The _dfuse_ API is available for multiple EOSIO networks. Should you need it on another network, contact us.
 
@@ -56,5 +55,3 @@ API  | URL
 WebSocket | wss://mainnet.wax.dfuse.io/v1/stream
 REST | https://mainnet.wax.dfuse.io/
 GraphQL | https://mainnet.wax.dfuse.io/graphql -- Explore: [GraphiQL](https://mainnet.wax.dfuse.io/graphiql/)
-
-{{< row-wrapper-end >}}
