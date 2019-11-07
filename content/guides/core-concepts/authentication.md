@@ -164,7 +164,7 @@ Each time you get a fresh JWT, it contains the updated expiration time and the t
 
 ## REST Authentication
 
-To authenticate REST requests, specify an `Authorization: Bearer [JWT token]` header in the HTTP request. See {{< external-link title="more details" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization"}}
+To authenticate REST requests, specify an `Authorization: Bearer [JWT token]` header in the HTTP request. See {{< external-link title="more details" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization" >}}
 
 {{< tabs "rest-auth" >}}
 {{< tab title="curl" lang="bash" >}}
