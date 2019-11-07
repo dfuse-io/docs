@@ -7,7 +7,8 @@
       {{ partial "section-title" (dict "Title" $title "Protocol" $protocol "Release" $release) . }}
       {{- .Content -}}
   </div>
-    {{ end }}
+{{ end }}
+
 {{ define "toc" }}
   {{ partial "docs/toc" . }}
 {{ end }}
