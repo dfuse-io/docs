@@ -1,4 +1,5 @@
 {{ if .Parent }}
+    {{ $opts := .Get "opts" }}
   {{ $title := .Get "title" }}
   {{ $filename := .Get "filename" }}
   {{ $range := .Get "range" }}
@@ -52,7 +53,7 @@
   {{ end }}
 
   {{ if $lang }}
-    {{ .Parent.Scratch.Add $group (dict "Name" $title "Content" (highlight $content $lang "")) }}
+    {{ .Parent.Scratch.Add $group (dict "Name" $title "Content" (highlight $content $lang $opts)) }}
   {{ else }}
     {{ .Parent.Scratch.Add $group (dict "Name" $title "Content" $content) }}
   {{ end }}

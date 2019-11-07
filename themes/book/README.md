@@ -206,38 +206,6 @@ Organize text in 2 or more columns to use space efficiently.
 {{< /columns >}}
 ```
 
-### Mermaid Chat
-
-Render various charts with [mermaidjs](https://mermaidjs.github.io/)
-
-```
-{{< mermaid >}}
-sequenceDiagram
-    Alice->>Bob: Hello Bob, how are you?
-    alt is sick
-        Bob->>Alice: Not so good :(
-    else is well
-        Bob->>Alice: Feeling fresh like a daisy
-    end
-    opt Extra response
-        Bob->>Alice: Thanks for asking
-    end
-{{< /mermaid >}}
-```
-
-### KaTeX Syntax
-
-Render math formulas with [KaTeX](https://katex.org/)
-
-```
-{{< katex >}}
-x = \begin{cases}
-   a &\text{if } b \\
-   c &\text{if } d
-\end{cases}
-{{< /katex >}}
-```
-
 ## Redirection of old Slate URLs
 
 The old version of the docs (https://github.com/eoscanada/dfuse-documentation) was built on Slate, which has no routing at all. Everything was concatenated on one page, and all linking was done through #url-fragments, which don't get sent to the server, preventing us from using Hugo aliases. Because of this, we had to use client-side redirects in JavaScript on page load.

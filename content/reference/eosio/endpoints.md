@@ -2,6 +2,7 @@
 weight: 10
 menuTitle: Endpoints
 title: EOS API Endpoints
+release: stable
 ---
 
 The _dfuse_ API is available for multiple EOSIO networks. Should you need it on another network, contact us.
@@ -14,7 +15,7 @@ API  | URL
 ------|------
 WebSocket | wss://mainnet.eos.dfuse.io/v1/stream
 REST | https://mainnet.eos.dfuse.io/
-GraphQL | https://mainnet.eos.dfuse.io/graphql -- Explore: [GraphiQL](https://mainnet.eos.dfuse.io/graphiql/)
+GraphQL | https://mainnet.eos.dfuse.io/graphql -- Explore: {{< external-link title="GraphiQL" href="https://mainnet.eos.dfuse.io/graphiql/" >}}
 
 ## CryptoKylin
 
@@ -24,7 +25,7 @@ API  | URL
 ------|------
 WebSocket | wss://kylin.eos.dfuse.io/v1/stream
 REST | https://kylin.eos.dfuse.io/
-GraphQL | https://kylin.eos.dfuse.io/graphql -- Explore: [GraphiQL](https://kylin.eos.dfuse.io/graphiql/)
+GraphQL | https://kylin.eos.dfuse.io/graphql -- Explore: {{< external-link title="GraphiQL" href="https://kylin.eos.dfuse.io/graphiql/" >}}
 
 ## Jungle 2.0
 
@@ -34,7 +35,7 @@ API  | URL
 ------|------
 WebSocket | wss://jungle.eos.dfuse.io/v1/stream
 REST | https://jungle.eos.dfuse.io/
-GraphQL | https://jungle.eos.dfuse.io/graphql -- Explore: [GraphiQL](https://jungle.eos.dfuse.io/graphiql/)
+GraphQL | https://jungle.eos.dfuse.io/graphql -- Explore: {{< external-link title="GraphiQL" href="https://jungle.eos.dfuse.io/graphiql/" >}}
 
 ## Worbli - Mainnet
 
@@ -44,7 +45,7 @@ API  | URL
 ------|------
 WebSocket | wss://worbli.eos.dfuse.io/v1/stream
 REST | https://worbli.eos.dfuse.io/
-GraphQL | https://worbli.eos.dfuse.io/graphql -- Explore: [GraphiQL](https://worbli.eos.dfuse.io/graphiql/)
+GraphQL | https://worbli.eos.dfuse.io/graphql -- Explore: {{< external-link title="GraphiQL" href="https://worbli.eos.dfuse.io/graphiql/" >}}
 
 ## WAX - Mainnet
 
@@ -54,4 +55,4 @@ API  | URL
 ------|------
 WebSocket | wss://mainnet.wax.dfuse.io/v1/stream
 REST | https://mainnet.wax.dfuse.io/
-GraphQL | https://mainnet.wax.dfuse.io/graphql -- Explore: [GraphiQL](https://mainnet.wax.dfuse.io/graphiql/)
+GraphQL | https://mainnet.wax.dfuse.io/graphql -- Explore: {{< external-link title="GraphiQL" href="https://mainnet.wax.dfuse.io/graphiql/" >}}

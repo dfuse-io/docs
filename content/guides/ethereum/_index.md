@@ -1,7 +1,6 @@
 ---
 weight: 20
 title: Ethereum
-protocol: ETH
 ---
 
 {{< sub-section-columns  class="col-4" >}}
@@ -29,4 +28,3 @@ protocol: ETH
 * [GraphQL]({{< ref "/guides/core-concepts/graphql" >}})
 
 {{< /sub-section-columns >}}
-

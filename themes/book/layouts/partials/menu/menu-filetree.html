@@ -9,7 +9,7 @@
   {{ with .Section }}
     <li {{ if .Params.BookFlatSection}} class="book-section-flat" {{ end }}>
       {{ if .Content }}
-      
+
       <input type="checkbox" id="nav-expand-control-{{ .File }}" class="nav-expand-control"
       {{ if .Page.IsAncestor $.CurrentPage }}checked{{end}} />
       <label class="nav-expandable" for="nav-expand-control-{{ .File }}">
@@ -18,7 +18,10 @@
       </label>
 
       {{ else }}
-      
+
+        <input type="checkbox" id="nav-expand-control-{{ .File }}" class="nav-expand-control"
+        {{ if .Page.IsAncestor $.CurrentPage }}checked{{end}} />
+
         <label class="nav-expandable" for="nav-expand-control-{{ .File }}">
           {{ if .Page.Params.MenuTitle }}
             {{ .Page.Params.MenuTitle }}

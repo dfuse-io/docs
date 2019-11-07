@@ -10,16 +10,16 @@ on of supported JavaScript environment:
 - Browser standalone (`Browser` code tab)
 - Node.js server (`Node.js` code tab)
 
-{{< note >}}
+{{< alert type="note" >}}
 While not in the supported list (yet), you should in theory be able to use the example under a React Native environment.
-{{< /note >}}
+{{< /alert >}}
 
 All examples uses ES6 syntax with `await/async` keywords, using `import` keywords on `Bundler` and `Browser`
 environments while using the `require` syntax on Node.js environment. However,
 
-{{< note >}}
+{{< alert type="note" >}}
 The library compiles itself to down to ES5 features so we support older ES5 compliant browsers that are not compatible with ES6 features (IE 11 for example).
-{{< /note >}}
+{{< /alert >}}
 
 We assume the commands below are performed in an empty project folder. To quickly
 start an empty project:
@@ -46,7 +46,7 @@ yarn init -y
 ## 2. Adding the Client Library
 
 The simplest way to get started with dfuse and JavaScript/TypeScript development is to use
-the [dfuse JS client library](https://github.com/dfuse-io/client-js) (with TypeScript typings).
+the {{< external-link title="dfuse JS client library" href="https://github.com/dfuse-io/client-js) (with TypeScript typings" >}}.
 
 Here are a few of its key features:
 
@@ -84,11 +84,11 @@ yarn add node-fetch ws
 Once installed, prior calling anything else, ensure that `global.fetch` and `global.WebSocket`
 are set in the global scope.
 
-{{< important >}}
+{{< alert type="important" >}}
 This is required only in a Node.js environment. When targeting a Browser environment (in
 standalone HTML or through a bundler, @dfuse/client library automatically uses `fetch`
 and `WebSocket` objects provided by the browser).
-{{< /important >}}
+{{< /alert >}}
 
 {{< tabs "configure-dependencies" >}}
 {{< tab lang="javascript" title="Node.js" >}}
@@ -97,9 +97,9 @@ global.WebSocket = require('ws')
 {{< /tab >}}
 {{< /tabs >}}
 
-{{< note >}}
-You prefer to not pollute the global scope? Check {{< externalLink title="Node.js Configuration Example" href="https://github.com/dfuse-io/client-js/blob/master/examples/advanced/nodejs-fetch-and-websocket-options.ts#L3">}} to see how you can pass the options directly when instantiating the client instead of polluting the global scope.
-{{< /note >}}
+{{< alert type="note" >}}
+You prefer to not pollute the global scope? Check {{< external-link title="Node.js Configuration Example" href="https://github.com/dfuse-io/client-js/blob/master/examples/advanced/nodejs-fetch-and-websocket-options.ts#L3">}} to see how you can pass the options directly when instantiating the client instead of polluting the global scope.
+{{< /alert >}}
 
 ## 3. Create the client
 
@@ -121,12 +121,12 @@ Let's first define the GraphQL operation, as a string, that we will use to perfo
 GraphQL subscription. This element tells the backend server what fields to return
 to you, you get to choose and pick only what you are interested in.
 
-{{< note >}}
+{{< alert type="note" >}}
 Want to inspect the full set of available fields you can retrieve?
 
 * [GraphQL API Reference]({{< ref "/reference/eosio/graphql" >}})
-* {{< externalLink href="https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKHF1ZXJ5OiJyZWNlaXZlcjplb3Npby50b2tlbiBhY3Rpb246dHJhbnNmZXIgLWRhdGEucXVhbnRpdHk6JzAuMDAwMSBFT1MnIikgewogICAgdW5kbyBjdXJzb3IKICAgIHRyYWNlIHsgaWQgbWF0Y2hpbmdBY3Rpb25zIHsganNvbiB9IH0KICB9Cn0=" title="GraphiQL, online query editor with completion and docs">}}
-{{< /note >}}
+* {{< external-link href="https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKHF1ZXJ5OiJyZWNlaXZlcjplb3Npby50b2tlbiBhY3Rpb246dHJhbnNmZXIgLWRhdGEucXVhbnRpdHk6JzAuMDAwMSBFT1MnIikgewogICAgdW5kbyBjdXJzb3IKICAgIHRyYWNlIHsgaWQgbWF0Y2hpbmdBY3Rpb25zIHsganNvbiB9IH0KICB9Cn0=" title="GraphiQL, online query editor with completion and docs">}}
+{{< /alert >}}
 
 {{< tabs "define-query">}}
 {{< tab-code title="Node.js" filename="./quickstarts/javascript/node.js/index.eosio.js" range="11:17" >}}
@@ -151,14 +151,14 @@ by the API. And here a sample of the prints you can see from as a result of exec
 above:
 
 <!-- **Note** We use python for all languages for a nicer output rendering -->
-{{< code-block lang="python" >}}
+{{< highlight "python" >}}
 Transfer eosbetdice11 -> eosbetbank11 [0.0500 EOS]
 Transfer newdexpublic -> gq4tcnrwhege [2.8604 EOS]
 Transfer wpwpwp222222 -> eosioeosios3 [20.0000 EOS]
 Transfer wallet.bg -> bulls.bg [0.9000 EOS]
 Transfer bluebetproxy -> bluebetbulls [0.6000 EOS]
 ...
-{{< /code-block >}}
+{{< /highlight >}}
 
 ## 5. Full Working Examples
 
@@ -215,6 +215,6 @@ start index.eosio.thml      # Windows
 * [WebSocket API Reference]({{< ref "/reference/eosio/websocket" >}})
 * [Check dfuse Core Concepts]({{< ref "/guides/core-concepts" >}})
 * [Look at one of our tutorials]({{< ref "/guides/eosio/tutorials" >}})
-* {{< externalLink title="The `@dfuse/client-js` overview document" href="https://github.com/dfuse-io/client-js/blob/master/README.md#dfuse-javascripttypescript-client-library" >}}
-* {{< externalLink title="The `@dfuse/client-js` quick API reference" href="https://github.com/dfuse-io/client-js/blob/master/README.md#api" >}} ({{< externalLink title="Full API reference" href="https://dfuse-io.github.io/client-js/" >}})
-* {{< externalLink title="GraphiQL, online query editor with completion and docs" href="https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKHF1ZXJ5OiJyZWNlaXZlcjplb3Npby50b2tlbiBhY3Rpb246dHJhbnNmZXIgLWRhdGEucXVhbnRpdHk6JzAuMDAwMSBFT1MnIikgewogICAgdW5kbyBjdXJzb3IKICAgIHRyYWNlIHsgaWQgbWF0Y2hpbmdBY3Rpb25zIHsganNvbiB9IH0KICB9Cn0=" >}}
+* {{< external-link title="The `@dfuse/client-js` overview document" href="https://github.com/dfuse-io/client-js/blob/master/README.md#dfuse-javascripttypescript-client-library" >}}
+* {{< external-link title="The `@dfuse/client-js` quick API reference" href="https://github.com/dfuse-io/client-js/blob/master/README.md#api" >}} ({{< external-link title="Full API reference" href="https://dfuse-io.github.io/client-js/" >}})
+* {{< external-link title="GraphiQL, online query editor with completion and docs" href="https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKHF1ZXJ5OiJyZWNlaXZlcjplb3Npby50b2tlbiBhY3Rpb246dHJhbnNmZXIgLWRhdGEucXVhbnRpdHk6JzAuMDAwMSBFT1MnIikgewogICAgdW5kbyBjdXJzb3IKICAgIHRyYWNlIHsgaWQgbWF0Y2hpbmdBY3Rpb25zIHsganNvbiB9IH0KICB9Cn0=" >}}

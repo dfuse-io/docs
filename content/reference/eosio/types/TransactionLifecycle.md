@@ -109,4 +109,4 @@ Here are the fields under `data`:
 }
 {{< /highlight >}}
 
-Also see this [source code for reference](https://github.com/dfuse-io/eosws-go/blob/master/mdl/v1/transaction.go#L68)
+Also see this {{< external-link title="source code for reference" href="https://github.com/dfuse-io/eosws-go/blob/master/mdl/v1/transaction.go#L68" >}}

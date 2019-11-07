@@ -1,16 +1,13 @@
 ---
 title: get_action_traces
 ---
-
-# `get_action_traces`
-
 Retrieve a stream of executed actions, filtered by `receiver` and `account`
 
-{{< note >}}
+{{< alert type="note" >}}
   The `get_action_traces` call is streaming only actions that are part of an executed transaction. That means
   you will never receive an action matching your filter input that is part of a soft or hard fail transaction.
   The API used to return all actions regardless of the transaction status, but it's not the case anymore.
-{{< /note >}}
+{{< /alert >}}
 
 ## Usage
 
@@ -38,7 +35,7 @@ Actions on the EOS blockchain are identified by a triplet `receiver`/`account`/`
 
 - The code on the `receiver` is called with the method `account`/`action_name`
 - An action is considered a "notification" when the `receiver` is different from the `account` field. That receiver may or may not contain instructions to run for that `account`/`action_name` pair.
-[Read more details here](https://developers.eos.io/eosio-cpp/docs/communication-model#section-action-handlers-and-action-apply-context).
+{{< external-link title="Read more details here" href="https://developers.eos.io/eosio-cpp/docs/communication-model#section-action-handlers-and-action-apply-context" >}}.
 
 #### Arguments
 
@@ -71,9 +68,9 @@ Actions on the EOS blockchain are identified by a triplet `receiver`/`account`/`
 {{< /method-list-item >}}
 
 {{< method-list-item name="with_tableops" required="false" type="Boolean" >}} Stream table operations produced by each action (See [TableOp]({{< ref "../../types/TableOp" >}})).
-  {{< note >}}
+  {{< alert type="note" >}}
   Do not confuse, the latter being describing a row changes (i.e. for example, an account’s balance) while the former describe the actual creation/deletion of a contract’s table (i.e. the encompassing structure containing the actual rows).
-  {{< /note >}}
+  {{< /alert >}}
 {{< /method-list-item >}}
 
 #### Responses

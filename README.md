@@ -29,11 +29,11 @@ All content can be found in the `/content` directory. The structure of the websi
 
 ### Links
 
-  - [1.1](#types--primitives) **external**: When you insert an external link use the `externalLink` shortcode
+  - [1.1](#types--primitives) **external**: When you insert an external link use the `external-link` shortcode
 
     ```markdown
-    {{<externalLink href="https://app.dfuse.io" title="dfuseio>}}
-    {{<externalLink href="https://app.dfuse.io">}}
+    {{< external-link href="https://app.dfuse.io" title="dfuseio" >}}
+    {{< external-link href="https://app.dfuse.io">}}
     ```
 
 - [1.2](#types--primitives) **internal references**: Please put all _internal references_ as _full paths_, for greppability and refactoring.
@@ -52,16 +52,16 @@ All content can be found in the `/content` directory. The structure of the websi
 Any commit to master automatically triggers a deployment. For this reason, the master branch is locked, requiring all changes to go through an approved pull request.
 
 
-Reference 
+Reference
 ETH -=> Endpoint ALPHA
 
-<new> side menu 
+<new> side menu
 
 
 alpha (red)
 beta (yeallo-orangy)
 stage (light gray)
 add sub-title to graphql shortcode
-fix  
+fix
 
-refactor pages 
+refactor pages

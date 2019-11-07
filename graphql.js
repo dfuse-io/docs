@@ -113,6 +113,7 @@ processSources([
   '../dgraphql/eth/query.graphql',
   '../dgraphql/eth/transactions.graphql',
   '../dgraphql/eth/block.graphql',
+  '../dgraphql/eth/trx_state_tracker.graphql',
 ], 'data/eth/graphql.json')
 
 processSources([

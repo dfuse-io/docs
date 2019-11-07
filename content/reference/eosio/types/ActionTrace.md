@@ -35,7 +35,7 @@ title: ActionTrace
 {{< /method-list-item >}}
 
 {{< method-list-item name="trace" type="[TransactionTrace](/reference/eosio/types/transactiontrace)" required="true" >}}
-  An execution trace object. This is a standard `nodeos` trace object. See the [reference C++ code here](https://github.com/EOSIO/eos/blob/master/libraries/chain/include/eosio/chain/trace.hpp).
+  An execution trace object. This is a standard `nodeos` trace object. See the {{< external-link title="reference C++ code here" href="https://github.com/EOSIO/eos/blob/master/libraries/chain/include/eosio/chain/trace.hpp" >}}.
 {{< /method-list-item >}}
 
 {{< method-list-item name="ramops" type="Array&lt;[RAMOp](/reference/eosio/types/ramop)&gt;" required="false" >}}
@@ -47,7 +47,7 @@ title: ActionTrace
 {{< /method-list-item >}}
 
 <!--
-  * `dbops` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)**: list of database operations, including the payer, the type of the operation (insert, update or delete), the previous row value and the new row value (in case of updates for example).
+  * `dbops` **{{< external-link title="Array" href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)**: list of database operations, including the payer, the type of the operation (insert, update or delete), the previous row value and the new row value (in case of updates for example" >}}.
 -->
 
 ## Example payload

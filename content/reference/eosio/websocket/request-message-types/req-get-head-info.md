@@ -1,9 +1,6 @@
 ---
 title: get_head_info
 ---
-
-# `get_head_info`
-
 Retrieve a stream of informations about the chain as it moves forward
 
 ## Usage

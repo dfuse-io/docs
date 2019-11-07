@@ -1555,5 +1555,181 @@
         ]
       }
     ]
+  },
+  {
+    "name": "TransactionState",
+    "description": "A single Transaction State response.",
+    "fields": [
+      {
+        "name": "previousState",
+        "type": {
+          "reqType": true,
+          "name": "TRANSACTION_STATE"
+        },
+        "description": "previousState is the previous of the transaction. When the stream is initiated this will be UNKNOWN",
+        "arguments": []
+      },
+      {
+        "name": "currentState",
+        "type": {
+          "reqType": true,
+          "name": "TRANSACTION_STATE"
+        },
+        "description": "currentState is the current known state of the transaction.",
+        "arguments": []
+      },
+      {
+        "name": "transitionName",
+        "type": {
+          "reqType": true,
+          "name": "TRANSACTION_TRANSITION"
+        },
+        "description": "transitionName is the current transition of the transaction.",
+        "arguments": []
+      },
+      {
+        "name": "transition",
+        "type": {
+          "name": "TrackerTransition"
+        },
+        "description": "transition holds the details of the specific transition. This can be one of the following types based on the specific transition:\n- TrxTransitionInit\n- TrxTransitionPooled\n- TrxTransitionMined\n- TrxTransitionForked\n- TrxTransitionConfirmed\n- TrxTransitionReplaced",
+        "arguments": []
+      }
+    ]
+  },
+  {
+    "name": "TrxTransitionInit",
+    "description": "",
+    "fields": [
+      {
+        "name": "transaction",
+        "type": {
+          "name": "Transaction"
+        },
+        "description": "",
+        "arguments": []
+      },
+      {
+        "name": "blockHeader",
+        "type": {
+          "name": "BlockHeader"
+        },
+        "description": "",
+        "arguments": []
+      },
+      {
+        "name": "trace",
+        "type": {
+          "name": "TransactionTrace"
+        },
+        "description": "",
+        "arguments": []
+      },
+      {
+        "name": "confirmations",
+        "type": {
+          "reqType": true,
+          "name": "Uint64"
+        },
+        "description": "",
+        "arguments": []
+      },
+      {
+        "name": "replacedById",
+        "type": {
+          "name": "String"
+        },
+        "description": "",
+        "arguments": []
+      }
+    ]
+  },
+  {
+    "name": "TrxTransitionPooled",
+    "description": "",
+    "fields": [
+      {
+        "name": "transaction",
+        "type": {
+          "name": "Transaction"
+        },
+        "description": "",
+        "arguments": []
+      }
+    ]
+  },
+  {
+    "name": "TrxTransitionMined",
+    "description": "",
+    "fields": [
+      {
+        "name": "blockHeader",
+        "type": {
+          "name": "BlockHeader"
+        },
+        "description": "",
+        "arguments": []
+      },
+      {
+        "name": "trace",
+        "type": {
+          "name": "TransactionTrace"
+        },
+        "description": "",
+        "arguments": []
+      },
+      {
+        "name": "confirmations",
+        "type": {
+          "reqType": true,
+          "name": "Uint64"
+        },
+        "description": "",
+        "arguments": []
+      }
+    ]
+  },
+  {
+    "name": "TrxTransitionForked",
+    "description": "",
+    "fields": [
+      {
+        "name": "transaction",
+        "type": {
+          "name": "Transaction"
+        },
+        "description": "",
+        "arguments": []
+      }
+    ]
+  },
+  {
+    "name": "TrxTransitionConfirmed",
+    "description": "",
+    "fields": [
+      {
+        "name": "confirmations",
+        "type": {
+          "reqType": true,
+          "name": "Uint64"
+        },
+        "description": "",
+        "arguments": []
+      }
+    ]
+  },
+  {
+    "name": "TrxTransitionReplaced",
+    "description": "",
+    "fields": [
+      {
+        "name": "replacedById",
+        "type": {
+          "name": "String"
+        },
+        "description": "",
+        "arguments": []
+      }
+    ]
   }
 ]

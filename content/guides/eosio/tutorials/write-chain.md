@@ -66,11 +66,11 @@ definition of this code.
 {{< tab-code title="Node.js" filename="./tutorials/eosio/push-guaranteed/index.ts" range="7:12" >}}
 {{< /tabs >}}
 
-{{< note >}}
+{{< alert type="note" >}}
 Explaining the `@dfuse/client` is out of scope for this tutorial. Refer to the
 [JavaScript Quickstart]({{< ref "/guides/eosio/getting-started/javascript-quickstart" >}}) for
 further details about the `@dfuse/client` library.
-{{< /note >}}
+{{< /alert >}}
 
 ### 3. Define HTTP Override
 
@@ -83,21 +83,21 @@ The headers that are required:
   - `Authorization: Bearer $DFUSE_API_TOKEN`
   - `X-Eos-Push-Guarantee: in-block | irreversible | handoff:1 | handoffs:2 | handoffs:3`
 
-{{< important >}}
+{{< alert type="important" >}}
 Those two headers needs to be present on your push transaction request otherwise, the
 push guaranteed API will not kicked in and you will use the "normal endpoint" in
 those situations.
-{{< /important >}}
+{{< /alert >}}
 
 {{< tabs "custom-fetch" >}}
 {{< tab-code title="Node.js" filename="./tutorials/eosio/push-guaranteed/index.ts" range="5:5,31:44" >}}
 {{< /tabs >}}
 
-{{< note >}}
+{{< alert type="note" >}}
 This adds the headers to **all** HTTP queries and routes all traffic to dfuse endpoint.
 You could adapt the code above to only make the changes when the request is for the
 push transaction endpoint if you prefer and route all other requests to a different endpoint.
-{{< /note >}}
+{{< /alert >}}
 
 ### 4. Transfer Transaction
 
@@ -126,11 +126,11 @@ Better yet, like stated directly in `eosjs` library, use a third-party signing p
 
 Run the following commands from your terminal:
 
-{{< code-block lang="shell" >}}
+{{< highlight "shell" >}}
 export DFUSE_API_KEY="<dfuse API key here>"
 export TRANSFER_FROM_ACCOUNT="<account name that will send the token>"
 export SIGNING_PRIVATE_KEY="<account private key here>"
-{{< /code-block >}}
+{{< /highlight >}}
 
 The `<dfuse API key here>` should be replaced with your dfuse API key,
 `<account name that will send the token>` should be replaced with the
@@ -157,7 +157,7 @@ yarn ts-node index.ts
 
 {{< /tabs >}}
 
-{{< note >}}
+{{< alert type="note" >}}
 If you want to try on EOS Mainnet or Kylin instead, you can provide the following
 extra environment variables:
 
@@ -166,7 +166,7 @@ export DFUSE_API_NETWORK="<mainnet.eos.dfuse.io OR kylin.eos.dfuse.io>"
 export TRANSFER_TO_ACCOUNT="<account name that will receive the token>"
 export TRANSFER_QUANTITY="<quantity to transfer, defaults to 0.0001 EOS if unset>"
 {{< /highlight >}}
-{{< /note >}}
+{{< /alert >}}
 
 ### 6. Support Code
 

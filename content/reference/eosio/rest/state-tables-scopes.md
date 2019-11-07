@@ -1,7 +1,9 @@
 ---
 weight: 1
 title: GET /v0/state/tables/scopes
+release: beta
 ---
+
 Fetches all rows for a table in a given contract for a group of
 scopes, at any block height.
 
@@ -18,9 +20,9 @@ Sample request:
 
 {{< exampleRequest id="search-transactions" url="https://mainnet.eos.dfuse.io/v0/state/tables/scopes?account=eosio&scopes=eosio.token|eosadddddddd|tokenbyeocat|ethsidechain|epraofficial|alibabapoole|hirevibeshvt|oo1122334455|irespotokens|publytoken11|parslseed123|trybenetwork|zkstokensr4u&table=delband&block_num=25000000&json=true" >}}
 
-{{< note >}}
+{{< alert type="note" >}}
 Not to be confused with [/v0/state/table_scopes]({{< ref "./state-table-scopes" >}}) which retrieves the only the scope names. Paired with this endpoint, you can get a consistent view of all tables in a contract.
-{{< /note >}}
+{{< /alert >}}
 
 ## Requesting past blocks & ABI handling
 

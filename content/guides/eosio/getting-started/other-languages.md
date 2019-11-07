@@ -5,9 +5,9 @@ title: "Getting Started with Other Languages"
 ---
 
 
-dfuse exposes its data through a GraphQL over gRPC interface. The protobuf files are {{< externalLink href="https://github.com/dfuse-io/graphql-over-grpc" title="in this github repository">}}.
+dfuse exposes its data through a GraphQL over gRPC interface. The protobuf files are {{< external-link href="https://github.com/dfuse-io/graphql-over-grpc" title="in this github repository">}}.
 
-The code from the examples on this page lives {{< externalLink href="https://github.com/dfuse-io/docs/tree/master/quickstarts" title="in the quickstarts folder of this docs GitHub repository">}}.
+The code from the examples on this page lives {{< external-link href="https://github.com/dfuse-io/docs/tree/master/quickstarts" title="in the quickstarts folder of this docs GitHub repository">}}.
 
 ## 1. Get a dfuse API Key
 
@@ -28,11 +28,11 @@ curl https://auth.dfuse.io/v1/auth/issue -s \
 
 ## 3. Get the client stub and dependencies for your language
 
-The protobuf files defining our graphql-over-grpc interface are available {{< externalLink href="https://github.com/dfuse-io/graphql-over-grpc" title="in this GitHub repository">}}.
+The protobuf files defining our graphql-over-grpc interface are available {{< external-link href="https://github.com/dfuse-io/graphql-over-grpc" title="in this GitHub repository">}}.
 
-A lot of languages provide tools to generate client stubs from protobuf files, as you can find {{< externalLink href="https://grpc.io/docs/quickstart/" title="in the official gRPC documentation">}}.
+A lot of languages provide tools to generate client stubs from protobuf files, as you can find {{< external-link href="https://grpc.io/docs/quickstart/" title="in the official gRPC documentation">}}.
 
-For your convenience, we also provide pre-generated client stubs for some languages The code from the examples on this page lives {{< externalLink href="https://github.com/dfuse-io/docs/tree/master/quickstarts" title="in the quickstarts folder of this docs GitHub repository">}}.
+For your convenience, we also provide pre-generated client stubs for some languages The code from the examples on this page lives {{< external-link href="https://github.com/dfuse-io/docs/tree/master/quickstarts" title="in the quickstarts folder of this docs GitHub repository">}}.
 
 {{< tabs "get-client-stub">}}
 
@@ -89,12 +89,12 @@ Let's first define the GraphQL operation, as a string, that we will use to perfo
 GraphQL subscription. This element tells the backend server what fields to return
 to you, you get to choose and pick only what you are interested in.
 
-{{< note >}}
+{{< alert type="note" >}}
 Want to inspect the full set of available fields you can retrieve?
 
 * [GraphQL API Reference]({{< ref "/reference/eosio/graphql" >}})
-* {{< externalLink href="https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKHF1ZXJ5OiJyZWNlaXZlcjplb3Npby50b2tlbiBhY3Rpb246dHJhbnNmZXIgLWRhdGEucXVhbnRpdHk6JzAuMDAwMSBFT1MnIikgewogICAgdW5kbyBjdXJzb3IKICAgIHRyYWNlIHsgaWQgbWF0Y2hpbmdBY3Rpb25zIHsganNvbiB9IH0KICB9Cn0=" title="GraphiQL, online query editor with completion and docs">}}
-{{< /note >}}
+* {{< external-link href="https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKHF1ZXJ5OiJyZWNlaXZlcjplb3Npby50b2tlbiBhY3Rpb246dHJhbnNmZXIgLWRhdGEucXVhbnRpdHk6JzAuMDAwMSBFT1MnIikgewogICAgdW5kbyBjdXJzb3IKICAgIHRyYWNlIHsgaWQgbWF0Y2hpbmdBY3Rpb25zIHsganNvbiB9IH0KICB9Cn0=" title="GraphiQL, online query editor with completion and docs">}}
+{{< /alert >}}
 
 {{< tabs "define-query">}}
 {{< tab-code title="Go" filename="./quickstarts/go/main-eos.go" range="126:144" >}}
@@ -113,14 +113,14 @@ streaming transfers forever.
 And here a sample of the prints you can see from the standard output after running the example:
 
 <!-- **Note** We use python for all languages for a nicer output rendering -->
-{{< code-block lang="python" >}}
+{{< highlight "python" >}}
 Transfer eosbetdice11 -> eosbetbank11 [0.0500 EOS]
 Transfer newdexpublic -> gq4tcnrwhege [2.8604 EOS]
 Transfer wpwpwp222222 -> eosioeosios3 [20.0000 EOS]
 Transfer wallet.bg -> bulls.bg [0.9000 EOS]
 Transfer bluebetproxy -> bluebetbulls [0.6000 EOS]
 ...
-{{< /code-block >}}
+{{< /highlight >}}
 
 ## 6. Full working examples
 
@@ -157,7 +157,7 @@ DFUSE_API_KEY="server_abcdef12345678900000000000" python main.py eosio
 ## 7. What's next?
 
 * [GraphQL API Reference]({{< ref "/reference/eosio/graphql" >}})
-* {{< externalLink href="https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKHF1ZXJ5OiJyZWNlaXZlcjplb3Npby50b2tlbiBhY3Rpb246dHJhbnNmZXIgLWRhdGEucXVhbnRpdHk6JzAuMDAwMSBFT1MnIikgewogICAgdW5kbyBjdXJzb3IKICAgIHRyYWNlIHsgaWQgbWF0Y2hpbmdBY3Rpb25zIHsganNvbiB9IH0KICB9Cn0=" title="GraphiQL, online query editor with completion and docs">}}
+* {{< external-link href="https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKHF1ZXJ5OiJyZWNlaXZlcjplb3Npby50b2tlbiBhY3Rpb246dHJhbnNmZXIgLWRhdGEucXVhbnRpdHk6JzAuMDAwMSBFT1MnIikgewogICAgdW5kbyBjdXJzb3IKICAgIHRyYWNlIHsgaWQgbWF0Y2hpbmdBY3Rpb25zIHsganNvbiB9IH0KICB9Cn0=" title="GraphiQL, online query editor with completion and docs">}}
 * [Look at one of our tutorials]({{< ref "/guides/eosio/tutorials" >}})
 * [Authentication]({{< relref "/guides/core-concepts/authentication" >}})
 * [Cursors]({{< relref "/guides/core-concepts/cursors" >}})

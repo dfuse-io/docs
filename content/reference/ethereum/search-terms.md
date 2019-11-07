@@ -1,9 +1,9 @@
 ---
 weight: 30
-title: Search Terms
+menuTitle: Search Terms
+title: Search Terms for Ethereum
+release: alpha
 ---
-{{< row-wrapper >}}
-{{< sub-section-title title="Search Terms for Ethereum"  protocol="ETH" >}}
 
 The dfuse Search Query Language resembles the one exposed by Kibana or GitHub for sifting through issues. It is a simple, flat `key1:value1 key2:value2` string, yet allows negation clauses and combinations of `OR` clauses.
 
@@ -12,7 +12,7 @@ dfuse offers two indexes for searching Ethereum transactions:
  * EVM calls, with `indexName: CALLS`
  * Log events, with `indexName: LOGS`
 
- 
+
 Within the
 [`searchTransactions()`](/reference/ethereum/graphql#subscription-searchtransactions)
 GraphQL subscription call, or the
@@ -98,5 +98,3 @@ The following fields go in the `query`  string of those calls.
 
 * description: address of the contract that emitted the **log**
 * example: `address:0x774af44fc5ad4eab986e989fa274b0dd2159be7b`
-
-{{< row-wrapper-end >}}

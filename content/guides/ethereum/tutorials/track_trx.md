@@ -4,15 +4,15 @@ menuTitle: Track transaction in real-time
 title: Track transaction in Real-time
 release: beta
 ---
-In this guide we will create a simple React application that will use dfuse's Transaction State Tracker API to keep track of the state of an ethereum transaction in real-time. We will be using {{< externalLink href="https://reactjs.org/docs/hooks-intro.html" title="react hooks">}}.
+In this guide we will create a simple React application that will use dfuse's Transaction State Tracker API to keep track of the state of an ethereum transaction in real-time. We will be using {{< external-link href="https://reactjs.org/docs/hooks-intro.html" title="react hooks">}}.
 
-{{< note >}}
-Installing {{< externalLink href="https://reactjs.org/tutorial/tutorial.html#developer-tools" title="React Dev Tools">}} for your browser is optional, but really useful for seeing what goes on in the application
-{{< /note >}}
+{{< alert type="note" >}}
+Installing {{< external-link href="https://reactjs.org/tutorial/tutorial.html#developer-tools" title="React Dev Tools">}} for your browser is optional, but really useful for seeing what goes on in the application
+{{< /alert >}}
 
 
 ## 1. Create React App 
-Use the {{< externalLink href="https://github.com/facebook/create-react-app">}} to sets up your development environment so that you can use the latest JavaScript features. You’ll need to have Node >= 8.10 and npm >= 5.6 on your machine. To create a project, run:
+Use the {{< external-link href="https://github.com/facebook/create-react-app">}} to sets up your development environment so that you can use the latest JavaScript features. You’ll need to have Node >= 8.10 and npm >= 5.6 on your machine. To create a project, run:
 
 {{< tabs "create-react-app">}}
 {{< tab title="Shell" lang="shell" >}}
@@ -23,7 +23,7 @@ npm start
 {{< /tab >}}
 {{< /tabs >}}
 
-then open ({{< externalLink href="http://localhost:3000/">}})
+then open ({{< external-link href="http://localhost:3000/">}})
 
 ## 2. Get your api key
 
@@ -58,15 +58,15 @@ Initialize the dfuse client using the API key you created in the first step. Let
 
 To get a real-time feed of transaction state changes we need to craft a GraphQL subscription query. A GraphQL subscription will continuously stream responses and allows you to pick and choose the fields you want to return in the messages.
 
-{{< note >}}
-See {{< externalLink title="Graphql Concept" href="/guides/core-concepts/graphql/">}} for more information about GraphQL
-{{< /note >}}
+{{< alert type="note" >}}
+See {{< external-link title="Graphql Concept" href="/guides/core-concepts/graphql/">}} for more information about GraphQL
+{{< /alert >}}
 
 Our GraphQL query will use the `transactionLifecycle` with a `hash` filter to retrieve the state changes of the transaction.
 
-{{< tip >}}
-Do not worry this query may see intimidating but it is broken down in  {{< externalLink title="Transaction State Tracker Concept" href="/guides/ethereum/concepts/trx_state_tracker/">}}
-{{< /tip >}}
+{{< alert type="tip" >}}
+Do not worry this query may see intimidating but it is broken down in  {{< external-link title="Transaction State Tracker Concept" href="/guides/ethereum/concepts/trx_state_tracker/">}}
+{{< /alert >}}
 
 {{< tabs "tracker-query">}}
 {{< tab-code title="src/App.js" filename="./tutorials/ethereum/track_tx/App.js" range="11:121" >}}
@@ -74,7 +74,7 @@ Do not worry this query may see intimidating but it is broken down in  {{< exter
 
 ## 6. Setup Our Hooks
 
-Lets setup a few hooks that will help us keep track of our transaction states and render our component. We use {{< externalLink title="react state hook" href="https://reactjs.org/docs/hooks-state.html">}} to accomplish this.
+Lets setup a few hooks that will help us keep track of our transaction states and render our component. We use {{< external-link title="react state hook" href="https://reactjs.org/docs/hooks-state.html">}} to accomplish this.
 
 * `transactionHash`: keeps track of the transaction's hash
 * `transitions`: array that stores all the received transaction transitions

@@ -38,7 +38,7 @@ cleos --header "X-Eos-Push-Guarantee: handoffs:2" --header "Authorization: Beare
 You need **cleos version 1.4.1** or higher to use the `X-Eos-Push-Guarantee` feature.
 
 Older version of `cleos` have
-[an issue addressed in this PR](https://github.com/EOSIO/eos/pull/6265)
+{{< external-link href="https://github.com/EOSIO/eos/pull/6265" title="an issue addressed in this PR">}}
 
 {{< highlight shell >}}
 eosc -H "Authorization: Bearer YOURTOKENHERE" -H "X-Eos-Push-Guarantee: irreversible" -u "https://mainnet.eos.dfuse.io" tx push mytx.json

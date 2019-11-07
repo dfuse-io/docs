@@ -29,11 +29,11 @@ Also, you will receive *one* notification each 250 milliseconds at
 maximum. This means you will not get one `progress` message per block
 when doing massive historical reprocessing.
 
-{{< warning >}}
+{{< alert type="warning" >}}
 Even with a value of `1`, it is possible that you do *not* get a
 message for *each block*, if there is a slight network congestion
 which brings two blocks within 250ms of propagation.
-{{< /warning >}}
+{{< /alert >}}
 
 
 ## Using `start_block`

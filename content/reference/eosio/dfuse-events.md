@@ -7,9 +7,9 @@ dfuse Events are a powerful way to give smart contract developers a
 way to ask dfuse Search to index their transactions, with arbitrary
 key/value pairs.
 
-{{< note >}}
+{{< alert type="note" >}}
 See the [Using dfuse Events tutorial]({{< ref "guides/eosio/tutorials/using-dfuse-events" >}}) for a concrete example.
-{{< /note >}}
+{{< /alert >}}
 
 **Availability**: This feature is available on **EOS Mainnet**, **Jungle 2.0** and **Kylin** networks.
 
@@ -27,7 +27,7 @@ See the [Using dfuse Events tutorial]({{< ref "guides/eosio/tutorials/using-dfus
 Name | Type | Options | Description
 -----|------|---------|------------
 `auth_key` | string | required | The empty string (limited access) or a valid _dfuse Events Key_ if you have one. See [Indexing Limits](#dfuse-events-indexing-limits) for details.
-`data` | string | required | A string containing the key/value pair list to index, as an [RFC 3986](https://tools.ietf.org/html/rfc3986) URL encoded string (i.e. `key1=value1&key2=value2`).
+`data` | string | required | A string containing the key/value pair list to index, as an {{< external-link title="RFC 3986" href="https://tools.ietf.org/html/rfc3986) URL encoded string (i.e. `key1=value1&key2=value2`" >}}.
 
 ## Indexing Limits
 
@@ -40,6 +40,6 @@ An empty `auth_key` parameter imposes those limits to the indexing:
 
 If you need more than 3 key/values or want more than 64 bytes of value data, contact us to get a _dfuse Events Key_ for your contract.
 
-{{< note >}}
+{{< alert type="note" >}}
 If your `auth_key` is invalid or used within the wrong contract account, normal restrictions apply.
-{{< /note >}}
+{{< /alert >}}
