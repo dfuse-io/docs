@@ -52,7 +52,7 @@ Stream all transition for transaction `0x3be3b44ae48a074d3b79e3054bb3b62b5c5e5a8
 
 ### Filtering the query
 
-We filter our query by specifying a hash in the `trackTransactionState` subscription connection:
+We filter our query by specifying a hash in the `transactionLifecycle` subscription connection:
 
 {{< tabs "trx-lifecycle-query-hash">}}
 {{< tab-code title="src/App.js" filename="./tutorials/ethereum/track_tx/query.graphql" range="1:3" opts="linenos=table,hl_lines=3">}}
