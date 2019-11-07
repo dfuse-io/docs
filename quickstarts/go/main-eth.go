@@ -5,8 +5,8 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	pb "go/graphql"
 	"io/ioutil"
-	pb "my-project/graphql"
 	"net/http"
 	"os"
 	"time"
@@ -73,9 +73,9 @@ func createClient(endpoint string, token string) pb.GraphQLClient {
 }
 
 const operationETH = `subscription {
-  searchTransactions(query: "-value:0 type:call", lowBlockNum: -1) {
+  searchTransactions(indexName:CALLS, query:"-value:0 type:call", lowBlockNum: -1) {
     undo cursor
-    node { hash matchingCalls { caller address value(encoding:ETHER) } }
+    node { hash matchingCalls { from to value(encoding:ETHER) } }
   }
 }`
 
@@ -86,9 +86,9 @@ type ethereumDocument struct {
 		Node   struct {
 			Hash          string
 			MatchingCalls []struct {
-				Caller  string
-				Address string
-				Value   string
+				From  string
+				To    string
+				Value string
 			}
 		}
 	}
@@ -123,7 +123,7 @@ func streamEthereum(ctx context.Context, client pb.GraphQLClient) {
 		}
 
 		for _, call := range result.Node.MatchingCalls {
-			fmt.Printf("Transfer %s -> %s [%s Ether]%s\n", call.Caller, call.Address, call.Value, reverted)
+			fmt.Printf("Transfer %s -> %s [%s Ether]%s\n", call.From, call.To, call.Value, reverted)
 		}
 	}
 }

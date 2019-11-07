@@ -10,9 +10,9 @@ const client = createDfuseClient({
 
 // You must use a `$cursor` variable so stream starts back at last marked cursor on reconnect!
 const operation = `subscription($cursor: String!) {
-  searchTransactions(query:"-value:0 type:call", lowBlockNum: -1, cursor: $cursor) {
+  searchTransactions(indexName:CALLS, query:"-value:0 type:call", lowBlockNum: -1, cursor: $cursor) {
     undo cursor
-    node { hash matchingCalls { caller address value(encoding:ETHER) } }
+    node { hash matchingCalls { from to value(encoding:ETHER) } }
   }
 }`
 
@@ -20,8 +20,8 @@ async function main() {
   const stream = await client.graphql(operation, (message) => {
     if (message.type === "data") {
       const { undo, cursor, node: { hash, value, matchingCalls }} = message.data.searchTransactions
-      matchingCalls.forEach(({ caller, address, value }) => {
-        console.log(`Transfer ${caller} -> ${address} [${value} Ether]${undo ? " REVERTED" : ""}`)
+      matchingCalls.forEach(({ from, to, value }) => {
+        console.log(`Transfer ${from} -> ${to} [${value} Ether]${undo ? " REVERTED" : ""}`)
       })
 
       // Mark stream at cursor location, on re-connect, we will start back at cursor

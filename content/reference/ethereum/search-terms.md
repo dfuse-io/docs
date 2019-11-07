@@ -7,14 +7,25 @@ title: Search Terms
 
 The dfuse Search Query Language resembles the one exposed by Kibana or GitHub for sifting through issues. It is a simple, flat `key1:value1 key2:value2` string, yet allows negation clauses and combinations of `OR` clauses.
 
-dfuse offers two indexes for searching ETH transactions
+dfuse offers two indexes for searching ETH transactions, specified with the parameter `indexName`
 
- * EVM call (`indexName: "call"`)
- * Log (`indexName: "log"`)
+ * CALLS
+ * LOGS
 
-## Searching by EVM Call
+## Supported terms for both indexes
 
-The following terms are supported:
+### `signer` _address_
+
+* description: address used to sign the transaction (that generated the matching **log** or **call**)
+* example: `signer:0x59a5208B32e627891C389EbafC644145224006E8`
+
+### `method` _string_ or _4-bytes hexdata_
+
+* description: either the signature in ascii form or the first 4 bytes (in hex format) of the keccak-256 of that signature (which can be found in the first 4 bytes of the `input`) of the **method called** (or the method that generated the **log**)
+* example: `method:transfer(address,uint256)` or `method:a9059cbb`
+
+
+## Supported terms for CALLS only
 
 ### `callType` _string_
 
@@ -26,11 +37,6 @@ The following terms are supported:
 * description: Index of this call in the transaction. The transaction's `to` and `from` fields will match the call's `to` and `from` fields at callIndex=0
 * example: `callIndex:0 from:0x59a5208B32e627891C389EbafC644145224006E8`
 
-
-### `signer` _address_
-
-* description: address used to sign the **transaction**
-* example: `signer:0x59a5208B32e627891C389EbafC644145224006E8`
 
 ### `nonce` _uint_
 
@@ -52,11 +58,6 @@ The following terms are supported:
 * description: Ether value of a transfer **call** in WEI
 * example: `value:60000000000` or `value:0xdf8475800`
 
-### `method` _string_ or _4-bytes hexdata_
-
-* description: either the signature in ascii form or the first 4 bytes (in hex format) of the keccak-256 of that signature (which can be found in the first 4 bytes of the `input`) of the **method called**
-* example: `method:transfer(address,uint256)` or `method:a9059cbb`
-
 ### `balanceChange` _address_
 
 * description: address that has its balance affected by the **call**
@@ -72,9 +73,7 @@ The following terms are supported:
 * description: bytes that are passed to the **call**
 * example: `balanceChange:0x8cb02139d217b2fce7940902e6826cae8366d358`
 
-## Searching by Log
-
-The following terms are supported:
+## Supported terms for LOGS only
 
 ### `topic` _32-bytes hexdata_
 
@@ -88,18 +87,7 @@ The following terms are supported:
 
 ### `address` _address_
 
-* description: address of the contract in the **call**
+* description: address of the contract that emitted the **log**
 * example: `address:0x774af44fc5ad4eab986e989fa274b0dd2159be7b`
-
-### `signer` _address_
-
-* description: address used to sign the **transaction**
-* example: `signer:0x59a5208B32e627891C389EbafC644145224006E8`
-
-### `method` _string_ or _4-bytes hexdata_
-
-* description: either the signature in ascii form or the first 4 bytes (in hex format) of the keccak-256 of that signature (which can be found in the first 4 bytes of the `input`) of the **method called**
-* example: `method:transfer(address,uint256)` or `method:a9059cbb`
-
 
 {{< row-wrapper-end >}}
