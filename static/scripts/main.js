@@ -255,4 +255,8 @@ const redirectMap = {
    console.log(heading)
  })
 
- document.querySelector('#TableOfContents ul').replaceWith(tableOfContents)
+ var x = document.querySelector('#TableOfContents ul');
+ if (x != null) {
+  x.replaceWith(tableOfContents);   
+ }
+
