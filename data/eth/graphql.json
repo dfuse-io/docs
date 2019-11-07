@@ -44,6 +44,14 @@
         "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization.  The `undo` field is always `false` in backward searches.",
         "arguments": [
           {
+            "name": "indexName",
+            "type": {
+              "reqType": true,
+              "name": "TRANSACTIONS_INDEX_NAME"
+            },
+            "description": ""
+          },
+          {
             "name": "query",
             "type": {
               "reqType": true,
@@ -99,7 +107,7 @@
         ]
       },
       {
-        "name": "trackTransactionState",
+        "name": "transactionLifecycle",
         "type": {
           "reqType": true,
           "name": "TransactionState"
@@ -181,6 +189,14 @@
         },
         "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\n\nWhen the returned `cursor` is empty, it means you have reached the end of the specified block\nrange.\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization.\n\nSee also the streaming version under `Subscription`",
         "arguments": [
+          {
+            "name": "indexName",
+            "type": {
+              "reqType": true,
+              "name": "TRANSACTIONS_INDEX_NAME"
+            },
+            "description": ""
+          },
           {
             "name": "query",
             "type": {
@@ -305,7 +321,7 @@
         "name": "block",
         "type": {
           "reqType": true,
-          "name": "Block"
+          "name": "BlockWithHeader"
         },
         "description": "`block` is the block in which this transaction was mined",
         "arguments": []
@@ -353,8 +369,8 @@
           {
             "name": "encoding",
             "type": {
-              "name": "WEI_ENCODING",
-              "default": "HEXADECIMAL"
+              "name": "VALUE_ENCODING",
+              "default": "HEX"
             },
             "description": ""
           }
@@ -380,8 +396,8 @@
           {
             "name": "encoding",
             "type": {
-              "name": "WEI_ENCODING",
-              "default": "HEXADECIMAL"
+              "name": "VALUE_ENCODING",
+              "default": "HEX"
             },
             "description": ""
           }
@@ -476,7 +492,7 @@
         "name": "block",
         "type": {
           "reqType": true,
-          "name": "Block"
+          "name": "BlockWithHeader"
         },
         "description": "",
         "arguments": []
@@ -524,8 +540,8 @@
           {
             "name": "encoding",
             "type": {
-              "name": "WEI_ENCODING",
-              "default": "HEXADECIMAL"
+              "name": "VALUE_ENCODING",
+              "default": "HEX"
             },
             "description": ""
           }
@@ -551,8 +567,8 @@
           {
             "name": "encoding",
             "type": {
-              "name": "WEI_ENCODING",
-              "default": "HEXADECIMAL"
+              "name": "VALUE_ENCODING",
+              "default": "HEX"
             },
             "description": ""
           }
@@ -598,9 +614,9 @@
         "name": "status",
         "type": {
           "reqType": true,
-          "name": "String"
+          "name": "TRANSACTION_STATUS"
         },
-        "description": "",
+        "description": "`status` shows if the transaction was successful, failed or was reverted.  You have the details on the Calls as to which execution is responsible for the failure, and traces up to that point.",
         "arguments": []
       },
       {
@@ -660,7 +676,7 @@
       {
         "name": "block",
         "type": {
-          "name": "Block"
+          "name": "BlockWithHeader"
         },
         "description": "`block` is the block in which this transaction was mined.",
         "arguments": []
@@ -682,7 +698,7 @@
           "isList": true,
           "reqList": true,
           "reqType": true,
-          "name": "EVMCall"
+          "name": "Call"
         },
         "description": "Lists all calls, flattened and ordered by execution time.",
         "arguments": []
@@ -693,7 +709,7 @@
           "isList": true,
           "reqList": true,
           "reqType": true,
-          "name": "EVMCall"
+          "name": "Call"
         },
         "description": "Returns a flattened list of calls, in _execution_ order, of only the matching elements (from a search, or other filtering).",
         "arguments": []
@@ -789,7 +805,7 @@
     ]
   },
   {
-    "name": "EVMCall",
+    "name": "Call",
     "description": "",
     "fields": [
       {
@@ -829,7 +845,7 @@
         "arguments": []
       },
       {
-        "name": "caller",
+        "name": "from",
         "type": {
           "reqType": true,
           "name": "String"
@@ -838,22 +854,13 @@
         "arguments": []
       },
       {
-        "name": "address",
+        "name": "to",
         "type": {
           "reqType": true,
           "name": "String"
         },
-        "description": "",
-        "arguments": [
-          {
-            "name": "encoding",
-            "type": {
-              "name": "ADDRESS_ENCODING",
-              "default": "CHECKSUMED"
-            },
-            "description": ""
-          }
-        ]
+        "description": "`to` is the address of the contract being executed",
+        "arguments": []
       },
       {
         "name": "value",
@@ -866,8 +873,8 @@
           {
             "name": "encoding",
             "type": {
-              "name": "WEI_ENCODING",
-              "default": "HEXADECIMAL"
+              "name": "VALUE_ENCODING",
+              "default": "HEX"
             },
             "description": ""
           }
@@ -901,25 +908,24 @@
         "arguments": []
       },
       {
-        "name": "failed",
+        "name": "status",
         "type": {
           "reqType": true,
-          "name": "Boolean"
+          "name": "TRANSACTION_STATUS"
         },
-        "description": "",
+        "description": "`status` represents the outcome of the execution of this Call",
         "arguments": []
       },
       {
-        "name": "reverted",
+        "name": "failureCause",
         "type": {
-          "reqType": true,
-          "name": "Boolean"
+          "name": "String"
         },
-        "description": "",
+        "description": "Defines the cause of the failure. Will be set only when `status` is either `REVERTED` or `FAILED`. The reason is a free form string extracted from the Ethereum node that executed the call.\n\nIMPORTANT: This field has no backward policy and the value could change at any moment. Use it for logging purposes, direct user display, debugging help etc. Use it for logic decisions at your own risk.",
         "arguments": []
       },
       {
-        "name": "returnData",
+        "name": "inputData",
         "type": {
           "reqType": true,
           "name": "String"
@@ -928,7 +934,7 @@
         "arguments": []
       },
       {
-        "name": "input",
+        "name": "returnData",
         "type": {
           "reqType": true,
           "name": "String"
@@ -945,7 +951,16 @@
           "name": "StorageChange"
         },
         "description": "",
-        "arguments": []
+        "arguments": [
+          {
+            "name": "includeReverted",
+            "type": {
+              "name": "Boolean",
+              "default": false
+            },
+            "description": ""
+          }
+        ]
       },
       {
         "name": "balanceChanges",
@@ -956,7 +971,16 @@
           "name": "BalanceChange"
         },
         "description": "",
-        "arguments": []
+        "arguments": [
+          {
+            "name": "includeReverted",
+            "type": {
+              "name": "Boolean",
+              "default": false
+            },
+            "description": ""
+          }
+        ]
       },
       {
         "name": "logs",
@@ -967,7 +991,16 @@
           "name": "EventLog"
         },
         "description": "",
-        "arguments": []
+        "arguments": [
+          {
+            "name": "includeReverted",
+            "type": {
+              "name": "Boolean",
+              "default": false
+            },
+            "description": ""
+          }
+        ]
       }
     ]
   },
@@ -982,16 +1015,7 @@
           "name": "String"
         },
         "description": "",
-        "arguments": [
-          {
-            "name": "encoding",
-            "type": {
-              "name": "ADDRESS_ENCODING",
-              "default": "CHECKSUMED"
-            },
-            "description": ""
-          }
-        ]
+        "arguments": []
       },
       {
         "name": "oldValue",
@@ -1004,8 +1028,8 @@
           {
             "name": "encoding",
             "type": {
-              "name": "WEI_ENCODING",
-              "default": "HEXADECIMAL"
+              "name": "VALUE_ENCODING",
+              "default": "HEX"
             },
             "description": ""
           }
@@ -1022,12 +1046,21 @@
           {
             "name": "encoding",
             "type": {
-              "name": "WEI_ENCODING",
-              "default": "HEXADECIMAL"
+              "name": "VALUE_ENCODING",
+              "default": "HEX"
             },
             "description": ""
           }
         ]
+      },
+      {
+        "name": "reason",
+        "type": {
+          "reqType": true,
+          "name": "BALANCE_CHANGE_REASON"
+        },
+        "description": "",
+        "arguments": []
       }
     ]
   },
@@ -1051,16 +1084,7 @@
           "name": "String"
         },
         "description": "",
-        "arguments": [
-          {
-            "name": "encoding",
-            "type": {
-              "name": "ADDRESS_ENCODING",
-              "default": "CHECKSUMED"
-            },
-            "description": ""
-          }
-        ]
+        "arguments": []
       },
       {
         "name": "oldValue",
@@ -1093,16 +1117,7 @@
           "name": "String"
         },
         "description": "",
-        "arguments": [
-          {
-            "name": "encoding",
-            "type": {
-              "name": "ADDRESS_ENCODING",
-              "default": "CHECKSUMED"
-            },
-            "description": ""
-          }
-        ]
+        "arguments": []
       },
       {
         "name": "topics",
@@ -1138,6 +1153,39 @@
         "type": {
           "reqType": true,
           "name": "Uint32"
+        },
+        "description": "",
+        "arguments": []
+      }
+    ]
+  },
+  {
+    "name": "BlockWithHeader",
+    "description": "",
+    "fields": [
+      {
+        "name": "hash",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
+        "description": "",
+        "arguments": []
+      },
+      {
+        "name": "number",
+        "type": {
+          "reqType": true,
+          "name": "Uint64"
+        },
+        "description": "",
+        "arguments": []
+      },
+      {
+        "name": "header",
+        "type": {
+          "reqType": true,
+          "name": "BlockHeader"
         },
         "description": "",
         "arguments": []
