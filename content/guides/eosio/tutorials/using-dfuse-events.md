@@ -41,4 +41,4 @@ eosio::action(
 
 ## Example contract
 
-See an [example implementation](https://github.com/dfuse-io/example-dfuse-events/blob/master/contract/src/eospetgameio.cpp) from a [sample smart contract](https://github.com/dfuse-io/example-dfuse-events/blob/master/contract).
+See an {{< external-link title="example implementation](https://github.com/dfuse-io/example-dfuse-events/blob/master/contract/src/eospetgameio.cpp) from a [sample smart contract" href="https://github.com/dfuse-io/example-dfuse-events/blob/master/contract" >}}.

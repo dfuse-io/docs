@@ -6,9 +6,11 @@ title: Billing
 
 ## Subscription plans
 
-dfuse offers a fast and powerful API to interface with blockchains at an affordable price. Our main website [lists the different subscription plans](https://www.dfuse.io/pricing) that are offered at the moment.
+    
+    
+dfuse offers a fast and powerful API to interface with blockchains at an affordable price. Our main website {{< external-link href="https://www.dfuse.io/pricing" title="lists the different subscription plans">}} that are offered at the moment.
 
-You can subscribe to one of those plans by creating an account on our self-service portal and visiting the [My Current Subscription](https://app.dfuse.io/subscription) page. You can start using dfuse immediately after signing up and creating an API key, but you'll be subject to the acceptable use restrictions of our **Free** default plan.
+You can subscribe to one of those plans by creating an account on our self-service portal and visiting the {{< external-link href="https://app.dfuse.io/subscription" title="My Current Subscription">}} page. You can start using dfuse immediately after signing up and creating an API key, but you'll be subject to the acceptable use restrictions of our **Free** default plan.
 
 For more information regarding this acceptable use policy, we invite you to read the [Rate Limiting]({{< ref "/guides/core-concepts/rate-limiting" >}}) article.
 
@@ -24,7 +26,9 @@ Please note that our **Pay-As-You-Go** (**Free** with a registered payment metho
 
 ## How can I know how many Documents I have used?
 
-Login to the Self-Service Portal and visit the [My Current Subscription](https://app.dfuse.io/subscription) page. At the top of the page you will see your **Usage consumption** for the **Last 7 days** and **Last 30 days**.
+
+
+Login to the Self-Service Portal and visit the {{< external-link href="https://app.dfuse.io/subscription" title="My Current Subscription">}} page. At the top of the page you will see your **Usage consumption** for the **Last 7 days** and **Last 30 days**.
 
 {{< figure src="/img/usage_consumption.png" width="320" >}}
 

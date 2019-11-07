@@ -7,7 +7,7 @@ weight: 100
 
 In order to guarantee great performance and reliability for all of our users, we reserve the right to throttle certain API requests.
 
-As such, REST APIs may received HTTP Status 429 `Too Many Requests`([as per `RFC6585` Section 4](https://tools.ietf.org/html/rfc6585#section-4)) along with `X-RateLimit-Limit` / `X-RateLimit-Remaining` / `X-RateLimit-Reset` HTTP response headers. A well behaved client application should pause for the prescribed amount of time as the request will be dropped and no response will be returned.
+As such, REST APIs may received HTTP Status 429 `Too Many Requests`({{< external-link title="as per `RFC6585` Section 4" href="https://tools.ietf.org/html/rfc6585#section-4)" >}} along with `X-RateLimit-Limit` / `X-RateLimit-Remaining` / `X-RateLimit-Reset` HTTP response headers. A well behaved client application should pause for the prescribed amount of time as the request will be dropped and no response will be returned.
 
 ## Authentication (auth.dfuse.io)
 

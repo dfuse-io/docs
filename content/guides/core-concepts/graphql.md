@@ -63,7 +63,7 @@ The simplest type of call you can make is a GraphQL Query. This is a single netw
 
 For example, we can use this to find the block hash that contains a specific transaction.
 
-[Try it on GraphiQL](https://mainnet.eth.dfuse.io/graphiql/?query=cXVlcnkgewogIHRyYW5zYWN0aW9uKGhhc2g6ICIweDE3OThhZWZlMGZlNmYxNWFiY2FlZDM5MDE0NzRjMWJkNDMwM2JhMGZhZmUzMmQyMzJlNTEyMWUyOWQ2Mzg0MWUiKSB7CiAgICBibG9jayB7CiAgICAgIGhhc2gKICAgIH0KICB9Cn0=)
+{{< external-link title="Try it on GraphiQL" href="https://mainnet.eth.dfuse.io/graphiql/?query=cXVlcnkgewogIHRyYW5zYWN0aW9uKGhhc2g6ICIweDE3OThhZWZlMGZlNmYxNWFiY2FlZDM5MDE0NzRjMWJkNDMwM2JhMGZhZmUzMmQyMzJlNTEyMWUyOWQ2Mzg0MWUiKSB7CiAgICBibG9jayB7CiAgICAgIGhhc2gKICAgIH0KICB9Cn0=" >}}
 
 ## Subscriptions
 
@@ -97,7 +97,7 @@ A more advanced method is the GraphQL Subscription. This gives you access to a a
 
 For example, we can use this to obtain the hash of all transfers happening on the chain, in real-time.
 
-[Try it on GraphiQL](https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMocXVlcnk6ICJ0bzoweDA2MDEyYzhjZjk3QkVhRDVkZUFlMjM3MDcwRjk1ODdmOEU3QTI2NmQiLCBsb3dCbG9ja051bTogLTEwMDApIHsKICAgIG5vZGUgewogICAgICBoYXNoCiAgICB9CiAgfQp9)
+{{< external-link title="Try it on GraphiQL" href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMocXVlcnk6ICJ0bzoweDA2MDEyYzhjZjk3QkVhRDVkZUFlMjM3MDcwRjk1ODdmOEU3QTI2NmQiLCBsb3dCbG9ja051bTogLTEwMDApIHsKICAgIG5vZGUgewogICAgICBoYXNoCiAgICB9CiAgfQp9" >}}
 
 ## Paginated Queries
 
@@ -155,7 +155,7 @@ The GraphQL API provides cursors to enable pagination. With every response, you 
 
 Besides pagination, cursors are instrumental when using subscriptions to deal with network disconnections. By using the cursor of your last successful request, you can reconnect and continue streaming without missing any documents.
 
-[Try it on GraphiQL](https://mainnet.eth.dfuse.io/graphiql/?query=cXVlcnkgewogIHNlYXJjaFRyYW5zYWN0aW9ucyhxdWVyeTogInRvOjB4MDYwMTJjOGNmOTdCRWFENWRlQWUyMzcwNzBGOTU4N2Y4RTdBMjY2ZCIsIHNvcnQ6IERFU0MsIGxpbWl0OiAzKSB7CiAgICBwYWdlSW5mbyB7CiAgICAgIGVuZEN1cnNvcgogICAgfQogICAgZWRnZXMgewogICAgICBub2RlIHsKICAgICAgICBoYXNoCiAgICAgIH0KICAgIH0KICB9Cn0=)
+{{< external-link title="Try it on GraphiQL" href="https://mainnet.eth.dfuse.io/graphiql/?query=cXVlcnkgewogIHNlYXJjaFRyYW5zYWN0aW9ucyhxdWVyeTogInRvOjB4MDYwMTJjOGNmOTdCRWFENWRlQWUyMzcwNzBGOTU4N2Y4RTdBMjY2ZCIsIHNvcnQ6IERFU0MsIGxpbWl0OiAzKSB7CiAgICBwYWdlSW5mbyB7CiAgICAgIGVuZEN1cnNvcgogICAgfQogICAgZWRnZXMgewogICAgICBub2RlIHsKICAgICAgICBoYXNoCiAgICAgIH0KICAgIH0KICB9Cn0=" >}}
 
 ## Navigating Forks
 
@@ -191,7 +191,7 @@ When dealing with documents that were very recently added to a blockchain, there
 
 When this happens, you can be notified by retrieving the `undo` property of the API. It is your responsibility to ensure that you respond properly to transactions being forked out of the chain.
 
-[Try it on GraphiQL](https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMocXVlcnk6ICJ0bzoweDA2MDEyYzhjZjk3QkVhRDVkZUFlMjM3MDcwRjk1ODdmOEU3QTI2NmQiLCBsb3dCbG9ja051bTogLTEwMDApIHsKICAgIHVuZG8KICAgIG5vZGUgewogICAgICBoYXNoCiAgICB9CiAgfQp9)
+{{< external-link title="Try it on GraphiQL" href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMocXVlcnk6ICJ0bzoweDA2MDEyYzhjZjk3QkVhRDVkZUFlMjM3MDcwRjk1ODdmOEU3QTI2NmQiLCBsb3dCbG9ja051bTogLTEwMDApIHsKICAgIHVuZG8KICAgIG5vZGUgewogICAgICBoYXNoCiAgICB9CiAgfQp9" >}}
 
 {{< alert type="important" >}}
 Never forget to retrieve the `undo` property, as streaming results will re-send the matching transactions with `undo:true` upon micro-fork resolution.
@@ -203,7 +203,7 @@ The _dfuse_ GraphQL endpoints support the following transports:
 
 * `POST` REST calls to `/graphql`, for GraphQL Queries only.
 
-* The [Apollo Subscriptions Transport protocol](https://github.com/apollographql/subscriptions-transport-ws), based on WebSocket
+* The {{< external-link title="Apollo Subscriptions Transport protocol" href="https://github.com/apollographql/subscriptions-transport-ws" >}}, based on WebSocket
 
 * GraphQL over gRPC (for server-to-server streaming communications):
 
@@ -217,12 +217,12 @@ You can run GraphQL queries by querying the `/graphql` path of _dfuse_ endpoints
 
 ## Apollo Subscription Transport
 
-dfuse GraphQL implements subscriptions using the [Apollo Websocket Transport protocol, version 0.9.16](https://github.com/apollographql/subscriptions-transport-ws/blob/v0.9.16/PROTOCOL.md).
+dfuse GraphQL implements subscriptions using the {{< external-link title="Apollo Websocket Transport protocol, version 0.9.16" href="https://github.com/apollographql/subscriptions-transport-ws/blob/v0.9.16/PROTOCOL.md" >}}.
 
 In the browser, you can use the `apollo-client` npm library to connect and read responses. It uses WebSocket for Subscriptions and can also use it for Queries.
 
 {{< alert type="tip" >}}
-See the [Apollo Client Introduction](https://www.apollographql.com/docs/react/) for more details.
+See the {{< external-link title="Apollo Client Introduction" href="https://www.apollographql.com/docs/react/" >}} for more details.
 {{< /alert >}}
 
 <!-- TODO: Add some links to sample code we have that uses `apollo-client` -->
@@ -253,7 +253,7 @@ jq '.data | fromjson | .data.searchTransactionsForward.trace'
 jq -r .data
 {{< /highlight >}}
 
-1. [Install grpcurl](https://github.com/fullstorydev/grpcurl), a simple `curl`-like program to communicate via gRPC.
+1. {{< external-link title="Install grpcurl" href="https://github.com/fullstorydev/grpcurl" >}}, a simple `curl`-like program to communicate via gRPC.
 1. Make a GraphQL request, sending along a valid Authorization token.
 1. When viewing the output, you can find the GraphQL response wrapped as a string in the gRPC `data` field.
 
@@ -265,8 +265,8 @@ grpcui -port 6000 mainnet.eos.dfuse.io:443
 
 ### Using `grpcui`
 
-1. [install grpcui](https://github.com/fullstorydev/grpcui).
-1. Open [http://localhost:6000](http://localhost:6000) and explore the interface.
+1. {{< external-link title="install grpcui" href="https://github.com/fullstorydev/grpcui" >}}.
+1. Open {{< external-link title="http://localhost:6000" href="http://localhost:6000" >}} and explore the interface.
 1. Add the `authorization` header in the interface, in the format: `Bearer TOKEN` where `TOKEN` is a [valid JWT](#authentication).
 
 {{< alert type="note" >}}
@@ -300,7 +300,7 @@ Search the blockchain forward for transaction execution traces based on the give
 Always consider the undo field in forward searches, which signal that the matching element was in fact removed from the chain due to a chain reorganization.
 {{< /alert >}}
 
-[Try it on GraphiQL](https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKHF1ZXJ5OiAicmVjZWl2ZXI6ZW9zaW8udG9rZW4gYWN0aW9uOnRyYW5zZmVyIikgewogICAgY3Vyc29yCiAgICB0cmFjZSB7CiAgICAgIGlkCiAgICAgIGJsb2NrIHsKICAgICAgICBudW0KICAgICAgICB0aW1lc3RhbXAKICAgICAgfQogICAgICBtYXRjaGluZ0FjdGlvbnMgewogICAgICAgIGFjY291bnQKICAgICAgICBuYW1lCiAgICAgICAgZGF0YQogICAgICB9CiAgICB9CiAgfQp9Cg==)
+{{< external-link title="Try it on GraphiQL" href="https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKHF1ZXJ5OiAicmVjZWl2ZXI6ZW9zaW8udG9rZW4gYWN0aW9uOnRyYW5zZmVyIikgewogICAgY3Vyc29yCiAgICB0cmFjZSB7CiAgICAgIGlkCiAgICAgIGJsb2NrIHsKICAgICAgICBudW0KICAgICAgICB0aW1lc3RhbXAKICAgICAgfQogICAgICBtYXRjaGluZ0FjdGlvbnMgewogICAgICAgIGFjY291bnQKICAgICAgICBuYW1lCiAgICAgICAgZGF0YQogICAgICB9CiAgICB9CiAgfQp9Cg==" >}}
 
 ***
 
@@ -312,7 +312,7 @@ Search the blockchain backward for transaction execution traces based on the giv
 The undo field is not used in a backward search.
 {{< /alert >}}
 
-[Try it on GraphiQL](https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNCYWNrd2FyZChxdWVyeTogInJlY2VpdmVyOmVvc2lvLnRva2VuIGFjdGlvbjp0cmFuc2ZlciIsIGxvd0Jsb2NrTnVtOiAtMzYwKSB7CiAgICBjdXJzb3IKICAgIHRyYWNlIHsKICAgICAgaWQKICAgICAgYmxvY2sgewogICAgICAgIG51bQogICAgICAgIHRpbWVzdGFtcAogICAgICB9CiAgICAgIG1hdGNoaW5nQWN0aW9ucyB7CiAgICAgICAgYWNjb3VudAogICAgICAgIG5hbWUKICAgICAgICBkYXRhCiAgICAgIH0KICAgIH0KICB9Cn0K)
+{{< external-link title="Try it on GraphiQL" href="https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNCYWNrd2FyZChxdWVyeTogInJlY2VpdmVyOmVvc2lvLnRva2VuIGFjdGlvbjp0cmFuc2ZlciIsIGxvd0Jsb2NrTnVtOiAtMzYwKSB7CiAgICBjdXJzb3IKICAgIHRyYWNlIHsKICAgICAgaWQKICAgICAgYmxvY2sgewogICAgICAgIG51bQogICAgICAgIHRpbWVzdGFtcAogICAgICB9CiAgICAgIG1hdGNoaW5nQWN0aW9ucyB7CiAgICAgICAgYWNjb3VudAogICAgICAgIG5hbWUKICAgICAgICBkYXRhCiAgICAgIH0KICAgIH0KICB9Cn0K" >}}
 
 #### Queries
 
@@ -324,7 +324,7 @@ Search the blockchain forward for transaction execution traces based on the give
 Always consider the undo field in forward searches, which signal that the matching element was in fact __REMOVED__ from the chain because of a chain reorganization.
 {{< /alert >}}
 
-[Try it on GraphiQL](https://mainnet.eos.dfuse.io/graphiql/?query=cXVlcnkgeyAKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKHF1ZXJ5OiAicmVjZWl2ZXI6ZW9zaW8udG9rZW4gYWN0aW9uOnRyYW5zZmVyIiwgbG93QmxvY2tOdW06IC0zNjAsIGxpbWl0OiAxMCkgeyAKICAgIHJlc3VsdHMgeyAKICAgICAgY3Vyc29yCiAgICAgIHRyYWNlIHsKICAgICAgICBpZAogICAgICAgIG1hdGNoaW5nQWN0aW9ucyB7IAogICAgICAgICAgYWNjb3VudAogICAgICAgICAgbmFtZQogICAgICAgICAgZGF0YQogICAgICAgIH0KICAgICAgfSAKICAgIH0gCiAgfQp9)
+{{< external-link title="Try it on GraphiQL" href="https://mainnet.eos.dfuse.io/graphiql/?query=cXVlcnkgeyAKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKHF1ZXJ5OiAicmVjZWl2ZXI6ZW9zaW8udG9rZW4gYWN0aW9uOnRyYW5zZmVyIiwgbG93QmxvY2tOdW06IC0zNjAsIGxpbWl0OiAxMCkgeyAKICAgIHJlc3VsdHMgeyAKICAgICAgY3Vyc29yCiAgICAgIHRyYWNlIHsKICAgICAgICBpZAogICAgICAgIG1hdGNoaW5nQWN0aW9ucyB7IAogICAgICAgICAgYWNjb3VudAogICAgICAgICAgbmFtZQogICAgICAgICAgZGF0YQogICAgICAgIH0KICAgICAgfSAKICAgIH0gCiAgfQp9" >}}
 
 ***
 
@@ -332,7 +332,7 @@ Always consider the undo field in forward searches, which signal that the matchi
 
 Search the blockchain backward for transaction execution traces based on the given query. When the returned cursor is empty, it means you have reached the end of the specified block range.
 
-[Try it on GraphiQL](https://mainnet.eos.dfuse.io/graphiql/?query=cXVlcnkgeyAKICBzZWFyY2hUcmFuc2FjdGlvbnNCYWNrd2FyZChxdWVyeTogInJlY2VpdmVyOmVvc2lvLnRva2VuIGFjdGlvbjp0cmFuc2ZlciIsIGxpbWl0OiAxMCkgeyAKICAgIHJlc3VsdHMgeyAKICAgICAgY3Vyc29yCiAgICAgIHRyYWNlIHsKICAgICAgICBpZAogICAgICAgIG1hdGNoaW5nQWN0aW9ucyB7IAogICAgICAgICAgYWNjb3VudAogICAgICAgICAgbmFtZQogICAgICAgICAgZGF0YQogICAgICAgIH0KICAgICAgfSAKICAgIH0gCiAgfQp9)
+{{< external-link title="Try it on GraphiQL" href="https://mainnet.eos.dfuse.io/graphiql/?query=cXVlcnkgeyAKICBzZWFyY2hUcmFuc2FjdGlvbnNCYWNrd2FyZChxdWVyeTogInJlY2VpdmVyOmVvc2lvLnRva2VuIGFjdGlvbjp0cmFuc2ZlciIsIGxpbWl0OiAxMCkgeyAKICAgIHJlc3VsdHMgeyAKICAgICAgY3Vyc29yCiAgICAgIHRyYWNlIHsKICAgICAgICBpZAogICAgICAgIG1hdGNoaW5nQWN0aW9ucyB7IAogICAgICAgICAgYWNjb3VudAogICAgICAgICAgbmFtZQogICAgICAgICAgZGF0YQogICAgICAgIH0KICAgICAgfSAKICAgIH0gCiAgfQp9" >}}
 
 ***
 
@@ -340,7 +340,7 @@ Search the blockchain backward for transaction execution traces based on the giv
 
 Return the block ID found around the given `time`, based on the comparator provided.
 
-[Try it on GraphiQL Sample](https://mainnet.eos.dfuse.io/graphiql/?query=ewogIGJsb2NrSURCeVRpbWUodGltZTogIjIwMTktMDYtMjRUMDU6MzU6NDVaIiwgY29tcGFyYXRvcjogR1RFKSB7CiAgICBpZAogICAgbnVtCiAgICB0aW1lCiAgfQp9Cg==)
+{{< external-link title="Try it on GraphiQL Sample" href="https://mainnet.eos.dfuse.io/graphiql/?query=ewogIGJsb2NrSURCeVRpbWUodGltZTogIjIwMTktMDYtMjRUMDU6MzU6NDVaIiwgY29tcGFyYXRvcjogR1RFKSB7CiAgICBpZAogICAgbnVtCiAgICB0aW1lCiAgfQp9Cg==" >}}
 
 ## Sample Queries
 
@@ -348,7 +348,8 @@ To get you started, here are a few sample queries and how to read them.
 
 ### Streaming Transactions
 
-The following query (try it on [GraphiQL](https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKAogICAgcXVlcnk6InJlY2VpdmVyOmVvc2lvLnRva2VuIGFjY291bnQ6ZW9zaW8udG9rZW4gYWN0aW9uOnRyYW5zZmVyIiwKICAgIGxvd0Jsb2NrTnVtOjAsCiAgICBsaW1pdDoyMCwKICApIHsKICAgIHVuZG8KICAgIGN1cnNvcgogICAgdHJhY2UgewogICAgICBpZAogICAgICBtYXRjaGluZ0FjdGlvbnMgewogICAgICAgIHJlY2VpdmVyCiAgICAgICAgYWNjb3VudAogICAgICAgIG5hbWUKICAgICAgICBqc29uCiAgICAgICAgY3JlYXRvckFjdGlvbiB7CiAgICAgICAgICByZWNlaXZlcgogICAgICAgICAgYWNjb3VudAogICAgICAgICAgbmFtZQogICAgICAgICAganNvbgogICAgICAgIH0KICAgICAgfQogICAgfQogIH0KfQ==)):
+
+The following query (try it on {{< external-link href="https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKAogICAgcXVlcnk6InJlY2VpdmVyOmVvc2lvLnRva2VuIGFjY291bnQ6ZW9zaW8udG9rZW4gYWN0aW9uOnRyYW5zZmVyIiwKICAgIGxvd0Jsb2NrTnVtOjAsCiAgICBsaW1pdDoyMCwKICApIHsKICAgIHVuZG8KICAgIGN1cnNvcgogICAgdHJhY2UgewogICAgICBpZAogICAgICBtYXRjaGluZ0FjdGlvbnMgewogICAgICAgIHJlY2VpdmVyCiAgICAgICAgYWNjb3VudAogICAgICAgIG5hbWUKICAgICAgICBqc29uCiAgICAgICAgY3JlYXRvckFjdGlvbiB7CiAgICAgICAgICByZWNlaXZlcgogICAgICAgICAgYWNjb3VudAogICAgICAgICAgbmFtZQogICAgICAgICAganNvbgogICAgICAgIH0KICAgICAgfQogICAgfQogIH0KfQ==" title="GraphiQL PR">}}):
 
 * `subscription` prefix - Issues a GraphQL subscription call (streaming results).
 * `query:"receiver:eosio.token account:eosio.token action:transfer"` - The query utilizing the dfuse Search Query Language <!-- TODO: Add a link to a SQE page once figured out --> that you would like responses to match. This query requests responses for `transfer` actions on the `eosio.token` smart contract.
@@ -422,7 +423,7 @@ subscription {
 
 ### Multiple GraphQL queries in one request:
 
-The following query (try it on [GraphiQL](https://mainnet.eos.dfuse.io/graphiql/?query=ewogIHN0YXJ0OiBibG9ja0lEQnlUaW1lKHRpbWU6ICIyMDE5LTAxLTAxVDAwOjAwOjAwWiIpIHsKICAgIHRpbWUKICAgIG51bQogICAgaWQKICB9CiAgZW5kOiBibG9ja0lEQnlUaW1lKHRpbWU6ICIyMDE5LTAyLTAxVDAwOjAwOjAwWiIpIHsKICAgIHRpbWUKICAgIG51bQogICAgaWQKICB9Cn0K)):
+The following query (try it on {{< external-link title="GraphiQL" href="https://mainnet.eos.dfuse.io/graphiql/?query=ewogIHN0YXJ0OiBibG9ja0lEQnlUaW1lKHRpbWU6ICIyMDE5LTAxLTAxVDAwOjAwOjAwWiIpIHsKICAgIHRpbWUKICAgIG51bQogICAgaWQKICB9CiAgZW5kOiBibG9ja0lEQnlUaW1lKHRpbWU6ICIyMDE5LTAyLTAxVDAwOjAwOjAwWiIpIHsKICAgIHRpbWUKICAgIG51bQogICAgaWQKICB9Cn0K)" >}}:
 
 * Issues a GraphQL _query_ that retrieves responses for two queries at once
 * Each querying the block ID and number less than or equal to the date specified in `time`.

@@ -68,7 +68,7 @@ Reminder: Once a connection is established, it will not be closed if the JWT exp
 
 ## REST Authentication
 
-To achieve authentication over REST, specify the `Authorization: Bearer [token]` header in the HTTP request. See [more details](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization).
+To achieve authentication over REST, specify the `Authorization: Bearer {{< external-link title="token]` header in the HTTP request. See [more details" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization" >}}.
 
 {{< tabs "rest-auth" >}}
 {{< tab lang="shell" >}}
@@ -100,7 +100,7 @@ It will, however, become mandatory at a later date, but only for `web` keys. It 
 
 ## GraphQL Authentication
 
-Using the [apollo-client](https://www.apollographql.com/docs/react/) websocket protocol, the `INIT` message should contain an `Authorization` key, with the same format as the REST authentication (bearer token).
+Using the {{< external-link title="apollo-client" href="https://www.apollographql.com/docs/react/) websocket protocol, the `INIT` message should contain an `Authorization` key, with the same format as the REST authentication (bearer token" >}}.
 
 When doing `POST` calls to the `/graphql` endpoint, you must specify the `Authorization` header, exactly like any other REST calls.
 

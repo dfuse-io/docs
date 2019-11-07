@@ -46,7 +46,7 @@ yarn init -y
 ## 2. Adding the Client Library
 
 The simplest way to get started with dfuse and JavaScript/TypeScript development is to use
-the [dfuse JS client library](https://github.com/dfuse-io/client-js) (with TypeScript typings).
+the {{< external-link title="dfuse JS client library" href="https://github.com/dfuse-io/client-js) (with TypeScript typings" >}}.
 
 Here are a few of its key features:
 

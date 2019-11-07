@@ -4,4 +4,4 @@ title: ExtDTrxOp
 
 # `ExtDTrxOp`
 
-See this [source code for reference](https://github.com/dfuse-io/eosws-go/blob/master/mdl/v1/dtrxop.go#L24)
+See this {{< external-link title="source code for reference" href="https://github.com/dfuse-io/eosws-go/blob/master/mdl/v1/dtrxop.go#L24" >}}

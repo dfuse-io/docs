@@ -66,7 +66,7 @@ BookToC: false
 
 * **Beta** Brand new GraphQL interface to EOSIO chain
   data. [See documentation](#graphql) and
-  [announcement](https://www.dfuse.io/en/blog/dfuse-brings-the-power-of-graphql-to-eos).
+  {{< external-link title="announcement" href="https://www.dfuse.io/en/blog/dfuse-brings-the-power-of-graphql-to-eos" >}}.
 
 * New streaming search capabilities (through GraphQL):
 
@@ -83,7 +83,7 @@ BookToC: false
       transactions), and then flip the direction and listen to
       real-time events, guaranteeing there's no gaps.
 
-    * See [announcement](https://www.dfuse.io/en/blog/avoid-refreshing-provide-instant-ux-with-dfuse-streaming-search)
+    * See {{< external-link title="announcement" href="https://www.dfuse.io/en/blog/avoid-refreshing-provide-instant-ux-with-dfuse-streaming-search" >}}
 
 ***
 
@@ -114,7 +114,7 @@ BookToC: false
 * Added `console` outputs to action traces throughout the dfuse platform.
 
 * Added `creation_tree`, visible on
-  eosq.app. [See announcement](https://www.dfuse.io/en/blog/eosq-removes-ambiguity-when-debugging-your-smart-contract)
+  eosq.app. {{< external-link title="See announcement" href="https://www.dfuse.io/en/blog/eosq-removes-ambiguity-when-debugging-your-smart-contract" >}}
   Best way to consume this is through the [GraphQL](#graphql)
   interface.
 
@@ -133,7 +133,7 @@ BookToC: false
 * `POST /v1/chain/push_transaction` now supports new push-guarantees:
   `handoff:1`, `handoffs:2` and `handoffs:3`, allowing more flexible
   rules to guarantee transaction delivery based on your application's
-  requirements.  [See announcement](https://www.dfuse.io/en/blog/dfuse-adds-push-guarantee-producer-handoff)
+  requirements.  {{< external-link title="See announcement" href="https://www.dfuse.io/en/blog/dfuse-adds-push-guarantee-producer-handoff" >}}
 
 ***
 

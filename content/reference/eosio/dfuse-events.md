@@ -27,7 +27,7 @@ See the [Using dfuse Events tutorial]({{< ref "guides/eosio/tutorials/using-dfus
 Name | Type | Options | Description
 -----|------|---------|------------
 `auth_key` | string | required | The empty string (limited access) or a valid _dfuse Events Key_ if you have one. See [Indexing Limits](#dfuse-events-indexing-limits) for details.
-`data` | string | required | A string containing the key/value pair list to index, as an [RFC 3986](https://tools.ietf.org/html/rfc3986) URL encoded string (i.e. `key1=value1&key2=value2`).
+`data` | string | required | A string containing the key/value pair list to index, as an {{< external-link title="RFC 3986" href="https://tools.ietf.org/html/rfc3986) URL encoded string (i.e. `key1=value1&key2=value2`" >}}.
 
 ## Indexing Limits
 

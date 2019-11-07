@@ -12,7 +12,7 @@ NetworkID: `1`
 
 API  | URL
 ------|------
-GraphQL | https://mainnet.eth.dfuse.io/graphql -- See [GraphiQL](https://mainnet.eth.dfuse.io/graphiql/)
+GraphQL | https://mainnet.eth.dfuse.io/graphql -- See {{< external-link title="GraphiQL" href="https://mainnet.eth.dfuse.io/graphiql/" >}}
 
 ## Ropsten (Alpha)
 
@@ -20,4 +20,4 @@ Network ID: `3`
 
 API  | URL
 ------|------
-GraphQL | https://ropsten.eth.dfuse.io/graphql -- See [GraphiQL](https://ropsten.eth.dfuse.io/graphiql/)
+GraphQL | https://ropsten.eth.dfuse.io/graphql -- See {{< external-link title="GraphiQL" href="https://ropsten.eth.dfuse.io/graphiql/" >}}

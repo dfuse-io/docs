@@ -35,7 +35,7 @@ Actions on the EOS blockchain are identified by a triplet `receiver`/`account`/`
 
 - The code on the `receiver` is called with the method `account`/`action_name`
 - An action is considered a "notification" when the `receiver` is different from the `account` field. That receiver may or may not contain instructions to run for that `account`/`action_name` pair.
-[Read more details here](https://developers.eos.io/eosio-cpp/docs/communication-model#section-action-handlers-and-action-apply-context).
+{{< external-link title="Read more details here" href="https://developers.eos.io/eosio-cpp/docs/communication-model#section-action-handlers-and-action-apply-context" >}}.
 
 #### Arguments
 
