@@ -1,7 +1,9 @@
 ---
 weight: 1
 title: GET /v0/state/tables/accounts
+release: beta
 ---
+
 Fetches a table from a group of contract accounts, at any block height.
 
 ## Usage

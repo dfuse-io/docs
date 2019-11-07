@@ -94,11 +94,10 @@ ul.supported-on {
   border-radius: 4px;
   font-weight: 800;
 }
-.tag.tag-stable { background-color:$primary-1000;}
-.tag.tag-release { background-color:$primary-1000;}
-.tag.tag-preview { background-color:$secondary-1000;}
-.tag.tag-alpha { background-color:$secondary-1000;}
-.tag.tag-beta { background-color:$secondary-1000;}
+.tag.tag-stable { background-color:$release-stable;}
+.tag.tag-preview { background-color:$release-preview;}
+.tag.tag-alpha { background-color:$release-alpha;}
+.tag.tag-beta { background-color:$release-beta;}
 
 
 
@@ -349,7 +348,7 @@ article {
   }
 }
 
-.lastest-releases {
+.release-notes {
   display: grid;
   grid-template-columns: 1fr 3fr;
   @media (max-width:575px){
@@ -845,6 +844,9 @@ h4 + .method-list-item {
 }
 
 .book-menu .release {
+  &.release-preview a:after {
+    background-color: $release-preview;
+  }
   &.release-alpha a:after {
     background-color: $release-alpha;
   }
@@ -855,10 +857,10 @@ h4 + .method-list-item {
     background-color: $release-stable;
   }
   &.release-new a:after {
-    background-color:$release-new;
+    background-color: $release-new;
   }
-    a:after {
 
+  a:after {
     content: " ";
     width: 8px;
     height: 8px;
@@ -867,6 +869,7 @@ h4 + .method-list-item {
     position: relative;
     top: -4px;
     left: 3px;
+    vertical-align: text-bottom;
   }
 }
 
