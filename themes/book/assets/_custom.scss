@@ -41,20 +41,22 @@ p {
 a {position:relative;}
 
 .tag.tag-h1 {
-  font-size: .8em;
+  font-size: .85em;
   vertical-align: bottom!important;
   float: right;
-  padding: 2px 10px;
+  padding: 2px 8px;
+  font-weight: 800;
 }
 .tag {
+  font-family: 'Lato', sans-serif;
   display: inline-block;
   font-size: .4em;
   vertical-align: super;
   text-transform: capitalize;
   color: #fff;
-  padding: 1px 4px;
+  padding: 2px 8px;
   border-radius: 4px;
-  font-weight: 700;
+  font-weight: 800;
 }
 .tag.tag-stable { background-color:$primary-1000;}
 .tag.tag-release { background-color:$primary-1000;}
