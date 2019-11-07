@@ -13,7 +13,7 @@ Once you have this API key, call the  endpoint {{< externalLink href="https://au
 {{< tabs "authentication" >}}
 {{< tab lang="go" >}}
 payload := `{"api_key":"YOUR_API_KEY_HERE"}`
-w
+
 httpResp, err := http.Post("https://auth.dfuse.io/v1/auth/issue", "application/json", bytes.NewBuffer([]byte(payload)))
 if err != nil {
     return nil, fmt.Errorf("request creation: %s", err)
