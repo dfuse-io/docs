@@ -218,6 +218,6 @@ start index.ethereum.thml      # Windows
 * [Look at one of our tutorials]({{< ref "/guides/ethereum/tutorials" >}})
 * {{< externalLink title="The `@dfuse/client-js` overview document" href="https://github.com/dfuse-io/client-js/blob/master/README.md#dfuse-javascripttypescript-client-library" >}}
 * {{< externalLink title="The `@dfuse/client-js` quick API reference" href="https://github.com/dfuse-io/client-js/blob/master/README.md#api" >}} ({{< externalLink title="Full API reference" href="https://dfuse-io.github.io/client-js/" >}})
-* {{< externalLink href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMocXVlcnk6ICItdmFsdWU6MCB0eXBlOmNhbGwiLCBsb3dCbG9ja051bTogLTEpIHsKICAgIHVuZG8gY3Vyc29yCiAgICBub2RlIHsgaGFzaCBtYXRjaGluZ0NhbGxzIHsgY2FsbGVyIGFkZHJlc3MgdmFsdWUoZW5jb2Rpbmc6RVRIRVIpIH0gfQogIH0KfQ==" title="GraphiQL, online query editor with completion and docs" >}}
+* {{< externalLink href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMoaW5kZXhOYW1lOiBDQUxMUywgcXVlcnk6ICItdmFsdWU6MCB0eXBlOmNhbGwiLCBsb3dCbG9ja051bTogLTEpIHsKICAgIHVuZG8KICAgIGN1cnNvcgogICAgbm9kZSB7CiAgICAgIGhhc2gKICAgICAgbWF0Y2hpbmdDYWxscyB7CiAgICAgICAgZnJvbQogICAgICAgIHRvCiAgICAgICAgdmFsdWUoZW5jb2Rpbmc6IEVUSEVSKQogICAgICB9CiAgICB9CiAgfQp9Cg==" title="GraphiQL, online query editor with completion and docs" >}}
 
 {{< row-wrapper-end >}}

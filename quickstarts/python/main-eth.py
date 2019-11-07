@@ -37,9 +37,9 @@ def create_client(token, endpoint):
     return graphql_pb2_grpc.GraphQLStub(channel)
 
 OPERATION_ETH = """subscription {
-  searchTransactions(query: "-value:0 type:call", lowBlockNum: -1) {
+  searchTransactions(indexName: CALLS, query: "-value:0 type:call", lowBlockNum: -1) {
     undo cursor
-    node { hash matchingCalls { caller address value(encoding:ETHER) } }
+    node { hash matchingCalls { from to value(encoding:ETHER) } }
   }
 }"""
 
@@ -55,7 +55,7 @@ def stream_ethereum(client):
             result = json.loads(rawResult.data)
             for call in result['searchTransactions']['node']['matchingCalls']:
                 undo = result['searchTransactions']['undo']
-                print("Transfer %s -> %s [%s Ether]%s" % (call['caller'], call['address'], call['value'], " REVERTED" if undo else ""))
+                print("Transfer %s -> %s [%s Ether]%s" % (call['from'], call['to'], call['value'], " REVERTED" if undo else ""))
 
 dfuse_api_key = os.environ.get("DFUSE_API_KEY")
 if dfuse_api_key == None or dfuse_api_key == 'your dfuse api key here':
