@@ -19,10 +19,10 @@ Everything in this section are general dfuse concepts that are chain agnostic, i
 that works across all supported chains and over the entire dfuse APIs.
 
 - [Authentication]({{< ref "/guides/core-concepts/authentication" >}})
-- [Billing]({{< ref "/guides/core-concepts/billing" >}})
-- [Cursors]({{< ref "/guides/core-concepts/cursors" >}})
 - [GraphQL]({{< ref "/guides/core-concepts/graphql" >}})
-- [Rate Limiting]({{< ref "/guides/core-concepts/rate-limiting" >}})
+- [Cursors]({{< ref "/guides/core-concepts/cursors" >}})
 - [Search Query Language]({{< ref "/guides/core-concepts/search-query-language" >}})
+- [Billing]({{< ref "/guides/core-concepts/billing" >}})
+- [Rate Limiting]({{< ref "/guides/core-concepts/rate-limiting" >}})
 
 {{< row-wrapper-end >}}
