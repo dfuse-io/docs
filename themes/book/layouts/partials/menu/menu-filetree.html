@@ -40,7 +40,7 @@
         {{ if eq .Kind "section" }}
           {{ template "book-section" (dict "Section" . "CurrentPage" $.CurrentPage) }}
         {{ else if and (eq .Kind "page") .Content }}
-          <li class="{{ if $.CurrentPage.Params.Release }}release release-{{$.CurrentPage.Params.Release}}{{ end }}">
+          <li class="{{ if .Params.Release }}release release-{{.Params.Release}}{{ end }}">
             {{- template "book-page-link" (dict "Page" . "CurrentPage" $.CurrentPage) -}}
           </li>
         {{ end }}
