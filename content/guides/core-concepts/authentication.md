@@ -46,9 +46,9 @@ curl https://auth.dfuse.io/v1/auth/issue -s --data-binary '{"api_key":"web_abcde
 
 Our `client-JS` library will handle the token issuance and caching for you if you decide to utilize it. You can also consult a <a href="https://github.com/dfuse-io/client-js/blob/master/examples/reference/auth-issue.ts" title="JWT Issuance Example">working reference example</a> if you would like to follow along with some sample TypeScript code.
 
-{{< tip >}}
+{{< alert type="tip" >}}
 To learn more about JWTs, you can consult <https://jwt.io/introduction/>.
-{{< /tip >}}
+{{< /alert >}}
 
 Each JWT is **valid for a period of 24 hours**. Make sure to cache those values to avoid hitting rate limiting on JWT issuance. A connection will be validated upon a valid connection being made and will not need to be reauthenticated until a new connection needs to be reestablished.
 
@@ -62,9 +62,9 @@ Each JWT has an expiration date, so it is important to take that into account be
 
 Each time you get a fresh JWT, it contains the updated expiration time and the token itself.
 
-{{< tip >}}
+{{< alert type="tip" >}}
 Reminder: Once a connection is established, it will not be closed if the JWT expires during the session.
-{{< /tip >}}
+{{< /alert >}}
 
 ## REST Authentication
 

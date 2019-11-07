@@ -6,9 +6,9 @@ title: Push notifications from the chain
 
 ## Token Management
 
-First, head on to our self-service API management portal ({{<externalLink href="https://app.dfuse.io">}}), after signing up you will be able to create long-term API keys.
+First, head on to our self-service API management portal ({{< external-link href="https://app.dfuse.io">}}), after signing up you will be able to create long-term API keys.
 
-Once you have this API key, call the  endpoint {{< externalLink href="https://auth.dfuse.io/v1/auth/issue">}} to get a fresh Authentication Token (JWT).
+Once you have this API key, call the  endpoint {{< external-link href="https://auth.dfuse.io/v1/auth/issue">}} to get a fresh Authentication Token (JWT).
 
 {{< tabs "authentication" >}}
 {{< tab lang="go" >}}
@@ -23,7 +23,7 @@ defer httpResp.Body.Close()
 {{< /tab >}}
 {{< /tabs >}}
 
-Has documented {{< externalLink href="https://docs.dfuse.io/#rest-api-post-https-auth-dfuse-io-v1-auth-issue" title="here">}}. The return payload is composed of a {{< externalLink href="https://jwt.io" title="JWT token">}} and the expiration timestamp.
+Has documented {{< external-link href="https://docs.dfuse.io/#rest-api-post-https-auth-dfuse-io-v1-auth-issue" title="here">}}. The return payload is composed of a {{< external-link href="https://jwt.io" title="JWT token">}} and the expiration timestamp.
 
 {{< tabs "jwt-token" >}}
 {{< tab lang="json" >}}
@@ -34,9 +34,9 @@ Has documented {{< externalLink href="https://docs.dfuse.io/#rest-api-post-https
 {{< /tabs >}}
 
 ## Refreshing your JWT token
-Tokens have a life span of 24h (that can vary) and need to be refreshed before they expire. Please see {{< externalLink href="https://docs.dfuse.io/#authentication" title="Lifecycle of short-lived JWTs">}}
+Tokens have a life span of 24h (that can vary) and need to be refreshed before they expire. Please see {{< external-link href="https://docs.dfuse.io/#authentication" title="Lifecycle of short-lived JWTs">}}
 
-https://auth.dfuse.io/v1/auth/issue endpoint is rated limited. Full documentation can be found here {{< externalLink href="https://docs.dfuse.io/#authentication" title="API key types & Rate limiting">}}
+https://auth.dfuse.io/v1/auth/issue endpoint is rated limited. Full documentation can be found here {{< external-link href="https://docs.dfuse.io/#authentication" title="API key types & Rate limiting">}}
 
 {{< tabs "jwt-refresh" >}}
 {{< tab lang="go" >}}
@@ -63,7 +63,7 @@ func (jwt JWT) NeedRefresh() bool {
 {{< /tabs >}}
 
 ## Getting the dfuse Graphql gRPC client
-- Take a look at gRPC {{< externalLink href="https://grpc.io/docs/quickstart/go.html" title="Go Quick Start">}}
+- Take a look at gRPC {{< external-link href="https://grpc.io/docs/quickstart/go.html" title="Go Quick Start">}}
 - You can retrieve `graphql.proto` running `curl -O http://mainnet.eos.dfuse.io/graphql/graphql.proto`
 - execute `protoc -I bp/ bp/graphql.proto --go_out=plugins=grpc:graphql`
 
@@ -93,9 +93,9 @@ graphqlClient := pbgraphql.NewGraphQLClient(connection)
 
 ## GraphQL query
 
-- dfuse GraphQL documentation can be found {{< externalLink href="https://docs.dfuse.io/#graphql" title="here">}}
-- If you are not familiar with GraphQL. Take a look at {{< externalLink href="https://graphql.org/learn/" title="Introduction to GraphQL">}}
-- To help you construct your query and access our api documentation you can use {{< externalLink href="https://mainnet.eos.dfuse.io/graphiql/" title="GraphiQL">}} _"A graphical interactive in-browser GraphQL IDE."_
+- dfuse GraphQL documentation can be found {{< external-link href="https://docs.dfuse.io/#graphql" title="here">}}
+- If you are not familiar with GraphQL. Take a look at {{< external-link href="https://graphql.org/learn/" title="Introduction to GraphQL">}}
+- To help you construct your query and access our api documentation you can use {{< external-link href="https://mainnet.eos.dfuse.io/graphiql/" title="GraphiQL">}} _"A graphical interactive in-browser GraphQL IDE."_
 https://mainnet.eos.dfuse.io/graphiql/
 
 ## Executing a query
@@ -131,14 +131,14 @@ if err != nil {
 
 This query `account:eosio.msig action:propose` will stream transactions containing action of type `propose` action for the account `eosio.msig`
 
-Take a look at {{< externalLink href="https://docs.dfuse.io/#search-query-language-specs" title="Search query language specs">}} for complete documentation.
+Take a look at {{< external-link href="https://docs.dfuse.io/#search-query-language-specs" title="Search query language specs">}} for complete documentation.
 
 ## Cursor and block numbers management
-Complete api documentation is accessible through {{< externalLink href="https://mainnet.eos.dfuse.io/graphiql/" title="GraphiQL">}}
+Complete api documentation is accessible through {{< external-link href="https://mainnet.eos.dfuse.io/graphiql/" title="GraphiQL">}}
 - `lowBlockNum` parameter is the lower block num boundary, inclusively. A zero or negative value means a block relative to the head or last irreversible block (depending on irreversibleOnly).
 - `cursor` parameter is an opaque data piece that you can pass back to continue your search if it ever disconnected. Retrieve it from the cursor field in the responses of this call. It is safe to use the same cursor in BOTH directions (forward and backward).
 
-The cursors are part of each responses stream from server and should always store on reception. When your process/server is restarted, you should retrieve the last cursor received from server and use it in your next query. {{< externalLink href="https://docs.dfuse.io/#searching-through-graphql" title="See more">}}
+The cursors are part of each responses stream from server and should always store on reception. When your process/server is restarted, you should retrieve the last cursor received from server and use it in your next query. {{< external-link href="https://docs.dfuse.io/#searching-through-graphql" title="See more">}}
 
 {{< tabs "load-cursor" >}}
 {{< tab lang="go" >}}
@@ -192,7 +192,7 @@ s.db.StoreCursor(cursor)
 {{< /tabs >}}
 
 ## Handling fork
-see {{< externalLink href="https://docs.dfuse.io/#searching-through-graphql" title="handling fork">}}
+see {{< external-link href="https://docs.dfuse.io/#searching-through-graphql" title="handling fork">}}
 
 {{< tabs "handling-fork" >}}
 {{< tab lang="go" >}}

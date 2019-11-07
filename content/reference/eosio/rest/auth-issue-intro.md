@@ -75,9 +75,9 @@ func main() {
 {{< /tab >}}
 {{< /tabs >}}
 
-{{< note >}}
+{{< alert type="note" >}}
 This method is called on a different domain: <strong>https://auth.dfuse.io/v1/auth/issue</strong>
-{{< /note >}}
+{{< /alert >}}
 
 #### Input parameters
 

@@ -6,11 +6,11 @@ title: How to Work with your Free dfuse
 
 ## 1. Create a free dfuse account
 
-Visit {{< externalLink href="https://app.dfuse.io">}} to create an account.
+Visit {{< external-link href="https://app.dfuse.io">}} to create an account.
 
 ## 2. Create an API key
 
-Visit {{< externalLink href="https://app.dfuse.io/keys">}} to create your first api key.
+Visit {{< external-link href="https://app.dfuse.io/keys">}} to create your first api key.
 
 ![](/img/api_key_creation.png)
 
@@ -18,7 +18,7 @@ To create a new API key for your application:
 
 * API Key Name: Used to identify your key in the portal. It should refer to your application.
 * Category:
-  - Web: You want to embed your API key in the client-side of a web application. Specify your website as the origin {{< externalLink title="as it will appear in the HTTP header" href="https://tools.ietf.org/html/rfc6454#section-7">}}
+  - Web: You want to embed your API key in the client-side of a web application. Specify your website as the origin {{< external-link title="as it will appear in the HTTP header" href="https://tools.ietf.org/html/rfc6454#section-7">}}
   - Mobile: You want to embed your API key in a mobile application deployed on an app store.
   - Server: You want to connect your server backend directly with our service.
 

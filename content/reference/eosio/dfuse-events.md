@@ -7,9 +7,9 @@ dfuse Events are a powerful way to give smart contract developers a
 way to ask dfuse Search to index their transactions, with arbitrary
 key/value pairs.
 
-{{< note >}}
+{{< alert type="note" >}}
 See the [Using dfuse Events tutorial]({{< ref "guides/eosio/tutorials/using-dfuse-events" >}}) for a concrete example.
-{{< /note >}}
+{{< /alert >}}
 
 **Availability**: This feature is available on **EOS Mainnet**, **Jungle 2.0** and **Kylin** networks.
 
@@ -40,6 +40,6 @@ An empty `auth_key` parameter imposes those limits to the indexing:
 
 If you need more than 3 key/values or want more than 64 bytes of value data, contact us to get a _dfuse Events Key_ for your contract.
 
-{{< note >}}
+{{< alert type="note" >}}
 If your `auth_key` is invalid or used within the wrong contract account, normal restrictions apply.
-{{< /note >}}
+{{< /alert >}}

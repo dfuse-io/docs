@@ -17,17 +17,17 @@ important cases, the resolution for all other combinations can be inferred easil
 the table below. For example, values `lowBlockNum: -50, highBlockNum: -1` would mean the range
 `[HEAD - 50, HEAD]` so the last 50 blocks of the chain at time of query.
 
-{{< note >}}
+{{< alert type="note" >}}
 All the boundaries are inclusive, so a range `[HEAD, HEAD]` will only check a single block, the
 `HEAD` block.
-{{< /note >}}
+{{< /alert >}}
 
-{{< warning >}}
+{{< alert type="warning" >}}
 Not all combinations are valid, trying to query an upper boundary that is below boundary yields
 an invalid range error, for example trying `lowBlockNum: -1, highBlockNum: -50` is doomed to failed
 as it would always resolves to `[HEAD, HEAD - 50]` which means the upper boundary is below the lower
 one.
-{{< /warning >}}
+{{< /alert >}}
 
 In the tables that follow, we use a few semantics to make the table easier to read:
 

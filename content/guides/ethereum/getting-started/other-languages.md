@@ -4,7 +4,7 @@ title: Getting Started with Other Languages
 menuTitle: Other Languages
 ---
 
-The code from the examples on this page lives {{< externalLink href="https://github.com/dfuse-io/docs/tree/master/quickstarts" title="in the quickstarts folder of this docs GitHub repository">}}.
+The code from the examples on this page lives {{< external-link href="https://github.com/dfuse-io/docs/tree/master/quickstarts" title="in the quickstarts folder of this docs GitHub repository">}}.
 
 ## 1. Get a dfuse API Key
 
@@ -13,9 +13,9 @@ The code from the examples on this page lives {{< externalLink href="https://git
 ## Initiate your project
 ### Generate the client stub and dependencies for your language
 
-dfuse exposes its data through a GraphQL over gRPC interface. The protobuf files are {{< externalLink href="https://github.com/dfuse-io/graphql-over-grpc" title="in this GitHub repository">}}.
+dfuse exposes its data through a GraphQL over gRPC interface. The protobuf files are {{< external-link href="https://github.com/dfuse-io/graphql-over-grpc" title="in this GitHub repository">}}.
 
-A lot of languages provide tools to generate client stubs from protobuf files, as you can find {{< externalLink href="https://grpc.io/docs/quickstart/" title="in the official gRPC documentation">}}.
+A lot of languages provide tools to generate client stubs from protobuf files, as you can find {{< external-link href="https://grpc.io/docs/quickstart/" title="in the official gRPC documentation">}}.
 
 {{< tabs "get-client-stub">}}
 
@@ -78,7 +78,7 @@ protoc graphql/graphql.proto # add your language-specific flags here
     {{< tab-code title="Python" filename="./quickstarts/python/main-eth-inital.py" range="1:30" >}}
 {{< /tabs >}}
 
-The code from the examples on this page lives {{< externalLink href="https://github.com/dfuse-io/docs/tree/master/quickstarts" title="in the quickstarts folder of this docs GitHub repository">}}.
+The code from the examples on this page lives {{< external-link href="https://github.com/dfuse-io/docs/tree/master/quickstarts" title="in the quickstarts folder of this docs GitHub repository">}}.
 
 ## Generate a JWT from your API key
 
@@ -109,12 +109,12 @@ Let's first define the GraphQL operation, as a string, that we will use to perfo
 GraphQL subscription. This element tells the backend server what fields to return
 to you, you get to choose and pick only what you are interested in.
 
-{{< note >}}
+{{< alert type="note" >}}
 Want to inspect the full set of available fields you can retrieve?
 
 * [GraphQL API Reference]({{< ref "/reference/ethereum/graphql" >}})
-* {{< externalLink href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMocXVlcnk6ICItdmFsdWU6MCB0eXBlOmNhbGwiLCBsb3dCbG9ja051bTogLTEpIHsKICAgIHVuZG8gY3Vyc29yCiAgICBub2RlIHsgaGFzaCBtYXRjaGluZ0NhbGxzIHsgY2FsbGVyIGFkZHJlc3MgdmFsdWUoZW5jb2Rpbmc6RVRIRVIpIH0gfQogIH0KfQ==" title="GraphiQL, online query editor with completion and docs">}}
-{{< /note >}}
+* {{< external-link href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMocXVlcnk6ICItdmFsdWU6MCB0eXBlOmNhbGwiLCBsb3dCbG9ja051bTogLTEpIHsKICAgIHVuZG8gY3Vyc29yCiAgICBub2RlIHsgaGFzaCBtYXRjaGluZ0NhbGxzIHsgY2FsbGVyIGFkZHJlc3MgdmFsdWUoZW5jb2Rpbmc6RVRIRVIpIH0gfQogIH0KfQ==" title="GraphiQL, online query editor with completion and docs">}}
+{{< /alert >}}
 
 {{< tabs "define-query">}}
 {{< tab-code title="Go" filename="./quickstarts/go/main-eth.go" range="75:95" >}}
@@ -147,7 +147,7 @@ DFUSE_API_KEY="your dfuse api key here" python main.py
 # What to do next?
 
 * [GraphQL API Reference]({{< ref "/reference/ethereum/graphql" >}})
-* {{< externalLink href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMocXVlcnk6ICItdmFsdWU6MCB0eXBlOmNhbGwiLCBsb3dCbG9ja051bTogLTEpIHsKICAgIHVuZG8gY3Vyc29yCiAgICBub2RlIHsgaGFzaCBtYXRjaGluZ0NhbGxzIHsgY2FsbGVyIGFkZHJlc3MgdmFsdWUoZW5jb2Rpbmc6RVRIRVIpIH0gfQogIH0KfQ==" title="GraphiQL, online query editor with completion and docs">}}
+* {{< external-link href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMocXVlcnk6ICItdmFsdWU6MCB0eXBlOmNhbGwiLCBsb3dCbG9ja051bTogLTEpIHsKICAgIHVuZG8gY3Vyc29yCiAgICBub2RlIHsgaGFzaCBtYXRjaGluZ0NhbGxzIHsgY2FsbGVyIGFkZHJlc3MgdmFsdWUoZW5jb2Rpbmc6RVRIRVIpIH0gfQogIH0KfQ==" title="GraphiQL, online query editor with completion and docs">}}
 * [Look at one of our tutorials]({{< ref "/guides/ethereum/tutorials" >}})
 * [Authentication]({{< relref "/guides/core-concepts/authentication" >}})
 * [Cursors]({{< relref "/guides/core-concepts/cursors" >}})

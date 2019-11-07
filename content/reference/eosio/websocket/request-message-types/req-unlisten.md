@@ -1,9 +1,6 @@
 ---
 title: unlisten
 ---
-
-# `unlisten`
-
 Allows to interrupt a stream.
 
 ## Usage

@@ -111,10 +111,10 @@ Take out your logic textbook to flip `AND`s and `OR`s!
 Searching through dfuse is always performed in term of a certain block range, that could be open
 ended in the upper boundary to perform an infinite streaming.
 
-{{< note >}}
+{{< alert type="note" >}}
 Only ascending search (i.e. forward from low to high) can be open ended. A backward search must
 always have a fixed upper boundary.
-{{< /note >}}
+{{< /alert >}}
 
 While date range is more intuitive, the block range more closely follows the blockchain concept
 which resolves around blocks. Furthermore, we went the block range way over the date range to
@@ -129,11 +129,11 @@ Cursor and block range are closely coupled concept since when providing a cursor
 endpoints, it will affect the actual block range queried. Indeed, a cursor value will override the
 lower boundary on ascending search while overriding the upper boundary when doing a descending search.
 
-{{< note >}}
+{{< alert type="note" >}}
 While the cursor affects the block range, it's still actually transaction aware. This means that
 would jump to block as well as skipping all transactions that were before the cursor, thus already sent
 to you.
-{{< /note >}}
+{{< /alert >}}
 
 Resolution of block range in regards to search inputs has difference depending on the chain you are
 using. Refers to the following specific search range pages for the blockchain you want to work with:

@@ -193,9 +193,9 @@ When this happens, you can be notified by retrieving the `undo` property of the 
 
 [Try it on GraphiQL](https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMocXVlcnk6ICJ0bzoweDA2MDEyYzhjZjk3QkVhRDVkZUFlMjM3MDcwRjk1ODdmOEU3QTI2NmQiLCBsb3dCbG9ja051bTogLTEwMDApIHsKICAgIHVuZG8KICAgIG5vZGUgewogICAgICBoYXNoCiAgICB9CiAgfQp9)
 
-{{< important >}}
+{{< alert type="important" >}}
 Never forget to retrieve the `undo` property, as streaming results will re-send the matching transactions with `undo:true` upon micro-fork resolution.
-{{< /important >}}
+{{< /alert >}}
 
 ## Transports
 
@@ -221,9 +221,9 @@ dfuse GraphQL implements subscriptions using the [Apollo Websocket Transport pro
 
 In the browser, you can use the `apollo-client` npm library to connect and read responses. It uses WebSocket for Subscriptions and can also use it for Queries.
 
-{{< tip >}}
+{{< alert type="tip" >}}
 See the [Apollo Client Introduction](https://www.apollographql.com/docs/react/) for more details.
-{{< /tip >}}
+{{< /alert >}}
 
 <!-- TODO: Add some links to sample code we have that uses `apollo-client` -->
 
@@ -269,9 +269,9 @@ grpcui -port 6000 mainnet.eos.dfuse.io:443
 1. Open [http://localhost:6000](http://localhost:6000) and explore the interface.
 1. Add the `authorization` header in the interface, in the format: `Bearer TOKEN` where `TOKEN` is a [valid JWT](#authentication).
 
-{{< note >}}
+{{< alert type="note" >}}
 `grpcui` doesn't handle streaming responses properly; it jams until the subscription is terminated.  To view streaming search results, use `grpcurl` instead. <!-- TODO: There is no anchor that exists. Commented out: ([see above](#graphql-over-grpc-grpcurl)).  -->
-{{< /note >}}
+{{< /alert >}}
 
 ## Searching Through GraphQL
 
@@ -296,9 +296,9 @@ cursor somewhere and press `Ctrl+<Space>` to see completion possibilities for cu
 `searchTransactionsForward`<br>
 Search the blockchain forward for transaction execution traces based on the given query.
 
-{{< warning >}}
+{{< alert type="warning" >}}
 Always consider the undo field in forward searches, which signal that the matching element was in fact removed from the chain due to a chain reorganization.
-{{< /warning >}}
+{{< /alert >}}
 
 [Try it on GraphiQL](https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKHF1ZXJ5OiAicmVjZWl2ZXI6ZW9zaW8udG9rZW4gYWN0aW9uOnRyYW5zZmVyIikgewogICAgY3Vyc29yCiAgICB0cmFjZSB7CiAgICAgIGlkCiAgICAgIGJsb2NrIHsKICAgICAgICBudW0KICAgICAgICB0aW1lc3RhbXAKICAgICAgfQogICAgICBtYXRjaGluZ0FjdGlvbnMgewogICAgICAgIGFjY291bnQKICAgICAgICBuYW1lCiAgICAgICAgZGF0YQogICAgICB9CiAgICB9CiAgfQp9Cg==)
 
@@ -308,9 +308,9 @@ Always consider the undo field in forward searches, which signal that the matchi
 
 Search the blockchain backward for transaction execution traces based on the given query.
 
-{{< note >}}
+{{< alert type="note" >}}
 The undo field is not used in a backward search.
-{{< /note >}}
+{{< /alert >}}
 
 [Try it on GraphiQL](https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNCYWNrd2FyZChxdWVyeTogInJlY2VpdmVyOmVvc2lvLnRva2VuIGFjdGlvbjp0cmFuc2ZlciIsIGxvd0Jsb2NrTnVtOiAtMzYwKSB7CiAgICBjdXJzb3IKICAgIHRyYWNlIHsKICAgICAgaWQKICAgICAgYmxvY2sgewogICAgICAgIG51bQogICAgICAgIHRpbWVzdGFtcAogICAgICB9CiAgICAgIG1hdGNoaW5nQWN0aW9ucyB7CiAgICAgICAgYWNjb3VudAogICAgICAgIG5hbWUKICAgICAgICBkYXRhCiAgICAgIH0KICAgIH0KICB9Cn0K)
 
@@ -320,9 +320,9 @@ The undo field is not used in a backward search.
 
 Search the blockchain forward for transaction execution traces based on the given query. When the returned cursor is empty, it means you have reached the end of the specified block range.
 
-{{< warning >}}
+{{< alert type="warning" >}}
 Always consider the undo field in forward searches, which signal that the matching element was in fact __REMOVED__ from the chain because of a chain reorganization.
-{{< /warning >}}
+{{< /alert >}}
 
 [Try it on GraphiQL](https://mainnet.eos.dfuse.io/graphiql/?query=cXVlcnkgeyAKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKHF1ZXJ5OiAicmVjZWl2ZXI6ZW9zaW8udG9rZW4gYWN0aW9uOnRyYW5zZmVyIiwgbG93QmxvY2tOdW06IC0zNjAsIGxpbWl0OiAxMCkgeyAKICAgIHJlc3VsdHMgeyAKICAgICAgY3Vyc29yCiAgICAgIHRyYWNlIHsKICAgICAgICBpZAogICAgICAgIG1hdGNoaW5nQWN0aW9ucyB7IAogICAgICAgICAgYWNjb3VudAogICAgICAgICAgbmFtZQogICAgICAgICAgZGF0YQogICAgICAgIH0KICAgICAgfSAKICAgIH0gCiAgfQp9)
 
@@ -462,9 +462,9 @@ The following query (try it on [GraphiQL](https://mainnet.eos.dfuse.io/graphiql/
 {{< /tab >}}
 {{< /tabs >}}
 
-{{< note >}}
+{{< alert type="note" >}}
 Batched operations are always as slow as the slowest operation in the batch.
-{{< /note >}}
+{{< /alert >}}
 
 <!--
 

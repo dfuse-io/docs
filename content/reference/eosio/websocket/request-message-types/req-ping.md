@@ -1,9 +1,6 @@
 ---
 title: ping
 ---
-
-# `ping`
-
 Once connected to the websocket, every 10 seconds, you get a `ping` response from the server
 
 {{< highlight json >}}

@@ -1,16 +1,12 @@
 ---
 title: Libraries
-layout: topnav-overview
 menu:
   main:
     name: Libraries
     identifier: libraries
     weight: 50
+protocol: DFUSE
 ---
-
-{{< row-wrapper >}}
-{{< sub-section-title title="Libraries" >}}
-
 ## client-js
 
 dfuse JavaScript/TypeScript Client Library for dfuse.
@@ -35,4 +31,3 @@ Python bindings for dfuse.
 
 [Github](https://github.com/th3ch33s3/dfuse-python)
 
-{{< row-wrapper-end >}}

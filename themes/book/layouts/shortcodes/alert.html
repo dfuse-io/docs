@@ -1,0 +1,37 @@
+{{ $type := .Get "type" }}
+{{ $title := "" }}
+{{ $class := "" }}
+{{ $icon := "" }}
+
+{{ with (eq $type "note") }}
+    {{ $class = "admonition-note" }}
+    {{ $icon = "fa-info-circle" }}
+    {{ $title = "Note" }}
+{{ end }}
+
+{{ with (eq $type "tip") }}
+    {{ $class = "admonition-tip" }}
+    {{ $icon = "fa-lightbulb" }}
+    {{ $title = "Tip" }}
+
+{{ end }}
+
+{{ with (eq $type "important") }}
+    {{ $class = "admonition-important" }}
+    {{ $icon = "fa-exclamation-circle" }}
+    {{ $title = "Important" }}
+{{ end }}
+
+{{ with (eq $type "warning") }}
+    {{ $class = "admonition-warning" }}
+    {{ $icon = "fa-exclamation-triangle" }}
+    {{ $title = "Warning" }}
+{{ end }}
+
+<div class="admonition {{$class}}">
+  <p class="admonition-title">
+    <i class="fas {{$icon}}"></i>
+    {{ $title }}
+  </p>
+    {{ $.Inner | markdownify }}
+</div>

@@ -1,16 +1,12 @@
 ---
 title: Samples
-layout: topnav-overview
 menu:
   main:
     name: Samples
     identifier: samples
     weight: 40
+protocol: DFUSE
 ---
-
-{{< row-wrapper >}}
-{{< sub-section-title title="Samples"  protocol="ETH" >}}
-
 ## Go
 
 | Description | Source |
@@ -49,6 +45,3 @@ menu:
 | Description | Source |
 | :--- | :---: |
 | An example contract for dfuse Events | [Github](https://github.com/dfuse-io/example-dfuse-events-contract) |
-
-
-{{< row-wrapper-end >}}
