@@ -94,11 +94,11 @@ ul.supported-on {
   border-radius: 4px;
   font-weight: 800;
 }
-.tag.tag-stable { background-color:$primary-1000;}
-.tag.tag-release { background-color:$primary-1000;}
-.tag.tag-preview { background-color:$secondary-1000;}
-.tag.tag-alpha { background-color:$secondary-1000;}
-.tag.tag-beta { background-color:$secondary-1000;}
+.tag.tag-stable { background-color: $primary-1000;}
+.tag.tag-preview { background-color: $secondary-1000;}
+.tag.tag-alpha { background-color: $release-alpha;}
+.tag.tag-beta { background-color: $release-beta;}
+.tag.tag-release { background-color: $release-stable;}
 
 
 
