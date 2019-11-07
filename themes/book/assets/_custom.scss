@@ -853,6 +853,7 @@ h4 + .method-list-item {
     background-color: $release-beta;
   }
   &.release-stable a:after {
+    opacity: 0;
     background-color: $release-stable;
   }
   &.release-new a:after {

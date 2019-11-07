@@ -2,6 +2,7 @@
 weight: 10
 menuTitle: Endpoints
 title: EOS API Endpoints
+release: stable
 ---
 
 The _dfuse_ API is available for multiple EOSIO networks. Should you need it on another network, contact us.
