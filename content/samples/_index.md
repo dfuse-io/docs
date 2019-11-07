@@ -9,7 +9,8 @@ menu:
     weight: 4
 ---
 
-# Samples
+{{< row-wrapper >}}
+{{< sub-section-title title="Samples"  protocol="ETH" >}}
 
 ## Go
 
@@ -49,3 +50,6 @@ menu:
 | Description | Source |
 | :--- | :---: |
 | An example contract for dfuse Events | [Github](https://github.com/dfuse-io/example-dfuse-events-contract) |
+
+
+{{< row-wrapper-end >}}

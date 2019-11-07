@@ -9,7 +9,8 @@ menu:
     weight: 5
 ---
 
-# Libraries
+{{< row-wrapper >}}
+{{< sub-section-title title="Libraries" >}}
 
 ## client-js
 
@@ -34,3 +35,5 @@ Go bindings to the dfuse.io Streaming APIs.
 Python bindings for dfuse.
 
 [Github](https://github.com/th3ch33s3/dfuse-python)
+
+{{< row-wrapper-end >}}

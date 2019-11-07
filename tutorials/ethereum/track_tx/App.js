@@ -10,9 +10,10 @@ function App() {
 
     let streamTransactionQuery = `
      subscription($hash: String!){
-      transaction(hash: $hash){
+      transactionLifecycle(hash: $hash){
         previousState
         currentState
+        transitionName
         transition{
           __typename
   
@@ -141,9 +142,9 @@ function App() {
             if (message.type === "data") {
                 var newTransition = {
                     key: `transition-${count}`,
-                    transition: message['data']['transaction']['transition']['__typename'],
-                    from: message['data']['transaction']['previousState'],
-                    to: message['data']['transaction']['currentState'],
+                    transition: message['data']['transactionLifecycle']['transitionName'],
+                    from: message['data']['transactionLifecycle']['previousState'],
+                    to: message['data']['transactionLifecycle']['currentState'],
                     data: message['data']
                 };
                 count++;

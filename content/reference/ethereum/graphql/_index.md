@@ -2,7 +2,10 @@
 weight: 30
 title: GraphQL Schema
 ---
+{{< row-wrapper >}}
 
-# GraphQL Schema
+{{< sub-section-title title="GraphQL Schema"  protocol="ETH" >}}
 
 {{< graphql-ref "eth" >}}
+
+{{< row-wrapper-end>}}

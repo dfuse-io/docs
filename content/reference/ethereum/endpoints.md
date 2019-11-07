@@ -1,8 +1,8 @@
 ---
 weight: 10
 ---
-
-# Ethereum API Endpoints
+{{< row-wrapper >}}
+{{< sub-section-title title="Ethereum API Endpoints"  protocol="ETH" >}}
 
 The _dfuse_ API is available for multiple Ethereum networks. Should you need it on another network, please contact us.
 
@@ -21,3 +21,5 @@ Network ID: `3`
 API  | URL
 ------|------
 GraphQL | https://ropsten.eth.dfuse.io/graphql -- See [GraphiQL](https://ropsten.eth.dfuse.io/graphiql/)
+
+{{< row-wrapper-end >}}

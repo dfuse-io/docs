@@ -2,8 +2,8 @@
 weight: 20
 title: Search Terms
 ---
-
-# Search Terms for Ethereum
+{{< row-wrapper >}}
+{{< sub-section-title title="Search Terms for Ethereum"  protocol="ETH" >}}
 
 The dfuse Search Query Language resembles the one exposed by Kibana or GitHub for sifting through issues. It is a simple, flat `key1:value1 key2:value2` string, yet allows negation clauses and combinations of `OR` clauses.
 
@@ -101,3 +101,5 @@ The following terms are supported:
 * description: either the signature in ascii form or the first 4 bytes (in hex format) of the keccak-256 of that signature (which can be found in the first 4 bytes of the `input`) of the **method called**
 * example: `method:transfer(address,uint256)` or `method:a9059cbb`
 
+
+{{< row-wrapper-end >}}

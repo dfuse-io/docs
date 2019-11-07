@@ -64,7 +64,7 @@ To get a real-time feed of transaction state changes we need to craft a GraphQL 
 See {{< externalLink title="Graphql Concept" href="/guides/core-concepts/graphql/">}} for more information about GraphQL
 {{< /note >}}
 
-Our GraphQL query will use the `trackTransactionState` with a `hash` filter to retrieve the state changes of the transaction.
+Our GraphQL query will use the `transactionLifecycle` with a `hash` filter to retrieve the state changes of the transaction.
 
 {{< tip >}}
 Do not worry this query may see intimidating but it is broken down in  {{< externalLink title="Transaction State Tracker Concept" href="/guides/ethereum/concepts/trx_state_tracker/">}}
