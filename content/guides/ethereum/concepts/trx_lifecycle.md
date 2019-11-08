@@ -6,7 +6,7 @@ title: Ethereum Transaction Lifecycle
 
 ## How Transaction Lifecycle Works
 
-![](/img/eth_transaction_lifecycle.png)
+![](/img/eth_transaction_lifecycle_02.svg)
 
 ### Transaction State
 

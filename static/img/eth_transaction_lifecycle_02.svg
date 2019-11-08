@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.4, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1028 239" style="enable-background:new 0 0 1028 239;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#BCC5D0;stroke-width:2;stroke-miterlimit:10;}
+	.st1{fill:#BCC5D0;}
+	.st2{fill:#394962;}
+	.st3{fill:#FFFFFF;}
+	.st4{font-family:'Lato-Bold';}
+	.st5{font-size:14px;}
+	.st6{fill:#526178;}
+	.st7{font-size:15px;}
+</style>
+<g>
+	<g>
+		<polyline class="st0" points="551,145.6 402.8,145.6 380.6,119.5 		"/>
+		<g>
+			<polygon class="st1" points="547.1,139.8 568.7,145.6 547.1,151.4 			"/>
+		</g>
+	</g>
+</g>
+<g>
+	<g>
+		<path class="st0" d="M963.8,89.5c17.3,0,31.2,14,31.2,31.2S981,152,963.8,152c-11,0-20.7-5.7-26.2-14.3"/>
+		<g>
+			<polygon class="st1" points="944.8,139.5 932.5,120.8 933.8,143.2 			"/>
+		</g>
+	</g>
+</g>
+<g>
+	<g>
+		<polyline class="st0" points="359.2,135.8 403.9,220.1 816,220.1 876.5,121.2 		"/>
+		<g>
+			<polygon class="st1" points="355.9,142 350.9,120.1 366.2,136.5 			"/>
+		</g>
+	</g>
+</g>
+<g>
+	<g>
+		<polyline class="st0" points="377.7,135.4 415.8,200.1 566,200.1 596,170.1 		"/>
+		<g>
+			<polygon class="st1" points="374.7,141.7 368.8,120.1 384.7,135.9 			"/>
+		</g>
+	</g>
+</g>
+<g>
+	<g>
+		<polyline class="st0" points="864.7,56.9 849.5,40.1 145.8,40.1 115.8,70.1 		"/>
+		<g>
+			<polygon class="st1" points="866.4,50.1 876.5,70.1 857.7,57.9 			"/>
+		</g>
+	</g>
+</g>
+<path class="st2" d="M147.2,120.1H28.3c-4.2,0-7.6-3.4-7.6-7.6V78.7c0-4.2,3.4-7.6,7.6-7.6h118.9c4.2,0,7.6,3.4,7.6,7.6v33.9
+	C154.8,116.7,151.4,120.1,147.2,120.1z"/>
+<text transform="matrix(1 0 0 1 46.8701 100.3835)" class="st3 st4 st5">UNKNOWN</text>
+<path class="st2" d="M417.2,120.1H298.3c-4.2,0-7.6-3.4-7.6-7.6V78.7c0-4.2,3.4-7.6,7.6-7.6h118.9c4.2,0,7.6,3.4,7.6,7.6v33.9
+	C424.8,116.7,421.4,120.1,417.2,120.1z"/>
+<text transform="matrix(1 0 0 1 324.1924 100.3835)" class="st3 st4 st5">PENDING</text>
+<path class="st2" d="M695.2,170.1H576.3c-4.2,0-7.6-3.4-7.6-7.6v-33.9c0-4.2,3.4-7.6,7.6-7.6h118.9c4.2,0,7.6,3.4,7.6,7.6v33.9
+	C702.8,166.7,699.4,170.1,695.2,170.1z"/>
+<text transform="matrix(1 0 0 1 597.8101 150.3835)" class="st3 st4 st5">REPLACED</text>
+<path class="st2" d="M957.2,120.1H838.3c-4.2,0-7.6-3.4-7.6-7.6V78.7c0-4.2,3.4-7.6,7.6-7.6h118.9c4.2,0,7.6,3.4,7.6,7.6v33.9
+	C964.8,116.7,961.4,120.1,957.2,120.1z"/>
+<text transform="matrix(1 0 0 1 861.6968 100.3835)" class="st3 st4 st5">IN_BLOCK</text>
+<g>
+	<g>
+		<line class="st0" x1="154.8" y1="95.6" x2="273" y2="95.6"/>
+		<g>
+			<polygon class="st1" points="269.1,101.4 290.7,95.6 269.1,89.8 			"/>
+		</g>
+	</g>
+</g>
+<g>
+	<g>
+		<line class="st0" x1="424.8" y1="95.6" x2="813" y2="95.6"/>
+		<g>
+			<polygon class="st1" points="809.1,101.4 830.7,95.6 809.1,89.8 			"/>
+		</g>
+	</g>
+</g>
+<text transform="matrix(1 0 0 1 181.5425 86)" class="st6 st4 st7">POOLED</text>
+<text transform="matrix(1 0 0 1 451.9751 136)" class="st6 st4 st7">REPLACED</text>
+<text transform="matrix(1 0 0 1 586.1001 86)" class="st6 st4 st7">MINED</text>
+<text transform="matrix(1 0 0 1 484.1001 29)" class="st6 st4 st7">MINED</text>
+<text transform="matrix(1 0 0 1 454.5425 192)" class="st6 st4 st7">POOLED</text>
+<text transform="matrix(1 0 0 1 917.9517 174.1086)" class="st6 st4 st7">CONFIRMED</text>
+<text transform="matrix(1 0 0 1 694.7451 212)" class="st6 st4 st7">FORKED</text>
+<g>
+	<g>
+		<polyline class="st0" points="702.8,145.6 838.7,145.6 850.6,133.8 		"/>
+		<g>
+			<polygon class="st1" points="851.9,140.7 863.1,121.2 843.7,132.5 			"/>
+		</g>
+	</g>
+</g>
+<text transform="matrix(1 0 0 1 735.1001 136)" class="st6 st4 st7">MINED</text>
+</svg>
