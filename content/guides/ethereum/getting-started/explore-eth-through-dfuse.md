@@ -10,7 +10,7 @@ The best way to get a taste of what you can do with dfuse is to try it out!
 **GraphiQL** is a tool that allows writing and running graphQL queries from your browser. It is offered on [every dfuse endpoint](/reference/ethereum/endpoints/) with a valid anonymous JWT for convenience.
 It also offers an access to the [documented GraphQL schema](/reference/ethereum/graphql/) on a side pane, as well as a very useful auto-completion feature (simply place your cursor somewhere and press `Ctrl+<Space>` to see completion possibilities.)
 
-{{< external-link title="![GraphiQL screenshot](/img/graphiql.png)" href="https://mainnet.eth.dfuse.io/graphiql" >}}
+[![GraphiQL screenshot](/img/graphiql.png)](https://mainnet.eth.dfuse.io/graphiql)
 
 ## Examples
 
