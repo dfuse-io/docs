@@ -3,23 +3,19 @@ weight: 10
 title: JavaScript Quickstart
 ---
 
-In this guide we will show you how to create a basic setup so you can benefit from the dfuse GraphQL API under
-on of supported JavaScript environment:
+In this guide we will show you how to create a basic setup so that you can benefit from the dfuse GraphQL API under
+one of the supported JavaScript environments:
 
 - Browser through a bundler like Webpack (includes Create React App projects) (`Bundler` code tab)
 - Browser standalone (`Browser` code tab)
 - Node.js server (`Node.js` code tab)
 
 {{< alert type="note" >}}
-While not in the supported list (yet), you should in theory be able to use the example under a React Native environment.
+While not yet in the supported list, you should be able to use the example under a React Native environment.
 {{< /alert >}}
 
 All examples uses ES6 syntax with `await/async` keywords, using `import` keywords on `Bundler` and `Browser`
-environments while using the `require` syntax on Node.js environment. However,
-
-{{< alert type="note" >}}
-The library compiles itself to down to ES5 features so we support older ES5 compliant browsers that are not compatible with ES6 features (IE 11 for example).
-{{< /alert >}}
+environments while using the `require` syntax on Node.js environment. However, the library compiles itself to down to ES5 features, so we support older ES5 compliant browsers that are not compatible with ES6 features (IE 11 for example).
 
 We assume the commands below are performed in an empty project folder. To quickly
 start an empty project:
@@ -53,7 +49,7 @@ Here are a few of its key features:
 * Handles API token issuance
 * Refreshes your API token upon expiration
 * Automatically reconnects if the connection closes
-* Supports Browsers and Node.js environments
+* Supports `Browsers` and `Node.js` environments
 
 You can add it to your project using Yarn or NPM.
 
@@ -68,9 +64,9 @@ yarn add @dfuse/client
 
 #### Node.js Extra Steps
 
-If you are targeting the Node.js environment, a few extra steps are required to be able to use
-the @dfuse/client library. Indeed, the library relies on `node-fetch` package for HTTP requests
-and on the `ws` package for `WebSocket` connection.
+If you are targeting the `Node.js` environment, a few extra steps are required to be able to use
+the @dfuse/client library. The library relies on the `node-fetch` package for HTTP requests
+and on the `ws` package for `WebSocket` connections.
 
 {{< tabs "install-dependencies" >}}
 {{< tab lang="shell" title="NPM" >}}
@@ -81,11 +77,11 @@ yarn add node-fetch ws
 {{< /tab >}}
 {{< /tabs >}}
 
-Once installed, prior calling anything else, ensure that `global.fetch` and `global.WebSocket`
+Once installed, prior to calling anything else, ensure that `global.fetch` and `global.WebSocket`
 are set in the global scope.
 
 {{< alert type="important" >}}
-This is required only in a Node.js environment. When targeting a Browser environment (in
+This is required only in a Node.js environment. When targeting a `Browser` environment (in
 standalone HTML or through a bundler, @dfuse/client library automatically uses `fetch`
 and `WebSocket` objects provided by the browser).
 {{< /alert >}}
@@ -103,7 +99,7 @@ You prefer to not pollute the global scope? Check {{< external-link title="Node.
 
 ## 3. Create the client
 
-With the initial setup completed, you can start coding. The first thing we will do is initialize
+With the initial setup complete, you can start coding. The first thing we will do is initialize
 the dfuse client using the API key you created in the first step and the network you want to
 connect to.
 
@@ -135,7 +131,7 @@ Want to inspect the full set of available fields you can retrieve?
 {{< /tabs >}}
 
 Next, you create the GraphQL subscription to stream transfers as they come. You will use the `searchTransactionsForward` operation, with the `"receiver:eosio.token action:transfer -data.quantity:'0.0001 EOS'"` query (See the [Search Query Language reference here]({{< ref "/reference/eosio/search-terms" >}})). This basically means, give me all transactions containing one or more
-action named `transfer` executed by `eosio.token` account for which the `quantity` field of the action is **not** `0.0001 EOS`.
+actions named `transfer` executed by the `eosio.token` account for which the `quantity` field of the action is **not** `0.0001 EOS`.
 
 You can combine the dfuse client instance we created in step 3 with the GraphQL document we defined above in
 a `main` function:
@@ -147,7 +143,7 @@ a `main` function:
 {{< /tabs >}}
 
 The function passed as the 2nd parameter to `client.graphql()` will be called every time a new result is returned
-by the API. And here a sample of the prints you can see from as a result of execution the streaming operation
+by the API. And here a sample of the prints you will receive as a result of executing the streaming operation
 above:
 
 <!-- **Note** We use python for all languages for a nicer output rendering -->
