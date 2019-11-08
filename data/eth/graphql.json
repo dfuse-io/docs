@@ -9,7 +9,7 @@
           "reqType": true,
           "name": "BlockEdge"
         },
-        "description": "",
+        "description": "Listen to a stream of blocks as they come in.\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\n(a block) was in fact REMOVED from the chain because of blocks reorganization.",
         "arguments": [
           {
             "name": "lowBlockNum",
@@ -41,7 +41,7 @@
           "reqType": true,
           "name": "TransactionEdge"
         },
-        "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization.  The `undo` field is always `false` in backward searches.",
+        "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\nSee: https://docs.dfuse.io/guides/core-concepts/search-query-language\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization.  The `undo` field is always `false` in backward searches.",
         "arguments": [
           {
             "name": "indexName",
@@ -112,7 +112,7 @@
           "reqType": true,
           "name": "TransactionState"
         },
-        "description": "",
+        "description": "Subscribe to a transaction to follow its lifecycle (inclusion in a block, confirmations, etc.).\nThe transaction can be in an `unknown` or `pending` state at the time of the request\nSee https://docs.dfuse.io/guides/ethereum/concepts/trx_lifecycle/",
         "arguments": [
           {
             "name": "hash",
@@ -135,7 +135,7 @@
         "type": {
           "name": "Block"
         },
-        "description": "",
+        "description": "Get a single block by its hash",
         "arguments": [
           {
             "name": "hash",
@@ -152,7 +152,7 @@
         "type": {
           "name": "Block"
         },
-        "description": "",
+        "description": "Get a single block by its number",
         "arguments": [
           {
             "name": "number",
@@ -169,7 +169,7 @@
         "type": {
           "name": "TransactionTrace"
         },
-        "description": "",
+        "description": "Get a single transaction by its hash",
         "arguments": [
           {
             "name": "hash",
@@ -187,7 +187,7 @@
           "reqType": true,
           "name": "TransactionConnection"
         },
-        "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\n\nWhen the returned `cursor` is empty, it means you have reached the end of the specified block\nrange.\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization.\n\nSee also the streaming version under `Subscription`",
+        "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\nSee: https://docs.dfuse.io/guides/core-concepts/search-query-language\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization.  The `undo` field is always `false` in backward searches.",
         "arguments": [
           {
             "name": "indexName",
@@ -195,7 +195,7 @@
               "reqType": true,
               "name": "TRANSACTIONS_INDEX_NAME"
             },
-            "description": ""
+            "description": "The index that will be queried (CALLS or LOGS), see https://docs.dfuse.io/reference/ethereum/search-terms/"
           },
           {
             "name": "query",
@@ -203,28 +203,28 @@
               "reqType": true,
               "name": "String"
             },
-            "description": ""
+            "description": "See https://docs.dfuse.io/guides/core-concepts/search-query-language"
           },
           {
             "name": "lowBlockNum",
             "type": {
               "name": "Int64"
             },
-            "description": ""
+            "description": "Lower boundary for search. Use -1 for HEAD. See https://docs.dfuse.io/guides/ethereum/concepts/search-ranges/"
           },
           {
             "name": "highBlockNum",
             "type": {
               "name": "Int64"
             },
-            "description": ""
+            "description": "Upper boundary for search. Use -1 for HEAD. See https://docs.dfuse.io/guides/ethereum/concepts/search-ranges/"
           },
           {
             "name": "cursor",
             "type": {
               "name": "String"
             },
-            "description": ""
+            "description": "See https://docs.dfuse.io/guides/core-concepts/cursors/"
           },
           {
             "name": "limit",
@@ -232,7 +232,7 @@
               "name": "Int64",
               "default": "100"
             },
-            "description": ""
+            "description": "Maximum number of results to include in a result"
           },
           {
             "name": "sort",
@@ -240,7 +240,7 @@
               "name": "SORT",
               "default": "ASC"
             },
-            "description": ""
+            "description": "Direction in which to perform the search"
           }
         ]
       }
@@ -248,7 +248,7 @@
   },
   {
     "name": "PageInfo",
-    "description": "",
+    "description": "Cursors required to continue either forward or backwards from a list of paginated elements",
     "fields": [
       {
         "name": "startCursor",
@@ -256,7 +256,7 @@
           "reqType": true,
           "name": "String"
         },
-        "description": "",
+        "description": "cursor of the first element of the list, use it to search in the opposite direction",
         "arguments": []
       },
       {
@@ -265,7 +265,7 @@
           "reqType": true,
           "name": "String"
         },
-        "description": "",
+        "description": "cursor of the last element of the list, use it to continue",
         "arguments": []
       }
     ]
@@ -321,7 +321,7 @@
         "name": "block",
         "type": {
           "reqType": true,
-          "name": "BlockWithHeader"
+          "name": "BlockRefWithHeader"
         },
         "description": "`block` is the block in which this transaction was mined",
         "arguments": []
@@ -492,7 +492,7 @@
         "name": "block",
         "type": {
           "reqType": true,
-          "name": "BlockWithHeader"
+          "name": "BlockRefWithHeader"
         },
         "description": "",
         "arguments": []
@@ -676,7 +676,7 @@
       {
         "name": "block",
         "type": {
-          "name": "BlockWithHeader"
+          "name": "BlockRefWithHeader"
         },
         "description": "`block` is the block in which this transaction was mined.",
         "arguments": []
@@ -1160,8 +1160,8 @@
     ]
   },
   {
-    "name": "BlockWithHeader",
-    "description": "",
+    "name": "BlockRefWithHeader",
+    "description": "`BlockRefWithHeader` is an object that refers to a block and contains its header. Think of it as an incomplete `Block` object.",
     "fields": [
       {
         "name": "hash",
@@ -1169,7 +1169,7 @@
           "reqType": true,
           "name": "String"
         },
-        "description": "",
+        "description": "Hash (or ID) of this block. It is a unique pointer to this block.",
         "arguments": []
       },
       {
@@ -1178,7 +1178,7 @@
           "reqType": true,
           "name": "Uint64"
         },
-        "description": "",
+        "description": "Sequential number of this block on the chain. Unlike the hash, it is not unique because of forked blocks.",
         "arguments": []
       },
       {
@@ -1202,7 +1202,7 @@
           "reqType": true,
           "name": "String"
         },
-        "description": "",
+        "description": "Hash (or ID) of this block. It is a unique pointer to this block.",
         "arguments": []
       },
       {
@@ -1211,7 +1211,7 @@
           "reqType": true,
           "name": "Uint64"
         },
-        "description": "",
+        "description": "Sequential number of this block on the chain. Unlike the hash, it is not unique because of forked blocks.",
         "arguments": []
       },
       {
@@ -1240,7 +1240,7 @@
           "reqType": true,
           "name": "BlockHeader"
         },
-        "description": "",
+        "description": "List of the block header of the uncles (ommers) of this block",
         "arguments": []
       },
       {
@@ -1249,7 +1249,7 @@
           "reqType": true,
           "name": "TransactionConnection"
         },
-        "description": "",
+        "description": "List of transactions contained in this block with pagination parameters following the standard GraphQL connection model",
         "arguments": [
           {
             "name": "first",
@@ -1285,7 +1285,7 @@
   },
   {
     "name": "BlockHeader",
-    "description": "",
+    "description": "Header of an Ethereum block",
     "fields": [
       {
         "name": "parentHash",
@@ -1293,7 +1293,7 @@
           "reqType": true,
           "name": "String"
         },
-        "description": "",
+        "description": "Hash of the parent block",
         "arguments": []
       },
       {
@@ -1311,7 +1311,7 @@
           "reqType": true,
           "name": "String"
         },
-        "description": "",
+        "description": "Address of the block miner",
         "arguments": []
       },
       {
@@ -1320,7 +1320,7 @@
           "reqType": true,
           "name": "String"
         },
-        "description": "",
+        "description": "Hash of the state trie’s root node",
         "arguments": []
       },
       {
@@ -1347,7 +1347,7 @@
           "reqType": true,
           "name": "String"
         },
-        "description": "",
+        "description": "Bloom Filter, used to optimize searching for transactions inside this block",
         "arguments": []
       },
       {
@@ -1365,7 +1365,7 @@
           "reqType": true,
           "name": "Uint64"
         },
-        "description": "",
+        "description": "Sequential number of this block on the chain. Unlike the hash, it is not unique because of forked blocks.",
         "arguments": []
       },
       {
@@ -1374,7 +1374,7 @@
           "reqType": true,
           "name": "Uint64"
         },
-        "description": "",
+        "description": "Maximum amount of gas allowed in a block (determines how many transactions can fit into it)",
         "arguments": []
       },
       {
@@ -1383,7 +1383,7 @@
           "reqType": true,
           "name": "Uint64"
         },
-        "description": "",
+        "description": "Total amount of gas used during execution of all transactions",
         "arguments": []
       },
       {
@@ -1392,7 +1392,7 @@
           "reqType": true,
           "name": "Uint64"
         },
-        "description": "",
+        "description": "Timestamp of the mining of that block",
         "arguments": []
       },
       {
@@ -1401,7 +1401,7 @@
           "reqType": true,
           "name": "String"
         },
-        "description": "",
+        "description": "Arbitrary data injected by the miner of this block",
         "arguments": []
       },
       {
@@ -1419,7 +1419,7 @@
           "reqType": true,
           "name": "Uint64"
         },
-        "description": "",
+        "description": "Proof of work nonce - The random value in a block that was used get the proof of work satisfied",
         "arguments": []
       },
       {
@@ -1428,7 +1428,7 @@
           "reqType": true,
           "name": "String"
         },
-        "description": "",
+        "description": "Hash (or ID) of this block. It is a unique pointer to this block.",
         "arguments": []
       }
     ]
@@ -1475,7 +1475,7 @@
           "reqType": true,
           "name": "String"
         },
-        "description": "",
+        "description": "Hash (or ID) of this block. It is a unique pointer to this block.",
         "arguments": []
       },
       {
@@ -1484,7 +1484,7 @@
           "reqType": true,
           "name": "Uint64"
         },
-        "description": "",
+        "description": "Sequential number of this block on the chain. Unlike the hash, it is not unique because of forked blocks.",
         "arguments": []
       },
       {
@@ -1513,6 +1513,17 @@
           "reqType": true,
           "name": "BlockHeader"
         },
+        "description": "List of the block header of the uncles (ommers) of this block",
+        "arguments": []
+      },
+      {
+        "name": "uncles",
+        "type": {
+          "isList": true,
+          "reqList": true,
+          "reqType": true,
+          "name": "BlockHeader"
+        },
         "description": "",
         "arguments": []
       },
@@ -1522,7 +1533,7 @@
           "reqType": true,
           "name": "TransactionTraceConnection"
         },
-        "description": "",
+        "description": "List of transaction traces contained in this block with pagination parameters following the standard GraphQL connection model",
         "arguments": [
           {
             "name": "first",
