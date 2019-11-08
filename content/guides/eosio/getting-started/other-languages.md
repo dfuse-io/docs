@@ -7,7 +7,7 @@ title: "Getting Started with Other Languages"
 
 dfuse exposes its data through a GraphQL over gRPC interface. The protobuf files are {{< external-link href="https://github.com/dfuse-io/graphql-over-grpc" title="in this github repository">}}.
 
-The code from the examples on this page lives {{< external-link href="https://github.com/dfuse-io/docs/tree/master/quickstarts" title="in the quickstarts folder of this docs GitHub repository">}}.
+The code from the examples on this page can be found {{< external-link href="https://github.com/dfuse-io/docs/tree/master/quickstarts" title="in the quickstarts folder of this docs GitHub repository">}}.
 
 ## 1. Get a dfuse API Key
 
@@ -15,7 +15,7 @@ The code from the examples on this page lives {{< external-link href="https://gi
 
 ## 2. Generate a JWT from your API key
 
-The JWT is a token with a short expiration period, used to communicate with dfuse services. You will have to implement token caching and manage renewal upon expiration. See [Authentication]({{< relref "/guides/core-concepts/authentication" >}}) for details.
+The JWT is a token with a short expiration period, used to communicate with dfuse services. You will have to implement token caching and manage renewal upon expiration. See [Authentication]({{< relref "/guides/core-concepts/authentication" >}}) for more details.
 
 {{< tabs "generate-jwt">}}
 {{< tab-code title="Go" filename="./quickstarts/go/main-eos.go" range="21:39" >}}
@@ -32,7 +32,7 @@ The protobuf files defining our graphql-over-grpc interface are available {{< ex
 
 A lot of languages provide tools to generate client stubs from protobuf files, as you can find {{< external-link href="https://grpc.io/docs/quickstart/" title="in the official gRPC documentation">}}.
 
-For your convenience, we also provide pre-generated client stubs for some languages The code from the examples on this page lives {{< external-link href="https://github.com/dfuse-io/docs/tree/master/quickstarts" title="in the quickstarts folder of this docs GitHub repository">}}.
+For your convenience, we also provide pre-generated client stubs for some languages. The code from the examples on this page can be found {{< external-link href="https://github.com/dfuse-io/docs/tree/master/quickstarts" title="in the quickstarts folder of this docs GitHub repository">}}.
 
 {{< tabs "get-client-stub">}}
 
@@ -74,7 +74,7 @@ protoc graphql/graphql.proto # add your language-specific flags here
 ## 4. Create the client
 
 Now that you have generated the client stub (or picked the generated one), we can
-now define the client creation code. The client can be re-used across all the
+define the client creation code. The client can be re-used across all the
 requests and streams you need to do, it should be properly cached at the appropriate
 level for your use case.
 
@@ -87,7 +87,7 @@ level for your use case.
 
 Let's first define the GraphQL operation, as a string, that we will use to perform
 GraphQL subscription. This element tells the backend server what fields to return
-to you, you get to choose and pick only what you are interested in.
+to you, you get to pick and choose only what you are interested in.
 
 {{< alert type="note" >}}
 Want to inspect the full set of available fields you can retrieve?
@@ -102,7 +102,7 @@ Want to inspect the full set of available fields you can retrieve?
 {{< /tabs >}}
 
 And we can finally define the code needed to perform your first stream using
-dfuse Search. The snippet initiate the connection with dfuse servers and start
+dfuse Search. The snippet initiates the connection with dfuse servers and starts
 streaming transfers forever.
 
 {{< tabs "run-query">}}
@@ -110,7 +110,7 @@ streaming transfers forever.
 {{< tab-code title="Python" filename="./quickstarts/python/main.py" range="80:94" >}}
 {{< /tabs >}}
 
-And here a sample of the prints you can see from the standard output after running the example:
+And here is a sample of the prints you will receive from the standard output after running the example above:
 
 <!-- **Note** We use python for all languages for a nicer output rendering -->
 {{< highlight "python" >}}
@@ -124,7 +124,7 @@ Transfer bluebetproxy -> bluebetbulls [0.6000 EOS]
 
 ## 6. Full working examples
 
-Here the small glue code containing the `main` function, imports and other helper functions to run the example:
+Here is the small glue code containing the `main` function, imports and other helper functions to run the example:
 
 {{< tabs "support-code">}}
 {{< tab-code title="Go" filename="./quickstarts/go/main-eos.go" range="1:19,182:201" >}}
