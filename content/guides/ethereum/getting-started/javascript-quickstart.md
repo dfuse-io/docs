@@ -3,12 +3,11 @@ weight: 10
 title: JavaScript Quickstart
 ---
 
-In this guide we will show you how to create a basic setup so you can benefit from the dfuse GraphQL API under
-on of supported JavaScript environment:
+In this guide we will show you how to create a basic setup so you can benefit from the dfuse GraphQL API under one of the supported JavaScript environments:
 
-- Browser through a bundler like Webpack (includes Create React App projects) (`Bundler` code tab)
-- Browser standalone (`Browser` code tab)
-- Node.js server (`Node.js` code tab)
+- Browser through a bundler like Webpack (includes Create React App projects) (see `Bundler` code tab below)
+- Browser standalone (see `Browser` code tab below)
+- Node.js server (see `Node.js` code tab below)
 
 {{< alert type="note" >}}
 While not in the supported list (yet), you should in theory be able to use the example under a React Native environment.
