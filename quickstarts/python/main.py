@@ -45,7 +45,7 @@ def create_client(endpoint):
 #
 
 OPERATION_ETH = """subscription {
-  searchTransactions(query: "-value:0 type:call", lowBlockNum: -1) {
+  searchTransactions(indexName:CALLS query: "-value:0 type:call", lowBlockNum: -1) {
     undo cursor
     node { hash matchingCalls { caller address value(encoding:ETHER) } }
   }
