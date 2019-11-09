@@ -84,7 +84,7 @@ Consider the following example:
 {{< /tab >}}
 {{< tab lang="graphql" title="GraphQL Request" >}}
 query {
-  searchTransactions(query: "to:0x06012c8cf97BEaD5deAe237070F9587f8E7A266d", sort: DESC, limit: 3) {
+  searchTransactions(indexName:CALLS query: "to:0x06012c8cf97BEaD5deAe237070F9587f8E7A266d", sort: DESC, limit: 3) {
     edges {
       cursor
       node {
@@ -129,7 +129,7 @@ Thus if you were to run the same query with this`cursor` value, you would get th
 {{< /tab >}}
 {{< tab lang="graphql" title="GraphQL Request" >}}
 query {
-  searchTransactions(query: "to:0x06012c8cf97BEaD5deAe237070F9587f8E7A266d", sort: DESC, limit: 1,cursor: "bN1XxBvXCvlSTgCcckQWz_e7LJ4wA11rUwHiI0VFg4vw83fBiJqjVjcmOkiGkP311Ry5SVqkj97LRiwu85JT74e5xuttviNuT3t_k9_vqrO-e6f3OAwcJO42VbzaNtvdCm_XYAz9fA==") {
+  searchTransactions(indexName:CALLS query: "to:0x06012c8cf97BEaD5deAe237070F9587f8E7A266d", sort: DESC, limit: 1,cursor: "bN1XxBvXCvlSTgCcckQWz_e7LJ4wA11rUwHiI0VFg4vw83fBiJqjVjcmOkiGkP311Ry5SVqkj97LRiwu85JT74e5xuttviNuT3t_k9_vqrO-e6f3OAwcJO42VbzaNtvdCm_XYAz9fA==") {
     edges {
       cursor
       node {

@@ -72,7 +72,7 @@ Stream all transactions to an account, in real-time:
 {{< tabs "graphql-subscription-request" >}}
 {{< tab lang="graphql" title="GraphQL Request" >}}
 subscription {
-  searchTransactions(query: "to:0x06012c8cf97BEaD5deAe237070F9587f8E7A266d", lowBlockNum: -1000) {
+  searchTransactions(indexName:CALLS query: "to:0x06012c8cf97BEaD5deAe237070F9587f8E7A266d", lowBlockNum: -1000) {
     node {
       hash
     }
@@ -106,7 +106,7 @@ Query the most recent transactions to an address with 3 documents per page:
 {{< tabs "graphql-paginated-request" >}}
 {{< tab lang="graphql" title="GraphQL Request" >}}
 query {
-  searchTransactions(query: "to:0x06012c8cf97BEaD5deAe237070F9587f8E7A266d", sort: DESC, limit: 3) {
+  searchTransactions(indexName:CALLS query: "to:0x06012c8cf97BEaD5deAe237070F9587f8E7A266d", sort: DESC, limit: 3) {
     pageInfo {
       endCursor
     }
@@ -164,7 +164,7 @@ Stream all transactions to an account, keeping an eye on forks:
 {{< tabs "graphql-forks-request" >}}
 {{< tab lang="graphql" title="GraphQL Request" >}}
 subscription {
-  searchTransactions(query: "to:0x06012c8cf97BEaD5deAe237070F9587f8E7A266d", lowBlockNum: -1000) {
+  searchTransactions(indexName:CALLS query: "to:0x06012c8cf97BEaD5deAe237070F9587f8E7A266d", lowBlockNum: -1000) {
     undo
     node {
       hash
