@@ -58,7 +58,7 @@ fetch("https://auth.dfuse.io/v1/auth/issue", {
   headers: {
     "Content-Type": "application/json"
   }
-}).then(console.log)
+}).then(console.log) // Cache JWT (for up to 24 hours)
 {{< /tab >}}
 
 {{< tab lang="python" >}}
@@ -70,6 +70,7 @@ headers = {
 
 data = '{"api_key":"web_abcdef12345678900000000000"}'
 
+# Cache JWT response (for up to 24 hours)
 response = requests.post('https://auth.dfuse.io/v1/auth/issue', headers=headers, data=data)
 {{< /tab >}}
 
@@ -99,6 +100,8 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+  // Cache JWT response (for up to 24 hours)
 	fmt.Printf("%s\n", bodyText)
 }
 {{< /tab >}}
