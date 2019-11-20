@@ -109,12 +109,12 @@ const redirectMap = {
   "/reference/eosio/websocket/request-message-format/": ["/#websocket-request-message-format"],
   "/reference/eosio/websocket/never-missing-a-beat/": ["/#websocket-never-miss-a-beat"],
   "/reference/eosio/websocket/navigating-forks/": ["/#websocket-navigating-forks"],
-  "/reference/eosio/websocket/request-message-types/req-get-action-traces/": ["/#websocket-get-action-traces"],
-  "/reference/eosio/websocket/request-message-types/req-get-transaction-lifecycle/": ["/#websocket-get-transaction-lifecycle"],
-  "/reference/eosio/websocket/request-message-types/req-get-table-rows/": ["/#websocket-get-table-rows"],
-  "/reference/eosio/websocket/request-message-types/req-get-head-info/": ["/#websocket-get-head-info"],
-  "/reference/eosio/websocket/request-message-types/req-unlisten/": ["/#websocket-req-unlisten"],
-  "/reference/eosio/websocket/request-message-types/req-ping/": ["/#websocket-req-ping"],
+  "/reference/eosio/websocket/req-get-action-traces/": ["/#websocket-get-action-traces"],
+  "/reference/eosio/websocket/req-get-transaction-lifecycle/": ["/#websocket-get-transaction-lifecycle"],
+  "/reference/eosio/websocket/req-get-table-rows/": ["/#websocket-get-table-rows"],
+  "/reference/eosio/websocket/req-get-head-info/": ["/#websocket-get-head-info"],
+  "/reference/eosio/websocket/req-unlisten/": ["/#websocket-req-unlisten"],
+  "/reference/eosio/websocket/req-ping/": ["/#websocket-req-ping"],
   "/reference/eosio/websocket/responses/": [
     "/#websocket-responses",
     "/#websocket-resp-listening",
@@ -258,6 +258,6 @@ const redirectMap = {
 
  var x = document.querySelector('#TableOfContents ul');
  if (x != null) {
-  x.replaceWith(tableOfContents);   
+  x.replaceWith(tableOfContents);
  }
 

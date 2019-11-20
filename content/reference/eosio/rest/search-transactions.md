@@ -7,14 +7,13 @@ criterias, using the [_dfuse_ Search query language]({{< ref "../search-terms" >
 
 {{< alert type="important" >}}
 We **strongly suggest** to use the [GraphQL search API]({{< ref "/reference/eosio/graphql#query-searchtransactionsforward" >}})
-`/v0/search/transactions` endpoint. Advantages of using the GraphQL version:
+of this endpoint. Advantages of using the GraphQL version:
 
-- Streaming capabilities, able to stream new results as they arrive on the chain, left off and resume at exact last processed point.
+- Streaming capabilities, or to be able to stream new results as they pushed on the chain. Quit or got disconnected? Simply resume at exact point you left off by using a [cursor]({{< ref "/guides/core-concepts/cursors" >}}).
 - Easier data model to extract matching actions from response (i.e. to get only the actions in the transaction that matched the query used).
-- Possibility to greatly reduce bandwidth transfer (ingress to your server) by specifying the exact data payload you need (excellent for browser & mobile usage).
+- Possibility to greatly reduce bandwidth transfer & cost (ingress to your server) by specifying the exact trimmed down data payload you need (excellent for browser & mobile usage).
 - A much cleaner interface to query by block range (`lowBlockNum` and `highBlockNum` instead of harder to reason about `startBlock` and `blockCount`)
-- Possibilities to ABI decode on the fly db rows that changed due to the execution of
-- No need to care about the native EOSIO response format or actual version of the API. Whatever the EOSIO version, we give you the data you need in a backward compatible fashion.
+- On-the-fly ABI decode to JSON smart contract database rows that changed due to the execution of the transaction.
 {{< /alert >}}
 
 ## Usage

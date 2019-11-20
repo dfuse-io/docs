@@ -224,7 +224,7 @@
             "type": {
               "name": "String"
             },
-            "description": "See https://docs.dfuse.io/guides/core-concepts/cursors/"
+            "description": "See https://docs.dfuse.io/guides/core-concepts/cursors"
           },
           {
             "name": "limit",
