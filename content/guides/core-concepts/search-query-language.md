@@ -19,6 +19,13 @@ single keyword. For example: `term:value` or `term:"value"`.
 consensus rules (like longest chain), and allow you to navigate any
 forks, through the use of [cursors]({{< ref "/guides/core-concepts/cursors" >}}).
 
+## Supported search terms
+
+* [Ethereum search terms reference]({{< ref "reference/ethereum/search-terms" >}}).
+* [EOSIO search terms reference]({{< ref "reference/eosio/search-terms" >}}).
+
+
+
 
 ## Operators
 
