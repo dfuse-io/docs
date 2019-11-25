@@ -5,8 +5,8 @@ menuTitle: Tutorials
 protocol: EOS
 ---
 
-In this section, you will find the list of tutorials currently written when you
-can more easily map your use case to one or more dfuse concepts under a concrete
+In this section, you will find the list of tutorials currently written, alowing you
+to easily map your use case to one or more dfuse concepts under a concrete
 code repository.
 
 - [Push Notifications]({{< ref "/guides/eosio/tutorials/push-notifications" >}}) (<small>Keywords: dfuse Stream, golang, mobile</small>)
