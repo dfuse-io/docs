@@ -5,7 +5,7 @@ menuTitle: Tutorials
 protocol: EOS
 ---
 
-In this section, you will find the list of tutorials currently written, alowing you
+In this section, you will find the list of tutorials currently written, allowing you
 to easily map your use case to one or more dfuse concepts under a concrete
 code repository.
 
