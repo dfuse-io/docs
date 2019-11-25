@@ -62,13 +62,13 @@ func (jwt JWT) NeedRefresh() bool {
 {{< /tab >}}
 {{< /tabs >}}
 
-## Getting the dfuse Graphql gRPC client
+## Getting the dfuse GraphQL gRPC client
 - Take a look at gRPC {{< external-link href="https://grpc.io/docs/quickstart/go.html" title="Go Quick Start">}}
 - You can retrieve `graphql.proto` running `curl -O http://mainnet.eos.dfuse.io/graphql/graphql.proto`
 - execute `protoc -I bp/ bp/graphql.proto --go_out=plugins=grpc:graphql`
 
 
-## Initiating dfuse Graphql Server connection
+## Initiating dfuse Graphql Server Connection
 Sever addresses can be found at [EOSIO API Endpoints]({{< ref "reference/eosio/endpoints" >}}).
 
 {{< tabs "grpc-oauth" >}}
@@ -91,14 +91,14 @@ graphqlClient := pbgraphql.NewGraphQLClient(connection)
 {{< /tab >}}
 {{< /tabs >}}
 
-## GraphQL query
+## GraphQL Query
 
 - dfuse GraphQL documentation can be found {{< external-link href="https://docs.dfuse.io/#graphql" title="here">}}
 - If you are not familiar with GraphQL. Take a look at {{< external-link href="https://graphql.org/learn/" title="Introduction to GraphQL">}}
 - To help you construct your query and access our api documentation you can use {{< external-link href="https://mainnet.eos.dfuse.io/graphiql/" title="GraphiQL">}} _"A graphical interactive in-browser GraphQL IDE."_
 https://mainnet.eos.dfuse.io/graphiql/
 
-## Executing a query
+## Executing a Query
 {{< tabs "graphql-query" >}}
 {{< tab lang="go" >}}
 ...
@@ -133,7 +133,7 @@ This query `account:eosio.msig action:propose` will stream transactions containi
 
 Take a look at {{< external-link href="https://docs.dfuse.io/#search-query-language-specs" title="Search query language specs">}} for complete documentation.
 
-## Cursor and block numbers management
+## Cursor and Block Numbers Management
 Complete API documentation is accessible through {{< external-link href="https://mainnet.eos.dfuse.io/graphiql/" title="GraphiQL">}}
 - `lowBlockNum` parameter is the lower block number boundary, inclusively. A zero or negative value means a block relative to the head or last irreversible block (depending on if your query contains the `irreversibleOnly` flag).
 - `cursor` parameter is an opaque data piece that you can pass back to continue your search if it ever becomes disconnected. Retrieve it from the cursor field in the responses of this call. It is safe to use the same cursor in BOTH directions (forward and backward).
@@ -155,7 +155,7 @@ s.db.StoreCursor(cursor)
 {{< /tabs >}}
 
 
-## Reading server response
+## Reading Server Response
 <!-- TODO: Need a quick description -->
 
 {{< tabs "reading-server" >}}
@@ -193,7 +193,7 @@ s.db.StoreCursor(cursor)
 {{< /tab >}}
 {{< /tabs >}}
 
-## Navigating forks
+## Navigating Forks
 If the `irreversibleOnly` flag is not passed and you are reading results near the tip of the chain, you will
 encounter information that has not yet been deemed final. As a response you receive may be forked out of the chain,
 you will need to handle navigating these forks.
