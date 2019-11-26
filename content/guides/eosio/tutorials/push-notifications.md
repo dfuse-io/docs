@@ -23,7 +23,7 @@ defer httpResp.Body.Close()
 {{< /tab >}}
 {{< /tabs >}}
 
-Has documented {{< external-link href="https://docs.dfuse.io/#rest-api-post-https-auth-dfuse-io-v1-auth-issue" title="here">}}. The return payload is composed of a {{< external-link href="https://jwt.io" title="JWT token">}} and the expiration timestamp.
+As documented {{< external-link href="https://docs.dfuse.io/#rest-api-post-https-auth-dfuse-io-v1-auth-issue" title="here">}}, the returned payload is composed of a {{< external-link href="https://jwt.io" title="JWT token">}} and the expiration timestamp.
 
 {{< tabs "jwt-token" >}}
 {{< tab lang="json" >}}
