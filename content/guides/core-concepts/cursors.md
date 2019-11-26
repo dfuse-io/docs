@@ -3,27 +3,27 @@ weight: 30
 title: Cursors
 ---
 
-## All About Cursor
+## All About Cursors
 
-A cursor is a control structure that enables traversal over records. Cursors facilitate subsequent processing of the traversal. It is akin to programming language concept of iterator. Cursors are a core concept within the dfuse ecosystem and is heavily used in dfuse Search.
+A cursor is a control structure that enables traversal over records. Cursors facilitate subsequent processing of the traversal. It is akin to the programming language concept of iterator. Cursors are a core concept within the dfuse ecosystem and is heavily used in dfuse Search.
 
 Besides pagination, cursors are instrumental when using subscriptions to deal with network disconnections. By using the cursor of your last successful request, you can reconnect and continue streaming without missing any documents.
 
 We have designed our cursor as an opaque but data rich structure that enables your query to sequentially process the rows in your result set. This design gives us flexibility that if the pagination model changes in the future, the cursor format will remain compatible.
 
-### Features
+## Features
 
 #### Precise
 
 Our cursor is a chain-wide cursor. In other words they point to an exact location within a stream of documents returned to you by
-one of our API. For example, in a search stream, it's the last transaction sent, in a most recents block query, it's the last block of the page. This idea of a cursor can they be used in different context.
+one of our APIs. For example, in a search stream, it's the last transaction sent, in a query of the most recent blocks, it's the last block of the page. This idea of a cursor can they be used in different contexts.
 
 - When iterating through results of a paginated query, simply return us your last seen cursor and we will give you the next page.
-- When streaming results to you via GraphQL subscription, keep you last seen cursor and when the stream disconnect for any reason, simply send us back you last seen cursor and we will start back at the exact location where you left.
+- When streaming results to you via GraphQL subscription, keep your last seen cursor. If the stream disconnects for any reason, simply send us back your last seen cursor and we will start back at the exact location where you were disconnected.
 
 #### Fork Aware
 
-In addition, all of our cursor are fork aware (where it makes sense). They know the exact branching where you are and able to
+In addition, all of our cursors are fork aware (where it makes sense). They know the exact branching where you were and are able to
 determine if the block was forked. In this eventuality, we notify you about this.
 
 <!--
@@ -40,17 +40,17 @@ Insert JC Diagram
 -->
 
 {{< alert type="note" >}}
-This pagination is currently only implemented in the Ethereum GraphQL schema. We will slowly rolls this pagination
-pattern to all our GraphQL schema and it will be a dfuse wide concept.
+This pagination is currently only implemented on the Ethereum GraphQL schema. We will slowly roll out this pagination
+pattern to all of our GraphQL schemas and it will be a dfuse-wide concept.
 {{</ alert >}}
 
 In a GraphQL query, the connection model provides a standard mechanism for slicing and paginating the result set. In the response, the connection model provides a standard way of providing cursors, and a way of telling the client when more results are available.
 
-It is important to note that not all GraphQL query return connection model, only the ones that require pagination support. Our [`searchTransations`](/reference/ethereum/graphql/#query-searchtransactions") query for Ethereum is a good example of a paginated query.
+It is important to note that not all GraphQL query return connection models, only the ones that require pagination support. Our [`searchTransations`](/reference/ethereum/graphql/#query-searchtransactions") query for Ethereum is a good example of a paginated query.
 
 A `Connection` type must have fields named `edges` and `pageInfo`:
 
-* `egdes`: returns a list of `<EdgeType>`; each specific `<EdgeType>` will have a `node` field which contains result element of the query and a `cursor` to reference that specific `node`. For example, In the [`searchTransations`](/reference/ethereum/graphql/#query-searchtransactions") query the `node` are of type [`TransactionTrace`](/reference/ethereum/graphql/#query-transactiontrace".
+* `egdes`: returns a list of `<EdgeType>`; each specific `<EdgeType>` will have a `node` field which contains result elements of the query and a `cursor` to reference that specific `node`. For example, in the [`searchTransations`](/reference/ethereum/graphql/#query-searchtransactions") query the `node` are of type [`TransactionTrace`](/reference/ethereum/graphql/#query-transactiontrace".
 * `pageInfo`: contains a `startCursor` and `endCursor` which corresponds to the first and last nodes in the `edges` respectively.
 
 Consider the following example (Ethereum):
@@ -110,9 +110,9 @@ query {
 {{< /tab >}}
 {{< /tabs >}}
 
-In this example `searchTransactions` returns a collection of 3 `edges`, each one pointing to a `node` of type `TransactionTrace` with specific attributes. Furthermore, each `edge` as a `cursor` which is a `pointer` to that specific `node`, in our case, that specific `TransactionTrace.
+In this example `searchTransactions` returns a collection of 3 `edges`, each one pointing to a `node` of type `TransactionTrace` with specific attributes. Furthermore, each `edge` has a `cursor` which is a `pointer` to that specific `node`, in this case, that specific `TransactionTrace`.
 
-The second transaction trace (with hash `0x223d30e....`)  of the collection has a cursor pointer of
+The second transaction trace (with hash `0x223d30e....`) of the collection has a cursor pointer of
 
 `A110RysJ6aB9YyWsFvipofe7LJ4wA11rUwHiI0VFg4vw83fBiJqjVjcmOkiGkP311Ry5SVqkj97LRiwu85JT74e5xuttviNuT3t_k9_vqrO-e6f3OAwcJO42VeiMYYzYW2mCYQr_Lw==`
 
