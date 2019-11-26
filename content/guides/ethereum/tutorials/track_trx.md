@@ -4,15 +4,15 @@ menuTitle: Track transaction in real-time
 title: Track transaction in Real-time
 release: beta
 ---
-In this guide we will create a simple React application that will use dfuse's Transaction State Tracker API to keep track of the state of an ethereum transaction in real-time. We will be using {{< external-link href="https://reactjs.org/docs/hooks-intro.html" title="react hooks">}}.
+In this guide we will create a simple React application that will use dfuse's Transaction State Tracker API to keep track of the state of an Ethereum transaction in real time. We will be using {{< external-link href="https://reactjs.org/docs/hooks-intro.html" title="react hooks">}}.
 
 {{< alert type="note" >}}
-Installing {{< external-link href="https://reactjs.org/tutorial/tutorial.html#developer-tools" title="React Dev Tools">}} for your browser is optional, but really useful for seeing what goes on in the application
+Installing {{< external-link href="https://reactjs.org/tutorial/tutorial.html#developer-tools" title="React Dev Tools">}} for your browser is optional, but is very useful for seeing what goes on in the application
 {{< /alert >}}
 
 
 ## 1. Create React App 
-Use the {{< external-link href="https://github.com/facebook/create-react-app">}} to sets up your development environment so that you can use the latest JavaScript features. You’ll need to have Node >= 8.10 and npm >= 5.6 on your machine. To create a project, run:
+Use the {{< external-link href="https://github.com/facebook/create-react-app">}} to set up your development environment so that you can use the latest JavaScript features. You’ll need to have Node >= 8.10 and npm >= 5.6 on your machine. To create a project, run:
 
 {{< tabs "create-react-app">}}
 {{< tab title="Shell" lang="shell" >}}
@@ -25,11 +25,11 @@ npm start
 
 then open ({{< external-link href="http://localhost:3000/">}})
 
-## 2. Get your api key
+## 2. Get your API key
 
 {{< dfuse-account-creation >}}
 
-## 3. Add the dfuse client library
+## 3. Add the dfuse Client Library
 
 The simplest way to get started with dfuse and JavaScript/TypeScript development is to use the dfuse JS client library.
 
@@ -40,15 +40,15 @@ npm install --save @dfuse/client
 {{< /tab >}}
 {{< /tabs >}}
 
-## 4. Setup dfuse client
+## 4. Setup dfuse Client
 
-Import the necessary functions from `dfuse/client` a the top of `src/App.js`
+Import the necessary functions from `dfuse/client` at the top of `src/App.js`
 
 {{< tabs "setting-up-dfuse-client1-import">}}
 {{< tab-code title="src/App.js" filename="./tutorials/ethereum/track_tx/App.js" range="1:3" >}}
 {{< /tabs >}}
 
-Initialize the dfuse client using the API key you created in the first step. Lets create the `dfuseClient` right after the `function App()` declaration.
+Initialize the dfuse client using the API key you created in the second step. Lets create the `dfuseClient` right after the `function App()` declaration.
 
 {{< tabs "setting-up-dfuse-client1-initialize">}}
 {{< tab-code title="src/App.js" filename="./tutorials/ethereum/track_tx/App.js" range="6:10" >}}
@@ -56,7 +56,7 @@ Initialize the dfuse client using the API key you created in the first step. Let
 
 ## 5. Craft the graphQL query
 
-To get a real-time feed of transaction state changes we need to craft a GraphQL subscription query. A GraphQL subscription will continuously stream responses and allows you to pick and choose the fields you want to return in the messages.
+To get a real-time feed of transaction state changes, we need to craft a GraphQL subscription query. A GraphQL subscription will continuously stream responses and allows you to pick and choose the fields you want to return in the messages.
 
 {{< alert type="note" >}}
 See {{< external-link title="Graphql Concept" href="/guides/core-concepts/graphql/">}} for more information about GraphQL
@@ -65,7 +65,7 @@ See {{< external-link title="Graphql Concept" href="/guides/core-concepts/graphq
 Our GraphQL query will use the `transactionLifecycle` with a `hash` filter to retrieve the state changes of the transaction.
 
 {{< alert type="tip" >}}
-Do not worry this query may see intimidating but it is broken down in  {{< external-link title="Transaction State Tracker Concept" href="/guides/ethereum/concepts/trx_state_tracker/">}}
+Do not worry! This query may seem intimidating, but it is broken down in  {{< external-link title="Transaction State Tracker Concept" href="/guides/ethereum/concepts/trx_state_tracker/">}}
 {{< /alert >}}
 
 {{< tabs "tracker-query">}}
@@ -85,7 +85,7 @@ Lets setup a few hooks that will help us keep track of our transaction states an
 {{< tab-code title="src/App.js" filename="./tutorials/ethereum/track_tx/App.js" range="123:126" >}}
 {{< /tabs >}}
 
-## 7. Get a transaction state
+## 7. Get a Transaction State
 
 Create an `async` function `fetchTransactionState` that will use dfuse JS client to execute the GraphQL query we crafted above.
 
@@ -112,7 +112,7 @@ Initialize a few state variables.
 {{< /tab >}}
 {{< /tabs >}}
 
-Use the dfuse client with GraphQL query and set our transaction hash as a variable
+Use the dfuse client with GraphQL query and set our transaction hash as a variable.
 
 {{< tabs "fetch-transaction-func-setup">}}
 {{< tab title="src/App.js" lang="javascript" >}}
@@ -137,15 +137,15 @@ Use the dfuse client with GraphQL query and set our transaction hash as a variab
 
 The `message` returned from the GraphQL stream can have 3 different types that need to be handled in our code:
 
-* `error`: This is an error return by the stream. We simply store it in our state.
-* `data`: This contains the transition state tracker payload. We create a `newTransition` object and store in our transitions array.
+* `error`: This is an error returned by the stream. We simply store it in our state.
+* `data`: This contains the transition state tracker payload. We create a `newTransition` object and store that in our transitions array.
 * `complete`: This message occurs when the stream is closed. We update our stream state.
 
 {{< tabs "fetch-transaction-func-handler">}}
 {{< tab-code title="src/App.js" filename="./tutorials/ethereum/track_tx/App.js" range="128:164" >}}
 {{< /tabs >}}
 
-## 8. Render function
+## 8. Render Function
 
 Build the `render` method for this component. It will include an input for the transaction hash, and handles the different possible states of our component.
 
@@ -153,9 +153,9 @@ Build the `render` method for this component. It will include an input for the t
 {{< tab-code title="src/App.js" filename="./tutorials/ethereum/track_tx/App.js" range="166:202" >}}
 {{< /tabs >}}
 
-## 9. Prettifying it with CSS
+## 9. Prettifying it With CSS
 
-Add some CSS to style this html a bit. Replace the contents of `src/App.css` with the following:
+Add some CSS to style this HTML a bit. Replace the contents of `src/App.css` with the following:
 
 {{< tabs "fetch-transaction-css">}}
 {{< tab-code title="src/App.css" filename="./tutorials/ethereum/track_tx/App.css" range="1:83" >}}
@@ -163,7 +163,7 @@ Add some CSS to style this html a bit. Replace the contents of `src/App.css` wit
 
 ## 10. Full Working Example
 
-The source code for this tutorial is available on GitHub. Here are the code files discussed on this page.
+The source code for this tutorial is available on {{< external-link href="https://github.com/dfuse-io/docs/tree/master/tutorials/ethereum/track_tx" title="GitHub here" >}} . Here are the code files discussed on this page.
 
 {{< tabs "fetch-transaction-full-app">}}
 {{< tab-code title="src/App.js" filename="./tutorials/ethereum/track_tx/App.js" range="1:206" >}}
