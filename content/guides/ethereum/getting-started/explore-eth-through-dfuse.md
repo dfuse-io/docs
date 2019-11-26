@@ -7,8 +7,8 @@ title: Explore ETH through dfuse
 
 The best way to get a taste of what you can do with dfuse is to try it out!
 
-**GraphiQL** is a tool that allows writing and running graphQL queries from your browser. It is offered on [every dfuse endpoint](/reference/ethereum/endpoints/) with a valid anonymous JWT for convenience.
-It also offers an access to the [documented GraphQL schema](/reference/ethereum/graphql/) on a side pane, as well as a very useful auto-completion feature (simply place your cursor somewhere and press `Ctrl+<Space>` to see completion possibilities.)
+**GraphiQL** is a tool that allows writing and running GraphQL queries from your browser. It is offered on [every dfuse endpoint](/reference/ethereum/endpoints/) with a valid anonymous JWT for your convenience.
+It also offers an access to the [documented GraphQL schema](/reference/ethereum/graphql/) on a side pane, as well as a very useful auto-completion feature (simply place your cursor somewhere and press `Ctrl+<Space>` to see completion possibilities).
 
 [![GraphiQL screenshot](/img/graphiql.png)](https://mainnet.eth.dfuse.io/graphiql)
 
@@ -85,7 +85,7 @@ See the [Ethereum Search Terms Reference](/reference/ethereum/search-terms) for 
 
 You can try those search queries directly in the {{< external-link href="https://ethq.app" title="https://ethq.app">}} search bar, or in the "query" parameter of the searchTransaction method in GraphiQL.
 
-dfuse offers two (2) distinct indexes to match transactions: **CALLS** and **LOGS**
+dfuse offers two distinct indexes to match transactions: **CALLS** and **LOGS**
 
 * To search for transactions which contain an ETHER transfer (non-zero) from or to a specific address
 
@@ -99,7 +99,7 @@ dfuse offers two (2) distinct indexes to match transactions: **CALLS** and **LOG
 {{< external-link href="https://ethq.app/search?q=-value%3A0%20%28to%3A0x32be343b94f860124dc4fee278fdcbd38c102d88%20OR%20from%3A0x32be343b94f860124dc4fee278fdcbd38c102d88%29" title="Try it on ETHQ" class="ethq" >}}
 </div>
 
-* To search for transactions which contain a `transfer(address, uint256)` method on a known ERC-20 token contract (the actual value transferred has to be decoded from the 'data' in the logs)
+* To search for transactions which contain a `transfer(address, uint256)` method on a known ERC-20 token contract (the actual value transferred has to be decoded from the `data` in the logs)
 
 {{< highlight ruby >}}
 # with indexName = CALLS
