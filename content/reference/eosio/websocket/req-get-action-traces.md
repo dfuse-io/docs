@@ -106,12 +106,9 @@ Assuming the following stream request message you would have used previously
   "type": "get_action_traces",
   "listen": true,
   "req_id": "your-request-id",
-  "irreversible_only": true,
-  "with_progress": 15,
-  "start_block": -350,
   "data": {
     "accounts": "eosio.token|tethertether",
-    "action_name": "transfer|issue",
+    "action_names": "transfer|issue",
     "with_dbops": true,
     "with_dtrxops": true,
     "with_ramops": true
@@ -125,46 +122,19 @@ That would result in the following GraphQL document:
 subscription ($cursor: String) {
   searchTransactionsForward(
     query: "(account:eosio.token OR account:thetertheter) (action:transfer OR action:issue)",
-    lowBlockNum: -350,
-    cursor: $cursor,
-    irreversibleOnly: true,
-    liveMarkerInterval: 15
+    cursor: $cursor
   ) {
-    undo
-    cursor
-    block {
-      num
-      id
-    }
+    undo cursor
+    block { num id }
     trace {
       id
       matchingActions {
         seq
-        receiver
-        account
-        name
+        receiver account name
         json
-        dbOps {
-          operation
-          oldJSON { object error }
-          newJSON { object error }
-        }
-        dtrxOps {
-          operation
-          payer
-          transaction {
-            actions {
-              account
-              name
-              json
-            }
-          }
-        }
-        ramOps {
-          operation
-          delta
-          usage
-        }
+        dbOps { operation oldJSON { object error } newJSON { object error } }
+        dtrxOps { operation payer transaction { actions { account name json } } }
+        ramOps { operation delta usage }
       }
     }
   }
@@ -172,24 +142,124 @@ subscription ($cursor: String) {
 {{< /highlight >}}
 
 {{< alert type="note" >}}
-Eager to try out the document above? Head down straight to our {{< external-link title="GraphiQL Online Editor" href="https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uICgkY3Vyc29yOiBTdHJpbmcpIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKAogICAgcXVlcnk6ICIoYWNjb3VudDplb3Npby50b2tlbiBPUiBhY2NvdW50OnRoZXRlcnRoZXRlcikgKGFjdGlvbjp0cmFuc2ZlciBPUiBhY3Rpb246aXNzdWUpIiwgCiAgICBsb3dCbG9ja051bTogLTM1MCwKICAgIGN1cnNvcjogJGN1cnNvciwKICAgIGlycmV2ZXJzaWJsZU9ubHk6IHRydWUsCiAgICBsaXZlTWFya2VySW50ZXJ2YWw6IDE1CgkpIHsKICAgIHVuZG8KICAgIGN1cnNvcgogICAgYmxvY2sgewogICAgICBudW0KICAgICAgaWQKICAgIH0KICAgIHRyYWNlIHsKICAgICAgaWQKICAgICAgbWF0Y2hpbmdBY3Rpb25zIHsKICAgICAgICBzZXEKICAgICAgICByZWNlaXZlcgogICAgICAgIGFjY291bnQKICAgICAgICBuYW1lCiAgICAgICAganNvbgogICAgICAgIGRiT3BzIHsKICAgICAgICAgIG9wZXJhdGlvbgogICAgICAgICAgb2xkSlNPTiB7IG9iamVjdCBlcnJvciB9CiAgICAgICAgICBuZXdKU09OIHsgb2JqZWN0IGVycm9yIH0KICAgICAgICB9CiAgICAgICAgZHRyeE9wcyB7CiAgICAgICAgICBvcGVyYXRpb24KICAgICAgICAgIHBheWVyCiAgICAgICAgICB0cmFuc2FjdGlvbiB7CiAgICAgICAgICAgIGFjdGlvbnMgewogICAgICAgICAgICAgIGFjY291bnQKICAgICAgICAgICAgICBuYW1lCiAgICAgICAgICAgICAganNvbgogICAgICAgICAgICB9CiAgICAgICAgICB9CiAgICAgICAgfQogICAgICAgIHJhbU9wcyB7CiAgICAgICAgICBvcGVyYXRpb24KICAgICAgICAgIGRlbHRhCiAgICAgICAgICB1c2FnZQogICAgICAgIH0KICAgICAgfQogICAgfQogIH0KfQo=" >}} and press the play button in the top bar of the page.
+Eager to try out the document above? Head down straight to our {{< external-link title="GraphiQL Online Editor" href="https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uICgkY3Vyc29yOiBTdHJpbmcpIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKAogICAgcXVlcnk6ICIoYWNjb3VudDplb3Npby50b2tlbiBPUiBhY2NvdW50OnRoZXRlcnRoZXRlcikgKGFjdGlvbjp0cmFuc2ZlciBPUiBhY3Rpb246aXNzdWUpIiwKICAgIGN1cnNvcjogJGN1cnNvcgogICkgewogICAgdW5kbyBjdXJzb3IKICAgIGJsb2NrIHsgbnVtIGlkIH0KICAgIHRyYWNlIHsKICAgICAgaWQKICAgICAgbWF0Y2hpbmdBY3Rpb25zIHsKICAgICAgICBzZXEKICAgICAgICByZWNlaXZlciBhY2NvdW50IG5hbWUKICAgICAgICBqc29uCiAgICAgICAgZGJPcHMgeyBvcGVyYXRpb24gb2xkSlNPTiB7IG9iamVjdCBlcnJvciB9IG5ld0pTT04geyBvYmplY3QgZXJyb3IgfSB9CiAgICAgICAgZHRyeE9wcyB7IG9wZXJhdGlvbiBwYXllciB0cmFuc2FjdGlvbiB7IGFjdGlvbnMgeyBhY2NvdW50IG5hbWUganNvbiB9IH0gfQogICAgICAgIHJhbU9wcyB7IG9wZXJhdGlvbiBkZWx0YSB1c2FnZSB9CiAgICAgIH0KICAgIH0KICB9Cn0=" >}} and press the play button in the top bar of the page.
 {{</ alert>}}
 
+The `"accounts": "eosio.token|tethertether"` argument in `get_action_traces` becomes the
+`(account:eosio.token OR account:thetertheter)` clause while the `"action_names": "transfer|issue"`
+argument becomes the `(action:transfer OR action:issue)` clause, both of them separated by
+a space which acts as a logical `AND`.
+
 With this document in hand, if you are using our JavaScript client library, updating
-is simply a matter of changing a single line:
+is simple a matter of changing a single line:
 
 {{< highlight js >}}
 // Instead of
-client.streamActionTraces(..., (message) => { ... })
+const stream = await client.streamActionTraces(..., (message) => { ... })
 
 // Use
-client.graphql(document, (message) => { ... })
+const stream = await client.graphql(document, (message) => { ... })
 {{< /highlight >}}
 
-The actual return format message has changed a bit also, but making the
-necessary adjustments is trivial.
+The logic changes a bit between the two calls also. While the `streamActionTraces` call generates
+one message per action, the GraphQL version generates one message per matching
+transaction, a transaction containing actions and you can easily find those the matched the
+query using the `matchingActions` field.
 
-You can the following links for completing your code conversion:
+To use the same logic as before in GraphQL, you will need, for each message received, to loop
+through `matchingActions` (`pseudo-code` example below, logic applies to
+all languages):
 
-- If using the JavaScript client library, checkout the [JavaScript Quickstart Stream your first results]({{< ref "/guides/eosio/getting-started/javascript-quickstart#4-stream-your-first-results" >}}) section.
+{{< highlight python >}}
+for action in message.searchTransactionsForward.trace.matchingActions:
+  // Do your old `get_action_traces` on message logic here
+{{< /highlight >}}
+
+The message format you will receive has also change, but making the
+necessary adjustments is trivial. This is especially true since in
+GraphQL, you have the power to pick and choose the exact field you want to receive
+drastically shaving bandwidth cost in most usual cases.
+
+We will not provide a 1 to 1 mapping list as it would be too much. You can use the
+{{< external-link title="GraphiQL Online Editor" href="https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uICgkY3Vyc29yOiBTdHJpbmcpIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKAogICAgcXVlcnk6ICIoYWNjb3VudDplb3Npby50b2tlbiBPUiBhY2NvdW50OnRoZXRlcnRoZXRlcikgKGFjdGlvbjp0cmFuc2ZlciBPUiBhY3Rpb246aXNzdWUpIiwKICAgIGN1cnNvcjogJGN1cnNvciwKICAgIGxpbWl0OiAxLAogICkgewogICAgdW5kbyBjdXJzb3IKICAgIGJsb2NrIHsgbnVtIGlkIH0KICAgIHRyYWNlIHsKICAgICAgaWQKICAgICAgbWF0Y2hpbmdBY3Rpb25zIHsKICAgICAgICBzZXEKICAgICAgICByZWNlaXZlciBhY2NvdW50IG5hbWUKICAgICAgICBqc29uCiAgICAgICAgZGJPcHMgeyBvcGVyYXRpb24gb2xkSlNPTiB7IG9iamVjdCBlcnJvciB9IG5ld0pTT04geyBvYmplY3QgZXJyb3IgfSB9CiAgICAgICAgZHRyeE9wcyB7IG9wZXJhdGlvbiBwYXllciB0cmFuc2FjdGlvbiB7IGFjdGlvbnMgeyBhY2NvdW50IG5hbWUganNvbiB9IH0gfQogICAgICAgIHJhbU9wcyB7IG9wZXJhdGlvbiBkZWx0YSB1c2FnZSB9CiAgICAgIH0KICAgIH0KICB9Cn0=" >}}, link and start from there, then slowly add (or remove) the fields you interested in.
+
+{{< alert type="note" >}}
+The link above as a `limit: 1` parameter so the stream stops right after a match so it's easier to inspect the
+end result. Don't forget to remove it to get all results back! You can also play with `lowBlockNum` value to
+find a matching instance (since the stream starts at HEAD block by default).
+{{</ alert>}}
+
+Finally, if you were using some of the more advanced WebSocket fields, here is how to convert them.
+
+#####  Field `"irreversible_only": true`
+
+Add `irreversibleOnly: true` parameter below `cursor` parameter in GraphQL document:
+
+{{< highlight graphql >}}
+subscription ($cursor: String) {
+  searchTransactionsForward(
+    ...
+    cursor: $cursor,
+    irreversibleOnly: true
+  ) { ... }
+}
+{{< /highlight >}}
+
+#####  Field `"with_progress": 15`
+
+Add `liveMarkerInterval: 15` parameter below `cursor` parameter in GraphQL document:
+
+{{< highlight graphql >}}
+subscription ($cursor: String) {
+  searchTransactionsForward(
+    ...
+    cursor: $cursor,
+    liveMarkerInterval: 15
+  ) { ... }
+}
+{{< /highlight >}}
+
+#####  Field `"start_block": -350`
+
+Add `lowBlockNum: -350` (or a direct block num) parameter below `cursor` parameter in GraphQL document:
+
+{{< highlight graphql >}}
+subscription ($cursor: String) {
+  searchTransactionsForward(
+    ...
+    cursor: $cursor,
+    lowBlockNum: -350
+  ) { ... }
+}
+{{< /highlight >}}
+
+{{< alert type="note" >}}
+You were previously using `start_block` when reconnecting to start back where you left off? GraphQL is
+now using a [Cursor]({{< ref "/guides/core-concepts/cursors" >}}) concept to perform that operation
+in a much more granular and safer manner.
+
+When receiving messages, record the last seen `message.searchTransactionsForward.cursor` value. When
+re-connecting, simply pass the last seen `cursor` value in the variables set sent to the GraphQL
+stream. This will ensure we start back at the exact location where you left off.
+
+Using the our `JavaScript` client library? Even more simpler, simply use the `stream.mark(...)`
+call and the library handles the rest: reconnection, cursor variables update, cursor tracking (long
+term storage persistence to survive across process restarts is left to you however):
+
+```
+const stream = await client.graphql(document, (message) => {
+  if (message.type === "data") {
+    // Procesing here
+
+    stream.mark({ cursor: message.data.searchTransactionsForward.cursor })
+  }
+})
+```
+{{</ alert >}}
+
+#### Next Steps
+
+You can use the following links to complete your code conversion to GraphQL:
+
+- If using the JavaScript client library, checkout the [JavaScript Quickstart Stream your first results]({{< ref "/guides/eosio/getting-started/javascript-quickstart#stream-your-first-results" >}}) section.
 - For other languages, refers to [Other Languages Quickstart]({{< ref "/guides/eosio/getting-started/other-languages" >}}) to learn how to make a GraphQL stream using your language of choice.

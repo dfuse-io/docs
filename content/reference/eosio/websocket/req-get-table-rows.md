@@ -116,8 +116,6 @@ Assuming the following stream request message you would have used previously
   "type": "get_table_rows",
   "listen": true,
   "req_id": "your-request-id",
-  "with_progress": 15,
-  "start_block": -350,
   "data": {
     "code": "eosio.token",
     "scope": "eoscanadacom",
@@ -132,26 +130,17 @@ That would result in the following GraphQL document:
 {{< highlight graphql >}}
 subscription ($cursor: String) {
   searchTransactionsForward(
-    query: "db.key:eosio.token/eoscanadacom/accounts",
-    lowBlockNum: -350,
+    query: "receiver:eosio.token db.table:accounts/eoscanadacom",
     cursor: $cursor,
-    liveMarkerInterval: 15
   ) {
-    undo
-    cursor
-    block {
-      num
-      id
-    }
+    undo cursor
+    block { num id }
     trace {
-      id
       matchingActions {
-        seq
-        receiver
-        account
-        name
-        dbOps {
+        dbOps(code: "eosio.token", table: "accounts") {
           operation
+          key { code table scope key }
+          oldPayer newPayer
           oldJSON { object error }
           newJSON { object error }
         }
@@ -162,28 +151,124 @@ subscription ($cursor: String) {
 {{< /highlight >}}
 
 {{< alert type="note" >}}
-Eager to try out the document above? Head down straight to our {{< external-link title="GraphiQL Online Editor" href="https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uICgkY3Vyc29yOiBTdHJpbmcpIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKAogICAgcXVlcnk6ICJkYi5rZXk6ZW9zaW8udG9rZW4vZW9zY2FuYWRhY29tL2FjY291bnRzIiwgCiAgICBsb3dCbG9ja051bTogLTM1MCwKICAgIGN1cnNvcjogJGN1cnNvciwKICAgIGlycmV2ZXJzaWJsZU9ubHk6IHRydWUsCiAgICBsaXZlTWFya2VySW50ZXJ2YWw6IDE1CgkpIHsKICAgIHVuZG8KICAgIGN1cnNvcgogICAgYmxvY2sgewogICAgICBudW0KICAgICAgaWQKICAgIH0KICAgIHRyYWNlIHsKICAgICAgaWQKICAgICAgbWF0Y2hpbmdBY3Rpb25zIHsKICAgICAgICBzZXEKICAgICAgICByZWNlaXZlcgogICAgICAgIGFjY291bnQKICAgICAgICBuYW1lCiAgICAgICAganNvbgogICAgICAgIGRiT3BzIHsKICAgICAgICAgIG9wZXJhdGlvbgogICAgICAgICAgb2xkSlNPTiB7IG9iamVjdCBlcnJvciB9CiAgICAgICAgICBuZXdKU09OIHsgb2JqZWN0IGVycm9yIH0KICAgICAgICB9CiAgICAgICAgZHRyeE9wcyB7CiAgICAgICAgICBvcGVyYXRpb24KICAgICAgICAgIHBheWVyCiAgICAgICAgICB0cmFuc2FjdGlvbiB7CiAgICAgICAgICAgIGFjdGlvbnMgewogICAgICAgICAgICAgIGFjY291bnQKICAgICAgICAgICAgICBuYW1lCiAgICAgICAgICAgICAganNvbgogICAgICAgICAgICB9CiAgICAgICAgICB9CiAgICAgICAgfQogICAgICAgIHJhbU9wcyB7CiAgICAgICAgICBvcGVyYXRpb24KICAgICAgICAgIGRlbHRhCiAgICAgICAgICB1c2FnZQogICAgICAgIH0KICAgICAgfQogICAgfQogIH0KfQo=" >}} and press the play button in the top bar of the page.
+Eager to try out the document above? Head down straight to our {{< external-link title="GraphiQL Online Editor" href="https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uICgkY3Vyc29yOiBTdHJpbmcpIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKAogICAgcXVlcnk6ICJyZWNlaXZlcjplb3Npby50b2tlbiBkYi50YWJsZTphY2NvdW50cy9lb3NjYW5hZGFjb20iLAogICAgY3Vyc29yOiAkY3Vyc29yLAogICkgewogICAgdW5kbyBjdXJzb3IKICAgIGJsb2NrIHsgbnVtIGlkIH0KICAgIHRyYWNlIHsKICAgICAgbWF0Y2hpbmdBY3Rpb25zIHsKICAgICAgICBleGVjdXRpb25JbmRleAogICAgICAgIGRiT3BzKGNvZGU6ICJlb3Npby50b2tlbiIsIHRhYmxlOiAiYWNjb3VudHMiKSB7CiAgICAgICAgICBvcGVyYXRpb24KICAgICAgICAgIGtleSB7IGNvZGUgdGFibGUgc2NvcGUga2V5IH0KICAgICAgICAgIG9sZFBheWVyIG5ld1BheWVyCiAgICAgICAgICBvbGRKU09OIHsgb2JqZWN0IGVycm9yIH0KICAgICAgICAgIG5ld0pTT04geyBvYmplY3QgZXJyb3IgfQogICAgICAgIH0KICAgICAgfQogICAgfQogIH0KfQ==" >}} and press the play button in the top bar of the page.
+
+Prefer to leverage rows changes for any scope of the `eosio.token/accounts` table directly? Simply use this query instead: `receiver: eosio.token db.table:accounts` ({{< external-link title="Try it out here!" href="https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uICgkY3Vyc29yOiBTdHJpbmcpIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKAogICAgcXVlcnk6ICJyZWNlaXZlcjplb3Npby50b2tlbiBkYi50YWJsZTphY2NvdW50cyIsCiAgICBjdXJzb3I6ICRjdXJzb3IsCiAgKSB7CiAgICB1bmRvIGN1cnNvcgogICAgYmxvY2sgeyBudW0gaWQgfQogICAgdHJhY2UgewogICAgICBtYXRjaGluZ0FjdGlvbnMgewogICAgICAgIGV4ZWN1dGlvbkluZGV4CiAgICAgICAgZGJPcHMoY29kZTogImVvc2lvLnRva2VuIiwgdGFibGU6ICJhY2NvdW50cyIpIHsKICAgICAgICAgIG9wZXJhdGlvbgogICAgICAgICAga2V5IHsgY29kZSB0YWJsZSBzY29wZSBrZXkgfQogICAgICAgICAgb2xkUGF5ZXIgbmV3UGF5ZXIKICAgICAgICAgIG9sZEpTT04geyBvYmplY3QgZXJyb3IgfQogICAgICAgICAgbmV3SlNPTiB7IG9iamVjdCBlcnJvciB9CiAgICAgICAgfQogICAgICB9CiAgICB9CiAgfQp9" >}})
 {{</ alert>}}
 
+The `"code": "eosio.token"` argument in `get_table_rows` becomes the `receiver: eosio.token` clause
+while the `"scope": "eoscanadacom", "table": "accounts"` fields get merged into the
+`db.table:accounts/eoscanadacom` clause of the query.
+
 With this document in hand, if you are using our JavaScript client library, updating
-is simply a matter of changing a single line:
+is simple a matter of changing a single line:
 
 {{< highlight js >}}
 // Instead of
-client.streamTableRows(..., (message) => { ... })
+const stream = await client.streamTableRows(..., (message) => { ... })
 
 // Use
-client.graphql(document, (message) => { ... })
+const stream = await client.graphql(document, (message) => { ... })
+{{< /highlight >}}
+
+The logic changes a bit between the two calls also. While the `streamTableRows` call generates
+one message per table delta change, the GraphQL version generates one message per matching
+transaction, a transaction containing actions, each action being able to generate N table
+deltas.
+
+Using `dbOps(code: "eosio.token", table: "accounts")` filters out the table deltas that are
+not for the specific contract and table.
+
+To use the same logic as before in GraphQL, you will need, for each message received, to loop
+through `matchingActions` and then on `dbOps` (`pseudo-code` example below, logic applies to
+all languages):
+
+{{< highlight python >}}
+for action in message.searchTransactionsForward.trace.matchingActions:
+  for dbOp in action.dbOps:
+    // Do your old `get_table_rows` on message logic here
+{{< /highlight >}}
+
+The actual return format message has changed a bit also, but making the necessary adjustments is trivial. Here is
+the mapping from old response to new response format:
+
+- `message.data.step` → `message.searchTransactionsForward.undo` (**Now a boolean, `new` and `redo` maps to `false`, `undo` maps to `true`**)
+- `message.data.block_num` → `message.searchTransactionsForward.trace.block.num`
+- `message.data.dbop.action_idx` → `message.searchTransactionsForward.trace.matchingActions[].executionIndex`
+- `message.data.dbop.op` → `message.searchTransactionsForward.trace.matchingActions[].dbOps[].operation` (**Now upper case**)
+- `message.data.dbop.account` → `message.searchTransactionsForward.trace.matchingActions[].dbOps[].key.code`
+- `message.data.dbop.scope` → `message.searchTransactionsForward.trace.matchingActions[].dbOps[].key.scope`
+- `message.data.dbop.table` → `message.searchTransactionsForward.trace.matchingActions[].dbOps[].key.table`
+- `message.data.dbop.key` → `message.searchTransactionsForward.trace.matchingActions[].dbOps[].key.key`
+- `message.data.dbop.old.payer` → `message.searchTransactionsForward.trace.matchingActions[].dbOps[].oldPayer`
+- `message.data.dbop.old.json` → `message.searchTransactionsForward.trace.matchingActions[].dbOps[].oldJSON.object` (**Field `error` set when unable to decode to JSON**)
+- `message.data.dbop.new.payer` → `message.searchTransactionsForward.trace.matchingActions[].dbOps[].newPayer`
+- `message.data.dbop.new.json` → `message.searchTransactionsForward.trace.matchingActions[].dbOps[].newJSON.object` (**Field `error` set when unable to decode to JSON**)
+
+If you were using `json: false` before to receive hexadecimal values, simply remove `oldJSON { object error }` and
+`newJSON { object error }` and replace by `oldData` and `newData` in the GraphQL document. The mapping for those two
+fields is:
+
+- `message.data.dbop.old.hex` → `message.searchTransactionsForward.trace.matchingActions[].dbOps[].oldData`
+- `message.data.dbop.new.hex` → `message.searchTransactionsForward.trace.matchingActions[].dbOps[].newData`
+
+Finally, if you were using some of the more advanced WebSocket fields, here the how to convert them.
+
+#####  Field `"with_progress": 15`
+
+Add `liveMarkerInterval: 15` parameter below `cursor` parameter in GraphQL document:
+
+{{< highlight graphql >}}
+subscription ($cursor: String) {
+  searchTransactionsForward(
+    ...
+    cursor: $cursor,
+    liveMarkerInterval: 15
+  ) { ... }
+}
+{{< /highlight >}}
+
+#####  Field `"start_block": -350`
+
+Add `lowBlockNum: -350` (or a direct block num) parameter below `cursor` parameter in GraphQL document:
+
+{{< highlight graphql >}}
+subscription ($cursor: String) {
+  searchTransactionsForward(
+    ...
+    cursor: $cursor,
+    lowBlockNum: -350
+  ) { ... }
+}
 {{< /highlight >}}
 
 {{< alert type="note" >}}
-Would like to stream table rows changes for any scope of the `eosio.token/accounts` table? Simply use the query `db.table:eosio.token/accounts`, {{< external-link title="Try it out here!" href="https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uICgkY3Vyc29yOiBTdHJpbmcpIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKAogICAgcXVlcnk6ICJkYi50YWJsZTplb3Npby50b2tlbi9hY2NvdW50cyIsIAogICAgbG93QmxvY2tOdW06IC0zNTAsCiAgICBjdXJzb3I6ICRjdXJzb3IsCiAgICBsaXZlTWFya2VySW50ZXJ2YWw6IDE1CgkpIHsKICAgIHVuZG8KICAgIGN1cnNvcgogICAgYmxvY2sgewogICAgICBudW0KICAgICAgaWQKICAgIH0KICAgIHRyYWNlIHsKICAgICAgaWQKICAgICAgbWF0Y2hpbmdBY3Rpb25zIHsKICAgICAgICBzZXEKICAgICAgICByZWNlaXZlcgogICAgICAgIGFjY291bnQKICAgICAgICBuYW1lCiAgICAgICAganNvbgogICAgICAgIGRiT3BzIHsKICAgICAgICAgIG9wZXJhdGlvbgogICAgICAgICAgb2xkSlNPTiB7IG9iamVjdCBlcnJvciB9CiAgICAgICAgICBuZXdKU09OIHsgb2JqZWN0IGVycm9yIH0KICAgICAgICB9CiAgICAgICAgZHRyeE9wcyB7CiAgICAgICAgICBvcGVyYXRpb24KICAgICAgICAgIHBheWVyCiAgICAgICAgICB0cmFuc2FjdGlvbiB7CiAgICAgICAgICAgIGFjdGlvbnMgewogICAgICAgICAgICAgIGFjY291bnQKICAgICAgICAgICAgICBuYW1lCiAgICAgICAgICAgICAganNvbgogICAgICAgICAgICB9CiAgICAgICAgICB9CiAgICAgICAgfQogICAgICAgIHJhbU9wcyB7CiAgICAgICAgICBvcGVyYXRpb24KICAgICAgICAgIGRlbHRhCiAgICAgICAgICB1c2FnZQogICAgICAgIH0KICAgICAgfQogICAgfQogIH0KfQo=" >}}
-{{</ alert>}}
+You were previously using `start_block` when reconnecting to start back where you left off? GraphQL is
+now using a [Cursor]({{< ref "/guides/core-concepts/cursors" >}}) concept to perform that operation
+in a much more granular and safer manner.
 
-The actual return format message has changed a bit also, but making the
-necessary adjustments is trivial.
+When receiving messages, record the last seen `message.searchTransactionsForward.cursor` value. When
+re-connecting, simply pass the last seen `cursor` value in the variables set sent to the GraphQL
+stream. This will ensure we start back at the exact location where you left off.
 
-You can the following links for completing your code conversion:
+Using the our `JavaScript` client library? Even more simpler, simply use the `stream.mark(...)`
+call and the library handles the rest: reconnection, cursor variables update, cursor tracking (long
+term storage persistence to survive across process restarts is left to you however):
+
+```
+const stream = await client.graphql(document, (message) => {
+  if (message.type === "data") {
+    // Procesing here
+
+    stream.mark({ cursor: message.data.searchTransactionsForward.cursor })
+  }
+})
+```
+{{</ alert >}}
+
+#### Next Steps
+
+You can use the following links to complete your code conversion to GraphQL:
 
 - If using the JavaScript client library, checkout the [JavaScript Quickstart Stream your first results]({{< ref "/guides/eosio/getting-started/javascript-quickstart#stream-your-first-results" >}}) section.
 - For other languages, refers to [Other Languages Quickstart]({{< ref "/guides/eosio/getting-started/other-languages" >}}) to learn how to make a GraphQL stream using your language of choice.
