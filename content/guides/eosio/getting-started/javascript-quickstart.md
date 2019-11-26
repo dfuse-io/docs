@@ -143,7 +143,7 @@ a `main` function:
 {{< /tabs >}}
 
 The function passed as the 2nd parameter to `client.graphql()` will be called every time a new result is returned
-by the API. And here a sample of the prints you will receive as a result of executing the streaming operation
+by the API. And here is a sample of the prints you will receive as a result of executing the streaming operation
 above:
 
 <!-- **Note** We use python for all languages for a nicer output rendering -->
