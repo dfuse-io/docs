@@ -36,7 +36,6 @@ yarn init -y
 {{< /tabs >}}
 
 ## 1. Get a dfuse API Key
-
 {{< dfuse-account-creation >}}
 
 ## 2. Adding the Client Library
