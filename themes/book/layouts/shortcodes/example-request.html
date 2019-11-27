@@ -1,0 +1,69 @@
+{{ .Scratch.Set "tab-id" (.Get "id") }}
+{{ .Scratch.Set "url" (.Get "url") }}
+
+{{ $url := .Scratch.Get "url" }}
+{{ .Scratch.Set "tab-group" "req" }}
+
+{{ partial "open-tabs" . }}
+
+{{ .Scratch.Set "tab-name" "shell" }}
+{{ .Scratch.Set "tab-idx" 0 }}
+{{ partial "open-tab" . }}
+
+{{ $shell := printf `
+curl -H "Authorization: Bearer eyJhbGciOiJLTVNFUzI1Ni..." \
+  "%s"` $url }}
+{{ highlight $shell "shell" ""}}
+
+{{ partial "close-tab" . }}
+
+{{ .Scratch.Set "tab-name" "javascript" }}
+{{ .Scratch.Set "tab-idx" 1 }}
+{{ partial "open-tab" . }}
+
+{{ $javascript := printf `
+fetch('%s', {
+  headers: {
+    'Authorization': 'Bearer eyJhbGciOiJLTVNFUzI1Ni...'
+  }
+}).then(console.log)` $url }}
+{{ highlight $javascript "javascript" ""}}
+
+{{ partial "close-tab" . }}
+
+
+{{ .Scratch.Set "tab-name" "python" }}
+{{ .Scratch.Set "tab-idx" 2 }}
+{{ partial "open-tab" . }}
+
+{{ $python := printf `
+headers = { 'Authorization' : 'Bearer eyJhbGciOiJLTVNFUzI1Ni...' }
+r = requests.get('%s', headers=headers, verify=False)
+j = json.loads(r.text)
+print(json.dumps(j, indent=4))` $url }}
+{{ highlight $python "python" ""}}
+
+{{ partial "close-tab" . }}
+
+
+{{ .Scratch.Set "tab-name" "go" }}
+{{ .Scratch.Set "tab-idx" 3 }}
+{{ partial "open-tab" . }}
+
+{{ $python := printf `
+req, err := http.NewRequest("GET", "%s", nil)
+if err != nil {
+// handle err
+}
+req.Header.Set("Authorization", "Bearer eyJhbGciOiJLTVNFUzI1Ni...")
+
+resp, err := http.DefaultClient.Do(req)
+if err != nil {
+// handle err
+}
+defer resp.Body.Close()` $url }}
+{{ highlight $python "python" ""}}
+
+{{ partial "close-tab" . }}
+
+{{ partial "close-tabs" . }}

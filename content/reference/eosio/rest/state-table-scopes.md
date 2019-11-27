@@ -8,7 +8,7 @@ Fetches a list of scopes, for a given table on a contract account, at any block 
 
 Sample request:
 
-{{< exampleRequest id="search-transactions" url="https://mainnet.eos.dfuse.io/v0/state/table_scopes?account=eosforumdapp&table=proposal" >}}
+{{< example-request id="search-transactions" url="https://mainnet.eos.dfuse.io/v0/state/table_scopes?account=eosforumdapp&table=proposal" >}}
 
 {{< alert type="note" >}}
 Not to be confused with [/v0/state/tables/scopes]({{< ref "./state-tables-scopes" >}}) which retrieves the actual _tables_. Paired with this endpoint, you can get a consistent view of all tables in a contract.

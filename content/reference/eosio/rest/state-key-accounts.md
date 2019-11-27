@@ -8,7 +8,7 @@ Fetches the accounts controlled by the given public key, at any block height.
 
 Sample request:
 
-{{< exampleRequest id="search-transactions" url="https://mainnet.eos.dfuse.io/v0/state/key_accounts?public_key=EOS7YNS1swh6QWANkzGgFrjiX8E3u8WK5CK9GMAb6EzKVNZMYhCH3" >}}
+{{< example-request id="search-transactions" url="https://mainnet.eos.dfuse.io/v0/state/key_accounts?public_key=EOS7YNS1swh6QWANkzGgFrjiX8E3u8WK5CK9GMAb6EzKVNZMYhCH3" >}}
 
 {{< alert type="note" >}}
 This endpoint is a drop-in replacement for the `/v1/history/get_key_accounts` API endpoint from standard `nodeos`. Simply tweak the URL, and add the Bearer token.

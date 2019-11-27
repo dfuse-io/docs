@@ -8,7 +8,7 @@ Fetches snapshots of any account’s linked authorizations on the blockchain, at
 
 Sample request:
 
-{{< exampleRequest id="search-transactions" url="https://mainnet.eos.dfuse.io/v0/state/permission_links?account=eoscanadacom&block_num=10000000" >}}
+{{< example-request id="search-transactions" url="https://mainnet.eos.dfuse.io/v0/state/permission_links?account=eoscanadacom&block_num=10000000" >}}
 
 Fetches snapshots of any account's linked authorizations on the blockchain, at any block height.
 
