@@ -31,7 +31,7 @@ forks, through the use of [cursors]({{< ref "/guides/core-concepts/cursors" >}})
 
 ### Implicit `AND`
 
-Merely separating fields by a space imply an `AND` clause.  Therefore:
+Merely separating fields by a space implies an `AND` clause.  Therefore:
 
 {{< highlight ruby >}}
 term1:value term2:"another value"
@@ -68,7 +68,7 @@ term1:value1 (term2:value2 OR term3:value3)
 which would be equivalent to:
 
 {{< highlight javascript >}}
-(term1 == "value1") && ((term2 == "value2" || term3 == "value3"))
+(term1 == "value1") && ((term2 == "value2") || (term3 == "value3"))
 {{< / highlight >}}
 
 
@@ -101,7 +101,7 @@ term1:value1 -(term2:"value2" OR term3:value3)
 which is equivalent to:
 
 {{< highlight javascript >}}
-(term1 == "value1") && ((term2 != "value2") && (term3 != "value3"))
+(term1 == "value1") && ((term2 != "value2") || (term3 != "value3"))
 {{< / highlight >}}
 
 or more generally:
@@ -115,7 +115,7 @@ Take out your logic textbook to flip `AND`s and `OR`s!
 
 ## Block Range
 
-Searching through dfuse is always performed in term of a certain block range, that could be open
+Searching through dfuse is always performed in terms of a certain block range, that could be open
 ended in the upper boundary to perform an infinite streaming.
 
 {{< alert type="note" >}}
@@ -124,26 +124,26 @@ always have a fixed upper boundary.
 {{< /alert >}}
 
 While date range is more intuitive, the block range more closely follows the blockchain concept
-which resolves around blocks. Furthermore, we went the block range way over the date range to
-make clearer the boundaries that are search for, reducing potential off by one errors that could
+which resolves around blocks. Furthermore, we went the block range method over the date range to
+help further clarify the boundaries wanted in the search, reducing potential off-by-one errors that could
 happen more often when using a date range.
 
 All searches are performed within the range boundary, and the navigation is either from lower boundary
 to upper boundary when doing an ascending (a.k.a forward) search and from upper boundary to lower
 boundary when doing a descending (a.k.a backward) search.
 
-Cursor and block range are closely coupled concept since when providing a cursor value to our search
-endpoints, it will affect the actual block range queried. Indeed, a cursor value will override the
+Cursor and block range are closely coupled concepts since when providing a cursor value to our search
+endpoints, it will affect the actual block range queried. Note that a cursor value will override the
 lower boundary on ascending search while overriding the upper boundary when doing a descending search.
 
 {{< alert type="note" >}}
-While the cursor affects the block range, it's still actually transaction aware. This means that
-would jump to block as well as skipping all transactions that were before the cursor, thus already sent
+While the cursor affects the block range, it's still actually transaction aware. This means that it
+would jump to blocks, as well as skipping all transactions that were before the cursor, thus already sent
 to you.
 {{< /alert >}}
 
-Resolution of block range in regards to search inputs has difference depending on the chain you are
-using. Refers to the following specific search range pages for the blockchain you want to work with:
+Resolution of block range in regards to search inputs has some differences depending on the chain you are
+using. Refers to the following specific search range pages for the blockchain are working with:
 
 - [EOSIO]({{< ref "/guides/eosio/concepts/search-ranges" >}})
 - [Ethereum]({{< ref "/guides/ethereum/concepts/search-ranges" >}})
