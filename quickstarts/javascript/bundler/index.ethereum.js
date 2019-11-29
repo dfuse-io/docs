@@ -7,7 +7,7 @@ const client = createDfuseClient({
 
 // You must use a `$cursor` variable so stream starts back at last marked cursor on reconnect!
 const operation = `subscription($cursor: String!) {
-  searchTransactions(indexName:CALLS query:"-value:0 type:call", lowBlockNum: -1, cursor: $cursor) {
+  searchTransactions(indexName:CALLS, query:"-value:0 type:call", lowBlockNum: -1, cursor: $cursor) {
     undo cursor
     node { hash matchingCalls { from to value(encoding:ETHER) } }
   }
