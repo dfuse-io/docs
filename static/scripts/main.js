@@ -179,10 +179,12 @@ const redirectMap = {
   "/reference/eosio/search-terms/": [
     "/#search",
     "/#dfuse-query-language",
-    "/#dfuse-events",
     "/#ref-search-query-specs",
-    "/#dfuse-events-indexing-limits",
     "/#ref-query-language",
+  ],
+  "/reference/eosio/dfuse-events/": [
+    "/#dfuse-events",
+    "/#dfuse-events-indexing-limits",
   ],
   "/reference/eosio/types/name": [
     "/#type-Name",
