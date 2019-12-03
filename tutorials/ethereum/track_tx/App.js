@@ -16,7 +16,7 @@ function App() {
         transitionName
         transition{
           __typename
-  
+
         ... on TrxTransitionInit {
             transaction {
             ...TransactionFragment
@@ -30,13 +30,13 @@ function App() {
             confirmations
             replacedById
           }
-  
+
         ...on TrxTransitionPooled {
             transaction {
             ...TransactionFragment
             }
           }
-  
+
         ...on TrxTransitionMined {
             blockHeader {
             ...BlockHeaderFragment
@@ -46,25 +46,25 @@ function App() {
             }
             confirmations
           }
-  
+
         ...on TrxTransitionForked {
             transaction {
             ...TransactionFragment
             }
           }
-  
+
         ...on TrxTransitionConfirmed {
             confirmations
           }
-  
+
         ...on TrxTransitionReplaced {
             replacedById
           }
-  
+
         }
       }
     }
-  
+
     fragment TransactionFragment on Transaction {
       hash
       from
@@ -80,7 +80,7 @@ function App() {
         r
       }
     }
-    
+
     fragment TransactionTraceFragment on TransactionTrace {
       hash
       from
@@ -101,7 +101,7 @@ function App() {
       create
       outcome
     }
-    
+
     fragment BlockHeaderFragment on BlockHeader {
       parentHash
       unclesHash
@@ -161,7 +161,7 @@ function App() {
             }
         });
 
-        await stream.join() // continues until disconnect and complete
+        await stream.join() // awaits stream completion, which is never for this operation
     }
 
     return (

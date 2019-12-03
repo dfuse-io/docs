@@ -22,7 +22,7 @@ It also offers an access to the [documented GraphQL schema](/reference/ethereum/
   transaction(hash: "0x1f73b43dc9c48cc131a931fac7095de9e5eba0c5184ec0c5c5f1f32efa2a6bab") {
     from
     to
-    gasUsed gasPrice(encoding: ETHER)
+    gasPrice(encoding: ETHER)
   }
 }
 {{< / highlight >}}
@@ -51,8 +51,8 @@ subscription{
   blocks(lowBlockNum:-1){
     node{
       number hash
-      transactionTraces{ edges{ node{ hash } } }
-      uncles{ hash }
+      transactionTraces { edges { node { hash } } }
+      uncles { hash }
     }
   }
 }
@@ -64,11 +64,10 @@ subscription{
 * Stream transactions based on a **search query**
 {{< highlight ruby >}}
    subscription {
-     searchTransactions( indexName: CALLS, lowBlockNum: -1,
-                        query: "-value:0") {
+     searchTransactions(indexName: CALLS, query: "-value:0", lowBlockNum: -1) {
         undo cursor
         node {
-          block{ number }
+          block { number }
           matchingCalls { from to value(encoding: ETHER) }
         }
       }
@@ -110,7 +109,7 @@ method:'transfer(address,uint256)' to:0xdac17f958d2ee523a2206206994597c13d831ec7
 {{< external-link href="https://ethq.app/search?q=method%3A%27transfer%28address%2Cuint256%29%27%20to%3A0xdac17f958d2ee523a2206206994597c13d831ec7&ts=1573141723074" title="Try it on ETHQ" class="ethq" >}}
 </div>
 
-{{< alert type="note" >}} The method can also be specified with the 8-bytes prefix of its keccak hash, ex: `method:a9059cbb` {{< /alert >}} 
+{{< alert type="note" >}} The method can also be specified with the 8-bytes prefix of its keccak hash, ex: `method:a9059cbb` {{< /alert >}}
 
 
 * To search for transactions signed by a specific address, use:

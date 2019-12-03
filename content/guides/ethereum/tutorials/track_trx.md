@@ -11,7 +11,7 @@ Installing the {{< external-link href="https://reactjs.org/tutorial/tutorial.htm
 {{< /alert >}}
 
 
-## 1. Create React App 
+## 1. Create React App
 Use the {{< external-link href="https://github.com/facebook/create-react-app">}} to set up your development environment so that you can use the latest JavaScript features. You’ll need to have Node >= 8.10 and npm >= 5.6 on your machine. To create a project, run:
 
 {{< tabs "create-react-app">}}
@@ -31,7 +31,7 @@ then open ({{< external-link href="http://localhost:3000/">}})
 
 ## 3. Add the dfuse Client Library
 
-The simplest way to get started with dfuse and JavaScript/TypeScript development is to use the dfuse JS Client Library.
+The simplest way to get started with dfuse and JavaScript/TypeScript development is to use the dfuse JS client library.
 
 {{< tabs "adding-dfuse-client-lib">}}
 {{< tab title="NPM" lang="shell" >}}
@@ -120,7 +120,7 @@ Use the dfuse client with the GraphQL query and set our transaction hash as a va
                 hash:  transactionHash
             }
         });
-        await stream.join();  // continues until disconnect and complete
+        await stream.join();  // awaits stream completion, which is never for this operation
     }
 {{< /tab >}}
 {{< /tabs >}}
