@@ -46,7 +46,7 @@
               "name": "Int64",
               "default": "100"
             },
-            "description": "Limit the number of results per page of results (max 200)."
+            "description": "Limit the number of results per page of results (defaults to 100)."
           },
           {
             "name": "irreversibleOnly",
@@ -101,7 +101,7 @@
               "name": "Int64",
               "default": "100"
             },
-            "description": "Limit the number of results per page of results (max 200)."
+            "description": "Limit the number of results per page of results (defaults to 100)."
           },
           {
             "name": "irreversibleOnly",
@@ -127,7 +127,7 @@
               "reqType": true,
               "name": "Time"
             },
-            "description": ""
+            "description": "Timestamp for comparison, in format 2006-01-02T15:04:05Z or 2006-01-02T15:04:05.123Z"
           },
           {
             "name": "comparator",
@@ -500,7 +500,7 @@
           "reqType": true,
           "name": "TransactionReceiptHeader"
         },
-        "description": "",
+        "description": "Transaction execution receipt which is the consensus value propagated across the network.",
         "arguments": []
       },
       {
@@ -509,7 +509,7 @@
           "reqType": true,
           "name": "Int64"
         },
-        "description": "",
+        "description": "Amount of execution time in microseconds (µs) elapsed by this whole transaction. This\ncorresponds to the `transaction_trace.elapsed` field in the EOSIO software.\n\nWARN: This is **not** the propagated consensus value. This value is from the EOSIO node\nthat replayed the transaction from the network. Use `receipt.cpuUsageMicroSeconds` in your\nGraphQL operation instead to retrieve the consensus value.",
         "arguments": []
       },
       {
@@ -518,7 +518,7 @@
           "reqType": true,
           "name": "Uint64"
         },
-        "description": "Amount of network bandwidth consumed (for the sake of the rate limiting engine) by this whole transaction, in bytes (short-hand for `receipt.net_usage_words * 8`.",
+        "description": "Amount of network bandwidth consumed (for the sake of the rate limiting engine) by this whole transaction, in\nbytes. This corresponds to the `transaction_trace.net_usage` field in the EOSIO software (which is usually\nequivalent to `receipt.net_usage_words * 8`).\n\nWARN: This is **not** the propagated consensus value. This value is from the EOSIO node\nthat replayed the transaction from the network. While there is no reason to not match the\nconsensus value, it still could be different.  Use `receipt.netUsageWords` in your\nGraphQL operation instead to retrieve the consensus value (multiple it by 8 to get the amount of\nbytes).",
         "arguments": []
       },
       {

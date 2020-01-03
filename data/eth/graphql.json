@@ -123,6 +123,15 @@
             "description": "hash of the transaction you want to track the state"
           }
         ]
+      },
+      {
+        "name": "_alphaPendingTransactions",
+        "type": {
+          "reqType": true,
+          "name": "Transaction"
+        },
+        "description": "",
+        "arguments": []
       }
     ]
   },
@@ -224,7 +233,7 @@
             "type": {
               "name": "String"
             },
-            "description": "See https://docs.dfuse.io/guides/core-concepts/cursors"
+            "description": "See https://docs.dfuse.io/guides/core-concepts/cursors/"
           },
           {
             "name": "limit",
@@ -634,7 +643,7 @@
           "reqType": true,
           "name": "Uint64"
         },
-        "description": "`cumulativeGasUsed` is [TODO: Define properly].",
+        "description": "`cumulativeGasUsed` is the quantity of gas units that was consumed processing this transaction plus all the gas units user by all the transaction before this one in the block.",
         "arguments": []
       },
       {
@@ -850,7 +859,7 @@
           "reqType": true,
           "name": "String"
         },
-        "description": "",
+        "description": "`from` is the address of the caller that will",
         "arguments": []
       },
       {
@@ -886,16 +895,7 @@
           "reqType": true,
           "name": "Uint64"
         },
-        "description": "",
-        "arguments": []
-      },
-      {
-        "name": "gasBilled",
-        "type": {
-          "reqType": true,
-          "name": "Uint64"
-        },
-        "description": "",
+        "description": "`gasConsumed` is the amount of gas **specifically** consumed by this call. We use the term **specifically** since for transaction call (i.e. the first call), it does not include implicit transaction gas cost.",
         "arguments": []
       },
       {
@@ -904,7 +904,7 @@
           "reqType": true,
           "name": "Uint64"
         },
-        "description": "",
+        "description": "`gasLimit` is the maximum gas value **specifically** set by this call. We use the term **specifically** since for transaction call (i.e. the first call), this limit here will be reduced by the implicit transaction gas cost.",
         "arguments": []
       },
       {
