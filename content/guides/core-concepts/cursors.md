@@ -112,9 +112,9 @@ query {
 
 In this example `searchTransactions` returns a collection of 3 `edges`, each one pointing to a `node` of type `TransactionTrace` with specific attributes. Furthermore, each `edge` has a `cursor` which is a `pointer` to that specific `node`, in this case, that specific `TransactionTrace`.
 
-The second transaction trace (with hash `0x223d30e....`) of the collection has a cursor pointer of
+The second transaction trace (with hash `0xfdd36ac....`) of the collection has a cursor pointer of
 
-`A110RysJ6aB9YyWsFvipofe7LJ4wA11rUwHiI0VFg4vw83fBiJqjVjcmOkiGkP311Ry5SVqkj97LRiwu85JT74e5xuttviNuT3t_k9_vqrO-e6f3OAwcJO42VeiMYYzYW2mCYQr_Lw==`
+`bN1XxBvXCvlSTgCcckQWz_e7LJ4wA11rUwHiI0VFg4vw83fBiJqjVjcmOkiGkP311Ry5SVqkj97LRiwu85JT74e5xuttviNuT3t_k9_vqrO-e6f3OAwcJO42VbzaNtvdCm_XYAz9fA==`
 
 Thus if you were to run the same query with this`cursor` value, you would get the subsequent transaction trace: `0x4274c8a699bacdb11b89e12c95176696f4228095be311deec5bf167946540e35`
 
