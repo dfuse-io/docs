@@ -97,7 +97,7 @@ A more advanced method is the GraphQL Subscription. This gives you access to a s
 
 For example, we can use this to obtain the hash of all transfers happening on the chain, in real-time.
 
-{{< external-link title="Try it on GraphiQL" href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMocXVlcnk6ICJ0bzoweDA2MDEyYzhjZjk3QkVhRDVkZUFlMjM3MDcwRjk1ODdmOEU3QTI2NmQiLCBsb3dCbG9ja051bTogLTEwMDApIHsKICAgIG5vZGUgewogICAgICBoYXNoCiAgICB9CiAgfQp9" >}}
+{{< external-link title="Try it on GraphiQL" href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMocXVlcnk6ICJ0bzoweDA2MDEyYzhjZjk3QkVhRDVkZUFlMjM3MDcwRjk1ODdmOEU3QTI2NmQiLCBpbmRleE5hbWU6IENBTExTLCBsb3dCbG9ja051bTogLTEwMDApIHsKICAgIG5vZGUgewogICAgICBoYXNoCiAgICB9CiAgfQp9" >}}
 
 ## Paginated Queries
 
@@ -155,7 +155,7 @@ The GraphQL API provides cursors to enable pagination. With every response, you 
 
 Besides pagination, cursors are instrumental when using subscriptions to deal with network disconnections. By using the cursor of your last successful request, you can reconnect and continue streaming without missing any documents.
 
-{{< external-link title="Try it on GraphiQL" href="https://mainnet.eth.dfuse.io/graphiql/?query=cXVlcnkgewogIHNlYXJjaFRyYW5zYWN0aW9ucyhxdWVyeTogInRvOjB4MDYwMTJjOGNmOTdCRWFENWRlQWUyMzcwNzBGOTU4N2Y4RTdBMjY2ZCIsIHNvcnQ6IERFU0MsIGxpbWl0OiAzKSB7CiAgICBwYWdlSW5mbyB7CiAgICAgIGVuZEN1cnNvcgogICAgfQogICAgZWRnZXMgewogICAgICBub2RlIHsKICAgICAgICBoYXNoCiAgICAgIH0KICAgIH0KICB9Cn0=" >}}
+{{< external-link title="Try it on GraphiQL" href="https://mainnet.eth.dfuse.io/graphiql/?query=cXVlcnkgewogIHNlYXJjaFRyYW5zYWN0aW9ucyhpbmRleE5hbWU6IENBTExTLCBxdWVyeTogInRvOjB4MDYwMTJjOGNmOTdCRWFENWRlQWUyMzcwNzBGOTU4N2Y4RTdBMjY2ZCIsIHNvcnQ6IERFU0MsIGxpbWl0OiAzKSB7CiAgICBwYWdlSW5mbyB7CiAgICAgIGVuZEN1cnNvcgogICAgfQogICAgZWRnZXMgewogICAgICBub2RlIHsKICAgICAgICBoYXNoCiAgICAgIH0KICAgIH0KICB9Cn0=" >}}
 
 ## Navigating Forks
 
@@ -191,7 +191,7 @@ When dealing with documents that were very recently added to a blockchain, there
 
 When this happens, you can be notified by retrieving the `undo` property of the API. It is your responsibility to ensure that you respond properly to transactions being forked out of the chain.
 
-{{< external-link title="Try it on GraphiQL" href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMocXVlcnk6ICJ0bzoweDA2MDEyYzhjZjk3QkVhRDVkZUFlMjM3MDcwRjk1ODdmOEU3QTI2NmQiLCBsb3dCbG9ja051bTogLTEwMDApIHsKICAgIHVuZG8KICAgIG5vZGUgewogICAgICBoYXNoCiAgICB9CiAgfQp9" >}}
+{{< external-link title="Try it on GraphiQL" href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMoaW5kZXhOYW1lOiBDQUxMUywgcXVlcnk6ICJ0bzoweDA2MDEyYzhjZjk3QkVhRDVkZUFlMjM3MDcwRjk1ODdmOEU3QTI2NmQiLCBsb3dCbG9ja051bTogLTEwMDApIHsKICAgIHVuZG8KICAgIG5vZGUgewogICAgICBoYXNoCiAgICB9CiAgfQp9" >}}
 
 {{< alert type="important" >}}
 Never forget to retrieve the `undo` property, as streaming results will re-send the matching transactions with `undo:true` upon micro-fork resolution.
