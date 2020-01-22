@@ -12,14 +12,11 @@ If you prefer to skip forward and run the completed project, run:
 
 {{< tabs "clone-completed-example">}}
 {{< tab title="Shell" lang="shell" >}}
-
 # clone and install the example project
-
 git clone github.com/dfuse-io/docs
 cd docs/tutorials/ethereum/track_tx
 yarn install
 yarn start
-
 {{< /tab >}}
 {{< /tabs >}}
 
