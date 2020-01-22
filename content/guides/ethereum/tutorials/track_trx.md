@@ -6,6 +6,23 @@ release: beta
 ---
 In this guide we will create a simple React application that will use dfuse's Transaction State Tracker API to keep track of the state of an Ethereum transaction in real time. To do that, we will be using {{< external-link href="https://reactjs.org/docs/hooks-intro.html" title="react hooks">}}.
 
+## 0. Completed Example
+
+If you prefer to skip forward and run the completed project, run:
+
+{{< tabs "clone-completed-example">}}
+{{< tab title="Shell" lang="shell" >}}
+
+# clone and install the example project
+
+git clone github.com/dfuse-io/docs
+cd docs/tutorials/ethereum/track_tx
+yarn install
+yarn start
+
+{{< /tab >}}
+{{< /tabs >}}
+
 {{< alert type="note" >}}
 Installing the {{< external-link href="https://reactjs.org/tutorial/tutorial.html#developer-tools" title="React Dev Tools">}} plugin for your browser is optional, but is very useful for seeing what goes on in the application.
 {{< /alert >}}
