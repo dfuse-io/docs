@@ -3,12 +3,11 @@ weight: 10
 title: JavaScript Quickstart
 ---
 
-In this guide we will show you how to create a basic setup so you can benefit from the dfuse GraphQL API under
-on of supported JavaScript environment:
+In this guide we will show you how to create a basic setup so you can benefit from the dfuse GraphQL API under one of the supported JavaScript environments:
 
-- Browser through a bundler like Webpack (includes Create React App projects) (`Bundler` code tab)
-- Browser standalone (`Browser` code tab)
-- Node.js server (`Node.js` code tab)
+- Browser through a bundler like Webpack (includes Create React App projects) (see `Bundler` code tab below)
+- Browser standalone (see `Browser` code tab below)
+- Node.js server (see `Node.js` code tab below)
 
 {{< alert type="note" >}}
 While not in the supported list (yet), you should in theory be able to use the example under a React Native environment.
@@ -16,10 +15,7 @@ While not in the supported list (yet), you should in theory be able to use the e
 
 All examples uses ES6 syntax with `await/async` keywords, using `import` keywords on `Bundler` and `Browser`
 environments while using the `require` syntax on Node.js environment. However,
-
-{{< alert type="note" >}}
-The library compiles itself to down to ES5 features so we support older ES5 compliant browsers that are not compatible with ES6 features (IE 11 for example).
-{{< /alert >}}
+the library compiles itself to down to ES5 features so we support older ES5 compliant browsers that are not compatible with ES6 features (IE 11 for example).
 
 We assume the commands below are performed in an empty project folder. To quickly
 start an empty project:
@@ -40,7 +36,6 @@ yarn init -y
 {{< /tabs >}}
 
 ## 1. Get a dfuse API Key
-
 {{< dfuse-account-creation >}}
 
 ## 2. Adding the Client Library
@@ -53,7 +48,7 @@ Here are a few of its key features:
 * Handles API token issuance
 * Refreshes your API token upon expiration
 * Automatically reconnects if the connection closes
-* Supports Browsers and Node.js environments
+* Supports `Browsers` and `Node.js` environments
 
 You can add it to your project using Yarn or NPM.
 
@@ -67,8 +62,8 @@ yarn add @dfuse/client
 {{< /tabs >}}
 
 #### Node.js Extra Steps
-If you are targeting the Node.js environment, a few extra steps are required to be able to use
-the @dfuse/client library. Indeed, the library relies on `node-fetch` package for HTTP requests
+If you are targeting the `Node.js` environment, a few extra steps are required to be able to use
+the @dfuse/client library. The library relies on `node-fetch` package for HTTP requests
 and on the `ws` package for `WebSocket` connection.
 
 {{< tabs "install-dependencies" >}}
@@ -80,11 +75,11 @@ yarn add node-fetch ws
 {{< /tab >}}
 {{< /tabs >}}
 
-Once installed, prior calling anything else, ensure that `global.fetch` and `global.WebSocket`
+Once installed, prior to calling anything else, ensure that `global.fetch` and `global.WebSocket`
 are set in the global scope.
 
 {{< alert type="important" >}}
-This is required only in a Node.js environment. When targeting a Browser environment (in
+This is required only in a Node.js environment. When targeting a `Browser` environment (in
 standalone HTML or through a bundler, @dfuse/client library automatically uses `fetch`
 and `WebSocket` objects provided by the browser).
 {{< /alert >}}
@@ -146,8 +141,7 @@ a `main` function:
 {{< /tabs >}}
 
 The function passed as the 2nd parameter to `client.graphql()` will be called every time a new result is returned
-by the API. And here a sample of the prints you can see from as a result of execution the streaming operation
-above:
+by the API. And here is a sample of the prints you will receive as a result of executing the streaming operation above:
 
 <!-- **Note** We use python for all languages for a nicer output rendering -->
 {{< highlight "python" >}}
@@ -207,7 +201,7 @@ start index.ethereum.thml      # Windows
 
 {{< /tabs >}}
 
-## 7. What's next ?
+## 6. What's next ?
 
 * [GraphQL API Reference]({{< ref "/reference/ethereum/graphql" >}})
 * [Check dfuse Core Concepts]({{< ref "/guides/core-concepts" >}})

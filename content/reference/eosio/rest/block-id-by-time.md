@@ -9,7 +9,7 @@ Get the block ID produced at a given time
 
 The following example fetches the block ID, time and block number for the timestamp `2019-03-04T10:36:14.6Z`.
 
-{{< exampleRequest id="req-by-time" url="https://mainnet.eos.dfuse.io/v0/block_id/by_time?time=2019-03-04T10:36:14.5Z&comparator=gte" >}}
+{{< example-request id="req-by-time" url="https://mainnet.eos.dfuse.io/v0/block_id/by_time?time=2019-03-04T10:36:14.5Z&comparator=gte" >}}
 
 {{< tabs "block-id-response">}}
 {{< tab title="Response" lang="json" >}}

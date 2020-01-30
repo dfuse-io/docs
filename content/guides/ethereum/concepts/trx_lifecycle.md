@@ -10,7 +10,7 @@ title: Ethereum Transaction Lifecycle
 
 ### Transaction State
 
-An ethereum transaction progresses through a series of states, starting with the unknown state, until it is in block
+An Ethereum transaction progresses through a series of states, starting with the unknown state, until it is in block being confirmed.
 
 __Unknown__: A transaction that has not been seen nor processed by the network would be in the unknown state.
 
@@ -35,27 +35,27 @@ __Replaced__: A transaction that moves from the pending state to the replaced st
 - Another transaction originating from the same sender with the same nonce enters the in block state, or
 - Another transaction originating from the same sender with the same nonce with a 12% higher gas price enters the pending state
 
-__Forked__: A forked transaction occurs when a mined transaction (i.e a transaction that is in the in block state) is part of a block that gets reversed by the network. All transactions within the reversed block will subsequently be forked thus moving them from the in block state to the pending state.
+__Forked__: A forked transaction occurs when a mined transaction (i.e a transaction that is in the in block state) is part of a block that gets reversed by the network. All transactions within the reversed block will subsequently be forked, thus moving them from the in block state to the pending state.
 
-__Confirmed__: A transaction in the in block state is confirmed every time a subsequent, child block gets mined.
+__Confirmed__: A transaction in the in block state is confirmed every time a subsequent child block gets mined.
 
 ## How Transaction Lifecycle Is Used:
-With GraphQL you can subscribe to transitions of a specific ethereum transaction in real-time. Furthermore, you have the ability to define precisely the data you want per transition.
+With GraphQL you can subscribe to transitions of a specific Ethereum transaction in real time. Furthermore, you have the ability to define precisely the data you want per transition.
 ### Subscriptions
-Stream all transition for transaction `0x3be3b44ae48a074d3b79e3054bb3b62b5c5e5a8fc2210cd1dc7c7932ae5addcd` in real-time. Do not be scared we will breakdown the query
+Stream all transitions for transaction `0x3be3b44ae48a074d3b79e3054bb3b62b5c5e5a8fc2210cd1dc7c7932ae5addcd` in real time. Do not be scared, we will breakdown the query just below.
 
 {{< tabs "trx-lifecycle-query">}}
-{{< tab-code title="src/App.js" filename="./tutorials/ethereum/track_tx/query.graphql" range="1:111" opts="linenos=table">}}
+{{< tab-code title="Graphql Query" filename="./tutorials/ethereum/track_tx/src/query.graphql" range="1:111" opts="linenos=table">}}
 {{< /tabs >}}
 
 ## Breaking down the Graphql Query
 
-### Filtering the query
+### Filtering the Query
 
-We filter our query by specifying a hash in the `transactionLifecycle` subscription connection:
+We filter our query by specifying a hash in the `transactionLifecycle` subscription connection.
 
 {{< tabs "trx-lifecycle-query-hash">}}
-{{< tab-code title="src/App.js" filename="./tutorials/ethereum/track_tx/query.graphql" range="1:3" opts="linenos=table,hl_lines=3">}}
+{{< tab-code title="Graphql Query" filename="./tutorials/ethereum/track_tx/src/query.graphql" range="1:3" opts="linenos=table,hl_lines=3">}}
 {{< /tabs >}}
 
 ### Specifying Fields
@@ -63,7 +63,7 @@ We filter our query by specifying a hash in the `transactionLifecycle` subscript
 Next we specify the fields we want the subscription to return. In this example we are returning `previousState`, `currentState` and `transition`.
 
 {{< tabs "trx-lifecycle-query-fields">}}
-{{< tab-code title="src/App.js" filename="./tutorials/ethereum/track_tx/query.graphql" range="1:5" delimeter="..." opts="linenos=table,hl_lines=4 5 6" >}}
+{{< tab-code title="Graphql Query" filename="./tutorials/ethereum/track_tx/src/query.graphql" range="1:5" delimeter="..." opts="linenos=table,hl_lines=4 5 6" >}}
 {{< /tabs >}}
 
 `transition` is defined as a Union type in Graphql. This means that `transition` can be one of six different types:
@@ -116,16 +116,16 @@ subscription{
 {{< /tab >}}
 {{< /tabs >}}
 
-Some of the attributes have a same attribute, for example `TrxTransitionInit`, `TrxTransitionPooled` and `TrxTransitionForked` all have a transaction attribute. Instead of repeating the attribute' struct 3 times we can create a fragment that will be used by all 3 transition types
+Some of the attributes have the same attribute, for example `TrxTransitionInit`, `TrxTransitionPooled` and `TrxTransitionForked` all have a transaction attribute. Instead of repeating the attribute' struct 3 times we can create a fragment that will be used by all 3 transition types.
 
 {{< tabs "trx-lifecycle-query-fields-transition-fragment">}}
-{{< tab-code title="src/App.js" filename="./tutorials/ethereum/track_tx/query.graphql" range="39:43" opts="linenos=table,hl_lines=4" >}}
+{{< tab-code title="Graphql Query" filename="./tutorials/ethereum/track_tx/src/query.graphql" range="39:43" opts="linenos=table,hl_lines=4" >}}
 {{< /tabs >}}
 
-the fragment can de defined like this:
+The fragment can de defined like this:
 
 {{< tabs "trx-lifecycle-query-fields-transition-fragment-defined">}}
-{{< tab-code title="src/App.js" filename="./tutorials/ethereum/track_tx/query.graphql" range="57:70" >}}
+{{< tab-code title="Graphql Query" filename="./tutorials/ethereum/track_tx/src/query.graphql" range="57:70" >}}
 {{< /tabs >}}
 
-Putting all this together we get the full query we started with.
+Putting all of this together, we end up with the original query.

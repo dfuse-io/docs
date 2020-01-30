@@ -6,9 +6,7 @@ protocol: ETH
 ---
 
 
-In this section, you will find the list of tutorials currently written when you
-can more easily map your use case to one or more dfuse concepts under a concrete
-code repository.
+In this section, you will find the list of tutorials currently written, allowing you to easily map your use case to one or more dfuse concepts under a concrete code repository.
 
 - [Track transaction in real-time]({{< ref "/guides/ethereum/tutorials/track_trx" >}}) (<small>Keywords: dfuse Lifecycle, JavaScript, React, Browser</small>)
 

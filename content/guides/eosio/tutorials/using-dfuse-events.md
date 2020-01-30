@@ -6,7 +6,7 @@ dfuse Events are a powerful way to give smart contract developers a
 way to ask dfuse Search to index their transactions, with arbitrary
 key/value pairs.
 
-From within you smart contract, by simply sending an inline action to `dfuseiohooks:event`, you can instruct dfuse Search to index some fields with arbitrary data (within limits).
+By simply instructing your smart contract to send an inline action to `dfuseiohooks:event`, you can instruct dfuse Search to index some fields with arbitrary data (within limits).
 
 Once on chain, the search term `event.field:value` will allow you to retrieve those actions, anywhere on the dfuse Platform.
 
@@ -16,7 +16,7 @@ Say a smart contract manages virtual pets. Each pet has a unique ID and a `kind`
 
 Say you have an action `train(pet_id)` that trains and increases whatever features of your pet.
 
-If you want to list all trainings for dogs, you're short of luck: the action does not contain the `kind` of pet being trained here.
+If you want to list all trainings for dogs, you're short of luck - the action does not contain the `kind` of pet being trained here.
 
 By adding an inline action to `dfuseiohooks:event` in your smart contract, and exfiltrating the missing bit of data, such as `pet_kind=dog` in the `data` field, you will immediately be able to search for `event.pet_kind:dog action:train receiver:yourcontract` anywhere on the dfuse Platform.
 
@@ -41,4 +41,4 @@ eosio::action(
 
 ## Example contract
 
-See an {{< external-link title="example implementation](https://github.com/dfuse-io/example-dfuse-events/blob/master/contract/src/eospetgameio.cpp) from a [sample smart contract" href="https://github.com/dfuse-io/example-dfuse-events/blob/master/contract" >}}.
+See an {{< external-link title="example implementation" href="https://github.com/dfuse-io/example-dfuse-events/blob/master/contract/src/eospetgameio.cpp">}} from a {{< external-link title="sample smart contract" href="https://github.com/dfuse-io/example-dfuse-events/blob/master/contract">}}.

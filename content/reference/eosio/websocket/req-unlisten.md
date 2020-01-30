@@ -1,6 +1,7 @@
 ---
 title: unlisten
 ---
+
 Allows to interrupt a stream.
 
 ## Usage
@@ -24,4 +25,4 @@ The `req_id` passed to previous commands which included `listen=true`.
 {"type":"unlistened","data":{"success":true}}
 {{< /highlight >}}
 
-If unlistened fails, you will receive a normal [error]({{< ref "../Responses" >}}) message.
+If unlistened fails, you will receive a normal [error]({{< ref "../#responses-error" >}}) message.

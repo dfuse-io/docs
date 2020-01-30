@@ -60,15 +60,15 @@ In the tables that follow, we use a few semantics to make the table easier to re
 |--------|--------|--------|--------------------------------|
 | `None` | `None` | `None` | `[HEAD, ∞`                     |
 | `None` | `L`    | `H`    | `[L, H]`                       |
-| `None` | `0`    | `0`    | `[HEAD - 1, HEAD - 1]`         |
-| `None` | `-1`   | `-1`   | `[HEAD - 2, HEAD - 2]`         |
-| `None` | `-L`   | `-H`   | `[HEAD - 1 - L, HEAD - 1 - H]` |
+| `None` | `0`    | `0`    | `[HEAD, HEAD]`                 |
+| `None` | `-1`   | `-1`   | `[HEAD - 1, HEAD - 1]`         |
+| `None` | `-L`   | `-H`   | `[HEAD - L, HEAD - H]`         |
 ||||||
 | `C`    | `None` | `None` | `[C, ∞`                        |
 | `C`    | `L`    | `H`    | `[C, H]`                       |
-| `C`    | `0`    | `0`    | `[C, HEAD - 1]`                |
-| `C`    | `-1`   | `-1`   | `[C, HEAD - 2]`                |
-| `C`    | `-L`   | `-H`   | `[C, HEAD - 1 - H]`            |
+| `C`    | `0`    | `0`    | `[C, HEAD]`                    |
+| `C`    | `-1`   | `-1`   | `[C, HEAD - 1]`                |
+| `C`    | `-L`   | `-H`   | `[C, HEAD - H]`                |
 
 ### SearchBackward Query
 
@@ -92,12 +92,12 @@ In the tables that follow, we use a few semantics to make the table easier to re
 |--------|--------|--------|--------------------------------|
 | `None` | `None` | `None` | `[HEAD - 1, HEAD - 1]`         |
 | `None` | `L`    | `H`    | `[L, H]`                       |
-| `None` | `0`    | `0`    | `[HEAD - 1, HEAD - 1]`         |
-| `None` | `-1`   | `-1`   | `[HEAD - 2, HEAD - 2]`         |
-| `None` | `-L`   | `-H`   | `[HEAD - 1 - L, HEAD - 1 - H]` |
+| `None` | `0`    | `0`    | `[HEAD, HEAD]`                 |
+| `None` | `-1`   | `-1`   | `[HEAD - 1, HEAD - 1]`         |
+| `None` | `-L`   | `-H`   | `[HEAD - L, HEAD - H]`         |
 ||||||
 | `C`    | `None` | `None` | `[HEAD - 1, C]`                |
 | `C`    | `L`    | `H`    | `[L, C]`                       |
-| `C`    | `0`    | `0`    | `[HEAD - 1, C]`                |
-| `C`    | `-1`   | `-1`   | `[HEAD - 2, C]`                |
-| `C`    | `-L`   | `-H`   | `[HEAD - 1 - L, C]`            |
+| `C`    | `0`    | `0`    | `[HEAD, C]`                    |
+| `C`    | `-1`   | `-1`   | `[HEAD - 1, C]`                |
+| `C`    | `-L`   | `-H`   | `[HEAD - L, C]`                |

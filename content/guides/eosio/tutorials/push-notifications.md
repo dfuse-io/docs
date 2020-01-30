@@ -6,7 +6,7 @@ title: Push notifications from the chain
 
 ## Token Management
 
-First, head on to our self-service API management portal ({{< external-link href="https://app.dfuse.io">}}), after signing up you will be able to create long-term API keys.
+Once you have signed up at our self-service API management portal ({{< external-link href="https://app.dfuse.io">}}), you will be able to create long-term API keys. (See [Working With Your Free Account]({{< ref "/guides/eosio/getting-started/how-to-work-with-your-free-account" >}}) for more info if needed).
 
 Once you have this API key, call the  endpoint {{< external-link href="https://auth.dfuse.io/v1/auth/issue">}} to get a fresh Authentication Token (JWT).
 
@@ -23,7 +23,7 @@ defer httpResp.Body.Close()
 {{< /tab >}}
 {{< /tabs >}}
 
-Has documented {{< external-link href="https://docs.dfuse.io/#rest-api-post-https-auth-dfuse-io-v1-auth-issue" title="here">}}. The return payload is composed of a {{< external-link href="https://jwt.io" title="JWT token">}} and the expiration timestamp.
+As documented {{< external-link href="https://docs.dfuse.io/#rest-api-post-https-auth-dfuse-io-v1-auth-issue" title="here">}}, the returned payload is composed of a {{< external-link href="https://jwt.io" title="JWT token">}} and the expiration timestamp.
 
 {{< tabs "jwt-token" >}}
 {{< tab lang="json" >}}
@@ -62,13 +62,13 @@ func (jwt JWT) NeedRefresh() bool {
 {{< /tab >}}
 {{< /tabs >}}
 
-## Getting the dfuse Graphql gRPC client
+## Getting the dfuse GraphQL gRPC client
 - Take a look at gRPC {{< external-link href="https://grpc.io/docs/quickstart/go.html" title="Go Quick Start">}}
 - You can retrieve `graphql.proto` running `curl -O http://mainnet.eos.dfuse.io/graphql/graphql.proto`
 - execute `protoc -I bp/ bp/graphql.proto --go_out=plugins=grpc:graphql`
 
 
-## Initiating dfuse Graphql Server connection
+## Initiating dfuse Graphql Server Connection
 Sever addresses can be found at [EOSIO API Endpoints]({{< ref "reference/eosio/endpoints" >}}).
 
 {{< tabs "grpc-oauth" >}}
@@ -91,14 +91,14 @@ graphqlClient := pbgraphql.NewGraphQLClient(connection)
 {{< /tab >}}
 {{< /tabs >}}
 
-## GraphQL query
+## GraphQL Query
 
 - dfuse GraphQL documentation can be found {{< external-link href="https://docs.dfuse.io/#graphql" title="here">}}
 - If you are not familiar with GraphQL. Take a look at {{< external-link href="https://graphql.org/learn/" title="Introduction to GraphQL">}}
 - To help you construct your query and access our api documentation you can use {{< external-link href="https://mainnet.eos.dfuse.io/graphiql/" title="GraphiQL">}} _"A graphical interactive in-browser GraphQL IDE."_
 https://mainnet.eos.dfuse.io/graphiql/
 
-## Executing a query
+## Executing a Query
 {{< tabs "graphql-query" >}}
 {{< tab lang="go" >}}
 ...
@@ -133,12 +133,12 @@ This query `account:eosio.msig action:propose` will stream transactions containi
 
 Take a look at {{< external-link href="https://docs.dfuse.io/#search-query-language-specs" title="Search query language specs">}} for complete documentation.
 
-## Cursor and block numbers management
-Complete api documentation is accessible through {{< external-link href="https://mainnet.eos.dfuse.io/graphiql/" title="GraphiQL">}}
-- `lowBlockNum` parameter is the lower block num boundary, inclusively. A zero or negative value means a block relative to the head or last irreversible block (depending on irreversibleOnly).
-- `cursor` parameter is an opaque data piece that you can pass back to continue your search if it ever disconnected. Retrieve it from the cursor field in the responses of this call. It is safe to use the same cursor in BOTH directions (forward and backward).
+## Cursor and Block Numbers Management
+Complete API documentation is accessible through {{< external-link href="https://mainnet.eos.dfuse.io/graphiql/" title="GraphiQL">}}
+- `lowBlockNum` parameter is the lower block number boundary, inclusively. A zero or negative value means a block relative to the head or last irreversible block (depending on if your query contains the `irreversibleOnly` flag).
+- `cursor` parameter is an opaque data piece that you can pass back to continue your search if it ever becomes disconnected. Retrieve it from the cursor field in the responses of this call. It is safe to use the same cursor in BOTH directions (forward and backward).
 
-The cursors are part of each responses stream from server and should always store on reception. When your process/server is restarted, you should retrieve the last cursor received from server and use it in your next query. {{< external-link href="https://docs.dfuse.io/#searching-through-graphql" title="See more">}}
+The cursors are part of each responses stream from the server and should always store on reception. When your process/server is restarted, you should retrieve the last cursor received from the server and use it in your next query. {{< external-link href="https://docs.dfuse.io/#searching-through-graphql" title="See more">}}
 
 {{< tabs "load-cursor" >}}
 {{< tab lang="go" >}}
@@ -155,7 +155,9 @@ s.db.StoreCursor(cursor)
 {{< /tabs >}}
 
 
-## Reading server response
+## Reading Server Response
+<!-- TODO: Need a quick description -->
+
 {{< tabs "reading-server" >}}
 {{< tab lang="go" >}}
 ...
@@ -191,8 +193,11 @@ s.db.StoreCursor(cursor)
 {{< /tab >}}
 {{< /tabs >}}
 
-## Handling fork
-see {{< external-link href="https://docs.dfuse.io/#searching-through-graphql" title="handling fork">}}
+## Navigating Forks
+If the `irreversibleOnly` flag is not passed and you are reading results near the tip of the chain, you will
+encounter information that has not yet been deemed final. As a response you receive may be forked out of the chain,
+you will need to handle navigating these forks.
+See {{< external-link href="https://docs.dfuse.io/#searching-through-graphql" title="Navigating forks">}} in this page.
 
 {{< tabs "handling-fork" >}}
 {{< tab lang="go" >}}

@@ -2,7 +2,7 @@
 title: get_transaction_lifecycle
 ---
 Retrieve a "transaction_lifecycle" (when "fetch" is true) and follow
-its life-cycle (with "listen" is true)
+its life-cycle (when "listen" is true).
 
 ## Usage
 
@@ -26,9 +26,10 @@ Example request:
 
 #### Arguments
 
-`id` `required string`<br>
-The transaction ID you want to keep track of
+{{< method-list-item name="id" type="String" required="true" >}}
+  The transaction ID you want to keep track of
+{{< /method-list-item >}}
 
 #### Responses
 
-On both `fetch: true` and `listen: true` requests, _dfuse_ will stream back [TransactionLifecycle]({{< ref "../../types/TransactionLifecycle" >}}) objects.
+On both `fetch: true` and `listen: true` requests, _dfuse_ will stream back [TransactionLifecycle]({{< ref "../types/TransactionLifecycle" >}}) objects.

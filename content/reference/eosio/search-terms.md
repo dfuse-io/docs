@@ -9,7 +9,6 @@ title: Search Terms for EOSIO
 * `(auth:eoscanadacom OR receiver:eoscanadacom)`
 * `account:eosio.token action:transfer`
 * `(ram.consumed:eoscanadacom OR ram.released:eoscanadacom)`
-* `receiver:eosio.token db.key:"accounts/eoscanadacom/........ehbo5"`
 * `receiver:eosio.token db.table:stats`
 
 ## Available query fields
@@ -23,7 +22,6 @@ These are the prefixes or fields available for query:
 * `auth:` means the action was signed with the authority of a given account. The field has two formats:
     * `auth:account` an account, irrespective of the permission which signed the transaction
     * `auth:account@perm` an account and specific permission that signed the transaction, in which this action was declared.
-* `status:executed` will match the status of the transaction, here, only `executed`. NOTE: if `status` is not specified, an implicit `status:executed` is added to the query.
 * `scheduled:true` will match deferred transactions
 * `notif:true` will match *only* notifications, excluding input action or other inline actions.
 * `input:true` will match *only* the top-level actions (those present in the original transactions, and not as a side effect of contract execution).
@@ -38,12 +36,8 @@ These are the prefixes or fields available for query:
 * RAM operations incurred by action:
     * `ram.consumed:` is set to accounts that have consumed some RAM during an action
     * `ram.released:` is set to accounts that have released some RAM during an action
-* Database operations applied by action. All values are name-encoded (including the primary key)
-    * `db.key:` supports two values:
-         * `[table_name]/[scope]/[primary-key]`
-         * `[primary-key]`
+* Database operations applied by action. All values are name-encoded.
     * `db.table:` supports two values:
          * `[table_name]/[scope]`
          * `[table_name]`
-    * `db.scope:[scope]`
     * All the fields therein are name-encoded (even if somethings it can be the empty string), and are separated by the `/` character.

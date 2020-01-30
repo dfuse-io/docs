@@ -18,7 +18,7 @@ The output format is slightly different too.
 
 Sample request:
 
-{{< exampleRequest id="search-transactions" url="https://mainnet.eos.dfuse.io/v0/state/tables/scopes?account=eosio&scopes=eosio.token|eosadddddddd|tokenbyeocat|ethsidechain|epraofficial|alibabapoole|hirevibeshvt|oo1122334455|irespotokens|publytoken11|parslseed123|trybenetwork|zkstokensr4u&table=delband&block_num=25000000&json=true" >}}
+{{< example-request id="search-transactions" url="https://mainnet.eos.dfuse.io/v0/state/tables/scopes?account=eosio&scopes=eosio.token|eosadddddddd|tokenbyeocat|ethsidechain|epraofficial|alibabapoole|hirevibeshvt|oo1122334455|irespotokens|publytoken11|parslseed123|trybenetwork|zkstokensr4u&table=delband&block_num=25000000&json=true" >}}
 
 {{< alert type="note" >}}
 Not to be confused with [/v0/state/table_scopes]({{< ref "./state-table-scopes" >}}) which retrieves the only the scope names. Paired with this endpoint, you can get a consistent view of all tables in a contract.

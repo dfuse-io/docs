@@ -72,7 +72,7 @@ Stream all transactions to an account, in real-time:
 {{< tabs "graphql-subscription-request" >}}
 {{< tab lang="graphql" title="GraphQL Request" >}}
 subscription {
-  searchTransactions(query: "to:0x06012c8cf97BEaD5deAe237070F9587f8E7A266d", lowBlockNum: -1000) {
+  searchTransactions(indexName:CALLS query: "to:0x06012c8cf97BEaD5deAe237070F9587f8E7A266d", lowBlockNum: -1000) {
     node {
       hash
     }
@@ -93,11 +93,11 @@ subscription {
 {{< /tab >}}
 {{< /tabs >}}
 
-A more advanced method is the GraphQL Subscription. This gives you access to a a stream of transactions, essential for all kinds of real-time applications.
+A more advanced method is the GraphQL Subscription. This gives you access to a stream of transactions, essential for all kinds of real-time applications.
 
 For example, we can use this to obtain the hash of all transfers happening on the chain, in real-time.
 
-{{< external-link title="Try it on GraphiQL" href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMocXVlcnk6ICJ0bzoweDA2MDEyYzhjZjk3QkVhRDVkZUFlMjM3MDcwRjk1ODdmOEU3QTI2NmQiLCBsb3dCbG9ja051bTogLTEwMDApIHsKICAgIG5vZGUgewogICAgICBoYXNoCiAgICB9CiAgfQp9" >}}
+{{< external-link title="Try it on GraphiQL" href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMocXVlcnk6ICJ0bzoweDA2MDEyYzhjZjk3QkVhRDVkZUFlMjM3MDcwRjk1ODdmOEU3QTI2NmQiLCBpbmRleE5hbWU6IENBTExTLCBsb3dCbG9ja051bTogLTEwMDApIHsKICAgIG5vZGUgewogICAgICBoYXNoCiAgICB9CiAgfQp9" >}}
 
 ## Paginated Queries
 
@@ -106,7 +106,7 @@ Query the most recent transactions to an address with 3 documents per page:
 {{< tabs "graphql-paginated-request" >}}
 {{< tab lang="graphql" title="GraphQL Request" >}}
 query {
-  searchTransactions(query: "to:0x06012c8cf97BEaD5deAe237070F9587f8E7A266d", sort: DESC, limit: 3) {
+  searchTransactions(indexName:CALLS query: "to:0x06012c8cf97BEaD5deAe237070F9587f8E7A266d", sort: DESC, limit: 3) {
     pageInfo {
       endCursor
     }
@@ -155,7 +155,7 @@ The GraphQL API provides cursors to enable pagination. With every response, you 
 
 Besides pagination, cursors are instrumental when using subscriptions to deal with network disconnections. By using the cursor of your last successful request, you can reconnect and continue streaming without missing any documents.
 
-{{< external-link title="Try it on GraphiQL" href="https://mainnet.eth.dfuse.io/graphiql/?query=cXVlcnkgewogIHNlYXJjaFRyYW5zYWN0aW9ucyhxdWVyeTogInRvOjB4MDYwMTJjOGNmOTdCRWFENWRlQWUyMzcwNzBGOTU4N2Y4RTdBMjY2ZCIsIHNvcnQ6IERFU0MsIGxpbWl0OiAzKSB7CiAgICBwYWdlSW5mbyB7CiAgICAgIGVuZEN1cnNvcgogICAgfQogICAgZWRnZXMgewogICAgICBub2RlIHsKICAgICAgICBoYXNoCiAgICAgIH0KICAgIH0KICB9Cn0=" >}}
+{{< external-link title="Try it on GraphiQL" href="https://mainnet.eth.dfuse.io/graphiql/?query=cXVlcnkgewogIHNlYXJjaFRyYW5zYWN0aW9ucyhpbmRleE5hbWU6IENBTExTLCBxdWVyeTogInRvOjB4MDYwMTJjOGNmOTdCRWFENWRlQWUyMzcwNzBGOTU4N2Y4RTdBMjY2ZCIsIHNvcnQ6IERFU0MsIGxpbWl0OiAzKSB7CiAgICBwYWdlSW5mbyB7CiAgICAgIGVuZEN1cnNvcgogICAgfQogICAgZWRnZXMgewogICAgICBub2RlIHsKICAgICAgICBoYXNoCiAgICAgIH0KICAgIH0KICB9Cn0=" >}}
 
 ## Navigating Forks
 
@@ -164,7 +164,7 @@ Stream all transactions to an account, keeping an eye on forks:
 {{< tabs "graphql-forks-request" >}}
 {{< tab lang="graphql" title="GraphQL Request" >}}
 subscription {
-  searchTransactions(query: "to:0x06012c8cf97BEaD5deAe237070F9587f8E7A266d", lowBlockNum: -1000) {
+  searchTransactions(indexName:CALLS query: "to:0x06012c8cf97BEaD5deAe237070F9587f8E7A266d", lowBlockNum: -1000) {
     undo
     node {
       hash
@@ -191,7 +191,7 @@ When dealing with documents that were very recently added to a blockchain, there
 
 When this happens, you can be notified by retrieving the `undo` property of the API. It is your responsibility to ensure that you respond properly to transactions being forked out of the chain.
 
-{{< external-link title="Try it on GraphiQL" href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMocXVlcnk6ICJ0bzoweDA2MDEyYzhjZjk3QkVhRDVkZUFlMjM3MDcwRjk1ODdmOEU3QTI2NmQiLCBsb3dCbG9ja051bTogLTEwMDApIHsKICAgIHVuZG8KICAgIG5vZGUgewogICAgICBoYXNoCiAgICB9CiAgfQp9" >}}
+{{< external-link title="Try it on GraphiQL" href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMoaW5kZXhOYW1lOiBDQUxMUywgcXVlcnk6ICJ0bzoweDA2MDEyYzhjZjk3QkVhRDVkZUFlMjM3MDcwRjk1ODdmOEU3QTI2NmQiLCBsb3dCbG9ja051bTogLTEwMDApIHsKICAgIHVuZG8KICAgIG5vZGUgewogICAgICBoYXNoCiAgICB9CiAgfQp9" >}}
 
 {{< alert type="important" >}}
 Never forget to retrieve the `undo` property, as streaming results will re-send the matching transactions with `undo:true` upon micro-fork resolution.
@@ -199,7 +199,7 @@ Never forget to retrieve the `undo` property, as streaming results will re-send 
 
 ## Transports
 
-The _dfuse_ GraphQL endpoints support the following transports:
+The dfuse GraphQL endpoints support the following transports:
 
 * `POST` REST calls to `/graphql`, for GraphQL Queries only.
 
@@ -213,7 +213,7 @@ The _dfuse_ GraphQL endpoints support the following transports:
 
 ## GraphQL over REST
 
-You can run GraphQL queries by querying the `/graphql` path of _dfuse_ endpoints.
+You can run GraphQL queries by querying the `/graphql` path of dfuse endpoints.
 
 ## Apollo Subscription Transport
 
@@ -257,7 +257,7 @@ jq -r .data
 1. Make a GraphQL request, sending along a valid Authorization token.
 1. When viewing the output, you can find the GraphQL response wrapped as a string in the gRPC `data` field.
 
-Launch grpcui:
+Launch `grpcui`:
 
 {{< highlight shell >}}
 grpcui -port 6000 mainnet.eos.dfuse.io:443
@@ -265,21 +265,21 @@ grpcui -port 6000 mainnet.eos.dfuse.io:443
 
 ### Using `grpcui`
 
-1. {{< external-link title="install grpcui" href="https://github.com/fullstorydev/grpcui" >}}.
+1. {{< external-link title="Install grpcui" href="https://github.com/fullstorydev/grpcui" >}}.
 1. Open {{< external-link title="http://localhost:6000" href="http://localhost:6000" >}} and explore the interface.
 1. Add the `authorization` header in the interface, in the format: `Bearer TOKEN` where `TOKEN` is a [valid JWT](#authentication).
 
 {{< alert type="note" >}}
-`grpcui` doesn't handle streaming responses properly; it jams until the subscription is terminated.  To view streaming search results, use `grpcurl` instead. <!-- TODO: There is no anchor that exists. Commented out: ([see above](#graphql-over-grpc-grpcurl)).  -->
+`grpcui` doesn't handle streaming responses properly; it jams until the subscription is terminated.  To view streaming search results, use `grpcurl` instead as explained just above. <!-- TODO: There is no anchor that exists. Commented out: ([see above](#graphql-over-grpc-grpcurl)).  -->
 {{< /alert >}}
 
 ## Searching Through GraphQL
 
-The _dfuse Search_ engine exposed through the GraphQL endpoint has a few pecularities that are worthy to note here:
+The dfuse Search engine exposed through the GraphQL endpoint has a few pecularities that are worthy to note here:
 
 1. The cursor property is chain-wide, and is returned with each result, so you can pick up where you left off at each transaction, and not worry that a block has been partially applied.
 2. It navigates forks in a slightly different way than the WebSocket `get_table_rows`. See [Navigating Forks](#navigating-forks).
-3. You can do a _backward_ search to get recent transactions up to a limit, and then use the _first_ cursor from those results to do a _forward_ search on the same query, and listen to real-time events happening in real-time, all the while navigating forks. Make sure you keep track of the `undo` property in forward searches.
+3. You can do a _backward_ search to get recent transactions up to a limit, and then use the _first_ cursor from those results to do a _forward_ search on the same query, and listen to real-time events, all while navigating forks. Make sure you keep track of the `undo` property in forward searches.
 
 ## API Reference
 
@@ -289,7 +289,7 @@ The best way to explore the GraphQL schemas, available subscriptions & queries a
 
 The GraphQL schema is fully documented and should answer most of your questions
 regarding the data it serves. Within GraphiQL, simply place your
-cursor somewhere and press `Ctrl+<Space>` to see completion possibilities for current the location.
+cursor somewhere and press `Ctrl+<Space>` to see completion possibilities for the current location.
 
 #### Subscriptions
 
@@ -349,10 +349,10 @@ To get you started, here are a few sample queries and how to read them.
 ### Streaming Transactions
 
 
-The following query (try it on {{< external-link href="https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKAogICAgcXVlcnk6InJlY2VpdmVyOmVvc2lvLnRva2VuIGFjY291bnQ6ZW9zaW8udG9rZW4gYWN0aW9uOnRyYW5zZmVyIiwKICAgIGxvd0Jsb2NrTnVtOjAsCiAgICBsaW1pdDoyMCwKICApIHsKICAgIHVuZG8KICAgIGN1cnNvcgogICAgdHJhY2UgewogICAgICBpZAogICAgICBtYXRjaGluZ0FjdGlvbnMgewogICAgICAgIHJlY2VpdmVyCiAgICAgICAgYWNjb3VudAogICAgICAgIG5hbWUKICAgICAgICBqc29uCiAgICAgICAgY3JlYXRvckFjdGlvbiB7CiAgICAgICAgICByZWNlaXZlcgogICAgICAgICAgYWNjb3VudAogICAgICAgICAgbmFtZQogICAgICAgICAganNvbgogICAgICAgIH0KICAgICAgfQogICAgfQogIH0KfQ==" title="GraphiQL PR">}}):
+The following query (try it on {{< external-link href="https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKAogICAgcXVlcnk6InJlY2VpdmVyOmVvc2lvLnRva2VuIGFjY291bnQ6ZW9zaW8udG9rZW4gYWN0aW9uOnRyYW5zZmVyIiwKICAgIGxvd0Jsb2NrTnVtOjAsCiAgICBsaW1pdDoyMCwKICApIHsKICAgIHVuZG8KICAgIGN1cnNvcgogICAgdHJhY2UgewogICAgICBpZAogICAgICBtYXRjaGluZ0FjdGlvbnMgewogICAgICAgIHJlY2VpdmVyCiAgICAgICAgYWNjb3VudAogICAgICAgIG5hbWUKICAgICAgICBqc29uCiAgICAgICAgY3JlYXRvckFjdGlvbiB7CiAgICAgICAgICByZWNlaXZlcgogICAgICAgICAgYWNjb3VudAogICAgICAgICAgbmFtZQogICAgICAgICAganNvbgogICAgICAgIH0KICAgICAgfQogICAgfQogIH0KfQ==" title="GraphiQL">}}):
 
 * `subscription` prefix - Issues a GraphQL subscription call (streaming results).
-* `query:"receiver:eosio.token account:eosio.token action:transfer"` - The query utilizing the dfuse Search Query Language <!-- TODO: Add a link to a SQE page once figured out --> that you would like responses to match. This query requests responses for `transfer` actions on the `eosio.token` smart contract.
+* `query:"receiver:eosio.token account:eosio.token action:transfer"` - The query utilizing the {{< external-link title="dfuse Search Query Language" href="/guides/core-concepts/search-query-language" >}} that you would like responses to match. This query requests responses for `transfer` actions on the `eosio.token` smart contract.
 * `lowBlockNum: 0` - Defaults to the HEAD of the chain where it then begins listening for new real-time blocks that match the query.
 * `limit:20` - The amount of matched responses that should be accumulated before returning a payload. Once returned, the subscription will be closed.
 * `matchingActions` - Retrieve the matching actions. Note there could be many in a single transaction.
@@ -423,7 +423,7 @@ subscription {
 
 ### Multiple GraphQL queries in one request:
 
-The following query (try it on {{< external-link title="GraphiQL" href="https://mainnet.eos.dfuse.io/graphiql/?query=ewogIHN0YXJ0OiBibG9ja0lEQnlUaW1lKHRpbWU6ICIyMDE5LTAxLTAxVDAwOjAwOjAwWiIpIHsKICAgIHRpbWUKICAgIG51bQogICAgaWQKICB9CiAgZW5kOiBibG9ja0lEQnlUaW1lKHRpbWU6ICIyMDE5LTAyLTAxVDAwOjAwOjAwWiIpIHsKICAgIHRpbWUKICAgIG51bQogICAgaWQKICB9Cn0K)" >}}:
+The following query (try it on {{< external-link title="GraphiQL" href="https://mainnet.eos.dfuse.io/graphiql/?query=ewogIHN0YXJ0OiBibG9ja0lEQnlUaW1lKHRpbWU6ICIyMDE5LTAxLTAxVDAwOjAwOjAwWiIpIHsKICAgIHRpbWUKICAgIG51bQogICAgaWQKICB9CiAgZW5kOiBibG9ja0lEQnlUaW1lKHRpbWU6ICIyMDE5LTAyLTAxVDAwOjAwOjAwWiIpIHsKICAgIHRpbWUKICAgIG51bQogICAgaWQKICB9Cn0K)" >}}):
 
 * Issues a GraphQL _query_ that retrieves responses for two queries at once
 * Each querying the block ID and number less than or equal to the date specified in `time`.

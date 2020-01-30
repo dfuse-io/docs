@@ -5,15 +5,22 @@ title: GET /v0/search/transactions
 Search an EOSIO blockchain for transactions based on free-form
 criterias, using the [_dfuse_ Search query language]({{< ref "../search-terms" >}}).
 
+{{< alert type="important" >}}
+We **strongly suggest** to use the [GraphQL search API]({{< ref "/reference/eosio/graphql#query-searchtransactionsforward" >}})
+of this endpoint. Advantages of using the GraphQL version:
+
+- Streaming capabilities, or to be able to stream new results as they pushed on the chain. Quit or got disconnected? Simply resume at exact point you left off by using a [cursor]({{< ref "/guides/core-concepts/cursors" >}}).
+- Easier data model to extract matching actions from response (i.e. to get only the actions in the transaction that matched the query used).
+- Possibility to greatly reduce bandwidth transfer & cost (ingress to your server) by specifying the exact trimmed down data payload you need (excellent for browser & mobile usage).
+- A much cleaner interface to query by block range (`lowBlockNum` and `highBlockNum` instead of harder to reason about `startBlock` and `blockCount`)
+- On-the-fly ABI decode to JSON smart contract database rows that changed due to the execution of the transaction.
+{{< /alert >}}
+
 ## Usage
 
 Sample request:
 
-{{< exampleRequest id="search-transactions" url="https://mainnet.eos.dfuse.io/v0/search/transactions?start_block=0&block_count=10000&limit=10&sort=desc&q=receiver:eosio.token action:transfer data.to:someaccount1" >}}
-
-{{< alert type="note" >}}
-This search endpoint does not handle real-time search.  See the GraphQL endpoint for real-time, cursored search.
-{{< /alert >}}
+{{< example-request id="search-transactions" url="https://mainnet.eos.dfuse.io/v0/search/transactions?start_block=0&block_count=10000&limit=10&sort=desc&q=receiver:eosio.token action:transfer data.to:someaccount1" >}}
 
 ## Pagination
 
