@@ -13,9 +13,7 @@ If you prefer to skip forward and run the completed project, run:
 
 {{< tabs "clone-completed-example">}}
 {{< tab title="Shell" lang="shell" >}}
-
 # clone and install the example project
-
 git clone github.com/dfuse-io/docs
 cd docs/tutorials/ethereum/track_tx
 yarn install
@@ -33,9 +31,7 @@ Use the {{< external-link href="https://github.com/facebook/create-react-app">}}
 
 {{< tabs "create-react-app">}}
 {{< tab title="Shell" lang="shell" >}}
-
 # get create-react-app: https://github.com/facebook/create-react-app
-
 npx create-react-app track-trx
 cd track-trx
 npm start
@@ -54,9 +50,7 @@ The simplest way to get started with dfuse and JavaScript/TypeScript development
 
 {{< tabs "adding-dfuse-client-lib">}}
 {{< tab title="NPM" lang="shell" >}}
-
 # https://www.npmjs.com/package/@dfuse/client
-
 npm install --save @dfuse/client
 {{< /tab >}}
 {{< /tabs >}}
@@ -113,12 +107,12 @@ Create an `async` function `fetchTransaction` that will use the dfuse JS client 
 {{< tabs "fetch-transaction-init">}}
 {{< tab title="src/App.js" lang="javascript" >}}
 async function fetchTransaction() {
-setState("streaming"); // sets the state of our query to "streaming"
-setError(""); // clears any errors that may have been logged before
-setTransitions([]); // clears the transitions when starting a new search
-var currentTransitions = []; // local variable to store transition in callback function
-var count = 0; // reset transition count
-...
+    setState("streaming"); // sets the state of our query to "streaming"
+    setError(""); // clears any errors that may have been logged before
+    setTransitions([]); // clears the transitions when starting a new search
+    var currentTransitions = []; // local variable to store transition in callback function
+    var count = 0; // reset transition count
+    ...
 }
 {{< /tab >}}
 {{< /tabs >}}
@@ -128,22 +122,21 @@ Use the dfuse client with the GraphQL query and set our transaction hash as a va
 {{< tabs "fetch-transaction-func-setup">}}
 {{< tab title="src/App.js" lang="javascript" >}}
 async function fetchTransaction() {
-setState("streaming"); // sets the state of our query to "streaming"
-setError(""); // clears any errors that may have been logged before
-setTransitions([]); // clears the transitions when starting a new search
-var currentTransitions = []; // local variable to store transition in callback function
-var count = 0; // reset transition count
+    setState("streaming"); // sets the state of our query to "streaming"
+    setError(""); // clears any errors that may have been logged before
+    setTransitions([]); // clears the transitions when starting a new search
+    var currentTransitions = []; // local variable to store transition in callback function
+    var count = 0; // reset transition count
 
-        const stream = await dfuseClient.graphql(streamTransactionQuery, (message) => {
-            ...
-        },{
-            variables: {
-                hash:  transactionHash
-            }
-        });
-        await stream.join();  // awaits stream completion, which is never for this operation
-    }
-
+    const stream = await dfuseClient.graphql(streamTransactionQuery, (message) => {
+        ...
+    },{
+        variables: {
+            hash:  transactionHash
+        }
+    });
+    await stream.join();  // awaits stream completion, which is never for this operation
+}
 {{< /tab >}}
 {{< /tabs >}}
 

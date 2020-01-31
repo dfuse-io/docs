@@ -13,9 +13,7 @@ If you prefer to skip forward and run the completed project, run:
 
 {{< tabs "clone-completed-example">}}
 {{< tab title="Shell" lang="shell" >}}
-
 # clone and install the example project
-
 git clone github.com/dfuse-io/docs
 cd docs/tutorials/search
 yarn install
@@ -33,9 +31,7 @@ Use the {{< external-link href="https://github.com/facebook/create-react-app">}}
 
 {{< tabs "create-react-app">}}
 {{< tab title="Shell" lang="shell" >}}
-
 # get create-react-app: https://github.com/facebook/create-react-app
-
 npx create-react-app track-trx
 cd track-trx
 npm start
@@ -54,9 +50,7 @@ The simplest way to get started with dfuse and JavaScript/TypeScript development
 
 {{< tabs "adding-dfuse-client-lib">}}
 {{< tab title="NPM" lang="shell" >}}
-
 # https://www.npmjs.com/package/@dfuse/client
-
 npm install --save @dfuse/client
 {{< /tab >}}
 {{< /tabs >}}
@@ -115,11 +109,11 @@ Create an `async` function `searchTransactions` that will use the dfuse JS clien
 {{< tabs "fetch-transaction-init">}}
 {{< tab title="src/App.js" lang="javascript" >}}
 async function searchTransactions() {
-setState('searching'); // sets the state of our query to "searching"
-setError(""); // clears any errors that may have been logged before
-setTransactions([]); // clears the transactions when starting a new search
-var currentResults = []; // local variable to store transactions in callback function
-...
+    setState('searching'); // sets the state of our query to "searching"
+    setError(""); // clears any errors that may have been logged before
+    setTransactions([]); // clears the transactions when starting a new search
+    var currentResults = []; // local variable to store transactions in callback function
+    ...
 }
 {{< /tab >}}
 {{< /tabs >}}
@@ -137,11 +131,11 @@ Use dfuse client with the GraphQL query and set the following variables:
 {{< tabs "fetch-transaction-func-setup">}}
 {{< tab title="src/App.js" lang="javascript" >}}
 async function searchTransactions() {
-setState('searching');
-setError("");
-setTransactions([]);
-var currentResults = [];
-const parsedSQE = parseSQE(query);
+    setState('searching');
+    setError("");
+    setTransactions([]);
+    var currentResults = [];
+    const parsedSQE = parseSQE(query);
 
     const stream = await dfuseClient.graphql(
       searchTransactionsQuery,
@@ -162,7 +156,6 @@ const parsedSQE = parseSQE(query);
     );
 
     await stream.join(); // wait for stream to complete
-
 }
 {{< /tab >}}
 {{< /tabs >}}
