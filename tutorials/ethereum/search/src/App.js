@@ -8,7 +8,33 @@ function App() {
     network: 'mainnet.eth.dfuse.io'
   });
 
-  const FlatCallFragment = `fragment FlatCallFragment on Call {
+  const searchTransactionsQuery = `subscription ($query: String!, $indexName: TRANSACTIONS_INDEX_NAME! $cursor: String!, $lowBlockNum: Int64!, $highBlockNum: Int64!, $limit: Int64!, $sort: SORT!) {
+    searchTransactions(indexName: $indexName, query: $query, lowBlockNum: $lowBlockNum, highBlockNum: $highBlockNum, cursor: $cursor, limit: $limit, sort: $sort) {
+      cursor
+      undo
+      node {
+        value(encoding:WEI)
+        hash
+        nonce
+        gasLimit
+        gasUsed
+        gasPrice(encoding:WEI)
+        to
+        block {
+          number
+          hash
+          header {
+            timestamp
+          }
+        }
+        flatCalls {
+          ...FlatCallFragment
+        }
+      }
+    }
+  }
+  
+  fragment FlatCallFragment on Call {
     index
     depth
     parentIndex
@@ -36,70 +62,7 @@ function App() {
       oldValue
       newValue
     }
-  }
-  `;
-
-  const searchTransactionsQuery = `query ($query: String!, $lowBlockNum: Int64!, $highBlockNum: Int64, $limit: Int64!, $cursor: String) {
-    searchTransactions(query: $query, indexName:CALLS, lowBlockNum: $lowBlockNum, highBlockNum: $highBlockNum, sort: DESC, limit: $limit, cursor: $cursor) {
-      pageInfo {
-        startCursor
-        endCursor
-      }
-      edges {
-        undo
-        cursor
-        node {
-          value(encoding:WEI)
-          hash
-          nonce
-          gasLimit
-          gasUsed
-          gasPrice(encoding:WEI)
-          to
-          block {
-            number
-            hash
-            header {
-              timestamp
-            }
-          }
-          flatCalls {
-            ...FlatCallFragment
-          }
-        }
-      }
-    }
-  }
-  
-  ${FlatCallFragment}`;
-
-  const streamTransactionsQuery = `subscription ($query: String!, $cursor: String!, $lowBlockNum: Int64!, $highBlockNum: Int64!, $limit: Int64!, $sort: SORT!) {
-    searchTransactions(indexName: CALLS, query: $query, lowBlockNum: $lowBlockNum, highBlockNum: $highBlockNum, cursor: $cursor, limit: $limit, sort: $sort) {
-      cursor
-      undo
-      node {
-        value(encoding:WEI)
-        hash
-        nonce
-        gasLimit
-        gasUsed
-        gasPrice(encoding:WEI)
-        to
-        block {
-          number
-          hash
-          header {
-            timestamp
-          }
-        }
-        flatCalls {
-          ...FlatCallFragment
-        }
-      }
-    }
-  }
-
-  ${FlatCallFragment}`;
+  }`;
 
   const [query, setQuery] = useState('');
   const [transactions, setTransactions] = useState([]);
@@ -112,50 +75,15 @@ function App() {
     };
   }
 
-  // async function searchTransactions() {
-  //   setTransactions([]);
-  //   setState('searching');
-
-  //   const parsedSQE = parseSQE(query);
-
-  //   console.log('1');
-  //   const response = await dfuseClient.graphql(searchTransactionsQuery, {
-  //     variables: {
-  //       // query: parsedSQE.query,
-  //       query:
-  //         '(from:0x6b23db4dCB3d741Fc73c5f63c93DFD368Cf3534c OR to:0x6b23db4dCB3d741Fc73c5f63c93DFD368Cf3534c)',
-  //       indexName: 'CALLS',
-  //       lowBlockNum: 0,
-  //       highBlockNum: -1,
-  //       sort: 'DESC',
-  //       limit: 25,
-  //       cursor: ''
-  //     }
-  //   });
-
-  //   console.log('2');
-
-  //   if (response.errors) {
-  //     response.errors.forEach(error => {
-  //       console.log('GraphQL Query Error', error.message, error);
-  //       setError(error.message);
-  //     });
-  //   } else {
-  //     const result = await response.data.searchTransactions.fetchData();
-  //     console.log(result);
-  //     setTransactions(result);
-  //     setState('completed');
-  //   }
-  // }
-
   async function searchTransactions() {
-    await setTransactions([]);
     setState('searching');
+    setError('');
+    setTransactions([]);
     let currentResults = [];
     const parsedSQE = parseSQE(query);
 
     const stream = await dfuseClient.graphql(
-      streamTransactionsQuery,
+      searchTransactionsQuery,
       message => {
         if (message.type === 'error') {
           setError(message.errors[0]['message']);
@@ -176,8 +104,6 @@ function App() {
       {
         variables: {
           query: parsedSQE.query,
-          // query:
-          //   '(from:0x6b23db4dCB3d741Fc73c5f63c93DFD368Cf3534c OR to:0x6b23db4dCB3d741Fc73c5f63c93DFD368Cf3534c)',
           indexName: 'CALLS',
           lowBlockNum: 0,
           highBlockNum: -1,

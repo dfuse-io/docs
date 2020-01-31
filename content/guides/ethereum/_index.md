@@ -6,25 +6,29 @@ title: Ethereum
 {{< sub-section-columns  class="col-4" >}}
 
 #### Getting Started
-* [Working with your free dfuse account] ({{< ref "/guides/ethereum/getting-started/how-to-work-with-your-free-account" >}})
-* [Explore ETH Through dfuse] ({{< ref "/guides/ethereum/getting-started/explore-eth-through-dfuse" >}})
-* [JavaScript Quickstart]({{< ref "/guides/ethereum/getting-started/javascript-quickstart" >}})
-* [Other Languages]({{< ref "/guides/ethereum/getting-started/other-languages" >}})
+
+- [Working with your free dfuse account] ({{< ref "/guides/ethereum/getting-started/how-to-work-with-your-free-account" >}})
+- [Explore ETH Through dfuse] ({{< ref "/guides/ethereum/getting-started/explore-eth-through-dfuse" >}})
+- [JavaScript Quickstart]({{< ref "/guides/ethereum/getting-started/javascript-quickstart" >}})
+- [Other Languages]({{< ref "/guides/ethereum/getting-started/other-languages" >}})
 
 #### Tutorials
-* [Track transaction in real-time] ({{< ref "/guides/ethereum/tutorials/track_trx" >}})
+
+- [Track transaction in real-time] ({{< ref "/guides/ethereum/tutorials/track_trx" >}})
+- [Search with query language] ({{< ref "/guides/ethereum/tutorials/search" >}})
 
 <--->
 
 #### Concepts
-* [Search Ranges]({{< ref "/guides/ethereum/concepts/search-ranges" >}})
-* [Transaction State Tracker]({{< ref "/guides/ethereum/concepts/trx_lifecycle" >}})
+
+- [Search Ranges]({{< ref "/guides/ethereum/concepts/search-ranges" >}})
+- [Transaction State Tracker]({{< ref "/guides/ethereum/concepts/trx_lifecycle" >}})
 
 <--->
 
 #### Other Guides
 
-* [Authentication]({{< ref "/guides/core-concepts/authentication" >}})
-* [GraphQL]({{< ref "/guides/core-concepts/graphql" >}})
+- [Authentication]({{< ref "/guides/core-concepts/authentication" >}})
+- [GraphQL]({{< ref "/guides/core-concepts/graphql" >}})
 
 {{< /sub-section-columns >}}

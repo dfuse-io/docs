@@ -5,10 +5,10 @@ menuTitle: Tutorials
 protocol: ETH
 ---
 
-
 In this section, you will find the list of tutorials currently written, allowing you to easily map your use case to one or more dfuse concepts under a concrete code repository.
 
 - [Track transaction in real-time]({{< ref "/guides/ethereum/tutorials/track_trx" >}}) (<small>Keywords: dfuse Lifecycle, JavaScript, React, Browser</small>)
+- [Search with query language]({{< ref "/guides/ethereum/tutorials/search" >}}) (<small>Keywords: dfuse Search, JavaScript, React, Browser</small>)
 
 <!--
     List of potential other tutorials we had:
@@ -17,4 +17,3 @@ In this section, you will find the list of tutorials currently written, allowing
       - Slack notification from on-chain events (Workers I think)
       - Reliably sync a database (cursors + navigating forks concepts)
 -->
-

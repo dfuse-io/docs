@@ -1,9 +1,10 @@
 ---
-weight: 3
+weight: 2
 menuTitle: Track transaction in real-time
 title: Track transaction in Real-time
 release: beta
 ---
+
 In this guide we will create a simple React application that will use dfuse's Transaction State Tracker API to keep track of the state of an Ethereum transaction in real time. To do that, we will be using {{< external-link href="https://reactjs.org/docs/hooks-intro.html" title="react hooks">}}.
 
 ## 0. Completed Example
@@ -12,7 +13,9 @@ If you prefer to skip forward and run the completed project, run:
 
 {{< tabs "clone-completed-example">}}
 {{< tab title="Shell" lang="shell" >}}
+
 # clone and install the example project
+
 git clone github.com/dfuse-io/docs
 cd docs/tutorials/ethereum/track_tx
 yarn install
@@ -24,13 +27,15 @@ yarn start
 Installing the {{< external-link href="https://reactjs.org/tutorial/tutorial.html#developer-tools" title="React Dev Tools">}} plugin for your browser is optional, but is very useful for seeing what goes on in the application.
 {{< /alert >}}
 
-
 ## 1. Create React App
+
 Use the {{< external-link href="https://github.com/facebook/create-react-app">}} to set up your development environment so that you can use the latest JavaScript features. You’ll need to have Node >= 8.10 and npm >= 5.6 on your machine. To create a project, run:
 
 {{< tabs "create-react-app">}}
 {{< tab title="Shell" lang="shell" >}}
+
 # get create-react-app: https://github.com/facebook/create-react-app
+
 npx create-react-app track-trx
 cd track-trx
 npm start
@@ -49,7 +54,9 @@ The simplest way to get started with dfuse and JavaScript/TypeScript development
 
 {{< tabs "adding-dfuse-client-lib">}}
 {{< tab title="NPM" lang="shell" >}}
+
 # https://www.npmjs.com/package/@dfuse/client
+
 npm install --save @dfuse/client
 {{< /tab >}}
 {{< /tabs >}}
@@ -90,10 +97,10 @@ Do not worry! This query may seem intimidating, but it is broken down using the 
 
 Lets setup a few hooks that will help us keep track of our transaction states and render our component. We use {{< external-link title="react state hook" href="https://reactjs.org/docs/hooks-state.html">}} to accomplish this.
 
-* `transactionHash`: keeps track of the transaction's hash
-* `transitions`: array that stores all the received transaction transitions
-* `state`: stores the current state of the GraphQL subscription
-* `error`: stores our errors
+- `transactionHash`: keeps track of the transaction's hash
+- `transitions`: array that stores all the received transaction transitions
+- `state`: stores the current state of the GraphQL subscription
+- `error`: stores our errors
 
 {{< tabs "setup-hooks">}}
 {{< tab-code title="src/App.js" filename="./tutorials/ethereum/track_tx/src/App.js" range="124:127" >}}
@@ -105,14 +112,14 @@ Create an `async` function `fetchTransaction` that will use the dfuse JS client 
 
 {{< tabs "fetch-transaction-init">}}
 {{< tab title="src/App.js" lang="javascript" >}}
-    async function fetchTransaction() {
-        setState("streaming");          // sets the state of our query to "streaming"
-        setError("");                   // clears any errors that may have been logged before
-        setTransitions([]);             // clears the transitions when starting a new search
-        var currentTransitions = [];    // local variable to store transition in callback function
-        var count = 0;                  // reset transition count
-        ...
-    }
+async function fetchTransaction() {
+setState("streaming"); // sets the state of our query to "streaming"
+setError(""); // clears any errors that may have been logged before
+setTransitions([]); // clears the transitions when starting a new search
+var currentTransitions = []; // local variable to store transition in callback function
+var count = 0; // reset transition count
+...
+}
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -120,12 +127,12 @@ Use the dfuse client with the GraphQL query and set our transaction hash as a va
 
 {{< tabs "fetch-transaction-func-setup">}}
 {{< tab title="src/App.js" lang="javascript" >}}
-    async function fetchTransaction() {
-        setState("streaming");          // sets the state of our query to "streaming"
-        setError("");                   // clears any errors that may have been logged before
-        setTransitions([]);             // clears the transitions when starting a new search
-        var currentTransitions = [];    // local variable to store transition in callback function
-        var count = 0;                  // reset transition count
+async function fetchTransaction() {
+setState("streaming"); // sets the state of our query to "streaming"
+setError(""); // clears any errors that may have been logged before
+setTransitions([]); // clears the transitions when starting a new search
+var currentTransitions = []; // local variable to store transition in callback function
+var count = 0; // reset transition count
 
         const stream = await dfuseClient.graphql(streamTransactionQuery, (message) => {
             ...
@@ -136,14 +143,15 @@ Use the dfuse client with the GraphQL query and set our transaction hash as a va
         });
         await stream.join();  // awaits stream completion, which is never for this operation
     }
+
 {{< /tab >}}
 {{< /tabs >}}
 
 The `message` returned from the GraphQL stream can have 3 different types that need to be handled in our code:
 
-* `error`: This is an error returned by the stream. We simply store it in our state.
-* `data`: This contains the transition state tracker payload. We create a `newTransition` object and store that in our transitions array.
-* `complete`: This message occurs when the stream is closed. We update our stream state.
+- `error`: This is an error returned by the stream. We simply store it in our state.
+- `data`: This contains the transition state tracker payload. We create a `newTransition` object and store that in our transitions array.
+- `complete`: This message occurs when the stream is closed. We update our stream state.
 
 {{< tabs "fetch-transaction-func-handler">}}
 {{< tab-code title="src/App.js" filename="./tutorials/ethereum/track_tx/src/App.js" range="129:165" >}}
