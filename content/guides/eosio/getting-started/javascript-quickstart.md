@@ -46,10 +46,10 @@ the {{< external-link title="dfuse JS client library" href="https://github.com/d
 
 Here are a few of its key features:
 
-* Handles API token issuance
-* Refreshes your API token upon expiration
-* Automatically reconnects if the connection closes
-* Supports `Browsers` and `Node.js` environments
+- Handles API token issuance
+- Refreshes your API token upon expiration
+- Automatically reconnects if the connection closes
+- Supports `Browsers` and `Node.js` environments
 
 You can add it to your project using Yarn or NPM.
 
@@ -106,7 +106,7 @@ connect to.
 Valid networks can be found at [EOSIO API Endpoints]({{< ref "reference/eosio/endpoints" >}})
 
 {{< tabs "create-client" >}}
-{{< tab-code title="Node.js" filename="./quickstarts/javascript/node.js/index.eosio.js" range="4:9" >}}
+{{< tab-code title="Node.js" filename="./quickstarts/javascript/node/index.eosio.js" range="4:9" >}}
 {{< tab-code title="Bundler" filename="./quickstarts/javascript/bundler/index.eosio.js" range="1:6" >}}
 {{< tab-code title="Browser" filename="./quickstarts/javascript/browser/index.eosio.html" range="1:11" >}}
 {{< /tabs >}}
@@ -120,12 +120,12 @@ to you, you get to choose and pick only what you are interested in.
 {{< alert type="note" >}}
 Want to inspect the full set of available fields you can retrieve?
 
-* [GraphQL API Reference]({{< ref "/reference/eosio/graphql" >}})
-* {{< external-link href="https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKHF1ZXJ5OiJyZWNlaXZlcjplb3Npby50b2tlbiBhY3Rpb246dHJhbnNmZXIgLWRhdGEucXVhbnRpdHk6JzAuMDAwMSBFT1MnIikgewogICAgdW5kbyBjdXJzb3IKICAgIHRyYWNlIHsgaWQgbWF0Y2hpbmdBY3Rpb25zIHsganNvbiB9IH0KICB9Cn0=" title="GraphiQL, online query editor with completion and docs">}}
-{{< /alert >}}
+- [GraphQL API Reference]({{< ref "/reference/eosio/graphql" >}})
+- {{< external-link href="https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKHF1ZXJ5OiJyZWNlaXZlcjplb3Npby50b2tlbiBhY3Rpb246dHJhbnNmZXIgLWRhdGEucXVhbnRpdHk6JzAuMDAwMSBFT1MnIikgewogICAgdW5kbyBjdXJzb3IKICAgIHRyYWNlIHsgaWQgbWF0Y2hpbmdBY3Rpb25zIHsganNvbiB9IH0KICB9Cn0=" title="GraphiQL, online query editor with completion and docs">}}
+  {{< /alert >}}
 
 {{< tabs "define-query">}}
-{{< tab-code title="Node.js" filename="./quickstarts/javascript/node.js/index.eosio.js" range="11:17" >}}
+{{< tab-code title="Node.js" filename="./quickstarts/javascript/node/index.eosio.js" range="11:17" >}}
 {{< tab-code title="Bundler" filename="./quickstarts/javascript/bundler/index.eosio.js" range="8:14" >}}
 {{< tab-code title="Browser" filename="./quickstarts/javascript/browser/index.eosio.html" range="13:21" >}}
 {{< /tabs >}}
@@ -137,7 +137,7 @@ You can combine the dfuse client instance we created in step 3 with the GraphQL 
 a `main` function:
 
 {{< tabs "execute-query">}}
-{{< tab-code title="Node.js" filename="./quickstarts/javascript/node.js/index.eosio.js" range="19:43" >}}
+{{< tab-code title="Node.js" filename="./quickstarts/javascript/node/index.eosio.js" range="19:43" >}}
 {{< tab-code title="Bundler" filename="./quickstarts/javascript/bundler/index.eosio.js" range="16:52" >}}
 {{< tab-code title="Browser" filename="./quickstarts/javascript/browser/index.eosio.html" range="23:60" >}}
 {{< /tabs >}}
@@ -147,6 +147,7 @@ by the API. And here is a sample of the prints you will receive as a result of e
 above:
 
 <!-- **Note** We use python for all languages for a nicer output rendering -->
+
 {{< highlight "python" >}}
 Transfer eosbetdice11 -> eosbetbank11 [0.0500 EOS]
 Transfer newdexpublic -> gq4tcnrwhege [2.8604 EOS]
@@ -161,7 +162,7 @@ Transfer bluebetproxy -> bluebetbulls [0.6000 EOS]
 Here the small glue code containing the `main` function, imports and other helper functions to run the example:
 
 {{< tabs "support-code">}}
-{{< tab-code title="Node.js" filename="./quickstarts/javascript/node.js/index.eosio.js" range="45:45" >}}
+{{< tab-code title="Node.js" filename="./quickstarts/javascript/node/index.eosio.js" range="45:45" >}}
 {{< tab-code title="Bundler" filename="./quickstarts/javascript/bundler/index.eosio.js" range="54:54" >}}
 {{< tab-code title="Browser" filename="./quickstarts/javascript/browser/index.eosio.html" range="61:63" >}}
 {{< /tabs >}}
@@ -174,6 +175,7 @@ cd docs/quickstarts/javascript/node.js
 npm install
 
 # Replace 'server_abcdef12345678900000000000' with your own API key!
+
 DFUSE_API_KEY=server_abcdef12345678900000000000 node index.eosio.js
 {{< /tab >}}
 
@@ -183,34 +185,38 @@ cd docs/quickstarts/javascript/bundler
 npm install
 
 # Replace 'web_abcdef12345678900000000000' with your own API key!
+
 DFUSE_API_KEY=web_abcdef12345678900000000000 npm run build:eosio
 
 # Open `index.eosio.html` directly in your favorite Browser
-open index.eosio.html       # Mac
-xdg-open index.eosio.html   # Ubuntu
-start index.eosio.thml      # Windows
+
+open index.eosio.html # Mac
+xdg-open index.eosio.html # Ubuntu
+start index.eosio.thml # Windows
 {{< /tab >}}
 
 {{< tab lang="shell" title="Browser">}}
 git clone https://github.com/dfuse-io/docs
 cd docs/quickstarts/javascript/browser
+
 # Manually edit index.eosio.html changing `web_abcdef12345678900000000000` with your own API key
 
 # Open `index.eosio.html` directly in your favorite Browser
-open index.eosio.html       # Mac
-xdg-open index.eosio.html   # Ubuntu
-start index.eosio.thml      # Windows
+
+open index.eosio.html # Mac
+xdg-open index.eosio.html # Ubuntu
+start index.eosio.thml # Windows
 {{< /tab >}}
 
 {{< /tabs >}}
 
 ## 6. What's next?
 
-* [GraphQL API Reference]({{< ref "/reference/eosio/graphql" >}})
-* [REST API Reference]({{< ref "/reference/eosio/rest" >}})
-* [WebSocket API Reference]({{< ref "/reference/eosio/websocket" >}})
-* [Check dfuse Core Concepts]({{< ref "/guides/core-concepts" >}})
-* [Look at one of our tutorials]({{< ref "/guides/eosio/tutorials" >}})
-* {{< external-link title="The `@dfuse/client-js` overview document" href="https://github.com/dfuse-io/client-js/blob/master/README.md#dfuse-javascripttypescript-client-library" >}}
-* {{< external-link title="The `@dfuse/client-js` quick API reference" href="https://github.com/dfuse-io/client-js/blob/master/README.md#api" >}} ({{< external-link title="Full API reference" href="https://dfuse-io.github.io/client-js/" >}})
-* {{< external-link title="GraphiQL, online query editor with completion and docs" href="https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKHF1ZXJ5OiJyZWNlaXZlcjplb3Npby50b2tlbiBhY3Rpb246dHJhbnNmZXIgLWRhdGEucXVhbnRpdHk6JzAuMDAwMSBFT1MnIikgewogICAgdW5kbyBjdXJzb3IKICAgIHRyYWNlIHsgaWQgbWF0Y2hpbmdBY3Rpb25zIHsganNvbiB9IH0KICB9Cn0=" >}}
+- [GraphQL API Reference]({{< ref "/reference/eosio/graphql" >}})
+- [REST API Reference]({{< ref "/reference/eosio/rest" >}})
+- [WebSocket API Reference]({{< ref "/reference/eosio/websocket" >}})
+- [Check dfuse Core Concepts]({{< ref "/guides/core-concepts" >}})
+- [Look at one of our tutorials]({{< ref "/guides/eosio/tutorials" >}})
+- {{< external-link title="The `@dfuse/client-js` overview document" href="https://github.com/dfuse-io/client-js/blob/master/README.md#dfuse-javascripttypescript-client-library" >}}
+- {{< external-link title="The `@dfuse/client-js` quick API reference" href="https://github.com/dfuse-io/client-js/blob/master/README.md#api" >}} ({{< external-link title="Full API reference" href="https://dfuse-io.github.io/client-js/" >}})
+- {{< external-link title="GraphiQL, online query editor with completion and docs" href="https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKHF1ZXJ5OiJyZWNlaXZlcjplb3Npby50b2tlbiBhY3Rpb246dHJhbnNmZXIgLWRhdGEucXVhbnRpdHk6JzAuMDAwMSBFT1MnIikgewogICAgdW5kbyBjdXJzb3IKICAgIHRyYWNlIHsgaWQgbWF0Y2hpbmdBY3Rpb25zIHsganNvbiB9IH0KICB9Cn0=" >}}
