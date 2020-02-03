@@ -8,33 +8,7 @@ function App() {
     network: 'mainnet.eth.dfuse.io'
   });
 
-  const searchTransactionsQuery = `subscription ($query: String!, $indexName: TRANSACTIONS_INDEX_NAME! $cursor: String!, $lowBlockNum: Int64!, $highBlockNum: Int64!, $limit: Int64!, $sort: SORT!) {
-    searchTransactions(indexName: $indexName, query: $query, lowBlockNum: $lowBlockNum, highBlockNum: $highBlockNum, cursor: $cursor, limit: $limit, sort: $sort) {
-      cursor
-      undo
-      node {
-        value(encoding:WEI)
-        hash
-        nonce
-        gasLimit
-        gasUsed
-        gasPrice(encoding:WEI)
-        to
-        block {
-          number
-          hash
-          header {
-            timestamp
-          }
-        }
-        flatCalls {
-          ...FlatCallFragment
-        }
-      }
-    }
-  }
-  
-  fragment FlatCallFragment on Call {
+  const FlatCallFragment = `fragment FlatCallFragment on Call {
     index
     depth
     parentIndex
@@ -62,7 +36,42 @@ function App() {
       oldValue
       newValue
     }
-  }`;
+  }
+  `;
+
+  const searchTransactionsQuery = `query ($query: String!, $indexName:TRANSACTIONS_INDEX_NAME!, $lowBlockNum: Int64, $highBlockNum: Int64, $sort: SORT!, $cursor: String!, $limit: Int64!){
+    searchTransactions(query: $query, indexName: $indexName, lowBlockNum: $lowBlockNum, highBlockNum: $highBlockNum, sort: $sort,  cursor: $cursor, limit: $limit) {
+      pageInfo {
+        startCursor
+        endCursor
+      }
+      edges {
+        undo
+        cursor
+        node {
+          value(encoding:WEI)
+          hash
+          nonce
+          gasLimit
+          gasUsed
+          gasPrice(encoding:WEI)
+          to
+          block {
+            number
+            hash
+            header {
+              timestamp
+            }
+          }
+          flatCalls {
+            ...FlatCallFragment
+          }
+        }
+      }
+    }
+  }
+  
+  ${FlatCallFragment}`;
 
   const [query, setQuery] = useState('');
   const [transactions, setTransactions] = useState([]);
@@ -76,45 +85,40 @@ function App() {
   }
 
   async function searchTransactions() {
+    await setTransactions([]);
     setState('searching');
     setError('');
-    setTransactions([]);
-    let currentResults = [];
     const parsedSQE = parseSQE(query);
-
-    const stream = await dfuseClient.graphql(
-      searchTransactionsQuery,
-      message => {
-        if (message.type === 'error') {
-          setError(message.errors[0]['message']);
-        }
-
-        if (message.type === 'data') {
-          currentResults = [
-            message.data.searchTransactions.node,
-            ...currentResults
-          ];
-          setTransactions(currentResults);
-        }
-
-        if (message.type === 'complete') {
-          setState('completed');
-        }
-      },
-      {
+    try {
+      const response = await dfuseClient.graphql(searchTransactionsQuery, {
         variables: {
           query: parsedSQE.query,
           indexName: 'CALLS',
-          lowBlockNum: 0,
-          highBlockNum: -1,
-          sort: 'ASC',
-          limit: 25,
+          lowBlockNum: '0',
+          highBlockNum: '-1',
+          sort: 'DESC',
+          limit: '10',
           cursor: ''
         }
-      }
-    );
+      });
 
-    await stream.join();
+      if (response.errors) {
+        throw response.errors;
+      }
+
+      const edges = response.data.searchTransactions.edges || [];
+      if (edges.length <= 0) {
+        setError('Oops nothing found');
+        return;
+      }
+      setTransactions(edges.map(edge => edge.node));
+      setState('completed');
+    } catch (errors) {
+      setError(JSON.stringify(errors));
+      setState('completed');
+    }
+
+    dfuseClient.release();
   }
 
   return (

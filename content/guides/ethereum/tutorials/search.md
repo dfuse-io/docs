@@ -71,7 +71,7 @@ Initialize the dfuse client using the API key you created in the second step. Le
 
 ## 5. Craft the GraphQL query
 
-To show multiple search results, we can either use a GraphQL query or subscription query. A GraphQL subscription will continuously stream responses and allows you to pick and choose the fields you want to return in the messages. We will use a subcription query to stream search responses as they return.
+To show multiple search results, we can either use a GraphQL query or subscription query. A GraphQL subscription will continuously stream responses while a GraphQL query allows for pagination. We will use a GraphQL query to return the first 10 results of our search.
 
 {{< alert type="note" >}}
 We are using a long query to request all the available data.
@@ -86,7 +86,7 @@ See [Query Langauge](/guides/core-concepts/search-query-language/) to learn more
 {{< /alert >}}
 
 {{< tabs "tracker-query">}}
-{{< tab-code title="src/App.js" filename="./tutorials/ethereum/search/src/App.js" range="11:65" >}}
+{{< tab-code title="src/App.js" filename="./tutorials/ethereum/search/src/App.js" range="11:74" >}}
 {{< /tabs >}}
 
 ## 6. Setup our Hooks
@@ -99,7 +99,7 @@ Lets setup a few hooks that will help us keep track of our transaction states an
 - `error`: stores our errors
 
 {{< tabs "setup-hooks">}}
-{{< tab-code title="src/App.js" filename="./tutorials/ethereum/search/src/App.js" range="67:70" >}}
+{{< tab-code title="src/App.js" filename="./tutorials/ethereum/search/src/App.js" range="76:79" >}}
 {{< /tabs >}}
 
 ## 7. Search Transactions Function
@@ -109,11 +109,11 @@ Create an `async` function `searchTransactions` that will use the dfuse JS clien
 {{< tabs "fetch-transaction-init">}}
 {{< tab title="src/App.js" lang="javascript" >}}
 async function searchTransactions() {
-    setState('searching'); // sets the state of our query to "searching"
-    setError(""); // clears any errors that may have been logged before
-    setTransactions([]); // clears the transactions when starting a new search
-    var currentResults = []; // local variable to store transactions in callback function
-    ...
+  setState('searching'); // sets the state of our query to "searching"
+  setError(""); // clears any errors that may have been logged before
+  setTransactions([]); // clears the transactions when starting a new search
+  var currentResults = []; // local variable to store transactions in callback function
+  ...
 }
 {{< /tab >}}
 {{< /tabs >}}
@@ -122,52 +122,48 @@ Use dfuse client with the GraphQL query and set the following variables:
 
 - `query`: query string to tell the API what you want to search for
 - `indexName`: (CALLS | LOGS) type of data to search for
-- `cursor`: chain-wide pointer to an exact location that allows you to resume your search at
 - `lowBlockNum`: lower range of block number to search within
 - `highBlockNum`: higher range of block number to search within
 - `limit`: limit of results to return
 - `sort`: (ASC | DESC) ascending or desending direction to search in
+- `cursor`: chain-wide pointer to an exact location that allows you to resume your search at
 
 {{< tabs "fetch-transaction-func-setup">}}
 {{< tab title="src/App.js" lang="javascript" >}}
 async function searchTransactions() {
-    setState('searching');
-    setError("");
-    setTransactions([]);
-    var currentResults = [];
-    const parsedSQE = parseSQE(query);
-
-    const stream = await dfuseClient.graphql(
-      searchTransactionsQuery,
-      message => {
-        ...
-      },
-      {
-        variables: {
-          query: parsedSQE.query,
-          indexName: 'CALLS',
-          lowBlockNum: 0,
-          highBlockNum: -1,
-          sort: 'ASC',
-          limit: 25,
-          cursor: ''
-        }
-      }
-    );
-
-    await stream.join(); // wait for stream to complete
+  await setTransactions([]);
+  setState('searching');
+  setError('');
+  const parsedSQE = parseSQE(query);
+  try {
+    const response = await dfuseClient.graphql(searchTransactionsQuery, {
+    variables: {
+      query: parsedSQE.query,
+      indexName: 'CALLS',
+      lowBlockNum: '0',
+      highBlockNum: '-1',
+      sort: 'DESC',
+      limit: '10',
+      cursor: ''
+    }
+  });
+    if (response.errors) {
+      throw response.errors;
+    }
+    const edges = response.data.searchTransactions.edges || [];
+    if (edges.length <= 0) {
+      setError('Oops nothing found');
+      return;
+    }
+    setTransactions(edges.map(edge => edge.node));
+    setState('completed');
+  } catch (errors) {
+    setError(JSON.stringify(errors));
+    setState('completed');
+  }
+  dfuseClient.release();
 }
 {{< /tab >}}
-{{< /tabs >}}
-
-The `message` returned from the GraphQL stream can have 3 different types that need to be handled in our code:
-
-- `error`: This is an error returned by the stream. We store it in our state.
-- `data`: This contains search results. We store them in our transactions array.
-- `complete`: This message occurs when the stream is closed. We update our stream state.
-
-{{< tabs "fetch-transaction-func-handler">}}
-{{< tab-code title="src/App.js" filename="./tutorials/ethereum/search/src/App.js" range="78:118" >}}
 {{< /tabs >}}
 
 ## 8. Render Function
@@ -175,7 +171,7 @@ The `message` returned from the GraphQL stream can have 3 different types that n
 Build the `render` method for this component. It includes an input for the search query string, and handles the different possible states of our component.
 
 {{< tabs "fetch-transaction-render">}}
-{{< tab-code title="src/App.js" filename="./tutorials/ethereum/search/src/App.js" range="120:170" >}}
+{{< tab-code title="src/App.js" filename="./tutorials/ethereum/search/src/App.js" range="124:174" >}}
 {{< /tabs >}}
 
 ## 9. Prettifying it with CSS
@@ -191,6 +187,6 @@ Add some CSS to style this HTML a bit. Replace the contents of `src/App.css` wit
 The source code for this tutorial is available on {{< external-link href="https://github.com/dfuse-io/docs/tree/master/tutorials/ethereum/search" title="GitHub" >}}. Below are the code files discussed on this page.
 
 {{< tabs "fetch-transaction-full-app">}}
-{{< tab-code title="src/App.js" filename="./tutorials/ethereum/search/src/App.js" range="1:172" >}}
+{{< tab-code title="src/App.js" filename="./tutorials/ethereum/search/src/App.js" range="1:176" >}}
 {{< tab-code title="src/App.css" filename="./tutorials/ethereum/search/src/App.css" range="1:83" >}}
 {{< /tabs >}}
