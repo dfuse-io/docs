@@ -4,7 +4,8 @@
   "description": "",
   "main": "graphql.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "extract": "node extract.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +21,7 @@
     "graphql": "^14.5.8",
     "graphql-tag": "^2.10.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "mkdirp": "^1.0.3"
+  }
 }
