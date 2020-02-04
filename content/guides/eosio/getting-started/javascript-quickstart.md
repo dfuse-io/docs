@@ -130,7 +130,9 @@ Want to inspect the full set of available fields you can retrieve?
   {{< /alert >}}
 
 {{< tabs "define-query">}}
-{{< tab-code title="Node.js" filename="./quickstarts/javascript/node/index.eosio.js" range="11:17" >}}
+{{< tab lang="javascript" title="Node.js" >}}
+{{< code-section "quickstarts_javascript_node_eos_section2" >}}
+{{< /tab >}}
 {{< tab-code title="Bundler" filename="./quickstarts/javascript/bundler/index.eosio.js" range="8:14" >}}
 {{< tab-code title="Browser" filename="./quickstarts/javascript/browser/index.eosio.html" range="13:21" >}}
 {{< /tabs >}}

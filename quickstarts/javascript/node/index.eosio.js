@@ -9,6 +9,7 @@ const client = createDfuseClient({
   network: 'mainnet.eos.dfuse.io'
 });
 // CODE:END:quickstarts_javascript_node_eos_section1
+// CODE:BEGIN:quickstarts_javascript_node_eos_section2
 // You must use a `$cursor` variable so stream starts back at last marked cursor on reconnect!
 const operation = `subscription($cursor: String!) {
   searchTransactionsForward(query:"receiver:eosio.token action:transfer -data.quantity:'0.0001 EOS'", cursor: $cursor) {
@@ -16,6 +17,7 @@ const operation = `subscription($cursor: String!) {
     trace { id matchingActions { json } }
   }
 }`;
+// CODE:END:quickstarts_javascript_node_eos_section2
 
 async function main() {
   const stream = await client.graphql(operation, message => {
