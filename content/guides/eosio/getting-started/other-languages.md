@@ -18,8 +18,12 @@ The code from the examples on this page can be found {{< external-link href="htt
 The JWT is a token with a short expiration period, used to communicate with dfuse services. You will have to implement token caching and manage renewal upon expiration. See [Authentication]({{< relref "/guides/core-concepts/authentication" >}}) for more details.
 
 {{< tabs "generate-jwt">}}
-{{< tab-code title="Go" filename="./quickstarts/go/main-eos.go" range="21:39" >}}
-{{< tab-code title="Python" filename="./quickstarts/python/main.py" range="17:28" >}}
+{{< tab title="Go" lang="go">}}
+{{< code-section "quickstarts_go_eos_section2" >}}
+{{< /tab >}}
+{{< tab title="Python" lang="python">}}
+{{< code-section "quickstarts_python_eos_section2" >}}
+{{< /tab >}}
 {{< tab title="Shell" lang="shell" >}}
 curl https://auth.dfuse.io/v1/auth/issue -s \
   --data-binary '{"api_key":"server_abcdef12345678900000000000"}'
@@ -79,8 +83,12 @@ requests and streams you need to do, it should be properly cached at the appropr
 level for your use case.
 
 {{< tabs "create-client" >}}
-{{< tab-code title="Go" filename="./quickstarts/go/main-eos.go" range="41:59" >}}
-{{< tab-code title="Python" filename="./quickstarts/python/main.py" range="30:41" >}}
+{{< tab title="Go" lang="go">}}
+{{< code-section "quickstarts_go_eos_section3" >}}
+{{< /tab >}}
+{{< tab title="Python" lang="python">}}
+{{< code-section "quickstarts_python_eos_section3" >}}
+{{< /tab >}}
 {{< /tabs >}}
 
 ## 5. Stream your first results
@@ -97,8 +105,12 @@ Want to inspect the full set of available fields you can retrieve?
 {{< /alert >}}
 
 {{< tabs "define-query">}}
-{{< tab-code title="Go" filename="./quickstarts/go/main-eos.go" range="126:144" >}}
-{{< tab-code title="Python" filename="./quickstarts/python/main.py" range="73:78" >}}
+{{< tab title="Go" lang="go">}}
+{{< code-section "quickstarts_go_eos_section4" >}}
+{{< /tab >}}
+{{< tab title="Python" lang="python">}}
+{{< code-section "quickstarts_python_eos_section4" >}}
+{{< /tab >}}
 {{< /tabs >}}
 
 And we can finally define the code needed to perform your first stream using
@@ -106,8 +118,12 @@ dfuse Search. This snippet initiates the connection with dfuse servers and start
 streaming transfers forever.
 
 {{< tabs "run-query">}}
-{{< tab-code title="Go" filename="./quickstarts/go/main-eos.go" range="146:180" >}}
-{{< tab-code title="Python" filename="./quickstarts/python/main.py" range="80:94" >}}
+{{< tab title="Go" lang="go">}}
+{{< code-section "quickstarts_go_eos_section5" >}}
+{{< /tab >}}
+{{< tab title="Python" lang="python">}}
+{{< code-section "quickstarts_python_eos_section5" >}}
+{{< /tab >}}
 {{< /tabs >}}
 
 And here is a sample of the prints you will receive from the standard output after running the example above:
@@ -127,8 +143,14 @@ Transfer bluebetproxy -> bluebetbulls [0.6000 EOS]
 Here is the small glue code containing the `main` function, imports and other helper functions to run the example:
 
 {{< tabs "support-code">}}
-{{< tab-code title="Go" filename="./quickstarts/go/main-eos.go" range="1:19,182:201" >}}
-{{< tab-code title="Python" filename="./quickstarts/python/main.py" range="1:15,96:104" >}}
+{{< tab title="Go" lang="go">}}
+{{< code-section "quickstarts_go_eos_section1" >}}
+{{< code-section "quickstarts_go_eos_section6" >}}
+{{< /tab >}}
+{{< tab title="Python" lang="python">}}
+{{< code-section "quickstarts_python_eos_section1" >}}
+{{< code-section "quickstarts_python_eos_section6" >}}
+{{< /tab >}}
 {{< /tabs >}}
 
 If you prefer, you can directly clone our ready-made repository with all the quick start

@@ -36,6 +36,7 @@ yarn init -y
 {{< /tabs >}}
 
 ## 1. Get a dfuse API Key
+
 {{< dfuse-account-creation >}}
 
 ## 2. Adding the Client Library
@@ -45,10 +46,10 @@ the {{< external-link title="dfuse JS client library" href="https://github.com/d
 
 Here are a few of its key features:
 
-* Handles API token issuance
-* Refreshes your API token upon expiration
-* Automatically reconnects if the connection closes
-* Supports `Browsers` and `Node.js` environments
+- Handles API token issuance
+- Refreshes your API token upon expiration
+- Automatically reconnects if the connection closes
+- Supports `Browsers` and `Node.js` environments
 
 You can add it to your project using Yarn or NPM.
 
@@ -62,6 +63,7 @@ yarn add @dfuse/client
 {{< /tabs >}}
 
 #### Node.js Extra Steps
+
 If you are targeting the `Node.js` environment, a few extra steps are required to be able to use
 the @dfuse/client library. The library relies on `node-fetch` package for HTTP requests
 and on the `ws` package for `WebSocket` connection.
@@ -104,9 +106,15 @@ connect to.
 Valid networks can be found at [Ethereum API Endpoints]({{< ref "reference/ethereum/endpoints" >}})
 
 {{< tabs "create-client" >}}
-{{< tab-code title="Node.js" filename="./quickstarts/javascript/node.js/index.ethereum.js" range="4:9" >}}
-{{< tab-code title="Bundler" filename="./quickstarts/javascript/bundler/index.ethereum.js" range="1:6" >}}
-{{< tab-code title="Browser" filename="./quickstarts/javascript/browser/index.ethereum.html" range="1:11" >}}
+{{< tab title="Node.js" lang="javascript">}}
+{{< code-section "quickstarts_javascript_node_ethereum_section1" >}}
+{{< /tab >}}
+{{< tab title="Bundler" lang="javascript">}}
+{{< code-section "quickstarts_javascript_bundler_ethereum_section1" >}}
+{{< /tab >}}
+{{< tab title="Browser" lang="javascript">}}
+{{< code-section "quickstarts_javascript_browser_ethereum_section1" >}}
+{{< /tab >}}
 {{< /tabs >}}
 
 ## 4. Stream your first results
@@ -118,14 +126,20 @@ to you, you get to choose and pick only what you are interested in.
 {{< alert type="note" >}}
 Want to inspect the full set of available fields you can retrieve?
 
-* [GraphQL API Reference]({{< ref "/reference/ethereum/graphql" >}})
-* {{< external-link href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMocXVlcnk6ICItdmFsdWU6MCB0eXBlOmNhbGwiLCBsb3dCbG9ja051bTogLTEpIHsKICAgIHVuZG8gY3Vyc29yCiAgICBub2RlIHsgaGFzaCBtYXRjaGluZ0NhbGxzIHsgY2FsbGVyIGFkZHJlc3MgdmFsdWUoZW5jb2Rpbmc6RVRIRVIpIH0gfQogIH0KfQ==" title="GraphiQL, online query editor with completion and docs">}}
-{{< /alert >}}
+- [GraphQL API Reference]({{< ref "/reference/ethereum/graphql" >}})
+- {{< external-link href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMocXVlcnk6ICItdmFsdWU6MCB0eXBlOmNhbGwiLCBsb3dCbG9ja051bTogLTEpIHsKICAgIHVuZG8gY3Vyc29yCiAgICBub2RlIHsgaGFzaCBtYXRjaGluZ0NhbGxzIHsgY2FsbGVyIGFkZHJlc3MgdmFsdWUoZW5jb2Rpbmc6RVRIRVIpIH0gfQogIH0KfQ==" title="GraphiQL, online query editor with completion and docs">}}
+  {{< /alert >}}
 
 {{< tabs "define-query">}}
-{{< tab-code title="Node.js" filename="./quickstarts/javascript/node.js/index.ethereum.js" range="11:17" >}}
-{{< tab-code title="Bundler" filename="./quickstarts/javascript/bundler/index.ethereum.js" range="8:14" >}}
-{{< tab-code title="Browser" filename="./quickstarts/javascript/browser/index.ethereum.html" range="13:21" >}}
+{{< tab title="Node.js" lang="javascript">}}
+{{< code-section "quickstarts_javascript_node_ethereum_section2" >}}
+{{< /tab >}}
+{{< tab title="Bundler" lang="javascript">}}
+{{< code-section "quickstarts_javascript_bundler_ethereum_section2" >}}
+{{< /tab >}}
+{{< tab title="Browser" lang="javascript">}}
+{{< code-section "quickstarts_javascript_browser_ethereum_section2" >}}
+{{< /tab >}}
 {{< /tabs >}}
 
 Next, you create the GraphQL subscription to stream transfers as they come. You will use the `searchTransactions` operation, with the `"-value:0 type:call"` query (See the [Search Query Language reference here]({{< ref "/reference/ethereum/search-terms" >}})). This basically means, give me all transactions containing one or more
@@ -135,15 +149,22 @@ You can combine the dfuse client instance we created in step 3 with the GraphQL 
 a `main` function:
 
 {{< tabs "execute-query">}}
-{{< tab-code title="Node.js" filename="./quickstarts/javascript/node.js/index.ethereum.js" range="19:43" >}}
-{{< tab-code title="Bundler" filename="./quickstarts/javascript/bundler/index.ethereum.js" range="16:52" >}}
-{{< tab-code title="Browser" filename="./quickstarts/javascript/browser/index.ethereum.html" range="23:60" >}}
+{{< tab title="Node.js" lang="javascript">}}
+{{< code-section "quickstarts_javascript_node_ethereum_section3" >}}
+{{< /tab >}}
+{{< tab title="Bundler" lang="javascript">}}
+{{< code-section "quickstarts_javascript_bundler_ethereum_section3" >}}
+{{< /tab >}}
+{{< tab title="Browser" lang="javascript">}}
+{{< code-section "quickstarts_javascript_browser_ethereum_section3" >}}
+{{< /tab >}}
 {{< /tabs >}}
 
 The function passed as the 2nd parameter to `client.graphql()` will be called every time a new result is returned
 by the API. And here is a sample of the prints you will receive as a result of executing the streaming operation above:
 
 <!-- **Note** We use python for all languages for a nicer output rendering -->
+
 {{< highlight "python" >}}
 Transfer 0xd7afbf5141a7f1d6b0473175f7a6b0a7954ed3d2 -> 0x43d2b8827218752ffe5a35cefc3bbe50ca79af47 [0.000497522732 Ether]
 Transfer 0x43d2b8827218752ffe5a35cefc3bbe50ca79af47 -> 0xd7e2cfd68a66b0f085d6b011df17ce03230278b7 [0.001180743062 Ether]
@@ -158,19 +179,26 @@ Transfer 0x1c22fa9495d1d65df8e48d61d217732eb5b06b23 -> 0x298aca39f7bc65f9c7537c7
 Here the small glue code containing the `main` function, imports and other helper functions to run the example:
 
 {{< tabs "support-code">}}
-{{< tab-code title="Node.js" filename="./quickstarts/javascript/node.js/index.ethereum.js" range="45:45" >}}
-{{< tab-code title="Bundler" filename="./quickstarts/javascript/bundler/index.ethereum.js" range="54:54" >}}
-{{< tab-code title="Browser" filename="./quickstarts/javascript/browser/index.ethereum.html" range="61:63" >}}
+{{< tab title="Node.js" lang="javascript">}}
+{{< code-section "quickstarts_javascript_node_ethereum_section4" >}}
+{{< /tab >}}
+{{< tab title="Bundler" lang="javascript">}}
+{{< code-section "quickstarts_javascript_bundler_ethereum_section4" >}}
+{{< /tab >}}
+{{< tab title="Browser" lang="javascript">}}
+{{< code-section "quickstarts_javascript_browser_ethereum_section4" >}}
+{{< /tab >}}
 {{< /tabs >}}
 
 {{< tabs "full-working">}}
 
 {{< tab lang="shell" title="Node.js">}}
 git clone https://github.com/dfuse-io/docs
-cd docs/quickstarts/javascript/node.js
+cd docs/quickstarts/javascript/node
 npm install
 
 # Replace 'server_abcdef12345678900000000000' with your own API key!
+
 DFUSE_API_KEY=server_abcdef12345678900000000000 node index.ethereum.js
 {{< /tab >}}
 
@@ -180,32 +208,36 @@ cd docs/quickstarts/javascript/bundler
 npm install
 
 # Replace 'web_abcdef12345678900000000000' with your own API key!
+
 DFUSE_API_KEY=web_abcdef12345678900000000000 npm run build:ethereum
 
 # Open `index.ethereum.html` directly in your favorite Browser
-open index.ethereum.html       # Mac
-xdg-open index.ethereum.html   # Ubuntu
-start index.ethereum.thml      # Windows
+
+open index.ethereum.html # Mac
+xdg-open index.ethereum.html # Ubuntu
+start index.ethereum.thml # Windows
 {{< /tab >}}
 
 {{< tab lang="shell" title="Browser">}}
 git clone https://github.com/dfuse-io/docs
 cd docs/quickstarts/javascript/browser
+
 # Manually edit index.ethereum.html changing `web_abcdef12345678900000000000` with your own API key
 
 # Open `index.ethereum.html` directly in your favorite Browser
-open index.ethereum.html       # Mac
-xdg-open index.ethereum.html   # Ubuntu
-start index.ethereum.thml      # Windows
+
+open index.ethereum.html # Mac
+xdg-open index.ethereum.html # Ubuntu
+start index.ethereum.thml # Windows
 {{< /tab >}}
 
 {{< /tabs >}}
 
 ## 6. What's next ?
 
-* [GraphQL API Reference]({{< ref "/reference/ethereum/graphql" >}})
-* [Check dfuse Core Concepts]({{< ref "/guides/core-concepts" >}})
-* [Look at one of our tutorials]({{< ref "/guides/ethereum/tutorials" >}})
-* {{< external-link title="The `@dfuse/client-js` overview document" href="https://github.com/dfuse-io/client-js/blob/master/README.md#dfuse-javascripttypescript-client-library" >}}
-* {{< external-link title="The `@dfuse/client-js` quick API reference" href="https://github.com/dfuse-io/client-js/blob/master/README.md#api" >}} ({{< external-link title="Full API reference" href="https://dfuse-io.github.io/client-js/" >}})
-* {{< external-link href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMocXVlcnk6ICItdmFsdWU6MCB0eXBlOmNhbGwiLCBsb3dCbG9ja051bTogLTEpIHsKICAgIHVuZG8gY3Vyc29yCiAgICBub2RlIHsgaGFzaCBtYXRjaGluZ0NhbGxzIHsgY2FsbGVyIGFkZHJlc3MgdmFsdWUoZW5jb2Rpbmc6RVRIRVIpIH0gfQogIH0KfQ==" title="GraphiQL, online query editor with completion and docs" >}}
+- [GraphQL API Reference]({{< ref "/reference/ethereum/graphql" >}})
+- [Check dfuse Core Concepts]({{< ref "/guides/core-concepts" >}})
+- [Look at one of our tutorials]({{< ref "/guides/ethereum/tutorials" >}})
+- {{< external-link title="The `@dfuse/client-js` overview document" href="https://github.com/dfuse-io/client-js/blob/master/README.md#dfuse-javascripttypescript-client-library" >}}
+- {{< external-link title="The `@dfuse/client-js` quick API reference" href="https://github.com/dfuse-io/client-js/blob/master/README.md#api" >}} ({{< external-link title="Full API reference" href="https://dfuse-io.github.io/client-js/" >}})
+- {{< external-link href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMocXVlcnk6ICItdmFsdWU6MCB0eXBlOmNhbGwiLCBsb3dCbG9ja051bTogLTEpIHsKICAgIHVuZG8gY3Vyc29yCiAgICBub2RlIHsgaGFzaCBtYXRjaGluZ0NhbGxzIHsgY2FsbGVyIGFkZHJlc3MgdmFsdWUoZW5jb2Rpbmc6RVRIRVIpIH0gfQogIH0KfQ==" title="GraphiQL, online query editor with completion and docs" >}}

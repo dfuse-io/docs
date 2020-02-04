@@ -52,6 +52,7 @@
     {{ .Parent.Scratch.Set $group slice }}
   {{ end }}
 
+  {{ $content = htmlUnescape $content }}
   {{ if $lang }}
     {{ .Parent.Scratch.Add $group (dict "Name" $title "Content" (highlight $content $lang $opts)) }}
   {{ else }}

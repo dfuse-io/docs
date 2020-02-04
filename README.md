@@ -29,14 +29,44 @@ All content can be found in the `/content` directory. The structure of the websi
 
 ### Links
 
-  - [1.1](#types--primitives) **external**: When you insert an external link use the `external-link` shortcode
+- [1.1](#types--primitives) **external**: When you insert an external link use the `external-link` shortcode
 
-    ```markdown
-    {{< external-link href="https://app.dfuse.io" title="dfuseio" >}}
-    {{< external-link href="https://app.dfuse.io">}}
-    ```
+  ```markdown
+  {{< external-link href="https://app.dfuse.io" title="dfuseio" >}}
+  {{< external-link href="https://app.dfuse.io">}}
+  ```
 
 - [1.2](#types--primitives) **internal references**: Please put all _internal references_ as _full paths_, for greppability and refactoring.
+
+### Example code
+
+Use the following begin and end tags to indicate code sections that need to be referenced:
+
+```javascript
+// CODE:BEGIN:quickstarts_javascript_node_eos_section1
+function() {
+  var some = "code"
+}
+// CODE:END:quickstarts_javascript_node_eos_section1
+```
+
+Section names need to follow the path of the file from project root.
+For example the example snippet is from the file:
+
+```markdown
+├── quickstarts
+│   └── javascript
+│       └── node
+│           └── index.eos.js
+├── guides
+└── ...
+```
+
+When hugo builds the site, the code sections are extracted and stored in the `data` folder in project root. 
+Example code can then be referenced with the following shortcode:
+```go
+{{< code-section "quickstarts_javascript_node_eos_section1" >}}
+```
 
 ## Lexicon guide
 
@@ -51,12 +81,10 @@ All content can be found in the `/content` directory. The structure of the websi
 
 Any commit to master automatically triggers a deployment. For this reason, the master branch is locked, requiring all changes to go through an approved pull request.
 
-
 Reference
 ETH -=> Endpoint ALPHA
 
 <new> side menu
-
 
 alpha (red)
 beta (yeallo-orangy)
@@ -65,3 +93,7 @@ add sub-title to graphql shortcode
 fix
 
 refactor pages
+
+```
+
+```

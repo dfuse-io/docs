@@ -1,3 +1,4 @@
+<!-- CODE:BEGIN:quickstarts_javascript_browser_eos_section1 -->
 <head>
     <style> li { font-family: monospace; margin: 0.15; }</style>
     <script src="https://unpkg.com/@dfuse/client"></script>
@@ -9,7 +10,9 @@
         })
     </script>
 </head>
+<!-- CODE:END:quickstarts_javascript_browser_eos_section1 -->
 <body>
+<!-- CODE:BEGIN:quickstarts_javascript_browser_eos_section2 -->
 <script>
 // You must use a `$cursor` variable so stream starts back at last marked cursor on reconnect!
 const operation = `subscription($cursor: String!) {
@@ -19,7 +22,8 @@ const operation = `subscription($cursor: String!) {
   }
 }`
 </script>
-
+<!-- CODE:END:quickstarts_javascript_browser_eos_section2 -->
+<!-- CODE:BEGIN:quickstarts_javascript_browser_eos_section3 -->
 <script>
 async function main() {
   const stream = await client.graphql(operation, (message) => {
@@ -57,8 +61,10 @@ async function main() {
   await client.release()
 }
 </script>
-
+<!-- CODE:END:quickstarts_javascript_browser_eos_section3 -->
+<!-- CODE:BEGIN:quickstarts_javascript_browser_eos_section4 -->
 <script>
 main().catch((error) => document.body.innerHTML = `<p>${error}</p>`)
 </script>
+<!-- CODE:END:quickstarts_javascript_browser_eos_section4 -->
 </body>

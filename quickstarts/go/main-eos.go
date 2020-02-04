@@ -1,3 +1,4 @@
+// CODE:BEGIN:quickstarts_go_eos_section1
 package main
 
 import (
@@ -17,7 +18,9 @@ import (
 	"google.golang.org/grpc/credentials"
 	"google.golang.org/grpc/credentials/oauth"
 )
+// CODE:END:quickstarts_go_eos_section1
 
+// CODE:BEGIN:quickstarts_go_eos_section2
 func getToken(apiKey string) (token string, expiration time.Time, err error) {
 	reqBody := bytes.NewBuffer([]byte(fmt.Sprintf(`{"api_key":"%s"}`, apiKey)))
 	resp, err := http.Post("https://auth.dfuse.io/v1/auth/issue", "application/json", reqBody)
@@ -37,7 +40,8 @@ func getToken(apiKey string) (token string, expiration time.Time, err error) {
 	}
 	return
 }
-
+// CODE:END:quickstarts_go_eos_section2
+// CODE:BEGIN:quickstarts_go_eos_section3
 func createClient(endpoint string) pb.GraphQLClient {
 	dfuseAPIKey := os.Getenv("DFUSE_API_KEY")
 	if dfuseAPIKey == "" {
@@ -57,6 +61,7 @@ func createClient(endpoint string) pb.GraphQLClient {
 
 	return pb.NewGraphQLClient(conn)
 }
+// CODE:END:quickstarts_go_eos_section3
 
 //
 /// Ethereum
@@ -122,7 +127,7 @@ func streamEthereum(ctx context.Context) {
 //
 /// EOSIO
 //
-
+// CODE:BEGIN:quickstarts_go_eos_section4
 const operationEOS = `subscription {
   searchTransactionsForward(query:"receiver:eosio.token action:transfer -data.quantity:'0.0001 EOS'") {
     undo cursor
@@ -142,7 +147,8 @@ type eosioDocument struct {
 		}
 	}
 }
-
+// CODE:END:quickstarts_go_eos_section4
+// CODE:BEGIN:quickstarts_go_eos_section5
 func streamEOSIO(ctx context.Context) {
 	/* The client can be re-used for all requests, cache it at the appropriate level */
 	client := createClient("mainnet.eos.dfuse.io:443")
@@ -178,8 +184,9 @@ func streamEOSIO(ctx context.Context) {
 		}
 	}
 }
-
+// CODE:END:quickstarts_go_eos_section5
 /* DFUSE_API_KEY="server_abcdef12345678900000000000" go run main.go eosio|ethereum */
+// CODE:BEGIN:quickstarts_go_eos_section6
 func main() {
 	proto := ""
 	if len(os.Args) >= 2 {
@@ -199,3 +206,4 @@ func panicIfError(err error) {
 		panic(err)
 	}
 }
+// CODE:END:quickstarts_go_eos_section6

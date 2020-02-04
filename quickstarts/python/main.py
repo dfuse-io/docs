@@ -1,3 +1,4 @@
+# CODE:BEGIN:quickstarts_python_eos_section1
 try:
     # python3
     from http.client import HTTPSConnection
@@ -13,7 +14,9 @@ import sys
 
 from graphql import graphql_pb2_grpc
 from graphql.graphql_pb2 import Request
+# CODE:END:quickstarts_python_eos_section1
 
+# CODE:BEGIN:quickstarts_python_eos_section2
 def get_token(api_key):
     connection = HTTPSConnection("auth.dfuse.io")
     connection.request('POST', '/v1/auth/issue', json.dumps({"api_key": api_key}), {'Content-type': 'application/json'})
@@ -26,7 +29,8 @@ def get_token(api_key):
     connection.close()
 
     return token
-
+# CODE:END:quickstarts_python_eos_section2
+# CODE:BEGIN:quickstarts_python_eos_section3
 def create_client(endpoint):
     dfuse_api_key = os.environ.get("DFUSE_API_KEY")
     if dfuse_api_key == None:
@@ -39,6 +43,7 @@ def create_client(endpoint):
     ))
 
     return graphql_pb2_grpc.GraphQLStub(channel)
+# CODE:END:quickstarts_python_eos_section3
 
 #
 ## Ethereum
@@ -70,13 +75,15 @@ def stream_ethereum():
 ## EOSIO
 #
 
+# CODE:BEGIN:quickstarts_python_eos_section4
 OPERATION_EOS = """subscription {
   searchTransactionsForward(query:"receiver:eosio.token action:transfer") {
     undo cursor
     trace { id matchingActions { json } }
   }
 }"""
-
+# CODE:END:quickstarts_python_eos_section4
+# CODE:BEGIN:quickstarts_python_eos_section5
 def stream_eosio():
   	# The client can be re-used for all requests, cache it at the appropriate level
     client = create_client('mainnet.eos.dfuse.io:443')
@@ -92,7 +99,8 @@ def stream_eosio():
                 undo = result['searchTransactionsForward']['undo']
                 data = action['json']
                 print("Transfer %s -> %s [%s]%s" % (data['from'], data['to'], data['quantity'], " REVERTED" if undo else ""))
-
+# CODE:END:quickstarts_python_eos_section5
+# CODE:BEGIN:quickstarts_python_eos_section6
 # DFUSE_API_KEY="server_abcdef12345678900000000000" python main.py eosio|ethereum
 proto = ""
 if len(sys.argv) > 1:
@@ -102,3 +110,4 @@ if proto == "ethereum" or proto == "ETH":
     stream_ethereum()
 else:
     stream_eosio()
+# CODE:END:quickstarts_python_eos_section6
