@@ -194,7 +194,7 @@ Here the small glue code containing the `main` function, imports and other helpe
 
 {{< tab lang="shell" title="Node.js">}}
 git clone https://github.com/dfuse-io/docs
-cd docs/quickstarts/javascript/node.js
+cd docs/quickstarts/javascript/node
 npm install
 
 # Replace 'server_abcdef12345678900000000000' with your own API key!
