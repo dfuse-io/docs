@@ -36,10 +36,10 @@ async function parseFiles(paths) {
       let fileToWrite = {};
       let fileExt = extname(p);
       let file = await readFile(p, 'utf8');
-      let jsonFilePath = p
-        .replace(/quickstarts.*/, 'data/quickstarts.json')
-        .replace(/tutorials.*/, 'data/tutorials.json')
-        .replace(/samples.*/, 'data/samples.json');
+      let jsonFilePath = p.replace(
+        /quickstarts.*|tutorials.*|samples.*/,
+        'data/samples.json'
+      );
       let sectionNumber = 1;
       while (true) {
         let extractSectionPattern = new RegExp(
