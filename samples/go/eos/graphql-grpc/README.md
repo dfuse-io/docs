@@ -30,20 +30,12 @@ This simple programme demonstrates how easy it is to query our graphQL API over 
 
 **Run it!**
 
-- Visit [https://app.dfuse.io](https://app.dfuse.io) to get YOUR_API_KEY
+- Visit [https://app.dfuse.io](https://app.dfuse.io) to get your API key
 
-**_ETHEREUM_**
-
-- `go run ./eth YOUR_API_KEY_HERE`
-
-**_EOSIO_**
-
-- `go run ./eos YOUR_API_KEY_HERE`
+- `go run main.go <YOUR_API_KEY>`
 
 **Useful links**
 
 - [dfuse Search query language](https://docs.dfuse.io/#dfuse-query-language)
-- GraphiQL: A graphical graphql editor and API documentation browser.
-  _[Ethereum](https://mainnet.eos.dfuse.io/graphiql/)_ / _[EOSIO](https://mainnet.eos.dfuse.io/graphiql/)_
-
+- [EOS Mainnet GraphiQL](https://mainnet.eos.dfuse.io/graphiql/): A graphical graphql editor and API documentation browser.
 - [Push Notification Example](https://github.com/dfuse-io/example-push-notifications) A fully functional example sending push notifications base on a graphql query results.
