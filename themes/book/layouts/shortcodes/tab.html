@@ -30,10 +30,12 @@
     {{ .Parent.Scratch.Set $group slice }}
   {{ end }}
 
+  {{ $content := htmlUnescape .Inner }}
+
   {{ if $lang }}
-    {{ .Parent.Scratch.Add $group (dict "Name" $title "Content" (highlight .Inner $lang $opts)) }}
+    {{ .Parent.Scratch.Add $group (dict "Name" $title "Content" (highlight $content $lang $opts)) }}
   {{ else }}
-    {{ .Parent.Scratch.Add $group (dict "Name" $title "Content" .Inner) }}
+    {{ .Parent.Scratch.Add $group (dict "Name" $title "Content" $content) }}
   {{ end }}
 {{ else }}
   {{ errorf "%q: 'tab' shortcode must be inside 'tabs' shortcode" .Page.Path }}
