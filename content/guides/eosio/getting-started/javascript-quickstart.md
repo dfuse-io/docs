@@ -106,7 +106,9 @@ connect to.
 Valid networks can be found at [EOSIO API Endpoints]({{< ref "reference/eosio/endpoints" >}})
 
 {{< tabs "create-client" >}}
-{{< tab-code title="Node.js" filename="./quickstarts/javascript/node/index.eosio.js" range="4:9" >}}
+{{< tab lang="javascript" title="Node.js" >}}
+{{< code-section "quickstart_javascript_node_eos_section1" >}}
+{{< /tab >}}
 {{< tab-code title="Bundler" filename="./quickstarts/javascript/bundler/index.eosio.js" range="1:6" >}}
 {{< tab-code title="Browser" filename="./quickstarts/javascript/browser/index.eosio.html" range="1:11" >}}
 {{< /tabs >}}

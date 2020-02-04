@@ -4,7 +4,7 @@ global.WebSocket = require('ws');
 // CODE:BEGIN:quickstart_javascript_node_eos_section1
 const { createDfuseClient } = require('@dfuse/client');
 
-// CODE:BEGIN:quickstart_javascript_node_eos_section1
+// CODE:BEGIN:quickstart_javascript_node_eos_section2
 const client = createDfuseClient({
   apiKey: process.env.DFUSE_API_KEY,
   network: 'mainnet.eos.dfuse.io'
