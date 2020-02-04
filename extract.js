@@ -43,7 +43,7 @@ async function parseFiles(paths) {
       let sectionNumber = 1;
       while (true) {
         let extractSectionPattern = new RegExp(
-          `.*CODE:BEGIN:(\\S+${sectionNumber}).*\\n([\\s\\S]*)\\n.*CODE:END:\\1.*\\n`,
+          `.*CODE:BEGIN:(\\S+${sectionNumber}).*\\n([\\s\\S]*)\\n.*CODE:END:\\1`,
           'g'
         );
         let excludeTagsPattern = new RegExp(
