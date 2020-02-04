@@ -1,3 +1,4 @@
+// CODE:BEGIN:quickstarts_go_ethereum_section1
 package main
 
 import (
@@ -38,7 +39,9 @@ func panicIfError(err error) {
 		panic(err)
 	}
 }
+// CODE:END:quickstarts_go_ethereum_section1
 
+// CODE:BEGIN:quickstarts_go_ethereum_section2
 func getToken(apiKey string) (token string, expiration time.Time, err error) {
 	reqBody := bytes.NewBuffer([]byte(fmt.Sprintf(`{"api_key":"%s"}`, apiKey)))
 	resp, err := http.Post("https://auth.dfuse.io/v1/auth/issue", "application/json", reqBody)
@@ -58,7 +61,9 @@ func getToken(apiKey string) (token string, expiration time.Time, err error) {
 	}
 	return
 }
+// CODE:END:quickstarts_go_ethereum_section2
 
+// CODE:BEGIN:quickstarts_go_ethereum_section3
 func createClient(endpoint string, token string) pb.GraphQLClient {
 
 	credential := oauth.NewOauthAccess(&oauth2.Token{AccessToken: token, TokenType: "Bearer"})
@@ -71,7 +76,9 @@ func createClient(endpoint string, token string) pb.GraphQLClient {
 
 	return pb.NewGraphQLClient(conn)
 }
+// CODE:END:quickstarts_go_ethereum_section3
 
+// CODE:BEGIN:quickstarts_go_ethereum_section4
 const operationETH = `subscription {
   searchTransactions(indexName:CALLS, query:"-value:0 type:call", lowBlockNum: -1) {
     undo cursor
@@ -93,7 +100,9 @@ type ethereumDocument struct {
 		}
 	}
 }
+// CODE:END:quickstarts_go_ethereum_section4
 
+// CODE:BEGIN:quickstarts_go_ethereum_section5
 func streamEthereum(ctx context.Context, client pb.GraphQLClient) {
 
 	executor, err := client.Execute(ctx, &pb.Request{Query: operationETH})
@@ -127,3 +136,4 @@ func streamEthereum(ctx context.Context, client pb.GraphQLClient) {
 		}
 	}
 }
+// CODE:END:quickstarts_go_ethereum_section5
