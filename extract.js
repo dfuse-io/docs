@@ -31,9 +31,9 @@ async function getFilePaths(dir) {
 }
 
 async function parseFiles(paths) {
+  let fileToWrite = {};
   await Promise.all(
     paths.map(async p => {
-      let fileToWrite = {};
       let fileExt = extname(p);
       let file = await readFile(p, 'utf8');
       let jsonFilePath = p.replace(
@@ -43,7 +43,7 @@ async function parseFiles(paths) {
       let sectionNumber = 1;
       while (true) {
         let extractSectionPattern = new RegExp(
-          `.+CODE:BEGIN:(\\S+${sectionNumber})\\n([\\s\\S]*)\n.+CODE:END:\\1`,
+          `.*CODE:BEGIN:(\\S+${sectionNumber}).*\\n([\\s\\S]*)\\n.*CODE:END:\\1.*\\n`,
           'g'
         );
         let excludeTagsPattern = new RegExp(
