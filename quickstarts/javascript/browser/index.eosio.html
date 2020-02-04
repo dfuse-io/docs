@@ -13,6 +13,7 @@
 </head>
 <!-- CODE:END:quickstarts_javascript_browser_eos_section1 -->
 <body>
+<!-- CODE:BEGIN:quickstarts_javascript_browser_eos_section2 -->
 <script>
 // You must use a `$cursor` variable so stream starts back at last marked cursor on reconnect!
 const operation = `subscription($cursor: String!) {
@@ -22,7 +23,7 @@ const operation = `subscription($cursor: String!) {
   }
 }`
 </script>
-
+<!-- CODE:END:quickstarts_javascript_browser_eos_section2 -->
 <script>
 async function main() {
   const stream = await client.graphql(operation, (message) => {

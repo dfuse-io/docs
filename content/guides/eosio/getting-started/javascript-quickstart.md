@@ -133,8 +133,12 @@ Want to inspect the full set of available fields you can retrieve?
 {{< tab lang="javascript" title="Node.js" >}}
 {{< code-section "quickstarts_javascript_node_eos_section2" >}}
 {{< /tab >}}
-{{< tab-code title="Bundler" filename="./quickstarts/javascript/bundler/index.eosio.js" range="8:14" >}}
-{{< tab-code title="Browser" filename="./quickstarts/javascript/browser/index.eosio.html" range="13:21" >}}
+{{< tab lang="javascript" title="Bundler" >}}
+{{< code-section "quickstarts_javascript_bundler_eos_section2" >}}
+{{< /tab >}}
+{{< tab lang="javascript" title="Browser" >}}
+{{< code-section "quickstarts_javascript_browser_eos_section2" >}}
+{{< /tab >}}
 {{< /tabs >}}
 
 Next, you create the GraphQL subscription to stream transfers as they come. You will use the `searchTransactionsForward` operation, with the `"receiver:eosio.token action:transfer -data.quantity:'0.0001 EOS'"` query (See the [Search Query Language reference here]({{< ref "/reference/eosio/search-terms" >}})). This basically means, give me all transactions containing one or more
