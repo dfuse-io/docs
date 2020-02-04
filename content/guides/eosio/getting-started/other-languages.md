@@ -18,8 +18,12 @@ The code from the examples on this page can be found {{< external-link href="htt
 The JWT is a token with a short expiration period, used to communicate with dfuse services. You will have to implement token caching and manage renewal upon expiration. See [Authentication]({{< relref "/guides/core-concepts/authentication" >}}) for more details.
 
 {{< tabs "generate-jwt">}}
-{{< tab-code title="Go" filename="./quickstarts/go/main-eos.go" range="21:39" >}}
-{{< tab-code title="Python" filename="./quickstarts/python/main.py" range="17:28" >}}
+{{< tab title="Go" lang="go">}}
+{{< code-section "quickstarts_go_eos_section1" >}}
+{{< /tab >}}
+{{< tab title="Python" lang="python">}}
+{{< code-section "quickstarts_python_eos_section1" >}}
+{{< /tab >}}
 {{< tab title="Shell" lang="shell" >}}
 curl https://auth.dfuse.io/v1/auth/issue -s \
   --data-binary '{"api_key":"server_abcdef12345678900000000000"}'

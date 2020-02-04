@@ -18,6 +18,7 @@ import (
 	"google.golang.org/grpc/credentials/oauth"
 )
 
+// CODE:BEGIN:quickstarts_go_eos_section1
 func getToken(apiKey string) (token string, expiration time.Time, err error) {
 	reqBody := bytes.NewBuffer([]byte(fmt.Sprintf(`{"api_key":"%s"}`, apiKey)))
 	resp, err := http.Post("https://auth.dfuse.io/v1/auth/issue", "application/json", reqBody)
@@ -37,7 +38,7 @@ func getToken(apiKey string) (token string, expiration time.Time, err error) {
 	}
 	return
 }
-
+// CODE:END:quickstarts_go_eos_section1
 func createClient(endpoint string) pb.GraphQLClient {
 	dfuseAPIKey := os.Getenv("DFUSE_API_KEY")
 	if dfuseAPIKey == "" {
