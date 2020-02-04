@@ -1,17 +1,14 @@
 global.fetch = require('node-fetch');
 global.WebSocket = require('ws');
 
-// CODE:BEGIN:quickstart_javascript_node_eos_section1
+// CODE:BEGIN:quickstarts_javascript_node_eos_section1
 const { createDfuseClient } = require('@dfuse/client');
 
-// CODE:BEGIN:quickstart_javascript_node_eos_section2
 const client = createDfuseClient({
   apiKey: process.env.DFUSE_API_KEY,
   network: 'mainnet.eos.dfuse.io'
 });
-
-// CODE:END:quickstart_javascript_node_eos_section2
-// CODE:END:quickstart_javascript_node_eos_section1
+// CODE:END:quickstarts_javascript_node_eos_section1
 // You must use a `$cursor` variable so stream starts back at last marked cursor on reconnect!
 const operation = `subscription($cursor: String!) {
   searchTransactionsForward(query:"receiver:eosio.token action:transfer -data.quantity:'0.0001 EOS'", cursor: $cursor) {

@@ -43,18 +43,18 @@ All content can be found in the `/content` directory. The structure of the websi
 Use the following begin and end tags to indicate code sections that need to be referenced:
 
 ```javascript
-// CODE:BEGIN:quickstart_javascript_node_eos_section1
+// CODE:BEGIN:quickstarts_javascript_node_eos_section1
 function() {
   var some = "code"
 }
-// CODE:END:quickstart_javascript_node_eos_section1
+// CODE:END:quickstarts_javascript_node_eos_section1
 ```
 
 Section names need to follow the path of the file from project root.
 For example the example snippet is from the file:
 
 ```markdown
-├── quickstart
+├── quickstarts
 │   └── javascript
 │       └── node
 │           └── index.eos.js
@@ -65,7 +65,7 @@ For example the example snippet is from the file:
 When hugo builds the site, the code sections are extracted and stored in the `data` folder in project root. 
 Example code can then be referenced with the following shortcode:
 ```go
-{{< code-section "quickstart_javascript_node_eos_section1" >}}
+{{< code-section "quickstarts_javascript_node_eos_section1" >}}
 ```
 
 ## Lexicon guide

@@ -104,13 +104,16 @@ the dfuse client using the API key you created in the first step and the network
 connect to.
 
 Valid networks can be found at [EOSIO API Endpoints]({{< ref "reference/eosio/endpoints" >}})
-
 {{< tabs "create-client" >}}
 {{< tab lang="javascript" title="Node.js" >}}
-{{< code-section "quickstart_javascript_node_eos_section1" >}}
+{{< code-section "quickstarts_javascript_node_eos_section1" >}}
 {{< /tab >}}
-{{< tab-code title="Bundler" filename="./quickstarts/javascript/bundler/index.eosio.js" range="1:6" >}}
-{{< tab-code title="Browser" filename="./quickstarts/javascript/browser/index.eosio.html" range="1:11" >}}
+{{< tab lang="javascript" title="Bundler" >}}
+{{< code-section "quickstarts_javascript_bundler_eos_section1" >}}
+{{< /tab >}}
+{{< tab lang="javascript" title="Browser" >}}
+{{< code-section "quickstarts_javascript_browser_eos_section1" >}}
+{{< /tab >}}
 {{< /tabs >}}
 
 ## 4. Stream your first results

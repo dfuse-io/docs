@@ -1,9 +1,11 @@
+// CODE:BEGIN:quickstarts_javascript_bundler_eos_section1
 import { createDfuseClient } from "@dfuse/client"
 
 const client = createDfuseClient({
   apiKey: process.env.DFUSE_API_KEY,
   network: "mainnet.eos.dfuse.io",
 })
+// CODE:END:quickstarts_javascript_bundler_eos_section1
 
 // You must use a `$cursor` variable so stream starts back at last marked cursor on reconnect!
 const operation = `subscription($cursor: String!) {
