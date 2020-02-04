@@ -106,9 +106,15 @@ connect to.
 Valid networks can be found at [Ethereum API Endpoints]({{< ref "reference/ethereum/endpoints" >}})
 
 {{< tabs "create-client" >}}
-{{< tab-code title="Node.js" filename="./quickstarts/javascript/node/index.ethereum.js" range="4:9" >}}
-{{< tab-code title="Bundler" filename="./quickstarts/javascript/bundler/index.ethereum.js" range="1:6" >}}
-{{< tab-code title="Browser" filename="./quickstarts/javascript/browser/index.ethereum.html" range="1:11" >}}
+{{< tab title="Node.js" lang="javascript">}}
+{{< code-section "quickstarts_javascript_node_ethereum_section1" >}}
+{{< /tab >}}
+{{< tab title="Bundler" lang="javascript">}}
+{{< code-section "quickstarts_javascript_bundler_ethereum_section1" >}}
+{{< /tab >}}
+{{< tab title="Browser" lang="javascript">}}
+{{< code-section "quickstarts_javascript_browser_ethereum_section1" >}}
+{{< /tab >}}
 {{< /tabs >}}
 
 ## 4. Stream your first results
@@ -125,9 +131,15 @@ Want to inspect the full set of available fields you can retrieve?
   {{< /alert >}}
 
 {{< tabs "define-query">}}
-{{< tab-code title="Node.js" filename="./quickstarts/javascript/node/index.ethereum.js" range="11:17" >}}
-{{< tab-code title="Bundler" filename="./quickstarts/javascript/bundler/index.ethereum.js" range="8:14" >}}
-{{< tab-code title="Browser" filename="./quickstarts/javascript/browser/index.ethereum.html" range="13:21" >}}
+{{< tab title="Node.js" lang="javascript">}}
+{{< code-section "quickstarts_javascript_node_ethereum_section2" >}}
+{{< /tab >}}
+{{< tab title="Bundler" lang="javascript">}}
+{{< code-section "quickstarts_javascript_bundler_ethereum_section2" >}}
+{{< /tab >}}
+{{< tab title="Browser" lang="javascript">}}
+{{< code-section "quickstarts_javascript_browser_ethereum_section2" >}}
+{{< /tab >}}
 {{< /tabs >}}
 
 Next, you create the GraphQL subscription to stream transfers as they come. You will use the `searchTransactions` operation, with the `"-value:0 type:call"` query (See the [Search Query Language reference here]({{< ref "/reference/ethereum/search-terms" >}})). This basically means, give me all transactions containing one or more
@@ -137,9 +149,15 @@ You can combine the dfuse client instance we created in step 3 with the GraphQL 
 a `main` function:
 
 {{< tabs "execute-query">}}
-{{< tab-code title="Node.js" filename="./quickstarts/javascript/node/index.ethereum.js" range="19:43" >}}
-{{< tab-code title="Bundler" filename="./quickstarts/javascript/bundler/index.ethereum.js" range="16:52" >}}
-{{< tab-code title="Browser" filename="./quickstarts/javascript/browser/index.ethereum.html" range="23:60" >}}
+{{< tab title="Node.js" lang="javascript">}}
+{{< code-section "quickstarts_javascript_node_ethereum_section3" >}}
+{{< /tab >}}
+{{< tab title="Bundler" lang="javascript">}}
+{{< code-section "quickstarts_javascript_bundler_ethereum_section3" >}}
+{{< /tab >}}
+{{< tab title="Browser" lang="javascript">}}
+{{< code-section "quickstarts_javascript_browser_ethereum_section3" >}}
+{{< /tab >}}
 {{< /tabs >}}
 
 The function passed as the 2nd parameter to `client.graphql()` will be called every time a new result is returned
@@ -161,9 +179,15 @@ Transfer 0x1c22fa9495d1d65df8e48d61d217732eb5b06b23 -> 0x298aca39f7bc65f9c7537c7
 Here the small glue code containing the `main` function, imports and other helper functions to run the example:
 
 {{< tabs "support-code">}}
-{{< tab-code title="Node.js" filename="./quickstarts/javascript/node/index.ethereum.js" range="45:45" >}}
-{{< tab-code title="Bundler" filename="./quickstarts/javascript/bundler/index.ethereum.js" range="54:54" >}}
-{{< tab-code title="Browser" filename="./quickstarts/javascript/browser/index.ethereum.html" range="61:63" >}}
+{{< tab title="Node.js" lang="javascript">}}
+{{< code-section "quickstarts_javascript_node_ethereum_section4" >}}
+{{< /tab >}}
+{{< tab title="Bundler" lang="javascript">}}
+{{< code-section "quickstarts_javascript_bundler_ethereum_section4" >}}
+{{< /tab >}}
+{{< tab title="Browser" lang="javascript">}}
+{{< code-section "quickstarts_javascript_browser_ethereum_section4" >}}
+{{< /tab >}}
 {{< /tabs >}}
 
 {{< tabs "full-working">}}
