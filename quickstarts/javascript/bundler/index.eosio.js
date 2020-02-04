@@ -15,6 +15,7 @@ const operation = `subscription($cursor: String!) {
   }
 }`
 // CODE:END:quickstarts_javascript_bundler_eos_section2
+// CODE:BEGIN:quickstarts_javascript_bundler_eos_section3
 // You would normally use your framework entry point and render using components,
 // we are using pure HTML manipulation for sake of example simplicity.
 async function main() {
@@ -52,5 +53,7 @@ async function main() {
   await stream.join()
   await client.release()
 }
-
+// CODE:END:quickstarts_javascript_bundler_eos_section3
+// CODE:BEGIN:quickstarts_javascript_bundler_eos_section4
 main().catch((error) => document.body.innerHTML = `<p>${error}</p>`)
+// CODE:END:quickstarts_javascript_bundler_eos_section4

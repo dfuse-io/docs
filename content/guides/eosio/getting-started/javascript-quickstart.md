@@ -148,9 +148,15 @@ You can combine the dfuse client instance we created in step 3 with the GraphQL 
 a `main` function:
 
 {{< tabs "execute-query">}}
-{{< tab-code title="Node.js" filename="./quickstarts/javascript/node/index.eosio.js" range="19:43" >}}
-{{< tab-code title="Bundler" filename="./quickstarts/javascript/bundler/index.eosio.js" range="16:52" >}}
-{{< tab-code title="Browser" filename="./quickstarts/javascript/browser/index.eosio.html" range="23:60" >}}
+{{< tab lang="javascript" title="Node.js" >}}
+{{< code-section "quickstarts_javascript_node_eos_section3" >}}
+{{< /tab >}}
+{{< tab lang="javascript" title="Bundler" >}}
+{{< code-section "quickstarts_javascript_bundler_eos_section3" >}}
+{{< /tab >}}
+{{< tab lang="javascript" title="Browser" >}}
+{{< code-section "quickstarts_javascript_browser_eos_section3" >}}
+{{< /tab >}}
 {{< /tabs >}}
 
 The function passed as the 2nd parameter to `client.graphql()` will be called every time a new result is returned
@@ -173,9 +179,15 @@ Transfer bluebetproxy -> bluebetbulls [0.6000 EOS]
 Here the small glue code containing the `main` function, imports and other helper functions to run the example:
 
 {{< tabs "support-code">}}
-{{< tab-code title="Node.js" filename="./quickstarts/javascript/node/index.eosio.js" range="45:45" >}}
-{{< tab-code title="Bundler" filename="./quickstarts/javascript/bundler/index.eosio.js" range="54:54" >}}
-{{< tab-code title="Browser" filename="./quickstarts/javascript/browser/index.eosio.html" range="61:63" >}}
+{{< tab lang="javascript" title="Node.js" >}}
+{{< code-section "quickstarts_javascript_node_eos_section4" >}}
+{{< /tab >}}
+{{< tab lang="javascript" title="Bundler" >}}
+{{< code-section "quickstarts_javascript_bundler_eos_section4" >}}
+{{< /tab >}}
+{{< tab lang="javascript" title="Browser" >}}
+{{< code-section "quickstarts_javascript_browser_eos_section4" >}}
+{{< /tab >}}
 {{< /tabs >}}
 
 {{< tabs "full-working">}}

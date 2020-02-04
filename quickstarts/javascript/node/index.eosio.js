@@ -18,7 +18,7 @@ const operation = `subscription($cursor: String!) {
   }
 }`;
 // CODE:END:quickstarts_javascript_node_eos_section2
-
+// CODE:BEGIN:quickstarts_javascript_node_eos_section3
 async function main() {
   const stream = await client.graphql(operation, message => {
     if (message.type === 'data') {
@@ -50,5 +50,7 @@ async function main() {
   await stream.join();
   await client.release();
 }
-
+// CODE:END:quickstarts_javascript_node_eos_section3
+// CODE:BEGIN:quickstarts_javascript_node_eos_section4
 main().catch(error => console.log('Unexpected error', error));
+// CODE:END:quickstarts_javascript_node_eos_section4
