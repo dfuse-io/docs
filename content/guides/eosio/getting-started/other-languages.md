@@ -19,10 +19,10 @@ The JWT is a token with a short expiration period, used to communicate with dfus
 
 {{< tabs "generate-jwt">}}
 {{< tab title="Go" lang="go">}}
-{{< code-section "quickstarts_go_eos_section1" >}}
+{{< code-section "quickstarts_go_eos_section2" >}}
 {{< /tab >}}
 {{< tab title="Python" lang="python">}}
-{{< code-section "quickstarts_python_eos_section1" >}}
+{{< code-section "quickstarts_python_eos_section2" >}}
 {{< /tab >}}
 {{< tab title="Shell" lang="shell" >}}
 curl https://auth.dfuse.io/v1/auth/issue -s \
@@ -84,10 +84,10 @@ level for your use case.
 
 {{< tabs "create-client" >}}
 {{< tab title="Go" lang="go">}}
-{{< code-section "quickstarts_go_eos_section2" >}}
+{{< code-section "quickstarts_go_eos_section3" >}}
 {{< /tab >}}
 {{< tab title="Python" lang="python">}}
-{{< code-section "quickstarts_python_eos_section2" >}}
+{{< code-section "quickstarts_python_eos_section3" >}}
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -106,10 +106,10 @@ Want to inspect the full set of available fields you can retrieve?
 
 {{< tabs "define-query">}}
 {{< tab title="Go" lang="go">}}
-{{< code-section "quickstarts_go_eos_section3" >}}
+{{< code-section "quickstarts_go_eos_section4" >}}
 {{< /tab >}}
 {{< tab title="Python" lang="python">}}
-{{< code-section "quickstarts_python_eos_section3" >}}
+{{< code-section "quickstarts_python_eos_section4" >}}
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -119,10 +119,10 @@ streaming transfers forever.
 
 {{< tabs "run-query">}}
 {{< tab title="Go" lang="go">}}
-{{< code-section "quickstarts_go_eos_section4" >}}
+{{< code-section "quickstarts_go_eos_section5" >}}
 {{< /tab >}}
 {{< tab title="Python" lang="python">}}
-{{< code-section "quickstarts_python_eos_section4" >}}
+{{< code-section "quickstarts_python_eos_section5" >}}
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -144,11 +144,11 @@ Here is the small glue code containing the `main` function, imports and other he
 
 {{< tabs "support-code">}}
 {{< tab title="Go" lang="go">}}
-{{< code-section "quickstarts_go_eos_section5" >}}
+{{< code-section "quickstarts_go_eos_section1" >}}
 {{< code-section "quickstarts_go_eos_section6" >}}
 {{< /tab >}}
 {{< tab title="Python" lang="python">}}
-{{< code-section "quickstarts_python_eos_section5" >}}
+{{< code-section "quickstarts_python_eos_section1" >}}
 {{< code-section "quickstarts_python_eos_section6" >}}
 {{< /tab >}}
 {{< /tabs >}}
