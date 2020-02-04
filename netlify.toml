@@ -7,4 +7,4 @@
   publish = "public/"
 
   # Default build command.
-  command = "hugo --gc --minify"
+  command = "yarn run extract && hugo --gc --minify"
