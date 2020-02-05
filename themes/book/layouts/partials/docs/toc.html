@@ -5,12 +5,11 @@
       {{ if .IsPage }}
         <a href="
         {{ $.Site.Params.BookRepo }}/{{$.Site.Params.BookEditPath }}/{{ $.File.Path }}
-        " target="_blank" rel="noopener"><i class="far fa-edit"></i>&nbsp;Edit this page
+        " target="_blank" rel="noopener"><i class="far fa-edit"></i>Edit this page
         </a>
-      <a href="
-        {{ $.Site.Params.BookRepo }}/issues/new?body={{ $.File.Path }}
-        " target="_blank" rel="noopener"><i class="far fa-comment-exclamation"></i>&nbsp;Request docs changes
-      </a>
+        <a href="{{ $.Site.Params.BookRepo }}/issues/new?body=REF: [{{ $.File.Path }}]({{ $.Site.Params.BookRepo }}/{{$.Site.Params.BookEditPath }}/{{ $.File.Path }})" target="_blank" rel="noopener">
+          <i class="far fa-comment-exclamation"></i>Request docs changes
+        </a>
       {{ end }}
     </div>
     {{ .Page.TableOfContents }}
