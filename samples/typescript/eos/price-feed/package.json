@@ -1,0 +1,30 @@
+{
+  "name": "example-node-graphql",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "ts-node index.ts"
+  },
+  "dependencies": {
+    "@dfuse/client": "^0.2.6",
+    "@types/debug": "^4.1.4",
+    "@types/node-fetch": "^2.3.3",
+    "@types/ws": "^6.0.1",
+    "apollo-cache-inmemory": "^1.5.1",
+    "apollo-client": "^2.5.1",
+    "apollo-link": "^1.2.11",
+    "apollo-link-http": "^1.5.14",
+    "apollo-link-ws": "^1.0.17",
+    "apollo-utilities": "^1.2.1",
+    "debug": "^4.1.1",
+    "eosjs": "^20.0.0",
+    "graphql": "^14.2.1",
+    "graphql-tag": "^2.10.1",
+    "node-fetch": "^2.4.1",
+    "subscriptions-transport-ws": "^0.9.16",
+    "ts-node": "^8.1.0",
+    "typescript": "^3.4.5",
+    "ws": "^6.2.1"
+  }
+}

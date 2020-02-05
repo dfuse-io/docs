@@ -1,0 +1,14 @@
+{
+  "name": "dfuse-client-node-example",
+  "version": "1.0.0",
+  "description": "This project showcases how to use [dfuse Client Library](https://github.com/dfuse-io/client-js) in a Node.js environment",
+  "main": "index.js",
+  "repository": "https://github.com/dfuse-io/client-node-example",
+  "author": "dfuse Inc.",
+  "license": "MIT",
+  "dependencies": {
+    "@dfuse/client": "^0.2.0-rc.21",
+    "node-fetch": "^2.3.0",
+    "ws": "^6.2.1"
+  }
+}
