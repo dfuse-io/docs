@@ -20,7 +20,18 @@ async function getFilePaths(dir) {
       if ((await stat(res)).isDirectory()) {
         return getFilePaths(res);
       }
-      const exts = ['.html', '.css', '.js', '.go', '.cpp', '.py'];
+      const exts = [
+        '.html',
+        '.css',
+        '.js',
+        '.jsx',
+        '.ts',
+        '.tsx',
+        '.go',
+        '.cpp',
+        '.py',
+        '.graphql'
+      ];
       if (exts.includes(extname(res))) {
         return res;
       }

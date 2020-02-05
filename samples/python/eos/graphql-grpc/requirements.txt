@@ -1,0 +1,5 @@
+## The following requirements were added by pip freeze:
+grpcio==1.22.0
+grpcio-tools==1.22.0
+protobuf==3.9.1
+six==1.12.0

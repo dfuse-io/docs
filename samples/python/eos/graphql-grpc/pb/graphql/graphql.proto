@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package dfuse.eosio.v1;
+
+import "google/protobuf/struct.proto";
+
+option go_package = "pbgraphql";
+
+service GraphQL {
+  rpc Execute(Request) returns (stream Response) {}
+}
+
+message Request {
+  string query = 1;
+  google.protobuf.Struct variables = 2;
+  string operationName = 3;
+}
+
+message Response {
+  string data = 1;
+  repeated Error errors = 2;
+}
+
+// GraphQL Error
+message Error {
+  // Description of the error intended for the developer.
+  string message = 1;
+
+  // The source location for the error.
+  repeated SourceLocation locations = 2;
+
+  // Path to the `null` value justified by this error.
+  google.protobuf.ListValue path = 3;
+
+  // Free-form extensions (starts with a map)
+  google.protobuf.Struct extensions = 4;
+}
+
+// The source location of an error.
+message SourceLocation {
+  // The line the error occurred at.
+  int32 line = 1;
+  // The column the error occurred at.
+  int32 column = 2;
+}
