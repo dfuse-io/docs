@@ -100,6 +100,17 @@ ul.supported-on {
   z-index: 1000;
   top:100px;
   padding-left:10px;
+  font-size: 1.2em;
+  a {
+    display:block;
+    width:100%;
+    padding-bottom:10px;
+    font-weight: bold;
+    i{
+      color: $ternary-1000;
+      padding-right:6px;
+    }
+  }
 }
 
 .tag.tag-stable { background-color:$release-stable;}
