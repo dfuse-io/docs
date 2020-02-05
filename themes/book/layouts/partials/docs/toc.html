@@ -7,8 +7,8 @@
         {{ $.Site.Params.BookRepo }}/{{$.Site.Params.BookEditPath }}/{{ $.File.Path }}
         " target="_blank" rel="noopener"><i class="far fa-edit"></i>Edit this page
         </a>
-        <a href="{{ $.Site.Params.BookRepo }}/issues/new?body=REF: [{{ $.File.Path }}]({{ $.Site.Params.BookRepo }}/{{$.Site.Params.BookEditPath }}/{{ $.File.Path }})" target="_blank" rel="noopener">
-          <i class="far fa-comment-exclamation"></i>Request docs changes
+        <a href="{{ $.Site.Params.BookRepo }}/issues/new?body={{ $.Title }}&nbsp;[&nbsp;[ GitHub ]({{ $.Site.Params.BookRepo }}/{{$.Site.Params.BookEditPath }}/{{ $.File.Path }})&nbsp;|&nbsp;[ www ](http:{{ $.Permalink }})&nbsp;]<br><br>" target="_blank" rel="noopener">
+            <i class="far fa-comment-exclamation"></i>Request docs changes
         </a>
       {{ end }}
     </div>
