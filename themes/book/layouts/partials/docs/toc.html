@@ -1,6 +1,15 @@
 {{ $tocLevels := default (default 6 .Site.Params.BookToC) .Params.BookToC }}
 {{ if and $tocLevels .Page.TableOfContents }}
   <aside class="book-toc level-{{$tocLevels}} fixed">
+    <div class="book-top-repo-button">
+      {{ if .IsPage }}
+        <a href="
+        {{ $.Site.Params.BookRepo }}/{{$.Site.Params.BookEditPath }}/{{ $.File.Path }}
+        " target="_blank" rel="noopener"><i class="far fa-edit"></i>&nbsp;Edit this page
+        </a>
+      {{ end }}
+    </div>
     {{ .Page.TableOfContents }}
   </aside>
+
 {{ end }}
