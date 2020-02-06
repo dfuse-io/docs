@@ -31,7 +31,7 @@ The following fields go in the `query`  string of those calls.
 ### `method` _string_ or _4-bytes hexdata_
 
 * description: either the signature in ascii form or the first 4 bytes (in hex format) of the keccak-256 of that signature (which can be found in the first 4 bytes of the `input`) of the **method called** (or the method that generated the **log**)
-* example: `method:transfer(address,uint256)` or `method:a9059cbb`
+* example: `method:'transfer(address,uint256)'` or `method:a9059cbb`
 
 
 ## Supported terms for CALLS only

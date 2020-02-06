@@ -21,13 +21,6 @@ in the `requirements.txt` at the root of this project.
 First of all, visit [https://app.dfuse.io](https://app.dfuse.io) to get
 a free API key for your project.
 
-First, clone this repository to your work folder:
-
-```bash
-git clone https://github.com/dfuse-io/example-graphql-python.git
-cd example-graphql-python
-```
-
 Setup the virtual environment and pull all dependencies:
 
 ```bash

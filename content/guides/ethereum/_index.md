@@ -14,8 +14,9 @@ title: Ethereum
 
 #### Tutorials
 
-- [Track transaction in real-time] ({{< ref "/guides/ethereum/tutorials/track_trx" >}})
+- [Stream the latest ether transfers]({{< ref "/guides/ethereum/tutorials/stream" >}})
 - [Search with query language] ({{< ref "/guides/ethereum/tutorials/search" >}})
+- [Track transaction in real-time] ({{< ref "/guides/ethereum/tutorials/lifecycle" >}})
 
 <--->
 

@@ -1,11 +1,13 @@
 ---
-weight: 3
+weight: 2
 menuTitle: Search with query language
 title: Search with query language
 release: beta
 ---
 
 In this guide we will create a simple React application that will use dfuse's Search API and query language to find specific Ethereum transactions. To do that, we will be using {{< external-link href="https://reactjs.org/docs/hooks-intro.html" title="react hooks">}}.
+
+![Ethereum Search Demo](/img/eth-search.gif)
 
 ## 0. Completed Example
 
@@ -32,8 +34,8 @@ Use the {{< external-link href="https://github.com/facebook/create-react-app">}}
 {{< tabs "create-react-app">}}
 {{< tab title="Shell" lang="shell" >}}
 # get create-react-app: https://github.com/facebook/create-react-app
-npx create-react-app track-trx
-cd track-trx
+npx create-react-app search
+cd search
 npm start
 {{< /tab >}}
 {{< /tabs >}}
@@ -60,13 +62,13 @@ npm install --save @dfuse/client
 Import the necessary functions from `dfuse/client` at the top of `src/App.js`.
 
 {{< tabs "setting-up-dfuse-client1-import">}}
-{{< tab-code title="src/App.js" filename="./tutorials/ethereum/search/src/App.js" range="1:3" >}}
+{{< tab-code title="src/App.js" filename="./tutorials/eth/search/src/App.js" range="1:3" >}}
 {{< /tabs >}}
 
 Initialize the dfuse client using the API key you created in the second step. Let's create the `dfuseClient` right after the `function App()` declaration.
 
 {{< tabs "setting-up-dfuse-client1-initialize">}}
-{{< tab-code title="src/App.js" filename="./tutorials/ethereum/search/src/App.js" range="6:9" >}}
+{{< tab-code title="src/App.js" filename="./tutorials/eth/search/src/App.js" range="6:9" >}}
 {{< /tabs >}}
 
 ## 5. Craft the GraphQL query
@@ -86,7 +88,7 @@ See [Query Langauge](/guides/core-concepts/search-query-language/) to learn more
 {{< /alert >}}
 
 {{< tabs "tracker-query">}}
-{{< tab-code title="src/App.js" filename="./tutorials/ethereum/search/src/App.js" range="11:74" >}}
+{{< tab-code title="src/App.js" filename="./tutorials/eth/search/src/App.js" range="11:74" >}}
 {{< /tabs >}}
 
 ## 6. Setup our Hooks
@@ -99,7 +101,7 @@ Lets setup a few hooks that will help us keep track of our transaction states an
 - `error`: stores our errors
 
 {{< tabs "setup-hooks">}}
-{{< tab-code title="src/App.js" filename="./tutorials/ethereum/search/src/App.js" range="76:79" >}}
+{{< tab-code title="src/App.js" filename="./tutorials/eth/search/src/App.js" range="76:79" >}}
 {{< /tabs >}}
 
 ## 7. Search Transactions Function
@@ -171,7 +173,7 @@ async function searchTransactions() {
 Build the `render` method for this component. It includes an input for the search query string, and handles the different possible states of our component.
 
 {{< tabs "fetch-transaction-render">}}
-{{< tab-code title="src/App.js" filename="./tutorials/ethereum/search/src/App.js" range="124:174" >}}
+{{< tab-code title="src/App.js" filename="./tutorials/eth/search/src/App.js" range="124:174" >}}
 {{< /tabs >}}
 
 ## 9. Prettifying it with CSS
@@ -179,14 +181,14 @@ Build the `render` method for this component. It includes an input for the searc
 Add some CSS to style this HTML a bit. Replace the contents of `src/App.css` with the following:
 
 {{< tabs "fetch-transaction-css">}}
-{{< tab-code title="src/App.css" filename="./tutorials/ethereum/search/src/App.css" range="1:83" >}}
+{{< tab-code title="src/App.css" filename="./tutorials/eth/search/src/App.css" range="1:83" >}}
 {{< /tabs >}}
 
 ## 10. Full Working Example
 
-The source code for this tutorial is available on {{< external-link href="https://github.com/dfuse-io/docs/tree/master/tutorials/ethereum/search" title="GitHub" >}}. Below are the code files discussed on this page.
+The source code for this tutorial is available on {{< external-link href="https://github.com/dfuse-io/docs/tree/master/tutorials/eth/search" title="GitHub" >}}. Below are the code files discussed on this page.
 
 {{< tabs "fetch-transaction-full-app">}}
-{{< tab-code title="src/App.js" filename="./tutorials/ethereum/search/src/App.js" range="1:176" >}}
-{{< tab-code title="src/App.css" filename="./tutorials/ethereum/search/src/App.css" range="1:83" >}}
+{{< tab-code title="src/App.js" filename="./tutorials/eth/search/src/App.js" range="1:176" >}}
+{{< tab-code title="src/App.css" filename="./tutorials/eth/search/src/App.css" range="1:83" >}}
 {{< /tabs >}}
