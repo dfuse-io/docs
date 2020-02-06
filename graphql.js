@@ -17,6 +17,7 @@ ${schemaSources.map(path => ` * ${path}`).join('\n')}`);
 
     return {
       name: name.value,
+      hideChildren: (name.value != "Subscription" && name.value != "Query"),
       description: description ? description.value : '',
       fields: fields.map(field => {
         const { name, type, description, arguments, defaultValue } = field;

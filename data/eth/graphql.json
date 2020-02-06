@@ -1,6 +1,7 @@
 [
   {
     "name": "Subscription",
+    "hideChildren": false,
     "description": "Subscription holds the top-level calls that return streams of data. Call them with the `subscription` keyword from your top-level GraphQL query",
     "fields": [
       {
@@ -131,12 +132,31 @@
           "name": "Transaction"
         },
         "description": "",
-        "arguments": []
+        "arguments": [
+          {
+            "name": "filterAddresses",
+            "type": {
+              "isList": true,
+              "reqType": true,
+              "name": "String"
+            },
+            "description": ""
+          },
+          {
+            "name": "filterField",
+            "type": {
+              "name": "FILTER_FIELD",
+              "default": "FROM_OR_TO"
+            },
+            "description": ""
+          }
+        ]
       }
     ]
   },
   {
     "name": "Query",
+    "hideChildren": false,
     "description": "Query holds the top-level calls that return single responses of data. Call them with the `query` keyword from your top-level GraphQL query",
     "fields": [
       {
@@ -187,6 +207,102 @@
               "name": "String"
             },
             "description": ""
+          }
+        ]
+      },
+      {
+        "name": "_alphaExecute",
+        "type": {
+          "name": "TransactionTrace"
+        },
+        "description": "ALPHA Speculatively execute a transaction and get back the TransactionTrace it produced",
+        "arguments": [
+          {
+            "name": "from",
+            "type": {
+              "reqType": true,
+              "name": "String"
+            },
+            "description": ""
+          },
+          {
+            "name": "to",
+            "type": {
+              "reqType": true,
+              "name": "String"
+            },
+            "description": ""
+          },
+          {
+            "name": "input",
+            "type": {
+              "reqType": true,
+              "name": "String"
+            },
+            "description": ""
+          },
+          {
+            "name": "gasLimit",
+            "type": {
+              "reqType": true,
+              "name": "Uint64"
+            },
+            "description": ""
+          },
+          {
+            "name": "gasPrice",
+            "type": {
+              "name": "String",
+              "default": "\"0x\""
+            },
+            "description": ""
+          },
+          {
+            "name": "value",
+            "type": {
+              "name": "String",
+              "default": "\"0x\""
+            },
+            "description": ""
+          },
+          {
+            "name": "nonce",
+            "type": {
+              "name": "Uint64",
+              "default": "0"
+            },
+            "description": ""
+          },
+          {
+            "name": "atBlock",
+            "type": {
+              "name": "BlockRef"
+            },
+            "description": "`BlockRef` defines against which block height the execution should be performed against, optional, if not present, use HEAD block (as seen by dfuse). For best precision, use the `hash`. Passing only the num will use the longest block chain for this block number."
+          }
+        ]
+      },
+      {
+        "name": "_alphaReplay",
+        "type": {
+          "name": "TransactionTrace"
+        },
+        "description": "ALPHA Speculatively replay a transaction id and get back the TransactionTrace it produced",
+        "arguments": [
+          {
+            "name": "hash",
+            "type": {
+              "reqType": true,
+              "name": "String"
+            },
+            "description": ""
+          },
+          {
+            "name": "atBlock",
+            "type": {
+              "name": "BlockRef"
+            },
+            "description": "`BlockRef` defines against which block height the execution should be performed against, optional, if not present, use the block in which the transaction was executed. For best precision, use the `hash`. Passing only the num will use the longest block chain for this block number."
           }
         ]
       },
@@ -257,6 +373,7 @@
   },
   {
     "name": "PageInfo",
+    "hideChildren": true,
     "description": "Cursors required to continue either forward or backwards from a list of paginated elements",
     "fields": [
       {
@@ -281,6 +398,7 @@
   },
   {
     "name": "TransactionConnection",
+    "hideChildren": true,
     "description": "The Connection type for a Transaction. See the [GraphQL core concepts](https://docs.dfuse.io/guides/core-concepts/graphql/)",
     "fields": [
       {
@@ -306,6 +424,7 @@
   },
   {
     "name": "TransactionEdge",
+    "hideChildren": true,
     "description": "A single transaction response.\n\nWARNING: when doing forward streaming searches, do NOT forget to include the `undo` field to determine if the message is actually a REVERSAL of the transaction.\n\nNOTE: always check the value of `node.status` to make sure it is successfully executed before assuming it is.",
     "fields": [
       {
@@ -347,6 +466,7 @@
   },
   {
     "name": "Transaction",
+    "hideChildren": true,
     "description": "",
     "fields": [
       {
@@ -452,6 +572,7 @@
   },
   {
     "name": "TransactionTraceConnection",
+    "hideChildren": true,
     "description": "The Connection type for a TransactionTrace",
     "fields": [
       {
@@ -477,6 +598,7 @@
   },
   {
     "name": "TransactionTraceEdge",
+    "hideChildren": true,
     "description": "A single transaction trace response.\n\nWARNING: when doing forward streaming searches, do NOT forget to include the `undo` field to determine if the message is actually a REVERSAL of the transaction.\n\nNOTE: always check the value of `node.status` to make sure it is successfully executed before assuming it is.",
     "fields": [
       {
@@ -518,6 +640,7 @@
   },
   {
     "name": "TransactionTrace",
+    "hideChildren": true,
     "description": "Traces of the execution of a given transaction. This means the\ntransaction was executed on the chain. You also get context about the\nblock in which it was executed, and the status of the execution.\n\nWARN: Make sure to always check the `status` to make sure you're not\nconsidering a failed transaction as if it was successful.",
     "fields": [
       {
@@ -738,6 +861,7 @@
   },
   {
     "name": "Signature",
+    "hideChildren": true,
     "description": "",
     "fields": [
       {
@@ -771,6 +895,7 @@
   },
   {
     "name": "TransactionReceipt",
+    "hideChildren": true,
     "description": "",
     "fields": [
       {
@@ -815,6 +940,7 @@
   },
   {
     "name": "Call",
+    "hideChildren": true,
     "description": "",
     "fields": [
       {
@@ -1006,6 +1132,7 @@
   },
   {
     "name": "BalanceChange",
+    "hideChildren": true,
     "description": "",
     "fields": [
       {
@@ -1066,6 +1193,7 @@
   },
   {
     "name": "StorageChange",
+    "hideChildren": true,
     "description": "",
     "fields": [
       {
@@ -1108,6 +1236,7 @@
   },
   {
     "name": "EventLog",
+    "hideChildren": true,
     "description": "",
     "fields": [
       {
@@ -1161,6 +1290,7 @@
   },
   {
     "name": "BlockRefWithHeader",
+    "hideChildren": true,
     "description": "`BlockRefWithHeader` is an object that refers to a block and contains its header. Think of it as an incomplete `Block` object.",
     "fields": [
       {
@@ -1194,6 +1324,7 @@
   },
   {
     "name": "Block",
+    "hideChildren": true,
     "description": "",
     "fields": [
       {
@@ -1285,6 +1416,7 @@
   },
   {
     "name": "BlockHeader",
+    "hideChildren": true,
     "description": "Header of an Ethereum block",
     "fields": [
       {
@@ -1435,6 +1567,7 @@
   },
   {
     "name": "BlockEdge",
+    "hideChildren": true,
     "description": "",
     "fields": [
       {
@@ -1467,6 +1600,7 @@
   },
   {
     "name": "MinedBlock",
+    "hideChildren": true,
     "description": "",
     "fields": [
       {
@@ -1569,6 +1703,7 @@
   },
   {
     "name": "TransactionState",
+    "hideChildren": true,
     "description": "A single Transaction State response.",
     "fields": [
       {
@@ -1610,6 +1745,7 @@
   },
   {
     "name": "TrxTransitionInit",
+    "hideChildren": true,
     "description": "",
     "fields": [
       {
@@ -1657,6 +1793,7 @@
   },
   {
     "name": "TrxTransitionPooled",
+    "hideChildren": true,
     "description": "",
     "fields": [
       {
@@ -1671,6 +1808,7 @@
   },
   {
     "name": "TrxTransitionMined",
+    "hideChildren": true,
     "description": "",
     "fields": [
       {
@@ -1702,6 +1840,7 @@
   },
   {
     "name": "TrxTransitionForked",
+    "hideChildren": true,
     "description": "",
     "fields": [
       {
@@ -1716,6 +1855,7 @@
   },
   {
     "name": "TrxTransitionConfirmed",
+    "hideChildren": true,
     "description": "",
     "fields": [
       {
@@ -1731,6 +1871,7 @@
   },
   {
     "name": "TrxTransitionReplaced",
+    "hideChildren": true,
     "description": "",
     "fields": [
       {

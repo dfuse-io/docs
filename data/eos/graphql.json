@@ -1,6 +1,7 @@
 [
   {
     "name": "Query",
+    "hideChildren": false,
     "description": "",
     "fields": [
       {
@@ -156,11 +157,243 @@
             "description": ""
           }
         ]
+      },
+      {
+        "name": "tokens",
+        "type": {
+          "reqType": true,
+          "name": "TokenConnection"
+        },
+        "description": "ALPHA Get a list of contract tokens",
+        "arguments": [
+          {
+            "name": "tokenSymbols",
+            "type": {
+              "isList": true,
+              "reqType": true,
+              "name": "String"
+            },
+            "description": "List of token symbols (EOS) to filter the results against"
+          },
+          {
+            "name": "tokenContracts",
+            "type": {
+              "isList": true,
+              "reqType": true,
+              "name": "String"
+            },
+            "description": "List of token contracts (eosio.token) to filter the results against"
+          },
+          {
+            "name": "before",
+            "type": {
+              "name": "String"
+            },
+            "description": "Cursor used for pagination"
+          },
+          {
+            "name": "after",
+            "type": {
+              "name": "String"
+            },
+            "description": "Cursor used for pagination"
+          },
+          {
+            "name": "limit",
+            "type": {
+              "name": "Uint32",
+              "default": "100"
+            },
+            "description": "Maximum number of results to include in a result"
+          },
+          {
+            "name": "sortField",
+            "type": {
+              "name": "TOKENS_SORT_FIELD",
+              "default": "HOLDERS"
+            },
+            "description": "Token attribute used to sort the results"
+          },
+          {
+            "name": "sortOrder",
+            "type": {
+              "name": "SORT_ORDER",
+              "default": "DESC"
+            },
+            "description": "Direction in which to sort the results"
+          }
+        ]
+      },
+      {
+        "name": "accountBalances",
+        "type": {
+          "reqType": true,
+          "name": "AccountBalanceConnection"
+        },
+        "description": "ALPHA Get a list of token balances for a specific account",
+        "arguments": [
+          {
+            "name": "account",
+            "type": {
+              "reqType": true,
+              "name": "String"
+            },
+            "description": "The account whose balances you are retrieveing"
+          },
+          {
+            "name": "before",
+            "type": {
+              "name": "String"
+            },
+            "description": "Cursor used for pagination"
+          },
+          {
+            "name": "after",
+            "type": {
+              "name": "String"
+            },
+            "description": "Cursor used for pagination"
+          },
+          {
+            "name": "tokenSymbols",
+            "type": {
+              "isList": true,
+              "reqType": true,
+              "name": "String"
+            },
+            "description": "List of token symbols (EOS) to filter the results against"
+          },
+          {
+            "name": "tokenContracts",
+            "type": {
+              "isList": true,
+              "reqType": true,
+              "name": "String"
+            },
+            "description": "List of token contracts (eosio.token) to filter the results against"
+          },
+          {
+            "name": "limit",
+            "type": {
+              "name": "Uint32",
+              "default": "100"
+            },
+            "description": "Maximum number of results to include in a result"
+          },
+          {
+            "name": "sortField",
+            "type": {
+              "name": "ACCOUNT_BALANCES_SORT_FIELD",
+              "default": "AMOUNT"
+            },
+            "description": "Token attribute used to sort the results"
+          },
+          {
+            "name": "sortOrder",
+            "type": {
+              "name": "SORT_ORDER",
+              "default": "DESC"
+            },
+            "description": "Direction in which to sort the results"
+          },
+          {
+            "name": "options",
+            "type": {
+              "isList": true,
+              "reqType": true,
+              "name": "ACCOUNT_BALANCE_OPTION"
+            },
+            "description": ""
+          }
+        ]
+      },
+      {
+        "name": "tokenBalances",
+        "type": {
+          "reqType": true,
+          "name": "AccountBalanceConnection"
+        },
+        "description": "ALPHA Get a list of token balances for a specific contract & symbol",
+        "arguments": [
+          {
+            "name": "contract",
+            "type": {
+              "reqType": true,
+              "name": "String"
+            },
+            "description": "The token's contract you are retrieving"
+          },
+          {
+            "name": "symbol",
+            "type": {
+              "reqType": true,
+              "name": "String"
+            },
+            "description": "The token's symbol you are retrieving"
+          },
+          {
+            "name": "tokenHolders",
+            "type": {
+              "isList": true,
+              "reqType": true,
+              "name": "String"
+            },
+            "description": "List of token holders to filter the results against"
+          },
+          {
+            "name": "before",
+            "type": {
+              "name": "String"
+            },
+            "description": "Cursor used for pagination"
+          },
+          {
+            "name": "after",
+            "type": {
+              "name": "String"
+            },
+            "description": "Cursor used for pagination"
+          },
+          {
+            "name": "limit",
+            "type": {
+              "name": "Uint32",
+              "default": "100"
+            },
+            "description": "Maximum number of results to include in a result"
+          },
+          {
+            "name": "sortField",
+            "type": {
+              "name": "TOKEN_BALANCES_SORT_FIELD",
+              "default": "AMOUNT"
+            },
+            "description": "Token attribute used to sort the results"
+          },
+          {
+            "name": "sortOrder",
+            "type": {
+              "name": "SORT_ORDER",
+              "default": "DESC"
+            },
+            "description": "Direction in which to sort the results"
+          },
+          {
+            "name": "options",
+            "type": {
+              "isList": true,
+              "reqType": true,
+              "name": "ACCOUNT_BALANCE_OPTION"
+            },
+            "description": ""
+          }
+        ]
       }
     ]
   },
   {
     "name": "Subscription",
+    "hideChildren": false,
     "description": "",
     "fields": [
       {
@@ -285,6 +518,7 @@
   },
   {
     "name": "DecodedObject",
+    "hideChildren": true,
     "description": "",
     "fields": [
       {
@@ -307,6 +541,7 @@
   },
   {
     "name": "SearchTransactionsForwardResponse",
+    "hideChildren": true,
     "description": "",
     "fields": [
       {
@@ -331,6 +566,7 @@
   },
   {
     "name": "SearchTransactionsBackwardResponse",
+    "hideChildren": true,
     "description": "",
     "fields": [
       {
@@ -356,6 +592,7 @@
   },
   {
     "name": "SearchTransactionForwardResponse",
+    "hideChildren": true,
     "description": "A single transaction trace response, matching a forward search query.\n\nWARNING: do NOT forget to include the `undo` field to determine if the message is actually a REVERSAL of the transaction.\n\nNOTE: always check the value of `trace.status` to make sure it is `executed` if you want to make sure a transaction made it to the chain.",
     "fields": [
       {
@@ -415,6 +652,7 @@
   },
   {
     "name": "SearchTransactionBackwardResponse",
+    "hideChildren": true,
     "description": "A single transaction trace response, matching a backward search query.\n\nNOTE: always check the value of `trace.status` to make sure it is `executed` if you want to make sure a transaction made it to the chain.",
     "fields": [
       {
@@ -465,6 +703,7 @@
   },
   {
     "name": "TransactionTrace",
+    "hideChildren": true,
     "description": "Traces of the execution of a given transaction. This means the\ntransaction was executed on the chain. You also get context about the\nblock in which it was executed, and the status of the execution.\n\nWARN: Make sure to always check the `status` (in the `receipt`) to\nmake sure you're not considering a failed transaction as if it was\nsuccessful.",
     "fields": [
       {
@@ -574,6 +813,7 @@
   },
   {
     "name": "BlockHeader",
+    "hideChildren": true,
     "description": "BlockHeader is the header of a block, excluding the transactions in that block.",
     "fields": [
       {
@@ -669,6 +909,7 @@
   },
   {
     "name": "ProducerSchedule",
+    "hideChildren": true,
     "description": "",
     "fields": [
       {
@@ -695,6 +936,7 @@
   },
   {
     "name": "ProducerKey",
+    "hideChildren": true,
     "description": "",
     "fields": [
       {
@@ -719,6 +961,7 @@
   },
   {
     "name": "TransactionReceiptHeader",
+    "hideChildren": true,
     "description": "",
     "fields": [
       {
@@ -752,6 +995,7 @@
   },
   {
     "name": "ActionTrace",
+    "hideChildren": true,
     "description": "ActionTrace holds the traces of execution of a single action within a transaction.",
     "fields": [
       {
@@ -994,6 +1238,7 @@
   },
   {
     "name": "RAMOp",
+    "hideChildren": true,
     "description": "Represents a change in consumption of RAM for a given account",
     "fields": [
       {
@@ -1036,6 +1281,7 @@
   },
   {
     "name": "DTrxOp",
+    "hideChildren": true,
     "description": "A change in deferred transactions in the chain's memory.",
     "fields": [
       {
@@ -1115,6 +1361,7 @@
   },
   {
     "name": "TableOp",
+    "hideChildren": true,
     "description": "Creation or deletion of a table",
     "fields": [
       {
@@ -1139,6 +1386,7 @@
   },
   {
     "name": "DBOp",
+    "hideChildren": true,
     "description": "Represents the mutation of a row, in a contract table.",
     "fields": [
       {
@@ -1213,6 +1461,7 @@
   },
   {
     "name": "DBOpKey",
+    "hideChildren": true,
     "description": "",
     "fields": [
       {
@@ -1273,6 +1522,7 @@
   },
   {
     "name": "TableOpKey",
+    "hideChildren": true,
     "description": "",
     "fields": [
       {
@@ -1315,6 +1565,7 @@
   },
   {
     "name": "ActionReceipt",
+    "hideChildren": true,
     "description": "Execution receipt for a given ActionTrace.\n\nThe `nodeos` field `auth_sequence` is not yet present. Contact us if you need it.",
     "fields": [
       {
@@ -1366,6 +1617,7 @@
   },
   {
     "name": "Transaction",
+    "hideChildren": true,
     "description": "",
     "fields": [
       {
@@ -1448,6 +1700,7 @@
   },
   {
     "name": "Action",
+    "hideChildren": true,
     "description": "",
     "fields": [
       {
@@ -1507,6 +1760,7 @@
   },
   {
     "name": "PermissionLevel",
+    "hideChildren": true,
     "description": "",
     "fields": [
       {
@@ -1531,6 +1785,7 @@
   },
   {
     "name": "AuthSequence",
+    "hideChildren": true,
     "description": "",
     "fields": [
       {
@@ -1554,6 +1809,7 @@
   },
   {
     "name": "BlockIDResponse",
+    "hideChildren": true,
     "description": "",
     "fields": [
       {
