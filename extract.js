@@ -10,6 +10,9 @@ function isEmpty(obj) {
   return Object.keys(obj).length === 0 && obj.constructor === Object;
 }
 
+const foldersToExtract = ['quickstarts', 'tutorials', 'samples'];
+let fileToWrite = {};
+
 async function getFilePaths(dir) {
   const subdirs = await readdir(dir);
   const files = await Promise.all(
@@ -42,14 +45,13 @@ async function getFilePaths(dir) {
 }
 
 async function parseFiles(paths) {
-  let fileToWrite = {};
   await Promise.all(
     paths.map(async p => {
       let fileExt = extname(p);
       let file = await readFile(p, 'utf8');
       let jsonFilePath = p.replace(
         /quickstarts.*|tutorials.*|samples.*/,
-        'data/samples.json'
+        'data/examples.json'
       );
       let sectionNumber = 1;
       while (true) {
@@ -83,8 +85,6 @@ async function parseFiles(paths) {
     })
   );
 }
-
-const foldersToExtract = ['quickstarts', 'tutorials', 'samples'];
 
 foldersToExtract.forEach(folder => {
   getFilePaths(join(__dirname, folder))

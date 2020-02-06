@@ -85,7 +85,7 @@ function App() {
   }
 
   async function searchTransactions() {
-    await setTransactions([]);
+    setTransactions([]);
     setState('searching');
     setError('');
     const parsedSQE = parseSQE(query);

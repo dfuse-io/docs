@@ -1,11 +1,13 @@
 ---
-weight: 3
+weight: 2
 menuTitle: Search with query language
 title: Search with query language
 release: beta
 ---
 
 In this guide we will create a simple React application that will use dfuse's Search API and query language to find specific Ethereum transactions. To do that, we will be using {{< external-link href="https://reactjs.org/docs/hooks-intro.html" title="react hooks">}}.
+
+![Ethereum Search Demo](/img/eth-search.gif)
 
 ## 0. Completed Example
 
@@ -32,8 +34,8 @@ Use the {{< external-link href="https://github.com/facebook/create-react-app">}}
 {{< tabs "create-react-app">}}
 {{< tab title="Shell" lang="shell" >}}
 # get create-react-app: https://github.com/facebook/create-react-app
-npx create-react-app track-trx
-cd track-trx
+npx create-react-app search
+cd search
 npm start
 {{< /tab >}}
 {{< /tabs >}}
