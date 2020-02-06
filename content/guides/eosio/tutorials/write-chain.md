@@ -63,7 +63,7 @@ the various environment variables, check at the end of this page to see the
 definition of this code.
 
 {{< tabs "config-and-client" >}}
-{{< tab-code title="Node.js" filename="./tutorials/eosio/push-guaranteed/index.ts" range="7:12" >}}
+{{< tab-code title="Node.js" filename="./tutorials/eos/push-guaranteed/index.ts" range="7:12" >}}
 {{< /tabs >}}
 
 {{< alert type="note" >}}
@@ -90,7 +90,7 @@ those situations.
 {{< /alert >}}
 
 {{< tabs "custom-fetch" >}}
-{{< tab-code title="Node.js" filename="./tutorials/eosio/push-guaranteed/index.ts" range="5:5,31:44" >}}
+{{< tab-code title="Node.js" filename="./tutorials/eos/push-guaranteed/index.ts" range="5:5,31:44" >}}
 {{< /tabs >}}
 
 {{< alert type="note" >}}
@@ -108,7 +108,7 @@ We go fast over it, but the code is simply creating an `eosio.token:transfer` ac
 with the correct parameters and push all that through
 
 {{< tabs "main-transfer" >}}
-{{< tab-code title="Node.js" filename="./tutorials/eosio/push-guaranteed/index.ts" range="1:3,54:96" >}}
+{{< tab-code title="Node.js" filename="./tutorials/eos/push-guaranteed/index.ts" range="1:3,54:96" >}}
 {{< /tabs >}}
 
 #### Security
@@ -174,7 +174,7 @@ And for sake of completion, here are the supporting code used throughout the
 tutorial to make reading easier:
 
 {{< tabs "support-code" >}}
-{{< tab-code title="Node.js" filename="./tutorials/eosio/push-guaranteed/index.ts" range="98:170" >}}
+{{< tab-code title="Node.js" filename="./tutorials/eos/push-guaranteed/index.ts" range="98:170" >}}
 {{< /tabs >}}
 
 ## 7. Full Working Example
@@ -183,7 +183,7 @@ tutorial to make reading easier:
 
 {{< tab lang="shell" title="Node.js">}}
 git clone https://github.com/dfuse-io/docs
-cd docs/tutorials/eosio/push-guaranteed
+cd docs/tutorials/eos/push-guaranteed
 yarn install
 
 # Replace '<dfuse API key here>' with your own API key!

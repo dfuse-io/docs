@@ -249,6 +249,9 @@ const redirectMap = {
  const parser = new DOMParser();
 
  document.querySelector('.book-page').querySelectorAll('h1, h2, h3, h4, h5').forEach(heading => {
+   if (heading.getAttribute("toc-hidden") == "true") {
+     return;
+   }
    const link = document.createElement('a')
    link.innerText = heading.innerText;
    link.setAttribute('href', `#${heading.id}`);
@@ -260,6 +263,5 @@ const redirectMap = {
 
  var x = document.querySelector('#TableOfContents ul');
  if (x != null) {
-  x.replaceWith(tableOfContents);
+   x.replaceWith(tableOfContents);
  }
-

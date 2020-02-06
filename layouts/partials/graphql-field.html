@@ -1,7 +1,8 @@
 {{ $type := $.Scratch.Get "graphql-type" }}
 {{ $field := $.Scratch.Get "graphql-field" }}
 
-<h3 class="graphql-type" id="{{anchorize (print $type.name "-" $field.name ) }}">{{ $field.name }}</h3>
+<h3 class="graphql-type" id="{{anchorize (print $type.name "-" $field.name ) }}" {{ if $type.hideChildren }}toc-hidden="true"{{ end }}>{{ $field.name }}</h3>
+
 <div class="graphql-type header"><span class="field">{{ $field.name }}</span>
   {{- with $field.arguments }}(
     {{- range $idx, $arg := .}}{{ if ne $idx 0 }}, {{ end }}<span class="name">{{ $arg.name }} </span><span class="type">{{ $arg.type.name }}{{ with $arg.type.default }}<span class="gql-default"> = {{ $arg.type.default }}</span>{{ end -}}</span>{{end -}}
