@@ -62,13 +62,17 @@ npm install --save @dfuse/client
 Import the necessary functions from `dfuse/client` at the top of `src/App.js`.
 
 {{< tabs "setting-up-dfuse-client1-import">}}
-{{< tab-code title="src/App.js" filename="./tutorials/eth/search/src/App.js" range="1:3" >}}
+{{< tab title="src/App.js" lang="javascript" >}}
+{{< code-section "tutorials_eth_search_js_section2">}}
+{{< /tab >}}
 {{< /tabs >}}
 
 Initialize the dfuse client using the API key you created in the second step. Let's create the `dfuseClient` right after the `function App()` declaration.
 
 {{< tabs "setting-up-dfuse-client1-initialize">}}
-{{< tab-code title="src/App.js" filename="./tutorials/eth/search/src/App.js" range="6:9" >}}
+{{< tab title="src/App.js" lang="javascript" >}}
+{{< code-section "tutorials_eth_search_js_section3">}}
+{{< /tab >}}
 {{< /tabs >}}
 
 ## 5. Craft the GraphQL query
@@ -88,7 +92,9 @@ See [Query Langauge](/guides/core-concepts/search-query-language/) to learn more
 {{< /alert >}}
 
 {{< tabs "tracker-query">}}
-{{< tab-code title="src/App.js" filename="./tutorials/eth/search/src/App.js" range="11:74" >}}
+{{< tab title="src/App.js" lang="javascript" >}}
+{{< code-section "tutorials_eth_search_js_section4">}}
+{{< /tab >}}
 {{< /tabs >}}
 
 ## 6. Setup our Hooks
@@ -101,7 +107,9 @@ Lets setup a few hooks that will help us keep track of our transaction states an
 - `error`: stores our errors
 
 {{< tabs "setup-hooks">}}
-{{< tab-code title="src/App.js" filename="./tutorials/eth/search/src/App.js" range="76:79" >}}
+{{< tab title="src/App.js" lang="javascript" >}}
+{{< code-section "tutorials_eth_search_js_section5">}}
+{{< /tab >}}
 {{< /tabs >}}
 
 ## 7. Search Transactions Function
@@ -132,39 +140,7 @@ Use dfuse client with the GraphQL query and set the following variables:
 
 {{< tabs "fetch-transaction-func-setup">}}
 {{< tab title="src/App.js" lang="javascript" >}}
-async function searchTransactions() {
-  await setTransactions([]);
-  setState('searching');
-  setError('');
-  const parsedSQE = parseSQE(query);
-  try {
-    const response = await dfuseClient.graphql(searchTransactionsQuery, {
-    variables: {
-      query: parsedSQE.query,
-      indexName: 'CALLS',
-      lowBlockNum: '0',
-      highBlockNum: '-1',
-      sort: 'DESC',
-      limit: '10',
-      cursor: ''
-    }
-  });
-    if (response.errors) {
-      throw response.errors;
-    }
-    const edges = response.data.searchTransactions.edges || [];
-    if (edges.length <= 0) {
-      setError('Oops nothing found');
-      return;
-    }
-    setTransactions(edges.map(edge => edge.node));
-    setState('completed');
-  } catch (errors) {
-    setError(JSON.stringify(errors));
-    setState('completed');
-  }
-  dfuseClient.release();
-}
+{{< code-section "tutorials_eth_search_js_section6">}}
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -173,7 +149,9 @@ async function searchTransactions() {
 Build the `render` method for this component. It includes an input for the search query string, and handles the different possible states of our component.
 
 {{< tabs "fetch-transaction-render">}}
-{{< tab-code title="src/App.js" filename="./tutorials/eth/search/src/App.js" range="124:174" >}}
+{{< tab title="src/App.js" lang="javascript" >}}
+{{< code-section "tutorials_eth_search_js_section7">}}
+{{< /tab >}}
 {{< /tabs >}}
 
 ## 9. Prettifying it with CSS
@@ -181,7 +159,9 @@ Build the `render` method for this component. It includes an input for the searc
 Add some CSS to style this HTML a bit. Replace the contents of `src/App.css` with the following:
 
 {{< tabs "fetch-transaction-css">}}
-{{< tab-code title="src/App.css" filename="./tutorials/eth/search/src/App.css" range="1:83" >}}
+{{< tab title="src/App.css" lang="css" >}}
+{{< code-section "tutorials_eth_search_css_section1">}}
+{{< /tab >}}
 {{< /tabs >}}
 
 ## 10. Full Working Example
@@ -189,6 +169,10 @@ Add some CSS to style this HTML a bit. Replace the contents of `src/App.css` wit
 The source code for this tutorial is available on {{< external-link href="https://github.com/dfuse-io/docs/tree/master/tutorials/eth/search" title="GitHub" >}}. Below are the code files discussed on this page.
 
 {{< tabs "fetch-transaction-full-app">}}
-{{< tab-code title="src/App.js" filename="./tutorials/eth/search/src/App.js" range="1:176" >}}
-{{< tab-code title="src/App.css" filename="./tutorials/eth/search/src/App.css" range="1:83" >}}
+{{< tab title="src/App.js" lang="javascript" >}}
+{{< code-section "tutorials_eth_search_js_section1">}}
+{{< /tab >}}
+{{< tab title="src/App.css" lang="css" >}}
+{{< code-section "tutorials_eth_search_css_section1">}}
+{{< /tab >}}
 {{< /tabs >}}
