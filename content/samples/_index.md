@@ -29,7 +29,7 @@ protocol: DFUSE
 | How to decode hexadecimal string data into a JSON structure using eosjs                        |                                                                        N/A                                                                        |          {{< external-link title="Github" href="https://github.com/dfuse-io/docs/tree/master/samples/typescript/eos/decode-hex" >}}          |
 | How to use dfuse guaranteed `push_transaction` with eosjs library                              |                                                                        N/A                                                                        |            {{< external-link title="Github" href="https://github.com/dfuse-io/docs/tree/master/tutorials/eos/push-guaranteed" >}}            |
 | Stream pending transactions from or to an address                                              | {{< external-link title="Github" href="https://github.com/dfuse-io/client-js/blob/master/examples/reference/ethereum/pending-transactions.ts" >}} |                                                                     N/A                                                                      |
-| Never miss a beat when socket disconnects with dfuse Stream                                    |                                                                                                                                              | {{< external-link title="Github" href="https://github.com/dfuse-io/client-js/blob/master/examples/advanced/graphql-never-miss-a-beat.ts" >}} |
+| Never miss a beat when socket disconnects with dfuse Stream                                    |                                                                                                                                                   | {{< external-link title="Github" href="https://github.com/dfuse-io/client-js/blob/master/examples/advanced/graphql-never-miss-a-beat.ts" >}} |
 
 ## JavaScript
 
@@ -39,6 +39,7 @@ protocol: DFUSE
 | Showcase on how to use the dfuse Client Library in a Node.js environment | {{< external-link title="Github" href="https://github.com/dfuse-io/docs/tree/master/samples/javascript/eth/node-server" >}} | {{< external-link title="Github" href="https://github.com/dfuse-io/docs/tree/master/samples/javascript/eos/node-server" >}}      |
 | How to track transaction in real-time with dfuse Lifecycle               |      {{< external-link title="Github" href="https://github.com/dfuse-io/docs/tree/master/tutorials/eth/lifecycle" >}}       | N/A                                                                                                                              |
 | How to search transactions with dfuse Search and render with React       |        {{< external-link title="Github" href="https://github.com/dfuse-io/docs/tree/master/tutorials/eth/search" >}}        | N/A                                                                                                                              |
+| How to use dfuse guaranteed `push_transaction` with eosjs library        |                                                             N/A                                                             | {{< external-link title="Github" href="https://github.com/dfuse-io/docs/tree/master/samples/eos/push-guaranteed" >}}             |
 
 ## Python
 
