@@ -63,7 +63,9 @@ the various environment variables, check at the end of this page to see the
 definition of this code.
 
 {{< tabs "config-and-client" >}}
-{{< tab-code title="Node.js" filename="./tutorials/eos/push-guaranteed/index.ts" range="7:12" >}}
+{{< tab lang="javascript" title="Node.js">}}
+{{< code-section "tutorials_eos_push-guaranteed_section3">}}
+{{< /tab >}}
 {{< /tabs >}}
 
 {{< alert type="note" >}}
@@ -90,7 +92,10 @@ those situations.
 {{< /alert >}}
 
 {{< tabs "custom-fetch" >}}
-{{< tab-code title="Node.js" filename="./tutorials/eos/push-guaranteed/index.ts" range="5:5,31:44" >}}
+{{< tab lang="javascript" title="Node.js">}}
+{{< code-section "tutorials_eos_push-guaranteed_section2">}}
+{{< code-section "tutorials_eos_push-guaranteed_section4">}}
+{{< /tab >}}
 {{< /tabs >}}
 
 {{< alert type="note" >}}
@@ -108,7 +113,10 @@ We go fast over it, but the code is simply creating an `eosio.token:transfer` ac
 with the correct parameters and push all that through
 
 {{< tabs "main-transfer" >}}
-{{< tab-code title="Node.js" filename="./tutorials/eos/push-guaranteed/index.ts" range="1:3,54:96" >}}
+{{< tab lang="javascript" title="Node.js">}}
+{{< code-section "tutorials_eos_push-guaranteed_section1">}}
+{{< code-section "tutorials_eos_push-guaranteed_section5">}}
+{{< /tab >}}
 {{< /tabs >}}
 
 #### Security
@@ -174,7 +182,9 @@ And for sake of completion, here are the supporting code used throughout the
 tutorial to make reading easier:
 
 {{< tabs "support-code" >}}
-{{< tab-code title="Node.js" filename="./tutorials/eos/push-guaranteed/index.ts" range="98:170" >}}
+{{< tab lang="javascript" title="Node.js">}}
+{{< code-section "tutorials_eos_push-guaranteed_section6">}}
+{{< /tab >}}
 {{< /tabs >}}
 
 ## 7. Full Working Example
