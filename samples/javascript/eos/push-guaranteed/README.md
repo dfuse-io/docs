@@ -38,9 +38,9 @@ controlling the Jungle test net account defined in `TRANSFER_FROM_ACCOUNT`.
 **Note** The private key must be able to fulfill `<from>@active` where the
 `<from>` is actually the account name specified in `TRANSFER_FROM_ACCOUNT`.
 
-Launch the `index.ts` script to see stuff going on:
+Launch the `index.js` script to see stuff going on:
 
-    yarn run ts-node index.ts
+    yarn run start
 
 ### Security
 
