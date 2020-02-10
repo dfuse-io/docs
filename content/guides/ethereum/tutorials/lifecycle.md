@@ -13,7 +13,9 @@ If you prefer to skip forward and run the completed project, run:
 
 {{< tabs "clone-completed-example">}}
 {{< tab title="Shell" lang="shell" >}}
+
 # clone and install the example project
+
 git clone github.com/dfuse-io/docs
 cd docs/tutorials/eth/lifecycle
 yarn install
@@ -31,7 +33,9 @@ Use the {{< external-link href="https://github.com/facebook/create-react-app">}}
 
 {{< tabs "create-react-app">}}
 {{< tab title="Shell" lang="shell" >}}
+
 # get create-react-app: https://github.com/facebook/create-react-app
+
 npx create-react-app lifecycle
 cd lifecycle
 npm start
@@ -50,7 +54,9 @@ The simplest way to get started with dfuse and JavaScript/TypeScript development
 
 {{< tabs "adding-dfuse-client-lib">}}
 {{< tab title="NPM" lang="shell" >}}
+
 # https://www.npmjs.com/package/@dfuse/client
+
 npm install --save @dfuse/client
 {{< /tab >}}
 {{< /tabs >}}
@@ -60,13 +66,17 @@ npm install --save @dfuse/client
 Import the necessary functions from `dfuse/client` at the top of `src/App.js`.
 
 {{< tabs "setting-up-dfuse-client1-import">}}
-{{< tab-code title="src/App.js" filename="./tutorials/eth/lifecycle/src/App.js" range="1:3" >}}
+{{< tab title="src/App.js" lang="javascript">}}
+{{< code-section "tutorials_eth_lifecycle_js_section2">}}
+{{< /tab >}}
 {{< /tabs >}}
 
 Initialize the dfuse client using the API key you created in the second step. Let's create the `dfuseClient` right after the `function App()` declaration.
 
 {{< tabs "setting-up-dfuse-client1-initialize">}}
-{{< tab-code title="src/App.js" filename="./tutorials/eth/lifecycle/src/App.js" range="6:9" >}}
+{{< tab title="src/App.js" lang="javascript">}}
+{{< code-section "tutorials_eth_lifecycle_js_section3">}}
+{{< /tab >}}
 {{< /tabs >}}
 
 ## 5. Craft the GraphQL query
@@ -84,7 +94,9 @@ Do not worry! This query may seem intimidating, but it is broken down using the 
 {{< /alert >}}
 
 {{< tabs "tracker-query">}}
-{{< tab-code title="src/App.js" filename="./tutorials/eth/lifecycle/src/App.js" range="11:122" >}}
+{{< tab title="src/App.js" lang="javascript">}}
+{{< code-section "tutorials_eth_lifecycle_js_section4">}}
+{{< /tab >}}
 {{< /tabs >}}
 
 ## 6. Setup our Hooks
@@ -97,7 +109,9 @@ Lets setup a few hooks that will help us keep track of our transaction states an
 - `error`: stores our errors
 
 {{< tabs "setup-hooks">}}
-{{< tab-code title="src/App.js" filename="./tutorials/eth/lifecycle/src/App.js" range="124:127" >}}
+{{< tab title="src/App.js" lang="javascript">}}
+{{< code-section "tutorials_eth_lifecycle_js_section5">}}
+{{< /tab >}}
 {{< /tabs >}}
 
 ## 7. Get a Transaction State
@@ -107,12 +121,12 @@ Create an `async` function `fetchTransaction` that will use the dfuse JS client 
 {{< tabs "fetch-transaction-init">}}
 {{< tab title="src/App.js" lang="javascript" >}}
 async function fetchTransaction() {
-    setState("streaming"); // sets the state of our query to "streaming"
-    setError(""); // clears any errors that may have been logged before
-    setTransitions([]); // clears the transitions when starting a new search
-    var currentTransitions = []; // local variable to store transition in callback function
-    var count = 0; // reset transition count
-    ...
+setState("streaming"); // sets the state of our query to "streaming"
+setError(""); // clears any errors that may have been logged before
+setTransitions([]); // clears the transitions when starting a new search
+var currentTransitions = []; // local variable to store transition in callback function
+var count = 0; // reset transition count
+...
 }
 {{< /tab >}}
 {{< /tabs >}}
@@ -122,11 +136,11 @@ Use the dfuse client with the GraphQL query and set our transaction hash as a va
 {{< tabs "fetch-transaction-func-setup">}}
 {{< tab title="src/App.js" lang="javascript" >}}
 async function fetchTransaction() {
-    setState("streaming"); // sets the state of our query to "streaming"
-    setError(""); // clears any errors that may have been logged before
-    setTransitions([]); // clears the transitions when starting a new search
-    var currentTransitions = []; // local variable to store transition in callback function
-    var count = 0; // reset transition count
+setState("streaming"); // sets the state of our query to "streaming"
+setError(""); // clears any errors that may have been logged before
+setTransitions([]); // clears the transitions when starting a new search
+var currentTransitions = []; // local variable to store transition in callback function
+var count = 0; // reset transition count
 
     const stream = await dfuseClient.graphql(streamTransactionQuery, (message) => {
         ...
@@ -136,6 +150,7 @@ async function fetchTransaction() {
         }
     });
     await stream.join();  // awaits stream completion, which is never for this operation
+
 }
 {{< /tab >}}
 {{< /tabs >}}
@@ -147,7 +162,9 @@ The `message` returned from the GraphQL stream can have 3 different types that n
 - `complete`: This message occurs when the stream is closed. We update our stream state.
 
 {{< tabs "fetch-transaction-func-handler">}}
-{{< tab-code title="src/App.js" filename="./tutorials/eth/lifecycle/src/App.js" range="129:165" >}}
+{{< tab title="src/App.js" lang="javascript">}}
+{{< code-section "tutorials_eth_lifecycle_js_section6">}}
+{{< /tab >}}
 {{< /tabs >}}
 
 ## 8. Render Function
@@ -155,7 +172,9 @@ The `message` returned from the GraphQL stream can have 3 different types that n
 Build the `render` method for this component. It will include an input for the transaction hash, and handles the different possible states of our component.
 
 {{< tabs "fetch-transaction-render">}}
-{{< tab-code title="src/App.js" filename="./tutorials/eth/lifecycle/src/App.js" range="167:203" >}}
+{{< tab title="src/App.js" lang="javascript">}}
+{{< code-section "tutorials_eth_lifecycle_js_section7">}}
+{{< /tab >}}
 {{< /tabs >}}
 
 ## 9. Prettifying it with CSS
@@ -163,7 +182,9 @@ Build the `render` method for this component. It will include an input for the t
 Add some CSS to style this HTML a bit. Replace the contents of `src/App.css` with the following:
 
 {{< tabs "fetch-transaction-css">}}
-{{< tab-code title="src/App.css" filename="./tutorials/eth/lifecycle/src/App.css" range="1:83" >}}
+{{< tab title="src/App.css" lang="css">}}
+{{< code-section "tutorials_eth_lifecycle_css_section1">}}
+{{< /tab >}}
 {{< /tabs >}}
 
 ## 10. Full Working Example
@@ -171,6 +192,11 @@ Add some CSS to style this HTML a bit. Replace the contents of `src/App.css` wit
 The source code for this tutorial is available on {{< external-link href="https://github.com/dfuse-io/docs/tree/master/tutorials/eth/lifecycle" title="GitHub" >}}. Below are the code files discussed on this page.
 
 {{< tabs "fetch-transaction-full-app">}}
-{{< tab-code title="src/App.js" filename="./tutorials/eth/lifecycle/src/App.js" range="1:206" >}}
-{{< tab-code title="src/App.css" filename="./tutorials/eth/lifecycle/src/App.css" range="1:83" >}}
+
+{{< tab title="src/App.js" lang="javascript">}}
+{{< code-section "tutorials_eth_lifecycle_js_section1">}}
+{{< /tab >}}
+{{< tab title="src/App.css" lang="css">}}
+{{< code-section "tutorials_eth_lifecycle_css_section1">}}
+{{< /tab >}}
 {{< /tabs >}}

@@ -63,7 +63,7 @@ Import the necessary functions from `dfuse/client` at the top of `src/App.js`.
 
 {{< tabs "setting-up-dfuse-client1-import">}}
 {{< tab title="src/App.js" lang="javascript" >}}
-{{< code-section "tutorials_eth_stream_section1">}}
+{{< code-section "tutorials_eth_stream_js_section1">}}
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -71,7 +71,7 @@ Initialize the dfuse client using the API key you created in the second step. Le
 
 {{< tabs "setting-up-dfuse-client1-initialize">}}
 {{< tab title="src/App.js" lang="javascript" >}}
-{{< code-section "tutorials_eth_stream_section2">}}
+{{< code-section "tutorials_eth_stream_js_section2">}}
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -100,7 +100,7 @@ See [Query Langauge](/guides/core-concepts/search-query-language/) to learn more
 
 {{< tabs "stream-query">}}
 {{< tab title="src/App.js" lang="javascript" >}}
-{{< code-section "tutorials_eth_stream_section3">}}
+{{< code-section "tutorials_eth_stream_js_section3">}}
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -115,7 +115,7 @@ Lets setup a few hooks that will help us keep track of our transaction states an
 
 {{< tabs "setup-hooks">}}
 {{< tab title="src/App.js" lang="javascript" >}}
-{{< code-section "tutorials_eth_stream_section4">}}
+{{< code-section "tutorials_eth_stream_js_section4">}}
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -128,7 +128,7 @@ We handle each case by setting the `errors`, `transfers`, or `state` hooks to te
 
 {{< tabs "fetch-transaction-init">}}
 {{< tab title="src/App.js" lang="javascript" >}}
-{{< code-section "tutorials_eth_stream_section5">}}
+{{< code-section "tutorials_eth_stream_js_section5">}}
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -138,7 +138,7 @@ Define functions to stop the stream, handle streaming client closing and error c
 
 {{< tabs "fetch-transaction-func-setup">}}
 {{< tab title="src/App.js" lang="javascript" >}}
-{{< code-section "tutorials_eth_stream_section6">}}
+{{< code-section "tutorials_eth_stream_js_section6">}}
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -148,7 +148,7 @@ Build the `render` method for this component. It includes a launch and stop butt
 
 {{< tabs "fetch-transaction-render">}}
 {{< tab title="src/App.js" lang="javascript" >}}
-{{< code-section "tutorials_eth_stream_section7">}}
+{{< code-section "tutorials_eth_stream_js_section7">}}
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -157,7 +157,7 @@ Build the `render` method for this component. It includes a launch and stop butt
 Add some CSS to style this HTML a bit. Replace the contents of `src/App.css` with the following:
 
 {{< tabs "fetch-transaction-css">}}
-{{< tab title="src/App.js" lang="javascript" >}}
+{{< tab title="src/App.js" lang="css" >}}
 {{< code-section "tutorials_eth_stream_css_section1">}}
 {{< /tab >}}
 {{< /tabs >}}
@@ -168,9 +168,9 @@ The source code for this tutorial is available on {{< external-link href="https:
 
 {{< tabs "fetch-transaction-full-app">}}
 {{< tab title="src/App.js" lang="javascript" >}}
-{{< code-section "tutorials_eth_stream_section8">}}
+{{< code-section "tutorials_eth_stream_js_section8">}}
 {{< /tab >}}
-{{< tab title="src/App.js" lang="javascript" >}}
+{{< tab title="src/App.js" lang="css" >}}
 {{< code-section "tutorials_eth_stream_css_section1">}}
 {{< /tab >}}
 {{< /tabs >}}

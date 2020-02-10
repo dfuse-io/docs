@@ -1,15 +1,21 @@
+// CODE:BEGIN:tutorials_eos_push-guaranteed_section1
 import { Api, JsonRpc } from "eosjs"
 import JsSignatureProvider from "eosjs/dist/eosjs-jssig"
 import { TextDecoder, TextEncoder } from "text-encoding"
+// CODE:END:tutorials_eos_push-guaranteed_section1
 
+// CODE:BEGIN:tutorials_eos_push-guaranteed_section2
 import fetch, { Request, RequestInit, Response } from "node-fetch"
+// CODE:END:tutorials_eos_push-guaranteed_section2
 
+// CODE:BEGIN:tutorials_eos_push-guaranteed_section3
 import { createDfuseClient } from "@dfuse/client"
 ;(global as any).fetch = fetch
 ;(global as any).WebSocket = {}
 
 const config = readConfig()
 const client = createDfuseClient({ apiKey: config.dfuseApiKey, network: config.network })
+// CODE:END:tutorials_eos_push-guaranteed_section3
 
 console.log("Performing push transaction with the following config", prettyJson(config))
 console.log()
@@ -28,6 +34,7 @@ console.log()
  *
  * **Note** How the example is setup will route all `/v1/chain` call to dfuse endpoints.
  */
+// CODE:BEGIN:tutorials_eos_push-guaranteed_section4
 const customizedFetch = async (input: string | Request, init: RequestInit): Promise<Response> => {
   if (init.headers === undefined) {
     init.headers = {}
@@ -42,6 +49,7 @@ const customizedFetch = async (input: string | Request, init: RequestInit): Prom
 
   return fetch(input, init)
 }
+// CODE:END:tutorials_eos_push-guaranteed_section4
 
 /**
  * Demonstrates how to push a transaction with guaranteed using dfuse API endpoint.
@@ -51,6 +59,7 @@ const customizedFetch = async (input: string | Request, init: RequestInit): Prom
  *  - Have an environment variable name SIGNING_PRIVATE_KEY containing the private key used to sign the trx
  *  - Have an environment variable name TRANSFER_FROM_ACCOUNT containing the account that will send token from
  */
+ // CODE:BEGIN:tutorials_eos_push-guaranteed_section5
 async function main() {
   const signatureProvider = new JsSignatureProvider([config.privateKey])
   const rpc = new JsonRpc(client.endpoints.restUrl, { fetch: customizedFetch })
@@ -94,7 +103,9 @@ async function main() {
 
   printResult(result, startTime, endTime)
 }
+// CODE:END:tutorials_eos_push-guaranteed_section5
 
+// CODE:BEGIN:tutorials_eos_push-guaranteed_section6
 function readConfig() {
   const network = process.env.DFUSE_API_NETWORK || "jungle.eos.dfuse.io"
   const guaranteed = process.env.PUSH_GUARANTEED || "in-block" // Or "irreversible", "handoff:1", "handoffs:2", "handoffs:3"
@@ -168,3 +179,4 @@ main()
     console.log("An error occurred.", prettyJson(error))
     process.exit(1)
   })
+// CODE:END:tutorials_eos_push-guaranteed_section6

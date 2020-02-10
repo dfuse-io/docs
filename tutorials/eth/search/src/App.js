@@ -1,13 +1,19 @@
+// CODE:BEGIN:tutorials_eth_search_js_section1
+// CODE:BEGIN:tutorials_eth_search_js_section2
 import React, { useState } from 'react';
 import { createDfuseClient } from '@dfuse/client';
 import './App.css';
+// CODE:END:tutorials_eth_search_js_section2
 
 function App() {
+// CODE:BEGIN:tutorials_eth_search_js_section3
   const dfuseClient = createDfuseClient({
     apiKey: '<YOUR API KEY HERE>',
     network: 'mainnet.eth.dfuse.io'
   });
+// CODE:END:tutorials_eth_search_js_section3
 
+// CODE:BEGIN:tutorials_eth_search_js_section4
   const FlatCallFragment = `fragment FlatCallFragment on Call {
     index
     depth
@@ -72,11 +78,14 @@ function App() {
   }
   
   ${FlatCallFragment}`;
+// CODE:END:tutorials_eth_search_js_section4
 
+// CODE:BEGIN:tutorials_eth_search_js_section5
   const [query, setQuery] = useState('');
   const [transactions, setTransactions] = useState([]);
   const [state, setState] = useState('initialize');
   const [error, setError] = useState('');
+// CODE:END:tutorials_eth_search_js_section5
 
   function parseSQE(input) {
     return {
@@ -84,6 +93,7 @@ function App() {
     };
   }
 
+// CODE:BEGIN:tutorials_eth_search_js_section6
   async function searchTransactions() {
     setTransactions([]);
     setState('searching');
@@ -120,7 +130,9 @@ function App() {
 
     dfuseClient.release();
   }
+// CODE:END:tutorials_eth_search_js_section6
 
+// CODE:BEGIN:tutorials_eth_search_js_section7
   return (
     <div className='App'>
       <div className='form'>
@@ -172,5 +184,7 @@ function App() {
     </div>
   );
 }
+// CODE:END:tutorials_eth_search_js_section7
 
 export default App;
+// CODE:END:tutorials_eth_search_js_section1
