@@ -50,7 +50,7 @@ Stream all transitions for transaction `0x3be3b44ae48a074d3b79e3054bb3b62b5c5e5a
 
 {{< tabs "trx-lifecycle-query">}}
 {{< tab title="Graphql Query" lang="graphql" opts="linenos=table" >}}
-{{< code-section "tutorials_eth_lifecycle_section1">}}
+{{< code-section "tutorials_eth_lifecycle_graphql_section1">}}
 {{< /tab>}}
 {{< /tabs >}}
 
@@ -62,7 +62,7 @@ We filter our query by specifying a hash in the `transactionLifecycle` subscript
 
 {{< tabs "trx-lifecycle-query-hash">}}
 {{< tab title="Graphql Query" lang="graphql" opts="linenos=table" >}}
-{{< code-section "tutorials_eth_lifecycle_section2">}}
+{{< code-section "tutorials_eth_lifecycle_graphql_section2">}}
 {{< /tab>}}
 {{< /tabs >}}
 
@@ -72,7 +72,7 @@ Next we specify the fields we want the subscription to return. In this example w
 
 {{< tabs "trx-lifecycle-query-fields">}}
 {{< tab title="Graphql Query" lang="graphql" delimeter="..." opts="linenos=table,hl_lines=4 5 6" >}}
-{{< code-section "tutorials_eth_lifecycle_section3">}}
+{{< code-section "tutorials_eth_lifecycle_graphql_section3">}}
 {{< /tab>}}
 {{< /tabs >}}
 
@@ -130,14 +130,14 @@ Some of the attributes have the same attribute, for example `TrxTransitionInit`,
 
 {{< tabs "trx-lifecycle-query-fields-transition-fragment">}}
 {{< tab title="Graphql Query" lang="graphql" opts="linenos=table,hl_lines=4" >}}
-{{< code-section "tutorials_eth_lifecycle_section4">}}
+{{< code-section "tutorials_eth_lifecycle_graphql_section4">}}
 {{< /tab>}}
 {{< /tabs >}}
 
 The fragment can de defined like this:
 
 {{< tabs "trx-lifecycle-query-fields-transition-fragment-defined">}}{{< tab title="Graphql Query" lang="graphql" >}}
-{{< code-section "tutorials_eth_lifecycle_section5">}}
+{{< code-section "tutorials_eth_lifecycle_graphql_section5">}}
 {{< /tab>}}
 {{< /tabs >}}
 

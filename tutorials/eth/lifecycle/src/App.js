@@ -1,13 +1,19 @@
+// CODE:BEGIN:tutorials_eth_lifecycle_js_section1
+// CODE:BEGIN:tutorials_eth_lifecycle_js_section2
 import React, { useState } from 'react';
 import { createDfuseClient } from "@dfuse/client"
 import './App.css';
+// CODE:END:tutorials_eth_lifecycle_js_section2
 
 function App() {
+// CODE:BEGIN:tutorials_eth_lifecycle_js_section3
     const dfuseClient = createDfuseClient({
-        apiKey: "web_b63dc4f46fb7198b41587888fc21d389",
+        apiKey: "<YOUR_API_KEY_HERE>",
         network: "mainnet.eth.dfuse.io"
     });
+// CODE:END:tutorials_eth_lifecycle_js_section3
 
+// CODE:BEGIN:tutorials_eth_lifecycle_js_section4
     let streamTransactionQuery = `
      subscription($hash: String!){
       transactionLifecycle(hash: $hash){
@@ -120,12 +126,16 @@ function App() {
       nonce
       hash
     }`;
+// CODE:END:tutorials_eth_lifecycle_js_section4
 
+// CODE:BEGIN:tutorials_eth_lifecycle_js_section5
     const [transactionHash, setTransactionHash] = useState('');
     const [transitions, setTransitions] = useState([]);
     const [state, setState] = useState("initialize");
     const [error, setError] = useState("");
+// CODE:END:tutorials_eth_lifecycle_js_section5
 
+// CODE:BEGIN:tutorials_eth_lifecycle_js_section6
     async function fetchTransaction() {
         setState("streaming");
         setError("");
@@ -163,7 +173,9 @@ function App() {
 
         await stream.join() // awaits stream completion, which is never for this operation
     }
+// CODE:END:tutorials_eth_lifecycle_js_section6
 
+// CODE:BEGIN:tutorials_eth_lifecycle_js_section7
     return (
         <div className="App">
             <div className="form">
@@ -202,5 +214,7 @@ function App() {
         </div>
     );
 }
+// CODE:END:tutorials_eth_lifecycle_js_section7
 
 export default App;
+// CODE:END:tutorials_eth_lifecycle_js_section1
