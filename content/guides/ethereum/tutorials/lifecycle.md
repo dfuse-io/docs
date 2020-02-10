@@ -182,7 +182,7 @@ Build the `render` method for this component. It will include an input for the t
 Add some CSS to style this HTML a bit. Replace the contents of `src/App.css` with the following:
 
 {{< tabs "fetch-transaction-css">}}
-{{< tab title="src/App.css" lang="javascript">}}
+{{< tab title="src/App.css" lang="css">}}
 {{< code-section "tutorials_eth_lifecycle_css_section1">}}
 {{< /tab >}}
 {{< /tabs >}}
@@ -196,7 +196,7 @@ The source code for this tutorial is available on {{< external-link href="https:
 {{< tab title="src/App.js" lang="javascript">}}
 {{< code-section "tutorials_eth_lifecycle_js_section1">}}
 {{< /tab >}}
-{{< tab title="src/App.css" lang="javascript">}}
+{{< tab title="src/App.css" lang="css">}}
 {{< code-section "tutorials_eth_lifecycle_css_section1">}}
 {{< /tab >}}
 {{< /tabs >}}

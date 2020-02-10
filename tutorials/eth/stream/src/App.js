@@ -1,15 +1,15 @@
-// CODE:BEGIN:tutorials_eth_stream_section8
-// CODE:BEGIN:tutorials_eth_stream_section1
+// CODE:BEGIN:tutorials_eth_stream_js_section8
+// CODE:BEGIN:tutorials_eth_stream_js_section1
 import React, { useState } from 'react';
 import { createDfuseClient } from '@dfuse/client';
 import './App.css';
-// CODE:END:tutorials_eth_stream_section1
+// CODE:END:tutorials_eth_stream_js_section1
 
 const apiKey = process.env.REACT_APP_DFUSE_API_KEY;
 const network = process.env.REACT_APP_DFUSE_NETWORK || 'mainnet.eth.dfuse.io';
 
 function App() {
-  // CODE:BEGIN:tutorials_eth_stream_section2
+  // CODE:BEGIN:tutorials_eth_stream_js_section2
   const dfuseClient = createDfuseClient({
     apiKey,
     network,
@@ -20,25 +20,25 @@ function App() {
       }
     }
   });
-  // CODE:END:tutorials_eth_stream_section2
+  // CODE:END:tutorials_eth_stream_js_section2
 
-  // CODE:BEGIN:tutorials_eth_stream_section3
+  // CODE:BEGIN:tutorials_eth_stream_js_section3
   const streamTransfersQuery = `subscription($cursor: String) {
       searchTransactions(indexName: CALLS, query: "-value:0", sort: ASC, limit: 100, cursor: $cursor) {
         undo cursor
         node { hash from to value(encoding: ETHER) }
       }
     }`;
-  // CODE:END:tutorials_eth_stream_section3
+  // CODE:END:tutorials_eth_stream_js_section3
 
-  // CODE:BEGIN:tutorials_eth_stream_section4
+  // CODE:BEGIN:tutorials_eth_stream_js_section4
   const [transfers, setTransfers] = useState([]);
   const [state, setState] = useState('initialize');
   const [errors, setErrors] = useState([]);
   const [stream, setStream] = useState(undefined);
-  // CODE:END:tutorials_eth_stream_section4
+  // CODE:END:tutorials_eth_stream_js_section4
 
-  // CODE:BEGIN:tutorials_eth_stream_section5
+  // CODE:BEGIN:tutorials_eth_stream_js_section5
   const streamTransfers = async () => {
     setTransfers([]);
     setErrors([]);
@@ -79,9 +79,9 @@ function App() {
       setState('completed');
     }
   };
-  // CODE:END:tutorials_eth_stream_section5
+  // CODE:END:tutorials_eth_stream_js_section5
 
-  // CODE:BEGIN:tutorials_eth_stream_section6
+  // CODE:BEGIN:tutorials_eth_stream_js_section6
   const onStop = async () => {
     setState('completed');
     if (stream === undefined) {
@@ -110,9 +110,9 @@ function App() {
     `
     );
   };
-  // CODE:END:tutorials_eth_stream_section6
+  // CODE:END:tutorials_eth_stream_js_section6
 
-  // CODE:BEGIN:tutorials_eth_stream_section7
+  // CODE:BEGIN:tutorials_eth_stream_js_section7
   const renderTransfer = (transfer, index) => {
     const { hash, from, to, value } = transfer;
     return hash ? (
@@ -188,7 +188,7 @@ function App() {
     </div>
   );
 }
-// CODE:END:tutorials_eth_stream_section7
+// CODE:END:tutorials_eth_stream_js_section7
 
 export default App;
-// CODE:END:tutorials_eth_stream_section8
+// CODE:END:tutorials_eth_stream_js_section8
