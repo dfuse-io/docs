@@ -96,9 +96,9 @@ const customizedFetch = async (input, init) => {
 }
 
 function readConfig() {
-  const network = process.env.DFUSE_API_NETWORK || "jungle.eos.dfuse.io"
+  const network = process.env.DFUSE_API_NETWORK || "kylin.eos.dfuse.io"
   const guaranteed = process.env.PUSH_GUARANTEED || "in-block" // Or "irreversible", "handoff:1", "handoffs:2", "handoffs:3"
-  const transferTo = process.env.TRANSFER_TO_ACCOUNT || "junglefaucet"
+  const transferTo = process.env.TRANSFER_TO_ACCOUNT || "eoscanadacom"
   const transferQuantity = process.env.TRANSFER_QUANTITY || "0.0001 EOS"
 
   const dfuseApiKey = process.env.DFUSE_API_KEY
@@ -144,7 +144,7 @@ function printResult(result, startTime, endTime) {
   console.log(`Pushed with guarenteed '${config.guaranteed}' in '${elapsed}' seconds`)
 
   const networkMatch = client.endpoints.restUrl.match(
-    /https:\/\/(mainnet|jungle|kylin).eos.dfuse.io/
+    /https:\/\/(mainnet|testnet|kylin).eos.dfuse.io/
   )
   if (networkMatch !== null && networkMatch[1] != null) {
     let network = networkMatch[1] + "."

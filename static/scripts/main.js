@@ -99,7 +99,7 @@ const redirectMap = {
   "/reference/eosio/endpoints/": [
     "/#eosio---mainnet",
     "/#eosio---cryptokylin",
-    "/#eosio---jungle-20",
+    "/#eosio---testnet",
     "/#worbli---mainnet",
   ],
   "/reference/eosio/websocket/introduction": [

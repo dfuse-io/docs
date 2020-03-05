@@ -14,11 +14,11 @@ You can check the [Push Guaranteed Reference]({{< ref "/reference/eosio/rest/pus
 all details on the feature.
 
 You are going to follow a quick guide to send tokens from one account to another
-one on the Jungle 2.0 Test Network using dfuse `push_transaction` with push guaranteed
+one on the Kylin Test Network using dfuse `push_transaction` with push guaranteed
 activated.
 
-For that, you will need an account on the Jungle 2.0 Test Network with some tokens in
-it (see https://jungletestnet.io/ `Get Started` tutorial to create an account there and
+For that, you will need an account on the Kylin Test Network with some tokens in
+it (see https://cryptokylin.io/ `Get Started` tutorial to create an account there and
 get some coins).
 
 We are going to use TypeScript in this example, it should be quite easy to convert
@@ -144,7 +144,7 @@ The `<dfuse API key here>` should be replaced with your dfuse API key,
 `<account name that will send the token>` should be replaced with the
 account name that will transfer money to someone else and
 `<account private key here>` should be replaced with the private key
-controlling the Jungle test net account defined in `TRANSFER_FROM_ACCOUNT`.
+controlling the Kylin test net account defined in `TRANSFER_FROM_ACCOUNT`.
 
 **Note** The private key must be able to fulfill `<from>@active` where the
 `<from>` is actually the account name specified in `TRANSFER_FROM_ACCOUNT`.

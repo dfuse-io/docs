@@ -11,7 +11,7 @@ key/value pairs.
 See the [Using dfuse Events tutorial]({{< ref "guides/eosio/tutorials/using-dfuse-events" >}}) for a concrete example.
 {{< /alert >}}
 
-**Availability**: This feature is available on **EOS Mainnet**, **Jungle 2.0** and **Kylin** networks.
+**Availability**: This feature is available on **EOS Mainnet**, **EOSIO Testnet** and **Kylin** networks.
 
 **Destination**: The inline action must be sent to contract `dfuseiohooks` with the action name `event`. The action signature is: `event(string auth_key, string data)`.
 
