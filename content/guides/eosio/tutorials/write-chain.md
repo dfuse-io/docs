@@ -63,7 +63,7 @@ the various environment variables, check at the end of this page to see the
 definition of this code.
 
 {{< tabs "config-and-client" >}}
-{{< tab lang="javascript" title="Node.js">}}
+{{< tab lang="typescript" title="TypeScript">}}
 {{< code-section "tutorials_eos_push-guaranteed_section3">}}
 {{< /tab >}}
 {{< /tabs >}}
@@ -92,7 +92,7 @@ those situations.
 {{< /alert >}}
 
 {{< tabs "custom-fetch" >}}
-{{< tab lang="javascript" title="Node.js">}}
+{{< tab lang="typescript" title="TypeScript">}}
 {{< code-section "tutorials_eos_push-guaranteed_section2">}}
 {{< code-section "tutorials_eos_push-guaranteed_section4">}}
 {{< /tab >}}
@@ -113,7 +113,7 @@ We go fast over it, but the code is simply creating an `eosio.token:transfer` ac
 with the correct parameters and push all that through
 
 {{< tabs "main-transfer" >}}
-{{< tab lang="javascript" title="Node.js">}}
+{{< tab lang="typescript" title="TypeScript">}}
 {{< code-section "tutorials_eos_push-guaranteed_section1">}}
 {{< code-section "tutorials_eos_push-guaranteed_section5">}}
 {{< /tab >}}
@@ -134,7 +134,8 @@ Better yet, like stated directly in `eosjs` library, use a third-party signing p
 
 Run the following commands from your terminal:
 
-{{< highlight "shell" >}}
+<!-- Renders better with typescript -->
+{{< highlight "typescript" >}}
 export DFUSE_API_KEY="<dfuse API key here>"
 export TRANSFER_FROM_ACCOUNT="<account name that will send the token>"
 export SIGNING_PRIVATE_KEY="<account private key here>"
@@ -169,7 +170,8 @@ yarn ts-node index.ts
 If you want to try on EOS Mainnet or Kylin instead, you can provide the following
 extra environment variables:
 
-{{< highlight text >}}
+<!-- Renders better with typescript -->
+{{< highlight typescript >}}
 export DFUSE_API_NETWORK="<mainnet.eos.dfuse.io OR kylin.eos.dfuse.io>"
 export TRANSFER_TO_ACCOUNT="<account name that will receive the token>"
 export TRANSFER_QUANTITY="<quantity to transfer, defaults to 0.0001 EOS if unset>"
@@ -182,7 +184,7 @@ And for sake of completion, here are the supporting code used throughout the
 tutorial to make reading easier:
 
 {{< tabs "support-code" >}}
-{{< tab lang="javascript" title="Node.js">}}
+{{< tab lang="typescript" title="TypeScript">}}
 {{< code-section "tutorials_eos_push-guaranteed_section6">}}
 {{< /tab >}}
 {{< /tabs >}}
@@ -191,7 +193,7 @@ tutorial to make reading easier:
 
 {{< tabs "full-working">}}
 
-{{< tab lang="shell" title="Node.js">}}
+{{< tab lang="shell" title="TypeScript">}}
 git clone https://github.com/dfuse-io/docs
 cd docs/tutorials/eos/push-guaranteed
 yarn install
