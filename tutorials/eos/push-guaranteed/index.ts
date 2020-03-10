@@ -1,6 +1,6 @@
 // CODE:BEGIN:tutorials_eos_push-guaranteed_section1
 import { Api, JsonRpc } from "eosjs"
-import JsSignatureProvider from "eosjs/dist/eosjs-jssig"
+import { JsSignatureProvider } from "eosjs/dist/eosjs-jssig"
 import { TextDecoder, TextEncoder } from "text-encoding"
 // CODE:END:tutorials_eos_push-guaranteed_section1
 
@@ -35,7 +35,11 @@ console.log()
  * **Note** How the example is setup will route all `/v1/chain` call to dfuse endpoints.
  */
 // CODE:BEGIN:tutorials_eos_push-guaranteed_section4
-const customizedFetch = async (input: string | Request, init: RequestInit): Promise<Response> => {
+const customizedFetch = async (input?: string | Request, init?: RequestInit): Promise<Response> => {
+  if (init === undefined) {
+    init = {}
+  }
+
   if (init.headers === undefined) {
     init.headers = {}
   }
@@ -47,7 +51,7 @@ const customizedFetch = async (input: string | Request, init: RequestInit): Prom
   headers["Authorization"] = `Bearer ${apiTokenInfo.token}`
   headers["X-Eos-Push-Guarantee"] = config.guaranteed
 
-  return fetch(input, init)
+  return fetch(input!, init)
 }
 // CODE:END:tutorials_eos_push-guaranteed_section4
 
@@ -59,10 +63,10 @@ const customizedFetch = async (input: string | Request, init: RequestInit): Prom
  *  - Have an environment variable name SIGNING_PRIVATE_KEY containing the private key used to sign the trx
  *  - Have an environment variable name TRANSFER_FROM_ACCOUNT containing the account that will send token from
  */
- // CODE:BEGIN:tutorials_eos_push-guaranteed_section5
+// CODE:BEGIN:tutorials_eos_push-guaranteed_section5
 async function main() {
   const signatureProvider = new JsSignatureProvider([config.privateKey])
-  const rpc = new JsonRpc(client.endpoints.restUrl, { fetch: customizedFetch })
+  const rpc = new JsonRpc(client.endpoints.restUrl, { fetch: customizedFetch as any })
   const api = new Api({
     rpc,
     signatureProvider,

@@ -8,17 +8,17 @@
     "start": "ts-node push-transaction.ts"
   },
   "devDependencies": {
-    "@types/node": "^10.12.3",
+    "@types/node": "^13.9.0",
     "@types/node-fetch": "^2.1.2",
     "@types/text-encoding": "^0.0.34",
     "prettier": "^1.15.1",
     "ts-node": "^7.0.1",
     "tslint": "^5.11.0",
-    "typescript": "^3.1.6"
+    "typescript": "^3.8.3"
   },
   "dependencies": {
-    "@dfuse/client": "^0.3.0",
-    "eosjs": "^20.0.0-beta3",
+    "@dfuse/client": "^0.3.8",
+    "eosjs": "^20.0.3",
     "node-fetch": "^2.2.1",
     "text-encoding": "^0.7.0"
   }
