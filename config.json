@@ -1,7 +1,7 @@
 {
   "baseURL": "/",
   "languageCode": "en-us",
-  "title": "dfuse",
+  "title": "dfuse docs",
   "theme": "book",
   "enableGitInfo": true,
   "params": {

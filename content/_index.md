@@ -1,5 +1,5 @@
 ---
-title: Home
+title: EOSIO and Ethereum APIs for Developers
 layout : full-width
 weight: 1
 menu:
