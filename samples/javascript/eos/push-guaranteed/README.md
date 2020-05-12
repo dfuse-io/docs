@@ -54,7 +54,7 @@ Better yet, like state directly in `eosjs` library, use a third-party signing pr
 
 > Using the JsSignatureProvider in the browser is not secure and should only be used for development purposes. Use a secure vault outside of the context of the webpage to ensure security when signing transactions in production
 
-### Mainnet/Kylin
+### EOS Mainnet/Kylin
 
 If you want to try on EOS Mainnet or Kylin instead, you can provide the following
 extra environment variables:
