@@ -1,6 +1,6 @@
 ---
 weight: 50
-title: GraphQL Schema
+title: GraphQL API
 protocol: EOS
 bookToC: 3
 ---

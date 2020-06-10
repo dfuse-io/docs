@@ -1,6 +1,6 @@
 ---
 weight: 20
-title: GraphQL Schema
+title: GraphQL API
 release: alpha
 protocol: ETH
 bookToC: 3
