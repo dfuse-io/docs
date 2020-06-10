@@ -1,6 +1,6 @@
 ---
 weight: 10
-menuTitle: Endpoint
+menuTitle: Endpoints
 title: Ethereum API Endpoints
 protocol: ETH
 release: alpha
