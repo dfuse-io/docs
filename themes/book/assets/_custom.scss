@@ -150,7 +150,7 @@ ul.supported-on {
 .book-menu nav,
 .book-toc nav,
 .book-page  {
-  padding-top: 100px;
+  padding-top: 130px;
 }
 
 .book-menu nav {
@@ -175,9 +175,14 @@ article {
   background-color: $gray-500;
   border-left-color: $gray-800;
 }
-
+#header-wrapper {
+  display: block;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
 #header {
-  position:fixed;
+  position:relative;
   width: 100%;
   min-height:70px;
   background-color: $ternary-1000;
@@ -185,11 +190,43 @@ article {
   box-sizing:border-box;
   padding: 0 15px;
   z-index: 1000;
-
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+}
+
+#banner-alert {
+  z-index: 1000;
+  display:block;
+  width:100%;
+  position: relative;
+  background-color:#fffbe6;
+  padding:10px 20px 10px 60px;
+
+  h3 {
+    margin-top:0px;
+    margin-bottom:5px;
+  }
+  p {
+    margin:0px;
+  }
+  a:hover {
+    text-decoration:underline;
+  }
+}
+#banner-alert:before {
+  content: '\f06a';
+  width: 10px;
+  height: 10px;
+  font-family: 'font awesome 5 pro';
+  font-size: 30px;
+  display: inline;
+  position: absolute;
+  left: 20px;
+  top: 6px;
+  color: #faad14;
+  margin-right: 6px;
 }
 
 .book-search {
