@@ -58,7 +58,9 @@ fetch("https://auth.dfuse.io/v1/auth/issue", {
   headers: {
     "Content-Type": "application/json"
   }
-}).then(console.log) // Cache JWT (for up to 24 hours)
+})
+.then(res => res.json())
+.then(console.log) // Cache JWT (for up to 24 hours)
 {{< /tab >}}
 
 {{< tab lang="python" >}}

@@ -1,0 +1,15 @@
+{
+  "short_name": "dfuse Client Library Example",
+  "name": "dfuse Client Library Example",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#F3F3F7",
+  "background_color": "#FF4661"
+}

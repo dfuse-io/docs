@@ -30,10 +30,6 @@ title: ActionTrace
   Zero-based index of this action within the transaction. Actions being nestable, this index represents a depth-first search indexing: if action _A_ (index 0) produced an inline action _B_, then action _B_ is index 1.
 {{< /method-list-item >}}
 
-{{< method-list-item name="depth" type="Number (uint16)" required="true" >}}
-  Depth of the action relative to the input actions (top-level actions that were defined in the originating transaction, and _not_ inlined as side effects of execution of top-level actions).  Actions with `depth = 0` are called input actions. Anything above 0 means this is an inline action.
-{{< /method-list-item >}}
-
 {{< method-list-item name="trace" type="[TransactionTrace](/reference/eosio/types/transactiontrace)" required="true" >}}
   An execution trace object. This is a standard `nodeos` trace object. See the {{< external-link title="reference C++ code here" href="https://github.com/EOSIO/eos/blob/master/libraries/chain/include/eosio/chain/trace.hpp" >}}.
 {{< /method-list-item >}}
@@ -61,7 +57,6 @@ title: ActionTrace
     "block_time": "2018-11-08T13:23:39.5Z",
     "trx_id": "35030b5bfd05f4f5b5bcae68505bf9f2c227a84c6b406dabebe0d8cd0384cd70",
     "idx": 0,
-    "depth": 0,
     "trace": {
       "receipt": {
         "receiver": "eosio.msig",

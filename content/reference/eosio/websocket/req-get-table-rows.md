@@ -46,15 +46,15 @@ Example request:
 
 #### Arguments
 
-{{< method-list-item name="code" type="[AccountName](../types/AccountName)" required="true" >}}
+{{< method-list-item name="code" type="[AccountName](/reference/eosio/types/accountname)" required="true" >}}
   Contract account which wrote to tables
 {{< /method-list-item >}}
 
-{{< method-list-item name="scope" type="[Name](../types/Name)" required="true" >}}
+{{< method-list-item name="scope" type="[Name](/reference/eosio/types/name)" required="true" >}}
   Table _scope_ where table is stored
 {{< /method-list-item >}}
 
-{{< method-list-item name="table" type="[Name](../types/Name)" required="true" >}}
+{{< method-list-item name="table" type="[Name](/reference/eosio/types/name)" required="true" >}}
   Table _name_, shown in the contract ABI
 {{< /method-list-item >}}
 

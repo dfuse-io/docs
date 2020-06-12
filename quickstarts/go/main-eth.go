@@ -6,11 +6,12 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	pb "go/graphql"
 	"io/ioutil"
 	"net/http"
 	"os"
 	"time"
+
+	pb "github.com/dfuse-io/docs/quickstarts/go/pb"
 
 	"github.com/tidwall/gjson"
 	"golang.org/x/oauth2"
@@ -39,6 +40,7 @@ func panicIfError(err error) {
 		panic(err)
 	}
 }
+
 // CODE:END:quickstarts_go_ethereum_section1
 
 // CODE:BEGIN:quickstarts_go_ethereum_section2
@@ -61,6 +63,7 @@ func getToken(apiKey string) (token string, expiration time.Time, err error) {
 	}
 	return
 }
+
 // CODE:END:quickstarts_go_ethereum_section2
 
 // CODE:BEGIN:quickstarts_go_ethereum_section3
@@ -76,6 +79,7 @@ func createClient(endpoint string, token string) pb.GraphQLClient {
 
 	return pb.NewGraphQLClient(conn)
 }
+
 // CODE:END:quickstarts_go_ethereum_section3
 
 // CODE:BEGIN:quickstarts_go_ethereum_section4
@@ -100,6 +104,7 @@ type ethereumDocument struct {
 		}
 	}
 }
+
 // CODE:END:quickstarts_go_ethereum_section4
 
 // CODE:BEGIN:quickstarts_go_ethereum_section5
@@ -136,4 +141,5 @@ func streamEthereum(ctx context.Context, client pb.GraphQLClient) {
 		}
 	}
 }
+
 // CODE:END:quickstarts_go_ethereum_section5

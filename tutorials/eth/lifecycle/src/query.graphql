@@ -1,9 +1,14 @@
+# CODE:BEGIN:tutorials_eth_lifecycle_graphql_section1
+# CODE:BEGIN:tutorials_eth_lifecycle_graphql_section2
+# CODE:BEGIN:tutorials_eth_lifecycle_graphql_section3
 subscription {
     transactionLifecycle(hash: "0x3be3b44ae48a074d3b79e3054bb3b62b5c5e5a8fc2210cd1dc7c7932ae5addcd"){
+# CODE:END:tutorials_eth_lifecycle_graphql_section2
         previousState
         currentState
         transitionName
         transition {
+# CODE:END:tutorials_eth_lifecycle_graphql_section3
             __typename
 
             ... on TrxTransitionInit {
@@ -35,13 +40,13 @@ subscription {
                 }
                 confirmationsher
             }
-
+# CODE:BEGIN:tutorials_eth_lifecycle_graphql_section4
             ...on TrxTransitionForked {
                 transaction {
                     ...TransactionFragment
                 }
             }
-
+# CODE:END:tutorials_eth_lifecycle_graphql_section4
             ...on TrxTransitionConfirmed {
                 confirmations
             }
@@ -54,6 +59,7 @@ subscription {
     }
 }
 
+# CODE:BEGIN:tutorials_eth_lifecycle_graphql_section5
 fragment TransactionFragment on Transaction {
     hash
     from
@@ -69,6 +75,7 @@ fragment TransactionFragment on Transaction {
         r
     }
 }
+# CODE:END:tutorials_eth_lifecycle_graphql_section5
 
 fragment TransactionTraceFragment on TransactionTrace {
     hash
@@ -109,3 +116,4 @@ fragment BlockHeaderFragment on BlockHeader {
     nonce
     hash
 }
+# CODE:END:tutorials_eth_lifecycle_graphql_section1

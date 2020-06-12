@@ -13,11 +13,11 @@ See https://docs.dfuse.io/#rest-api-post-push_transaction
 ## Quick Start
 
 You are going to follow a quick guide to send tokens from one account to another
-one on the Jungle 2.0 Test Network using dfuse `push_transaction` with push guaranteed
+one on the Kylin Test Network using dfuse `push_transaction` with push guaranteed
 activated.
 
-For that, you will need an account on the Jungle 2.0 Test Network with some tokens in
-it (see https://jungletestnet.io/ `Get Started` tutorial to create an account there and
+For that, you will need an account on the Kylin Test Network with some tokens in
+it (see https://cryptokylin.io/ `Get Started` tutorial to create an account there and
 get some coins), a dfuse API key (check https://www.dfuse.io/en#subscribe to get a free
 API token).
 
@@ -33,7 +33,7 @@ The `<dfuse API key here>` should be replaced with your dfuse API key,
 `<account name that will send the token>` should be replaced with the
 account name that will transfer money to someone else and
 `<account private key here>` should be replaced with the private key
-controlling the Jungle test net account defined in `TRANSFER_FROM_ACCOUNT`.
+controlling the Kylin test net account defined in `TRANSFER_FROM_ACCOUNT`.
 
 **Note** The private key must be able to fulfill `<from>@active` where the
 `<from>` is actually the account name specified in `TRANSFER_FROM_ACCOUNT`.
@@ -54,7 +54,7 @@ Better yet, like state directly in `eosjs` library, use a third-party signing pr
 
 > Using the JsSignatureProvider in the browser is not secure and should only be used for development purposes. Use a secure vault outside of the context of the webpage to ensure security when signing transactions in production
 
-### Mainnet/Kylin
+### EOS Mainnet/Kylin
 
 If you want to try on EOS Mainnet or Kylin instead, you can provide the following
 extra environment variables:

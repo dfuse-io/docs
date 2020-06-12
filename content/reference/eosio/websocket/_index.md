@@ -151,6 +151,9 @@ If an error occurs during the request, you'll get an error response
 
 Once connected to the WebSocket, every 10 seconds, you get a `ping` response from the server.
 
+{{< alert type="note">}}
+Please note that each `ping` response is billed as one document.
+
 {{< highlight json >}}
 {"type":"ping","data":"2018-01-01T00:00:10.526391919Z"}
 {{< /highlight >}}

@@ -14,11 +14,11 @@ You can check the [Push Guaranteed Reference]({{< ref "/reference/eosio/rest/pus
 all details on the feature.
 
 You are going to follow a quick guide to send tokens from one account to another
-one on the Jungle 2.0 Test Network using dfuse `push_transaction` with push guaranteed
+one on the Kylin Test Network using dfuse `push_transaction` with push guaranteed
 activated.
 
-For that, you will need an account on the Jungle 2.0 Test Network with some tokens in
-it (see https://jungletestnet.io/ `Get Started` tutorial to create an account there and
+For that, you will need an account on the Kylin Test Network with some tokens in
+it (see https://cryptokylin.io/ `Get Started` tutorial to create an account there and
 get some coins).
 
 We are going to use TypeScript in this example, it should be quite easy to convert
@@ -63,7 +63,9 @@ the various environment variables, check at the end of this page to see the
 definition of this code.
 
 {{< tabs "config-and-client" >}}
-{{< tab-code title="Node.js" filename="./tutorials/eos/push-guaranteed/index.ts" range="7:12" >}}
+{{< tab lang="typescript" title="TypeScript">}}
+{{< code-section "tutorials_eos_push-guaranteed_section3">}}
+{{< /tab >}}
 {{< /tabs >}}
 
 {{< alert type="note" >}}
@@ -90,7 +92,10 @@ those situations.
 {{< /alert >}}
 
 {{< tabs "custom-fetch" >}}
-{{< tab-code title="Node.js" filename="./tutorials/eos/push-guaranteed/index.ts" range="5:5,31:44" >}}
+{{< tab lang="typescript" title="TypeScript">}}
+{{< code-section "tutorials_eos_push-guaranteed_section2">}}
+{{< code-section "tutorials_eos_push-guaranteed_section4">}}
+{{< /tab >}}
 {{< /tabs >}}
 
 {{< alert type="note" >}}
@@ -108,7 +113,10 @@ We go fast over it, but the code is simply creating an `eosio.token:transfer` ac
 with the correct parameters and push all that through
 
 {{< tabs "main-transfer" >}}
-{{< tab-code title="Node.js" filename="./tutorials/eos/push-guaranteed/index.ts" range="1:3,54:96" >}}
+{{< tab lang="typescript" title="TypeScript">}}
+{{< code-section "tutorials_eos_push-guaranteed_section1">}}
+{{< code-section "tutorials_eos_push-guaranteed_section5">}}
+{{< /tab >}}
 {{< /tabs >}}
 
 #### Security
@@ -126,7 +134,8 @@ Better yet, like stated directly in `eosjs` library, use a third-party signing p
 
 Run the following commands from your terminal:
 
-{{< highlight "shell" >}}
+<!-- Renders better with typescript -->
+{{< highlight "typescript" >}}
 export DFUSE_API_KEY="<dfuse API key here>"
 export TRANSFER_FROM_ACCOUNT="<account name that will send the token>"
 export SIGNING_PRIVATE_KEY="<account private key here>"
@@ -136,7 +145,7 @@ The `<dfuse API key here>` should be replaced with your dfuse API key,
 `<account name that will send the token>` should be replaced with the
 account name that will transfer money to someone else and
 `<account private key here>` should be replaced with the private key
-controlling the Jungle test net account defined in `TRANSFER_FROM_ACCOUNT`.
+controlling the Kylin test net account defined in `TRANSFER_FROM_ACCOUNT`.
 
 **Note** The private key must be able to fulfill `<from>@active` where the
 `<from>` is actually the account name specified in `TRANSFER_FROM_ACCOUNT`.
@@ -161,7 +170,8 @@ yarn ts-node index.ts
 If you want to try on EOS Mainnet or Kylin instead, you can provide the following
 extra environment variables:
 
-{{< highlight text >}}
+<!-- Renders better with typescript -->
+{{< highlight typescript >}}
 export DFUSE_API_NETWORK="<mainnet.eos.dfuse.io OR kylin.eos.dfuse.io>"
 export TRANSFER_TO_ACCOUNT="<account name that will receive the token>"
 export TRANSFER_QUANTITY="<quantity to transfer, defaults to 0.0001 EOS if unset>"
@@ -174,14 +184,16 @@ And for sake of completion, here are the supporting code used throughout the
 tutorial to make reading easier:
 
 {{< tabs "support-code" >}}
-{{< tab-code title="Node.js" filename="./tutorials/eos/push-guaranteed/index.ts" range="98:170" >}}
+{{< tab lang="typescript" title="TypeScript">}}
+{{< code-section "tutorials_eos_push-guaranteed_section6">}}
+{{< /tab >}}
 {{< /tabs >}}
 
 ## 7. Full Working Example
 
 {{< tabs "full-working">}}
 
-{{< tab lang="shell" title="Node.js">}}
+{{< tab lang="shell" title="TypeScript">}}
 git clone https://github.com/dfuse-io/docs
 cd docs/tutorials/eos/push-guaranteed
 yarn install

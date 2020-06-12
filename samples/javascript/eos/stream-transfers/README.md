@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and
 showcase how to use [dfuse Client Library](https://github.com/dfuse-io/client-js) to easily stream
-all transfers happening in Mainnet in a streaming fashion.
+all transfers happening in EOS Mainnet in a streaming fashion.
 
 First install all the dependencies:
 

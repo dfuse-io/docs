@@ -11,13 +11,14 @@ import (
 	"os"
 	"time"
 
-	pb "github.com/dfuse-io/docs/quickstarts/pb"
+	pb "github.com/dfuse-io/docs/quickstarts/go/pb"
 	"github.com/tidwall/gjson"
 	"golang.org/x/oauth2"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 	"google.golang.org/grpc/credentials/oauth"
 )
+
 // CODE:END:quickstarts_go_eos_section1
 
 // CODE:BEGIN:quickstarts_go_eos_section2
@@ -40,6 +41,7 @@ func getToken(apiKey string) (token string, expiration time.Time, err error) {
 	}
 	return
 }
+
 // CODE:END:quickstarts_go_eos_section2
 // CODE:BEGIN:quickstarts_go_eos_section3
 func createClient(endpoint string) pb.GraphQLClient {
@@ -61,6 +63,7 @@ func createClient(endpoint string) pb.GraphQLClient {
 
 	return pb.NewGraphQLClient(conn)
 }
+
 // CODE:END:quickstarts_go_eos_section3
 
 //
@@ -147,6 +150,7 @@ type eosioDocument struct {
 		}
 	}
 }
+
 // CODE:END:quickstarts_go_eos_section4
 // CODE:BEGIN:quickstarts_go_eos_section5
 func streamEOSIO(ctx context.Context) {
@@ -184,6 +188,7 @@ func streamEOSIO(ctx context.Context) {
 		}
 	}
 }
+
 // CODE:END:quickstarts_go_eos_section5
 /* DFUSE_API_KEY="server_abcdef12345678900000000000" go run main.go eosio|ethereum */
 // CODE:BEGIN:quickstarts_go_eos_section6
@@ -206,4 +211,5 @@ func panicIfError(err error) {
 		panic(err)
 	}
 }
+
 // CODE:END:quickstarts_go_eos_section6
