@@ -317,6 +317,7 @@ aside nav,
   cursor: pointer;
   outline: 0;
   background: rgba(11,36,59,.7);
+  align-items: center;
 
   &:hover {
     background-color: $primary-1000;
