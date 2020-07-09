@@ -72,7 +72,7 @@ const redirectMap = {
     "/#graphql-authentication",
     "/#graphql-over-grpc-authentication",
   ],
-  "/reference/eosio/graphql/": [
+  "/eosio/reference/graphql/": [
     "/#queries",
     "/#subscriptions",
     "/#graphql",
@@ -91,31 +91,31 @@ const redirectMap = {
     "/#graphql-over-grpc-grpcurl",
   ],
   "/guides/eosio/tutorials/": ["/#get-started-tutorials"],
-  "/reference/eosio/endpoints/": ["/#endpoints"],
+  "/eosio/reference/endpoints/": ["/#endpoints"],
   "/reference/ethereum/endpoints/": [
     "/#eth-mainnet",
     "/#ropsten-mainnet",
   ],
-  "/reference/eosio/endpoints/": [
+  "/eosio/reference/endpoints/": [
     "/#eosio---mainnet",
     "/#eosio---cryptokylin",
     "/#eosio---testnet",
     "/#worbli---mainnet",
   ],
-  "/reference/eosio/websocket/introduction": [
+  "/eosio/reference/websocket/introduction": [
     "/#websocket",
     "/#websocket-request-types",
   ],
-  "/reference/eosio/websocket/request-message-format/": ["/#websocket-request-message-format"],
-  "/reference/eosio/websocket/never-missing-a-beat/": ["/#websocket-never-miss-a-beat"],
-  "/reference/eosio/websocket/navigating-forks/": ["/#websocket-navigating-forks"],
-  "/reference/eosio/websocket/req-get-action-traces/": ["/#websocket-get-action-traces"],
-  "/reference/eosio/websocket/req-get-transaction-lifecycle/": ["/#websocket-get-transaction-lifecycle"],
-  "/reference/eosio/websocket/req-get-table-rows/": ["/#websocket-get-table-rows"],
-  "/reference/eosio/websocket/req-get-head-info/": ["/#websocket-get-head-info"],
-  "/reference/eosio/websocket/req-unlisten/": ["/#websocket-req-unlisten"],
-  "/reference/eosio/websocket/req-ping/": ["/#websocket-req-ping"],
-  "/reference/eosio/websocket/responses/": [
+  "/eosio/reference/websocket/request-message-format/": ["/#websocket-request-message-format"],
+  "/eosio/reference/websocket/never-missing-a-beat/": ["/#websocket-never-miss-a-beat"],
+  "/eosio/reference/websocket/navigating-forks/": ["/#websocket-navigating-forks"],
+  "/eosio/reference/websocket/req-get-action-traces/": ["/#websocket-get-action-traces"],
+  "/eosio/reference/websocket/req-get-transaction-lifecycle/": ["/#websocket-get-transaction-lifecycle"],
+  "/eosio/reference/websocket/req-get-table-rows/": ["/#websocket-get-table-rows"],
+  "/eosio/reference/websocket/req-get-head-info/": ["/#websocket-get-head-info"],
+  "/eosio/reference/websocket/req-unlisten/": ["/#websocket-req-unlisten"],
+  "/eosio/reference/websocket/req-ping/": ["/#websocket-req-ping"],
+  "/eosio/reference/websocket/responses/": [
     "/#websocket-responses",
     "/#websocket-resp-listening",
     "/#websocket-resp-progress",
@@ -126,101 +126,101 @@ const redirectMap = {
     "/#rest-api",
     "/#types",
   ],
-  "/reference/eosio/rest/auth-issue-intro/": ["/#post-v1-auth-issue"],
-  "/reference/eosio/rest/block-id-by-time/": [
+  "/eosio/reference/rest/auth-issue-intro/": ["/#post-v1-auth-issue"],
+  "/eosio/reference/rest/block-id-by-time/": [
     "/#rest-get-v0-block_id-by_time",
     "/#rest-api-get-v0-block_id-by_time",
   ],
-  "/reference/eosio/rest/fetch-transaction/": [
+  "/eosio/reference/rest/fetch-transaction/": [
     "/#rest-get-v0-fetch-transaction",
     "/#rest-api-get-v0-transaction_id",
   ],
-  "/reference/eosio/rest/push-transaction/": [
+  "/eosio/reference/rest/push-transaction/": [
     "/#span-classpostpostspan-pushtransaction",
     "/#rest-api-post-v1-push-transaction",
   ],
-  "/reference/eosio/rest/search-transactions/": [
+  "/eosio/reference/rest/search-transactions/": [
     "/#rest-get-v0-search-transactions",
     "/#rest-api-get-v0-search-transactions",
     "/#ref-search-pagination",
   ],
-  "/reference/eosio/rest/state-abi/": [
+  "/eosio/reference/rest/state-abi/": [
     "/#rest-get-v0-state-abi",
     "/#rest-api-get-v0-state-abi",
   ],
-  "/reference/eosio/rest/state-abi-decode/": [
+  "/eosio/reference/rest/state-abi-decode/": [
     "/#rest-get-v0-state-abi-decode",
     "/#rest-api-get-v0-state-abi-decode",
   ],
-  "/reference/eosio/rest/state-key-accounts/": ["/#rest-get-v0-state-key-accounts"],
-  "/reference/eosio/rest/state-permission-links/": [
+  "/eosio/reference/rest/state-key-accounts/": ["/#rest-get-v0-state-key-accounts"],
+  "/eosio/reference/rest/state-permission-links/": [
     "/#rest-get-v0-state-permission_links",
     "/#rest-api-get-v0-state-permission_links",
   ],
-  "/reference/eosio/rest/state-table/": [
+  "/eosio/reference/rest/state-table/": [
     "/#rest-get-v0-state-table",
     "/#rest-api-get-v0-state-table",
     "/#state-table-KeyType",
   ],
-  "/reference/eosio/rest/state-table-row/": [
+  "/eosio/reference/rest/state-table-row/": [
     "/#rest-get-v0-state-table-row",
     "/#type-state-TableRow",
   ],
-  "/reference/eosio/rest/state-table-scopes/": [
+  "/eosio/reference/rest/state-table-scopes/": [
     "/#rest-get-v0-state-table-scopes",
     "/#rest-api-get-v0-state-table-scopes",
   ],
-  "/reference/eosio/rest/state-tables-accounts/": [
+  "/eosio/reference/rest/state-tables-accounts/": [
     "/#rest-get-v0-state-tables-accounts",
     "/#rest-api-get-v0-state-tables-accounts",
   ],
-  "/reference/eosio/rest/state-tables-scopes/": ["/#rest-get-v0-state-tables-scopes"],
-  "/reference/eosio/rest/errors/": ["/#rest-errors"],
-  "/reference/eosio/search-terms/": [
+  "/eosio/reference/rest/state-tables-scopes/": ["/#rest-get-v0-state-tables-scopes"],
+  "/eosio/reference/rest/errors/": ["/#rest-errors"],
+  "/eosio/reference/search-terms/": [
     "/#search",
     "/#dfuse-query-language",
     "/#ref-search-query-specs",
     "/#ref-query-language",
   ],
-  "/reference/eosio/dfuse-events/": [
+  "/eosio/reference/dfuse-events/": [
     "/#dfuse-events",
     "/#dfuse-events-indexing-limits",
   ],
-  "/reference/eosio/types/name": [
+  "/eosio/reference/types/name": [
     "/#type-Name",
     "/#type-name",
   ],
-  "/reference/eosio/types/accountname": ["/#type-AccountName"],
-  "/reference/eosio/types/actionname": ["/#type-ActionName"],
-  "/reference/eosio/types/permissionname": ["/#type-PermissionName"],
-  "/reference/eosio/types/tablename": ["/#type-TableName"],
-  "/reference/eosio/types/publickey": ["/#type-PublicKey"],
-  "/reference/eosio/types/tablesnapshotresponse": ["/#type-TableSnapshotResponse"],
-  "/reference/eosio/types/tablerows": ["/#type-TableRows"],
-  "/reference/eosio/types/tabledeltaresponse": ["/#type-TableDeltaResponse"],
-  "/reference/eosio/types/tabledelta": ["/#type-TableDelta"],
-  "/reference/eosio/types/stateresponse": ["/#type-StateResponse"],
-  "/reference/eosio/types/statetablerowresponse": ["/#type-StateTableRowResponse"],
-  "/reference/eosio/types/multistateresponse": ["/#type-MultiStateResponse"],
-  "/reference/eosio/types/actiontrace": ["/#type-ActionTrace"],
-  "/reference/eosio/types/creationtree": ["/#type-CreationTree"],
-  "/reference/eosio/types/creationtreenode": ["/#type-CreationTreeNode"],
-  "/reference/eosio/types/dbop": ["/#type-DBOp"],
-  "/reference/eosio/types/dbrow": ["/#type-DBRow"],
-  "/reference/eosio/types/dtrxop": [
+  "/eosio/reference/types/accountname": ["/#type-AccountName"],
+  "/eosio/reference/types/actionname": ["/#type-ActionName"],
+  "/eosio/reference/types/permissionname": ["/#type-PermissionName"],
+  "/eosio/reference/types/tablename": ["/#type-TableName"],
+  "/eosio/reference/types/publickey": ["/#type-PublicKey"],
+  "/eosio/reference/types/tablesnapshotresponse": ["/#type-TableSnapshotResponse"],
+  "/eosio/reference/types/tablerows": ["/#type-TableRows"],
+  "/eosio/reference/types/tabledeltaresponse": ["/#type-TableDeltaResponse"],
+  "/eosio/reference/types/tabledelta": ["/#type-TableDelta"],
+  "/eosio/reference/types/stateresponse": ["/#type-StateResponse"],
+  "/eosio/reference/types/statetablerowresponse": ["/#type-StateTableRowResponse"],
+  "/eosio/reference/types/multistateresponse": ["/#type-MultiStateResponse"],
+  "/eosio/reference/types/actiontrace": ["/#type-ActionTrace"],
+  "/eosio/reference/types/creationtree": ["/#type-CreationTree"],
+  "/eosio/reference/types/creationtreenode": ["/#type-CreationTreeNode"],
+  "/eosio/reference/types/dbop": ["/#type-DBOp"],
+  "/eosio/reference/types/dbrow": ["/#type-DBRow"],
+  "/eosio/reference/types/dtrxop": [
     "/#type-DTrxOp",
     "/#type-DTrxOps",
   ],
-  "/reference/eosio/types/extdtrxop": ["/#type-ExtDTrxOp"],
-  "/reference/eosio/types/ramop": ["/#type-RAMOp"],
-  "/reference/eosio/types/tableop": ["/#type-TableOp"],
-  "/reference/eosio/types/searchtransactionsresponse": ["/#type-SearchTransactionsResponse"],
-  "/reference/eosio/types/searchtransactionsrow": ["/#type-SearchTransactionsRow"],
-  "/reference/eosio/types/transactionlifecycleresponse": ["/#type-TransactionLifecycleResponse"],
-  "/reference/eosio/types/transactionlifecycle": ["/#type-TransactionLifecycle"],
-  "/reference/eosio/types/transactiontrace": ["/#type-TransactionTrace"],
-  "/reference/eosio/types/headinfo": ["/#type-HeadInfo"],
-  "/reference/eosio/types/linkedpermission": ["/#type-state-LinkedPermission"],
+  "/eosio/reference/types/extdtrxop": ["/#type-ExtDTrxOp"],
+  "/eosio/reference/types/ramop": ["/#type-RAMOp"],
+  "/eosio/reference/types/tableop": ["/#type-TableOp"],
+  "/eosio/reference/types/searchtransactionsresponse": ["/#type-SearchTransactionsResponse"],
+  "/eosio/reference/types/searchtransactionsrow": ["/#type-SearchTransactionsRow"],
+  "/eosio/reference/types/transactionlifecycleresponse": ["/#type-TransactionLifecycleResponse"],
+  "/eosio/reference/types/transactionlifecycle": ["/#type-TransactionLifecycle"],
+  "/eosio/reference/types/transactiontrace": ["/#type-TransactionTrace"],
+  "/eosio/reference/types/headinfo": ["/#type-HeadInfo"],
+  "/eosio/reference/types/linkedpermission": ["/#type-state-LinkedPermission"],
  }
 
  const flattenedRedirectMap = Object.keys(redirectMap).reduce((map, newUrl) => {
