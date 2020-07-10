@@ -30,8 +30,6 @@ their role, and interaction.
 
 This is the primal source of all data that will flow in all systems
 
-
-
 **High Availability considerations**:  You will want more than one `mindreader` if you want to ensure blocks always flow through your system.  `dfuse` is designed to deduplicate any `mindreader` data produced that would be identical (when two `mindreader` instances execute the same block), and also to aggregate any forked blocks that would be seen by one `mindreader`, and not by another one. See the [merger](#merger) for details.
 
 
@@ -43,15 +41,18 @@ This is the primal source of all data that will flow in all systems
 
 ### `relayer`
 
-**Description**:
+**Description**: TODO
 
 **High Availability considerations**:
 
 ### `merger`
 
+**Description**: TODO
 **High Availability considerations**:
 
 ### `fluxdb`
+
+**Description**: TODO
 
 `fluxdb` has two modes of operation (enabled alone or in combination through command-line flags):
 * `inject` mode, which writes to the `kvdb` store
@@ -63,8 +64,10 @@ Both components receive blocks from a `relayer`.
 
 ### `trxdb-loader`
 
+**Description**: TODO
 
 **High Availability considerations**: The system can sustain `trxdb-loader` being down for some time. Processes have internal buffer to cover their needs during this period.
+
 
 ### `search-archive`
 
@@ -87,6 +90,8 @@ Since 50 blocks indexes are produced much quicker than 50,000 blocks indexes, th
 The `search-indexer` can be instructed to only keep a certain moving window of indexes for a given tier, freeing up storage
 
 **High Availability considerations**: To achieve high availability for any segment of the archive, you will need at least two copies.
+
+
 
 ### `search-indexer`
 
@@ -111,21 +116,34 @@ The `archive` backend is able to query those indexes in parallel, ahead of time 
 
 ### `search-live`
 
+**Description**: TODO
+
 **High Availability considerations**:
 
 ### `search-forkresolver`
+
+**Description**: TODO
+
 
 **High Availability considerations**:
 
 ### `search-router`
 
+**Description**: TODO
+
+
 **High Availability considerations**: This process is stateless, and can be scaled up or down for the desired throughput.  You want at least 2 to sustain one being down.
 
 ### `eosws`
 
+**Description**: TODO
+
+
 **High Availability considerations**: This process is stateless, and can be scaled up or down for the desired throughput.  You want at least 2 to sustain one being down.
 
 ### `dgraphql`
+
+**Description**: TODO
 
 **High Availability considerations**: This process is stateless, and can be scaled up or down for the desired throughput.  You want at least 2 to sustain one being down.
 
@@ -162,3 +180,9 @@ On boot, it turns to a `search-router` to save all `eosio::setabi` transactions.
 **High Availability considerations**: In larger deployments, you can use a pool of such processed, Kubernetes Ingress or other forms of load balancers to route external traffic to the right services.  If you want to use it, you will want at least 2 to sustain one being down.
 
 ### `dashboard`
+
+**Description**: The `dashboard` is provided to observe what is happening with the different components. It gathers a few metrics from each process.
+
+It will not work on larger deployments, as it needs to run in-process with the app (`mindreader`, `reayer`, etc..
+
+**High Availability considerations**: Not meant for HA deployments.
