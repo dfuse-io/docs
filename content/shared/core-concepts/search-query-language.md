@@ -21,8 +21,8 @@ forks, through the use of [cursors]({{< ref "./cursors" >}}).
 
 ## Supported search terms
 
-* [Ethereum search terms reference]({{< ref "ethereum/public-apis/reference/search-terms" >}}).
-* [EOSIO search terms reference]({{< ref "eosio/public-apis/reference/search-terms" >}}).
+* [Ethereum search terms reference]({{< ref "/ethereum/public-apis/reference/search-terms" >}}).
+* [EOSIO search terms reference]({{< ref "/eosio/public-apis/reference/search-terms" >}}).
 
 
 
