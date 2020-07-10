@@ -4,11 +4,6 @@ draft: true
 
 title: Guides
 layout: topnav-overview
-menu:
-  eosio:
-    name: Guides
-    identifier: guides
-    weight: 20
 ---
 
 

@@ -2,9 +2,9 @@
 layout: topnav-overview
 menu:
   eosio:
-    name: System Administration Guide
-    identifier: admin-guide
-    weight: 50
+    name: Public APIs User Guide
+    identifier: public-apis
+    weight: 30
 BookToC: false
 ---
 

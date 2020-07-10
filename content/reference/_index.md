@@ -4,12 +4,6 @@ draft: true
 
 title: Reference
 layout: topnav-overview
-menu:
-  eosio:
-    name: Reference
-    identifier: reference
-    weight: 30
-BookToC: false
 ---
 
 {{#

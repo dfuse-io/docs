@@ -2,6 +2,7 @@
 
 <input type="checkbox" class="hidden" name="menu-fist" id="main-menu-control" />
 <ul id="top-nav">
+    {{ $currentPage.FirstSection.Section }}
     {{ range index .Site.Menus $currentPage.FirstSection.Section }}
    <li><a class="{{ if or (eq $currentPage.FirstSection.Section .Identifier) ($currentPage.IsMenuCurrent "main" .) }}active{{ end }}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a></li>
     {{ end }}
