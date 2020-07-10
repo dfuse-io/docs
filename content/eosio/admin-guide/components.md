@@ -3,26 +3,33 @@ title: Components
 weight: 40
 ---
 
-Goal: understand the _apps_ available through:
+**Goal**: understand the _apps_ available through:
 
+```
     dfuseeos start
+```
 
 their role, and interaction.
 
+## Video series
 
+* [General Overview — dfuse for EOSIO Architecture Series](https://www.youtube.com/watch?v=q3Mi1S4nvcU)
+* [manageos & mindreader — dfuse for EOSIO Architecture Series](https://www.youtube.com/watch?v=uR1cB5QpvcY)
+* [deepmind & the dfuse Data Model — dfuse for EOSIO Architecture Series](https://www.youtube.com/watch?v=BMcSmqvNU1Q)
+* [bstream part 1 — dfuse for EOSIO Architecture Series](https://www.youtube.com/watch?v=LX7_Q7b5pyc)
+* [bstream part 2 — dfuse for EOSIO Architecture Series](https://www.youtube.com/watch?v=3HK95ng51ZM)
+* [pitreos — dfuse for EOSIO Architecture Series](https://www.youtube.com/watch?v=9oPa8OqZdWE)
+* [High Availability with Relayers, Merger — dfuse for EOSIO Architecture Series](https://www.youtube.com/watch?v=yG-lxgp7g10)
+* [Install and Run the dfuse for EOSIO Stack w/ Alex Bourget, CTO @ dfuse — Free Webinar](https://www.youtube.com/watch?v=1AH2wMESu2Y)
+* [How to Use dfuse for EOSIO as a Blockchain Developer w/ Alex Bourget, CTO @ dfuse — Free Webinar](https://www.youtube.com/watch?v=bFi6H5iO8ww)
 
-// Architecture graphs or links to those graphs.
-// Links to videos?
-// Detailed textual description of those things.  Taken from the videos ? The guys have transcribed those no?
+<!-- // Detailed textual description of those things.  Taken from the videos ? The guys have transcribed those no? -->
 
-## Overview
-
-// TODO: insert graphics and images (plantuml renderings)
+![General architecture](/drawings/general_architecture.png)
 
 ## Apps
 
-// Take from:  https://docs.google.com/document/d/1MrmnfWwSZOri5YC59__cC29BPLU7GLdz-stjtJ8gfpQ/edit
-
+<!-- // Take from:  https://docs.google.com/document/d/1MrmnfWwSZOri5YC59__cC29BPLU7GLdz-stjtJ8gfpQ/edit -->
 
 ### `mindreader`
 
@@ -77,6 +84,75 @@ Both components receive blocks from a `relayer`.
 
 **High Availability considerations**: The system can sustain `trxdb-loader` being down for some time. Processes have internal buffer to cover their needs during this period.
 
+
+
+### `eosws`
+
+**Description**: TODO
+
+
+**High Availability considerations**: This process is stateless, and can be scaled up or down for the desired throughput.  You want at least 2 to sustain one being down.
+
+### `dgraphql`
+
+**Description**: `dgraphql` is a server process serving end-user requests in the GraphQL format.  It speaks GraphQL over both HTTP and gRPC.  It routes most of its request to the appropriate service. In particular: `search-router` (for backward/forward searches), `fluxdb` server (for state queries), `blockmeta` (for block by time resolutions), `tokenmeta` (for token queries).
+
+**High Availability considerations**: This process is stateless, and can be scaled up or down for the desired throughput.  You want at least 2 to sustain one being down.
+
+### `abicodec`
+
+**Description**: This service is dedicated at decoding and encoding EOSIO binary format back and forth from JSON, using the on-chain ABIs. It can do so at _any_ block height, and is constantly kept in sync with changes from the chain.
+
+On boot, it turns to a `search-router` to save all `eosio::setabi` transactions. It keeps a local cache in a [dstore][https://github.com/dfuse-io/dstore] location.
+
+**High Availability considerations**: This process is stateless, and can be scaled up or down for the desired throughput.  You want at least 2 to sustain one being down.
+
+
+### `eosq`
+
+**Description**: `eosq` is the web front-end (block explorer) interface to the dfuse APIs.  A self-contained https://eosq.app
+
+**High Availability considerations**: This process is stateless, and can be scaled up or down for the desired throughput.  You want at least 2 to sustain one being down.
+
+
+### `blockmeta`
+
+**Description**: `blockmeta` is the service that is queried by systems wanting to know the general status of the chain, in terms of head block, irreversible block, block times comparisons, past blocks status of irreversibility, etc.
+
+It does not know much about each block, for instance, it doesn't keep track of the transaction counts for example. Just enough to help other processes bootstrap themselves (finding their start block, last irreversible block, etc..). It is like a spinal cord of a dfuse deployment.
+
+**High Availability considerations**: This process is stateless, and can be scaled up or down for the desired throughput.  You want at least 2 to sustain one being down.
+
+
+### `booter`
+
+**Description**: This is the process that will bootstrap your chain if it detects that it has not been bootstrapped yet.  It will kick in if you run `node-manager`, and if there is a `bootseq.yaml` file in the current directory (or elsewhere, depending on a command-line flag).
+
+**High Availability considerations**: This process runs only once.  It is not concerned by high availability.
+
+### `node-manager`
+
+**Description**: The stock `node-manager` offered here is to run a _second_ `nodeos` instance when doing all-in-one deployments of a brand new chain.  Its role is to run the instance that will produce nodes, distinct from the `mindreader` instance that will produce the data out of the execution of the produced blocks.
+
+### `apiproxy`
+
+**Description**: The `apiproxy` is a small router to combine all dfuse services in a single HTTP(S) endpoint.
+
+**High Availability considerations**: In larger deployments, you can use a pool of such processed, Kubernetes Ingress or other forms of load balancers to route external traffic to the right services.  If you want to use it, you will want at least 2 to sustain one being down.
+
+### `dashboard`
+
+**Description**: The `dashboard` is provided to observe what is happening with the different components. It gathers a few metrics from each process.
+
+It will not work on larger deployments, as it needs to run in-process with the app (`mindreader`, `reayer`, etc..
+
+**High Availability considerations**: Not meant for HA deployments.
+
+
+
+## Search-related Apps
+
+![General architecture](/drawings/search.png)
 
 ### `search-archive`
 
@@ -177,65 +253,3 @@ It can be configured to use a `memcached` server, that stores [roaring bitmaps](
 **Description** Although not provided as an embedded service in `dfuseeos`, a `memcached` server can be configured on `archive` nodes of a `search` cluster to provide negative caching of queries. This means that indexes that yielded no results for a given query, will not be queried against when the same request comes again for the same index. In an `archive` setup where you have 1,000 indexes of 5,000 blocks each, this can dramatically increase performance.
 
 **High Availability considerations**: Not having `memcached` will affect performances of queries that are done often over large block ranges.
-
-### `eosws`
-
-**Description**: TODO
-
-
-**High Availability considerations**: This process is stateless, and can be scaled up or down for the desired throughput.  You want at least 2 to sustain one being down.
-
-### `dgraphql`
-
-**Description**: `dgraphql` is a server process serving end-user requests in the GraphQL format.  It speaks GraphQL over both HTTP and gRPC.  It routes most of its request to the appropriate service. In particular: `search-router` (for backward/forward searches), `fluxdb` server (for state queries), `blockmeta` (for block by time resolutions), `tokenmeta` (for token queries).
-
-**High Availability considerations**: This process is stateless, and can be scaled up or down for the desired throughput.  You want at least 2 to sustain one being down.
-
-### `abicodec`
-
-**Description**: This service is dedicated at decoding and encoding EOSIO binary format back and forth from JSON, using the on-chain ABIs. It can do so at _any_ block height, and is constantly kept in sync with changes from the chain.
-
-On boot, it turns to a `search-router` to save all `eosio::setabi` transactions. It keeps a local cache in a [dstore][https://github.com/dfuse-io/dstore] location.
-
-**High Availability considerations**: This process is stateless, and can be scaled up or down for the desired throughput.  You want at least 2 to sustain one being down.
-
-
-### `eosq`
-
-**Description**: `eosq` is the web front-end (block explorer) interface to the dfuse APIs.  A self-contained https://eosq.app
-
-**High Availability considerations**: This process is stateless, and can be scaled up or down for the desired throughput.  You want at least 2 to sustain one being down.
-
-
-### `blockmeta`
-
-**Description**: `blockmeta` is the service that is queried by systems wanting to know the general status of the chain, in terms of head block, irreversible block, block times comparisons, past blocks status of irreversibility, etc.
-
-It does not know much about each block, for instance, it doesn't keep track of the transaction counts for example. Just enough to help other processes bootstrap themselves (finding their start block, last irreversible block, etc..). It is like a spinal cord of a dfuse deployment.
-
-**High Availability considerations**: This process is stateless, and can be scaled up or down for the desired throughput.  You want at least 2 to sustain one being down.
-
-
-### `booter`
-
-**Description**: This is the process that will bootstrap your chain if it detects that it has not been bootstrapped yet.  It will kick in if you run `node-manager`, and if there is a `bootseq.yaml` file in the current directory (or elsewhere, depending on a command-line flag).
-
-**High Availability considerations**: This process runs only once.  It is not concerned by high availability.
-
-### `node-manager`
-
-**Description**: The stock `node-manager` offered here is to run a _second_ `nodeos` instance when doing all-in-one deployments of a brand new chain.  Its role is to run the instance that will produce nodes, distinct from the `mindreader` instance that will produce the data out of the execution of the produced blocks.
-
-### `apiproxy`
-
-**Description**: The `apiproxy` is a small router to combine all dfuse services in a single HTTP(S) endpoint.
-
-**High Availability considerations**: In larger deployments, you can use a pool of such processed, Kubernetes Ingress or other forms of load balancers to route external traffic to the right services.  If you want to use it, you will want at least 2 to sustain one being down.
-
-### `dashboard`
-
-**Description**: The `dashboard` is provided to observe what is happening with the different components. It gathers a few metrics from each process.
-
-It will not work on larger deployments, as it needs to run in-process with the app (`mindreader`, `reayer`, etc..
-
-**High Availability considerations**: Not meant for HA deployments.
