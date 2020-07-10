@@ -28,7 +28,7 @@ The content of the request and response is identical to the regular
     execution* of the block, instead of being speculative traces of
     the edge node (like it is normally).
 
-**For more information, see the [in depth tutorial]({{< ref "/guides/eosio/tutorials/write-chain" >}})**
+**For more information, see the [in depth tutorial]({{< ref "/eosio/public-apis/tutorials/write-chain" >}})**
 
 ## Status of support for `cleos`
 

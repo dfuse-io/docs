@@ -8,27 +8,27 @@ protocol: EOS
 
 #### Getting Started
 
-- [Working with your free dfuse account]({{< ref "/guides/eosio/getting-started/how-to-work-with-your-free-account" >}})
-- [JavaScript Quickstart]({{< ref "/guides/eosio/getting-started/javascript-quickstart" >}})
-- [Other Languages]({{< ref "/guides/eosio/getting-started/other-languages" >}})
+- [Working with your free dfuse account]({{< ref "/eosio/public-apis/getting-started/how-to-work-with-your-free-account" >}})
+- [JavaScript Quickstart]({{< ref "/eosio/public-apis/getting-started/javascript-quickstart" >}})
+- [Other Languages]({{< ref "/eosio/public-apis/getting-started/other-languages" >}})
 
 #### Tutorials
 
-- [Push notifications from the chain]({{< ref "/guides/eosio/tutorials/push-notifications" >}})
-- [Using dfuse Events]({{< ref "/guides/eosio/tutorials/using-dfuse-events" >}})
-- [Writing reliably to the chain (push guarantee)]({{< ref "/guides/eosio/tutorials/write-chain" >}})
+- [Push notifications from the chain]({{< ref "/eosio/public-apis/tutorials/push-notifications" >}})
+- [Using dfuse Events]({{< ref "/eosio/public-apis/tutorials/using-dfuse-events" >}})
+- [Writing reliably to the chain (push guarantee)]({{< ref "/eosio/public-apis/tutorials/write-chain" >}})
 
 <--->
 
 #### Concepts
 
-- [Search Ranges]({{< ref "/guides/eosio/concepts/search-ranges" >}})
+- [Search Ranges]({{< ref "/eosio/public-apis/concepts/search-ranges" >}})
 
 <--->
 
 #### Other Guides
 
-- [Authentication]({{< ref "/guides/core-concepts/authentication" >}})
-- [GraphQL]({{< ref "/guides/core-concepts/graphql" >}})
+- [Authentication]({{< ref "../concepts/authentication" >}})
+- [GraphQL]({{< ref "../concepts/graphql" >}})
 
 {{< /sub-section-columns >}}

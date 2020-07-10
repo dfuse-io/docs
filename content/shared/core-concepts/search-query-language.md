@@ -17,12 +17,12 @@ single keyword. For example: `term:value` or `term:"value"`.
 
 **dfuse Search** on all chains are aware of the chain's particular
 consensus rules (like longest chain), and allow you to navigate any
-forks, through the use of [cursors]({{< ref "/guides/core-concepts/cursors" >}}).
+forks, through the use of [cursors]({{< ref "./cursors" >}}).
 
 ## Supported search terms
 
-* [Ethereum search terms reference]({{< ref "reference/ethereum/search-terms" >}}).
-* [EOSIO search terms reference]({{< ref "eosio/reference/search-terms" >}}).
+* [Ethereum search terms reference]({{< ref "ethereum/public-apis/reference/search-terms" >}}).
+* [EOSIO search terms reference]({{< ref "eosio/public-apis/reference/search-terms" >}}).
 
 
 
@@ -145,5 +145,5 @@ to you.
 Resolution of block range in regards to search inputs has some differences depending on the chain you are
 using. Refers to the following specific search range pages for the blockchain are working with:
 
-- [EOSIO]({{< ref "/guides/eosio/concepts/search-ranges" >}})
-- [Ethereum]({{< ref "/guides/ethereum/concepts/search-ranges" >}})
+- [EOSIO]({{< ref "/eosio/public-apis/concepts/search-ranges" >}})
+- [Ethereum]({{< ref "/ethereum/public-apis/concepts/search-ranges" >}})

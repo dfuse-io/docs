@@ -38,15 +38,15 @@ containing the decoding error.
 
 #### Input parameters
 
-{{< method-list-item name="account" type="[AccountName](/eosio/reference/types/accountname)" required="true" >}}
+{{< method-list-item name="account" type="[AccountName](/eosio/public-apis/reference/types/accountname)" required="true" >}}
   Contract account targeted by the action.
 {{< /method-list-item >}}
 
-{{< method-list-item name="scope" type="[AccountName](/eosio/reference/types/accountname)" required="true" >}}
+{{< method-list-item name="scope" type="[AccountName](/eosio/public-apis/reference/types/accountname)" required="true" >}}
   Contract account targeted by the action.
 {{< /method-list-item >}}
 
-{{< method-list-item name="table" type="[TableName](/eosio/reference/types/tablename)" required="true" >}}
+{{< method-list-item name="table" type="[TableName](/eosio/public-apis/reference/types/tablename)" required="true" >}}
   The _name-encoded_ table name you want to retrieve.  For example, user balances for tokens live in the `accounts` table.  Refer to the contract's ABI for a list of available tables.  This is contract dependent.
 {{< /method-list-item >}}
 
@@ -92,7 +92,7 @@ Returns a [StateResponse]({{< ref "../types/StateResponse" >}})
   The encoded key (as requested with `key_type`) for the row
 {{< /method-list-item >}}
 
-{{< method-list-item name="payer" type="[AccountName](/eosio/reference/types/accountname)" required="true" >}}
+{{< method-list-item name="payer" type="[AccountName](/eosio/public-apis/reference/types/accountname)" required="true" >}}
   The name-encoded account that was billed RAM to store this row.
 {{< /method-list-item >}}
 

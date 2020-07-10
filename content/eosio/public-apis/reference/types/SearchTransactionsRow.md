@@ -6,7 +6,7 @@ title: SearchTransactionsRow
 
 #### Properties
 
-{{< method-list-item name="lifecycle" type="[TransactionLifecycle](/eosio/reference/types/transactionlifecycle)" required="true" >}}
+{{< method-list-item name="lifecycle" type="[TransactionLifecycle](/eosio/public-apis/reference/types/transactionlifecycle)" required="true" >}}
   Full transaction where some of its actions matched.
 {{< /method-list-item >}}
 

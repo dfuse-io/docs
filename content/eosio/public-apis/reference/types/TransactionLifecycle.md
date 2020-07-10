@@ -20,7 +20,7 @@ Here are the fields under `data`:
   Standard nodeos transaction object
 {{< /method-list-item >}}
 
-{{< method-list-item name="execution_trace" type="[TransactionTrace](/eosio/reference/types/transactiontrace)" required="false" >}}
+{{< method-list-item name="execution_trace" type="[TransactionTrace](/eosio/public-apis/reference/types/transactiontrace)" required="false" >}}
   Traces of execution. In the case of a deferred transaction, you might not see execution traces
 {{< /method-list-item >}}
 
@@ -28,19 +28,19 @@ Here are the fields under `data`:
   Standard `block_header` object for the block where the transaction got executed
 {{< /method-list-item >}}
 
-{{< method-list-item name="creation_tree" type="[CreationTree](/eosio/reference/types/creationtree)" required="false" >}}
+{{< method-list-item name="creation_tree" type="[CreationTree](/eosio/public-apis/reference/types/creationtree)" required="false" >}}
   Represents the creation order of actions within this transaction.
 {{< /method-list-item >}}
 
-{{< method-list-item name="dtrxops" type="Array&lt;[DTrxOp](/eosio/reference/types/DTrxOp)&gt;" required="false" >}}
+{{< method-list-item name="dtrxops" type="Array&lt;[DTrxOp](/eosio/public-apis/reference/types/DTrxOp)&gt;" required="false" >}}
   A list of operations on deferred transactions (create, cancel...).
 {{< /method-list-item >}}
 
-{{< method-list-item name="ramops" type="Array&lt;[RAMOp](/eosio/reference/types/RAMOp)&gt;" required="false" >}}
+{{< method-list-item name="ramops" type="Array&lt;[RAMOp](/eosio/public-apis/reference/types/RAMOp)&gt;" required="false" >}}
   A list of operations on RAM usage, including operation, payer, delta, resulting usage.
 {{< /method-list-item >}}
 
-{{< method-list-item name="tableops" type="Array&lt;[TableOp](/eosio/reference/types/TableOp)&gt;" required="false" >}}
+{{< method-list-item name="tableops" type="Array&lt;[TableOp](/eosio/public-apis/reference/types/TableOp)&gt;" required="false" >}}
   A list of table operations, including operation, contract account, table, scope and payer.
 {{< /method-list-item >}}
 
@@ -48,11 +48,11 @@ Here are the fields under `data`:
   List of public keys used to sign the transaction.
 {{< /method-list-item >}}
 
-{{< method-list-item name="created_by" type="[ExtDTrxop](/eosio/reference/types/extdtrxop)" required="false" >}}
+{{< method-list-item name="created_by" type="[ExtDTrxop](/eosio/public-apis/reference/types/extdtrxop)" required="false" >}}
   When querying a deferred transaction, reference to the transaction that created it.
 {{< /method-list-item >}}
 
-{{< method-list-item name="canceled_by" type="[ExtDTrxop](/eosio/reference/types/extdtrxop)" required="false" >}}
+{{< method-list-item name="canceled_by" type="[ExtDTrxop](/eosio/public-apis/reference/types/extdtrxop)" required="false" >}}
   Similar to `created_by`, the reference to another transaction that has canceled this one.
 {{< /method-list-item >}}
 

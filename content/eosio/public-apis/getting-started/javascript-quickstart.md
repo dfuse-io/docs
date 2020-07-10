@@ -103,7 +103,7 @@ With the initial setup complete, you can start coding. The first thing we will d
 the dfuse client using the API key you created in the first step and the network you want to
 connect to.
 
-Valid networks can be found at [EOSIO API Endpoints]({{< ref "eosio/reference/endpoints" >}})
+Valid networks can be found at [EOSIO API Endpoints]({{< ref "eosio/public-apis/reference/endpoints" >}})
 {{< tabs "create-client" >}}
 {{< tab lang="javascript" title="Node.js" >}}
 {{< code-section "quickstarts_javascript_node_eos_section1" >}}
@@ -125,7 +125,7 @@ to you, you get to choose and pick only what you are interested in.
 {{< alert type="note" >}}
 Want to inspect the full set of available fields you can retrieve?
 
-- [GraphQL API Reference]({{< ref "/eosio/reference/graphql" >}})
+- [GraphQL API Reference]({{< ref "/eosio/public-apis/reference/graphql" >}})
 - {{< external-link href="https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKHF1ZXJ5OiJyZWNlaXZlcjplb3Npby50b2tlbiBhY3Rpb246dHJhbnNmZXIgLWRhdGEucXVhbnRpdHk6JzAuMDAwMSBFT1MnIikgewogICAgdW5kbyBjdXJzb3IKICAgIHRyYWNlIHsgaWQgbWF0Y2hpbmdBY3Rpb25zIHsganNvbiB9IH0KICB9Cn0=" title="GraphiQL, online query editor with completion and docs">}}
   {{< /alert >}}
 
@@ -141,7 +141,7 @@ Want to inspect the full set of available fields you can retrieve?
 {{< /tab >}}
 {{< /tabs >}}
 
-Next, you create the GraphQL subscription to stream transfers as they come. You will use the `searchTransactionsForward` operation, with the `"receiver:eosio.token action:transfer -data.quantity:'0.0001 EOS'"` query (See the [Search Query Language reference here]({{< ref "/eosio/reference/search-terms" >}})). This basically means, give me all transactions containing one or more
+Next, you create the GraphQL subscription to stream transfers as they come. You will use the `searchTransactionsForward` operation, with the `"receiver:eosio.token action:transfer -data.quantity:'0.0001 EOS'"` query (See the [Search Query Language reference here]({{< ref "/eosio/public-apis/reference/search-terms" >}})). This basically means, give me all transactions containing one or more
 actions named `transfer` executed by the `eosio.token` account for which the `quantity` field of the action is **not** `0.0001 EOS`.
 
 You can combine the dfuse client instance we created in step 3 with the GraphQL document we defined above in
@@ -235,11 +235,11 @@ start index.eosio.thml # Windows
 
 ## 6. What's next?
 
-- [GraphQL API Reference]({{< ref "/eosio/reference/graphql" >}})
-- [REST API Reference]({{< ref "/eosio/reference/rest" >}})
-- [WebSocket API Reference]({{< ref "/eosio/reference/websocket" >}})
-- [Check dfuse Core Concepts]({{< ref "/guides/core-concepts" >}})
-- [Look at one of our tutorials]({{< ref "/guides/eosio/tutorials" >}})
+- [GraphQL API Reference]({{< ref "/eosio/public-apis/reference/graphql" >}})
+- [REST API Reference]({{< ref "/eosio/public-apis/reference/rest" >}})
+- [WebSocket API Reference]({{< ref "/eosio/public-apis/reference/websocket" >}})
+- [Check dfuse Core Concepts]({{< ref "../concepts" >}})
+- [Look at one of our tutorials]({{< ref "/eosio/public-apis/tutorials" >}})
 - {{< external-link title="The `@dfuse/client-js` overview document" href="https://github.com/dfuse-io/client-js/blob/master/README.md#dfuse-javascripttypescript-client-library" >}}
 - {{< external-link title="The `@dfuse/client-js` quick API reference" href="https://github.com/dfuse-io/client-js/blob/master/README.md#api" >}} ({{< external-link title="Full API reference" href="https://dfuse-io.github.io/client-js/" >}})
 - {{< external-link title="GraphiQL, online query editor with completion and docs" href="https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKHF1ZXJ5OiJyZWNlaXZlcjplb3Npby50b2tlbiBhY3Rpb246dHJhbnNmZXIgLWRhdGEucXVhbnRpdHk6JzAuMDAwMSBFT1MnIikgewogICAgdW5kbyBjdXJzb3IKICAgIHRyYWNlIHsgaWQgbWF0Y2hpbmdBY3Rpb25zIHsganNvbiB9IH0KICB9Cn0=" >}}

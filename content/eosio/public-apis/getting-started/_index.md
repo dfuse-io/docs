@@ -5,6 +5,6 @@ protocol: EOS
 ---
 In this section, you will find the list of quickstart guides
 
-- [Work with your free Account]({{< ref "/guides/eosio/getting-started/how-to-work-with-your-free-account" >}}) 
-- [JavaScript Quickstart]({{< ref "/guides/eosio/getting-started/javascript-quickstart" >}})
-- [Other Languages]({{< ref "/guides/eosio/getting-started/other-languages" >}})
+- [Work with your free Account]({{< ref "/eosio/public-apis/getting-started/how-to-work-with-your-free-account" >}})
+- [JavaScript Quickstart]({{< ref "/eosio/public-apis/getting-started/javascript-quickstart" >}})
+- [Other Languages]({{< ref "/eosio/public-apis/getting-started/other-languages" >}})

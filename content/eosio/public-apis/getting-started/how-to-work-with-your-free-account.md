@@ -16,7 +16,7 @@ Go to {{< external-link href="https://app.dfuse.io/keys">}} to create your first
 
 To create a new API key for your application:
 
-* **API Key Name**: Identifies the purpose of your key in the portal. 
+* **API Key Name**: Identifies the purpose of your key in the portal.
 * Category:
   - **Web**: You want to embed your API key in the client-side of a web application. Specify your website as the origin {{< external-link title="as it will appear in the HTTP header" href="https://tools.ietf.org/html/rfc6454#section-7">}}
   - **Mobile**: You want to embed your API key in a mobile application deployed on an app store.
@@ -39,6 +39,6 @@ curl https://auth.dfuse.io/v1/auth/issue -s --data-binary '{"api_key":"web_abcde
 {{< /tab >}}
 {{< /tabs >}}
 
-## 4. What's next? 
+## 4. What's next?
 
-* [Review Authentication Guide]({{< ref "/guides/core-concepts/authentication" >}})
+* [Review Authentication Guide]({{< ref "../concepts/authentication" >}})

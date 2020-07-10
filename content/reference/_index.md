@@ -1,17 +1,18 @@
 ---
-TODO: this won't exist anymore, because of the new layout
+#TODO: this won't exist anymore, because of the new layout
 draft: true
 
 title: Reference
 layout: topnav-overview
 menu:
-  main:
+  eosio:
     name: Reference
     identifier: reference
     weight: 30
 BookToC: false
 ---
 
+{{#
 
 {{< row-wrapper >}}
 
@@ -51,3 +52,7 @@ BookToC: false
 {{< /sub-section-columns >}}
 
 {{< row-wrapper-end >}}
+
+
+
+#}}

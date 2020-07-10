@@ -6,7 +6,7 @@ title: SearchTransactionsResponse
 
 #### Properties
 
-{{< method-list-item name="transactions" type="Array<[SearchTransactionsRow](/eosio/reference/types/searchtransactionsrow)>" required="true" >}}
+{{< method-list-item name="transactions" type="Array<[SearchTransactionsRow](/eosio/public-apis/reference/types/searchtransactionsrow)>" required="true" >}}
   List of `SearchTransactionsRow` objects.
 {{< /method-list-item >}}
 

@@ -26,7 +26,7 @@ title: StateTableRowResponse
   A JSON representation of the ABI that is stored within the account. It is the ABI in effect at the requested `block_num`.
 {{< /method-list-item>}}
 
-{{< method-list-item name="row" type="[DBRow](/eosio/reference/types/dbrow)" required="false" >}}
+{{< method-list-item name="row" type="[DBRow](/eosio/public-apis/reference/types/dbrow)" required="false" >}}
   The single row in the table, or `null` if the primary key does not exist in the table at this block height.
 {{< /method-list-item>}}
 

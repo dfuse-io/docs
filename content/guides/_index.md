@@ -1,13 +1,22 @@
 ---
-TODO: "This won't exist anymore after the rework"
+# TODO: "This won't exist anymore after the rework"
+draft: true
+
 title: Guides
 layout: topnav-overview
 menu:
-  main:
+  eosio:
     name: Guides
     identifier: guides
     weight: 20
 ---
+
+
+
+{{#
+
+
+
 
 {{< row-wrapper >}}
 
@@ -17,9 +26,9 @@ menu:
 
 #### Getting Started
 
-- [Working with your free dfuse account]({{< ref "/guides/ethereum/getting-started/how-to-work-with-your-free-account" >}})
-- [JavaScript Quickstart]({{< ref "/guides/ethereum/getting-started/javascript-quickstart" >}})
-- [Other Languages]({{< ref "/guides/ethereum/getting-started/other-languages" >}})
+- [Working with your free dfuse account]({{< ref "/ethereum/public-apis/getting-started/how-to-work-with-your-free-account" >}})
+- [JavaScript Quickstart]({{< ref "/ethereum/public-apis/getting-started/javascript-quickstart" >}})
+- [Other Languages]({{< ref "/ethereum/public-apis/getting-started/other-languages" >}})
 
 <--->
 
@@ -36,8 +45,8 @@ menu:
 
 #### Getting Started
 
-- [JavaScript Quickstart]({{< ref "/guides/eosio/getting-started/javascript-quickstart" >}})
-- [Other Languages]({{< ref "/guides/eosio/getting-started/other-languages" >}})
+- [JavaScript Quickstart]({{< ref "/eosio/public-apis/getting-started/javascript-quickstart" >}})
+- [Other Languages]({{< ref "/eosio/public-apis/getting-started/other-languages" >}})
 
 <--->
 
@@ -49,3 +58,8 @@ menu:
 {{< /sub-section-columns >}}
 
 {{< row-wrapper-end >}}
+
+
+
+
+#}}

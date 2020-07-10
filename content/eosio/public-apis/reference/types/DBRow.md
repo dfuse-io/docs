@@ -12,7 +12,7 @@ ABI-decoding failed, you will receive the encoded binary data in
 
 #### Properties
 
-{{< method-list-item name="payer" type="[AccountName](/eosio/reference/types/accountname)" required="true" >}}
+{{< method-list-item name="payer" type="[AccountName](/eosio/public-apis/reference/types/accountname)" required="true" >}}
   The account which is billed RAM for the time this row stays in the blockchain state.
 {{< /method-list-item >}}
 

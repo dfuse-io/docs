@@ -6,10 +6,10 @@ Search an EOSIO blockchain for transactions based on free-form
 criterias, using the [_dfuse_ Search query language]({{< ref "../search-terms" >}}).
 
 {{< alert type="important" >}}
-We **strongly suggest** to use the [GraphQL search API]({{< ref "/eosio/reference/graphql#query-searchtransactionsforward" >}})
+We **strongly suggest** to use the [GraphQL search API]({{< ref "/eosio/public-apis/reference/graphql#query-searchtransactionsforward" >}})
 of this endpoint. Advantages of using the GraphQL version:
 
-- Streaming capabilities, or to be able to stream new results as they pushed on the chain. Quit or got disconnected? Simply resume at exact point you left off by using a [cursor]({{< ref "/guides/core-concepts/cursors" >}}).
+- Streaming capabilities, or to be able to stream new results as they pushed on the chain. Quit or got disconnected? Simply resume at exact point you left off by using a [cursor]({{< ref "../../concepts/cursors" >}}).
 - Easier data model to extract matching actions from response (i.e. to get only the actions in the transaction that matched the query used).
 - Possibility to greatly reduce bandwidth transfer & cost (ingress to your server) by specifying the exact trimmed down data payload you need (excellent for browser & mobile usage).
 - A much cleaner interface to query by block range (`lowBlockNum` and `highBlockNum` instead of harder to reason about `startBlock` and `blockCount`)

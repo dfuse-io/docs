@@ -6,7 +6,7 @@ title: Push notifications from the chain
 
 ## Token Management
 
-Once you have signed up at our self-service API management portal ({{< external-link href="https://app.dfuse.io">}}), you will be able to create long-term API keys. (See [Working With Your Free Account]({{< ref "/guides/eosio/getting-started/how-to-work-with-your-free-account" >}}) for more info if needed).
+Once you have signed up at our self-service API management portal ({{< external-link href="https://app.dfuse.io">}}), you will be able to create long-term API keys. (See [Working With Your Free Account]({{< ref "/eosio/public-apis/getting-started/how-to-work-with-your-free-account" >}}) for more info if needed).
 
 Once you have this API key, call the  endpoint {{< external-link href="https://auth.dfuse.io/v1/auth/issue">}} to get a fresh Authentication Token (JWT).
 
@@ -69,7 +69,7 @@ func (jwt JWT) NeedRefresh() bool {
 
 
 ## Initiating dfuse Graphql Server Connection
-Sever addresses can be found at [EOSIO API Endpoints]({{< ref "eosio/reference/endpoints" >}}).
+Sever addresses can be found at [EOSIO API Endpoints]({{< ref "eosio/public-apis/reference/endpoints" >}}).
 
 {{< tabs "grpc-oauth" >}}
 {{< tab lang="go" >}}

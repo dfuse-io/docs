@@ -10,4 +10,5 @@ menu:
 ---
 {{< partial "home-overview" >}}
 
-{{< partial "latest-release-notes" >}}
+{{# There won't be any latest-release-notes on the front page now, only in the protocol specific sections #}}
+{{#< partial "latest-release-notes" >#}}

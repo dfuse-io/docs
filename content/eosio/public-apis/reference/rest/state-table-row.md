@@ -27,15 +27,15 @@ If you requested a json-decoded form but it was impossible to decode a row (ex: 
 
 #### Input parameters
 
-{{< method-list-item name="account" type="[AccountName](/eosio/reference/types/accountname)" required="true" >}}
+{{< method-list-item name="account" type="[AccountName](/eosio/public-apis/reference/types/accountname)" required="true" >}}
   Contract account targeted by the action.
 {{< /method-list-item >}}
 
-{{< method-list-item name="scope" type="[AccountName](/eosio/reference/types/accountname)" required="true" >}}
+{{< method-list-item name="scope" type="[AccountName](/eosio/public-apis/reference/types/accountname)" required="true" >}}
   The _name-encoded_ scope of the table you are requesting.  For example, user balances for tokens live in their account name's scope. This is contract dependent, so inspect the ABI for the contract you are interested in.
 {{< /method-list-item >}}
 
-{{< method-list-item name="table" type="[TableName](/eosio/reference/types/tablename)" required="true" >}}
+{{< method-list-item name="table" type="[TableName](/eosio/public-apis/reference/types/tablename)" required="true" >}}
   The _name-encoded_ table name you want to retrieve.  For example, user balances for tokens live in the `accounts` table.  Refer to the contract's ABI for a list of available tables.  This is contract dependent.
 {{< /method-list-item >}}
 

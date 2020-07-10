@@ -26,11 +26,11 @@ returned value moves as the chain reorganizes.
 
 ## Input parameters
 
-{{< method-list-item name="account" type="[AccountName](/eosio/reference/types/accountname)" required="true" >}}
+{{< method-list-item name="account" type="[AccountName](/eosio/public-apis/reference/types/accountname)" required="true" >}}
   Contract account holding the requested table.
 {{< /method-list-item >}}
 
-{{< method-list-item name="table" type="[TableName](/eosio/reference/types/tablename)" required="true" >}}
+{{< method-list-item name="table" type="[TableName](/eosio/public-apis/reference/types/tablename)" required="true" >}}
   The _name-encoded_ table name you want to retrieve scopes from.  Refer to the contract's ABI for a list of available tables.  This is contract dependent.
 {{< /method-list-item >}}
 
@@ -45,7 +45,7 @@ returned value moves as the chain reorganizes.
   Block number used to serve your request. Will be the head `block_num` if it was not provided or `0` was passed as `block_num`, otherwise, will be the `block_num` you've passed in the request.
 {{< /method-list-item >}}
 
-{{< method-list-item name="scopes" type="Array&lt;[Name](/eosio/reference/types/name)&gt;" require="true" >}}
+{{< method-list-item name="scopes" type="Array&lt;[Name](/eosio/public-apis/reference/types/name)&gt;" require="true" >}}
   Block number used to serve your request. Will be the head `block_num` if it was not provided or `0` was passed as `block_num`, otherwise, will be the `block_num` you've passed in the request.
 {{< /method-list-item >}}
 

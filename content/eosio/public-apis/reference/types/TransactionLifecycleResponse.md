@@ -12,7 +12,7 @@ Here are the fields under `data`:
   The `transaction_lifecycle` string
 {{< /method-list-item >}}
 
-{{< method-list-item name="data.lifecycle" type="[TransactionLifecycle](/eosio/reference/types/transactionlifecycle)" required="true" >}}
+{{< method-list-item name="data.lifecycle" type="[TransactionLifecycle](/eosio/public-apis/reference/types/transactionlifecycle)" required="true" >}}
   The lifecycle object being tracked.
 {{< /method-list-item >}}
 

@@ -14,9 +14,9 @@ dfuse offers two indexes for searching Ethereum transactions:
 
 
 Within the
-[`searchTransactions()`](/reference/ethereum/graphql#subscription-searchtransactions)
+[`searchTransactions()`](/ethereum/public-apis/reference/graphql#subscription-searchtransactions)
 GraphQL subscription call, or the
-[query call](/reference/ethereum/graphql#query-searchtransactions) of
+[query call](/ethereum/public-apis/reference/graphql#query-searchtransactions) of
 the same name, use `indexName: CALLS`.
 
 The following fields go in the `query`  string of those calls.

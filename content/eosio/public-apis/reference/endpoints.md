@@ -4,7 +4,7 @@ menuTitle: Endpoints
 title: EOS API Endpoints
 release: stable
 aliases:
-- eosio/reference/endpoints
+- eosio/public-apis/reference/endpoints
 ---
 
 The _dfuse_ API is available for multiple EOSIO networks. Should you need it on another network, contact us.

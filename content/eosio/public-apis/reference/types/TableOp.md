@@ -17,18 +17,18 @@ triplet `<account>/<table>/<scope>`. No two tables can exist at the same time wi
   Position of the action within the transaction, going depth-first in `inline_actions`. 0-based index.
 {{< /method-list-item >}}
 
-{{< method-list-item name="account" type="[AccountName](/eosio/reference/types/accountname)" required="true" >}}
+{{< method-list-item name="account" type="[AccountName](/eosio/public-apis/reference/types/accountname)" required="true" >}}
   Contract account in which this table operation occurred.
 {{< /method-list-item >}}
 
-{{< method-list-item name="table" type="[TableName](/eosio/reference/types/tablename)" required="true" >}}
+{{< method-list-item name="table" type="[TableName](/eosio/public-apis/reference/types/tablename)" required="true" >}}
   Contract account's table affected by this table operation.
 {{< /method-list-item >}}
 
-{{< method-list-item name="scope" type="[Name](/eosio/reference/types/name)" required="true" >}}
+{{< method-list-item name="scope" type="[Name](/eosio/public-apis/reference/types/name)" required="true" >}}
   Table's scope affected by this table operation.
 {{< /method-list-item >}}
 
-{{< method-list-item name="payer" type="[AccountName](/eosio/reference/types/accountname)" required="true" >}}
+{{< method-list-item name="payer" type="[AccountName](/eosio/public-apis/reference/types/accountname)" required="true" >}}
   Represents the payer of this table, i.e. the table represented by the `account/table/scope` triplet.
 {{< /method-list-item >}}

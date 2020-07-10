@@ -71,7 +71,7 @@ protoc graphql/graphql.proto # add your language-specific flags here
 
 {{< /tabs >}}
 
-### Start by adding this code to your "main" 
+### Start by adding this code to your "main"
 
 {{< tabs "initial code">}}
   {{< tab title="Go" lang="go">}}
@@ -90,7 +90,7 @@ The code from the examples on this page lives {{< external-link href="https://gi
 
 ## Generate a JWT from your API key
 
-The JWT is a token with a short expiration period, used to communicate with dfuse services. You will have to implement token caching and manage renewal upon expiration. See [Authentication]({{< relref "/guides/core-concepts/authentication" >}}) for details.
+The JWT is a token with a short expiration period, used to communicate with dfuse services. You will have to implement token caching and manage renewal upon expiration. See [Authentication]({{< relref "../concepts/authentication" >}}) for details.
 
 {{< tabs "generate-jwt">}}
   {{< tab title="Go" lang="go">}}
@@ -128,7 +128,7 @@ to you, you get to choose and pick only what you are interested in.
 {{< alert type="note" >}}
 Want to inspect the full set of available fields you can retrieve?
 
-* [GraphQL API Reference]({{< ref "/reference/ethereum/graphql" >}})
+* [GraphQL API Reference]({{< ref "/ethereum/public-apis/reference/graphql" >}})
 * {{< external-link href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMocXVlcnk6ICItdmFsdWU6MCB0eXBlOmNhbGwiLCBsb3dCbG9ja051bTogLTEpIHsKICAgIHVuZG8gY3Vyc29yCiAgICBub2RlIHsgaGFzaCBtYXRjaGluZ0NhbGxzIHsgY2FsbGVyIGFkZHJlc3MgdmFsdWUoZW5jb2Rpbmc6RVRIRVIpIH0gfQogIH0KfQ==" title="GraphiQL, online query editor with completion and docs">}}
 {{< /alert >}}
 
@@ -170,10 +170,10 @@ DFUSE_API_KEY="your dfuse api key here" python main.py
 
 # What to do next?
 
-* [GraphQL API Reference]({{< ref "/reference/ethereum/graphql" >}})
+* [GraphQL API Reference]({{< ref "/ethereum/public-apis/reference/graphql" >}})
 * {{< external-link href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMocXVlcnk6ICItdmFsdWU6MCB0eXBlOmNhbGwiLCBsb3dCbG9ja051bTogLTEpIHsKICAgIHVuZG8gY3Vyc29yCiAgICBub2RlIHsgaGFzaCBtYXRjaGluZ0NhbGxzIHsgY2FsbGVyIGFkZHJlc3MgdmFsdWUoZW5jb2Rpbmc6RVRIRVIpIH0gfQogIH0KfQ==" title="GraphiQL, online query editor with completion and docs">}}
-* [Look at one of our tutorials]({{< ref "/guides/ethereum/tutorials" >}})
-* [Authentication]({{< relref "/guides/core-concepts/authentication" >}})
-* [Cursors]({{< relref "/guides/core-concepts/cursors" >}})
-* [GraphQL]({{< relref "/guides/core-concepts/graphql" >}})
-* [Search Query Language]({{< relref "/guides/core-concepts/search-query-language" >}})
+* [Look at one of our tutorials]({{< ref "/ethereum/public-apis/tutorials" >}})
+* [Authentication]({{< relref "../concepts/authentication" >}})
+* [Cursors]({{< relref "../concepts/cursors" >}})
+* [GraphQL]({{< relref "../concepts/graphql" >}})
+* [Search Query Language]({{< relref "../concepts/search-query-language" >}})

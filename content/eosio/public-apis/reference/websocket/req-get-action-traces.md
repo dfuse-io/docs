@@ -4,7 +4,7 @@ title: get_action_traces
 Retrieve a stream of executed actions, filtered by `receiver` and `account`
 
 {{< alert type="important" >}}
-We **strongly suggest** to use our [GraphQL search API]({{< ref "/eosio/reference/graphql#query-searchtransactionsforward" >}})
+We **strongly suggest** to use our [GraphQL search API]({{< ref "/eosio/public-apis/reference/graphql#query-searchtransactionsforward" >}})
 instead of this stream. Advantages of using the GraphQL version:
 
 - Fork-aware, able to tell you if an action was rollout due to being part of a forked block.
@@ -235,7 +235,7 @@ subscription ($cursor: String) {
 
 {{< alert type="note" >}}
 You were previously using `start_block` when reconnecting to start back where you left off? GraphQL is
-now using a [Cursor]({{< ref "/guides/core-concepts/cursors" >}}) concept to perform that operation
+now using a [Cursor]({{< ref "../../concepts/cursors" >}}) concept to perform that operation
 in a much more granular and safer manner.
 
 When receiving messages, record the last seen `message.searchTransactionsForward.cursor` value. When
@@ -261,5 +261,5 @@ const stream = await client.graphql(document, (message) => {
 
 You can use the following links to complete your code conversion to GraphQL:
 
-- If using the JavaScript client library, checkout the [JavaScript Quickstart Stream your first results]({{< ref "/guides/eosio/getting-started/javascript-quickstart#stream-your-first-results" >}}) section.
-- For other languages, refers to [Other Languages Quickstart]({{< ref "/guides/eosio/getting-started/other-languages" >}}) to learn how to make a GraphQL stream using your language of choice.
+- If using the JavaScript client library, checkout the [JavaScript Quickstart Stream your first results]({{< ref "/eosio/public-apis/getting-started/javascript-quickstart#stream-your-first-results" >}}) section.
+- For other languages, refers to [Other Languages Quickstart]({{< ref "/eosio/public-apis/getting-started/other-languages" >}}) to learn how to make a GraphQL stream using your language of choice.

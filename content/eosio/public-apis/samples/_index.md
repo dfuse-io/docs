@@ -2,7 +2,7 @@
 TODO: purge of all its ETH stuff
 title: Samples
 menu:
-  main:
+  eosio:
     name: Samples
     identifier: samples
     weight: 40

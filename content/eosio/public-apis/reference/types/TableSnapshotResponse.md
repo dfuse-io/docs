@@ -10,7 +10,7 @@ title: TableSnapshotResponse
    The `table_snapshot` string
 {{< /method-list-item >}}
 
-{{< method-list-item name="data" type="[TableRows](/eosio/reference/types/tablerows)" required="true" >}}
+{{< method-list-item name="data" type="[TableRows](/eosio/public-apis/reference/types/tablerows)" required="true" >}}
    Rows for the corresponding `get_table_rows` request. The `TableRows` object will not contain `account` nor `scope` in this case.
 {{< /method-list-item >}}
 

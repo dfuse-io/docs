@@ -28,11 +28,11 @@ This request exhibits the same patterns as the simpler
   An [AccountName]({{< ref "../types/AccountName" >}}) list, separated by the pipe character <code>&#124;</code>, a maximum of 1500 elements can be present in the list.
 {{< /method-list-item >}}
 
-{{< method-list-item name="scope" type="[Name](/eosio/reference/types/name)" required="true" >}}
+{{< method-list-item name="scope" type="[Name](/eosio/public-apis/reference/types/name)" required="true" >}}
   The _name-encoded_ scope of the table you are requesting.  For example, user balances for tokens live in their account name's scope. This is contract dependent, so inspect the ABI for the contract you are interested in.
 {{< /method-list-item >}}
 
-{{< method-list-item name="table" type="[TableName](/eosio/reference/types/tablename)" required="true" >}}
+{{< method-list-item name="table" type="[TableName](/eosio/public-apis/reference/types/tablename)" required="true" >}}
   The _name-encoded_ table name you want to retrieve.  For example, user balances for tokens live in the `accounts` table.  Refer to the contract's ABI for a list of available tables.  This is contract dependent.
 {{< /method-list-item >}}
 

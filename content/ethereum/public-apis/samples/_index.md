@@ -3,7 +3,7 @@ TODO: purge of all its EOSIO stuff
 
 title: Samples
 menu:
-  main:
+  ethereum:
     name: Samples
     identifier: samples
     weight: 40

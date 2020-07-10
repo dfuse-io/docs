@@ -91,11 +91,11 @@ parameter of the response to understand from which longest chain the returned AB
 The input body must be a valid JSON object. Here are the fields accepted in this JSON
 object.
 
-{{< method-list-item name="account" type="[AccountName](/eosio/reference/types/accountname)" required="true" >}}
+{{< method-list-item name="account" type="[AccountName](/eosio/public-apis/reference/types/accountname)" required="true" >}}
   Contract account targeted by the action.
 {{< /method-list-item >}}
 
-{{< method-list-item name="table" type="[TableName](/eosio/reference/types/tablename)" required="true" >}}
+{{< method-list-item name="table" type="[TableName](/eosio/public-apis/reference/types/tablename)" required="true" >}}
   The _name-encoded_ table name you want to retrieve. For example, user balances for tokens live in the `accounts` table. Refer to the contract's ABI for a list of available tables. This is contract dependent.
 {{< /method-list-item >}}
 
@@ -113,11 +113,11 @@ object.
   Block number closest to `block_num` at which the ABI was put on chain. For example, if ABI was last changed at block 1000 and you used a `block_num` of 20000 in the request, the response `block_num` will be 1000.
 {{< /method-list-item >}}
 
-{{< method-list-item name="account" type="[AccountName](/eosio/reference/types/accountname)" required="false" >}}
+{{< method-list-item name="account" type="[AccountName](/eosio/public-apis/reference/types/accountname)" required="false" >}}
   Contract account this ABI is active for.
 {{< /method-list-item >}}
 
-{{< method-list-item name="table" type="[TableName](/eosio/reference/types/tablename)" required="false" >}}
+{{< method-list-item name="table" type="[TableName](/eosio/public-apis/reference/types/tablename)" required="false" >}}
   Contract table the rows were decoded against.
 {{< /method-list-item >}}
 

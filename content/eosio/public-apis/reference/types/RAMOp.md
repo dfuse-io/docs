@@ -17,7 +17,7 @@ account. RAM operations on dfuse are scoped down to the `action`.
   Position of the action within the transaction, going depth-first in `inline_actions`. 0-based index.
 {{< /method-list-item >}}
 
-{{< method-list-item name="payer" type="[AccountName](/eosio/reference/types/accountname)" required="true" >}}
+{{< method-list-item name="payer" type="[AccountName](/eosio/public-apis/reference/types/accountname)" required="true" >}}
   Payer that is credited or debited some RAM usage
 {{< /method-list-item >}}
 

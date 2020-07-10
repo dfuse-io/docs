@@ -26,7 +26,7 @@ chain the returned value is a snapshot of.
 
 #### Input parameters
 
-{{< method-list-item name="account" type="[AccountName](/eosio/reference/types/accountname)" required="true" >}}
+{{< method-list-item name="account" type="[AccountName](/eosio/public-apis/reference/types/accountname)" required="true" >}}
   Account to query linked permissions from.
 {{< /method-list-item >}}
 
@@ -52,7 +52,7 @@ chain the returned value is a snapshot of.
   Block number extracted from `last_irreversible_block_num`, provided as a convenience so you don't need to extract it yourself.
 {{< /method-list-item >}}
 
-{{< method-list-item name="linked_permissions" type="Array&lt;[LinkedPermission](/eosio/reference/types/linkedpermission)&gt;" required="true" >}}
+{{< method-list-item name="linked_permissions" type="Array&lt;[LinkedPermission](/eosio/public-apis/reference/types/linkedpermission)&gt;" required="true" >}}
   An array of linked permissions for the account, sorted by the `contract` field and on `action` when there is a tie at the `contract` level.
 {{< /method-list-item >}}
 

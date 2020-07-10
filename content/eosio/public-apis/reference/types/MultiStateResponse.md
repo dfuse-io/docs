@@ -6,7 +6,7 @@ title: MultiStateResponse
 
 #### Properties
 
-{{< method-list-item name="tables" type="Array&lt;[TableRows](/eosio/reference/types/tablerows)&gt;" required="true" >}}
+{{< method-list-item name="tables" type="Array&lt;[TableRows](/eosio/public-apis/reference/types/tablerows)&gt;" required="true" >}}
   An array of tables, one for each queried account, unsorted.
 {{< /method-list-item >}}
 

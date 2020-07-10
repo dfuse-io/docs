@@ -1,7 +1,7 @@
 ---
 title: Libraries
 menu:
-  main:
+  eosio:
     name: Libraries
     identifier: libraries
     weight: 50
@@ -30,4 +30,3 @@ Go bindings to the dfuse.io Streaming APIs.
 Python bindings for dfuse.
 
 {{< external-link title="Github" href="https://github.com/th3ch33s3/dfuse-python" >}}
-

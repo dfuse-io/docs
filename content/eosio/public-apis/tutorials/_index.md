@@ -9,9 +9,9 @@ In this section, you will find the list of tutorials currently written, allowing
 to easily map your use case to one or more dfuse concepts under a concrete
 code repository.
 
-- [Push Notifications]({{< ref "/guides/eosio/tutorials/push-notifications" >}}) (<small>Keywords: dfuse Stream, golang, mobile</small>)
-- [Using dfuse Events]({{< ref "/guides/eosio/tutorials/using-dfuse-events" >}}) (<small>Keywords: dfuse Search, C++, Smart Contract, dfuse Search</small>)
-- [Writing reliably to the chain (push guarantee)]({{< ref "/guides/eosio/tutorials/write-chain" >}}) (<small>Keywords: dfuse Lifecycle, TypeScript, eosjs, Node.js</small>)
+- [Push Notifications]({{< ref "/eosio/public-apis/tutorials/push-notifications" >}}) (<small>Keywords: dfuse Stream, golang, mobile</small>)
+- [Using dfuse Events]({{< ref "/eosio/public-apis/tutorials/using-dfuse-events" >}}) (<small>Keywords: dfuse Search, C++, Smart Contract, dfuse Search</small>)
+- [Writing reliably to the chain (push guarantee)]({{< ref "/eosio/public-apis/tutorials/write-chain" >}}) (<small>Keywords: dfuse Lifecycle, TypeScript, eosjs, Node.js</small>)
 
 <!--
     List of potential other tutorials we had:

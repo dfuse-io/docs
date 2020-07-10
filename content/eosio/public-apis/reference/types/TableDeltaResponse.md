@@ -10,7 +10,7 @@ title: TableDeltaResponse
   The `transaction_lifecycle` string
 {{< /method-list-item >}}
 
-{{< method-list-item name="data" type="[TableDelta](/eosio/reference/types/tabledelta)" required="true" >}}
+{{< method-list-item name="data" type="[TableDelta](/eosio/public-apis/reference/types/tabledelta)" required="true" >}}
   The change operation from a table, navigating forks with the `step` element.
 {{< /method-list-item >}}
 

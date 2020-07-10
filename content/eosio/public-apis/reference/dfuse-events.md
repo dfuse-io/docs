@@ -8,7 +8,7 @@ way to ask dfuse Search to index their transactions, with arbitrary
 key/value pairs.
 
 {{< alert type="note" >}}
-See the [Using dfuse Events tutorial]({{< ref "guides/eosio/tutorials/using-dfuse-events" >}}) for a concrete example.
+See the [Using dfuse Events tutorial]({{< ref "eosio/public-apis/tutorials/using-dfuse-events" >}}) for a concrete example.
 {{< /alert >}}
 
 **Availability**: This feature is available on **EOS Mainnet**, **EOSIO Testnet** and **Kylin** networks.

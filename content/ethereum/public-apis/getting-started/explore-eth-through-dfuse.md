@@ -7,8 +7,8 @@ title: Explore ETH through dfuse
 
 The best way to get a taste of what you can do with dfuse is to try it out!
 
-**GraphiQL** is a tool that allows writing and running GraphQL queries from your browser. It is offered on [every dfuse endpoint](/reference/ethereum/endpoints/) with a valid anonymous JWT for your convenience.
-It also offers an access to the [documented GraphQL schema](/reference/ethereum/graphql/) on a side pane, as well as a very useful auto-completion feature (simply place your cursor somewhere and press `Ctrl+<Space>` to see completion possibilities).
+**GraphiQL** is a tool that allows writing and running GraphQL queries from your browser. It is offered on [every dfuse endpoint](/ethereum/public-apis/reference/endpoints/) with a valid anonymous JWT for your convenience.
+It also offers an access to the [documented GraphQL schema](/ethereum/public-apis/reference/graphql/) on a side pane, as well as a very useful auto-completion feature (simply place your cursor somewhere and press `Ctrl+<Space>` to see completion possibilities).
 
 [![GraphiQL screenshot](/img/graphiql.png)](https://mainnet.eth.dfuse.io/graphiql)
 
@@ -79,8 +79,8 @@ subscription{
 
 ### Search
 
-Search queries (either streaming through a GraphQL subscription or paginated through a GraphQL query) are constructed using [dfuse Search Query Language](/guides/core-concepts/search-query-language).
-See the [Ethereum Search Terms Reference](/reference/ethereum/search-terms) for a complete list of accepted terms.
+Search queries (either streaming through a GraphQL subscription or paginated through a GraphQL query) are constructed using [dfuse Search Query Language](../concepts/search-query-language).
+See the [Ethereum Search Terms Reference](/ethereum/public-apis/reference/search-terms) for a complete list of accepted terms.
 
 You can try those search queries directly in the {{< external-link href="https://ethq.app" title="https://ethq.app">}} search bar, or in the "query" parameter of the searchTransaction method in GraphiQL.
 
@@ -167,7 +167,7 @@ data.0:0x0000000000000000000000004a220e6096b25eadb88358cb44068a3248254675
 
 ## Learn more
 
-* [Concepts: GraphQL](/guides/core-concepts/graphql)
-* [Concepts: Search Query Language](/guides/core-concepts/search-query-language)
-* [Reference: Ethereum GraphQL schema](/reference/ethereum/graphql/)
-* [Reference: Ethereum Search Terms](/reference/ethereum/search-terms)
+* [Concepts: GraphQL](../concepts/graphql)
+* [Concepts: Search Query Language](../concepts/search-query-language)
+* [Reference: Ethereum GraphQL schema](/ethereum/public-apis/reference/graphql/)
+* [Reference: Ethereum Search Terms](/ethereum/public-apis/reference/search-terms)

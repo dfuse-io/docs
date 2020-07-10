@@ -15,7 +15,7 @@ The code from the examples on this page can be found {{< external-link href="htt
 
 ## 2. Generate a JWT from your API key
 
-The JWT is a token with a short expiration period, used to communicate with dfuse services. You will have to implement token caching and manage renewal upon expiration. See [Authentication]({{< relref "/guides/core-concepts/authentication" >}}) for more details.
+The JWT is a token with a short expiration period, used to communicate with dfuse services. You will have to implement token caching and manage renewal upon expiration. See [Authentication]({{< relref "../concepts/authentication" >}}) for more details.
 
 {{< tabs "generate-jwt">}}
 {{< tab title="Go" lang="go">}}
@@ -100,7 +100,7 @@ to you, as you get to pick and choose only what you are interested in.
 {{< alert type="note" >}}
 Want to inspect the full set of available fields you can retrieve?
 
-* [GraphQL API Reference]({{< ref "/eosio/reference/graphql" >}})
+* [GraphQL API Reference]({{< ref "/eosio/public-apis/reference/graphql" >}})
 * {{< external-link href="https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKHF1ZXJ5OiJyZWNlaXZlcjplb3Npby50b2tlbiBhY3Rpb246dHJhbnNmZXIgLWRhdGEucXVhbnRpdHk6JzAuMDAwMSBFT1MnIikgewogICAgdW5kbyBjdXJzb3IKICAgIHRyYWNlIHsgaWQgbWF0Y2hpbmdBY3Rpb25zIHsganNvbiB9IH0KICB9Cn0=" title="GraphiQL, online query editor with completion and docs">}}
 {{< /alert >}}
 
@@ -178,10 +178,10 @@ DFUSE_API_KEY="server_abcdef12345678900000000000" python main.py eosio
 
 ## 7. What's next?
 
-* [GraphQL API Reference]({{< ref "/eosio/reference/graphql" >}})
+* [GraphQL API Reference]({{< ref "/eosio/public-apis/reference/graphql" >}})
 * {{< external-link href="https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKHF1ZXJ5OiJyZWNlaXZlcjplb3Npby50b2tlbiBhY3Rpb246dHJhbnNmZXIgLWRhdGEucXVhbnRpdHk6JzAuMDAwMSBFT1MnIikgewogICAgdW5kbyBjdXJzb3IKICAgIHRyYWNlIHsgaWQgbWF0Y2hpbmdBY3Rpb25zIHsganNvbiB9IH0KICB9Cn0=" title="GraphiQL, online query editor with completion and docs">}}
-* [Look at one of our tutorials]({{< ref "/guides/eosio/tutorials" >}})
-* [Authentication]({{< relref "/guides/core-concepts/authentication" >}})
-* [Cursors]({{< relref "/guides/core-concepts/cursors" >}})
-* [GraphQL]({{< relref "/guides/core-concepts/graphql" >}})
-* [Search Query Language]({{< relref "/guides/core-concepts/search-query-language" >}})
+* [Look at one of our tutorials]({{< ref "/eosio/public-apis/tutorials" >}})
+* [Authentication]({{< relref "../concepts/authentication" >}})
+* [Cursors]({{< relref "../concepts/cursors" >}})
+* [GraphQL]({{< relref "../concepts/graphql" >}})
+* [Search Query Language]({{< relref "../concepts/search-query-language" >}})

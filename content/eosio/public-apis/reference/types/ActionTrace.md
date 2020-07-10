@@ -30,15 +30,15 @@ title: ActionTrace
   Zero-based index of this action within the transaction. Actions being nestable, this index represents a depth-first search indexing: if action _A_ (index 0) produced an inline action _B_, then action _B_ is index 1.
 {{< /method-list-item >}}
 
-{{< method-list-item name="trace" type="[TransactionTrace](/eosio/reference/types/transactiontrace)" required="true" >}}
+{{< method-list-item name="trace" type="[TransactionTrace](/eosio/public-apis/reference/types/transactiontrace)" required="true" >}}
   An execution trace object. This is a standard `nodeos` trace object. See the {{< external-link title="reference C++ code here" href="https://github.com/EOSIO/eos/blob/master/libraries/chain/include/eosio/chain/trace.hpp" >}}.
 {{< /method-list-item >}}
 
-{{< method-list-item name="ramops" type="Array&lt;[RAMOp](/eosio/reference/types/ramop)&gt;" required="false" >}}
+{{< method-list-item name="ramops" type="Array&lt;[RAMOp](/eosio/public-apis/reference/types/ramop)&gt;" required="false" >}}
   A list of operations on RAM usage, including operation, payer, delta, resulting usage.
 {{< /method-list-item >}}
 
-{{< method-list-item name="dtrxops" type="Array&lt;[DTrxOps](/eosio/reference/types/dtrxop)&gt;" required="false" >}}
+{{< method-list-item name="dtrxops" type="Array&lt;[DTrxOps](/eosio/public-apis/reference/types/dtrxop)&gt;" required="false" >}}
   A list of operations on deferred transactions (create, cancel...).
 {{< /method-list-item >}}
 

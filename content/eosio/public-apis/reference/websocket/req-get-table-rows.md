@@ -5,7 +5,7 @@ Retrieve a stream of changes to the tables, the side effects of
 transactions/actions being executed
 
 {{< alert type="important" >}}
-You will only stream changes? We **strongly suggest** for this case to use our [GraphQL search API]({{< ref "/eosio/reference/graphql#query-searchtransactionsforward" >}}) instead of this stream. Advantages of using the GraphQL version:
+You will only stream changes? We **strongly suggest** for this case to use our [GraphQL search API]({{< ref "/eosio/public-apis/reference/graphql#query-searchtransactionsforward" >}}) instead of this stream. Advantages of using the GraphQL version:
 
 - Possibility to stream for all scopes of a given table.
 - Possibility to also perform a paginated query instead of streaming.
@@ -46,15 +46,15 @@ Example request:
 
 #### Arguments
 
-{{< method-list-item name="code" type="[AccountName](/eosio/reference/types/accountname)" required="true" >}}
+{{< method-list-item name="code" type="[AccountName](/eosio/public-apis/reference/types/accountname)" required="true" >}}
   Contract account which wrote to tables
 {{< /method-list-item >}}
 
-{{< method-list-item name="scope" type="[Name](/eosio/reference/types/name)" required="true" >}}
+{{< method-list-item name="scope" type="[Name](/eosio/public-apis/reference/types/name)" required="true" >}}
   Table _scope_ where table is stored
 {{< /method-list-item >}}
 
-{{< method-list-item name="table" type="[Name](/eosio/reference/types/name)" required="true" >}}
+{{< method-list-item name="table" type="[Name](/eosio/public-apis/reference/types/name)" required="true" >}}
   Table _name_, shown in the contract ABI
 {{< /method-list-item >}}
 
@@ -244,7 +244,7 @@ subscription ($cursor: String) {
 
 {{< alert type="note" >}}
 You were previously using `start_block` when reconnecting to start back where you left off? GraphQL is
-now using a [Cursor]({{< ref "/guides/core-concepts/cursors" >}}) concept to perform that operation
+now using a [Cursor]({{< ref "../../concepts/cursors" >}}) concept to perform that operation
 in a much more granular and safer manner.
 
 When receiving messages, record the last seen `message.searchTransactionsForward.cursor` value. When
@@ -270,5 +270,5 @@ const stream = await client.graphql(document, (message) => {
 
 You can use the following links to complete your code conversion to GraphQL:
 
-- If using the JavaScript client library, checkout the [JavaScript Quickstart Stream your first results]({{< ref "/guides/eosio/getting-started/javascript-quickstart#stream-your-first-results" >}}) section.
-- For other languages, refers to [Other Languages Quickstart]({{< ref "/guides/eosio/getting-started/other-languages" >}}) to learn how to make a GraphQL stream using your language of choice.
+- If using the JavaScript client library, checkout the [JavaScript Quickstart Stream your first results]({{< ref "/eosio/public-apis/getting-started/javascript-quickstart#stream-your-first-results" >}}) section.
+- For other languages, refers to [Other Languages Quickstart]({{< ref "/eosio/public-apis/getting-started/other-languages" >}}) to learn how to make a GraphQL stream using your language of choice.

@@ -6,15 +6,15 @@ title: TableRows
 
 #### Properties
 
-{{< method-list-item name="rows" type="Array&lt;[DBRow](/eosio/reference/types/dbrow)&gt;" required="true" >}}
+{{< method-list-item name="rows" type="Array&lt;[DBRow](/eosio/public-apis/reference/types/dbrow)&gt;" required="true" >}}
   An array of rows in the table.
 {{< /method-list-item >}}
 
-{{< method-list-item name="account" type="[AccountName](/eosio/reference/types/accountname)" >}}
+{{< method-list-item name="account" type="[AccountName](/eosio/public-apis/reference/types/accountname)" >}}
   Sometimes required*. Contract account this table is a representation of.
 {{< /method-list-item >}}
 
-{{< method-list-item name="scope" type="[Name](/eosio/reference/types/name)" >}}
+{{< method-list-item name="scope" type="[Name](/eosio/public-apis/reference/types/name)" >}}
   Sometimes required*. Scope in contract account this table is a representation of.
 {{< /method-list-item >}}
 

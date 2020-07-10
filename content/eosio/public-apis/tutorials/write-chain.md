@@ -10,7 +10,7 @@ difference is that, when the required headers are present, you'll get the respon
 back only when your transaction has reach a block, passed 1, 2 or 3 handoffs or is
 irreversible (depending on value passed in header `X-Eos-Push-Guarantee`).
 
-You can check the [Push Guaranteed Reference]({{< ref "/eosio/reference/rest/push-transaction" >}}) for
+You can check the [Push Guaranteed Reference]({{< ref "/eosio/public-apis/reference/rest/push-transaction" >}}) for
 all details on the feature.
 
 You are going to follow a quick guide to send tokens from one account to another
@@ -70,7 +70,7 @@ definition of this code.
 
 {{< alert type="note" >}}
 Explaining the `@dfuse/client` is out of scope for this tutorial. Refer to the
-[JavaScript Quickstart]({{< ref "/guides/eosio/getting-started/javascript-quickstart" >}}) for
+[JavaScript Quickstart]({{< ref "/eosio/public-apis/getting-started/javascript-quickstart" >}}) for
 further details about the `@dfuse/client` library.
 {{< /alert >}}
 
