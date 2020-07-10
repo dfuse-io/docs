@@ -1,14 +1,11 @@
 ---
-weight: 10
-title: Ethereum
+layout: topnav-overview
 menu:
-  ethereum:
+  eosio:
     name: Public APIs User Guide
     identifier: public-apis
     weight: 30
-protocol: ETH
 BookToC: false
 ---
-
 
 See side navigation.

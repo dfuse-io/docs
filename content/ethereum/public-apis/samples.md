@@ -2,11 +2,6 @@
 TODO: purge of all its EOSIO stuff
 
 title: Samples
-menu:
-  ethereum:
-    name: Samples
-    identifier: samples
-    weight: 40
 protocol: DFUSE
 ---
 

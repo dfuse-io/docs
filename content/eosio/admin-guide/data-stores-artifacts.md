@@ -16,12 +16,13 @@ Goal: understand all the data consumed and produced by dfuse, the different data
 * dfuse search indexes (bleve indexes)
 * dfuse abicodec ABI cache
 
+TODO: describe all of this
+
 ## Stores
 
-`dstore` for object storage
-* backends
-
-`kvdb` for key/value storage
+These are the object (larger files) storage types that dfuse uses:
+* [dstore][https://github.com/dfuse-io/dstore], with support for Azure, GCP, AWS, Minio, and local filesystems
+* `kvdb` for key/value storage
 * backends
 
 * one-block files in `dstore`

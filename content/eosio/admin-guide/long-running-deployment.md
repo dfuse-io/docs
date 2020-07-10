@@ -9,3 +9,6 @@ Goal: have an instance that is resilient to crashes of the machine and replaceme
 // Put merged files to network storage
 // Put one-block files to network storage
 // Put search indexes to network storage
+
+
+TODO: Fill this in

@@ -1,7 +1,6 @@
 ---
 weight: 20
-title: EOSIO Tutorials
-menuTitle: Tutorials
+title: Tutorials
 protocol: EOS
 ---
 

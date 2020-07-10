@@ -7,11 +7,6 @@ title: Samples
 # to be able to reuse the menus in each protocol section.. can we have sub-trees or a
 # certain menu in a sub-tree? Like use `eosio` in the `content/eosio` subtree, and the
 # `ethereum` menu in the `content/ethereum` subtree?
-menu:
-  eosio:
-    name: Samples
-    identifier: samples
-    weight: 40
 protocol: DFUSE
 ---
 

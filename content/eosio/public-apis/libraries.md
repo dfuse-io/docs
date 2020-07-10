@@ -1,10 +1,5 @@
 ---
 title: Libraries
-menu:
-  eosio:
-    name: Libraries
-    identifier: libraries
-    weight: 50
 protocol: DFUSE
 ---
 ## client-js
