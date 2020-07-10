@@ -27,7 +27,7 @@ The GraphQL API offers significantly more flexibility than the REST API. The abi
 
 The GraphQL API offers two types of requests, Queries and Subscriptions, allowing you to build flexible real-time applications.
 
-You can find the dfuse GraphQL endpoints within the [reference documentation]({{< ref "/reference" >}}) pertaining to the platform relevant to you.
+You can find the dfuse GraphQL endpoints within the [reference documentation]({{< relref "../reference" >}}) pertaining to the platform relevant to you.
 
 ## Queries
 

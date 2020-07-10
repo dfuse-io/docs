@@ -17,7 +17,7 @@ This processing means executing transactions in blocks that circulate on the cha
 
 Throw more machines and throughput, and you can
 
-**Input**: Availability of portable state snapshots for `nodeos`.  Ideally, these have been produced automatically by the `node-manager` options to take periodic snapshots (to follow name conventions that can be picked-up by `node-manager` in reprocessing mode).  See the [node-manager component docs](./components#node-manager).
+**Input**: Availability of portable state snapshots for `nodeos`.  Ideally, these have been produced automatically by the `node-manager` options to take periodic snapshots (to follow name conventions that can be picked-up by `node-manager` in reprocessing mode).  See the [node-manager component docs]({{< relref "./components" >}}#node-manager).
 
 If portable snapshots are not available, you will have no choice but to go linearly.
 

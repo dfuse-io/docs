@@ -8,15 +8,13 @@
     "DfuseLogo": "dfuse-logo.svg",
     "BookToC": 5,
     "BookSections": {
-      "guides": "show",
-      "reference": "show",
       "eosio": "show",
       "ethereum": "show"
     },
     "CustomCss": ["css/override.css"],
     "BookRepo": "https://github.com/dfuse-io/docs",
     "BookEditPath": "edit/master/content",
-    "tagline": "API Documentation",
+    "tagline": "Documentation",
     "SectionPagesMenu": "main"
   },
   "markup": {
@@ -25,5 +23,6 @@
         "unsafe": true
       }
     }
-  }
+  },
+  "ignoreFiles": ["shared/*"]
 }
