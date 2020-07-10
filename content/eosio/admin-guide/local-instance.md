@@ -1,5 +1,5 @@
 ---
-title: Laptop-style deployment
+title: On your laptop deployment
 ---
 
 // What you get with this. Limitations of a laptop-style deploy.
