@@ -163,7 +163,7 @@ It will not work on larger deployments, as it needs to run in-process with the a
 * It can be useful to have several archives serving the same segment, with different indexes sizes, for resiliency purposes:
 
 {{< highlight ascii >}}
-|<- Genesis   ->  history going forward -->                                            HEAD -> |
+|<- Genesis                      -->  history going forward -->                        HEAD -> |
 [ tier 1,  50,000 blocks indexes, moving head                                                  ]
                                                       [  tier 2, 50 blks idx, moving tail/head ]
 {{< /highlight >}}
