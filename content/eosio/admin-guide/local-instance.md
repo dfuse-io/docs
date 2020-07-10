@@ -10,31 +10,31 @@ TODO: fill this in
 
 1. Initialize a new `dfuse.yaml` file in the current working directory:
 
-```
+{{< highlight sh >}}
 dfuseeos init
-```
+{{< /highlight >}}
 
 2. Optionally copy over a boot sequence to have dfuse bootstraps your chain with accounts, system contracts to have a chain ready for development in matter of seconds:
 
-```
+{{< highlight sh >}}
 wget -O bootseq.yaml https://raw.githubusercontent.com/dfuse-io/dfuse-eosio/develop/booter/examples/bootseq.dev.yaml
-```
+{{< /highlight >}}
 
 **Note** Check [booter/examples](./booter/examples) for other boot sequence templates.
 
 3. Boot your instance with:
 
-```
+{{< highlight sh >}}
 dfuseeos start
-```
+{{< /highlight >}}
 
 4. A terminal prompt will list the graphical interfaces with their relevant links:
 
-```
+{{< highlight sh >}}
 Dashboard: http://localhost:8081
 Explorer & APIs:  http://localhost:8080
 GraphiQL:         http://localhost:8080/graphiql
-```
+{{< /highlight >}}
 
 In this mode, two nodeos instances will now be running on your machine, a block producer node and a mindreader node, and the dfuse services should be ready in a matter of seconds.
 

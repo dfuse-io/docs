@@ -13,7 +13,7 @@ cannot tolerate down time, for any of the dfuse components.
 * Example K8s deployment for Kylin, pods listing.
 
 
-```bash
+{{< highlight bash >}}
 $ kubectl get pods
 NAME                                         READY   STATUS
 abicodec-v3-6c74fc64df-c6t56                 1/1     Running
@@ -54,7 +54,7 @@ search-v3-memcache-cb98db48-57q6k            1/1     Running
 tokenmeta-v3-0                               1/1     Running
 tokenmeta-v3-1                               1/1     Running
 trxdb-loader-v3-b9d67d857-n2vsl              1/1     Running
-```
+{{< /highlight >}}
 
 NOTE:
 * Not shown here is a small `etcd` cluster, deployed through the `etcd-operator`.

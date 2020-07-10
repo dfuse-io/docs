@@ -5,9 +5,9 @@ weight: 40
 
 **Goal**: understand the _apps_ available through:
 
-```
+{{< highlight sh >}}
     dfuseeos start
-```
+{{< /highlight >}}
 
 their role, and interaction.
 
@@ -162,11 +162,11 @@ It will not work on larger deployments, as it needs to run in-process with the a
 * It can also watch certain events to truncate the lower portion of the history it is serving, freeing some disk space and RAM usage.  This is called _moving tail_.
 * It can be useful to have several archives serving the same segment, with different indexes sizes, for resiliency purposes:
 
-```
+{{< highlight ascii >}}
 |<- Genesis   ->  history going forward -->                                            HEAD -> |
 [ tier 1,  50,000 blocks indexes, moving head                                                  ]
                                                       [  tier 2, 50 blks idx, moving tail/head ]
-```
+{{< /highlight >}}
 
 Since 50 blocks indexes are produced much quicker than 50,000 blocks indexes, this archive segment can be brought up much faster: you can parallelize production of a hundred 50 blks indexes, while you can't parallelize the production of a 50,000 blocks
 

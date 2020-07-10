@@ -57,25 +57,25 @@ In Phase 3, we start everything else. Indexing apps will catch up where we termi
 
 #### Bootstrap
 
-```
+{{< highlight sh >}}
 mkdir ~/work/chain
 cd ~/work/chain
 dfuseeos init
 # Answers `N` to `Do you want dfuse to run a procuder node for you?`
 # Enter peer addresses (try to have a few good peers in there)
-```
+{{< /highlight >}}
 
 Once this is done, copy the `genesis.json` file inside `./mindreader` folder. When finish, you should have the following structure:
 
-```
+{{< highlight sh >}}
 $ tree
-```
+{{< /highlight >}}
 
 #### Phase 1
 
 Create a file `dfuse-phase1.yaml` in your folder with the following content:
 
-```
+{{< highlight yaml >}}
 start:
   args:
   - mindreader
@@ -90,13 +90,13 @@ start:
     # and with a stop block, "mindreader" will close automatically alone when it finish up sync up
     # to this point.
     #mindreader-stop-block-num: 3000000
-```
+{{< /highlight >}}
 
 Then start up the phase 1 processing with:
 
-```
+{{< highlight sh >}}
 dfuseeos -c dfuse-phase1.yaml start
-```
+{{< /highlight >}}
 
 That will kick off creation of "dfuse blocks" and should sync with the chain relatively quickly depending on the size of the chain and the amount of transactions contained in the blocks.
 
@@ -121,9 +121,9 @@ When you are live (see notes list item 3) , you can continue with Phase 2.
 
 At this point, you should have phase 1 stopped if you added a stop block parameter, or it might have quit when encountering a fork. If you are lucky and it's still running, you should take a snapshot before exiting.
 
-```
+{{< highlight sh >}}
 curl -X POST http://localhost:13009/v1/snapshot
-```
+{{< /highlight >}}
 
 Then monitor the folder `dfuse-data/storage/snapshots` until the snapshot is written there. Then when the `snapshot` is there, hit `Ctrl-C` to quit phase 1.
 
@@ -133,7 +133,7 @@ We will also start the `fluxdb` indexer (history state information), `trxdb-load
 
 Create a file `dfuse-phase2.yaml` in your folder with the following content:
 
-```
+{{< highlight yaml >}}
 start:
   args:
   - mindreader
@@ -149,19 +149,19 @@ start:
     mindreader-restore-snapshot-name: latest
     relayer-max-drift: 0
     trxdb-loader-batch-size: 100
-```
+{{< /highlight >}}
 
 Then start up the phase 2 processing with:
 
-```
+{{< highlight sh >}}
 dfuseeos -c dfuse-phase2.yaml start
-```
+{{< /highlight >}}
 
 Monitoring advancement of the indexing processed is done manually right now, extracting logs from `dfuse-data/dfuse.log.json` file to see what's going on at which rate.
 
 We uses `zap-pretty` tool (https://github.com/maoueh/zap-pretty) to prettify the log line. Can be replaced by `jq .` also but it's less pretty and creates longer line. If you use `jq .` or nothing at all, you can avoid the `--line-buffered` in the `grep` statements, that is used to overcome a limitation of `zap-pretty` (that we will fix eventually).
 
-```
+{{< highlight sh >}}
 # App fluxdb progress (check for `block_num` field, no insert rate given here)
 tail -f dfuse-data/dfuse.log.json| grep --line-buffered "fluxdb" | grep --line-buffered "wrote irreversible segment" | zap-pretty
 
@@ -173,7 +173,7 @@ tail -f dfuse-data/dfuse.log.json| grep --line-buffered "indexer" | grep --line-
 
 # Mindeader (to see at which block it is syncing)
 tail -f dfuse-data/dfuse.log.json|  grep --line-buffered mindreader | zap-pretty
-```
+{{< /highlight >}}
 
 ##### Performance Reports
 

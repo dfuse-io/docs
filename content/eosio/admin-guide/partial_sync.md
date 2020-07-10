@@ -11,11 +11,11 @@ title: Partial sync (EXPERIMENTAL)
 
 ## Get a clean workspace folder, fetch a Kylin snapshot (using EOS Nation snapshots as a source in this example)
 
-```
+{{< highlight sh >}}
 mkdir workspace && cd workspace
 curl -L -o kylin-snapshot.bin.zst https://snapshots.eosnation.io/kylin/latest
 zstd -d kylin-snapshot.bin.zst
-```
+{{< /highlight >}}
 
 **Note** On Ubuntu, `zstd` CLI decompression tool can be obtain with `sudo apt-get install -y zstd`, otherwise, can be downloaded from https://github.com/facebook/zstd/releases.
 
@@ -29,7 +29,7 @@ zstd -d kylin-snapshot.bin.zst
 
 ### Example kylin-phase1-blocks.yaml
 
-```
+{{< highlight yaml >}}
 start:
   args:
   - mindreader
@@ -44,11 +44,11 @@ start:
     mindreader-discard-after-stop-num: false
     mindreader-snapshot-store-url: file:///home/johndoe/workspace
     mindreader-stop-block-num: 107367000
-```
+{{< /highlight >}}
 
 ## Prepare mindreader nodeos config
 
-```
+{{< highlight sh >}}
 # from {workspace}
 mkdir mindreader
 cat >mindreader/config.ini <<EOC
@@ -101,13 +101,13 @@ p2p-peer-address = testnet.zbeos.com:9876
 p2p-peer-address = kylin.eosrio.io:39876
 EOC
 
-```
+{{< /highlight >}}
 
 ## Run 'phase1-blocks'
 
-```
+{{< highlight sh >}}
 dfuseeos -c kylin-phase1-blocks.yaml start -v
-```
+{{< /highlight >}}
 
 * You can see the 'actual' progress of block files being written by running this command from another terminal: `ls -ltr dfuse-data/storage/merged-blocks/ |tail`
 * From different terminal sessions, you can run the "search" and "trxdb" phases in parallel with this phase. They will wait for merged block files to be created. See next steps in this document.
@@ -127,7 +127,7 @@ KNOWN ISSUES:
 
 ### Example kylin-phase1-search.yaml
 
-```
+{{< highlight yaml >}}
 start:
   args:
   - search-indexer
@@ -138,13 +138,13 @@ start:
     search-indexer-start-block: 107305500
     search-indexer-stop-block: 107366500
     search-indexer-shard-size: 500
-```
+{{< /highlight >}}
 
 ### Run 'phase1-search'
 
-```
+{{< highlight sh >}}
 dfuseeos -c kylin-phase1-search.yaml start  -vv
-```
+{{< /highlight >}}
 
 NOTE: the 'actual' start block that you can use afterwards will most likely be the one that you set here in 'search-indexer'
 
@@ -159,7 +159,7 @@ NOTE: the 'actual' start block that you can use afterwards will most likely be t
 
 ### Example kylin-phase1-trxdb.yaml
 
-```
+{{< highlight yaml >}}
 start:
   args:
   - trxdb-loader
@@ -170,13 +170,13 @@ start:
     trxdb-loader-start-block-num: 107305400
     trxdb-loader-stop-block-num: 107366900
     trxdb-loader-processing-type: batch
-```
+{{< /highlight >}}
 
 ### Run 'phase1-trxdb'
 
-```
+{{< highlight sh >}}
 dfuseeos -c kylin-phase1-trxdb.yaml start  -vv
-```
+{{< /highlight >}}
 
 KNOWN ISSUES:
 * It's currently hard to follow the progress and not have too many logs
@@ -184,7 +184,7 @@ KNOWN ISSUES:
 ## Run kylin-phase2 (syncing up to head)
 
 ### Example kylin-phase2.yaml
-```
+{{< highlight yaml >}}
 start:
   args:
   - search-archive
@@ -209,7 +209,7 @@ start:
     search-archive-shard-size: 500
     search-archive-start-block: 107305500
     blockmeta-eos-api-upstream-addr: https://kylin.eos.dfuse.io
-```
+{{< /highlight >}}
 
 ### Known Issues
 
