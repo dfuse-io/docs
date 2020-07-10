@@ -1,5 +1,6 @@
 ---
 title: Installation
+weight: 20
 ---
 
 // Installation instructions, probably what we have in DEPENDENCIES.md

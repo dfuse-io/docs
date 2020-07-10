@@ -1,5 +1,6 @@
 ---
 title: On your laptop deployment
+weight: 70
 ---
 
 // What you get with this. Limitations of a laptop-style deploy.

@@ -1,5 +1,6 @@
 ---
 title: System Requirements
+weight: 50
 ---
 
 // First reality check as to what you need to run this

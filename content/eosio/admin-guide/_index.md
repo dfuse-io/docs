@@ -1,4 +1,5 @@
 ---
+title: Section overview
 ---
 
-// Insert menu for sub-elements, sorted, as text.
+// TODO: Insert menu for sub-elements, sorted, as text.

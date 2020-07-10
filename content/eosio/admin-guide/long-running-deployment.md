@@ -1,5 +1,6 @@
 ---
 title: Simplest Long-Running non-HA Deployment
+weight: 80
 ---
 
 Goal: have an instance that is resilient to crashes of the machine and replacement of the machine on which you run it, and allows you to start scaling out some components (albeit not with zero downtime)
