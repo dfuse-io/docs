@@ -1,32 +1,32 @@
 {{ $currentPage := . }}
 <div id="header-wrapper">
-    <div id="banner-alert">
+<!--    <div id="banner-alert">
         <h3>Developing on EOS Mainnet?</h3>
         <p>
             Review our new pricing options <a href="https://www.dfuse.io/en/dedicated-option-survey-message" target="_blank">here</a>.</p>
-    </div>
+    </div>-->
 
     <div id="header" >
-      <div id="main-menu-mobile-wrapper">
-          <div id="button-main-menu-mobile">
-              <label for="main-menu-control">
-                   <img src="{{ "svg/menu-main.svg" | relURL }}" alt="Menu" />
-              </label>
-          </div>
-      </div>
-      <div id="logo-main-nav">
-          <a href="/">
-              <img src="/img/{{ .Site.Params.DfuseLogo }}" alt="{{ .Site.Title }}">
-          </a>
-          <div id="tagline" >
-              {{ .Site.Params.tagline }}
-          </div>
-      </div>
-      <div id="top-nav-wrapper">
+        <div id="main-menu-mobile-wrapper">
+            <div id="button-main-menu-mobile">
+                <label for="main-menu-control">
+                     <img src="{{ "svg/menu-main.svg" | relURL }}" alt="Menu" />
+                </label>
+            </div>
+        </div>
+        <div id="logo-main-nav">
+            <a href="/">
+                <img src="/img/{{ .Site.Params.DfuseLogo }}" alt="{{ .Site.Title }}">
+            </a>
+            <div id="tagline" >
+                {{ .Site.Params.tagline }}
+            </div>
+        </div>
+        <div id="top-nav-wrapper">
 
-          {{ partial "menu/menu-top" . }}
-          {{ partial "docs/search" . }}
+            {{ partial "menu/menu-top" . }}
+            {{ partial "docs/search" . }}
 
-      </div>
+        </div>
     </div>
 </div>
