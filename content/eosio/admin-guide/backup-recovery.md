@@ -1,5 +1,6 @@
 ---
 title: Backup & Recovery
+weight: 120
 ---
 
 Goal: understand components that require backup/recovery to ensure

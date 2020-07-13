@@ -6,6 +6,7 @@ menu:
     identifier: public-apis
     weight: 30
 BookToC: false
+weight: 10
 ---
 
 See side navigation.

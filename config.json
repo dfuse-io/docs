@@ -8,13 +8,20 @@
     "DfuseLogo": "dfuse-logo.svg",
     "BookToC": 5,
     "BookSections": {
+      "admin-guide": "show",
+      "public-apis": "show",
+      "dev-guide": "show",
       "eosio": "show",
       "ethereum": "show"
+    },
+    "PerSectionTagline": {
+      "eosio": "EOSIO Documentation",
+      "ethereum": "Ethereum Documentation",
+      "topLevel": "Documentation"
     },
     "CustomCss": ["css/override.css"],
     "BookRepo": "https://github.com/dfuse-io/docs",
     "BookEditPath": "edit/master/content",
-    "tagline": "Documentation",
     "SectionPagesMenu": "main"
   },
   "markup": {

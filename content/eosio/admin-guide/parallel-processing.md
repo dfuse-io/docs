@@ -1,5 +1,6 @@
 ---
 title: Parallel processing of chain segments
+weight: 110
 ---
 
 // Goal: how to do parallel processing.

@@ -1,8 +1,9 @@
 ---
 title: Filtering
+weight: 65
 ---
 
-Goal: understand the filtering capabilities, data flows, and impact on different services.
+**Goal**: understand the filtering capabilities, data flows, and impact on different services.
 
 ## Filtering language
 

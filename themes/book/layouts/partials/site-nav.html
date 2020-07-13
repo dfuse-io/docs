@@ -10,7 +10,7 @@
         <div id="main-menu-mobile-wrapper">
             <div id="button-main-menu-mobile">
                 <label for="main-menu-control">
-                     <img src="{{ "svg/menu-main.svg" | relURL }}" alt="Menu" />
+                    <img src="{{ "svg/menu-main.svg" | relURL }}" alt="Menu" />
                 </label>
             </div>
         </div>
@@ -19,7 +19,7 @@
                 <img src="/img/{{ .Site.Params.DfuseLogo }}" alt="{{ .Site.Title }}">
             </a>
             <div id="tagline" >
-                {{ .Site.Params.tagline }}
+                {{ if .Page.Section }}{{ index .Site.Params.PerSectionTagline .Page.Section }}{{ else }}{{ .Site.Params.PerSectionTagline.topLevel }}{{ end }}
             </div>
         </div>
         <div id="top-nav-wrapper">
