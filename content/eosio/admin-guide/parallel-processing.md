@@ -1,11 +1,13 @@
 ---
 title: Parallel processing of chain segments
 weight: 110
-draft: true
-TODO: complete this
+draft: false
 ---
 
-// TODO: wrap up this section
+{{< alert type="warning" >}}
+This section is incomplete and is still being worked on.
+{{< /alert >}}
+
 
 {{< alert type="note" >}}
 The **goal of this page** is to help you understand the steps required to do parallel reprocessing of the different dfuse services,.

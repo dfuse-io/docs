@@ -1,9 +1,12 @@
 ---
 title: Simplest Long-Running non-HA Deployment
 weight: 80
-draft: true
-TODO: true
 ---
+
+
+{{< alert type="warning" >}}
+This section is incomplete and is still being worked on.
+{{< /alert >}}
 
 {{< alert type="note" >}}
 The **goal of this page** is to instruct you how to have an instance that is resilient to crashes of the machine and replacement of the machine on which you run it, and allows you to start scaling out some components (albeit not with zero downtime).
