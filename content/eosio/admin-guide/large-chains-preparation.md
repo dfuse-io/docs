@@ -1,5 +1,6 @@
 ---
 title: Large Chains Preparation
+weight: 100
 ---
 
 Goal: provide the necessary steps to those wanting to boot a large

@@ -3,31 +3,141 @@ title: Data Stores & Artifacts
 weight: 60
 ---
 
-Goal: understand all the data consumed and produced by dfuse, the different databases, the different types of storages.
+{{< alert type="note" >}}
+The **goal of this page** is to help you understand all the data artifacts consumed and produced by dfuse, the different databases, the different types of storages.
+{{< /alert >}}
+
+
+
+## Stores
+
+There are 2 data stores used by the dfuse Platform:
+
+1. Object stores, for small or large files.  These use the dfuse [dstore abstraction library](https://github.com/dfuse-io/dstore) to support Azure, GCP, AWS, Minio, and local filesystems.
+2. Simple key/value storage databases.  These use the [kvdb key/value database abstraction](https://github.com/dfuse-io/kvdb), with support for Google Cloud Bigtable, TiKV and Badger.
+
+
+
+## Databases
+
+Different databases are needed for different components of `dfuse for EOSIO`:
+
+1. `trxdb`: a `kvdb`-backed key/value store, that stores block and transaction information, pre-sorted, and easily searchable by prefix or key ranges.
+
+  * This database can be written to in any order, segments by segments.
+  * For a 2-year old, EOS Mainnet-like deployment, this database will easily reach **dozens of terabytes**. Therefore, **choose your backend accordingly.**
+  * The transactions stored in this database can be [filtered (docs)]({{< ref "./filtering" >}}) to save on storage.
+  * The `dfuseeos tools` command has tools to verify the integrity of such a database, to ensure a contiguous block history.
+  * It is written to by the [trxdb-loader component]({{< ref "./components" >}}#trxdb-loader).
+  * See [parallel processing docs]({{< ref "./parallel-processing" >}}#fluxdb) for more info on parallel ingestion.
+
+<!--
+
+We can add details when this is ready:
+
+ * This store can be split in two: one that stores blocks only, and another one that stores only transactions, for custom-sized deployments
+
+-->
+
+2. `fluxdb`: a `kvdb`-backed key/value store, that stores state changes of the blockchain state (internal, as well as contract state), like tables, rows, and snapshots of such tables.  It uses <!-- patented? --> purpose-built algorithms to enable snapshotting of all tables, at all block heights.
+
+  * This database needs to be written to linearly, from a perspective of a single table.
+  * It is written to by the [fluxdb injector component]({{< ref "./components" >}}#fluxdb).
+  * See [parallel processing docs]({{< ref "./parallel-processing" >}}#fluxdb) for more info on parallel ingestion.
+
+3. The `search` components require a small `etcd` cluster (typically 3 nodes) for service discovery between `search` components.  See [more details about `search-etcd`]({{< ref "./components" >}}#search-etcd)
+
+
+## Caches
+
+An optional `memcached` server will help a `search` cluster increase performances for larger deployments.
+
+It stores small (< 1kb) roaring bitmaps as values, with hashed normalized queries as keys.
+
+See the [search-memcached component]({{< ref "./components" >}}#search-memcached) in the documentation.
+
 
 
 ## Artifacts
 
-* nodeos blocks.log
-* nodeos state
-* nodeos portable state snapshots (links)
-* dfuse one-block files
-* dfuse merged blocks files (100-blocks files)
-* dfuse search indexes (bleve indexes)
-* dfuse abicodec ABI cache
+### nodeos
 
-TODO: describe all of this
+These are artifacts managed by `nodeos` itself. `dfuse for EOSIO` knows how to manipulate them through APIs on the [node-manager or mindreader]({{< ref "./components" >}}#node-manager) process.
 
-## Stores
+#### `blocks/blocks.log`
 
-These are the object (larger files) storage types that dfuse uses:
-* [dstore][https://github.com/dfuse-io/dstore], with support for Azure, GCP, AWS, Minio, and local filesystems
-* `kvdb` for key/value storage
-* backends
+This file is an **append-only** file.  Things are written sequencially in there, only when they become irreversible.  A second small database alongside the `blocks` folder, called `reversible`.
 
-* one-block files in `dstore`
-* merged blocks files in `dstore`
-* search indexes in `dstore`
-* abicodec ABI cache in `dstore`
-* database: fluxdb in `kvdb`
-* database: trxdb (where transactions and blocks can be split) in `kvdb`
+On small low traffic networks, this will be quite tiny, a few megabytes
+
+A small index file called `blocks/blocks.index` is also append only, and stores fixed-sized pointers to offsets in `blocks.log`. These two files combined, allows `nodeos` to quickly fetch unexecuted block data to serve them on the p2p network upon request.
+
+
+#### `state/shared_memory.bin`
+
+This is a mmap'd file, and stores the current live state of the blockchain, both regarding block headers, and regarding all contract's data.  This is managed by the `chain-state-db-size-mb` (and `chain-state-db-guard-size-mb`), and must be larger than what the underlying chain configuration will allow to allocate.  If this is smaller, and transactions on the chain ask to write to contract storage, the node will cleanly shutdown (that's where the `guard` comes in).
+
+This file is also a [sparse file](https://en.wikipedia.org/wiki/Sparse_file), meaning it will be allocated the full amount of what is set in `chain-state-db-size-mb`, but might _actually_ occupy far less space on the disk.
+
+For example, after 2 years, EOS Mainnet offers more than 72GB of RAM on the RAM market, but only ~8GB are actually used by participating `nodeos` nodes. The rest of the file is filled with sparse zeroes.
+
+See the [backup and recovery section]({{< ref "./backup-recovery" >}}) for efficient ways to backup/recover those files.
+
+#### portable state snapshots
+
+These files are generated by `nodeos` upon request, either through the command-line or through the `node-manager` APIs.
+
+They contains **all the data in the `state/shared_memory.bin`** for `nodeos`, in a binary format that is portable, versioned and stable.  It can then be used to boot a new `nodeos` instance, and fill a `state/shared_memory.bin`.
+
+
+
+### dfuse artifacts
+
+These are dfuse-specific artifacts.
+
+In general, the dfuse Platform uses [Protocol Buffers version 3](https://developers.google.com/protocol-buffers) for serialization.
+
+
+#### executed blocks files
+
+Also called `100-blocks files`, or merged blocks files, or merged bundles. These are all used interchangeably here.
+
+These files are binary files that use the [dbin](https://github.com/dfuse-io/dbin) packing format, to store a series of `bstream.Block` objects ([defined here](https://github.com/dfuse-io/proto/blob/develop/dfuse/bstream/v1/bstream.proto)), serialized as [Protocol Buffers version 3](https://developers.google.com/protocol-buffers).
+
+They are produced by `mindreader`, in catch-up mode (set as such with certain flags), or by the `merger` in an HA setup.  In the latter case, the `mindreader` contributes _one-block files_ to the merger instead, and the merger collates all of those in a single bundle.
+
+These 100-blocks files can contain **more than 100 blocks** (because they can include multiple versions of a given block number), but not less (to ensure continuity).
+
+They are consumed by the [bstream](https://github.com/dfuse-io/bstream) library, used by almost all [components]({{< ref "./components" >}}).
+
+The [EOSIO-specific decoded Block objects](https://github.com/dfuse-io/proto-eosio/blob/master/dfuse/eosio/codec/v1/codec.proto) are what circulate amongst all processes that work with executed block data.
+
+
+
+#### one-block files
+
+These are transient files, destined to ensure that the `merger` gathers all visible forks from the `mindreader` instances, in an HA setup.
+
+They contain one `bstream.Block`, as serialized Protobuf (see links above).
+
+The `merger` will consume them, bundle them in _executed blocks files_ (100-blocks files) and store them to `dstore` storage, for consumption by most other processes.
+
+
+
+
+#### search indexes
+
+These are [tarred](https://man7.org/linux/man-pages/man1/tar.1.html) (`.tar`) and [ZStandard](https://facebook.github.io/zstd/)-compressed (`.zstd`) archive of [Bleve indexes](https://blevesearch.com/).
+
+They are produced by the `search-indexer` process, and consumed by the `search-archive` nodes.
+
+They contain pointers to what is stored in the `trxdb` key/value store, and looked up by a transaction ID prefix.
+
+They do **not** contain the actual transaction data, only the indexes to allow for fast search. They also only contain search terms specified to the `indexer`, `live` and `forkresolver` components of `search`.
+
+
+#### abicodec ABI cache
+
+The `abicodec` component primes a local cache of all the ABI changes throughout the history of the chain.  It feeds itself off of a _dfuse Search_ endpoint. Once it has that local cache, it stores it to a `dstore` location, to start faster next time.
+
+At the time of writing, this file is an opaque binary-packed format, that only abicodec can read and write.

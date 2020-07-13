@@ -1,5 +1,6 @@
 ---
 title: Deprecations & Release Notes
+weight: 130
 ---
 
 // Implement the release notes flow here

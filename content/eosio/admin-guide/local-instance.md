@@ -1,5 +1,5 @@
 ---
-title: On your laptop deployment
+title: Running a local instance
 weight: 70
 ---
 

@@ -1,7 +1,5 @@
 @startuml
 
-title General placement of dfuse for EOSIO components
-
 frame mindreaders {
   node "mindreader 1 + nodeos" as mindreader1
   node "mindreader 2 + nodeos" as mindreader2

@@ -1,6 +1,6 @@
 ---
 title: Installation
-weight: 20
+weight: 40
 ---
 
 Installing `dfuse for EOSIO` requires two programs:

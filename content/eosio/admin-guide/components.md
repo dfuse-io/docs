@@ -1,6 +1,6 @@
 ---
-title: Components
-weight: 40
+title: Understanding Components
+weight: 50
 ---
 
 **Goal**: understand the _apps_ available through:
@@ -11,19 +11,9 @@ weight: 40
 
 their role, and interaction.
 
-## Video series
-
-* [General Overview — dfuse for EOSIO Architecture Series](https://www.youtube.com/watch?v=q3Mi1S4nvcU)
-* [manageos & mindreader — dfuse for EOSIO Architecture Series](https://www.youtube.com/watch?v=uR1cB5QpvcY)
-* [deepmind & the dfuse Data Model — dfuse for EOSIO Architecture Series](https://www.youtube.com/watch?v=BMcSmqvNU1Q)
-* [bstream part 1 — dfuse for EOSIO Architecture Series](https://www.youtube.com/watch?v=LX7_Q7b5pyc)
-* [bstream part 2 — dfuse for EOSIO Architecture Series](https://www.youtube.com/watch?v=3HK95ng51ZM)
-* [pitreos — dfuse for EOSIO Architecture Series](https://www.youtube.com/watch?v=9oPa8OqZdWE)
-* [High Availability with Relayers, Merger — dfuse for EOSIO Architecture Series](https://www.youtube.com/watch?v=yG-lxgp7g10)
-* [Install and Run the dfuse for EOSIO Stack w/ Alex Bourget, CTO @ dfuse — Free Webinar](https://www.youtube.com/watch?v=1AH2wMESu2Y)
-* [How to Use dfuse for EOSIO as a Blockchain Developer w/ Alex Bourget, CTO @ dfuse — Free Webinar](https://www.youtube.com/watch?v=bFi6H5iO8ww)
-
 <!-- // Detailed textual description of those things.  Taken from the videos ? The guys have transcribed those no? -->
+
+## General architecture diagram
 
 ![General architecture](/drawings/general_architecture.png)
 
@@ -164,8 +154,8 @@ It will not work on larger deployments, as it needs to run in-process with the a
 
 {{< highlight ascii >}}
 |<- Genesis                      -->  history going forward -->                        HEAD -> |
-[ tier 1,  50,000 blocks indexes, moving head                                                  ]
-                                                      [  tier 2, 50 blks idx, moving tail/head ]
+| tier 1,  50,000 blocks indexes, moving head  ----------------------------------------------> |
+                                                     |  tier 2, 50 blks idx, moving tail/head  |
 {{< /highlight >}}
 
 Since 50 blocks indexes are produced much quicker than 50,000 blocks indexes, this archive segment can be brought up much faster: you can parallelize production of a hundred 50 blks indexes, while you can't parallelize the production of a 50,000 blocks
@@ -250,6 +240,37 @@ It can be configured to use a `memcached` server, that stores [roaring bitmaps](
 
 ### `search-memcached`
 
-**Description** Although not provided as an embedded service in `dfuseeos`, a `memcached` server can be configured on `archive` nodes of a `search` cluster to provide negative caching of queries. This means that indexes that yielded no results for a given query, will not be queried against when the same request comes again for the same index. In an `archive` setup where you have 1,000 indexes of 5,000 blocks each, this can dramatically increase performance.
+**Description**: Although not provided as an embedded service in `dfuseeos`, a `memcached` server can be configured on `archive` nodes of a `search` cluster to provide negative caching of queries. This means that indexes that yielded no results for a given query, will not be queried against when the same request comes again for the same index. In an `archive` setup where you have 1,000 indexes of 5,000 blocks each, this can dramatically increase performance.
 
-**High Availability considerations**: Not having `memcached` will affect performances of queries that are done often over large block ranges.
+**High Availability considerations**: Not having `memcached` will affect performances of queries that are done _often_, and over _large block ranges_.
+
+
+### `search-etcd`
+
+**Description**: `etcd` is used as a the service discovery mechanism of the different components. It is the glue that ties routers to all the backends ready to serve certain requests.
+
+It contains stateless data: if you trash the `etcd` cluster, all the components will simply go and write their latest state again, and things will be back up very fast.
+
+Configure `etcd` with less than 1GB of storage, and with a **short retention period**, this way `etcd` will not outgrow its database and stay stable.
+
+Reach out to https://etcd.io/docs/ for installation and deployment instructions.
+
+If you are on Kubernetes, use the excellent https://github.com/coreos/etcd-operator and have it deployed in no time.
+
+**High Availability considerations**: To sustain failures of the `etcd` cluster itself, deploy a small 1GB-sized 3-nodes cluster.
+
+
+
+## Video series
+
+To help onboard, our CTO has recorded engaging video overviews
+
+* [General Overview — dfuse for EOSIO Architecture Series](https://www.youtube.com/watch?v=q3Mi1S4nvcU)
+* [manageos & mindreader — dfuse for EOSIO Architecture Series](https://www.youtube.com/watch?v=uR1cB5QpvcY)
+* [deepmind & the dfuse Data Model — dfuse for EOSIO Architecture Series](https://www.youtube.com/watch?v=BMcSmqvNU1Q)
+* [bstream part 1 — dfuse for EOSIO Architecture Series](https://www.youtube.com/watch?v=LX7_Q7b5pyc)
+* [bstream part 2 — dfuse for EOSIO Architecture Series](https://www.youtube.com/watch?v=3HK95ng51ZM)
+* [pitreos — dfuse for EOSIO Architecture Series](https://www.youtube.com/watch?v=9oPa8OqZdWE)
+* [High Availability with Relayers, Merger — dfuse for EOSIO Architecture Series](https://www.youtube.com/watch?v=yG-lxgp7g10)
+* [Install and Run the dfuse for EOSIO Stack w/ Alex Bourget, CTO @ dfuse — Free Webinar](https://www.youtube.com/watch?v=1AH2wMESu2Y)
+* [How to Use dfuse for EOSIO as a Blockchain Developer w/ Alex Bourget, CTO @ dfuse — Free Webinar](https://www.youtube.com/watch?v=bFi6H5iO8ww)

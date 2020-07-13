@@ -1,7 +1,4 @@
-
 @startuml
-
-title Search components interactions
 
 node "relayer 1, relayer 2" as relayers
 node "router 1, router 2" as routers

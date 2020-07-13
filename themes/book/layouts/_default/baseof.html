@@ -13,9 +13,11 @@
     {{ block "nav" . }}{{ partial "site-nav.html" . }}{{ end }}
 
     {{ if eq (index .Site.Params.BookSections .Page.Section) "show" }}
-    <aside class="book-menu fixed">
-      {{ partial "menu/menu" . }}
-    </aside>
+      {{ if ne .Page.Params.hideSideNav true }}
+      <aside class="book-menu fixed">
+        {{ partial "menu/menu" . }}
+      </aside>
+      {{ end }}
     {{ end }}
 
     <div class="book-page fixed">

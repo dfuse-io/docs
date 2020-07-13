@@ -1,9 +1,11 @@
 ---
 title: Getting Started
-weight: 30
+weight: 20
 ---
 
-Goal: get off the ground, and launch `dfuseeos` on your local machine.
+{{< alert type="note" >}}
+The **goal of this page** is to get you off the ground, and launch `dfuseeos` on your local machine.
+{{< /alert >}}
 
 ## Your first run
 
