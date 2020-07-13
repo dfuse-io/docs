@@ -3,10 +3,17 @@ title: Running a local instance
 weight: 70
 ---
 
+{{< alert type="note" >}}
+The **goal of this page** is to help you launcher `dfuse for EOSIO` as quickly as possible, on your local machine.
+{{< /alert >}}
+
+
+<!--
+TODO: complete these things:
 // What you get with this. Limitations of a laptop-style deploy.
 // What are the other deployment methods. Why you would choose other methods
 
-TODO: fill this in
+-->
 
 1. Initialize a new `dfuse.yaml` file in the current working directory:
 

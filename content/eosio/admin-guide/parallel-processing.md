@@ -1,15 +1,22 @@
 ---
 title: Parallel processing of chain segments
 weight: 110
+draft: true
+TODO: complete this
 ---
 
-// Goal: how to do parallel processing.
-// On which axis does this happen for each layer.
-// What are the important flags for each step
+// TODO: wrap up this section
 
-> Data agility is a primal need of data science, blockchain data is no exception.
+{{< alert type="note" >}}
+The **goal of this page** is to help you understand the steps required to do parallel reprocessing of the different dfuse services,.
+{{< /alert >}}
 
-The dfuse platform was designed for massively parallelized operation on all levels.
+
+**The dfuse platform was designed for massively parallelized operation on all levels.**
+
+{{< alert type="tip" >}}
+Data agility is a primal need of data science, blockchain data is no exception.
+{{< /alert >}}
 
 
 ## `mindreader` reprocessing

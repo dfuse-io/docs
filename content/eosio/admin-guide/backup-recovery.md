@@ -3,19 +3,38 @@ title: Backup & Recovery
 weight: 120
 ---
 
-Goal: understand components that require backup/recovery to ensure
-smooth operation, how these are implemented in dfuse and what can
+
+{{< alert type="note" >}}
+The **goal of this page** is to help you
+understand the components that require backup/recovery to ensure
+smooth operation, and how these are implemented in dfuse and what can
 be/is done automatically.
+{{< /alert >}}
 
 
-* backup of `nodeos`
-* `pitreos`
-* setup of a peering / backup node with full blocks.log for quick access
-* purge of blocks.log on `mindreader`, as they aren't required.
-* all other components, sourcing their data from object stores, don't need backup/recovery.
+// TODO: finish
 
 ## `nodeos` node backup
 
-##
+* detail APIs available to do those things (node-manager)
+* detail the flags to do those things automatically
+* describe the automatic recovery behavior of `node-manager`.
 
 # `pitreos`
+
+* insert the link to the video about pitreos
+* describe the benefits
+* link to repo
+
+# peering nodes
+
+* setup of a peering / backup node with full blocks.log for quick access
+
+# backup node
+
+* blocks.log maintenance, describe how we can purge them
+* how we need a full copy somewhere (backup node?)
+
+# other components
+
+* all other components, sourcing their data from object stores, don't need backup/recovery.

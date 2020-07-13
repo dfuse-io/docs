@@ -3,7 +3,11 @@ title: Filtering
 weight: 65
 ---
 
-**Goal**: understand the filtering capabilities, data flows, and impact on different services.
+{{< alert type="note" >}}
+The **goal of this page** is to help you understand the filtering capabilities, data flows, and impact filtering has on the different `dfuse for EOSIO` [components]({{< ref "./components" >}}).
+{{< /alert >}}
+
+
 
 ## Filtering language
 

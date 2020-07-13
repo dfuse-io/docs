@@ -3,13 +3,10 @@ title: Understanding Components
 weight: 50
 ---
 
-**Goal**: understand the _apps_ available through:
+{{< alert type="note" >}}
+The **goal of this page** is to help you understand the _apps_ available through `dfuseeos start`, their role and interaction.
+{{< /alert >}}
 
-{{< highlight sh >}}
-    dfuseeos start
-{{< /highlight >}}
-
-their role, and interaction.
 
 <!-- // Detailed textual description of those things.  Taken from the videos ? The guys have transcribed those no? -->
 

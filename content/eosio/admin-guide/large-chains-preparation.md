@@ -3,9 +3,10 @@ title: Large Chains Preparation
 weight: 100
 ---
 
-Goal: provide the necessary steps to those wanting to boot a large
-chain, without waiting for a linear process that could take several
-weeks.
+{{< alert type="note" >}}
+The **goal of this page** is provide you with the necessary steps to boot a large chain, without waiting for linear processes that could take weeks to complete.
+{{< /alert >}}
+
 
 <!-- This was imported from https://github.com/dfuse-io/dfuse-eosio/issues/26 -->
 
