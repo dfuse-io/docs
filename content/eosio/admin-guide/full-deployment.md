@@ -1,16 +1,18 @@
 ---
 title: Large-scale Highly Available Deployment
 weight: 90
-----
+---
 
-Goal: deploy in an environment where you need high availability and
-cannot tolerate down time, for any of the dfuse components.
+{{< alert type="note" >}}
+The **goal of this page** is to give you an idea of what a highly available, and scaled out setup looks like. The example given here is based on a basic understanding of Kubernetes and/or containerized deployment.
+{{< /alert >}}
+
+The premise here is:
 
 * Each component is decoupled as an independent microservice, and is scaled separately.
-
-* Which are stateful, which are stateless.
-
-* Example K8s deployment for Kylin, pods listing.
+* This is a sample Kubernetes deployment for Kylin:
+  * Pods (containers) ending with `-XYXYX` are stateless
+  * Those ending with `-0`, then `-1`, etc.. are stateful, potentially have an SSD associated, or are processes that we do not want more than one to be running at any given time.
 
 
 {{< highlight bash >}}
@@ -57,7 +59,8 @@ trxdb-loader-v3-b9d67d857-n2vsl              1/1     Running
 {{< /highlight >}}
 
 NOTE:
-* Not shown here is a small `etcd` cluster, deployed through the `etcd-operator`.
+
+* Not shown here is a small `etcd` cluster, deployed through the `etcd-operator`.  See [search-etcd component]({{< ref "./components" >}}#search-etcd) for more details.
 * The single `fluxdb-inject`.  The individual `fluxdb-server`s will sustain a crash/restart of `fluxdb-inject` because they themselves are fed with block data, and will cover the gap between what `inject` has written, and the HEAD of the chain.
 * Structure in the `search-v3` section:
   * `d0` means the revision of the _data_, if we index new things or remove things from our indexes, we'll roll out a new series of pods, which can run the same revision of the software (`v3`), but with new data. We often can mix data revisions in the same deployment for some time, so the upgrade path is more seamless.
