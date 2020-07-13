@@ -40,9 +40,6 @@ h1 {
 
 h2 {
   font-size: 2rem;
-  &.crypto-title {
-    margin-top:10px;
-  }
 }
 
 h3 {
@@ -490,21 +487,21 @@ article {
 .pb-7 {padding-bottom:5rem;}
 
 .crypto-icon-wrapper {
-  margin-bottom: -30px;
+  margin-bottom: 0px;
   color: #fff;
-  position: absolute;
-  top: -93px;
+  top: 0px;
   box-sizing: border-box;
+  margin-right: 20px;
 }
 
 .crypto-icon-content {
   border: 4px solid $ternary-300;
-  padding: 5px;
+  padding: 3px;
   border-radius: 50%;
   justify-content: center;
   display: block;
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
   box-sizing: border-box;
 
 }
@@ -582,11 +579,15 @@ article {
 }
 
 .crypto-icon-eosio {
-  background-image: url("/img/icon-crypto-currency-eosio-01.svg");
+  background-image: url("/img/icon-crypto-currency-eosio-02.svg");
 }
 
 .crypto-icon-ethereum {
-  background-image: url("/img/icon-crypto-currency-ethereum-01.svg");
+  background-image: url("/img/icon-crypto-currency-ethereum-02.svg");
+}
+
+.crypto-icon-other {
+  background-image: url("/img/icon-crypto-currency-other-02.svg");
 }
 
 button.cta {
