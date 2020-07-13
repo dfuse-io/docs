@@ -10,13 +10,16 @@
 </div>
 
 <div class="row">
-    <!--  section EOSIO   -->
-    {{ partial "home-eosio" . }}
-
-    <!--  section Ethereum   -->
-    {{ partial "home-ethereum" . }}
-
-    <!--  section Other   -->
-    {{ partial "home-other" . }}
-
+    <div class="col-4">
+        <!--  section EOSIO   -->
+        {{ partial "home-eosio" . }}
+    </div>
+    <div class="col-4">
+        <!--  section Ethereum   -->
+        {{ partial "home-ethereum" . }}
+    </div>
+    <div class="col-4">
+        <!--  section Other   -->
+        {{ partial "home-other" . }}
+    </div>
 </div>

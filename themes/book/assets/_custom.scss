@@ -368,7 +368,11 @@ article {
         letter-spacing: 1px;
         border:none!important;
         padding:0px;
-        color:$ternary-600;
+        font-size: 1em;
+        color:$ternary-1000;
+      }
+      p {
+        margin:0px;
       }
     }
   }
@@ -376,6 +380,7 @@ article {
   .sub-section-title {
     font-size: .9rem;
     margin-top: 0;
+
   }
   .sub-section-title__large {
     font-size: 1.5rem;
@@ -574,7 +579,7 @@ article {
 
 @media (max-width:575px) {
   .row.sub-section-title-row {
-    margin-left: 52px;
+    //margin-left: 52px;
   }
 }
 
