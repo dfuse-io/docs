@@ -1,8 +1,10 @@
 ---
-weight: 1
+#TODO: weight: 000
+title: Search Ranges
+titleProtocolIcon: eosio
 menuTitle: Search Ranges
-title: EOSIO Search Ranges
 release: stable
+
 ---
 
 This page gives information about the searched range for various combinations of `lowBlockNum` and

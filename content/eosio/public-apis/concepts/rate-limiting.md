@@ -1,6 +1,8 @@
 ---
+#TODO: weight: 000
 title: Rate Limiting
-weight: 100
+titleProtocolIcon: eosio
+
 ---
 
 {% content "shared/rate-limiting.md" %}
