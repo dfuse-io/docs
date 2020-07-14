@@ -2,7 +2,7 @@
 TODO: purge of all its EOSIO stuff
 
 title: Samples
-protocol: DFUSE
+titleProtocolIcon: dfuse
 ---
 
 <!-- TODO: USE CRYPTO ICONS for headers -->

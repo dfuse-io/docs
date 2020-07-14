@@ -1,8 +1,9 @@
 ---
 weight: 50
 title: GraphQL API
-protocol: EOS
+titleProtocolIcon: eosio
 bookToC: 3
+
 ---
 
 ## Introduction

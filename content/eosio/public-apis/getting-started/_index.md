@@ -1,7 +1,8 @@
 ---
 weight: 10
 title: Getting started
-protocol: EOS
+titleProtocolIcon: eosio
+
 ---
 In this section, you will find the list of quickstart guides
 

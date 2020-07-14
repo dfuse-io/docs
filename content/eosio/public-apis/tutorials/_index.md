@@ -1,7 +1,8 @@
 ---
-weight: 20
+weight: 30
 title: Tutorials
-protocol: EOS
+titleProtocolIcon: eosio
+
 ---
 
 In this section, you will find the list of tutorials currently written, allowing you

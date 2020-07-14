@@ -3,7 +3,7 @@
 {{ $release := .Release }}
 <div class="row sub-section-title-row sub-section-title-row-h1">
   <div class="col-12">
-      {{ with (eq $protocol "ETH") }}
+      {{ with (eq $protocol "eth") }}
         <div class="pill-icon-wrapper">
           <div class="pill-icon-content">
             <div class="pill-icon" style="background-image: url('/img/icon-crypto-currency-ethereum-01.svg');">
@@ -11,7 +11,7 @@
           </div>
         </div>
       {{ end }}
-      {{ with (eq $protocol "EOS") }}
+      {{ with (eq $protocol "eosio") }}
         <div class="pill-icon-wrapper">
           <div class="pill-icon-content">
             <div class="pill-icon" style="background-image: url('/img/icon-crypto-currency-eosio-01.svg');">
@@ -19,7 +19,7 @@
           </div>
         </div>
       {{ end }}
-      {{ with (eq $protocol "DFUSE") }}
+      {{ with (eq $protocol "dfuse") }}
         <div class="pill-icon-wrapper">
           <div class="pill-icon-content">
             <div class="pill-icon" style="background-image: url('/img/dfuse-logo.svg');">

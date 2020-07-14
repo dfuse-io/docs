@@ -1,7 +1,7 @@
 ---
 weight: 70
 title: dfuse Events
-protocol: EOS
+titleProtocolIcon: eosio
 ---
 dfuse Events are a powerful way to give smart contract developers a
 way to ask dfuse Search to index their transactions, with arbitrary

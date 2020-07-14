@@ -2,7 +2,7 @@
 weight: 20
 title: Ethereum Tutorials
 menuTitle: Tutorials
-protocol: ETH
+titleProtocolIcon: eth
 ---
 
 In this section, you will find the list of tutorials currently written, allowing you to easily map your use case to one or more dfuse concepts under a concrete code repository.

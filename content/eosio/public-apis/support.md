@@ -1,6 +1,8 @@
 ---
+weight: 90
 title: Support
-weight: 100
+titleProtocolIcon: eosio
+
 ---
 
 dfuse has a vibrant community to support you, as well as engineers present in the community:

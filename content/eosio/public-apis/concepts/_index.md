@@ -1,7 +1,8 @@
 ---
-weight: 30
+weight: 20
 title: Concepts
-protocol: EOS
+titleProtocolIcon: eosio
+
 ---
 
 See side navigation

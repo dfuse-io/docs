@@ -1,6 +1,8 @@
 ---
+weight: 80
 title: Other Resources
-weight: 120
+titleProtocolIcon: eosio
+
 ---
 
 Useful Links:

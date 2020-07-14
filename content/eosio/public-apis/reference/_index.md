@@ -1,7 +1,8 @@
 ---
-title: Reference
-weight: 20
-protocol: EOS
+weight: 40
+title: API References
+titleProtocolIcon: eosio
+
 ---
 
 ...
