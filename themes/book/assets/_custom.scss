@@ -256,7 +256,7 @@ article {
       margin-bottom:4px;
     }
     li a:hover {
-      color:$secondary-1000;
+      color:$color-link-hover;
     }
   }
   input {
@@ -355,7 +355,7 @@ article {
 
 .sub-section {
   ul li a:hover {
-    color: $secondary-1000;
+    color: $color-link-hover;
   }
 
   .sub-section-title-row {
@@ -1115,7 +1115,7 @@ aside.book-menu nav {
           a {
             color: $ternary-900;
             &:hover {
-              color:$secondary-1000;
+              color:$color-link;
             }
           }
 

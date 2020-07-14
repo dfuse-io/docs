@@ -46,7 +46,7 @@ a {
   color: $color-link;
 
   &:visited {
-    color: $color-visited-link;
+    color: $color-link-hover;
   }
 }
 
@@ -76,7 +76,7 @@ aside nav ul {
     display: block;
 
     &:hover {
-      color: $ternary-1000;
+      color: $color-visited-link;
     }
     &.active {
       font-weight: bold;
