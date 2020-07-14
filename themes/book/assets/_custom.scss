@@ -163,7 +163,7 @@ article {
   min-height: 70vh;
 }
 #tagline {
-  top: 5px;
+  top: 6px;
   position: relative;
   margin-left: 18px;
   font-family: "lato",sans-serif;
@@ -171,6 +171,7 @@ article {
   padding-left: 15px;
   border-left: 1px solid #fff;
   height: min-content;
+  font-size: 14px;
 }
 
 .admonition-note {
@@ -232,7 +233,7 @@ article {
 }
 
 .book-search {
-  margin-left:50px;
+  margin-left:30px;
   margin-top:0px;
   margin-bottom: 0px;
   width: 240px;
@@ -335,6 +336,8 @@ article {
       padding: 0px 15px;
       color: $white;
       position: relative;
+      font-weight: 600;
+      font-size: 15px;
 
       &:hover {
         color: $ternary-500;
