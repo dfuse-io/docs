@@ -1,6 +1,8 @@
 ---
-title: Libraries
-protocol: DFUSE
+weight: 60
+title: SDKs
+titleProtocolIcon: dfuse
+
 ---
 ## client-js
 

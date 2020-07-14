@@ -2,7 +2,7 @@
 weight: 30
 title: Ethereum Concepts
 menuTitle: Concepts
-protocol: ETH
+titleProtocolIcon: eth
 release: beta
 ---
 

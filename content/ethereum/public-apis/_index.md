@@ -6,7 +6,7 @@ menu:
     name: Public APIs User Guide
     identifier: public-apis
     weight: 30
-protocol: ETH
+titleProtocolIcon: eth
 BookToC: false
 weight: 10
 ---

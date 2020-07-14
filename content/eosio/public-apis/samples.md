@@ -1,13 +1,16 @@
 ---
-#TODO: purge of all its ETH stuff
-
+weight: 70
 title: Samples
+titleProtocolIcon: eosio
+menuTitle: Public APIs
+
+# TODO: purge of all its ETH stuff
 # TODO: I've renamed `main` to `eosio` here.. but that doesn't work with all the menus..
 # We need to review the `config.json`, and how we'll actually build the menu structure
 # to be able to reuse the menus in each protocol section.. can we have sub-trees or a
 # certain menu in a sub-tree? Like use `eosio` in the `content/eosio` subtree, and the
 # `ethereum` menu in the `content/ethereum` subtree?
-protocol: DFUSE
+
 ---
 
 <!-- TODO: USE CRYPTO ICONS for headers -->

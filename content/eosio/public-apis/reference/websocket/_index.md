@@ -1,7 +1,8 @@
 ---
 weight: 40
 title: WebSocket API
-protocol: EOS
+titleProtocolIcon: eosio
+
 ---
 
 The WebSocket-based API fuses batch processing and streaming

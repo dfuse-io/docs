@@ -1,7 +1,8 @@
 ---
-title: Deprecations & Release Notes
 weight: 50
-BookToC: false
+title: Deprecations & Release Notes
+titleProtocolIcon: eosio
+
 ---
 
 # Release Notes
