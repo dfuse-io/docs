@@ -9,7 +9,7 @@ BookToC: false
 weight: 30
 ---
 
-The best way to start digging into `dfuse for Ethereum`, is to head to:
+The best way to start digging into ***dfuse for Ethereum***, is to head to:
 
 * https://github.com/dfuse-io/dfuse-ethereum
 
