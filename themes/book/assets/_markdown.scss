@@ -119,7 +119,12 @@
   ul, ol {
     padding-left: $padding-16 * 2;
   }
-
+  ul {
+    list-style: square;
+    ul {
+      list-style: square;
+    }
+  }
   dl {
     // padding-left: $padding-16;
     dt {
