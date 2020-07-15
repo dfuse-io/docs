@@ -1,8 +1,16 @@
 ---
-#TODO: weight: 000
+weight: 40
+
 pageTitle: Search Query Language
 pageTitleIcon: eosio
 
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: Search Query Language
+
+BookToC: true
+#release: stable
+
 ---
 
-{% content "shared/search-query-language.md" %}
+{% content "shared/core-concepts/search-query-language.md" %}

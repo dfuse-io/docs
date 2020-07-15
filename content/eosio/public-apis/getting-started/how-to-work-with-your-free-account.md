@@ -1,8 +1,15 @@
 ---
 weight: 20
-pageTitle: Getting your free account
-sideNavTitle: Getting your free account
-pageTitleIcon: eosio
+
+pageTitle: Get a Free dfuse Account
+pageTitleIcon: dfuse
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: Get a Free dfuse Account
+
+BookToC: true
+#release: stable
 
 ---
 

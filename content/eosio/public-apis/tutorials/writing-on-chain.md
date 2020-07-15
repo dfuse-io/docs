@@ -1,6 +1,17 @@
 ---
 weight: 30
+
+#TODO: Find a better title
 pageTitle: Writing reliably to the chain (push guarantee)
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: Writing On Chain
+
+BookToC: true
+#release: stable
+
 ---
 In this tutorial, we will demonstrate you how to setup `eosjs` to push a
 transaction through dfuse API Push Guaranteed endpoint.

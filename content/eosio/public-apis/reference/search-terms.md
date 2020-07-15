@@ -1,7 +1,16 @@
 ---
-weight: 20
-sideNavTitle: Search Terms
+weight: 60
+
 pageTitle: Search Terms for EOSIO
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: Search Terms
+
+BookToC: false
+#release: stable
+
 ---
 ## Example queries
 

@@ -1,9 +1,15 @@
 ---
-#TODO: weight: 000
+weight: 50
+
 pageTitle: Search Ranges
 pageTitleIcon: eosio
-sideNavTitle: Search Ranges
-release: stable
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: Search Ranges
+
+BookToC: true
+#release: stable
 
 ---
 

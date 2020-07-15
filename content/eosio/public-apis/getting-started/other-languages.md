@@ -1,9 +1,15 @@
 ---
 weight: 40
-sideNavTitle: Public APIs
-sideNavLinkRename: "Quick Start: Other Languages"
+
 pageTitle: "Quick Start: Other Languages"
 pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: "Quick Start: Other Languages"
+
+BookToC: true
+#release: stable
 
 ---
 

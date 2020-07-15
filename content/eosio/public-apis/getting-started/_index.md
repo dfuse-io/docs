@@ -1,8 +1,15 @@
 ---
 weight: 10
+
 pageTitle: Getting Started
-sideNavTitle: Getting Started
 pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: Getting Started
+
+BookToC: false
+#release: stable
 
 ---
 In this section, you will find the list of quickstart guides

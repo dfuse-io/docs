@@ -1,7 +1,18 @@
 ---
-weight: 20
+weight: 10
+
 pageTitle: Using dfuse Events
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: Using dfuse Events
+
+BookToC: true
+#release: stable
+
 ---
+
 dfuse Events are a powerful way to give smart contract developers a
 way to ask dfuse Search to index their transactions, with arbitrary
 key/value pairs.

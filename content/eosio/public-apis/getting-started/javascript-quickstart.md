@@ -1,9 +1,15 @@
 ---
 weight: 30
-sideNavTitle: Public APIs
-sideNavLinkRename: "Quick Start: JavaScript"
+
 pageTitle: "Quick Start: JavaScript"
 pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: "Quick Start: JavaScript"
+
+BookToC: true
+#release: stable
 
 ---
 
@@ -107,7 +113,7 @@ With the initial setup complete, you can start coding. The first thing we will d
 the dfuse client using the API key you created in the first step and the network you want to
 connect to.
 
-Valid networks can be found at [EOSIO API Endpoints]({{< ref "eosio/public-apis/reference/endpoints" >}})
+Valid networks can be found at [EOSIO API Endpoints]({{< ref "eosio/public-apis/reference/networks-endpoints" >}})
 {{< tabs "create-client" >}}
 {{< tab lang="javascript" title="Node.js" >}}
 {{< code-section "quickstarts_javascript_node_eos_section1" >}}

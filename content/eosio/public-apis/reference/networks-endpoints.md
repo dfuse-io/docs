@@ -1,10 +1,19 @@
 ---
 weight: 10
-sideNavTitle: Endpoints
-pageTitle: EOS API Endpoints
-release: stable
+
+pageTitle: EOSIO Networks Enpoints
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: EOSIO Networks Endpoints
+
+BookToC: false
+#release: stable
+
 aliases:
 - eosio/public-apis/reference/endpoints
+
 ---
 
 The _dfuse_ API is available for multiple EOSIO networks. Should you need it on another network, contact us.

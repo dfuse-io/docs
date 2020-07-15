@@ -1,7 +1,15 @@
 ---
 weight: 40
+
 pageTitle: WebSocket API
 pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: WebSocket API
+
+BookToC: false
+#release: stable
 
 ---
 

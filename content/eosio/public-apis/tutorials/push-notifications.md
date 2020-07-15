@@ -1,6 +1,16 @@
 ---
-weight: 10
-pageTitle: Push notifications from the chain
+weight: 20
+
+#TODO: Find a better title
+pageTitle: Streaming Transactions
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: Streaming Transactions
+
+BookToC: true
+#release: stable
 
 ---
 
@@ -69,7 +79,7 @@ func (jwt JWT) NeedRefresh() bool {
 
 
 ## Initiating dfuse Graphql Server Connection
-Sever addresses can be found at [EOSIO API Endpoints]({{< ref "eosio/public-apis/reference/endpoints" >}}).
+Sever addresses can be found at [EOSIO API Endpoints]({{< ref "eosio/public-apis/reference/networks-endpoints" >}}).
 
 {{< tabs "grpc-oauth" >}}
 {{< tab lang="go" >}}
@@ -92,7 +102,6 @@ graphqlClient := pbgraphql.NewGraphQLClient(connection)
 {{< /tabs >}}
 
 ## GraphQL Query
-
 - dfuse GraphQL documentation can be found {{< external-link href="https://docs.dfuse.io/#graphql" title="here">}}
 - If you are not familiar with GraphQL. Take a look at {{< external-link href="https://graphql.org/learn/" title="Introduction to GraphQL">}}
 - To help you construct your query and access our api documentation you can use {{< external-link href="https://mainnet.eos.dfuse.io/graphiql/" title="GraphiQL">}} _"A graphical interactive in-browser GraphQL IDE."_

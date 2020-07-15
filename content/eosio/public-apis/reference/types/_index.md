@@ -1,7 +1,15 @@
 ---
 weight: 50
+
 pageTitle: Types
 pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: Types
+
+BookToC: false
+#release: stable
 
 ---
 

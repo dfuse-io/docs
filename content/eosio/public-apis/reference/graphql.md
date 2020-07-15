@@ -1,8 +1,15 @@
 ---
-weight: 50
+weight: 20
+
 pageTitle: GraphQL API
 pageTitleIcon: eosio
-bookToC: 3
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: GraphQL API
+
+BookToC: 3
+#release: stable
 
 ---
 

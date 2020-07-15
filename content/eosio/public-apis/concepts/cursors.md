@@ -1,11 +1,19 @@
 ---
-#TODO: weight: 000
+weight: 60
+
 pageTitle: Cursors
 pageTitleIcon: eosio
 
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: Cursors
+
+BookToC: true
+#release: stable
+
 ---
 
-{% content "shared/cursors.md" %}
+{% content "shared/core-concepts/cursors.md" %}
 
 {{# TODO: replace with an EOSIO example. See the ethereum/public-apis/concepts/cursors.md #}}
 

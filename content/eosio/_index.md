@@ -1,7 +1,6 @@
 ---
-weight: 10
-layout: full-width
-hideSideNav: true
+weight: 1
+sideNav: false
 
 ---
 
