@@ -1,6 +1,8 @@
 ---
-weight: 70
+#TODO: weight: 000
 title: Billing
+titleProtocolIcon: eosio
+
 ---
 
 

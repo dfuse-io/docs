@@ -1,6 +1,8 @@
 ---
-weight: 30
+#TODO: weight: 000
 title: Cursors
+titleProtocolIcon: eosio
+
 ---
 
 {% content "shared/cursors.md" %}
