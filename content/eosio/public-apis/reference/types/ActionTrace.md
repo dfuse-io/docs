@@ -1,5 +1,5 @@
 ---
-title: ActionTrace
+pageTitle: ActionTrace
 ---
 
 # `ActionTrace`

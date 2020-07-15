@@ -1,7 +1,7 @@
 ---
 #TODO: weight: 000
-title: Search Query Language
-titleProtocolIcon: eosio
+pageTitle: Search Query Language
+pageTitleIcon: eosio
 
 ---
 

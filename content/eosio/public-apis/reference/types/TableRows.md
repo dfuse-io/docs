@@ -1,5 +1,5 @@
 ---
-title: TableRows
+pageTitle: TableRows
 ---
 
 # `TableRows`

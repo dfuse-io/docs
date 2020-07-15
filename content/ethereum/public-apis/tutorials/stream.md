@@ -1,7 +1,7 @@
 ---
 weight: 1
-menuTitle: Stream the latest ether transfers
-title: Stream the latest ether transfers
+sideNavTitle: Stream the latest ether transfers
+pageTitle: Stream the latest ether transfers
 release: beta
 ---
 

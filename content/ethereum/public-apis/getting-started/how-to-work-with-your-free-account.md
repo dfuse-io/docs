@@ -1,7 +1,7 @@
 ---
 weight: 1
-menuTitle: Working with your free account
-title: Working with your free account
+sideNavTitle: Working with your free account
+pageTitle: Working with your free account
 ---
 
 ## 1. Create a free dfuse account

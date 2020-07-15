@@ -1,7 +1,7 @@
 ---
 #TODO: weight: 000
-title: Authentication
-titleProtocolIcon: eosio
+pageTitle: Authentication
+pageTitleIcon: eosio
 
 #TODO: make this work
 #TODO: do the same with all the content in `shared`, in asmuch as we can have it completely shared.

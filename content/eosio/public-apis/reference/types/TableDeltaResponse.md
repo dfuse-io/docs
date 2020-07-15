@@ -1,5 +1,5 @@
 ---
-title: TableDeltaResponse
+pageTitle: TableDeltaResponse
 ---
 
 # `TableDeltaResponse`

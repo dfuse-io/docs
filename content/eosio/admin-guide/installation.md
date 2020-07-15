@@ -1,5 +1,5 @@
 ---
-title: Installation
+pageTitle: Installation
 weight: 40
 ---
 

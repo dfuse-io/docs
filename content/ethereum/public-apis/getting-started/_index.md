@@ -1,7 +1,7 @@
 ---
 weight: 10
-title: Getting started
-titleProtocolIcon: eth
+pageTitle: Getting started
+pageTitleIcon: eth
 ---
 In this section, you will find the list of quickstart guides
 

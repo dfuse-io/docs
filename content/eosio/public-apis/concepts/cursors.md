@@ -1,7 +1,7 @@
 ---
 #TODO: weight: 000
-title: Cursors
-titleProtocolIcon: eosio
+pageTitle: Cursors
+pageTitleIcon: eosio
 
 ---
 

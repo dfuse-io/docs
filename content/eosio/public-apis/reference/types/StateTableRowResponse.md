@@ -1,5 +1,5 @@
 ---
-title: StateTableRowResponse
+pageTitle: StateTableRowResponse
 ---
 
 # `StateTableRowResponse`

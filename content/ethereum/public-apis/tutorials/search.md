@@ -1,7 +1,7 @@
 ---
 weight: 2
-menuTitle: Search with query language
-title: Search with query language
+sideNavTitle: Search with query language
+pageTitle: Search with query language
 release: beta
 ---
 

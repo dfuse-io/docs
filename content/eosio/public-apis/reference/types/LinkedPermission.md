@@ -1,6 +1,6 @@
 ---
 weight: 1
-title: LinkedPermission
+pageTitle: LinkedPermission
 ---
 
 # `LinkedPermission`

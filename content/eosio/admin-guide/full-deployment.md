@@ -1,5 +1,5 @@
 ---
-title: Large-scale Highly Available Deployment
+pageTitle: Large-scale Highly Available Deployment
 weight: 90
 ---
 

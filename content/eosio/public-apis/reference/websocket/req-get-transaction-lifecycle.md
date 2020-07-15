@@ -1,5 +1,5 @@
 ---
-title: get_transaction_lifecycle
+pageTitle: get_transaction_lifecycle
 ---
 Retrieve a "transaction_lifecycle" (when "fetch" is true) and follow
 its life-cycle (when "listen" is true).

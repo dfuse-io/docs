@@ -1,5 +1,5 @@
 ---
-title: TableOp
+pageTitle: TableOp
 ---
 
 # `TableOp`

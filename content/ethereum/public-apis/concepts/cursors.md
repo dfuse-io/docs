@@ -1,6 +1,6 @@
 ---
 weight: 30
-title: Cursors
+pageTitle: Cursors
 ---
 
 {% content "shared/cursors.md" %}

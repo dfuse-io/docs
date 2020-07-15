@@ -1,7 +1,9 @@
 ---
-weight: 1
-menuTitle: Working with your free account
-title: Working with your free account
+weight: 20
+pageTitle: Getting your free account
+sideNavTitle: Getting your free account
+pageTitleIcon: eosio
+
 ---
 
 ## 1. Create a free dfuse account

@@ -1,7 +1,7 @@
 ---
 weight: 90
-title: Support
-titleProtocolIcon: eosio
+pageTitle: Support
+pageTitleIcon: eosio
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: DBRow
+pageTitle: DBRow
 ---
 
 # `DBRow`

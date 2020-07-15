@@ -1,8 +1,8 @@
 ---
 TODO: purge of all its EOSIO stuff
 
-title: Samples
-titleProtocolIcon: dfuse
+pageTitle: Samples
+pageTitleIcon: dfuse
 ---
 
 <!-- TODO: USE CRYPTO ICONS for headers -->

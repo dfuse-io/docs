@@ -1,8 +1,8 @@
 ---
 #TODO: weight: 000
-title: Search Ranges
-titleProtocolIcon: eosio
-menuTitle: Search Ranges
+pageTitle: Search Ranges
+pageTitleIcon: eosio
+sideNavTitle: Search Ranges
 release: stable
 
 ---

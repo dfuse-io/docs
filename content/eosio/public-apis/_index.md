@@ -1,13 +1,13 @@
 ---
 weight: 10
-title: Overview
-titleProtocolIcon: eosio
+pageTitle: Overview
+pageTitleIcon: eosio
 menu:
   eosio:
     name: Public APIs User Guide
     identifier: public-apis
     weight: 30
-menuTitle: Public APIs
+sideNavTitle: Public APIs
 BookToC: false
 
 ---

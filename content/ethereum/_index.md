@@ -1,8 +1,8 @@
 ---
-title: Ethereum Tools for Developers
-#layout: full-width
-weight: 1
+weight: 10
+layout: full-width
 hideSideNav: true
+
 ---
 
 {{< partial "home-ethereum" >}}

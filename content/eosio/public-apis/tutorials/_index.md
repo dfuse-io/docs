@@ -1,7 +1,7 @@
 ---
 weight: 30
-title: Tutorials
-titleProtocolIcon: eosio
+pageTitle: Tutorials
+pageTitleIcon: eosio
 
 ---
 

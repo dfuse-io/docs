@@ -1,6 +1,6 @@
 ---
 weight: 20
-title: Using dfuse Events
+pageTitle: Using dfuse Events
 ---
 dfuse Events are a powerful way to give smart contract developers a
 way to ask dfuse Search to index their transactions, with arbitrary

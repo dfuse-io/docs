@@ -1,5 +1,5 @@
 ---
-title: Understanding Components
+pageTitle: Understanding Components
 weight: 50
 ---
 

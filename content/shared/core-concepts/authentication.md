@@ -1,6 +1,6 @@
 ---
 weight: 10
-title: Authentication
+pageTitle: Authentication
 ---
 
 There are two sorts of keys in the dfuse ecosystem:

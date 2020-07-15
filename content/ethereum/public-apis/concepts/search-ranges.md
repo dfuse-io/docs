@@ -1,7 +1,7 @@
 ---
 weight: 1
-menuTitle: Search Ranges
-title: Ethereum Search Ranges
+sideNavTitle: Search Ranges
+pageTitle: Ethereum Search Ranges
 ---
 
 This page gives information about the searched range for various combinations of `lowBlockNum` and

@@ -1,6 +1,6 @@
 ---
 weight: 1
-title: GET /v0/transactions/:id
+pageTitle: GET /v0/transactions/:id
 ---
 Fetching the transaction lifecycle associated with the provided parameter `:id`.
 

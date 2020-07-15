@@ -1,5 +1,5 @@
 ---
-title: Simplest Long-Running non-HA Deployment
+pageTitle: Simplest Long-Running non-HA Deployment
 weight: 80
 ---
 

@@ -1,6 +1,6 @@
 ---
 weight: 30
-title: Writing reliably to the chain (push guarantee)
+pageTitle: Writing reliably to the chain (push guarantee)
 ---
 In this tutorial, we will demonstrate you how to setup `eosjs` to push a
 transaction through dfuse API Push Guaranteed endpoint.

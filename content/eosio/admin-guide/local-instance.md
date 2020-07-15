@@ -1,5 +1,5 @@
 ---
-title: Running a local instance
+pageTitle: Running a local instance
 weight: 70
 ---
 

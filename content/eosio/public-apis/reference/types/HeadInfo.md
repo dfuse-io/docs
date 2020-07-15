@@ -1,5 +1,5 @@
 ---
-title: HeadInfo
+pageTitle: HeadInfo
 ---
 
 # `HeadInfo`

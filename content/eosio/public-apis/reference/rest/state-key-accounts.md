@@ -1,6 +1,6 @@
 ---
 weight: 1
-title: GET /v0/state/key_accounts
+pageTitle: GET /v0/state/key_accounts
 ---
 Fetches the accounts controlled by the given public key, at any block height.
 

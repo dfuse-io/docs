@@ -1,8 +1,8 @@
 ---
 weight: 20
-title: GraphQL API
+pageTitle: GraphQL API
 release: alpha
-titleProtocolIcon: eth
+pageTitleIcon: eth
 bookToC: 3
 ---
 

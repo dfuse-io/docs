@@ -1,9 +1,9 @@
 {{ $protocol := "" }}
 
-{{ if  and .Page.Params.TitleProtocolIcon }}
-    {{ $protocol = .Page.Params.TitleProtocolIcon }}
-{{ else if .Page.CurrentSection.Params.TitleProtocolIcon }}
-    {{ $protocol = .Page.CurrentSection.Params.TitleProtocolIcon }}
+{{ if  and .Page.Params.PageTitleIcon }}
+    {{ $protocol = .Page.Params.PageTitleIcon }}
+{{ else if .Page.CurrentSection.Params.PageTitleIcon }}
+    {{ $protocol = .Page.CurrentSection.Params.PageTitleIcon }}
 {{  end }}
 
 {{ return  $protocol }}

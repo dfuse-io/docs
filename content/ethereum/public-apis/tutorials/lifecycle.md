@@ -1,7 +1,7 @@
 ---
 weight: 3
-menuTitle: Track transaction lifecycle in real-time
-title: Track transaction lifecycle real-time
+sideNavTitle: Track transaction lifecycle in real-time
+pageTitle: Track transaction lifecycle real-time
 release: beta
 ---
 

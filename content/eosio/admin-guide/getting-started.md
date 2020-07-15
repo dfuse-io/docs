@@ -1,5 +1,5 @@
 ---
-title: Getting Started
+pageTitle: Getting Started
 weight: 20
 ---
 

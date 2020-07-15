@@ -1,6 +1,6 @@
 ---
 weight: 1
-title: GET /v0/state/tables/accounts
+pageTitle: GET /v0/state/tables/accounts
 release: beta
 ---
 

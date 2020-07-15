@@ -1,7 +1,7 @@
 ---
 weight: 40
-title: WebSocket API
-titleProtocolIcon: eosio
+pageTitle: WebSocket API
+pageTitleIcon: eosio
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Blockchain Tools for Developers
+pageTitle: Blockchain Tools for Developers
 layout : full-width
 weight: 1
 ---

@@ -1,5 +1,5 @@
 ---
-title: StateResponse
+pageTitle: StateResponse
 ---
 
 # `StateResponse`

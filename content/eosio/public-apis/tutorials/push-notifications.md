@@ -1,6 +1,6 @@
 ---
 weight: 10
-title: Push notifications from the chain
+pageTitle: Push notifications from the chain
 
 ---
 

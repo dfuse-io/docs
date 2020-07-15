@@ -1,6 +1,6 @@
 ---
 weight: 1
-title: GET /v0/state/table
+pageTitle: GET /v0/state/table
 ---
 Fetches the state of any table, at any block height.
 

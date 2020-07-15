@@ -1,7 +1,10 @@
 ---
-weight: 20
-menuTitle: "Other Languages"
-title: "Getting Started with Other Languages"
+weight: 40
+sideNavTitle: Public APIs
+sideNavLinkRename: "Quick Start: Other Languages"
+pageTitle: "Quick Start: Other Languages"
+pageTitleIcon: eosio
+
 ---
 
 

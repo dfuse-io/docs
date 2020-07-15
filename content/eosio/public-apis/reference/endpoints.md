@@ -1,7 +1,7 @@
 ---
 weight: 10
-menuTitle: Endpoints
-title: EOS API Endpoints
+sideNavTitle: Endpoints
+pageTitle: EOS API Endpoints
 release: stable
 aliases:
 - eosio/public-apis/reference/endpoints

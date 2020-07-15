@@ -1,6 +1,6 @@
 ---
 weight: 5
-title: Explore ETH through dfuse
+pageTitle: Explore ETH through dfuse
 ---
 
 ## Try our API from your browser

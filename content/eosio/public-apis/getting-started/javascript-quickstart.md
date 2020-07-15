@@ -1,6 +1,10 @@
 ---
-weight: 10
-title: JavaScript Quickstart
+weight: 30
+sideNavTitle: Public APIs
+sideNavLinkRename: "Quick Start: JavaScript"
+pageTitle: "Quick Start: JavaScript"
+pageTitleIcon: eosio
+
 ---
 
 In this guide we will show you how to create a basic setup so that you can benefit from the dfuse GraphQL API under

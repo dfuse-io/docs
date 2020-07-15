@@ -1,6 +1,6 @@
 ---
 weight: 70
-title: Billing
+pageTitle: Billing
 ---
 
 

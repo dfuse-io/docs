@@ -1,7 +1,7 @@
 ---
 weight: 20
-menuTitle: Search Terms
-title: Search Terms for EOSIO
+sideNavTitle: Search Terms
+pageTitle: Search Terms for EOSIO
 ---
 ## Example queries
 

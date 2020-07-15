@@ -1,5 +1,5 @@
 ---
-title: ExtDTrxOp
+pageTitle: ExtDTrxOp
 ---
 
 # `ExtDTrxOp`

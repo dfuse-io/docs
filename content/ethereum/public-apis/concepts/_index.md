@@ -1,8 +1,8 @@
 ---
 weight: 30
-title: Ethereum Concepts
-menuTitle: Concepts
-titleProtocolIcon: eth
+pageTitle: Ethereum Concepts
+sideNavTitle: Concepts
+pageTitleIcon: eth
 release: beta
 ---
 

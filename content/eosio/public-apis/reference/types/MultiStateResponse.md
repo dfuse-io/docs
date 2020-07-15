@@ -1,5 +1,5 @@
 ---
-title: MultiStateResponse
+pageTitle: MultiStateResponse
 ---
 
 # `MultiStateResponse`

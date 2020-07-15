@@ -1,7 +1,7 @@
 ---
-title: Parallel processing of chain segments
+pageTitle: Parallel processing of chain segments
 weight: 110
-draft: false
+
 ---
 
 {{< alert type="warning" >}}

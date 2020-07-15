@@ -1,6 +1,6 @@
 ---
 weight: 20
-title: GraphQL
+pageTitle: GraphQL
 ---
 
 <!--

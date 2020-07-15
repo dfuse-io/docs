@@ -1,7 +1,8 @@
 ---
 weight: 10
-title: Getting started
-titleProtocolIcon: eosio
+pageTitle: Getting Started
+sideNavTitle: Getting Started
+pageTitleIcon: eosio
 
 ---
 In this section, you will find the list of quickstart guides

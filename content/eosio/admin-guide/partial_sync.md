@@ -1,5 +1,5 @@
 ---
-title: Partial sync (EXPERIMENTAL)
+pageTitle: Partial sync (EXPERIMENTAL)
 weight: 115
 ---
 

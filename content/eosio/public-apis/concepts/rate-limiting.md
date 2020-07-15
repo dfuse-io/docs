@@ -1,7 +1,7 @@
 ---
 #TODO: weight: 000
-title: Rate Limiting
-titleProtocolIcon: eosio
+pageTitle: Rate Limiting
+pageTitleIcon: eosio
 
 ---
 

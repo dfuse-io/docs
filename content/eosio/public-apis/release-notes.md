@@ -1,7 +1,7 @@
 ---
 weight: 50
-title: Deprecations & Release Notes
-titleProtocolIcon: eosio
+pageTitle: Deprecations & Release Notes
+pageTitleIcon: eosio
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Rate Limiting
+pageTitle: Rate Limiting
 weight: 100
 ---
 

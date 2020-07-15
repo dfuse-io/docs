@@ -1,5 +1,5 @@
 ---
-title: unlisten
+pageTitle: unlisten
 ---
 
 Allows to interrupt a stream.

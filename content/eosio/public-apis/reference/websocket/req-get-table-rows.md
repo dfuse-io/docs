@@ -1,5 +1,5 @@
 ---
-title: get_table_rows
+pageTitle: get_table_rows
 ---
 Retrieve a stream of changes to the tables, the side effects of
 transactions/actions being executed

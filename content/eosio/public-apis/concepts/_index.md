@@ -1,7 +1,7 @@
 ---
 weight: 20
-title: Concepts
-titleProtocolIcon: eosio
+pageTitle: Concepts
+pageTitleIcon: eosio
 
 ---
 

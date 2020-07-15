@@ -1,7 +1,7 @@
 ---
 weight: 30
-menuTitle: Search Terms
-title: Search Terms for Ethereum
+sideNavTitle: Search Terms
+pageTitle: Search Terms for Ethereum
 release: alpha
 ---
 

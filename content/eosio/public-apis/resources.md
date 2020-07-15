@@ -1,7 +1,7 @@
 ---
 weight: 80
-title: Other Resources
-titleProtocolIcon: eosio
+pageTitle: Other Resources
+pageTitleIcon: eosio
 
 ---
 

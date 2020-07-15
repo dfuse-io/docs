@@ -1,7 +1,13 @@
 {{ $bookSections := where .Site.Sections "Section" .Page.Section }}
 {{ $section := index $bookSections 0 }}
 
-<h2><a href="{{ $section.RelPermalink }}">{{ .Page.Params.MenuTitle }}</a></h2>
+<h2><a href="{{ $section.RelPermalink }}">
+  {{ if .Page.Params.sideNavTitle }}
+    {{ .Page.Params.sideNavTitle }}
+  {{ else }}
+    {{ $section.Title }}
+  {{ end }}
+</a></h2>
 
 {{ template "book-section-children" (dict "Section" $section "CurrentPage" .Page) }}
 
@@ -19,15 +25,15 @@
         <i class="fas fa-chevron-right"></i>
       </label>
 
-      {{ else }}<!-- if _index.md does NOT exist in root of the dir, treat all other pages
-      as main sections (no sub-sections with dropdown toggle) -->
+      {{ else }}<!-- if _index.md does NOT exist in root of the dir, treat all other
+      pages as main sections (NO dropdown toggle) -->
 
         <input type="checkbox" id="nav-expand-control-{{ .File }}" class="nav-expand-control"
         {{ if .Page.IsAncestor $.CurrentPage }}checked{{end}} />
 
         <label class="nav-expandable" for="nav-expand-control-{{ .File }}">
-          {{ if .Page.Params.MenuTitle }}
-            {{ .Page.Params.MenuTitle }}
+          {{ if .Page.Params.SideNavTitle }}
+            {{ .Page.Params.SideNavTitle }}
           {{ else }}
             {{ partial "docs/variables/title" . }}
           {{ end }}
@@ -60,8 +66,8 @@
 {{ define "book-page-link" }}
   {{ with .Page }}
     <a href="{{ .RelPermalink }}"   class="{{ if eq $.CurrentPage.Permalink .Permalink }}active{{ end }}">
-      {{ if .Page.Params.MenuTitle }}
-          {{ .Page.Params.MenuTitle }}
+      {{ if .Page.Params.SideNavLinkRename }}
+          {{ .Page.Params.SideNavLinkRename }}
       {{ else }}
           {{ partial "docs/variables/title" . | markdownify }}
       {{ end }}

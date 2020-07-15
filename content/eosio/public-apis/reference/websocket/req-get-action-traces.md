@@ -1,5 +1,5 @@
 ---
-title: get_action_traces
+pageTitle: get_action_traces
 ---
 Retrieve a stream of executed actions, filtered by `receiver` and `account`
 

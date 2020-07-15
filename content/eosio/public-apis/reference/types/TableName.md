@@ -1,5 +1,5 @@
 ---
-title: TableName
+pageTitle: TableName
 ---
 
 # `TableName`

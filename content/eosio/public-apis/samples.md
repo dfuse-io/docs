@@ -1,8 +1,8 @@
 ---
 weight: 70
-title: Samples
-titleProtocolIcon: eosio
-menuTitle: Public APIs
+pageTitle: Samples
+pageTitleIcon: eosio
+sideNavTitle: Public APIs
 
 # TODO: purge of all its ETH stuff
 # TODO: I've renamed `main` to `eosio` here.. but that doesn't work with all the menus..

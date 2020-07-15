@@ -1,7 +1,7 @@
 ---
 weight: 60
-title: SDKs
-titleProtocolIcon: dfuse
+pageTitle: SDKs
+pageTitleIcon: dfuse
 
 ---
 ## client-js

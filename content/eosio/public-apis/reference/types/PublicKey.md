@@ -1,5 +1,5 @@
 ---
-title: PublicKey
+pageTitle: PublicKey
 ---
 
 # `PublicKey`

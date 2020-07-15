@@ -1,5 +1,5 @@
 ---
-title: SearchTransactionsRow
+pageTitle: SearchTransactionsRow
 ---
 
 # `SearchTransactionsRow`

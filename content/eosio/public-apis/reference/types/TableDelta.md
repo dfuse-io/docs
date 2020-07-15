@@ -1,5 +1,5 @@
 ---
-title: TableDelta
+pageTitle: TableDelta
 ---
 
 # `TableDelta`

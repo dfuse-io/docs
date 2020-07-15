@@ -1,6 +1,6 @@
 ---
 weight: 10
-title: JavaScript Quickstart
+pageTitle: JavaScript Quickstart
 ---
 
 In this guide we will show you how to create a basic setup so you can benefit from the dfuse GraphQL API under one of the supported JavaScript environments:

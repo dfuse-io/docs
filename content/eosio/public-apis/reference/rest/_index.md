@@ -1,7 +1,7 @@
 ---
 weight: 30
-title: REST API
-titleProtocolIcon: eosio
+pageTitle: REST API
+pageTitleIcon: eosio
 
 ---
 

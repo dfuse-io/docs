@@ -1,5 +1,5 @@
 ---
-title: PermissionName
+pageTitle: PermissionName
 ---
 
 # `PermissionName`

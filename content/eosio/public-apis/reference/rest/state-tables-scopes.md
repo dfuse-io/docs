@@ -1,6 +1,6 @@
 ---
 weight: 1
-title: GET /v0/state/tables/scopes
+pageTitle: GET /v0/state/tables/scopes
 release: beta
 ---
 

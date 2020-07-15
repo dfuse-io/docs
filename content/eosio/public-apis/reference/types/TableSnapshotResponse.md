@@ -1,5 +1,5 @@
 ---
-title: TableSnapshotResponse
+pageTitle: TableSnapshotResponse
 ---
 
 # `TableSnapshotResponse`

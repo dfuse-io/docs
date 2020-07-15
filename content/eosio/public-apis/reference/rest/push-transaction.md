@@ -1,6 +1,6 @@
 ---
 weight: 1
-title: POST push_transaction
+pageTitle: POST push_transaction
 ---
 Drop-in replacement for submitting a transaction to the network, but can optionally block the request until the transaction is either in a block or in an irreversible block.
 

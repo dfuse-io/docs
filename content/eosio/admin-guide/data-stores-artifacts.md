@@ -1,5 +1,5 @@
 ---
-title: Data Stores & Artifacts
+pageTitle: Data Stores & Artifacts
 weight: 60
 ---
 

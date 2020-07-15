@@ -1,5 +1,5 @@
 ---
-title: TransactionTrace
+pageTitle: TransactionTrace
 ---
 
 # `TransactionTrace`

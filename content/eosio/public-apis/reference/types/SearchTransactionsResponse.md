@@ -1,5 +1,5 @@
 ---
-title: SearchTransactionsResponse
+pageTitle: SearchTransactionsResponse
 ---
 
 # `SearchTransactionsResponse`

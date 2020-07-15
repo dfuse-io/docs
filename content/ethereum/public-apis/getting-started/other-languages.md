@@ -1,7 +1,7 @@
 ---
 weight: 20
-title: Getting Started with Other Languages
-menuTitle: Other Languages
+pageTitle: Getting Started with Other Languages
+sideNavTitle: Other Languages
 ---
 
 The code from the examples on this page lives {{< external-link href="https://github.com/dfuse-io/docs/tree/master/quickstarts" title="in the quickstarts folder of this docs GitHub repository">}}.

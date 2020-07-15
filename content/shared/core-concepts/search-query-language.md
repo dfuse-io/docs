@@ -1,6 +1,6 @@
 ---
 weight: 40
-title: Search Query Language
+pageTitle: Search Query Language
 ---
 
 **dfuse Search** uses a simplified query language to reach unparalleled and predictable performances.

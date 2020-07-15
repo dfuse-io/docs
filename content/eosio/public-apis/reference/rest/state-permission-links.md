@@ -1,6 +1,6 @@
 ---
 weight: 1
-title: GET /v0/state/permission_links
+pageTitle: GET /v0/state/permission_links
 ---
 Fetches snapshots of any account’s linked authorizations on the blockchain, at any block height.
 

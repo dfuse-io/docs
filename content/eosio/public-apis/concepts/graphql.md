@@ -1,7 +1,7 @@
 ---
 #TODO: weight: 000
-title: GraphQL
-titleProtocolIcon: eosio
+pageTitle: GraphQL
+pageTitleIcon: eosio
 
 ---
 

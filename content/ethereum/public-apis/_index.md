@@ -1,14 +1,14 @@
 ---
 weight: 10
-title: Ethereum
+pageTitle: Ethereum
 menu:
   ethereum:
     name: Public APIs User Guide
     identifier: public-apis
     weight: 30
-titleProtocolIcon: eth
+pageTitleIcon: eth
 BookToC: false
-weight: 10
+
 ---
 
 

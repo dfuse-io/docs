@@ -1,6 +1,6 @@
 ---
 weight: 1
-title: GET /v0/state/table/row
+pageTitle: GET /v0/state/table/row
 ---
 Fetches a single row from the state of any table, at any block height.
 

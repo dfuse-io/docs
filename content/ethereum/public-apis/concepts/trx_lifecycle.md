@@ -1,7 +1,7 @@
 ---
 weight: 1
-menuTitle: Transaction Lifecycle
-title: Ethereum Transaction Lifecycle
+sideNavTitle: Transaction Lifecycle
+pageTitle: Ethereum Transaction Lifecycle
 ---
 
 ## How Transaction Lifecycle Works

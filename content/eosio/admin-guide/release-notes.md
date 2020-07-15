@@ -1,5 +1,5 @@
 ---
-title: Deprecations & Release Notes
+pageTitle: Deprecations & Release Notes
 weight: 130
 ---
 

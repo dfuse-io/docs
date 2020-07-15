@@ -1,7 +1,7 @@
 ---
 weight: 50
-title: GraphQL API
-titleProtocolIcon: eosio
+pageTitle: GraphQL API
+pageTitleIcon: eosio
 bookToC: 3
 
 ---

@@ -1,5 +1,5 @@
 ---
-title: ActionName
+pageTitle: ActionName
 ---
 
 # `ActionName`
