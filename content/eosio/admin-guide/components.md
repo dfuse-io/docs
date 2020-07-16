@@ -125,6 +125,8 @@ It does not know much about each block, for instance, it doesn't keep track of t
 
 **Description**: The `apiproxy` is a small router to combine all dfuse services in a single HTTP(S) endpoint.
 
+It is useful for `eosq` to have a single API to hit, for all the services, REST, WS and GraphQL, to avoid CORS issues. The `apiproxy` can be configured to route to those different services separately.
+
 **High Availability considerations**: In larger deployments, you can use a pool of such processed, Kubernetes Ingress or other forms of load balancers to route external traffic to the right services.  If you want to use it, you will want at least 2 to sustain one being down.
 
 ### `dashboard`
