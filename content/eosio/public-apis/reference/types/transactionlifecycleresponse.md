@@ -1,8 +1,19 @@
 ---
+weight: 20
+#same weight for all pages in this section to auto-order them A->Z
 pageTitle: TransactionLifecycleResponse
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: TransactionLifecycleResponse
+
+BookToC: true
+#release: stable
+
 ---
 
-# `TransactionLifecycleResponse`
+## Type `TransactionLifecycleResponse`
 
 #### Properties
 

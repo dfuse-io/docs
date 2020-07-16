@@ -1,8 +1,19 @@
 ---
+weight: 20
+#same weight for all pages in this section to auto-order them A->Z
 pageTitle: SearchTransactionsResponse
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: SearchTransactionsResponse
+
+BookToC: true
+#release: stable
+
 ---
 
-# `SearchTransactionsResponse`
+## Type `SearchTransactionsResponse`
 
 #### Properties
 

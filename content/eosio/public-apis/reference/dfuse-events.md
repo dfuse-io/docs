@@ -12,6 +12,7 @@ BookToC: true
 #release: stable
 
 ---
+
 dfuse Events are a powerful way to give smart contract developers a
 way to ask dfuse Search to index their transactions, with arbitrary
 key/value pairs.

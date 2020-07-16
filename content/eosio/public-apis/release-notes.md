@@ -7,7 +7,6 @@ pageTitleIcon: eosio
 
 # Release Notes
 
-
 ***
 
 ### 2019-10-24

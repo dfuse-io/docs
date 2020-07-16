@@ -1,8 +1,19 @@
 ---
+weight: 20
+#same weight for all pages in this section to auto-order them A->Z
 pageTitle: TableRows
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: TableRows
+
+BookToC: true
+#release: stable
+
 ---
 
-# `TableRows`
+## Type `TableRows`
 
 #### Properties
 

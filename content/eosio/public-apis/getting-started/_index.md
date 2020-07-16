@@ -12,6 +12,7 @@ BookToC: false
 #release: stable
 
 ---
+
 In this section, you will find the list of quickstart guides
 
 - [Work with your free Account]({{< ref "/eosio/public-apis/getting-started/how-to-work-with-your-free-account" >}})

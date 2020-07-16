@@ -12,6 +12,7 @@ BookToC: true
 #release: stable
 
 ---
+
 ## Example queries
 
 * `account:eosio.token receiver:eosio.token (data.from:eoscanadacom OR data.to:eoscanadacom)`

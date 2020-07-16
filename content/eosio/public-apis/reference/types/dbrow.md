@@ -1,10 +1,21 @@
 ---
+weight: 20
+#same weight for all pages in this section to auto-order them A->Z
 pageTitle: DBRow
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: DBRow
+
+BookToC: true
+#release: stable
+
 ---
 
-# `DBRow`
+## Type `DBRow`
 
-A `DBRow` represents the contents of a row in a [DBOp]({{< ref "./DBOp" >}}).
+A `DBRow` represents the contents of a row in a [DBOp]({{< ref "./dbop" >}}).
 
 Only one of `hex` or `json` will be set. If you requested JSON but
 ABI-decoding failed, you will receive the encoded binary data in

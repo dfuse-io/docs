@@ -1,8 +1,19 @@
 ---
+weight: 20
+#same weight for all pages in this section to auto-order them A->Z
 pageTitle: TransactionLifecycle
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: TransactionLifecycle
+
+BookToC: true
+#release: stable
+
 ---
 
-# `TransactionLifecycle`
+## Type `TransactionLifecycle`
 
 #### Properties
 
@@ -32,19 +43,19 @@ Here are the fields under `data`:
   Represents the creation order of actions within this transaction.
 {{< /method-list-item >}}
 
-{{< method-list-item name="dtrxops" type="Array&lt;[DTrxOp](/eosio/public-apis/reference/types/DTrxOp)&gt;" required="false" >}}
+{{< method-list-item name="dtrxops" type="Array&lt;[DTrxOp](/eosio/public-apis/reference/types/dtrxop)&gt;" required="false" >}}
   A list of operations on deferred transactions (create, cancel...).
 {{< /method-list-item >}}
 
-{{< method-list-item name="ramops" type="Array&lt;[RAMOp](/eosio/public-apis/reference/types/RAMOp)&gt;" required="false" >}}
+{{< method-list-item name="ramops" type="Array&lt;[RAMOp](/eosio/public-apis/reference/types/ramop)&gt;" required="false" >}}
   A list of operations on RAM usage, including operation, payer, delta, resulting usage.
 {{< /method-list-item >}}
 
-{{< method-list-item name="tableops" type="Array&lt;[TableOp](/eosio/public-apis/reference/types/TableOp)&gt;" required="false" >}}
+{{< method-list-item name="tableops" type="Array&lt;[TableOp](/eosio/public-apis/reference/types/tableop)&gt;" required="false" >}}
   A list of table operations, including operation, contract account, table, scope and payer.
 {{< /method-list-item >}}
 
-{{< method-list-item name="pub_keys" type="Array&lt;string&gt;" required="false" >}}
+{{< method-list-item name="pub_keys" type="Array&lt;[PublicKey](/eosio/public-apis/reference/types/publickey)&gt;" required="false" >}}
   List of public keys used to sign the transaction.
 {{< /method-list-item >}}
 

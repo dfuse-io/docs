@@ -1,8 +1,19 @@
 ---
+weight: 20
+#same weight for all pages in this section to auto-order them A->Z
 pageTitle: StateResponse
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: StateResponse
+
+BookToC: true
+#release: stable
+
 ---
 
-# `StateResponse`
+## Type `StateResponse`
 
 #### Properties
 

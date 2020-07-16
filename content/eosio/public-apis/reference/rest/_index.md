@@ -14,4 +14,3 @@ BookToC: 3
 ---
 
 See the list of URLs served through the REST interface.
-

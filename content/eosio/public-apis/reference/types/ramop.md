@@ -1,11 +1,21 @@
 ---
+weight: 20
+#same weight for all pages in this section to auto-order them A->Z
 pageTitle: RAMOp
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: RAMOp
+
+BookToC: true
+#release: stable
+
 ---
 
-# `RAMOp`
+## Type `RAMOp`
 
-A RAM operation is a modification to the RAM consumed by an
-account. RAM operations on dfuse are scoped down to the `action`.
+A `RAMOp` is a modification to the RAM consumed by an account. RAM operations on dfuse are scoped down to the `action`.
 
 #### Properties
 

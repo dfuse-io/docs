@@ -13,4 +13,4 @@ BookToC: false
 
 ---
 
-See the side navigation for the list of types, supported both through REST and dfuse Websocket.
+See the side navigation for the list of types, supported through [REST](/eosio/public-apis/reference/rest/) and [WebSocket](/eosio/public-apis/reference/websocket/).

@@ -1,9 +1,19 @@
 ---
-weight: 1
+weight: 20
+#same weight for all pages in this section to auto-order them A->Z
 pageTitle: LinkedPermission
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: LinkedPermission
+
+BookToC: true
+#release: stable
+
 ---
 
-# `LinkedPermission`
+## Type `LinkedPermission`
 
 #### Properties
 

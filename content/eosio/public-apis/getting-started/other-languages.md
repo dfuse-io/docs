@@ -13,7 +13,6 @@ BookToC: true
 
 ---
 
-
 dfuse exposes its data through a GraphQL-over-gRPC interface. The protobuf files are {{< external-link href="https://github.com/dfuse-io/graphql-over-grpc" title="in this github repository">}}.
 
 The code from the examples on this page can be found {{< external-link href="https://github.com/dfuse-io/docs/tree/master/quickstarts" title="in the quickstarts folder of this docs GitHub repository">}}.

@@ -48,7 +48,7 @@ The following example fetches the block ID, time and block number for the timest
 
 Returns a `block` JSON object, containing the following fields.
 
-{{< method-list-item name="id" type="uint32" >}}
+{{< method-list-item name="id" type="Number (uint32)" >}}
   Block ID
 {{< /method-list-item >}}
 

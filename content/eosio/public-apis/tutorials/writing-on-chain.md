@@ -13,6 +13,7 @@ BookToC: true
 #release: stable
 
 ---
+
 In this tutorial, we will demonstrate you how to setup `eosjs` to push a
 transaction through dfuse API Push Guaranteed endpoint.
 

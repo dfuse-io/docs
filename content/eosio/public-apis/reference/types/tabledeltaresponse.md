@@ -1,8 +1,19 @@
 ---
+weight: 20
+#same weight for all pages in this section to auto-order them A->Z
 pageTitle: TableDeltaResponse
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: TableDeltaResponse
+
+BookToC: true
+#release: stable
+
 ---
 
-# `TableDeltaResponse`
+## Type `TableDeltaResponse`
 
 #### Properties
 

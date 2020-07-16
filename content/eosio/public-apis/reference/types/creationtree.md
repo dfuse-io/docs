@@ -1,8 +1,19 @@
 ---
+weight: 20
+#same weight for all pages in this section to auto-order them A->Z
 pageTitle: CreationTree
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: CreationTree
+
+BookToC: true
+#release: stable
+
 ---
 
-# `CreationTree`
+## Type `CreationTree`
 
 #### Properties
 
@@ -57,7 +68,7 @@ action index within the transaction to map this creation node to, going depth-fi
 > Here an example of creation tree's flat list, an execution tree and its corresponding creation tree.
 
 {{< highlight text >}}
-CreationTree flat-list received as response from us
+`CreationTree` flat-list received as response from us
 
 [
     [0, -1, 0],

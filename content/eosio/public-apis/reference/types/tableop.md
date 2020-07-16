@@ -1,8 +1,19 @@
 ---
+weight: 20
+#same weight for all pages in this section to auto-order them A->Z
 pageTitle: TableOp
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: TableOp
+
+BookToC: true
+#release: stable
+
 ---
 
-# `TableOp`
+## Type `TableOp`
 
 A `TableOp` represents a table operation, creation or removal of a contract's table. The table is represents as
 triplet `<account>/<table>/<scope>`. No two tables can exist at the same time with the same triplet.

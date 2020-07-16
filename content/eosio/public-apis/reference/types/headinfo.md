@@ -1,8 +1,19 @@
 ---
+weight: 20
+#same weight for all pages in this section to auto-order them A->Z
 pageTitle: HeadInfo
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: HeadInfo
+
+BookToC: true
+#release: stable
+
 ---
 
-# `HeadInfo`
+## Type `HeadInfo`
 
 #### Properties
 

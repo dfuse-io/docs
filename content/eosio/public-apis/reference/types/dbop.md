@@ -1,8 +1,19 @@
 ---
+weight: 20
+#same weight for all pages in this section to auto-order them A->Z
 pageTitle: DBOp
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: DBOp
+
+BookToC: true
+#release: stable
+
 ---
 
-# `DBOp`
+## Type `DBOp`
 
 A `DBOp` represents a database operation.  They appear in the `table_delta` and `table_snapshot` WS responses. They are also found in the responses from the REST [/v0/state/table]({{< ref "../rest/get-state-table" >}}).
 

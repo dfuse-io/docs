@@ -1,8 +1,19 @@
 ---
+weight: 20
+#same weight for all pages in this section to auto-order them A->Z
 pageTitle: ActionTrace
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: ActionTrace
+
+BookToC: true
+#release: stable
+
 ---
 
-# `ActionTrace`
+## Type `ActionTrace`
 
 #### Properties
 
