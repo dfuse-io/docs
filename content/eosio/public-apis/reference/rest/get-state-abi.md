@@ -1,6 +1,16 @@
 ---
-weight: 1
+weight: 20
+#same weight for all pages in this section to auto-order them A->Z
 pageTitle: GET /v0/state/abi
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: GET /state/abi
+
+BookToC: true
+release: stable
+
 ---
 Fetches the ABI for a given contract account, at any block height.
 

@@ -1,7 +1,16 @@
 ---
-weight: 1
+weight: 20
+#same weight for all pages in this section to auto-order them A->Z
 pageTitle: GET /v0/state/tables/scopes
-release: beta
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: GET /state/tables/scopes
+
+BookToC: true
+release: stable
+
 ---
 
 Fetches all rows for a table in a given contract for a group of
@@ -21,13 +30,13 @@ Sample request:
 {{< example-request id="search-transactions" url="https://mainnet.eos.dfuse.io/v0/state/tables/scopes?account=eosio&scopes=eosio.token|eosadddddddd|tokenbyeocat|ethsidechain|epraofficial|alibabapoole|hirevibeshvt|oo1122334455|irespotokens|publytoken11|parslseed123|trybenetwork|zkstokensr4u&table=delband&block_num=25000000&json=true" >}}
 
 {{< alert type="note" >}}
-Not to be confused with [/v0/state/table_scopes]({{< ref "./state-table-scopes" >}}) which retrieves the only the scope names. Paired with this endpoint, you can get a consistent view of all tables in a contract.
+Not to be confused with [/v0/state/table_scopes]({{< ref "./get-state-table_scopes" >}}) which retrieves the only the scope names. Paired with this endpoint, you can get a consistent view of all tables in a contract.
 {{< /alert >}}
 
 ## Requesting past blocks & ABI handling
 
 This request exhibits the same patterns as the simpler
-[/v0/state/table]({{< ref "./state-table" >}}) query.
+[/v0/state/table]({{< ref "./get-state-table" >}}) query.
 
 #### Input parameters
 
@@ -64,7 +73,7 @@ This request exhibits the same patterns as the simpler
 {{< /method-list-item >}}
 
 <!---
-FIXME: This KeyType is duplicated from `state-tables-scopes.md` and `state-table.md`
+FIXME: This KeyType is duplicated from `get-state-tables-scopes.md` and `get-state-table.md`
 -->
 
 ## Key Type
@@ -78,4 +87,4 @@ The key type can be one of the following values:
 
 ## Response
 
-Returns a [MultiStateResponse]({{< ref "../types/MultiStateResponse" >}}), same as the [multi-scopes endpoint]({{< ref "state-tables-scopes" >}}).
+Returns a [MultiStateResponse]({{< ref "../types/MultiStateResponse" >}}), same as the [multi-scopes endpoint]({{< ref "get-state-tables-scopes" >}}).

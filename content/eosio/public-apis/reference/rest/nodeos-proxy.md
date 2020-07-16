@@ -1,6 +1,15 @@
 ---
-weight: 2
-pageTitle: /v1/chain Nodeos Proxy
+weight: 20
+#same weight for all pages in this section to auto-order them A->Z
+pageTitle: Nodeos Proxy /chain/...
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: Nodeos Proxy /chain/...
+
+BookToC: true
+release: stable
 ---
 
-All {{< external-link title="standard chain requests" href="https://developers.eos.io/eosio-nodeos/reference" >}} are available as endpoints under `/v1/chain/...`. All these endpoints are reverse-proxies to a well-connected node.
+All {{< external-link title="chain API reference" href="https://developers.eos.io/manuals/eos/latest/nodeos/plugins/chain_api_plugin/api-reference/index" >}} are available as endpoints under `/v1/chain/...`. All these endpoints are reverse-proxies to a well-connected node.

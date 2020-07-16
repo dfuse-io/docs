@@ -18,4 +18,4 @@ pageTitle: TableRows
   Sometimes required*. Scope in contract account this table is a representation of.
 {{< /method-list-item >}}
 
-\* The `account` and `scope` fields will not be present when the request context makes it obvious what they should be (ex: in the context of a `get_table_rows`). They will however always be present when querying [multi accounts /v0/state/tables/accounts]({{< ref "../rest/state-tables-accounts" >}}) or [multi accounts /v0/state/tables/scopes]({{< ref "../rest/state-tables-scopes" >}}) endpoints.
+\* The `account` and `scope` fields will not be present when the request context makes it obvious what they should be (ex: in the context of a `get_table_rows`). They will however always be present when querying [multi accounts /v0/state/tables/accounts]({{< ref "../rest/get-state-tables-accounts" >}}) or [multi accounts /v0/state/tables/scopes]({{< ref "../rest/get-state-tables-scopes" >}}) endpoints.

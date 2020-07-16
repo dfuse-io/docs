@@ -1,6 +1,16 @@
 ---
-weight: 1
+weight: 20
+#same weight for all pages in this section to auto-order them A->Z
 pageTitle: GET /v0/block_id/by_time
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: GET /block_id/by_time
+
+BookToC: true
+release: stable
+
 ---
 
 Get the block ID produced at a given time

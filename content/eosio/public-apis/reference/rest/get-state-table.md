@@ -1,6 +1,16 @@
 ---
-weight: 1
+weight: 20
+#same weight for all pages in this section to auto-order them A->Z
 pageTitle: GET /v0/state/table
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: GET /state/table
+
+BookToC: true
+release: stable
+
 ---
 Fetches the state of any table, at any block height.
 
@@ -71,7 +81,7 @@ containing the decoding error.
 {{< /method-list-item >}}
 
 <!---
-FIXME: This KeyType is duplicated from `state-tables-scopes.md` and `state-table.md`
+FIXME: This KeyType is duplicated from `get-state-tables-scopes.md` and `get-state-table.md`
 -->
 ## Key Type
 

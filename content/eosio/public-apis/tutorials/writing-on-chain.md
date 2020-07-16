@@ -21,7 +21,7 @@ difference is that, when the required headers are present, you'll get the respon
 back only when your transaction has reach a block, passed 1, 2 or 3 handoffs or is
 irreversible (depending on value passed in header `X-Eos-Push-Guarantee`).
 
-You can check the [Push Guaranteed Reference]({{< ref "/eosio/public-apis/reference/rest/push-transaction" >}}) for
+You can check the [Push Guaranteed Reference]({{< ref "/eosio/public-apis/reference/rest/post-chain-push_transaction" >}}) for
 all details on the feature.
 
 You are going to follow a quick guide to send tokens from one account to another

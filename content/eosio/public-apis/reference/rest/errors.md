@@ -1,5 +1,16 @@
 ---
-weight: 100
+weight: 10
+
+pageTitle: Errors
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: Errors
+
+BookToC: true
+#release: stable
+
 ---
 
 ## HTTP Codes

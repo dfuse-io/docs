@@ -8,7 +8,7 @@ sideNav: true
 sideNavTitle: Public APIs
 sideNavLinkRename: EOSIO Networks Endpoints
 
-BookToC: false
+BookToC: true
 #release: stable
 
 aliases:

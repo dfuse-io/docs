@@ -1,6 +1,16 @@
 ---
-weight: 1
+weight: 20
+#same weight for all pages in this section to auto-order them A->Z
 pageTitle: GET /v0/search/transactions
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: GET /search/transactions
+
+BookToC: true
+release: stable
+
 ---
 Search an EOSIO blockchain for transactions based on free-form
 criterias, using the [_dfuse_ Search query language]({{< ref "../search-terms" >}}).

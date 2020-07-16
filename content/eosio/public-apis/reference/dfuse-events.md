@@ -8,7 +8,7 @@ sideNav: true
 sideNavTitle: Public APIs
 sideNavLinkRename: dfuse Events
 
-BookToC: false
+BookToC: true
 #release: stable
 
 ---

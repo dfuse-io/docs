@@ -11,11 +11,11 @@ pageTitle: SearchTransactionsResponse
 {{< /method-list-item >}}
 
 {{< method-list-item name="cursor" type="String" required="false" >}}
-  [Cursor to pass back]({{< ref "../rest/search-transactions" >}}) to continue your query. Only present when hitting the `limit` value. Will be null when reaching the end of the block span searched.
+  [Cursor to pass back]({{< ref "../rest/get-search-transactions" >}}) to continue your query. Only present when hitting the `limit` value. Will be null when reaching the end of the block span searched.
 {{< /method-list-item >}}
 
 {{< method-list-item name="forked_head_warning" type="Boolean" required="false" >}}
-  Signals that results previously fetched are at risk of being wrong because of network forks conditions. Will only show when `with_reversible` was set to `true`. See [pagination]({{< ref "../rest/search-transactions" >}}) for more details.
+  Signals that results previously fetched are at risk of being wrong because of network forks conditions. Will only show when `with_reversible` was set to `true`. See [pagination]({{< ref "../rest/get-search-transactions" >}}) for more details.
 {{< /method-list-item >}}
 
 ## Example Payload

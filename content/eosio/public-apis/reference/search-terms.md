@@ -8,7 +8,7 @@ sideNav: true
 sideNavTitle: Public APIs
 sideNavLinkRename: Search Terms
 
-BookToC: false
+BookToC: true
 #release: stable
 
 ---

@@ -1,6 +1,16 @@
 ---
-weight: 1
-pageTitle: GET /v0/transactions/:id
+weight: 20
+#same weight for all pages in this section to auto-order them A->Z
+pageTitle: GET /v0/transactions
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: GET /transactions
+
+BookToC: true
+release: stable
+
 ---
 Fetching the transaction lifecycle associated with the provided parameter `:id`.
 

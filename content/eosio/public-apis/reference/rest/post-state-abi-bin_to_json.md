@@ -1,6 +1,16 @@
 ---
-weight: 1
-pageTitle: POST /v0/state/abi/bin_to_json
+weight: 20
+#same weight for all pages in this section to auto-order them A->Z
+pageTitle: POST /state/abi/bin_to_json
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: POST /state/abi/bin_to_json
+
+BookToC: true
+release: stable
+
 ---
 Decode binary rows (in hexadecimal string) for a given table against
 the ABI of a given contract account, at any block height.

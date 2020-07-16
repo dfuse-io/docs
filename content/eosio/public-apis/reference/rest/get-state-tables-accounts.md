@@ -1,7 +1,16 @@
 ---
-weight: 1
+weight: 20
+#same weight for all pages in this section to auto-order them A->Z
 pageTitle: GET /v0/state/tables/accounts
-release: beta
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: GET /state/tables/accounts
+
+BookToC: true
+release: stable
+
 ---
 
 Fetches a table from a group of contract accounts, at any block height.
@@ -19,7 +28,7 @@ Sample request:
 ## Requesting past blocks & ABI handling
 
 This request exhibits the same patterns as the simpler
-[/v0/state/table]({{< ref "./state-table" >}}) query.
+[/v0/state/table]({{< ref "./get-state-table" >}}) query.
 
 
 #### Input Parameters
@@ -57,7 +66,7 @@ This request exhibits the same patterns as the simpler
 {{< /method-list-item >}}
 
 <!---
-FIXME: This KeyType is duplicated from `state-tables-scopes.md` and `state-table.md`
+FIXME: This KeyType is duplicated from `get-state-tables-scopes.md` and `get-state-table.md`
 -->
 
 ## Key Type
@@ -71,4 +80,4 @@ The key type can be one of the following values:
 
 ## Response
 
-Returns a [MultiStateResponse]({{< ref "../types/MultiStateResponse" >}}), same as the [multi-scopes endpoint]({{< ref "state-tables-scopes" >}}).
+Returns a [MultiStateResponse]({{< ref "../types/MultiStateResponse" >}}), same as the [multi-scopes endpoint]({{< ref "get-state-tables-scopes" >}}).

@@ -1,6 +1,16 @@
 ---
-weight: 1
+weight: 20
+#same weight for all pages in this section to auto-order them A->Z
 pageTitle: GET /v0/state/key_accounts
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: GET /state/key_accounts
+
+BookToC: true
+release: stable
+
 ---
 Fetches the accounts controlled by the given public key, at any block height.
 

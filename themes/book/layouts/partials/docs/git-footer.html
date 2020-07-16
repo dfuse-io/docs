@@ -4,8 +4,8 @@
       {{if .NextInSection}}
         <a class="btn-previous-page btn-outline" href="{{.NextInSection.Permalink}}">
           <i class="fas fa-chevron-left"></i>
-          {{ if .NextInSection.Title }}
-            {{.NextInSection.Title}}
+          {{ if .Page.Params.SideNavLinkRename }}
+            {{ .Page.Params.SideNavLinkRename }}
           {{ else }}
             {{.NextInSection.BaseFileName | humanize | title }}
           {{ end }}
@@ -13,8 +13,8 @@
       {{end}}
       {{if .PrevInSection}}
         <a class="btn-next-page btn-outline" href="{{.PrevInSection.Permalink}}">
-          {{ if .PrevInSection.Title }}
-            {{.PrevInSection.Title}}
+          {{ if .Page.Params.SideNavLinkRename }}
+            {{ .Page.Params.SideNavLinkRename }}
           {{ else }}
             {{.PrevInSection.BaseFileName | humanize | title }}
           {{ end }}
