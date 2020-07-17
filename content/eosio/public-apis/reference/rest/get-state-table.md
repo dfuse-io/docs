@@ -12,6 +12,7 @@ BookToC: true
 release: stable
 
 ---
+
 Fetches the state of any table, at any block height.
 
 ## Usage

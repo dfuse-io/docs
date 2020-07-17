@@ -1,7 +1,15 @@
 ---
 weight: 60
+
 pageTitle: SDKs
 pageTitleIcon: dfuse
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: SDKs
+
+BookToC: true
+#release: stable
 
 ---
 

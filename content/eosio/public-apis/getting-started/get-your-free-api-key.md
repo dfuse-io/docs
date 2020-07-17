@@ -1,12 +1,12 @@
 ---
 weight: 20
 
-pageTitle: Get a Free dfuse Account
+pageTitle: Get Your Free API Key
 pageTitleIcon: dfuse
 
 sideNav: true
 sideNavTitle: Public APIs
-sideNavLinkRename: Get a Free dfuse Account
+sideNavLinkRename: Get Your Free API Key
 
 BookToC: true
 #release: stable

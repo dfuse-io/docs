@@ -1,6 +1,16 @@
 ---
-pageTitle: Running a local instance
-weight: 70
+weight: 50
+
+pageTitle: Running a Local Instance
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: System Admin Guide
+sideNavLinkRename: Running a Local Instance
+
+BookToC: false
+#release: stable
+
 ---
 
 {{< alert type="note" >}}

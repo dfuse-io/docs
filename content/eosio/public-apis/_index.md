@@ -1,19 +1,24 @@
 ---
-#TODO: build page from sidenav content
-
 weight: 10
+
 pageTitle: Overview
 pageTitleIcon: eosio
+
+sideNav: true
 sideNavTitle: Public APIs
 #sideNavLinkRename: 
-sideNav: true
+
 BookToC: false
+#release: stable
+
+layout: topnav-overview
 menu:
   eosio:
-    name: Public APIs User Guide
+    name: Public APIs
     identifier: public-apis
-    weight: 30
+    weight: 10
 
 ---
 
+<!-- TODO: Build page using sidenav content - auto-generate? -->
 See side navigation.

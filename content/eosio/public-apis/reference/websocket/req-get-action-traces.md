@@ -1,10 +1,22 @@
 ---
+weight: 40
+
 pageTitle: get_action_traces
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: get_action_traces
+
+BookToC: true
+release: stable
+
 ---
+
 Retrieve a stream of executed actions, filtered by `receiver` and `account`
 
 {{< alert type="important" >}}
-We **strongly suggest** to use our [GraphQL search API]({{< ref "/eosio/public-apis/reference/graphql#query-searchtransactionsforward" >}})
+We **strongly suggest** to use our [GraphQL search API]({{< ref "/eosio/public-apis/reference/graphql-api#query-searchtransactionsforward" >}})
 instead of this stream. Advantages of using the GraphQL version:
 
 - Fork-aware, able to tell you if an action was rollout due to being part of a forked block.
@@ -261,5 +273,5 @@ const stream = await client.graphql(document, (message) => {
 
 You can use the following links to complete your code conversion to GraphQL:
 
-- If using the JavaScript client library, checkout the [JavaScript Quickstart Stream your first results]({{< ref "/eosio/public-apis/getting-started/javascript-quickstart#stream-your-first-results" >}}) section.
-- For other languages, refers to [Other Languages Quickstart]({{< ref "/eosio/public-apis/getting-started/other-languages" >}}) to learn how to make a GraphQL stream using your language of choice.
+- If using the JavaScript client library, checkout the [Quick Start: JavaScript - Stream your first results]({{< ref "/eosio/public-apis/getting-started/quickstart-javascript#stream-your-first-results" >}}) section.
+- For other languages, refers to [Quick Start: Other Languages]({{< ref "/eosio/public-apis/getting-started/quickstart-other-languages" >}}) to learn how to make a GraphQL stream using your language of choice.

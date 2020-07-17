@@ -12,6 +12,7 @@ BookToC: true
 release: stable
 
 ---
+
 Fetches the accounts controlled by the given public key, at any block height.
 
 ## Usage

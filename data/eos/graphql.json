@@ -455,7 +455,7 @@
               "name": "Uint32",
               "default": "0"
             },
-            "description": "If non-zero, indicates you want to mark the stream when reaching live blocks. A marker is a response with a `trace` equal to `null`, which will be sent at each `liveMarkerInterval` blocks. The first `trace` to be equal to `null` in a stream indicates you are now processing live blocks.\n\nThe value for `liveMarkerInterval` is a number of blocks."
+            "description": "If non-zero, indicates you want to mark the stream when reaching live blocks.\n\nA marker is a response with a `trace` equal to `null`, which will be sent at each `liveMarkerInterval` blocks. The first `trace` to be equal to `null` in a stream indicates you are now processing live blocks.\n\nThe value for `liveMarkerInterval` is a number of blocks."
           }
         ]
       },

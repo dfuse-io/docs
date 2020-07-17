@@ -15,6 +15,6 @@ BookToC: false
 
 In this section, you will find the list of quickstart guides
 
-- [Work with your free Account]({{< ref "/eosio/public-apis/getting-started/how-to-work-with-your-free-account" >}})
-- [JavaScript Quickstart]({{< ref "/eosio/public-apis/getting-started/javascript-quickstart" >}})
-- [Other Languages]({{< ref "/eosio/public-apis/getting-started/other-languages" >}})
+- [Get Your Free API Key]({{< ref "/eosio/public-apis/getting-started/get-your-free-api-key" >}})
+- [Quick Start: JavaScript]({{< ref "/eosio/public-apis/getting-started/quickstart-javascript" >}})
+- [Quick Start: Other Languages]({{< ref "/eosio/public-apis/getting-started/quickstart-other-languages" >}})

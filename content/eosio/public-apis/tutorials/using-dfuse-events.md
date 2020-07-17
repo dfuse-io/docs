@@ -13,13 +13,8 @@ BookToC: true
 
 ---
 
-dfuse Events are a powerful way to give smart contract developers a
-way to ask dfuse Search to index their transactions, with arbitrary
-key/value pairs.
-
-By simply instructing your smart contract to send an inline action to `dfuseiohooks:event`, you can instruct dfuse Search to index some fields with arbitrary data (within limits).
-
-Once on chain, the search term `event.field:value` will allow you to retrieve those actions, anywhere on the dfuse Platform.
+Read more about [dfuse Events](/eosio/public-apis/reference/dfuse-events), are a powerful way to give smart contract developers a
+way to ask ***dfuse Search*** to index their transactions, with arbitrary key/value pairs.
 
 ## Getting Started
 

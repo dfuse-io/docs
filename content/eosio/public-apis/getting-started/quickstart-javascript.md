@@ -113,7 +113,7 @@ With the initial setup complete, you can start coding. The first thing we will d
 the dfuse client using the API key you created in the first step and the network you want to
 connect to.
 
-Valid networks can be found at [EOSIO API Endpoints]({{< ref "eosio/public-apis/reference/networks-endpoints" >}})
+Valid networks can be found at [EOSIO Networks Endpoints]({{< ref "eosio/public-apis/reference/eosio-networks-endpoints" >}})
 {{< tabs "create-client" >}}
 {{< tab lang="javascript" title="Node.js" >}}
 {{< code-section "quickstarts_javascript_node_eos_section1" >}}
@@ -135,7 +135,7 @@ to you, you get to choose and pick only what you are interested in.
 {{< alert type="note" >}}
 Want to inspect the full set of available fields you can retrieve?
 
-- [GraphQL API Reference]({{< ref "/eosio/public-apis/reference/graphql" >}})
+- [GraphQL API Reference]({{< ref "/eosio/public-apis/reference/graphql-api" >}})
 - {{< external-link href="https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKHF1ZXJ5OiJyZWNlaXZlcjplb3Npby50b2tlbiBhY3Rpb246dHJhbnNmZXIgLWRhdGEucXVhbnRpdHk6JzAuMDAwMSBFT1MnIikgewogICAgdW5kbyBjdXJzb3IKICAgIHRyYWNlIHsgaWQgbWF0Y2hpbmdBY3Rpb25zIHsganNvbiB9IH0KICB9Cn0=" title="GraphiQL, online query editor with completion and docs">}}
   {{< /alert >}}
 
@@ -245,7 +245,7 @@ start index.eosio.thml # Windows
 
 ## 6. What's next?
 
-- [GraphQL API Reference]({{< ref "/eosio/public-apis/reference/graphql" >}})
+- [GraphQL API Reference]({{< ref "/eosio/public-apis/reference/graphql-api" >}})
 - [REST API Reference]({{< ref "/eosio/public-apis/reference/rest" >}})
 - [WebSocket API Reference]({{< ref "/eosio/public-apis/reference/websocket" >}})
 - [Check dfuse Core Concepts]({{< ref "../concepts" >}})

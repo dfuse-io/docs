@@ -10,6 +10,7 @@ sideNavLinkRename: Nodeos Proxy /chain/...
 
 BookToC: true
 release: stable
+
 ---
 
 All {{< external-link title="chain API reference" href="https://developers.eos.io/manuals/eos/latest/nodeos/plugins/chain_api_plugin/api-reference/index" >}} are available as endpoints under `/v1/chain/...`. All these endpoints are reverse-proxies to a well-connected node.

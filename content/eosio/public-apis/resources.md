@@ -1,7 +1,15 @@
 ---
 weight: 80
-pageTitle: Other Resources
+
+pageTitle: Resources
 pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: Resources
+
+BookToC: true
+#release: stable
 
 ---
 

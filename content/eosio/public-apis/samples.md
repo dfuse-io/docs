@@ -1,19 +1,26 @@
 ---
 weight: 70
+
 pageTitle: Samples
 pageTitleIcon: eosio
-sideNavTitle: Public APIs
 
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: Samples
+
+BookToC: true
+#release: stable
+
+---
+
+<!-- TODO: USE CRYPTO ICONS for headers
 # TODO: purge of all its ETH stuff
 # TODO: I've renamed `main` to `eosio` here.. but that doesn't work with all the menus..
 # We need to review the `config.json`, and how we'll actually build the menu structure
 # to be able to reuse the menus in each protocol section.. can we have sub-trees or a
 # certain menu in a sub-tree? Like use `eosio` in the `content/eosio` subtree, and the
 # `ethereum` menu in the `content/ethereum` subtree?
-
----
-
-<!-- TODO: USE CRYPTO ICONS for headers -->
+-->
 
 ## Go
 
@@ -34,7 +41,7 @@ sideNavTitle: Public APIs
 | How to decode hexadecimal string data into a JSON structure using eosjs                        |                                                                        N/A                                                                        |          {{< external-link title="Github" href="https://github.com/dfuse-io/docs/tree/master/samples/typescript/eos/decode-hex" >}}          |
 | How to use dfuse guaranteed `push_transaction` with eosjs library                              |                                                                        N/A                                                                        |            {{< external-link title="Github" href="https://github.com/dfuse-io/docs/tree/master/tutorials/eos/push-guaranteed" >}}            |
 | Stream pending transactions from or to an address                                              | {{< external-link title="Github" href="https://github.com/dfuse-io/client-js/blob/master/examples/reference/ethereum/pending-transactions.ts" >}} |                                                                     N/A                                                                      |
-| Never miss a beat when socket disconnects with dfuse Stream                                    |                                                                                                                                                   | {{< external-link title="Github" href="https://github.com/dfuse-io/client-js/blob/master/examples/advanced/graphql-never-miss-a-beat.ts" >}} |
+| Never miss a beat when socket disconnects with dfuse Stream                                    |                                                                        N/A                                                                        | {{< external-link title="Github" href="https://github.com/dfuse-io/client-js/blob/master/examples/advanced/graphql-never-miss-a-beat.ts" >}} |
 
 ## JavaScript
 

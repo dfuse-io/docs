@@ -2,6 +2,7 @@
 {{ $typeLink := $.Scratch.Get "gmli-type-link" }}
 
 {{ $.Scratch.Set "mli-type" $type.name }}
+
 {{ with $typeLink }}
   {{ $.Scratch.Set "mli-type" (printf "[%s](%s)" ($.Scratch.Get "mli-type") $typeLink) }}
 {{ end }}

@@ -12,11 +12,12 @@ BookToC: true
 release: stable
 
 ---
+
 Search an EOSIO blockchain for transactions based on free-form
 criterias, using the [_dfuse_ Search query language]({{< ref "../search-terms" >}}).
 
 {{< alert type="important" >}}
-We **strongly suggest** to use the [GraphQL search API]({{< ref "/eosio/public-apis/reference/graphql#query-searchtransactionsforward" >}})
+We **strongly suggest** to use the [GraphQL search API]({{< ref "/eosio/public-apis/reference/graphql-api#query-searchtransactionsforward" >}})
 of this endpoint. Advantages of using the GraphQL version:
 
 - Streaming capabilities, or to be able to stream new results as they pushed on the chain. Quit or got disconnected? Simply resume at exact point you left off by using a [cursor]({{< ref "../../concepts/cursors" >}}).

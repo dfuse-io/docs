@@ -18,7 +18,7 @@ capabilities to give you one single endpoint with strong guarantees.
 
 {{< alert type="note">}}
 For `get_action_traces` and `get_table_rows` streams, we **strongly suggest** new development
-to use [GraphQL Subscription searchTransactionsForward]({{< ref "/eosio/public-apis/reference/graphql#subscription-searchTransactionsForward" >}}) instead of `get_action_traces` and `get_table_rows`. Advantages of using the GraphQL API:
+to use [GraphQL Subscription searchTransactionsForward]({{< ref "/eosio/public-apis/reference/graphql-api#subscription-searchTransactionsForward" >}}) instead of `get_action_traces` and `get_table_rows`. Advantages of using the GraphQL API:
 
 - Possibility to also perform a paginated query instead of streaming.
 - Possibility to greatly reduce bandwidth transfer & cost (ingress to your server) by specifying the exact trimmed down data payload you need (excellent for browser & mobile usage).

@@ -34,7 +34,9 @@ inline actions (`send_inline` calls) and context free inline actions (`send_cont
 in the smart contract. The `CreationTree` is per transaction and might not be present in the returned response. In
 this case, it means the creation tree is exactly the same as the execution one.
 
-**Restrictions** The opposite is not true however, it is possible to get a `CreationTree` and it will still be
+**Restrictions**
+
+The opposite is not true however, it is possible to get a `CreationTree` and it will still be
 the same as the execution tree. We trim off the `CreationTree` as a best effort, it still possible to get a
 `CreationTree` mapping 1-to-1 with the execution tree. We suggest computing the tree and checking if there are
 any differences on the client side if you need to be 100% sure they are different in the presence of the field.
@@ -46,7 +48,7 @@ the execution order is performed is fixed, notifications are executed first (as 
 as a side-effect of the on-going execution of the notification) then context free inline actions and last
 the inline actions.
 
-> Assuming that you have in your smart contract the following sequence of operations:
+> Assuming that you have the following sequence of operations in your smart contract:
 
 {{< highlight text >}}
 send_context_free_inline(...)

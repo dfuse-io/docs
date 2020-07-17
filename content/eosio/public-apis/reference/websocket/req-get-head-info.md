@@ -1,6 +1,18 @@
 ---
+weight: 40
+
 pageTitle: get_head_info
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: get_head_info
+
+BookToC: true
+release: stable
+
 ---
+
 Retrieve a stream of informations about the chain as it moves forward
 
 ## Usage

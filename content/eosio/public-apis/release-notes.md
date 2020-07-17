@@ -1,7 +1,15 @@
 ---
 weight: 50
+
 pageTitle: Deprecations & Release Notes
 pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: Deprecations & Release Notes
+
+BookToC: true
+#release: stable
 
 ---
 

@@ -12,6 +12,7 @@ BookToC: true
 release: stable
 
 ---
+
 Fetches the ABI for a given contract account, at any block height.
 
 ## Usage

@@ -16,7 +16,7 @@ BookToC: 3
 ## Introduction
 
 All of these can be played with and discovered through the
-[GraphiQL interfaces endpoints](../endpoints).
+[GraphiQL interfaces endpoints](../networks-endpoints).
 
 
 {{< graphql-ref "eos" >}}

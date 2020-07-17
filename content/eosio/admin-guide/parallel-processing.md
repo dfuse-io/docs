@@ -1,6 +1,15 @@
 ---
-pageTitle: Parallel processing of chain segments
-weight: 110
+weight: 120
+
+pageTitle: Parallel Processing of Chain Segments
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: System Admin Guide
+sideNavLinkRename: Parallel Processing of Chain Segments
+
+BookToC: false
+#release: stable
 
 ---
 

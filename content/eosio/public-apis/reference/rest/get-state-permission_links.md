@@ -12,6 +12,7 @@ BookToC: true
 release: stable
 
 ---
+
 Fetches snapshots of any account’s linked authorizations on the blockchain, at any block height.
 
 ## Usage

@@ -1,7 +1,7 @@
 ---
 weight: 30
 
-#TODO: Find a better title
+#TODO: Find a better title and rename file
 pageTitle: Writing reliably to the chain (push guarantee)
 pageTitleIcon: eosio
 
@@ -82,7 +82,7 @@ definition of this code.
 
 {{< alert type="note" >}}
 Explaining the `@dfuse/client` is out of scope for this tutorial. Refer to the
-[JavaScript Quickstart]({{< ref "/eosio/public-apis/getting-started/javascript-quickstart" >}}) for
+[Quick Start: JavaScript ]({{< ref "/eosio/public-apis/getting-started/quickstart-javascript" >}}) for
 further details about the `@dfuse/client` library.
 {{< /alert >}}
 

@@ -1,11 +1,23 @@
 ---
+weight: 40
+
 pageTitle: get_table_rows
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: get_table_rows
+
+BookToC: true
+release: stable
+
 ---
+
 Retrieve a stream of changes to the tables, the side effects of
 transactions/actions being executed
 
 {{< alert type="important" >}}
-You will only stream changes? We **strongly suggest** for this case to use our [GraphQL search API]({{< ref "/eosio/public-apis/reference/graphql#query-searchtransactionsforward" >}}) instead of this stream. Advantages of using the GraphQL version:
+You will only stream changes? We **strongly suggest** for this case to use our [GraphQL search API]({{< ref "/eosio/public-apis/reference/graphql-api#query-searchtransactionsforward" >}}) instead of this stream. Advantages of using the GraphQL version:
 
 - Possibility to stream for all scopes of a given table.
 - Possibility to also perform a paginated query instead of streaming.
@@ -270,5 +282,5 @@ const stream = await client.graphql(document, (message) => {
 
 You can use the following links to complete your code conversion to GraphQL:
 
-- If using the JavaScript client library, checkout the [JavaScript Quickstart Stream your first results]({{< ref "/eosio/public-apis/getting-started/javascript-quickstart#stream-your-first-results" >}}) section.
-- For other languages, refers to [Other Languages Quickstart]({{< ref "/eosio/public-apis/getting-started/other-languages" >}}) to learn how to make a GraphQL stream using your language of choice.
+- If using the JavaScript client library, checkout the [Quick Start: JavaScript - Stream your first results]({{< ref "/eosio/public-apis/getting-started/quickstart-javascript#stream-your-first-results" >}}) section.
+- For other languages, refers to [Quick Start: Other Languages]({{< ref "/eosio/public-apis/getting-started/quickstart-other-languages" >}}) to learn how to make a GraphQL stream using your language of choice.

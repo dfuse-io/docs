@@ -1,6 +1,16 @@
 ---
+weight: 60
+
 pageTitle: Understanding Components
-weight: 50
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: System Admin Guide
+sideNavLinkRename: Understanding Components
+
+BookToC: false
+#release: stable
+
 ---
 
 {{< alert type="note" >}}

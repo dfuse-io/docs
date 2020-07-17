@@ -1,5 +1,16 @@
 ---
+weight: 40
+
 pageTitle: unlisten
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: unlisten
+
+BookToC: true
+release: stable
+
 ---
 
 Allows to interrupt a stream.

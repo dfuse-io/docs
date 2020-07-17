@@ -1,8 +1,17 @@
 ---
-pageTitle: Partial sync (EXPERIMENTAL)
-weight: 115
----
+weight: 130
 
+pageTitle: Partial Sync
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: System Admin Guide
+sideNavLinkRename: Partial Sync
+
+BookToC: false
+release: alpha
+
+---
 
 # Partial synchronisation of Kylin testnet's head using dfuse for EOSIO
 

@@ -1,7 +1,15 @@
 ---
 weight: 90
-pageTitle: Support
-pageTitleIcon: eosio
+
+pageTitle: Community & Support
+pageTitleIcon: dfuse
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: Community & Support
+
+BookToC: true
+#release: stable
 
 ---
 

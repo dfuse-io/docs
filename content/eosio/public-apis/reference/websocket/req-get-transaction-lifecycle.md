@@ -1,6 +1,18 @@
 ---
+weight: 40
+
 pageTitle: get_transaction_lifecycle
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: get_transaction_lifecycle
+
+BookToC: true
+release: stable
+
 ---
+
 Retrieve a "transaction_lifecycle" (when "fetch" is true) and follow
 its life-cycle (when "listen" is true).
 

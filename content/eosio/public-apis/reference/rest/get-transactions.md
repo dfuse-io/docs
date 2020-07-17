@@ -12,6 +12,7 @@ BookToC: true
 release: stable
 
 ---
+
 Fetching the transaction lifecycle associated with the provided parameter `:id`.
 
 

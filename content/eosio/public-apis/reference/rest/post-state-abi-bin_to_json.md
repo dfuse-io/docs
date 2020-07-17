@@ -12,6 +12,7 @@ BookToC: true
 release: stable
 
 ---
+
 Decode binary rows (in hexadecimal string) for a given table against
 the ABI of a given contract account, at any block height.
 

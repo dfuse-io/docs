@@ -1,6 +1,16 @@
 ---
+weight: 110
+
 pageTitle: Large Chains Preparation
-weight: 100
+pageTitleIcon: eosio
+
+sideNav: true
+sideNavTitle: System Admin Guide
+sideNavLinkRename: Large Chains Preparation
+
+BookToC: false
+#release: stable
+
 ---
 
 {{< alert type="note" >}}
