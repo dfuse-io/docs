@@ -86,15 +86,20 @@ This is useful in filtered deployments, backed by an unfiltered deployment.
 
 ### `fluxdb`
 
-**Description**: TODO
+**Description**: `fluxdb` is a special-purpose database to provide state snapshots of all blockchain state, at any block height.
+
 
 `fluxdb` has two modes of operation (enabled alone or in combination through command-line flags):
+
 * `inject` mode, which writes to the `kvdb` store
 * `server` mode, which receives requests from end users and serves them.  It also is connected to the `kvdb` store, and holds a buffer with recent blocks.
 
 Both components receive blocks from a `relayer`.
 
-**High Availability considerations**:
+**High Availability considerations**: The `inject` mode is stateful and needs to have at most one instance running at any time.  The `server` mode is stateless and needs 2 or more to sustain upgrades/maintenance/crashes.
+
+Simple deployments will have both in one process, in which case you do not want to scale it to more than one, because of the `inject` mode constraint, which writes transactionally to the backing database.
+
 
 ### `trxdb-loader`
 
