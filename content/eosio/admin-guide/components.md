@@ -74,9 +74,11 @@ Systems in need of blocks, when they start, will usually connect to `relayer`s, 
 
 ### `merged-filter`
 
-**Description**: The `merged-filter` process will ingest _merged block files_, filter them on-the-fly, and write those filtered block files back to a second destination storage.
+**Description**: The `merged-filter` is an optional process that will ingest _merged block files_, filter them on-the-fly, and write those filtered block files back to a second destination storage.
 
 Other components can then be pointed to that Object Storage location, and will therefore consume less RAM, because they'll process already filtered merged blocks files.
+
+This is useful in filtered deployments, backed by an unfiltered deployment.
 
 **High Availability considerations**: Similar to those of the `merger`, as they consume the same files, and produce the same sort of files (merged blocks files).
 
