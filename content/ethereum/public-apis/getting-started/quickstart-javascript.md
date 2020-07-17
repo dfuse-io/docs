@@ -1,6 +1,19 @@
 ---
-weight: 10
-pageTitle: JavaScript Quickstart
+weight: 30
+
+pageTitle: "Quick Start: JavaScript"
+pageTitleIcon: eth
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: "Quick Start: JavaScript"
+
+BookToC: true
+#release: stable
+
+aliases:
+  - /guides/ethereum/getting-started/
+  
 ---
 
 In this guide we will show you how to create a basic setup so you can benefit from the dfuse GraphQL API under one of the supported JavaScript environments:
@@ -103,7 +116,7 @@ With the initial setup completed, you can start coding. The first thing we will 
 the dfuse client using the API key you created in the first step and the network you want to
 connect to.
 
-Valid networks can be found at [Ethereum API Endpoints]({{< ref "ethereum/public-apis/reference/endpoints" >}})
+Valid networks can be found at [Ethereum Networks Endpoints]({{< ref "ethereum/public-apis/reference/ethereum-networks-endpoints" >}})
 
 {{< tabs "create-client" >}}
 {{< tab title="Node.js" lang="javascript">}}
@@ -126,7 +139,7 @@ to you, you get to choose and pick only what you are interested in.
 {{< alert type="note" >}}
 Want to inspect the full set of available fields you can retrieve?
 
-- [GraphQL API Reference]({{< ref "/ethereum/public-apis/reference/graphql" >}})
+- [GraphQL API Reference]({{< ref "/ethereum/public-apis/reference/graphql-api" >}})
 - {{< external-link href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMocXVlcnk6ICItdmFsdWU6MCB0eXBlOmNhbGwiLCBsb3dCbG9ja051bTogLTEpIHsKICAgIHVuZG8gY3Vyc29yCiAgICBub2RlIHsgaGFzaCBtYXRjaGluZ0NhbGxzIHsgY2FsbGVyIGFkZHJlc3MgdmFsdWUoZW5jb2Rpbmc6RVRIRVIpIH0gfQogIH0KfQ==" title="GraphiQL, online query editor with completion and docs">}}
   {{< /alert >}}
 
@@ -235,7 +248,7 @@ start index.ethereum.thml # Windows
 
 ## 6. What's next ?
 
-- [GraphQL API Reference]({{< ref "/ethereum/public-apis/reference/graphql" >}})
+- [GraphQL API Reference]({{< ref "/ethereum/public-apis/reference/graphql-api" >}})
 - [Check dfuse Core Concepts]({{< ref "../concepts" >}})
 - [Look at one of our tutorials]({{< ref "/ethereum/public-apis/tutorials" >}})
 - {{< external-link title="The `@dfuse/client-js` overview document" href="https://github.com/dfuse-io/client-js/blob/master/README.md#dfuse-javascripttypescript-client-library" >}}

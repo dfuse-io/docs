@@ -11,6 +11,9 @@ sideNavLinkRename: GraphQL API
 BookToC: 3
 #release: stable
 
+aliases:
+  - /reference/eosio/graphql/
+
 ---
 
 ## Introduction

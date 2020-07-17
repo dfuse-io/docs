@@ -11,6 +11,9 @@ sideNavLinkRename: StateResponse
 BookToC: true
 #release: stable
 
+aliases:
+  - /reference/eosio/types/stateresponse/
+
 ---
 
 ## Type `StateResponse`

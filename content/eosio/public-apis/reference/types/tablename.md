@@ -11,6 +11,9 @@ sideNavLinkRename: TableName
 BookToC: true
 #release: stable
 
+aliases:
+  - /reference/eosio/types/tablename/
+
 ---
 
 ## Type `TableName`

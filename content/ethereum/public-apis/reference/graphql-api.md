@@ -1,9 +1,19 @@
 ---
 weight: 20
+
 pageTitle: GraphQL API
-release: alpha
 pageTitleIcon: eth
-bookToC: 3
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: GraphQL API
+
+BookToC: 3
+release: beta
+
+aliases:
+  - /reference/ethereum/graphql/
+
 ---
 
 ## Introduction

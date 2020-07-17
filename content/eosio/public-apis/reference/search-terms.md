@@ -11,6 +11,9 @@ sideNavLinkRename: Search Terms
 BookToC: true
 #release: stable
 
+aliases:
+  - /reference/eosio/search-terms/
+
 ---
 
 ## Example queries

@@ -11,6 +11,9 @@ sideNavLinkRename: GET /state/table
 BookToC: true
 release: stable
 
+aliases:
+  - /reference/eosio/rest/state-table/
+
 ---
 
 Fetches the state of any table, at any block height.

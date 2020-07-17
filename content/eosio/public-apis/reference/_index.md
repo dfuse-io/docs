@@ -11,6 +11,9 @@ sideNavLinkRename: API References
 BookToC: false
 #release: stable
 
+aliases:
+  - /reference/eosio/
+  
 ---
 
 ## API References

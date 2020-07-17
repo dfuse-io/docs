@@ -11,6 +11,9 @@ sideNavLinkRename: TransactionLifecycleResponse
 BookToC: true
 #release: stable
 
+aliases:
+  - /reference/eosio/types/transactionlifecycleresponse/
+
 ---
 
 ## Type `TransactionLifecycleResponse`

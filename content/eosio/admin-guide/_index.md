@@ -1,7 +1,7 @@
 ---
 weight: 20
 
-pageTitle: Overview
+pageTitle: System Admin Guide Overview
 pageTitleIcon: eosio
 
 sideNav: true
@@ -19,7 +19,7 @@ menu:
     
 ---
 
-The System Administration Guide is destined to those wanting to run ***dfuse for EOSIO*** on their laptop or servers, in development and production environments.
+The System Admin Guide is destined to those wanting to run ***dfuse for EOSIO*** on their laptop or servers, in development and production environments.
 
 See side navigation for the different sections.
 

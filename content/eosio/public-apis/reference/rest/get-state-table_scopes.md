@@ -11,6 +11,9 @@ sideNavLinkRename: GET /state/table_scopes
 BookToC: true
 release: stable
 
+aliases:
+  - /reference/eosio/rest/state-table-scopes/
+
 ---
 
 Fetches a list of scopes, for a given table on a contract account, at any block height.

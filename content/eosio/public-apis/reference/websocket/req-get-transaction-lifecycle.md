@@ -1,6 +1,6 @@
 ---
 weight: 40
-
+#same weight for all pages in this section to auto-order them A->Z
 pageTitle: get_transaction_lifecycle
 pageTitleIcon: eosio
 
@@ -10,6 +10,9 @@ sideNavLinkRename: get_transaction_lifecycle
 
 BookToC: true
 release: stable
+
+aliases:
+  - /reference/eosio/websocket/req-get-transaction-lifecycle/
 
 ---
 

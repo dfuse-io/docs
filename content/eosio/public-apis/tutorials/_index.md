@@ -11,6 +11,9 @@ sideNavLinkRename: Tutorials
 BookToC: false
 #release: stable
 
+aliases:
+  - /guides/eosio/tutorials/
+  
 ---
 
 In this section, you will find the list of tutorials currently written, allowing you

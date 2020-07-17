@@ -11,6 +11,9 @@ sideNavLinkRename: Get Your Free API Key
 BookToC: true
 #release: stable
 
+aliases:
+  - /guides/eosio/getting-started/how-to-work-with-your-free-account/
+
 ---
 
 ## 1. Create a free dfuse account

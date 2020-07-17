@@ -11,6 +11,9 @@ sideNavLinkRename: CreationTree
 BookToC: true
 #release: stable
 
+aliases:
+  - /reference/eosio/types/creationtree/
+
 ---
 
 ## Type `CreationTree`

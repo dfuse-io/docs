@@ -1,7 +1,7 @@
 ---
 weight: 10
 
-pageTitle: Overview
+pageTitle: Public APIs Overview
 pageTitleIcon: eosio
 
 sideNav: true
@@ -11,7 +11,6 @@ sideNavTitle: Public APIs
 BookToC: false
 #release: stable
 
-layout: topnav-overview
 menu:
   eosio:
     name: Public APIs

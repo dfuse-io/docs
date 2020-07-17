@@ -1,6 +1,6 @@
 ---
-weight: 20
-#same weight for all pages in this section to auto-order them A->Z
+weight: 10
+#same weight as "errors.md" to auto-order them A->Z first
 pageTitle: Nodeos Proxy /chain/...
 pageTitleIcon: eosio
 
@@ -10,6 +10,9 @@ sideNavLinkRename: Nodeos Proxy /chain/...
 
 BookToC: true
 release: stable
+
+aliases:
+  - /reference/eosio/rest/nodeos-proxy/
 
 ---
 

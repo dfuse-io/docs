@@ -11,6 +11,9 @@ sideNavLinkRename: TableDelta
 BookToC: true
 #release: stable
 
+aliases:
+  - /reference/eosio/types/tabledelta/
+
 ---
 
 ## Type `TableDelta`

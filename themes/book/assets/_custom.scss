@@ -366,9 +366,10 @@ article {
     color: $color-link-hover;
   }
 
-  .sub-section-title-row {
+  .sub-section-title-row,
+  .sub-section-title-row-noborder {
     .col-12 {
-      // border-bottom: 1px dashed $ternary-400;
+      border-bottom: 1px dashed $ternary-400;
 
       h4 {
         margin-bottom: 5px;
@@ -384,14 +385,18 @@ article {
       }
     }
   }
+  .sub-section-title-row-noborder {
+    .col-12 {
+      border: none !important;
+    }
+  }
 
   .sub-section-title {
     font-size: .9rem;
     margin-top: 0;
-
   }
-  .sub-section-title__large {
-    font-size: 1.5rem;
+  .sub-section-title-large {
+    font-size: 1.3rem !important;
   }
 
   .sub-section-content-row {
@@ -688,7 +693,6 @@ button.cta {
 
 @media (max-width: 900px){
   #main-menu-control:checked + #top-nav{
-    height: 100px !important;
     height: 100px !important;
     min-height: 293px;
     overflow-y: auto;

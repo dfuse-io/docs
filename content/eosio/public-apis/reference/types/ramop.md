@@ -11,6 +11,9 @@ sideNavLinkRename: RAMOp
 BookToC: true
 #release: stable
 
+aliases:
+  - /reference/eosio/types/ramop/
+
 ---
 
 ## Type `RAMOp`

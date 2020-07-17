@@ -11,6 +11,9 @@ sideNavLinkRename: HeadInfo
 BookToC: true
 #release: stable
 
+aliases:
+  - /reference/eosio/types/headinfo/
+
 ---
 
 ## Type `HeadInfo`

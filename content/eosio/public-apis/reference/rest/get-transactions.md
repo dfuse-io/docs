@@ -11,6 +11,9 @@ sideNavLinkRename: GET /transactions
 BookToC: true
 release: stable
 
+aliases:
+  - /reference/eosio/rest/fetch-transaction/
+
 ---
 
 Fetching the transaction lifecycle associated with the provided parameter `:id`.

@@ -11,6 +11,9 @@ sideNavLinkRename: POST /state/abi/bin_to_json
 BookToC: true
 release: stable
 
+aliases:
+  - /reference/eosio/rest/state-abi-decode/
+
 ---
 
 Decode binary rows (in hexadecimal string) for a given table against

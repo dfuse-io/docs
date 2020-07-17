@@ -11,6 +11,9 @@ sideNavLinkRename: GET /state/key_accounts
 BookToC: true
 release: stable
 
+aliases:
+  - /reference/eosio/rest/state-key-accounts/
+
 ---
 
 Fetches the accounts controlled by the given public key, at any block height.

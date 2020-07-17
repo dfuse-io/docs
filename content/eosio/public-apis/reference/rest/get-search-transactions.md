@@ -11,6 +11,9 @@ sideNavLinkRename: GET /search/transactions
 BookToC: true
 release: stable
 
+aliases:
+  - /reference/eosio/rest/search-transactions/
+
 ---
 
 Search an EOSIO blockchain for transactions based on free-form

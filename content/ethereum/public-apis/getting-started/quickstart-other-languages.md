@@ -1,7 +1,19 @@
 ---
-weight: 20
-pageTitle: Getting Started with Other Languages
-sideNavTitle: Other Languages
+weight: 40
+
+pageTitle: "Quick Start: Other Languages"
+pageTitleIcon: eth
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: "Quick Start: Other Languages"
+
+BookToC: true
+#release: stable
+
+aliases:
+  - /guides/ethereum/getting-started/other-languages/
+
 ---
 
 The code from the examples on this page lives {{< external-link href="https://github.com/dfuse-io/docs/tree/master/quickstarts" title="in the quickstarts folder of this docs GitHub repository">}}.
@@ -128,7 +140,7 @@ to you, you get to choose and pick only what you are interested in.
 {{< alert type="note" >}}
 Want to inspect the full set of available fields you can retrieve?
 
-* [GraphQL API Reference]({{< ref "/ethereum/public-apis/reference/graphql" >}})
+* [GraphQL API Reference]({{< ref "/ethereum/public-apis/reference/graphql-api" >}})
 * {{< external-link href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMocXVlcnk6ICItdmFsdWU6MCB0eXBlOmNhbGwiLCBsb3dCbG9ja051bTogLTEpIHsKICAgIHVuZG8gY3Vyc29yCiAgICBub2RlIHsgaGFzaCBtYXRjaGluZ0NhbGxzIHsgY2FsbGVyIGFkZHJlc3MgdmFsdWUoZW5jb2Rpbmc6RVRIRVIpIH0gfQogIH0KfQ==" title="GraphiQL, online query editor with completion and docs">}}
 {{< /alert >}}
 
@@ -170,7 +182,7 @@ DFUSE_API_KEY="your dfuse api key here" python main.py
 
 # What to do next?
 
-* [GraphQL API Reference]({{< ref "/ethereum/public-apis/reference/graphql" >}})
+* [GraphQL API Reference]({{< ref "/ethereum/public-apis/reference/graphql-api" >}})
 * {{< external-link href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMocXVlcnk6ICItdmFsdWU6MCB0eXBlOmNhbGwiLCBsb3dCbG9ja051bTogLTEpIHsKICAgIHVuZG8gY3Vyc29yCiAgICBub2RlIHsgaGFzaCBtYXRjaGluZ0NhbGxzIHsgY2FsbGVyIGFkZHJlc3MgdmFsdWUoZW5jb2Rpbmc6RVRIRVIpIH0gfQogIH0KfQ==" title="GraphiQL, online query editor with completion and docs">}}
 * [Look at one of our tutorials]({{< ref "/ethereum/public-apis/tutorials" >}})
 * [Authentication]({{< relref "../concepts/authentication" >}})

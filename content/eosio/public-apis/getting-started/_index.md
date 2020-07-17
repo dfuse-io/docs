@@ -11,6 +11,9 @@ sideNavLinkRename: Getting Started
 BookToC: false
 #release: stable
 
+aliases:
+  - /guides/eosio/getting-started/
+  
 ---
 
 In this section, you will find the list of quickstart guides

@@ -12,7 +12,7 @@ BookToC: true
 #release: stable
 
 aliases:
-- eosio/public-apis/reference/endpoints
+  - /reference/eosio/endpoints/
 
 ---
 

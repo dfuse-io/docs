@@ -11,6 +11,9 @@ sideNavLinkRename: SearchTransactionsRow
 BookToC: true
 #release: stable
 
+aliases:
+  - /reference/eosio/types/searchtransactionsrow/
+
 ---
 
 ## Type `SearchTransactionsRow`

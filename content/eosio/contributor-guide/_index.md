@@ -1,7 +1,7 @@
 ---
 weight: 30
 
-pageTitle: Overview
+pageTitle: Contributor Guide
 pageTitleIcon: eosio
 
 sideNav: true
@@ -11,7 +11,6 @@ sideNavTitle: Contributor Guide
 BookToC: false
 #release: stable
 
-layout: topnav-overview
 menu:
   eosio:
     name: Contributor Guide
@@ -20,12 +19,6 @@ menu:
     
 ---
 
-The best way to start digging into ***dfuse for EOSIO***, is to head to:
+The best way to start digging into ***dfuse for EOSIO***, is to head to https://github.com/dfuse-io/dfuse-eosio and follow instructions there.
 
-* https://github.com/dfuse-io/dfuse-eosio
-
-and follow instructions there.
-
-General contribution guidelines can be found in the general repository:
-
-* https://github.com/dfuse-io/dfuse
+General contribution guidelines can be found in the general repository at https://github.com/dfuse-io/dfuse

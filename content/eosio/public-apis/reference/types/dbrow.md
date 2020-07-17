@@ -11,6 +11,9 @@ sideNavLinkRename: DBRow
 BookToC: true
 #release: stable
 
+aliases:
+  - /reference/eosio/types/dbrow/
+
 ---
 
 ## Type `DBRow`

@@ -11,6 +11,9 @@ sideNavLinkRename: ActionTrace
 BookToC: true
 #release: stable
 
+aliases:
+  - /reference/eosio/types/actiontrace/
+
 ---
 
 ## Type `ActionTrace`

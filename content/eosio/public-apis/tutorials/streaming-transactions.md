@@ -1,7 +1,7 @@
 ---
 weight: 20
 
-#TODO: Find a better title and rename file
+#TODO: Find a better title and rename file if needed
 pageTitle: Streaming Transactions
 pageTitleIcon: eosio
 
@@ -12,6 +12,9 @@ sideNavLinkRename: Streaming Transactions
 BookToC: true
 #release: stable
 
+aliases:
+  - /guides/eosio/tutorials/push-notifications/
+  
 ---
 
 ## Token Management

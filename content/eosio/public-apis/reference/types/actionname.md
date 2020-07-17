@@ -11,6 +11,9 @@ sideNavLinkRename: ActionName
 BookToC: true
 #release: stable
 
+aliases:
+  - /reference/eosio/types/actionname/
+
 ---
 
 ## Type `ActionName`

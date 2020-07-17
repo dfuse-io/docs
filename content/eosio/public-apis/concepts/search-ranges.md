@@ -11,11 +11,14 @@ sideNavLinkRename: Search Ranges
 BookToC: true
 #release: stable
 
+aliases:
+  - /guides/ethereum/concepts/search-ranges/
+  
 ---
 
 This page gives information about the searched range for various combinations of `lowBlockNum` and
 `highBlockNum` when using our search engine as well as the implications of using a Cursor or deciding
-about the sort order, either ascending (i.e. forward) or descending (i.e. backward).
+about the `sort` order, either ascending (`ASC`) or descending (`DESC`).
 
 To complicate things a bit more, the actual resolution is different between a search query versus
 a search subscription (i.e. streaming).

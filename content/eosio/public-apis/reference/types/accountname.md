@@ -11,6 +11,9 @@ sideNavLinkRename: AccountName
 BookToC: true
 #release: stable
 
+aliases:
+  - /reference/eosio/types/accountname/
+
 ---
 
 ## Type `AccountName`

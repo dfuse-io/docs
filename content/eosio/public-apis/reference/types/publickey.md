@@ -11,6 +11,9 @@ sideNavLinkRename: PublicKey
 BookToC: true
 #release: stable
 
+aliases:
+  - /reference/eosio/types/publickey/
+
 ---
 
 ## Type `PublicKey`

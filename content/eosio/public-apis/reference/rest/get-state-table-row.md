@@ -11,6 +11,9 @@ sideNavLinkRename: GET /state/table/row
 BookToC: true
 release: stable
 
+aliases:
+  - /reference/eosio/rest/state-table-row/
+
 ---
 
 Fetches a single row from the state of any table, at any block height.

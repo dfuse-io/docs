@@ -11,6 +11,9 @@ sideNavLinkRename: SearchTransactionsResponse
 BookToC: true
 #release: stable
 
+aliases:
+  - /reference/eosio/types/searchtransactionsresponse/
+
 ---
 
 ## Type `SearchTransactionsResponse`

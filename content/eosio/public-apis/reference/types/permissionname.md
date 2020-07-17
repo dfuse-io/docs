@@ -11,6 +11,9 @@ sideNavLinkRename: PermissionName
 BookToC: true
 #release: stable
 
+aliases:
+  - /reference/eosio/types/permissionname/
+
 ---
 
 ## Type `PermissionName`

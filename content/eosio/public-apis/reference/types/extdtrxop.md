@@ -11,6 +11,9 @@ sideNavLinkRename: ExtDTrxOp
 BookToC: true
 #release: stable
 
+aliases:
+  - /reference/eosio/types/extdtrxop/
+
 ---
 
 ## Type `ExtDTrxOp`

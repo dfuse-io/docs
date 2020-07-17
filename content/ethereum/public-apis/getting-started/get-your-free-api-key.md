@@ -1,7 +1,19 @@
 ---
-weight: 1
-sideNavTitle: Working with your free account
-pageTitle: Working with your free account
+weight: 20
+
+pageTitle: Get Your Free API Key
+pageTitleIcon: eth
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: Get Your Free API Key
+
+BookToC: true
+#release: stable
+
+aliases:
+  - /guides/ethereum/getting-started/how-to-work-with-your-free-account/
+
 ---
 
 ## 1. Create a free dfuse account

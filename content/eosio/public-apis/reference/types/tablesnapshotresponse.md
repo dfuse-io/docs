@@ -11,6 +11,9 @@ sideNavLinkRename: TableSnapshotResponse
 BookToC: true
 #release: stable
 
+aliases:
+  - /reference/eosio/types/tablesnapshotresponse/
+
 ---
 
 ## Type `TableSnapshotResponse`

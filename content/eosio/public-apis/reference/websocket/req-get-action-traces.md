@@ -1,6 +1,6 @@
 ---
 weight: 40
-
+#same weight for all pages in this section to auto-order them A->Z
 pageTitle: get_action_traces
 pageTitleIcon: eosio
 
@@ -10,6 +10,9 @@ sideNavLinkRename: get_action_traces
 
 BookToC: true
 release: stable
+
+aliases:
+  - /reference/eosio/websocket/req-get-action-traces/
 
 ---
 

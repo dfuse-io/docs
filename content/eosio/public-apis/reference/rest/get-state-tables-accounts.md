@@ -11,6 +11,9 @@ sideNavLinkRename: GET /state/tables/accounts
 BookToC: true
 release: stable
 
+aliases:
+  - /reference/eosio/rest/state-tables-accounts/
+
 ---
 
 Fetches a table from a group of contract accounts, at any block height.

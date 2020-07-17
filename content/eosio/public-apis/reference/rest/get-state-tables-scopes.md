@@ -11,6 +11,9 @@ sideNavLinkRename: GET /state/tables/scopes
 BookToC: true
 release: stable
 
+aliases:
+  - /reference/eosio/rest/state-tables-scopes/
+
 ---
 
 Fetches all rows for a table in a given contract for a group of

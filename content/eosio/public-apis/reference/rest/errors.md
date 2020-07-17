@@ -1,6 +1,6 @@
 ---
 weight: 10
-
+#same weight as "nodeos-proxy.md" to auto-order them A->Z first
 pageTitle: Errors
 pageTitleIcon: eosio
 
@@ -10,6 +10,9 @@ sideNavLinkRename: Errors
 
 BookToC: true
 #release: stable
+
+aliases:
+  - /reference/eosio/rest/errors/
 
 ---
 

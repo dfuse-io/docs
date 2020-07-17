@@ -11,6 +11,9 @@ sideNavLinkRename: Concepts
 BookToC: false
 #release: stable
 
+aliases:
+  - /guides/eosio/concepts/
+
 ---
 
 See side navigation

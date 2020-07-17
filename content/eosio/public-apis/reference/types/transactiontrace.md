@@ -11,6 +11,9 @@ sideNavLinkRename: TransactionTrace
 BookToC: true
 #release: stable
 
+aliases:
+  - /reference/eosio/types/transactiontrace/
+
 ---
 
 ## Type `TransactionTrace`

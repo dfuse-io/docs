@@ -1,12 +1,21 @@
 ---
-weight: 30
-pageTitle: Ethereum Concepts
-sideNavTitle: Concepts
+weight: 20
+
+pageTitle: Concepts
 pageTitleIcon: eth
-release: beta
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: Concepts
+
+BookToC: false
+#release: stable
+
+aliases:
+  - /guides/ethereum/concepts/
+
 ---
 
-In this section, you will find the list of dfuse concepts that apply specifically to the Ethereum chains supported by dfuse APIs.
+See side navigation
 
-- [Transaction Lifecycle]({{< ref "/ethereum/public-apis/concepts/trx_lifecycle" >}})
-- [Search Ranges]({{< ref "/ethereum/public-apis/concepts/search-ranges" >}})
+<!-- Render sub-menu? -->

@@ -1,7 +1,19 @@
 ---
-weight: 1
-sideNavTitle: Transaction Lifecycle
-pageTitle: Ethereum Transaction Lifecycle
+weight: 70
+
+pageTitle: Transaction Lifecycle
+pageTitleIcon: eth
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: Transaction Lifecycle
+
+BookToC: false
+#release: stable
+
+aliases:
+  - /guides/ethereum/concepts/trx_lifecycle/
+
 ---
 
 ## How Transaction Lifecycle Works

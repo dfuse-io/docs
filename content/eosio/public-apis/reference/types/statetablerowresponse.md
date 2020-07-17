@@ -11,6 +11,9 @@ sideNavLinkRename: StateTableRowResponse
 BookToC: true
 #release: stable
 
+aliases:
+  - /reference/eosio/types/statetablerowresponse/
+
 ---
 
 ## Type `StateTableRowResponse`

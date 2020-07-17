@@ -11,6 +11,9 @@ sideNavLinkRename: GET /state/abi
 BookToC: true
 release: stable
 
+aliases:
+  - /reference/eosio/rest/state-abi/
+
 ---
 
 Fetches the ABI for a given contract account, at any block height.

@@ -1,15 +1,19 @@
 ---
-weight: 1
+weight: 10
 
-# pageTitle: SDKs
-# pageTitleIcon: dfuse
+#pageTitle: 
+#pageTitleIcon: dfuse or eosio or eth
 
 sideNav: false
-# sideNavTitle: Public APIs
-# sideNavLinkRename: SDKs
+#sideNavTitle: 
+#sideNavLinkRename: 
 
 BookToC: false
 #release: stable
+layout: full-width
+
+aliases:
+  - /guides/eosio/
 
 ---
 

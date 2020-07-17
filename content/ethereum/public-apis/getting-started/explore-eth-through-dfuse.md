@@ -1,13 +1,24 @@
 ---
-weight: 5
-pageTitle: Explore ETH through dfuse
+weight: 50
+
+pageTitle: Explore Ethereum through dfuse
+pageTitleIcon: eth
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: Explore Ethereum through dfuse
+
+BookToC: true
+#release: stable
+
+aliases:
+  - /guides/ethereum/getting-started/explore-eth-through-dfuse/
+
 ---
 
 ## Try our API from your browser
 
-The best way to get a taste of what you can do with dfuse is to try it out!
-
-**GraphiQL** is a tool that allows writing and running GraphQL queries from your browser. It is offered on [every dfuse endpoint](/ethereum/public-apis/reference/endpoints/) with a valid anonymous JWT for your convenience.
+The best way to get a taste of what you can do with dfuse is to try it out! **GraphiQL** is a tool that allows writing and running GraphQL queries from your browser. It is offered on [every dfuse endpoint](/ethereum/public-apis/reference/endpoints/) with a valid anonymous JWT for your convenience.
 It also offers an access to the [documented GraphQL schema](/ethereum/public-apis/reference/graphql/) on a side pane, as well as a very useful auto-completion feature (simply place your cursor somewhere and press `Ctrl+<Space>` to see completion possibilities).
 
 [![GraphiQL screenshot](/img/graphiql.png)](https://mainnet.eth.dfuse.io/graphiql)

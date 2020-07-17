@@ -11,6 +11,9 @@ sideNavLinkRename: TransactionLifecycle
 BookToC: true
 #release: stable
 
+aliases:
+  - /reference/eosio/types/transactionlifecycle/
+
 ---
 
 ## Type `TransactionLifecycle`

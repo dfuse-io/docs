@@ -11,6 +11,9 @@ sideNavLinkRename: GET /block_id/by_time
 BookToC: true
 release: stable
 
+aliases:
+  - /reference/eosio/rest/block-id-by-time/
+
 ---
 
 Get the block ID produced at a given time

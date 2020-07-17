@@ -2,7 +2,7 @@
 weight: 90
 
 pageTitle: Community & Support
-pageTitleIcon: eosio
+pageTitleIcon: eth
 
 sideNav: true
 sideNavTitle: Public APIs
@@ -15,5 +15,5 @@ BookToC: true
 
 dfuse has a vibrant community to support you, as well as engineers present in the community:
 
-* [`dfuse for EOSIO` on Telegram](https://t.me/dfuseAPI)
+* [`dfuse for Ethereum` on Telegram](https://t.me/dfuseETH)
 * [Contact Us](https://www.dfuse.io/help)

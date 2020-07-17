@@ -11,6 +11,9 @@ sideNavLinkRename: LinkedPermission
 BookToC: true
 #release: stable
 
+aliases:
+  - /reference/eosio/types/linkedpermission/
+
 ---
 
 ## Type `LinkedPermission`

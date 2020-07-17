@@ -11,6 +11,9 @@ sideNavLinkRename: WebSocket API
 BookToC: false
 #release: stable
 
+aliases:
+  - /reference/eosio/websocket/
+
 ---
 
 The WebSocket-based API fuses batch processing and streaming

@@ -1,12 +1,12 @@
 ---
 weight: 60
 
-pageTitle: SDKs
-pageTitleIcon: dfuse
+pageTitle: Libraries & SDKs
+pageTitleIcon: dfuseeosio
 
 sideNav: true
 sideNavTitle: Public APIs
-sideNavLinkRename: SDKs
+sideNavLinkRename: Libraries & SDKs
 
 BookToC: true
 #release: stable

@@ -11,6 +11,9 @@ sideNavLinkRename: REST API
 BookToC: 3
 #release: stable
 
+aliases:
+  - /reference/eosio/rest/
+
 ---
 
 See the list of URLs served through the REST interface.

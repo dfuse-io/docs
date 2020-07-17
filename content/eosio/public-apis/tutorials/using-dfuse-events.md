@@ -1,6 +1,7 @@
 ---
 weight: 10
 
+#TODO: Find a better title and rename file if needed
 pageTitle: Using dfuse Events
 pageTitleIcon: eosio
 
@@ -11,6 +12,9 @@ sideNavLinkRename: Using dfuse Events
 BookToC: true
 #release: stable
 
+aliases:
+  - /guides/eosio/tutorials/using-dfuse-events/
+  
 ---
 
 Read more about [dfuse Events](/eosio/public-apis/reference/dfuse-events), are a powerful way to give smart contract developers a

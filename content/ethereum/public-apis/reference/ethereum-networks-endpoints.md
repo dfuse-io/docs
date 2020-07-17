@@ -1,9 +1,19 @@
 ---
 weight: 10
-sideNavTitle: Endpoints
-pageTitle: Ethereum API Endpoints
+
+pageTitle: Ethereum Networks Enpoints
 pageTitleIcon: eth
-release: alpha
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: Ethereum Networks Endpoints
+
+BookToC: true
+#release: beta
+
+aliases:
+  - /reference/ethereum/endpoints/
+
 ---
 The _dfuse_ API is available for multiple Ethereum networks. Should you need it on another network, please contact us.
 

@@ -11,6 +11,9 @@ sideNavLinkRename: Name
 BookToC: true
 #release: stable
 
+aliases:
+  - /reference/eosio/types/name/
+
 ---
 
 ## Type `Name`

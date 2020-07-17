@@ -1,9 +1,20 @@
 ---
 weight: 50
-BookToC: false
+
+pageTitle: Deprecations & Release Notes
+pageTitleIcon: eth
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: Deprecations & Release Notes
+
+BookToC: true
+#release: stable
+
 ---
 
 # Release Notes
+<!-- TODO: This is a copy of the EOSIO release notes. Need to transform this into Ethereum release notes
 
 
 ***
@@ -318,3 +329,5 @@ BookToC: false
 
   * `get_actions` request: renamed parameter `with_ram_costs` to `with_ramops`
     (`get_actions` is now `get_action_traces`).
+
+-->

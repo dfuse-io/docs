@@ -1,6 +1,6 @@
 ---
 weight: 40
-
+#same weight for all pages in this section to auto-order them A->Z
 pageTitle: get_head_info
 pageTitleIcon: eosio
 
@@ -10,6 +10,9 @@ sideNavLinkRename: get_head_info
 
 BookToC: true
 release: stable
+
+aliases:
+  - /reference/eosio/websocket/req-get-head-info/
 
 ---
 

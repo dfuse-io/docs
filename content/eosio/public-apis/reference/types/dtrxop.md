@@ -11,6 +11,9 @@ sideNavLinkRename: DTrxOp
 BookToC: true
 #release: stable
 
+aliases:
+  - /reference/eosio/types/dtrxop/
+
 ---
 
 ## Type `DTrxOp`

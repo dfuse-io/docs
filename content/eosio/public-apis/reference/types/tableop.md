@@ -11,6 +11,9 @@ sideNavLinkRename: TableOp
 BookToC: true
 #release: stable
 
+aliases:
+  - /reference/eosio/types/tableop/
+
 ---
 
 ## Type `TableOp`

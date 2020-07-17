@@ -1,6 +1,16 @@
 ---
-weight: 30
+weight: 60
+
 pageTitle: Cursors
+pageTitleIcon: eeth
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: Cursors
+
+BookToC: true
+#release: stable
+
 ---
 
 {% content "shared/cursors.md" %}

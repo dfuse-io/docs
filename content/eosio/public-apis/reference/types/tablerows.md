@@ -11,6 +11,9 @@ sideNavLinkRename: TableRows
 BookToC: true
 #release: stable
 
+aliases:
+  - /reference/eosio/types/tablerows/
+
 ---
 
 ## Type `TableRows`

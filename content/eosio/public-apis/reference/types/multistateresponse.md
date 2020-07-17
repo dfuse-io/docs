@@ -11,6 +11,9 @@ sideNavLinkRename: MultiStateResponse
 BookToC: true
 #release: stable
 
+aliases:
+  - /reference/eosio/types/multistateresponse/
+
 ---
 
 ## Type `MultiStateResponse`
