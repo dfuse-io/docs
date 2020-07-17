@@ -60,8 +60,27 @@ NOTE: recent `relayer` can have _filters_ applied
 
 ### `merger`
 
-**Description**: TODO
-**High Availability considerations**:
+**Description**: The `merger` collects _one-block files_ written by one or more `mindreader`s, into a _one-block object store_, and merges them to produce _merged blocks files_ (or 100-blocks files).
+
+One core feature of the merger is the capacity to merge all forks visited by any backing `mindreader` node.
+
+The merged block files are produced once the whole 100 blocks are collected, and after we're relatively sure no more forks will occur (bstream's _ForkableHandler_ supports seeing fork data in future merged blocks files anyway).
+
+**High Availability considerations**:  This component is needed when you want highly available `mindreader` nodes.  You only need one of these, because the whole system can survive downtime from the merger, and it only produces files from time to time anyway.
+
+Systems in need of blocks, when they start, will usually connect to `relayer`s, get real-time blocks and go back to merged block files only when the relayer can't satify the range.  If relayers provide 200-300 blocks in RAM, then you have that time for the merger to be down, to sustain _restarts_ from other components.  Once the other components are live, in general, they won't read from merged block files.
+
+
+
+### `merged-filter`
+
+**Description**: The `merged-filter` process will ingest _merged block files_, filter them on-the-fly, and write those filtered block files back to a second destination storage.
+
+Other components can then be pointed to that Object Storage location, and will therefore consume less RAM, because they'll process already filtered merged blocks files.
+
+**High Availability considerations**: Similar to those of the `merger`, as they consume the same files, and produce the same sort of files (merged blocks files).
+
+
 
 ### `fluxdb`
 
@@ -87,14 +106,22 @@ Both components receive blocks from a `relayer`.
 
 **Description**: TODO
 
-
 **High Availability considerations**: This process is stateless, and can be scaled up or down for the desired throughput.  You want at least 2 to sustain one being down.
+
 
 ### `dgraphql`
 
 **Description**: `dgraphql` is a server process serving end-user requests in the GraphQL format.  It speaks GraphQL over both HTTP and gRPC.  It routes most of its request to the appropriate service. In particular: `search-router` (for backward/forward searches), `fluxdb` server (for state queries), `blockmeta` (for block by time resolutions), `tokenmeta` (for token queries).
 
 **High Availability considerations**: This process is stateless, and can be scaled up or down for the desired throughput.  You want at least 2 to sustain one being down.
+
+
+### `tokenmeta`
+
+**Description**: The `tokenmeta` service is a specialized indexer for tokens, holders, and balances.  It can provide clean and quick snapshots of that information.  It is exposed through `dgraphql`.
+
+**High Availability considerations**: This is a stateless deployment, as it bootstraps from `fluxdb`, and streams changes from `relayers`. You will want two or more to ensure zero downtime upgrades.
+
 
 ### `abicodec`
 

@@ -108,7 +108,7 @@ These are dfuse-specific artifacts.
 In general, the dfuse Platform uses [Protocol Buffers version 3](https://developers.google.com/protocol-buffers) for serialization.
 
 
-#### executed blocks files
+#### executed merged blocks files
 
 Also called `100-blocks files`, or merged blocks files, or merged bundles. These are all used interchangeably here.
 
