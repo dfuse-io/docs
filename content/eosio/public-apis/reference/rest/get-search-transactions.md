@@ -72,7 +72,7 @@ suddenly disappear.
 #### Input parameters
 
 {{< method-list-item name="q" type="String" required="true" >}}
-  Search query string. See the [dfuse EOSIO Search Terms]({{< ref "../search-terms" >}}) for more details.
+  Search query string. See the [dfuse EOSIO Search Terms]({{< ref "../search/search-terms" >}}) for more details.
 {{< /method-list-item >}}
 
 {{< method-list-item name="start_block" type="Number (uint32)" required="false" >}}

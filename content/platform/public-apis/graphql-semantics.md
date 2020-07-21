@@ -11,6 +11,10 @@ sideNavLinkRename: GraphQL Semantics
 BookToC: true
 #release: stable
 
+aliases:
+  - /guides/core-concepts/graphql/
+  - /notions/graphql-semantics/
+
 ---
 
 <!--

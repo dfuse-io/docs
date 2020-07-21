@@ -1,5 +1,5 @@
 ---
-weight: 30
+weight: 10
 
 pageTitle: Search Terms for Ethereum
 pageTitleIcon: eth
@@ -13,6 +13,7 @@ BookToC: true
 
 aliases:
   - /reference/ethereum/search-terms/
+  - /ethereum/public-apis/reference/search-terms/
 
 ---
 

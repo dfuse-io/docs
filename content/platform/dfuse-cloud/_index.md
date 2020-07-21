@@ -17,6 +17,9 @@ menu:
     identifier: dfuse-cloud
     weight: 20
 
+aliases:
+  - /notions/dfuse-cloud/
+  
 ---
 
 Take a look at the side navigation for all the available information.

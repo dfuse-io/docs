@@ -1,5 +1,5 @@
 ---
-weight: 10
+weight: 20
 
 pageTitle: Available EOSIO Networks
 pageTitleIcon: eosio

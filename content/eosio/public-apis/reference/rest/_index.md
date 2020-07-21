@@ -1,5 +1,5 @@
 ---
-weight: 30
+weight: 60
 
 pageTitle: REST API
 pageTitleIcon: eosio

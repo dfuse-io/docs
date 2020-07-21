@@ -335,14 +335,14 @@
             "type": {
               "name": "Int64"
             },
-            "description": "Lower boundary for search. Use -1 for HEAD. See the [Search Ranges for Ethereums](/ethereum/public-apis/concepts/search-ranges/) page for more info."
+            "description": "Lower boundary for search. Use -1 for HEAD. See the [Search Ranges for Ethereums](/ethereum/public-apis/reference/search/search-ranges/) page for more info."
           },
           {
             "name": "highBlockNum",
             "type": {
               "name": "Int64"
             },
-            "description": "Upper boundary for search. Use -1 for HEAD. See the [Search Ranges for Ethereums](/ethereum/public-apis/concepts/search-ranges/) page for more info."
+            "description": "Upper boundary for search. Use -1 for HEAD. See the [Search Ranges for Ethereums](/ethereum/public-apis/reference/search/search-ranges/) page for more info."
           },
           {
             "name": "cursor",

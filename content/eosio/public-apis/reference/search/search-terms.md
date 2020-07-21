@@ -1,5 +1,5 @@
 ---
-weight: 60
+weight: 10
 
 pageTitle: Search Terms for EOSIO
 pageTitleIcon: eosio
@@ -13,6 +13,7 @@ BookToC: true
 
 aliases:
   - /reference/eosio/search-terms/
+  - /eosio/public-apis/reference/search-terms/
 
 ---
 

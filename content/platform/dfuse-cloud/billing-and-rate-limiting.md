@@ -11,6 +11,11 @@ sideNavLinkRename: Billing & Rate Limiting
 BookToC: true
 #release: stable
 
+aliases:
+  - /guides/core-concepts/rate-limiting/
+  - /guides/core-concepts/billing/
+  - /notions/billing-and-rate-limiting/
+
 ---
 
 ## Subscription plans

@@ -154,7 +154,7 @@ Want to inspect the full set of available fields you can retrieve?
 {{< /tab >}}
 {{< /tabs >}}
 
-Next, you create the GraphQL subscription to stream transfers as they come. You will use the `searchTransactionsForward` operation, with the `"receiver:eosio.token action:transfer -data.quantity:'0.0001 EOS'"` query (see [Search Terms for EOSIO]({{< ref "/eosio/public-apis/reference/search-terms" >}})). This basically means, give me all transactions containing one or more
+Next, you create the GraphQL subscription to stream transfers as they come. You will use the `searchTransactionsForward` operation, with the `"receiver:eosio.token action:transfer -data.quantity:'0.0001 EOS'"` query (see [Search Terms for EOSIO]({{< ref "/eosio/public-apis/reference/search/search-terms" >}})). This basically means, give me all transactions containing one or more
 actions named `transfer` executed by the `eosio.token` account for which the `quantity` field of the action is **not** `0.0001 EOS`.
 
 You can combine the dfuse client instance we created in step 3 with the GraphQL document we defined above in

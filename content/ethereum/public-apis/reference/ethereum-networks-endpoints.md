@@ -1,5 +1,5 @@
 ---
-weight: 10
+weight: 20
 
 pageTitle: Ethereum Networks Endpoints
 pageTitleIcon: eth
