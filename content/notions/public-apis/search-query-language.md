@@ -1,6 +1,16 @@
 ---
-weight: 40
+weight: 10
+
 pageTitle: Search Query Language
+pageTitleIcon: dfuse
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: Search Query Language
+
+BookToC: true
+#release: stable
+
 ---
 
 **dfuse Search** uses a simplified query language to reach unparalleled and predictable performances.
@@ -17,15 +27,12 @@ single keyword. For example: `term:value` or `term:"value"`.
 
 **dfuse Search** on all chains are aware of the chain's particular
 consensus rules (like longest chain), and allow you to navigate any
-forks, through the use of [cursors]({{< ref "./cursors" >}}).
+forks, through the use of [cursors]({{< relref "/notions/public-apis/understanding-cursors" >}}).
 
 ## Supported search terms
 
 * [Ethereum search terms reference]({{< ref "/ethereum/public-apis/reference/search-terms" >}}).
 * [EOSIO search terms reference]({{< ref "/eosio/public-apis/reference/search-terms" >}}).
-
-
-
 
 ## Operators
 

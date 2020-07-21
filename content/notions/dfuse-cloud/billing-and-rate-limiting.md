@@ -1,6 +1,16 @@
 ---
-weight: 70
-pageTitle: Billing & Rate-Limiting
+weight: 30
+
+pageTitle: Billing & Rate Limiting
+pageTitleIcon: dfuse
+
+sideNav: true
+sideNavTitle: dfuse Cloud
+sideNavLinkRename: Billing & Rate Limiting
+
+BookToC: true
+#release: stable
+
 ---
 
 ## Subscription plans
@@ -9,7 +19,7 @@ dfuse offers a fast and powerful API to interface with blockchains at an afforda
 
 You can subscribe to one of those plans by creating an account on our self-service portal and visiting the {{< external-link href="https://app.dfuse.io/subscription" title="My Current Subscription">}} page. You can start using dfuse immediately after signing up and creating an API key, but you'll be subject to the acceptable use restrictions of our **Free** default plan.
 
-For more information regarding this acceptable use policy, we invite you to read the [Rate Limiting]({{< ref "./rate-limiting" >}}) article.
+For more information regarding this acceptable use policy, we invite you to read the [Rate Limiting]({{< ref "#acceptable-use-limits" >}}) section below.
 
 We recommend you to setup a payment method as soon as you consider using the service for any serious project. You can adjust your subscription plan at any time and we will prorate the payment for the remainder of your billing cycle.
 
@@ -31,7 +41,7 @@ Login to the Self-Service Portal and visit the {{< external-link href="https://a
 
 ### Authentication endpoint (auth.dfuse.io)
 
-Authentication response payloads are free (i.e. they do not count towards your included number of **Documents**). Although, this service is subject to [Rate Limiting]({{< ref "./rate-limiting" >}}).
+Authentication response payloads are free (i.e. they do not count towards your included number of **Documents**). Although, this service is subject to [Rate Limiting]({{< ref "#acceptable-use-limits" >}}).
 
 ### REST APIs
 
@@ -45,25 +55,24 @@ Opening a connection does not incur any charge. All of our WebSocket APIs are st
 
 Opening a connection does not incur any charge. A GraphQL **Query** response will either count as one (1) **Document** or multiple **Documents** in the case of a list of results (ex. `searchTransactionsForward`). Similarly, a streaming GraphQL **Subscription** will be charged as many **Documents** as you receive response payloads during its lifetime.
 
-
-## Acceptable use limits
+## Acceptable use limits (Rate Limiting)
 
 In order to guarantee great performance and reliability for all of our users, we reserve the right to throttle certain API requests.
 
-As such, REST APIs may received HTTP Status 429 `Too Many Requests`({{< external-link title="as per `RFC6585` Section 4" href="https://tools.ietf.org/html/rfc6585#section-4)" >}} along with `X-RateLimit-Limit` / `X-RateLimit-Remaining` / `X-RateLimit-Reset` HTTP response headers. A well behaved client application should pause for the prescribed amount of time as the request will be dropped and no response will be returned.
+As such, REST APIs may received HTTP Status 429 `Too Many Requests`({{< external-link title="as per `RFC6585` Section 4" href="https://tools.ietf.org/html/rfc6585#section-4)" >}} along with `X-RateLimit-Limit` / `X-RateLimit-Remaining` / `X-RateLimit-Reset` HTTP response headers. A well-behaved client application should pause for the prescribed amount of time as the request will be dropped and no response will be returned.
 
-## Authentication (auth.dfuse.io)
+### Authentication (auth.dfuse.io)
 
-Because we expect well behaved clients applications to request only one JWT, cache it and use it for up to 24 hours, we do not allow more than a handful of JWTs to be issued per user. At the moment this limit is counted `Per IP Address / Per Minute` (allowing you to do load balancing), but we reserve the right to adjust this over time.
+Because we expect well-behaved clients applications to request only one JWT, cache it and use it for up to 24 hours, we do not allow more than a handful of JWTs to be issued per user. At the moment this limit is counted `Per IP Address / Per Minute` (allowing you to do load balancing), but we reserve the right to adjust this over time.
 
-## REST endpoints
-
-At the moment we do not have any rate limiting in place for those endpoints.
-
-## Websocket endpoints
+### REST endpoints
 
 At the moment we do not have any rate limiting in place for those endpoints.
 
-## GraphQL (WebSocket and gRPC)
+### Websocket endpoints
+
+At the moment we do not have any rate limiting in place for those endpoints.
+
+### GraphQL (WebSocket and gRPC)
 
 At the moment we do not have any rate limiting in place for those endpoints.

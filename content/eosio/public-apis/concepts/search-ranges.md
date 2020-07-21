@@ -1,5 +1,5 @@
 ---
-weight: 50
+weight: 10
 
 pageTitle: Search Ranges
 pageTitleIcon: eosio
@@ -12,7 +12,7 @@ BookToC: true
 #release: stable
 
 aliases:
-  - /guides/ethereum/concepts/search-ranges/
+  - /guides/eosio/concepts/search-ranges/
   
 ---
 

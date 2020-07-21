@@ -1,5 +1,5 @@
 ---
-weight: 50
+weight: 10
 
 pageTitle: Search Ranges
 pageTitleIcon: eth

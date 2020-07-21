@@ -13,7 +13,8 @@ h1 {
   font-size: 2.5rem;
 }
 
-.product-name {
+.product-name,
+.short-chain-desc {
   font-weight: 600;
   font-style: italic;
 }
@@ -606,6 +607,10 @@ article {
 
 .crypto-icon-other {
   background-image: url("/img/icon-crypto-currency-other-02.svg");
+}
+
+.crypto-icon-dfuse {
+  background-image: url("/img/dfuse-logo.svg");
 }
 
 button.cta {

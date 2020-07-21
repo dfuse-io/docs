@@ -1,6 +1,16 @@
 ---
 weight: 20
-pageTitle: GraphQL
+
+pageTitle: GraphQL Semantics
+pageTitleIcon: dfuse
+
+sideNav: true
+sideNavTitle: Public APIs
+sideNavLinkRename: GraphQL Semantics
+
+BookToC: true
+#release: stable
+
 ---
 
 <!--
@@ -27,7 +37,10 @@ The GraphQL API offers significantly more flexibility than the REST API. The abi
 
 The GraphQL API offers two types of requests, Queries and Subscriptions, allowing you to build flexible real-time applications.
 
-You can find the dfuse GraphQL endpoints within the [reference documentation]({{< ref "/eosio/public-apis/reference/graphql" >}}) pertaining to the platform relevant to you.
+You can find the dfuse GraphQL endpoints within the docs of the chain you are developing on:
+
+* [EOSIO]({{< ref "/eosio/public-apis/reference/graphql-api" >}})
+* [Ethereum]({{< ref "/ethereum/public-apis/reference/graphql-api" >}})
 
 ## Queries
 

@@ -16,8 +16,7 @@ aliases:
   
 ---
 
-In this section, you will find the list of quickstart guides
+In this section, you will find the list of quick start guides
 
-- [Get Your Free API Key]({{< ref "/eosio/public-apis/getting-started/get-your-free-api-key" >}})
 - [Quick Start: JavaScript]({{< ref "/eosio/public-apis/getting-started/quickstart-javascript" >}})
 - [Quick Start: Other Languages]({{< ref "/eosio/public-apis/getting-started/quickstart-other-languages" >}})

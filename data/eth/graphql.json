@@ -399,7 +399,7 @@
   {
     "name": "TransactionConnection",
     "hideChildren": true,
-    "description": "The Connection type for a Transaction. See the [GraphQL core concepts](https://docs.dfuse.io/guides/core-concepts/graphql/)",
+    "description": "The Connection type for a Transaction. See the [GraphQL Semantics](http://docs.dfuse.io/notions/public-apis/graphql-semantics)",
     "fields": [
       {
         "name": "edges",

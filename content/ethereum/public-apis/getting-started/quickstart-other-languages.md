@@ -102,7 +102,7 @@ The code from the examples on this page lives {{< external-link href="https://gi
 
 ## Generate a JWT from your API key
 
-The JWT is a token with a short expiration period, used to communicate with dfuse services. You will have to implement token caching and manage renewal upon expiration. See [Authentication]({{< relref "../concepts/authentication" >}}) for details.
+The JWT is a token with a short expiration period, used to communicate with dfuse services. You will have to implement token caching and manage renewal upon expiration. See [Authentication]({{< relref "/notions/dfuse-cloud/authentication" >}}) for details.
 
 {{< tabs "generate-jwt">}}
   {{< tab title="Go" lang="go">}}
@@ -185,7 +185,7 @@ DFUSE_API_KEY="your dfuse api key here" python main.py
 * [GraphQL API Reference]({{< ref "/ethereum/public-apis/reference/graphql-api" >}})
 * {{< external-link href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMocXVlcnk6ICItdmFsdWU6MCB0eXBlOmNhbGwiLCBsb3dCbG9ja051bTogLTEpIHsKICAgIHVuZG8gY3Vyc29yCiAgICBub2RlIHsgaGFzaCBtYXRjaGluZ0NhbGxzIHsgY2FsbGVyIGFkZHJlc3MgdmFsdWUoZW5jb2Rpbmc6RVRIRVIpIH0gfQogIH0KfQ==" title="GraphiQL, online query editor with completion and docs">}}
 * [Look at one of our tutorials]({{< ref "/ethereum/public-apis/tutorials" >}})
-* [Authentication]({{< relref "../concepts/authentication" >}})
-* [Cursors]({{< relref "../concepts/cursors" >}})
-* [GraphQL]({{< relref "../concepts/graphql" >}})
-* [Search Query Language]({{< relref "../concepts/search-query-language" >}})
+* [Authentication]({{< relref "/notions/dfuse-cloud/authentication" >}})
+* [Understanding Cursors]({{< relref "/notions/public-apis/understanding-cursors" >}})
+* [GraphQL Semantics]({{< relref "/notions/public-apis/graphql-semantics" >}})
+* [Search Query Language]({{< relref "/notions/public-apis/search-query-language" >}})

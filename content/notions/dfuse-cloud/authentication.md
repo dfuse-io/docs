@@ -1,6 +1,16 @@
 ---
-weight: 10
+weight: 20
+
 pageTitle: Authentication
+pageTitleIcon: dfuse
+
+sideNav: true
+sideNavTitle: dfuse Cloud
+sideNavLinkRename: Authentication
+
+BookToC: true
+#release: stable
+
 ---
 
 There are two sorts of keys in the dfuse ecosystem:

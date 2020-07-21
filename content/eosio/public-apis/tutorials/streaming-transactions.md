@@ -19,7 +19,7 @@ aliases:
 
 ## Token Management
 
-Once you have signed up at our self-service API management portal ({{< external-link href="https://app.dfuse.io">}}), you will be able to create long-term API keys. (See [Get Your Free API Key]({{< ref "/eosio/public-apis/getting-started/get-your-free-api-key" >}}) for more info if needed).
+Once you have signed up at our self-service API management portal ({{< external-link href="https://app.dfuse.io">}}), you will be able to create long-term API keys. (See [Getting started with your account and API key]({{< ref "/notions/dfuse-cloud/free-account-and-api-key" >}}) for more info if needed).
 
 Once you have this API key, call the  endpoint {{< external-link href="https://auth.dfuse.io/v1/auth/issue">}} to get a fresh Authentication Token (JWT).
 

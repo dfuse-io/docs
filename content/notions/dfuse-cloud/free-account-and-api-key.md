@@ -1,12 +1,12 @@
 ---
-weight: 20
+weight: 10
 
-pageTitle: Get Your Free API Key
+pageTitle: Getting started with your account and API key
 pageTitleIcon: dfuse
 
 sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: Get Your Free API Key
+sideNavTitle: dfuse Cloud
+sideNavLinkRename: Account & API key
 
 BookToC: true
 #release: stable
@@ -50,7 +50,3 @@ curl https://auth.dfuse.io/v1/auth/issue -s --data-binary '{"api_key":"web_abcde
 }
 {{< /tab >}}
 {{< /tabs >}}
-
-## 4. What's next?
-
-* [Review Authentication Guide]({{< ref "../concepts/authentication" >}})
