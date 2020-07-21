@@ -91,7 +91,7 @@ subscription{
 
 ### Search
 
-Search queries (either streaming through a GraphQL subscription or paginated through a GraphQL query) are constructed using [dfuse Search Query Language](/notions/public-apis/search-query-language).
+Search queries (either streaming through a GraphQL subscription or paginated through a GraphQL query) are constructed using [dfuse Search Query Language](/platform/public-apis/search-query-language).
 See the [Ethereum Search Terms Reference](/ethereum/public-apis/reference/search-terms) for a complete list of accepted terms.
 
 You can try those search queries directly in the {{< external-link href="https://ethq.app" title="https://ethq.app">}} search bar, or in the "query" parameter of the searchTransaction method in GraphiQL.
@@ -179,7 +179,7 @@ data.0:0x0000000000000000000000004a220e6096b25eadb88358cb44068a3248254675
 
 ## Learn more
 
-* [dfuse Notions: GraphQL Semantics](/notions/public-apis/graphql-semantics)
-* [dfuse Notions: Search Query Language](/notions/public-apis/search-query-language)
+* [dfuse Platform: GraphQL Semantics](/platform/public-apis/graphql-semantics)
+* [dfuse Platform: Search Query Language](/platform/public-apis/search-query-language)
 * [Reference: Ethereum GraphQL API](/ethereum/public-apis/reference/graphql-api)
 * [Reference: Ethereum Search Terms](/ethereum/public-apis/reference/search-terms)

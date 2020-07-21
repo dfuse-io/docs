@@ -27,7 +27,7 @@ single keyword. For example: `term:value` or `term:"value"`.
 
 **dfuse Search** on all chains are aware of the chain's particular
 consensus rules (like longest chain), and allow you to navigate any
-forks, through the use of [cursors]({{< relref "/notions/public-apis/understanding-cursors" >}}).
+forks, through the use of [cursors]({{< relref "/platform/public-apis/understanding-cursors" >}}).
 
 ## Supported search terms
 

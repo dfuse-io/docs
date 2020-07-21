@@ -17,4 +17,4 @@ aliases:
 
 ---
 
-{{< partial "home-notions" >}}
+{{< partial "home-dfuse-platform" >}}

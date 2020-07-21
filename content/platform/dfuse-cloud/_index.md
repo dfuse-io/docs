@@ -12,7 +12,7 @@ BookToC: false
 #release: stable
 
 menu:
-  notions:
+  platform:
     name: dfuse Cloud
     identifier: dfuse-cloud
     weight: 20

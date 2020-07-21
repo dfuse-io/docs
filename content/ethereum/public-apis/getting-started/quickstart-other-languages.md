@@ -102,7 +102,7 @@ The code from the examples on this page lives {{< external-link href="https://gi
 
 ## Generate a JWT from your API key
 
-The JWT is a token with a short expiration period, used to communicate with dfuse services. You will have to implement token caching and manage renewal upon expiration. See [Authentication]({{< relref "/notions/dfuse-cloud/authentication" >}}) for details.
+The JWT is a token with a short expiration period, used to communicate with dfuse services. You will have to implement token caching and manage renewal upon expiration. See [Authentication]({{< relref "/platform/dfuse-cloud/authentication" >}}) for details.
 
 {{< tabs "generate-jwt">}}
   {{< tab title="Go" lang="go">}}

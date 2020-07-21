@@ -42,7 +42,7 @@
           "reqType": true,
           "name": "TransactionEdge"
         },
-        "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\nSee the [Search Query Language Notions](/notions/public-apis/search-query-language) page for more info.\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization.  The `undo` field is always `false` in backward searches.",
+        "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\nSee the [Search Query Language](/platform/public-apis/search-query-language) page for more info.\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization.  The `undo` field is always `false` in backward searches.",
         "arguments": [
           {
             "name": "indexName",
@@ -312,7 +312,7 @@
           "reqType": true,
           "name": "TransactionConnection"
         },
-        "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\nSee the [Search Query Language Notions](/notions/public-apis/search-query-language) page for more info.\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization.  The `undo` field is always `false` in backward searches.",
+        "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\nSee the [Search Query Language](/platform/public-apis/search-query-language) page for more info.\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization.  The `undo` field is always `false` in backward searches.",
         "arguments": [
           {
             "name": "indexName",
@@ -328,7 +328,7 @@
               "reqType": true,
               "name": "String"
             },
-            "description": "See the [Search Query Language Notions](/notions/public-apis/search-query-language) page for more info."
+            "description": "See the [Search Query Language](/platform/public-apis/search-query-language) page for more info."
           },
           {
             "name": "lowBlockNum",
@@ -349,7 +349,7 @@
             "type": {
               "name": "String"
             },
-            "description": "See the [Understanding Cursors](/notions/public-apis/understanding-cursors) page for more info."
+            "description": "See the [Understanding Cursors](/platform/public-apis/understanding-cursors) page for more info."
           },
           {
             "name": "limit",
@@ -399,7 +399,7 @@
   {
     "name": "TransactionConnection",
     "hideChildren": true,
-    "description": "The Connection type for a Transaction. See the [GraphQL Semantics](/notions/public-apis/graphql-semantics) page for more info.",
+    "description": "The Connection type for a Transaction. See the [GraphQL Semantics](/platform/public-apis/graphql-semantics) page for more info.",
     "fields": [
       {
         "name": "edges",

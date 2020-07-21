@@ -12,7 +12,7 @@ BookToC: false
 #release: stable
 
 menu:
-  notions:
+  platform:
     name: Public APIs
     identifier: public-apis
     weight: 10
