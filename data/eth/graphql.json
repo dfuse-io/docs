@@ -42,7 +42,7 @@
           "reqType": true,
           "name": "TransactionEdge"
         },
-        "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\nSee: https://docs.dfuse.io/guides/core-concepts/search-query-language\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization.  The `undo` field is always `false` in backward searches.",
+        "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\nSee: https://docs.dfuse.io/notions/public-apis/search-query-language\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization.  The `undo` field is always `false` in backward searches.",
         "arguments": [
           {
             "name": "indexName",
@@ -312,7 +312,7 @@
           "reqType": true,
           "name": "TransactionConnection"
         },
-        "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\nSee: https://docs.dfuse.io/guides/core-concepts/search-query-language\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization.  The `undo` field is always `false` in backward searches.",
+        "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\nSee: https://docs.dfuse.io/notions/public-apis/search-query-language\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization.  The `undo` field is always `false` in backward searches.",
         "arguments": [
           {
             "name": "indexName",
@@ -328,7 +328,7 @@
               "reqType": true,
               "name": "String"
             },
-            "description": "See https://docs.dfuse.io/guides/core-concepts/search-query-language"
+            "description": "See https://docs.dfuse.io/notions/public-apis/search-query-language"
           },
           {
             "name": "lowBlockNum",
@@ -349,7 +349,7 @@
             "type": {
               "name": "String"
             },
-            "description": "See https://docs.dfuse.io/guides/core-concepts/cursors/"
+            "description": "See https://docs.dfuse.io/notions/public-apis/understanding-cursors"
           },
           {
             "name": "limit",
