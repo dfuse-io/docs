@@ -6,3 +6,4 @@
    <li><a class="{{ if or (in $currentPage.URL .Identifier ) ($currentPage.IsMenuCurrent "eosio" .) }}active{{ end }}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a></li>
     {{ end }}
 </ul>
+

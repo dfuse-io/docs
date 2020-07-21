@@ -697,11 +697,15 @@ button.cta {
 }
 
 @media (max-width: 900px){
+  #main-menu-control + #top-nav{
+    flex-direction: column;
+  }
   #main-menu-control:checked + #top-nav{
     height: 100px !important;
-    min-height: 293px;
+    min-height: 200px;
     overflow-y: auto;
-    flex-direction: column;
+    padding-top:15px;
+    box-shadow: 0px 0px 40px 10px rgba(0,0,0,.5);
   }
 
   #button-main-menu-mobile {
