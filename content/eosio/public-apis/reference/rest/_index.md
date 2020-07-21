@@ -16,4 +16,4 @@ aliases:
 
 ---
 
-See the list of URLs served through the REST interface.
+Take a look at the side navigation for all the available URLs served through the REST interface.

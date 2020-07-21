@@ -18,3 +18,5 @@ menu:
     weight: 10
 
 ---
+
+Take a look at the side navigation for all the available information.

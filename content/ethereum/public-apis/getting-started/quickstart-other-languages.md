@@ -1,5 +1,5 @@
 ---
-weight: 40
+weight: 20
 
 pageTitle: "Quick Start: Other Languages"
 pageTitleIcon: eth

@@ -13,12 +13,13 @@ BookToC: true
 
 ---
 
+<!-- TODO: No more GO example?
 ## Go
 
 | Description                            | Source                                                                                                               |
 | :------------------------------------- | :------------------------------------------------------------------------------------------------------------------: |
 | Example of dfuse GraphQL API over gRPC | {{< external-link title="GitHub" href="https://github.com/dfuse-io/docs/tree/master/samples/go/eth/graphql-grpc" >}} |
-
+-->
 ## Typescript
 
 | Description                                       | Source                                                                                                                                            |

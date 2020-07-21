@@ -1,5 +1,5 @@
 ---
-weight: 30
+weight: 10
 
 pageTitle: "Quick Start: JavaScript"
 pageTitleIcon: eth
@@ -55,7 +55,7 @@ yarn init -y
 ## 2. Adding the Client Library
 
 The simplest way to get started with dfuse and JavaScript/TypeScript development is to use
-the {{< external-link title="dfuse JS client library" href="https://github.com/dfuse-io/client-js) (with TypeScript typings" >}}.
+the {{< external-link title="dfuse JS client library" href="https://github.com/dfuse-io/client-js" >}} with TypeScript typings.
 
 Here are a few of its key features:
 
@@ -116,7 +116,7 @@ With the initial setup completed, you can start coding. The first thing we will 
 the dfuse client using the API key you created in the first step and the network you want to
 connect to.
 
-Valid networks can be found at [Ethereum Networks Endpoints]({{< ref "ethereum/public-apis/reference/ethereum-networks-endpoints" >}})
+Valid networks can be found at [Ethereum Networks Endpoints]({{< ref "ethereum/public-apis/reference/ethereum-networks-endpoints" >}}).
 
 {{< tabs "create-client" >}}
 {{< tab title="Node.js" lang="javascript">}}
@@ -155,7 +155,7 @@ Want to inspect the full set of available fields you can retrieve?
 {{< /tab >}}
 {{< /tabs >}}
 
-Next, you create the GraphQL subscription to stream transfers as they come. You will use the `searchTransactions` operation, with the `"-value:0 type:call"` query (See the [Search Query Language reference here]({{< ref "/ethereum/public-apis/reference/search-terms" >}})). This basically means, give me all transactions containing one or more
+Next, you create the GraphQL subscription to stream transfers as they come. You will use the `searchTransactions` operation, with the `"-value:0 type:call"` query (see [Search Query Language &mdash; Search Terms for Ethereum]({{< ref "/ethereum/public-apis/reference/search-terms" >}})). This basically means, give me all transactions containing one or more
 EVM calls for which the `value` field (amount of Ether the call is transferring) is **not** `0`.
 
 You can combine the dfuse client instance we created in step 3 with the GraphQL document we defined above in

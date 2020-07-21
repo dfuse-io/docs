@@ -18,9 +18,9 @@ aliases:
 
 In this section, you will find the list of tutorials currently written, allowing you to easily map your use case to one or more dfuse concepts under a concrete code repository.
 
-- [Stream the latest transfers]({{< ref "/ethereum/public-apis/tutorials/stream" >}}) (<small>Keywords: dfuse Stream, JavaScript, React, Browser</small>)
-- [Search with query language]({{< ref "/ethereum/public-apis/tutorials/search" >}}) (<small>Keywords: dfuse Search, JavaScript, React, Browser</small>)
-- [Track transaction in real-time]({{< ref "/ethereum/public-apis/tutorials/lifecycle" >}}) (<small>Keywords: dfuse Lifecycle, JavaScript, React, Browser</small>)
+- [Searching Ethereum Transactions]({{< ref "/ethereum/public-apis/tutorials/searching-transactions" >}}) (<small>Keywords: dfuse Search, JavaScript, React, Browser</small>)
+- [Streaming Ethereum Transactions]({{< ref "/ethereum/public-apis/tutorials/streaming-transactions" >}}) (<small>Keywords: dfuse Stream, JavaScript, React, Browser</small>)
+- [Tracking Transactions with Lifecycle]({{< ref "/ethereum/public-apis/tutorials/tracking-transactions-lifecycle" >}}) (<small>Keywords: dfuse Lifecycle, JavaScript, React, Browser</small>)
 
 <!--
     List of potential other tutorials we had:

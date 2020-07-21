@@ -1,5 +1,5 @@
 ---
-weight: 30
+weight: 10
 
 #TODO: Find a better title and rename file if needed
 pageTitle: Searching Transactions
@@ -14,6 +14,7 @@ release: beta
 
 aliases:
   - /guides/ethereum/tutorials/search/
+  - /ethereum/public-apis/tutorials/search/
 
 ---
 
@@ -96,11 +97,11 @@ We are using a long query to request all the available data.
 
 With GraphQL, you can choose to request as little or as much data as needed. Therefore you can shrink down the query to only 6 lines and only request the `transactionHash` if you prefer.
 
-See [Getting Started with GraphQL](../concepts/graphql/) for more information.
+See [Getting Started with GraphQL](/notions/public-apis/graphql-semantics/) for more information.
 {{< /alert >}}
 
 {{< alert type="tip" >}}
-See [Query Langauge](../concepts/search-query-language/) to learn more about what you can search.
+See [Search Query Langauge](/notions/public-apis/search-query-language/) to learn more about what you can search.
 {{< /alert >}}
 
 {{< tabs "tracker-query">}}

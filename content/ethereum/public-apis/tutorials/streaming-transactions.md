@@ -14,6 +14,7 @@ release: beta
 
 aliases:
   - /guides/ethereum/tutorials/stream/
+  - /ethereum/public-apis/tutorials/stream/
   
 ---
 
@@ -93,7 +94,7 @@ A GraphQL subscription will continuously stream responses from the API. We will 
 {{< alert type="note" >}}
 With GraphQL, you can choose to request as little or as much data as needed. Therefore you can shrink down the query to only 6 lines and only request the `transactionHash` if you prefer.
 
-See [Getting Started with GraphQL](../concepts/graphql/) for more information.
+See [Getting Started with GraphQL](/notions/public-apis/graphql-semantics/) for more information.
 {{< /alert >}}
 
 We use the following parameters for the GraphQL query:
@@ -107,7 +108,7 @@ We use the following parameters for the GraphQL query:
 The query string `-value:0` indicates that the results must have non-zero ether values within the transactions.
 
 {{< alert type="tip" >}}
-See [Query Langauge](../concepts/search-query-language/) to learn more about what you can search.
+See [Search Query Language](/notions/public-apis/search-query-language/) to learn more about what you can search.
 {{< /alert >}}
 
 {{< tabs "stream-query">}}

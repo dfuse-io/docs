@@ -1,5 +1,5 @@
 ---
-weight: 50
+weight: 30
 
 pageTitle: Explore Ethereum through dfuse
 pageTitleIcon: eth
@@ -13,13 +13,14 @@ BookToC: true
 
 aliases:
   - /guides/ethereum/getting-started/explore-eth-through-dfuse/
+  - /ethereum/public-apis/getting-started/explore-eth-through-dfuse/
 
 ---
 
 ## Try our API from your browser
 
-The best way to get a taste of what you can do with dfuse is to try it out! **GraphiQL** is a tool that allows writing and running GraphQL queries from your browser. It is offered on [every dfuse endpoint](/ethereum/public-apis/reference/endpoints/) with a valid anonymous JWT for your convenience.
-It also offers an access to the [documented GraphQL schema](/ethereum/public-apis/reference/graphql/) on a side pane, as well as a very useful auto-completion feature (simply place your cursor somewhere and press `Ctrl+<Space>` to see completion possibilities).
+The best way to get a taste of what you can do with dfuse is to try it out! **GraphiQL** is a tool that allows writing and running GraphQL queries from your browser. It is offered on [every dfuse endpoint](/ethereum/public-apis/reference/ethereum-networks-endpoints/) with a valid anonymous JWT for your convenience.
+It also offers access to the [documented GraphQL schema](/ethereum/public-apis/reference/graphql-api/) on a side pane, as well as a very useful auto-completion feature (simply place your cursor somewhere and press `Ctrl+<Space>` to see completion possibilities).
 
 [![GraphiQL screenshot](/img/graphiql.png)](https://mainnet.eth.dfuse.io/graphiql)
 
@@ -85,7 +86,7 @@ subscription{
     }
 {{< / highlight >}}
 <div style="text-align: right">
-{{< external-link href="" title="Try it on GraphiQL" class="graphiql" >}}
+{{< external-link href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICAgICBzZWFyY2hUcmFuc2FjdGlvbnMoaW5kZXhOYW1lOiBDQUxMUywgcXVlcnk6ICItdmFsdWU6MCIsIGxvd0Jsb2NrTnVtOiAtMSkgewogICAgICAgIHVuZG8gY3Vyc29yCiAgICAgICAgbm9kZSB7CiAgICAgICAgICBibG9jayB7IG51bWJlciB9CiAgICAgICAgICBtYXRjaGluZ0NhbGxzIHsgZnJvbSB0byB2YWx1ZShlbmNvZGluZzogRVRIRVIpIH0KICAgICAgICB9CiAgICAgIH0KICAgIH0=" title="Try it on GraphiQL" class="graphiql" >}}
 </div>
 
 ### Search
@@ -178,7 +179,7 @@ data.0:0x0000000000000000000000004a220e6096b25eadb88358cb44068a3248254675
 
 ## Learn more
 
-* [Concepts: GraphQL](../concepts/graphql)
-* [Concepts: Search Query Language](../concepts/search-query-language)
-* [Reference: Ethereum GraphQL schema](/ethereum/public-apis/reference/graphql/)
+* [dfuse Notions: GraphQL Semantics](/notions/public-apis/graphql-semantics)
+* [dfuse Notions: Search Query Language](/notions/public-apis/search-query-language)
+* [Reference: Ethereum GraphQL API](/ethereum/public-apis/reference/graphql-api)
 * [Reference: Ethereum Search Terms](/ethereum/public-apis/reference/search-terms)

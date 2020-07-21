@@ -16,4 +16,4 @@ aliases:
 
 ---
 
-## API References
+Take a look at the side navigation for all the available information.

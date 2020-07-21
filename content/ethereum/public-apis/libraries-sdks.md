@@ -13,4 +13,4 @@ BookToC: true
 
 ---
 
-## Coming Soon
+Coming Soon&trade;

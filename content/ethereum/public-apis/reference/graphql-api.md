@@ -18,7 +18,7 @@ aliases:
 
 ## Introduction
 
-All of these can be played with and discovered through the
-[GraphiQL interfaces endpoints](../endpoints).
+All of these can be played with and discovered through the 
+[GraphiQL](/ethereum/public-apis/reference/ethereum-networks-endpoints/) visual editor.
 
 {{< graphql-ref "eth" >}}

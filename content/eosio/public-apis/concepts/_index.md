@@ -16,6 +16,6 @@ aliases:
 
 ---
 
-See side navigation
+Take a look at the side navigation for all the available information.
 
 <!-- Render sub-menu? -->

@@ -30,7 +30,7 @@ While not yet in the supported list, you should be able to use the example under
 All examples uses ES6 syntax with `await/async` keywords, using `import` keywords on `Bundler` and `Browser`
 environments while using the `require` syntax on Node.js environment. However, the library compiles itself to down to ES5 features, so we support older ES5 compliant browsers that are not compatible with ES6 features (IE 11 for example).
 
-We assume the commands below are performed in an empty project folder. To quickly
+We assume the commands below are being performed in an empty project folder. To quickly
 start an empty project:
 {{< tabs "create-project-folder" >}}
 

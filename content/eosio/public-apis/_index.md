@@ -20,4 +20,5 @@ menu:
 ---
 
 <!-- TODO: Build page using sidenav content - auto-generate? -->
-See side navigation.
+
+Take a look at the side navigation for all the available information.
