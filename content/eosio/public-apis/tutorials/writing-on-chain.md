@@ -33,7 +33,7 @@ one on the Kylin Test Network using dfuse `push_transaction` with push guarantee
 activated.
 
 For that, you will need an account on the Kylin Test Network with some tokens in
-it (see https://cryptokylin.io/ `Get Started` tutorial to create an account there and
+it (check {{< external-link href="https://cryptokylin.io/" title="cryptokylin.io" >}} to create an account there and
 get some coins).
 
 We are going to use TypeScript in this example, it should be quite easy to convert

@@ -17,7 +17,7 @@ aliases:
   
 ---
 
-Read more about [dfuse Events](/eosio/public-apis/reference/dfuse-events), are a powerful way to give smart contract developers a
+[dfuse Events](/eosio/public-apis/reference/dfuse-events) are a powerful way to give smart contract developers a
 way to ask ***dfuse Search*** to index their transactions, with arbitrary key/value pairs.
 
 ## Getting Started

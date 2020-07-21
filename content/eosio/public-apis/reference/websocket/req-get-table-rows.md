@@ -285,5 +285,5 @@ const stream = await client.graphql(document, (message) => {
 
 You can use the following links to complete your code conversion to GraphQL:
 
-- If using the JavaScript client library, checkout the [Quick Start: JavaScript - Stream your first results]({{< ref "/eosio/public-apis/getting-started/quickstart-javascript#stream-your-first-results" >}}) section.
+- If using the JavaScript client library, checkout the [Quick Start: JavaScript - Stream your first results]({{< ref "/eosio/public-apis/getting-started/quickstart-javascript#4-stream-your-first-results" >}}) section.
 - For other languages, refers to [Quick Start: Other Languages]({{< ref "/eosio/public-apis/getting-started/quickstart-other-languages" >}}) to learn how to make a GraphQL stream using your language of choice.

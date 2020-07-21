@@ -13,7 +13,7 @@ BookToC: true
 
 ---
 
-# Release Notes
+For the time being, please head over to https://github.com/dfuse-io/dfuse-eosio/releases for the latest release notes.
 
 ***
 

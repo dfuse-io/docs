@@ -62,8 +62,7 @@ Example request:
 Actions on the EOS blockchain are identified by a triplet `receiver`/`account`/`action_name`
 
 - The code on the `receiver` is called with the method `account`/`action_name`
-- An action is considered a "notification" when the `receiver` is different from the `account` field. That receiver may or may not contain instructions to run for that `account`/`action_name` pair.
-{{< external-link title="Read more details here" href="https://developers.eos.io/eosio-cpp/docs/communication-model#section-action-handlers-and-action-apply-context" >}}.
+- An action is considered a "notification" when the `receiver` is different from the `account` field. That receiver may or may not contain instructions to run for that `account`/`action_name` pair ({{< external-link title="more details" href="https://developers.eos.io/welcome/latest/protocol/transactions_protocol/" >}}).
 
 #### Arguments
 
@@ -84,18 +83,18 @@ Actions on the EOS blockchain are identified by a triplet `receiver`/`account`/`
 {{< /method-list-item >}}
 
 {{< method-list-item name="with_dbops" required="false" type="Boolean" >}}
-  Stream contract's database row changes and associated metadata (payer, data, operation) produced by each action (See [DBOp]({{< ref "../types/DBOp" >}})).
+  Stream contract's database row changes and associated metadata (payer, data, operation) produced by each action (see [DBOp]({{< ref "../types/DBOp" >}})).
 {{< /method-list-item >}}
 
 {{< method-list-item name="with_dtrxops" required="false" type="Boolean" >}}
-  Stream the modifications to deferred transactions produced by each action (See [DTrxOp]({{< ref "../types/DTrxOp" >}})).
+  Stream the modifications to deferred transactions produced by each action (see [DTrxOp]({{< ref "../types/DTrxOp" >}})).
 {{< /method-list-item >}}
 
 {{< method-list-item name="with_ramops" required="false" type="Boolean" >}}
-  Stream RAM billing changes and reasons for costs of storage produced by each action (See [RAMOp]({{< ref "../types/RAMOp" >}})).
+  Stream RAM billing changes and reasons for costs of storage produced by each action (see [RAMOp]({{< ref "../types/RAMOp" >}})).
 {{< /method-list-item >}}
 
-{{< method-list-item name="with_tableops" required="false" type="Boolean" >}} Stream table operations produced by each action (See [TableOp]({{< ref "../types/TableOp" >}})).
+{{< method-list-item name="with_tableops" required="false" type="Boolean" >}} Stream table operations produced by each action (see [TableOp]({{< ref "../types/TableOp" >}})).
   {{< alert type="note" >}}
   Do not confuse, the latter being describing a row changes (i.e. for example, an account’s balance) while the former describe the actual creation/deletion of a contract’s table (i.e. the encompassing structure containing the actual rows).
   {{< /alert >}}
@@ -276,5 +275,5 @@ const stream = await client.graphql(document, (message) => {
 
 You can use the following links to complete your code conversion to GraphQL:
 
-- If using the JavaScript client library, checkout the [Quick Start: JavaScript - Stream your first results]({{< ref "/eosio/public-apis/getting-started/quickstart-javascript#stream-your-first-results" >}}) section.
+- If using the JavaScript client library, checkout the [Quick Start: JavaScript - Stream your first results]({{< ref "/eosio/public-apis/getting-started/quickstart-javascript#4-stream-your-first-results" >}}) section.
 - For other languages, refers to [Quick Start: Other Languages]({{< ref "/eosio/public-apis/getting-started/quickstart-other-languages" >}}) to learn how to make a GraphQL stream using your language of choice.

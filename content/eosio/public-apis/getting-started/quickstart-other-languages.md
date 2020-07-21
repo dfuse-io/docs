@@ -16,7 +16,7 @@ aliases:
 
 ---
 
-dfuse exposes its data through a GraphQL-over-gRPC interface. The protobuf files are {{< external-link href="https://github.com/dfuse-io/graphql-over-grpc" title="in this github repository">}}.
+dfuse exposes its data through a GraphQL-over-gRPC interface. The protobuf files are {{< external-link href="https://github.com/dfuse-io/graphql-over-grpc" title="in this GitHub repository">}}.
 
 The code from the examples on this page can be found {{< external-link href="https://github.com/dfuse-io/docs/tree/master/quickstarts" title="in the quickstarts folder of this docs GitHub repository">}}.
 
@@ -189,10 +189,14 @@ DFUSE_API_KEY="server_abcdef12345678900000000000" python main.py eosio
 
 ## 7. What's next?
 
-* [GraphQL API Reference]({{< ref "/eosio/public-apis/reference/graphql-api" >}})
-* {{< external-link href="https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKHF1ZXJ5OiJyZWNlaXZlcjplb3Npby50b2tlbiBhY3Rpb246dHJhbnNmZXIgLWRhdGEucXVhbnRpdHk6JzAuMDAwMSBFT1MnIikgewogICAgdW5kbyBjdXJzb3IKICAgIHRyYWNlIHsgaWQgbWF0Y2hpbmdBY3Rpb25zIHsganNvbiB9IH0KICB9Cn0=" title="GraphiQL, online query editor with completion and docs">}}
-* [Look at one of our tutorials]({{< ref "/eosio/public-apis/tutorials" >}})
-* [Authentication]({{< relref "/notions/dfuse-cloud/authentication" >}})
-* [Understanding Cursors]({{< relref "/notions/public-apis/understanding-cursors" >}})
-* [GraphQL Semantics]({{< relref "/notions/public-apis/graphql-semantics" >}})
-* [Search Query Language]({{< relref "/notions/public-apis/search-query-language" >}})
+### API References
+
+- [GraphQL API]({{< ref "/eosio/public-apis/reference/graphql-api" >}})
+- [REST API]({{< ref "/eosio/public-apis/reference/rest" >}})
+- [WebSocket API]({{< ref "/eosio/public-apis/reference/websocket" >}})
+
+### Other
+- [Try one of our tutorials]({{< ref "/eosio/public-apis/tutorials" >}})
+- {{< external-link title="The `@dfuse/client-js` overview document" href="https://github.com/dfuse-io/client-js/blob/master/README.md#dfuse-javascripttypescript-client-library" >}}
+- {{< external-link title="The `@dfuse/client-js` quick API reference" href="https://github.com/dfuse-io/client-js/blob/master/README.md#api" >}} ({{< external-link title="Full API reference" href="https://dfuse-io.github.io/client-js/" >}})
+- {{< external-link title="GraphiQL, online query editor with completion and docs" href="https://mainnet.eos.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnNGb3J3YXJkKHF1ZXJ5OiJyZWNlaXZlcjplb3Npby50b2tlbiBhY3Rpb246dHJhbnNmZXIgLWRhdGEucXVhbnRpdHk6JzAuMDAwMSBFT1MnIikgewogICAgdW5kbyBjdXJzb3IKICAgIHRyYWNlIHsgaWQgbWF0Y2hpbmdBY3Rpb25zIHsganNvbiB9IH0KICB9Cn0=" >}}

@@ -17,11 +17,11 @@ aliases:
 ---
 
 Search an EOSIO blockchain for transactions based on free-form
-criterias, using the [_dfuse_ Search query language]({{< ref "../search-terms" >}}).
+criterias, using the [dfuse Search Query Language]({{< ref "notions/public-apis/search-query-language" >}}).
 
 {{< alert type="important" >}}
-We **strongly suggest** to use the [GraphQL search API]({{< ref "/eosio/public-apis/reference/graphql-api#query-searchtransactionsforward" >}})
-of this endpoint. Advantages of using the GraphQL version:
+We **strongly suggest** to use the [GraphQL API]({{< ref "/eosio/public-apis/reference/graphql-api#query-searchtransactionsforward" >}})
+of this endpoint. Main advantages of using the GraphQL API of this endpoint over the REST API:
 
 - Streaming capabilities, or to be able to stream new results as they pushed on the chain. Quit or got disconnected? Simply resume at exact point you left off by using a [cursor]({{< relref "/notions/public-apis/understanding-cursors" >}}).
 - Easier data model to extract matching actions from response (i.e. to get only the actions in the transaction that matched the query used).
@@ -72,7 +72,7 @@ suddenly disappear.
 #### Input parameters
 
 {{< method-list-item name="q" type="String" required="true" >}}
-  Search query string. See [Search language specs]({{< ref "../search-terms" >}}) for details.
+  Search query string. See the [dfuse EOSIO Search Terms]({{< ref "../search-terms" >}}) for more details.
 {{< /method-list-item >}}
 
 {{< method-list-item name="start_block" type="Number (uint32)" required="false" >}}

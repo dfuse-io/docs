@@ -100,7 +100,6 @@ const redirectMap = {
     "/#eosio---mainnet",
     "/#eosio---cryptokylin",
     "/#eosio---testnet",
-    "/#worbli---mainnet",
   ],
   "/eosio/public-apis/reference/websocket/introduction": [
     "/#websocket",

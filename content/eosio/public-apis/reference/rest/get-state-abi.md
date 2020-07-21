@@ -40,7 +40,7 @@ The returned ABI is the one that was active at the `block_num` requested.
 #### Input parameters
 
 {{< method-list-item name="q" type="String" required="true" >}}
-  Search query string. See [Search language specs]({{< ref "../search-terms" >}}) for details.
+  Search query string. See the [dfuse EOSIO Search Terms]({{< ref "../search-terms" >}}) for more details.
 {{< /method-list-item >}}
 
 {{< method-list-item name="account" type="[AccountName](/eosio/public-apis/reference/types/accountname)" required="true" >}}

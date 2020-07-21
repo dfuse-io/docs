@@ -180,12 +180,14 @@ DFUSE_API_KEY="your dfuse api key here" python main.py
 {{< /tabs >}}
 
 
-# What to do next?
+## What's next?
 
-* [GraphQL API Reference]({{< ref "/ethereum/public-apis/reference/graphql-api" >}})
-* {{< external-link href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMocXVlcnk6ICItdmFsdWU6MCB0eXBlOmNhbGwiLCBsb3dCbG9ja051bTogLTEpIHsKICAgIHVuZG8gY3Vyc29yCiAgICBub2RlIHsgaGFzaCBtYXRjaGluZ0NhbGxzIHsgY2FsbGVyIGFkZHJlc3MgdmFsdWUoZW5jb2Rpbmc6RVRIRVIpIH0gfQogIH0KfQ==" title="GraphiQL, online query editor with completion and docs">}}
-* [Look at one of our tutorials]({{< ref "/ethereum/public-apis/tutorials" >}})
-* [Authentication]({{< relref "/notions/dfuse-cloud/authentication" >}})
-* [Understanding Cursors]({{< relref "/notions/public-apis/understanding-cursors" >}})
-* [GraphQL Semantics]({{< relref "/notions/public-apis/graphql-semantics" >}})
-* [Search Query Language]({{< relref "/notions/public-apis/search-query-language" >}})
+### API References
+
+- [GraphQL API]({{< ref "/ethereum/public-apis/reference/graphql-api" >}})
+
+### Other
+- [Try one of our tutorials]({{< ref "/ethereum/public-apis/tutorials" >}})
+- {{< external-link title="The `@dfuse/client-js` overview document" href="https://github.com/dfuse-io/client-js/blob/master/README.md#dfuse-javascripttypescript-client-library" >}}
+- {{< external-link title="The `@dfuse/client-js` quick API reference" href="https://github.com/dfuse-io/client-js/blob/master/README.md#api" >}} ({{< external-link title="Full API reference" href="https://dfuse-io.github.io/client-js/" >}})
+- {{< external-link href="https://mainnet.eth.dfuse.io/graphiql/?query=c3Vic2NyaXB0aW9uIHsKICBzZWFyY2hUcmFuc2FjdGlvbnMocXVlcnk6ICItdmFsdWU6MCB0eXBlOmNhbGwiLCBsb3dCbG9ja051bTogLTEpIHsKICAgIHVuZG8gY3Vyc29yCiAgICBub2RlIHsgaGFzaCBtYXRjaGluZ0NhbGxzIHsgY2FsbGVyIGFkZHJlc3MgdmFsdWUoZW5jb2Rpbmc6RVRIRVIpIH0gfQogIH0KfQ==" title="GraphiQL, online query editor with completion and docs" >}}

@@ -16,12 +16,10 @@ aliases:
 
 ---
 
-The WebSocket-based API fuses batch processing and streaming
-capabilities to give you one single endpoint with strong guarantees.
+The WebSocket-based API fuses batch processing and streaming capabilities to give you one single endpoint with strong guarantees.
 
 {{< alert type="note">}}
-For `get_action_traces` and `get_table_rows` streams, we **strongly suggest** new development
-to use [GraphQL Subscription searchTransactionsForward]({{< ref "/eosio/public-apis/reference/graphql-api#subscription-searchTransactionsForward" >}}) instead of `get_action_traces` and `get_table_rows`. Advantages of using the GraphQL API:
+For `get_action_traces` and `get_table_rows` streams, we **strongly suggest** to use the [GraphQL Subscription searchTransactionsForward]({{< ref "/eosio/public-apis/reference/graphql-api#subscription-searchtransactionsforward" >}}) instead of `get_action_traces` and `get_table_rows`. Main advantages of using the GraphQL API:
 
 - Possibility to also perform a paginated query instead of streaming.
 - Possibility to greatly reduce bandwidth transfer & cost (ingress to your server) by specifying the exact trimmed down data payload you need (excellent for browser & mobile usage).
@@ -89,11 +87,11 @@ commands (client or server).
 {{< /method-list-item >}}
 
 {{< method-list-item name="start_block" type="Number" required="false" >}}
-  Block at which you want to start processing. It can be an absolute block number, or a negative value, meaning how many blocks from the current head block on the chain. Ex: `-2500` means 2500 blocks in the past, relative to the head block. 0 means the beginning of the chain. See [Using `start_block`]({{< ref "#using-start-block" >}}) section on usage pattern.
+  Block at which you want to start processing. It can be an absolute block number, or a negative value, meaning how many blocks from the current head block on the chain. Ex: `-2500` means 2500 blocks in the past, relative to the head block. 0 means the beginning of the chain. See the [Using `start_block`]({{< ref "#using-start_block" >}}) section on usage pattern.
 {{< /method-list-item >}}
 
 {{< method-list-item name="with_progress" type="Number" required="false" >}}
-  Frequency of the progress of blocks processing (within the scope of a `req_id`). See [Using `with_progress`]({{< ref "#using-with-progress" >}}) section on usage pattern.
+  Frequency of the progress of blocks processing (within the scope of a `req_id`). See the [Using `with_progress`]({{< ref "#using-with_progress" >}}) section on usage pattern.
 {{< /method-list-item >}}
 
 {{< method-list-item name="irreversible_only" type="Boolean" required="false" >}}

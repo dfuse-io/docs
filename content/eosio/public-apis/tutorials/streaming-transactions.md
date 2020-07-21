@@ -19,9 +19,9 @@ aliases:
 
 ## Token Management
 
-Once you have signed up at our self-service API management portal ({{< external-link href="https://app.dfuse.io">}}), you will be able to create long-term API keys. (See [Getting started with your account and API key]({{< ref "/notions/dfuse-cloud/free-account-and-api-key" >}}) for more info if needed).
+Once you have signed up for a {{< external-link title="dfuse account" href="https://app.dfuse.io" >}}, you will be able to create long-term API keys (see [Getting started with your account and API key]({{< ref "/notions/dfuse-cloud/free-account-and-api-key" >}}) for more info).
 
-Once you have this API key, call the  endpoint {{< external-link href="https://auth.dfuse.io/v1/auth/issue">}} to get a fresh Authentication Token (JWT).
+Once you have this API key, call the endpoint {{< external-link href="https://auth.dfuse.io/v1/auth/issue">}} to get a fresh Authentication Token (JWT).
 
 {{< tabs "authentication" >}}
 {{< tab lang="go" >}}
@@ -36,7 +36,7 @@ defer httpResp.Body.Close()
 {{< /tab >}}
 {{< /tabs >}}
 
-As documented {{< external-link href="https://docs.dfuse.io/#rest-api-post-https-auth-dfuse-io-v1-auth-issue" title="here">}}, the returned payload is composed of a {{< external-link href="https://jwt.io" title="JWT token">}} and the expiration timestamp.
+As documented [here]({{< relref "/notions/dfuse-cloud/authentication#obtaining-a-short-lived-jwt" >}}), the returned payload is composed of a {{< external-link href="https://jwt.io" title="JWT token">}} and the expiration timestamp.
 
 {{< tabs "jwt-token" >}}
 {{< tab lang="json" >}}
@@ -47,9 +47,9 @@ As documented {{< external-link href="https://docs.dfuse.io/#rest-api-post-https
 {{< /tabs >}}
 
 ## Refreshing your JWT token
-Tokens have a life span of 24h (that can vary) and need to be refreshed before they expire. Please see {{< external-link href="https://docs.dfuse.io/#authentication" title="Lifecycle of short-lived JWTs">}}
+Tokens have a life span of 24h (that can vary) and need to be refreshed before they expire. Please see [Lifecycle of short-lived JWTs]({{< relref "/notions/dfuse-cloud/authentication#lifecycle-of-short-lived-jwts" >}}) for more information.
 
-https://auth.dfuse.io/v1/auth/issue endpoint is rated limited. Full documentation can be found here {{< external-link href="https://docs.dfuse.io/#authentication" title="API key types & Rate limiting">}}
+The https://auth.dfuse.io/v1/auth/issue endpoint is rate-limited. Full auth documentation can be found [here]({{< relref "/notions/dfuse-cloud/authentication" >}}).
 
 {{< tabs "jwt-refresh" >}}
 {{< tab lang="go" >}}
@@ -76,7 +76,7 @@ func (jwt JWT) NeedRefresh() bool {
 {{< /tabs >}}
 
 ## Getting the dfuse GraphQL gRPC client
-- Take a look at gRPC {{< external-link href="https://grpc.io/docs/quickstart/go.html" title="Go Quick Start">}}
+- Take a look at gRPC {{< external-link href="https://grpc.io/docs/languages/go/quickstart/" title="Go Quick Start">}}
 - You can retrieve `graphql.proto` running `curl -O http://mainnet.eos.dfuse.io/graphql/graphql.proto`
 - execute `protoc -I pb/ pb/graphql.proto --go_out=plugins=grpc:graphql`
 
@@ -105,10 +105,10 @@ graphqlClient := pbgraphql.NewGraphQLClient(connection)
 {{< /tabs >}}
 
 ## GraphQL Query
-- dfuse GraphQL documentation can be found {{< external-link href="https://docs.dfuse.io/#graphql" title="here">}}
-- If you are not familiar with GraphQL. Take a look at {{< external-link href="https://graphql.org/learn/" title="Introduction to GraphQL">}}
-- To help you construct your query and access our api documentation you can use {{< external-link href="https://mainnet.eos.dfuse.io/graphiql/" title="GraphiQL">}} _"A graphical interactive in-browser GraphQL IDE."_
-https://mainnet.eos.dfuse.io/graphiql/
+- dfuse's GraphQL documentation can be found [here]({{< ref "notions/public-apis/graphql-semantics" >}}).
+- dfuse's GraphQL EOSIO endpoints can be found [here]({{< ref "eosio/public-apis/reference/graphql-api" >}}).
+- If you are not familiar with GraphQL, take a look at {{< external-link href="https://graphql.org/learn/" title="Introduction to GraphQL">}}.
+- To help you construct your query visually and access our api documentation you can use {{< external-link href="https://mainnet.eos.dfuse.io/graphiql/" title="GraphiQL">}} &mdash; a graphical interactive in-browser GraphQL IDE.
 
 ## Executing a Query
 {{< tabs "graphql-query" >}}
@@ -143,14 +143,14 @@ if err != nil {
 
 This query `account:eosio.msig action:propose` will stream transactions containing action of type `propose` action for the account `eosio.msig`
 
-Take a look at {{< external-link href="https://docs.dfuse.io/#search-query-language-specs" title="Search query language specs">}} for complete documentation.
+Take a look at our [Search Query Language specs]({{< ref "notions/public-apis/search-query-language" >}}) for complete documentation.
 
 ## Cursor and Block Numbers Management
 Complete API documentation is accessible through {{< external-link href="https://mainnet.eos.dfuse.io/graphiql/" title="GraphiQL">}}
 - `lowBlockNum` parameter is the lower block number boundary, inclusively. A zero or negative value means a block relative to the head or last irreversible block (depending on if your query contains the `irreversibleOnly` flag).
 - `cursor` parameter is an opaque data piece that you can pass back to continue your search if it ever becomes disconnected. Retrieve it from the cursor field in the responses of this call. It is safe to use the same cursor in BOTH directions (forward and backward).
 
-The cursors are part of each responses stream from the server and should always store on reception. When your process/server is restarted, you should retrieve the last cursor received from the server and use it in your next query. {{< external-link href="https://docs.dfuse.io/#searching-through-graphql" title="See more">}}
+The cursors are part of each response stream from the server and should always be stored on reception. When your process/server is restarted, you should retrieve the last cursor received from the server and use it in your next query (see [Understanding Cursors]({{< ref "notions/public-apis/understanding-cursors" >}}) for more info).
 
 {{< tabs "load-cursor" >}}
 {{< tab lang="go" >}}
@@ -208,8 +208,7 @@ s.db.StoreCursor(cursor)
 ## Navigating Forks
 If the `irreversibleOnly` flag is not passed and you are reading results near the tip of the chain, you will
 encounter information that has not yet been deemed final. As a response you receive may be forked out of the chain,
-you will need to handle navigating these forks.
-See {{< external-link href="https://docs.dfuse.io/#searching-through-graphql" title="Navigating forks">}} in this page.
+you will need to handle navigating these forks. See the [Navigating Forks]({{< ref "notions/public-apis/graphql-semantics#navigating-forks" >}}) section in the [GraphQL Semantics]({{< ref "notions/public-apis/graphql-semantics" >}}) page.
 
 {{< tabs "handling-fork" >}}
 {{< tab lang="go" >}}

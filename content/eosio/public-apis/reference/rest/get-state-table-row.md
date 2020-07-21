@@ -66,7 +66,7 @@ If you requested a json-decoded form but it was impossible to decode a row (ex: 
 {{< /method-list-item >}}
 
 {{< method-list-item name="key_type" type="String" required="false" >}}
-  Defaults to `name`, see [KeyType](#state-table-KeyType) for valid values. How to represent the row keys in the returned table as well as how to interpret the `primary_key` received in string.
+  Defaults to `name`, see [Key Type](#key-type) for valid values. How to represent the row keys in the returned table as well as how to interpret the `primary_key` received in string.
 {{< /method-list-item >}}
 
 {{< method-list-item name="with_block_num" type="Boolean" required="false" >}}
@@ -98,4 +98,4 @@ The key type can be one of the following values:
 
 Returns a [StateTableRowResponse]({{< ref "../types/StateTableRowResponse" >}})
 
-See also [Table Row]({{< ref "../types/StateTableRowResponse" >}}) for schema of the actual row returned.
+See also [Sample Response]({{< ref "../types/StateTableRowResponse#sample-response" >}}) for schema of the actual row returned.

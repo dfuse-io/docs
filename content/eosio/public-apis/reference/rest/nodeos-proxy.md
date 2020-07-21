@@ -16,4 +16,4 @@ aliases:
 
 ---
 
-All {{< external-link title="chain API reference" href="https://developers.eos.io/manuals/eos/latest/nodeos/plugins/chain_api_plugin/api-reference/index" >}} are available as endpoints under `/v1/chain/...`. All these endpoints are reverse-proxies to a well-connected node.
+All {{< external-link title="chain API reference" href="https://developers.eos.io/manuals/eos/latest/nodeos/plugins/chain_api_plugin/api-reference/index" >}} are available as endpoints under `/v1/chain/...`. All endpoints are reverse-proxied to a well-connected node.

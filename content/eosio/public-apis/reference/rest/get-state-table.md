@@ -73,7 +73,7 @@ containing the decoding error.
 {{< /method-list-item >}}
 
 {{< method-list-item name="key_type" type="String" required="false" >}}
-  Defaults to `name`, see [KeyType](#state-table-KeyType) for valid values. How to represent the row keys in the returned table.
+  Defaults to `name`, see [Key Type](#key-type) for valid values. How to represent the row keys in the returned table.
 {{< /method-list-item >}}
 
 {{< method-list-item name="with_block_num" type="Boolean" required="false" >}}

@@ -288,7 +288,7 @@ grpcui -port 6000 mainnet.eos.dfuse.io:443
 
 ## Searching Through GraphQL
 
-The dfuse Search engine exposed through the GraphQL endpoint has a few pecularities that are worthy to note here:
+The dfuse Search engine exposed through the GraphQL endpoint has a few peculiarities that are worthy to note here:
 
 1. The cursor property is chain-wide, and is returned with each result, so you can pick up where you left off at each transaction, and not worry that a block has been partially applied.
 2. It navigates forks in a slightly different way than the WebSocket `get_table_rows`. See [Navigating Forks](#navigating-forks).

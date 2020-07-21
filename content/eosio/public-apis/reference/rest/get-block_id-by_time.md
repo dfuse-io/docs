@@ -16,7 +16,7 @@ aliases:
 
 ---
 
-Get the block ID produced at a given time
+Get the block ID produced at a given time.
 
 ## Usage
 

@@ -19,7 +19,8 @@ aliases:
 ## Introduction
 
 All of these can be played with and discovered through the
-[GraphiQL interfaces endpoints](../networks-endpoints).
+[GraphiQL interfaces endpoints](../eosio-networks-endpoints).
 
+<!-- TODO: Fix the anchor links inside the "parameters" table for all queries -->
 
 {{< graphql-ref "eos" >}}

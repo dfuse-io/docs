@@ -20,7 +20,7 @@ aliases:
 
 #### Properties
 
-{{< method-list-item name="rows" type="Array&lt;[DBRow](/eosio/public-apis/reference/types/DBRow)&gt;" required="true" >}}
+{{< method-list-item name="rows" type="Array&lt;[DBRow](/eosio/public-apis/reference/types/dbrow)&gt;" required="true" >}}
   An array of rows in the table, sorted by their uint64 key.
 {{< /method-list-item >}}
 

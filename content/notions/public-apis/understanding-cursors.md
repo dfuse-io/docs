@@ -44,7 +44,7 @@ Insert JC Diagram
 
 ## Ethereum specifics
 
-## GraphQL Query Pagination
+### GraphQL Query Pagination
 <!--
 
 * In general, we also use cursors in Connection objects in GraphQL
