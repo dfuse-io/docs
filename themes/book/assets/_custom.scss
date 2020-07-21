@@ -13,6 +13,12 @@ h1 {
   font-size: 2.5rem;
 }
 
+.product-name,
+.short-chain-desc {
+  font-weight: 600;
+  font-style: italic;
+}
+
 .sub-section-title-row-h1 {
   margin-bottom:40px;
   margin-top:10px;
@@ -40,9 +46,6 @@ h1 {
 
 h2 {
   font-size: 2rem;
-  &.crypto-title {
-    margin-top:10px;
-  }
 }
 
 h3 {
@@ -150,7 +153,7 @@ ul.supported-on {
 .book-menu nav,
 .book-toc nav,
 .book-page  {
-  padding-top: 180px;
+  padding-top: 100px;
 }
 
 .book-menu nav {
@@ -161,7 +164,7 @@ article {
   min-height: 70vh;
 }
 #tagline {
-  top: 5px;
+  top: 6px;
   position: relative;
   margin-left: 18px;
   font-family: "lato",sans-serif;
@@ -169,6 +172,7 @@ article {
   padding-left: 15px;
   border-left: 1px solid #fff;
   height: min-content;
+  font-size: 14px;
 }
 
 .admonition-note {
@@ -230,7 +234,7 @@ article {
 }
 
 .book-search {
-  margin-left:50px;
+  margin-left:30px;
   margin-top:0px;
   margin-bottom: 0px;
   width: 240px;
@@ -259,7 +263,7 @@ article {
       margin-bottom:4px;
     }
     li a:hover {
-      color:$secondary-1000;
+      color:$color-link-hover;
     }
   }
   input {
@@ -333,9 +337,11 @@ article {
       padding: 0px 15px;
       color: $white;
       position: relative;
+      font-weight: 600;
+      font-size: 15px;
 
       &:hover {
-        color: $secondary-1000;
+        color: $ternary-500;
       }
       &.active:before {
         content: ' ';
@@ -358,10 +364,11 @@ article {
 
 .sub-section {
   ul li a:hover {
-    color: $secondary-1000;
+    color: $color-link-hover;
   }
 
-  .sub-section-title-row {
+  .sub-section-title-row,
+  .sub-section-title-row-noborder {
     .col-12 {
       border-bottom: 1px dashed $ternary-400;
 
@@ -371,8 +378,17 @@ article {
         letter-spacing: 1px;
         border:none!important;
         padding:0px;
-        color:$ternary-600;
+        font-size: 1em;
+        color:$ternary-1000;
       }
+      p {
+        margin:0px;
+      }
+    }
+  }
+  .sub-section-title-row-noborder {
+    .col-12 {
+      border: none !important;
     }
   }
 
@@ -380,8 +396,8 @@ article {
     font-size: .9rem;
     margin-top: 0;
   }
-  .sub-section-title__large {
-    font-size: 1.5rem;
+  .sub-section-title-large {
+    font-size: 1.3rem !important;
   }
 
   .sub-section-content-row {
@@ -490,21 +506,21 @@ article {
 .pb-7 {padding-bottom:5rem;}
 
 .crypto-icon-wrapper {
-  margin-bottom: -30px;
+  margin-bottom: 0px;
   color: #fff;
-  position: absolute;
-  top: -93px;
+  top: 0px;
   box-sizing: border-box;
+  margin-right: 20px;
 }
 
 .crypto-icon-content {
   border: 4px solid $ternary-300;
-  padding: 5px;
+  padding: 3px;
   border-radius: 50%;
   justify-content: center;
   display: block;
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
   box-sizing: border-box;
 
 }
@@ -577,16 +593,24 @@ article {
 
 @media (max-width:575px) {
   .row.sub-section-title-row {
-    margin-left: 52px;
+    //margin-left: 52px;
   }
 }
 
 .crypto-icon-eosio {
-  background-image: url("/img/icon-crypto-currency-eosio-01.svg");
+  background-image: url("/img/icon-crypto-currency-eosio-02.svg");
 }
 
 .crypto-icon-ethereum {
-  background-image: url("/img/icon-crypto-currency-ethereum-01.svg");
+  background-image: url("/img/icon-crypto-currency-ethereum-02.svg");
+}
+
+.crypto-icon-other {
+  background-image: url("/img/icon-crypto-currency-other-02.svg");
+}
+
+.crypto-icon-dfuse {
+  background-image: url("/img/dfuse-logo.svg");
 }
 
 button.cta {
@@ -620,6 +644,10 @@ button.cta {
   &:hover{
     background: $primary-100;
   }
+}
+.next-pages-buttons .btn-outline:hover {
+  color:$ternary-1000;
+  text-decoration: none;
 }
 .next-pages-buttons .btn-previous-page.btn-outline i {
   font-size: 1.4em!important;
@@ -671,7 +699,6 @@ button.cta {
 @media (max-width: 900px){
   #main-menu-control:checked + #top-nav{
     height: 100px !important;
-    height: 100px !important;
     min-height: 293px;
     overflow-y: auto;
     flex-direction: column;
@@ -717,7 +744,7 @@ button.cta {
       width: 100%;
 
       &:hover {
-        background: rgba(255,255,255,.1);
+        //background: rgba(255,255,255,.1);
       }
 
       a {
@@ -728,7 +755,7 @@ button.cta {
         padding: 15px 20px;
 
         &:hover {
-          color: $secondary-1000;
+          color: $primary-1000;
         }
         &.active {
           color:$secondary-1000!important;
@@ -1105,7 +1132,7 @@ aside.book-menu nav {
           a {
             color: $ternary-900;
             &:hover {
-              color:$secondary-1000;
+              color:$color-link;
             }
           }
 

@@ -42,7 +42,7 @@
           "reqType": true,
           "name": "TransactionEdge"
         },
-        "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\nSee: https://docs.dfuse.io/guides/core-concepts/search-query-language\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization.  The `undo` field is always `false` in backward searches.",
+        "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\nSee: https://docs.dfuse.io/notions/public-apis/search-query-language\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization.  The `undo` field is always `false` in backward searches.",
         "arguments": [
           {
             "name": "indexName",
@@ -113,7 +113,7 @@
           "reqType": true,
           "name": "TransactionState"
         },
-        "description": "Subscribe to a transaction to follow its lifecycle (inclusion in a block, confirmations, etc.).\nThe transaction can be in an `unknown` or `pending` state at the time of the request\nSee https://docs.dfuse.io/guides/ethereum/concepts/trx_lifecycle/",
+        "description": "Subscribe to a transaction to follow its lifecycle (inclusion in a block, confirmations, etc.).\nThe transaction can be in an `unknown` or `pending` state at the time of the request\nSee https://docs.dfuse.io/ethereum/public-apis/concepts/trx_lifecycle/",
         "arguments": [
           {
             "name": "hash",
@@ -312,7 +312,7 @@
           "reqType": true,
           "name": "TransactionConnection"
         },
-        "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\nSee: https://docs.dfuse.io/guides/core-concepts/search-query-language\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization.  The `undo` field is always `false` in backward searches.",
+        "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\nSee: https://docs.dfuse.io/notions/public-apis/search-query-language\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization.  The `undo` field is always `false` in backward searches.",
         "arguments": [
           {
             "name": "indexName",
@@ -328,28 +328,28 @@
               "reqType": true,
               "name": "String"
             },
-            "description": "See https://docs.dfuse.io/guides/core-concepts/search-query-language"
+            "description": "See https://docs.dfuse.io/notions/public-apis/search-query-language"
           },
           {
             "name": "lowBlockNum",
             "type": {
               "name": "Int64"
             },
-            "description": "Lower boundary for search. Use -1 for HEAD. See https://docs.dfuse.io/guides/ethereum/concepts/search-ranges/"
+            "description": "Lower boundary for search. Use -1 for HEAD. See https://docs.dfuse.io/ethereum/public-apis/concepts/search-ranges/"
           },
           {
             "name": "highBlockNum",
             "type": {
               "name": "Int64"
             },
-            "description": "Upper boundary for search. Use -1 for HEAD. See https://docs.dfuse.io/guides/ethereum/concepts/search-ranges/"
+            "description": "Upper boundary for search. Use -1 for HEAD. See https://docs.dfuse.io/ethereum/public-apis/concepts/search-ranges/"
           },
           {
             "name": "cursor",
             "type": {
               "name": "String"
             },
-            "description": "See https://docs.dfuse.io/guides/core-concepts/cursors/"
+            "description": "See https://docs.dfuse.io/notions/public-apis/understanding-cursors"
           },
           {
             "name": "limit",
@@ -399,7 +399,7 @@
   {
     "name": "TransactionConnection",
     "hideChildren": true,
-    "description": "The Connection type for a Transaction. See the [GraphQL core concepts](https://docs.dfuse.io/guides/core-concepts/graphql/)",
+    "description": "The Connection type for a Transaction. See the [GraphQL Semantics](http://docs.dfuse.io/notions/public-apis/graphql-semantics)",
     "fields": [
       {
         "name": "edges",

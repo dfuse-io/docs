@@ -4,19 +4,19 @@
       {{if .NextInSection}}
         <a class="btn-previous-page btn-outline" href="{{.NextInSection.Permalink}}">
           <i class="fas fa-chevron-left"></i>
-          {{ if .NextInSection.Title }}
-            {{.NextInSection.Title}}
+          {{ if .NextInSection.Params.SideNavLinkRename }}
+            {{ .NextInSection.Params.SideNavLinkRename }}
           {{ else }}
-            {{.NextInSection.BaseFileName | humanize | title }}
+            {{ .NextInSection.BaseFileName | humanize | title }}
           {{ end }}
         </a>
       {{end}}
       {{if .PrevInSection}}
         <a class="btn-next-page btn-outline" href="{{.PrevInSection.Permalink}}">
-          {{ if .PrevInSection.Title }}
-            {{.PrevInSection.Title}}
+          {{ if .PrevInSection.Params.SideNavLinkRename }}
+            {{ .PrevInSection.Params.SideNavLinkRename }}
           {{ else }}
-            {{.PrevInSection.BaseFileName | humanize | title }}
+            {{ .PrevInSection.BaseFileName | humanize | title }}
           {{ end }}
           <i class="fas fa-chevron-right"></i>
         </a>

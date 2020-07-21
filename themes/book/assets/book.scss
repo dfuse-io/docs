@@ -44,9 +44,11 @@ h5 {
 a {
   text-decoration: none;
   color: $color-link;
-
   &:visited {
-    color: $color-visited-link;
+    color: $color-link;
+  }
+  &:hover {
+    color: $color-link-hover;
   }
 }
 
@@ -76,7 +78,7 @@ aside nav ul {
     display: block;
 
     &:hover {
-      color: #fa4560;
+      color: $color-visited-link;
     }
     &.active {
       font-weight: bold;

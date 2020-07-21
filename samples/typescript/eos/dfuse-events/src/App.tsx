@@ -141,7 +141,7 @@ class App extends React.Component<Props, State> {
   }
 
   renderTransaction() {
-   return null
+    return null
 
   }
 
@@ -239,7 +239,7 @@ class App extends React.Component<Props, State> {
   renderSCCode() {
     const query = this.dataToQuery()
     return (
-      <pre style={ { fontWeight: 500 }}>
+      <pre style={{ fontWeight: 500 }}>
         {`eosio::action(
   std::vector<permission_level>(),
   "dfuseiohooks"_n,

@@ -1,30 +1,39 @@
 {{ $bookSections := where .Site.Sections "Section" .Page.Section }}
 {{ $section := index $bookSections 0 }}
 
-<h2><a href="{{ $section.RelPermalink }}">{{ $section.Title }}</a></h2>
+<h2><a href="{{ $section.RelPermalink }}">
+  {{ if .Page.Params.sideNavTitle }}
+    {{ .Page.Params.sideNavTitle }}
+  {{ else }}
+    {{ $section.Title }}
+  {{ end }}
+</a></h2>
 
 {{ template "book-section-children" (dict "Section" $section "CurrentPage" .Page) }}
 
 {{ define "book-section" }}
   {{ with .Section }}
     <li {{ if .Params.BookFlatSection}} class="book-section-flat" {{ end }}>
-      {{ if .Content }}
+      {{ if .Content }} <!-- if _index.md exists in the dir, treat all other pages
+      in the dir as sub-sections of _index.md (dropdown toggle) -->
 
       <input type="checkbox" id="nav-expand-control-{{ .File }}" class="nav-expand-control"
       {{ if .Page.IsAncestor $.CurrentPage }}checked{{end}} />
       <label class="nav-expandable" for="nav-expand-control-{{ .File }}">
+        <!-- dict Creates a dictionary from a list of key and value pairs. -->
         {{ template "book-page-link" (dict "Page" . "CurrentPage" $.CurrentPage) }}
         <i class="fas fa-chevron-right"></i>
       </label>
 
-      {{ else }}
+      {{ else }}<!-- if _index.md does NOT exist in root of the dir, treat all other
+      pages as main sections (NO dropdown toggle) -->
 
         <input type="checkbox" id="nav-expand-control-{{ .File }}" class="nav-expand-control"
         {{ if .Page.IsAncestor $.CurrentPage }}checked{{end}} />
 
         <label class="nav-expandable" for="nav-expand-control-{{ .File }}">
-          {{ if .Page.Params.MenuTitle }}
-            {{ .Page.Params.MenuTitle }}
+          {{ if .Page.Params.SideNavTitle }}
+            {{ .Page.Params.SideNavTitle }}
           {{ else }}
             {{ partial "docs/variables/title" . }}
           {{ end }}
@@ -57,8 +66,8 @@
 {{ define "book-page-link" }}
   {{ with .Page }}
     <a href="{{ .RelPermalink }}"   class="{{ if eq $.CurrentPage.Permalink .Permalink }}active{{ end }}">
-      {{ if .Page.Params.MenuTitle }}
-          {{ .Page.Params.MenuTitle }}
+      {{ if .Page.Params.SideNavLinkRename }}
+          {{ .Page.Params.SideNavLinkRename }}
       {{ else }}
           {{ partial "docs/variables/title" . | markdownify }}
       {{ end }}

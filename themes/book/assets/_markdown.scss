@@ -42,7 +42,7 @@
 
     &:hover {
       text-decoration: underline;
-      color: #fa4560;
+      color: $color-link-hover;
     }
   }
 
@@ -119,7 +119,12 @@
   ul, ol {
     padding-left: $padding-16 * 2;
   }
-
+  ul {
+    list-style: square;
+    ul {
+      list-style: square;
+    }
+  }
   dl {
     // padding-left: $padding-16;
     dt {

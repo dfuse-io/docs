@@ -8,13 +8,22 @@
     "DfuseLogo": "dfuse-logo.svg",
     "BookToC": 5,
     "BookSections": {
-      "guides": "show",
-      "reference": "show"
+      "admin-guide": "show",
+      "public-apis": "show",
+      "dev-guide": "show",
+      "eosio": "show",
+      "ethereum": "show",
+      "notions": "show"
+    },
+    "PerSectionTagline": {
+      "eosio": "EOSIO Documentation",
+      "ethereum": "Ethereum Documentation",
+      "notions": "Notions",
+      "topLevel": "Documentation"
     },
     "CustomCss": ["css/override.css"],
     "BookRepo": "https://github.com/dfuse-io/docs",
     "BookEditPath": "edit/master/content",
-    "tagline": "API Documentation",
     "SectionPagesMenu": "main"
   },
   "markup": {
@@ -23,5 +32,6 @@
         "unsafe": true
       }
     }
-  }
+  },
+  "ignoreFiles": ["shared/*"]
 }
