@@ -30,7 +30,7 @@ While not yet in the supported list, you should be able to use the example under
 All examples uses ES6 syntax with `await/async` keywords, using `import` keywords on `Bundler` and `Browser`
 environments while using the `require` syntax on Node.js environment. However, the library compiles itself to down to ES5 features, so we support older ES5 compliant browsers that are not compatible with ES6 features (IE 11 for example).
 
-We assume the commands below are performed in an empty project folder. To quickly
+We assume the commands below are being performed in an empty project folder. To quickly
 start an empty project:
 {{< tabs "create-project-folder" >}}
 
@@ -154,7 +154,7 @@ Want to inspect the full set of available fields you can retrieve?
 {{< /tab >}}
 {{< /tabs >}}
 
-Next, you create the GraphQL subscription to stream transfers as they come. You will use the `searchTransactionsForward` operation, with the `"receiver:eosio.token action:transfer -data.quantity:'0.0001 EOS'"` query (see [Search Terms for EOSIO]({{< ref "/eosio/public-apis/reference/search-terms" >}})). This basically means, give me all transactions containing one or more
+Next, you create the GraphQL subscription to stream transfers as they come. You will use the `searchTransactionsForward` operation, with the `"receiver:eosio.token action:transfer -data.quantity:'0.0001 EOS'"` query (see [Search Terms for EOSIO]({{< ref "/eosio/public-apis/reference/search/search-terms" >}})). This basically means, give me all transactions containing one or more
 actions named `transfer` executed by the `eosio.token` account for which the `quantity` field of the action is **not** `0.0001 EOS`.
 
 You can combine the dfuse client instance we created in step 3 with the GraphQL document we defined above in

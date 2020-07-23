@@ -1,7 +1,7 @@
 ---
-weight: 10
+weight: 20
 
-pageTitle: Ethereum Networks Enpoints
+pageTitle: Ethereum Networks Endpoints
 pageTitleIcon: eth
 
 sideNav: true
@@ -23,7 +23,7 @@ NetworkID: `1`
 
 API  | URL
 ------|------
-GraphQL | https://mainnet.eth.dfuse.io/graphql -- See {{< external-link title="GraphiQL" href="https://mainnet.eth.dfuse.io/graphiql/" >}}
+GraphQL | https://mainnet.eth.dfuse.io/graphql -- Test the API with our {{< external-link title="GraphiQL" href="https://mainnet.eth.dfuse.io/graphiql/" >}} visual editor
 
 ## Ropsten (Alpha)
 
@@ -31,4 +31,4 @@ Network ID: `3`
 
 API  | URL
 ------|------
-GraphQL | https://ropsten.eth.dfuse.io/graphql -- See {{< external-link title="GraphiQL" href="https://ropsten.eth.dfuse.io/graphiql/" >}}
+GraphQL | https://ropsten.eth.dfuse.io/graphql -- Test the API with our {{< external-link title="GraphiQL" href="https://ropsten.eth.dfuse.io/graphiql/" >}} visual editor

@@ -13,7 +13,8 @@ BookToC: true
 
 ---
 
-# Release Notes
+Coming Soon&trade;
+
 <!-- TODO: This is a copy of the EOSIO release notes. Need to transform this into Ethereum release notes
 
 

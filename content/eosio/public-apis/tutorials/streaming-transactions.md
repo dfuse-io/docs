@@ -19,7 +19,7 @@ aliases:
 
 ## Token Management
 
-Once you have signed up for a {{< external-link title="dfuse account" href="https://app.dfuse.io" >}}, you will be able to create long-term API keys (see [Getting started with your account and API key]({{< ref "/notions/dfuse-cloud/free-account-and-api-key" >}}) for more info).
+Once you have signed up for a {{< external-link title="dfuse account" href="https://app.dfuse.io" >}}, you will be able to create long-term API keys (see [Getting started with your account and API key]({{< ref "/platform/dfuse-cloud/free-account-and-api-key" >}}) for more info).
 
 Once you have this API key, call the endpoint {{< external-link href="https://auth.dfuse.io/v1/auth/issue">}} to get a fresh Authentication Token (JWT).
 
@@ -36,7 +36,7 @@ defer httpResp.Body.Close()
 {{< /tab >}}
 {{< /tabs >}}
 
-As documented [here]({{< relref "/notions/dfuse-cloud/authentication#obtaining-a-short-lived-jwt" >}}), the returned payload is composed of a {{< external-link href="https://jwt.io" title="JWT token">}} and the expiration timestamp.
+As documented [here]({{< relref "/platform/dfuse-cloud/authentication#obtaining-a-short-lived-jwt" >}}), the returned payload is composed of a {{< external-link href="https://jwt.io" title="JWT token">}} and the expiration timestamp.
 
 {{< tabs "jwt-token" >}}
 {{< tab lang="json" >}}
@@ -47,9 +47,9 @@ As documented [here]({{< relref "/notions/dfuse-cloud/authentication#obtaining-a
 {{< /tabs >}}
 
 ## Refreshing your JWT token
-Tokens have a life span of 24h (that can vary) and need to be refreshed before they expire. Please see [Lifecycle of short-lived JWTs]({{< relref "/notions/dfuse-cloud/authentication#lifecycle-of-short-lived-jwts" >}}) for more information.
+Tokens have a life span of 24h (that can vary) and need to be refreshed before they expire. Please see [Lifecycle of short-lived JWTs]({{< relref "/platform/dfuse-cloud/authentication#lifecycle-of-short-lived-jwts" >}}) for more information.
 
-The https://auth.dfuse.io/v1/auth/issue endpoint is rate-limited. Full auth documentation can be found [here]({{< relref "/notions/dfuse-cloud/authentication" >}}).
+The https://auth.dfuse.io/v1/auth/issue endpoint is rate-limited. Full auth documentation can be found [here]({{< relref "/platform/dfuse-cloud/authentication" >}}).
 
 {{< tabs "jwt-refresh" >}}
 {{< tab lang="go" >}}
@@ -105,8 +105,8 @@ graphqlClient := pbgraphql.NewGraphQLClient(connection)
 {{< /tabs >}}
 
 ## GraphQL Query
-- dfuse's GraphQL documentation can be found [here]({{< ref "notions/public-apis/graphql-semantics" >}}).
-- dfuse's GraphQL EOSIO endpoints can be found [here]({{< ref "eosio/public-apis/reference/graphql-api" >}}).
+- dfuse's GraphQL documentation can be found [here]({{< ref "/platform/public-apis/graphql-semantics" >}}).
+- dfuse's GraphQL EOSIO endpoints can be found [here]({{< ref "/eosio/public-apis/reference/graphql-api" >}}).
 - If you are not familiar with GraphQL, take a look at {{< external-link href="https://graphql.org/learn/" title="Introduction to GraphQL">}}.
 - To help you construct your query visually and access our api documentation you can use {{< external-link href="https://mainnet.eos.dfuse.io/graphiql/" title="GraphiQL">}} &mdash; a graphical interactive in-browser GraphQL IDE.
 
@@ -143,14 +143,14 @@ if err != nil {
 
 This query `account:eosio.msig action:propose` will stream transactions containing action of type `propose` action for the account `eosio.msig`
 
-Take a look at our [Search Query Language specs]({{< ref "notions/public-apis/search-query-language" >}}) for complete documentation.
+Take a look at our [Search Query Language specs]({{< ref "/platform/public-apis/search-query-language" >}}) for complete documentation.
 
 ## Cursor and Block Numbers Management
 Complete API documentation is accessible through {{< external-link href="https://mainnet.eos.dfuse.io/graphiql/" title="GraphiQL">}}
 - `lowBlockNum` parameter is the lower block number boundary, inclusively. A zero or negative value means a block relative to the head or last irreversible block (depending on if your query contains the `irreversibleOnly` flag).
 - `cursor` parameter is an opaque data piece that you can pass back to continue your search if it ever becomes disconnected. Retrieve it from the cursor field in the responses of this call. It is safe to use the same cursor in BOTH directions (forward and backward).
 
-The cursors are part of each response stream from the server and should always be stored on reception. When your process/server is restarted, you should retrieve the last cursor received from the server and use it in your next query (see [Understanding Cursors]({{< ref "notions/public-apis/understanding-cursors" >}}) for more info).
+The cursors are part of each response stream from the server and should always be stored on reception. When your process/server is restarted, you should retrieve the last cursor received from the server and use it in your next query (see [Understanding Cursors]({{< ref "/platform/public-apis/understanding-cursors" >}}) for more info).
 
 {{< tabs "load-cursor" >}}
 {{< tab lang="go" >}}
@@ -208,7 +208,7 @@ s.db.StoreCursor(cursor)
 ## Navigating Forks
 If the `irreversibleOnly` flag is not passed and you are reading results near the tip of the chain, you will
 encounter information that has not yet been deemed final. As a response you receive may be forked out of the chain,
-you will need to handle navigating these forks. See the [Navigating Forks]({{< ref "notions/public-apis/graphql-semantics#navigating-forks" >}}) section in the [GraphQL Semantics]({{< ref "notions/public-apis/graphql-semantics" >}}) page.
+you will need to handle navigating these forks. See the [Navigating Forks]({{< ref "/platform/public-apis/graphql-semantics#navigating-forks" >}}) section in the [GraphQL Semantics]({{< ref "/platform/public-apis/graphql-semantics" >}}) page.
 
 {{< tabs "handling-fork" >}}
 {{< tab lang="go" >}}

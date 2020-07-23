@@ -1,21 +1,16 @@
 ---
-weight: 20
+weight: 30
 
-pageTitle: Concepts
-pageTitleIcon: eth
+pageTitle: Search
+pageTitleIcon: eosio
 
 sideNav: true
 sideNavTitle: Public APIs
-sideNavLinkRename: Concepts
+sideNavLinkRename: Search
 
 BookToC: false
 #release: stable
 
-aliases:
-  - /guides/ethereum/concepts/
-
 ---
 
 Take a look at the side navigation for all the available information.
-
-<!-- Render sub-menu? -->

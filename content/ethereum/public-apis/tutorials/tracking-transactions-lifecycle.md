@@ -1,8 +1,8 @@
 ---
-weight: 40
+weight: 30
 
 #TODO: Find a better title and rename file if needed
-pageTitle: Tracking a Transaction's Lifecycle
+pageTitle: Tracking Transactions with Lifecycle
 pageTitleIcon: eth
 
 sideNav: true
@@ -14,6 +14,7 @@ release: beta
 
 aliases:
   - /guides/ethereum/tutorials/lifecycle/
+  - /ethereum/public-apis/tutorials/lifecycle/
 
 ---
 
@@ -96,13 +97,13 @@ Initialize the dfuse client using the API key you created in the second step. Le
 To get a real-time feed of transaction state changes, we need to craft a GraphQL subscription query. A GraphQL subscription will continuously stream responses and allows you to pick and choose the fields you want to return in the messages.
 
 {{< alert type="note" >}}
-See [Getting Started with GraphQL](../concepts/graphql/) for more information about GraphQL.
+See [Getting Started with GraphQL](/platform/public-apis/graphql-semantics/) for more information about GraphQL.
 {{< /alert >}}
 
 Our GraphQL query will use the `transactionLifecycle` with a `hash` filter to retrieve the state changes of the transaction.
 
 {{< alert type="tip" >}}
-Do not worry! This query may seem intimidating, but it is broken down using the [Transaction State Tracker Concept](/ethereum/public-apis/concepts/trx_lifecycle/).
+Do not worry! This query may seem intimidating, but it is broken down using the [Lifecycle Concept](/ethereum/public-apis/concepts/trx_lifecycle/).
 {{< /alert >}}
 
 {{< tabs "tracker-query">}}

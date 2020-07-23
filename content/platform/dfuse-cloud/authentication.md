@@ -11,6 +11,10 @@ sideNavLinkRename: Authentication
 BookToC: true
 #release: stable
 
+aliases:
+  - /guides/core-concepts/authentication/
+  - /notions/authentication/
+
 ---
 
 There are two sorts of keys in the dfuse ecosystem:

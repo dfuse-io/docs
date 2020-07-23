@@ -12,9 +12,14 @@ BookToC: false
 #release: stable
 
 menu:
-  notions:
+  platform:
     name: Public APIs
     identifier: public-apis
     weight: 10
 
+aliases:
+  - /notions/public-apis/
+  
 ---
+
+Take a look at the side navigation for all the available information.

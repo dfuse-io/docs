@@ -18,6 +18,6 @@ aliases:
 
 In this section, you will find the list of quick start guides
 
-- [Explore ETH through dfuse]({{< ref "/ethereum/public-apis/getting-started/explore-eth-through-dfuse" >}})
-- [JavaScript Quickstart]({{< ref "/ethereum/public-apis/getting-started/quickstart-javascript" >}})
-- [Other Languages]({{< ref "/ethereum/public-apis/getting-started/quickstart-other-languages" >}})
+- [Quick Start: JavaScript]({{< ref "/ethereum/public-apis/getting-started/quickstart-javascript" >}})
+- [Quick Start: Other Languages]({{< ref "/ethereum/public-apis/getting-started/quickstart-other-languages" >}})
+- [Explore Ethereum through dfuse]({{< ref "/ethereum/public-apis/getting-started/explore-ethereum-through-dfuse" >}})

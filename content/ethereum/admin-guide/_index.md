@@ -19,8 +19,11 @@ menu:
     
 ---
 
+Coming Soon&trade;
+<!--
 The System Admin Guide is destined to those wanting to run ***dfuse for Ethereum*** on their laptop or servers, in development and production environments.
 
 See side navigation for the different sections.
+-->
 
 <!-- TODO: insert a generate menu of subsections -->

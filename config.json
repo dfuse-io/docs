@@ -13,12 +13,12 @@
       "dev-guide": "show",
       "eosio": "show",
       "ethereum": "show",
-      "notions": "show"
+      "platform": "show"
     },
     "PerSectionTagline": {
       "eosio": "EOSIO Documentation",
       "ethereum": "Ethereum Documentation",
-      "notions": "Notions",
+      "platform": "Platform",
       "topLevel": "Documentation"
     },
     "CustomCss": ["css/override.css"],

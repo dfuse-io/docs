@@ -1,4 +1,4 @@
-# EOS Chain Activity Statistics
+# Ethereum Chain Activity Statistics
 
 This repository contains a script to extract chain activity 
 The script searches and tracks the `supply(address, uint64)` and `withdraw(address, uint64)` method calls.

@@ -11,6 +11,10 @@ sideNavLinkRename: Understanding Cursors
 BookToC: true
 #release: stable
 
+aliases:
+  - /guides/core-concepts/cursors/
+  - /notions/understanding-cursors/
+
 ---
 
 ## All About Cursors

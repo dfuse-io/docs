@@ -11,6 +11,10 @@ sideNavLinkRename: Search Query Language
 BookToC: true
 #release: stable
 
+aliases:
+  - /guides/core-concepts/search-query-language/
+  - /notions/search-query-language/
+
 ---
 
 **dfuse Search** uses a simplified query language to reach unparalleled and predictable performances.
@@ -27,12 +31,12 @@ single keyword. For example: `term:value` or `term:"value"`.
 
 **dfuse Search** on all chains are aware of the chain's particular
 consensus rules (like longest chain), and allow you to navigate any
-forks, through the use of [cursors]({{< relref "/notions/public-apis/understanding-cursors" >}}).
+forks, through the use of [cursors]({{< relref "/platform/public-apis/understanding-cursors" >}}).
 
 ## Supported search terms
 
-* [Ethereum search terms reference]({{< ref "/ethereum/public-apis/reference/search-terms" >}}).
-* [EOSIO search terms reference]({{< ref "/eosio/public-apis/reference/search-terms" >}}).
+* [Ethereum search terms reference]({{< ref "/ethereum/public-apis/reference/search/search-terms" >}}).
+* [EOSIO search terms reference]({{< ref "/eosio/public-apis/reference/search/search-terms" >}}).
 
 ## Operators
 
@@ -152,5 +156,5 @@ to you.
 Resolution of block range in regards to search inputs has some differences depending on the chain you are
 using. Refers to the following specific search range pages for the blockchain are working with:
 
-- [EOSIO]({{< ref "/eosio/public-apis/concepts/search-ranges" >}})
-- [Ethereum]({{< ref "/ethereum/public-apis/concepts/search-ranges" >}})
+- [EOSIO]({{< ref "/eosio/public-apis/reference/search/search-ranges" >}})
+- [Ethereum]({{< ref "/ethereum/public-apis/reference/search/search-ranges" >}})

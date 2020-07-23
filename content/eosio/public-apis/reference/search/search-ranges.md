@@ -1,5 +1,5 @@
 ---
-weight: 10
+weight: 30
 
 pageTitle: Search Ranges
 pageTitleIcon: eosio
@@ -13,7 +13,8 @@ BookToC: true
 
 aliases:
   - /guides/eosio/concepts/search-ranges/
-  
+  - /eosio/public-apis/concepts/search-ranges/
+
 ---
 
 This page gives information about the searched range for various combinations of `lowBlockNum` and
