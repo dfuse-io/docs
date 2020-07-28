@@ -17,6 +17,10 @@ menu:
     identifier: public-apis
     weight: 10
 
+aliases:
+  - /guides/ethereum/
+  - /guides/ethereum/concepts/
+  
 ---
 
 <!-- TODO: Build page using sidenav content - auto-generate? -->

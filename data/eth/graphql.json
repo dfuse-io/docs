@@ -113,7 +113,7 @@
           "reqType": true,
           "name": "TransactionState"
         },
-        "description": "Subscribe to a transaction to follow its lifecycle (inclusion in a block, confirmations, etc.).\nThe transaction can be in an `unknown` or `pending` state at the time of the request.\nSee the [Transaction Lifecycle](/ethereum/public-apis/concepts/trx_lifecycle/) page for more info.",
+        "description": "Subscribe to a transaction to follow its lifecycle (inclusion in a block, confirmations, etc.).\nThe transaction can be in an `unknown` or `pending` state at the time of the request.\nSee the [Transaction Lifecycle](/ethereum/public-apis/reference/trx_lifecycle/) page for more info.",
         "arguments": [
           {
             "name": "hash",

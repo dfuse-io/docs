@@ -16,9 +16,9 @@ BookToC: true
 dfuse has a vibrant community to support you and our own engineers never too far to give you a hand:
 
 * [EOSIO Telegram Group](https://t.me/dfuseAPI)
-* [EOSIO Community Forums](https://community.dfuse.io/c/dfuse-for-eosio/)
+* [EOSIO Community Forums](https://community.dfuse.io/c/dfuse-for-eosio/)  (preferred method)
 
-We're also very active on social medias with fresh content for developers on a weekly basis:
+We're also very active on social medias with fresh content for blockchain developers on a weekly basis:
 
 * [Twitter](https://twitter.com/dfuseio)
 * [LinkedIn](https://www.linkedin.com/company/dfuse-io/)

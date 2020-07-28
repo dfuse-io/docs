@@ -19,7 +19,7 @@ aliases:
 
 ## Try our API from your browser
 
-The best way to get a taste of what you can do with dfuse is to try it out! **GraphiQL** is a tool that allows writing and running GraphQL queries from your browser. It is offered on [every dfuse endpoint](/ethereum/public-apis/reference/ethereum-networks-endpoints/) with a valid anonymous JWT for your convenience.
+The best way to get a taste of what you can do with dfuse is to try it out! **GraphiQL** is a tool that allows writing and running GraphQL queries from your browser. It is offered on [every dfuse endpoint](/ethereum/public-apis/reference/available-networks-endpoints/) with a valid anonymous JWT for your convenience.
 It also offers access to the [documented GraphQL schema](/ethereum/public-apis/reference/graphql-api/) on a side pane, as well as a very useful auto-completion feature (simply place your cursor somewhere and press `Ctrl+<Space>` to see completion possibilities).
 
 [![GraphiQL screenshot](/img/graphiql.png)](https://mainnet.eth.dfuse.io/graphiql)

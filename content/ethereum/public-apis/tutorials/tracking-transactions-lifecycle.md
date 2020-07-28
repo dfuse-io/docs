@@ -103,7 +103,7 @@ See [Getting Started with GraphQL](/platform/public-apis/graphql-semantics/) for
 Our GraphQL query will use the `transactionLifecycle` with a `hash` filter to retrieve the state changes of the transaction.
 
 {{< alert type="tip" >}}
-Do not worry! This query may seem intimidating, but it is broken down using the [Lifecycle Concept](/ethereum/public-apis/concepts/trx_lifecycle/).
+Do not worry! This query may seem intimidating, but it is broken down using the [Lifecycle Concept](/ethereum/public-apis/reference/trx_lifecycle/).
 {{< /alert >}}
 
 {{< tabs "tracker-query">}}
