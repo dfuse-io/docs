@@ -12,6 +12,7 @@ BookToC: true
 #release: stable
 
 aliases:
+  - /guides/eosio/concepts/
   - /guides/eosio/concepts/search-ranges/
   - /eosio/public-apis/concepts/search-ranges/
 

@@ -13,6 +13,7 @@ BookToC: false
 
 aliases:
   - /reference/ethereum/
+  - /guides/ethereum/concepts/
 
 ---
 
