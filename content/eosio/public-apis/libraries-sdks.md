@@ -2,7 +2,7 @@
 weight: 60
 
 pageTitle: Libraries & SDKs
-pageTitleIcon: dfuseeosio
+pageTitleIcon: eosio
 
 sideNav: true
 sideNavTitle: Public APIs

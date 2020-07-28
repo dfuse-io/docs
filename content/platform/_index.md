@@ -13,8 +13,6 @@ BookToC: false
 layout: full-width
 
 aliases:
-  - /guides/eosio/concepts/
-  - /guides/ethereum/concepts/
   - /guides/core-concepts/
 
 ---

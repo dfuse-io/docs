@@ -19,7 +19,6 @@ menu:
 
 aliases:
   - /guides/ethereum/
-  - /guides/ethereum/concepts/
   
 ---
 

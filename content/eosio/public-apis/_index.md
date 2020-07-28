@@ -19,7 +19,6 @@ menu:
 
 aliases:
   - /guides/eosio/
-  - /guides/eosio/concepts/
   
 ---
 
