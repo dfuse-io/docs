@@ -1,5 +1,5 @@
 ---
-weight: 20
+weight: 40
 
 pageTitle: Transaction Lifecycle
 pageTitleIcon: eth
@@ -13,6 +13,8 @@ BookToC: false
 
 aliases:
   - /guides/ethereum/concepts/trx_lifecycle/
+  - /ethereum/public-apis/concepts/
+  - /ethereum/public-apis/concepts/trx_lifecycle/
 
 ---
 

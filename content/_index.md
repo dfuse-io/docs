@@ -13,6 +13,7 @@ BookToC: false
 layout: full-width
 
 aliases:
+  - /guides/
   - /reference/
   - /samples/
   - /libraries/

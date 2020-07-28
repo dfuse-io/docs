@@ -1,5 +1,5 @@
 ---
-weight: 70
+weight: 60
 
 pageTitle: Samples
 pageTitleIcon: eth

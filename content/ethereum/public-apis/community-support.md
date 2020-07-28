@@ -1,5 +1,5 @@
 ---
-weight: 90
+weight: 80
 
 pageTitle: Community & Support
 pageTitleIcon: eth
@@ -16,9 +16,9 @@ BookToC: true
 dfuse has a vibrant community to support you and our own engineers never too far to give you a hand:
 
 * [Ethereum Telegram Group](https://t.me/dfuseETH)
-* [Ethereum Community Forums](https://community.dfuse.io/c/dfuse-for-ethereum/)
+* [Ethereum Community Forums](https://community.dfuse.io/c/dfuse-for-ethereum/) (preferred method)
 
-We're also very active on social medias with fresh content for developers on a weekly basis:
+We're also very active on social medias with fresh content for blockchain developers on a weekly basis:
 
 * [Twitter](https://twitter.com/dfuseio)
 * [LinkedIn](https://www.linkedin.com/company/dfuse-io/)

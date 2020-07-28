@@ -1,5 +1,5 @@
 ---
-weight: 60
+weight: 50
 
 pageTitle: Libraries & SDKs
 pageTitleIcon: eth

@@ -19,7 +19,7 @@ aliases:
 ## Introduction
 
 All of these can be played with and discovered through the 
-[GraphiQL](/eosio/public-apis/reference/eosio-networks-endpoints/) visual editor. For general information about our GraphQL implementation,
+[GraphiQL](/eosio/public-apis/reference/available-networks-endpoints/) visual editor. For general information about our GraphQL implementation,
 take a look at the [GraphQL Semantics](/platform/public-apis/graphql-semantics/) page in the [dfuse Platform &mdash; Public APIs](/platform/public-apis/)
 section.
 

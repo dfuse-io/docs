@@ -116,7 +116,7 @@ With the initial setup complete, you can start coding. The first thing we will d
 the dfuse client using the API key you created in the first step and the network you want to
 connect to.
 
-Valid networks can be found at [EOSIO Networks Endpoints]({{< ref "eosio/public-apis/reference/eosio-networks-endpoints" >}})
+Valid networks can be found at [Available EOSIO Networks (Endpoints)]({{< ref "eosio/public-apis/reference/available-networks-endpoints" >}})
 {{< tabs "create-client" >}}
 {{< tab lang="javascript" title="Node.js" >}}
 {{< code-section "quickstarts_javascript_node_eos_section1" >}}

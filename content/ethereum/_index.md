@@ -11,9 +11,6 @@ sideNav: false
 BookToC: false
 #release: stable
 layout: full-width
-
-aliases:
-  - /guides/ethereum/
   
 ---
 

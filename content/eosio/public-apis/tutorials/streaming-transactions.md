@@ -82,7 +82,7 @@ func (jwt JWT) NeedRefresh() bool {
 
 
 ## Initiating dfuse Graphql Server Connection
-Sever addresses can be found at [EOSIO Networks Endpoints]({{< ref "eosio/public-apis/reference/eosio-networks-endpoints" >}}).
+Sever addresses can be found at [Available EOSIO Networks (Endpoints)]({{< ref "eosio/public-apis/reference/available-networks-endpoints" >}}).
 
 {{< tabs "grpc-oauth" >}}
 {{< tab lang="go" >}}

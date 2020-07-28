@@ -1,5 +1,5 @@
 ---
-weight: 80
+weight: 70
 
 pageTitle: Resources
 pageTitleIcon: eth

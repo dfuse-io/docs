@@ -6,13 +6,14 @@ pageTitleIcon: eosio
 
 sideNav: true
 sideNavTitle: Public APIs
-sideNavLinkRename: Available EOSIO Networks
+sideNavLinkRename: Available Networks (Endpoints)
 
 BookToC: true
 #release: stable
 
 aliases:
   - /reference/eosio/endpoints/
+  - /eosio/public-apis/reference/eosio-networks-endpoints/
 
 ---
 

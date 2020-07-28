@@ -1,5 +1,5 @@
 ---
-weight: 50
+weight: 40
 
 pageTitle: Deprecations & Release Notes
 pageTitleIcon: eth

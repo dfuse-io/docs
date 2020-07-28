@@ -12,8 +12,8 @@ BookToC: true
 #release: stable
 
 aliases:
-  - /guides/ethereum/getting-started/
-  
+  - /guides/ethereum/getting-started/javascript-quickstart/
+
 ---
 
 In this guide we will show you how to create a basic setup so you can benefit from the dfuse GraphQL API under one of the supported JavaScript environments:
@@ -116,7 +116,7 @@ With the initial setup completed, you can start coding. The first thing we will 
 the dfuse client using the API key you created in the first step and the network you want to
 connect to.
 
-Valid networks can be found at [Ethereum Networks Endpoints]({{< ref "ethereum/public-apis/reference/ethereum-networks-endpoints" >}}).
+Valid networks can be found at [Available Ethereum Networks (Endpoints)]({{< ref "ethereum/public-apis/reference/available-networks-endpoints" >}}).
 
 {{< tabs "create-client" >}}
 {{< tab title="Node.js" lang="javascript">}}
