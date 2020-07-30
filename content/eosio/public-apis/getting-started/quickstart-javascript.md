@@ -13,7 +13,7 @@ BookToC: true
 
 aliases:
   - /guides/eosio/getting-started/javascript-quickstart/
-  
+
 ---
 
 In this guide we will show you how to create a basic setup so that you can benefit from the dfuse GraphQL API under
@@ -116,7 +116,7 @@ With the initial setup complete, you can start coding. The first thing we will d
 the dfuse client using the API key you created in the first step and the network you want to
 connect to.
 
-Valid networks can be found at [Available EOSIO Networks (Endpoints)]({{< ref "eosio/public-apis/reference/available-networks-endpoints" >}})
+Valid networks can be found at [Available EOSIO Networks (Endpoints)]({{< ref "/eosio/public-apis/reference/network-endpoints" >}})
 {{< tabs "create-client" >}}
 {{< tab lang="javascript" title="Node.js" >}}
 {{< code-section "quickstarts_javascript_node_eos_section1" >}}
@@ -154,7 +154,7 @@ Want to inspect the full set of available fields you can retrieve?
 {{< /tab >}}
 {{< /tabs >}}
 
-Next, you create the GraphQL subscription to stream transfers as they come. You will use the `searchTransactionsForward` operation, with the `"receiver:eosio.token action:transfer -data.quantity:'0.0001 EOS'"` query (see [Search Terms for EOSIO]({{< ref "/eosio/public-apis/reference/search/search-terms" >}})). This basically means, give me all transactions containing one or more
+Next, you create the GraphQL subscription to stream transfers as they come. You will use the `searchTransactionsForward` operation, with the `"receiver:eosio.token action:transfer -data.quantity:'0.0001 EOS'"` query (see [Search Terms for EOSIO]({{< ref "/eosio/public-apis/reference/search/terms" >}})). This basically means, give me all transactions containing one or more
 actions named `transfer` executed by the `eosio.token` account for which the `quantity` field of the action is **not** `0.0001 EOS`.
 
 You can combine the dfuse client instance we created in step 3 with the GraphQL document we defined above in

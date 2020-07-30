@@ -6,7 +6,7 @@ pageTitleIcon: eth
 
 sideNav: true
 sideNavTitle: Public APIs
-sideNavLinkRename: Search Terms
+sideNavLinkRename: Terms
 
 BookToC: true
 #release: stable
@@ -14,6 +14,7 @@ BookToC: true
 aliases:
   - /reference/ethereum/search-terms/
   - /ethereum/public-apis/reference/search-terms/
+  - /ethereum/public-apis/reference/search/search-terms/
 
 ---
 

@@ -116,7 +116,7 @@ With the initial setup completed, you can start coding. The first thing we will 
 the dfuse client using the API key you created in the first step and the network you want to
 connect to.
 
-Valid networks can be found at [Available Ethereum Networks (Endpoints)]({{< ref "ethereum/public-apis/reference/available-networks-endpoints" >}}).
+Valid networks can be found at [Available Ethereum Networks (Endpoints)]({{< ref "/ethereum/public-apis/reference/network-endpoints" >}}).
 
 {{< tabs "create-client" >}}
 {{< tab title="Node.js" lang="javascript">}}
@@ -155,7 +155,7 @@ Want to inspect the full set of available fields you can retrieve?
 {{< /tab >}}
 {{< /tabs >}}
 
-Next, you create the GraphQL subscription to stream transfers as they come. You will use the `searchTransactions` operation, with the `"-value:0 type:call"` query (see [Search Query Language &mdash; Search Terms for Ethereum]({{< ref "/ethereum/public-apis/reference/search/search-terms" >}})). This basically means, give me all transactions containing one or more
+Next, you create the GraphQL subscription to stream transfers as they come. You will use the `searchTransactions` operation, with the `"-value:0 type:call"` query (see [Search Query Language &mdash; Search Terms for Ethereum]({{< ref "/ethereum/public-apis/reference/search/terms" >}})). This basically means, give me all transactions containing one or more
 EVM calls for which the `value` field (amount of Ether the call is transferring) is **not** `0`.
 
 You can combine the dfuse client instance we created in step 3 with the GraphQL document we defined above in

@@ -1,19 +1,20 @@
 ---
 weight: 30
 
-pageTitle: Search Ranges
+pageTitle: Search Block Ranges
 pageTitleIcon: eth
 
 sideNav: true
 sideNavTitle: Public APIs
-sideNavLinkRename: Search Ranges
+sideNavLinkRename: Block Ranges
 
 BookToC: true
 #release: stable
 
 aliases:
   - /guides/ethereum/concepts/search-ranges/
-  
+  - /ethereum/public-apis/reference/search/search-ranges/
+
 ---
 
 This page gives information about the searched range for various combinations of `lowBlockNum` and

@@ -25,7 +25,7 @@ aliases:
 {{< /method-list-item >}}
 
 {{< method-list-item name="cursor" type="String" required="false" >}}
-  [Cursor]({{< ref "/platform/public-apis/understanding-cursors" >}}) to pass back to continue your query. Only present when hitting the `limit` value. Will be null when reaching the end of the block span searched.
+  [Cursor]({{< ref "/platform/public-apis/cursors" >}}) to pass back to continue your query. Only present when hitting the `limit` value. Will be null when reaching the end of the block span searched.
 {{< /method-list-item >}}
 
 {{< method-list-item name="forked_head_warning" type="Boolean" required="false" >}}

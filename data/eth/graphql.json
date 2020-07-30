@@ -335,21 +335,21 @@
             "type": {
               "name": "Int64"
             },
-            "description": "Lower boundary for search. Use -1 for HEAD. See the [Search Ranges for Ethereums](/ethereum/public-apis/reference/search/search-ranges/) page for more info."
+            "description": "Lower boundary for search. Use -1 for HEAD. See the [Search Ranges for Ethereums](/ethereum/public-apis/reference/search/block-ranges/) page for more info."
           },
           {
             "name": "highBlockNum",
             "type": {
               "name": "Int64"
             },
-            "description": "Upper boundary for search. Use -1 for HEAD. See the [Search Ranges for Ethereums](/ethereum/public-apis/reference/search/search-ranges/) page for more info."
+            "description": "Upper boundary for search. Use -1 for HEAD. See the [Search Ranges for Ethereums](/ethereum/public-apis/reference/search/block-ranges/) page for more info."
           },
           {
             "name": "cursor",
             "type": {
               "name": "String"
             },
-            "description": "See the [Understanding Cursors](/platform/public-apis/understanding-cursors) page for more info."
+            "description": "See the [Understanding Cursors](/platform/public-apis/cursors) page for more info."
           },
           {
             "name": "limit",
@@ -399,7 +399,7 @@
   {
     "name": "TransactionConnection",
     "hideChildren": true,
-    "description": "The Connection type for a Transaction. See the [GraphQL Semantics](/platform/public-apis/graphql-semantics) page for more info.",
+    "description": "The Connection type for a Transaction. See the [GraphQL Semantics](/platform/public-apis/graphql) page for more info.",
     "fields": [
       {
         "name": "edges",

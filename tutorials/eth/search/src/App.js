@@ -76,7 +76,7 @@ function App() {
       }
     }
   }
-  
+
   ${FlatCallFragment}`;
 // CODE:END:tutorials_eth_search_js_section4
 
@@ -157,7 +157,7 @@ function App() {
         </a>
         <br />
         <a
-          href='https://docs.dfuse.io/reference/ethereum/search-terms/'
+          href='https://docs.dfuse.io/ethereum/public-apis/reference/search/terms/'
           target='_blank'
         >
           Ethereum Search Terms

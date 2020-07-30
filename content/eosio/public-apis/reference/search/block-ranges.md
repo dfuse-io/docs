@@ -1,12 +1,12 @@
 ---
 weight: 30
 
-pageTitle: Search Ranges
+pageTitle: Search Block Ranges
 pageTitleIcon: eosio
 
 sideNav: true
 sideNavTitle: Public APIs
-sideNavLinkRename: Search Ranges
+sideNavLinkRename: Block Ranges
 
 BookToC: true
 #release: stable
@@ -15,6 +15,7 @@ aliases:
   - /guides/eosio/concepts/
   - /guides/eosio/concepts/search-ranges/
   - /eosio/public-apis/concepts/search-ranges/
+  - /eosio/public-apis/reference/search/search-ranges/
 
 ---
 

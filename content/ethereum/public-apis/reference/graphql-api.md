@@ -18,9 +18,9 @@ aliases:
 
 ## Introduction
 
-All of these can be played with and discovered through the 
-[GraphiQL](/ethereum/public-apis/reference/available-networks-endpoints/) visual editor. For general information about our GraphQL implementation,
-take a look at the [GraphQL Semantics](/platform/public-apis/graphql-semantics/) page in the [dfuse Platform &mdash; Public APIs](/platform/public-apis/)
+All of these can be played with and discovered through the
+[GraphiQL]({{< ref "/ethereum/public-apis/reference/network-endpoints" >}}) visual editor. For general information about our GraphQL implementation,
+take a look at the [GraphQL Semantics]({{< ref "/platform/public-apis/graphql" >}}) page in the [dfuse Platform &mdash; Public APIs]({{< ref "/platform/public-apis" >}})
 section.
 
 {{< graphql-ref "eth" >}}

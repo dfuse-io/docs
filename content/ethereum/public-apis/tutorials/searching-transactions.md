@@ -97,7 +97,7 @@ We are using a long query to request all the available data.
 
 With GraphQL, you can choose to request as little or as much data as needed. Therefore you can shrink down the query to only 6 lines and only request the `transactionHash` if you prefer.
 
-See [Getting Started with GraphQL](/platform/public-apis/graphql-semantics/) for more information.
+See [Getting Started with GraphQL]({{< ref "/platform/public-apis/graphql" >}}) for more information.
 {{< /alert >}}
 
 {{< alert type="tip" >}}

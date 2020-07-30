@@ -15,7 +15,7 @@ release: beta
 aliases:
   - /guides/ethereum/tutorials/stream/
   - /ethereum/public-apis/tutorials/stream/
-  
+
 ---
 
 In this guide we will create a simple React application that will use dfuse's javascript client library and the stream API to easily stream all transfers happening on the Ethereum Mainnet. To do that, we will be using {{< external-link href="https://reactjs.org/docs/hooks-intro.html" title="react hooks">}}.
@@ -94,7 +94,7 @@ A GraphQL subscription will continuously stream responses from the API. We will 
 {{< alert type="note" >}}
 With GraphQL, you can choose to request as little or as much data as needed. Therefore you can shrink down the query to only 6 lines and only request the `transactionHash` if you prefer.
 
-See [Getting Started with GraphQL](/platform/public-apis/graphql-semantics/) for more information.
+See [Getting Started with GraphQL]({{< ref "/platform/public-apis/graphql" >}}) for more information.
 {{< /alert >}}
 
 We use the following parameters for the GraphQL query:

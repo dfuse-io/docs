@@ -14,7 +14,7 @@ BookToC: true
 
 aliases:
   - /guides/eosio/tutorials/push-notifications/
-  
+
 ---
 
 ## Token Management
@@ -82,7 +82,7 @@ func (jwt JWT) NeedRefresh() bool {
 
 
 ## Initiating dfuse Graphql Server Connection
-Sever addresses can be found at [Available EOSIO Networks (Endpoints)]({{< ref "eosio/public-apis/reference/available-networks-endpoints" >}}).
+Sever addresses can be found at [Available EOSIO Networks (Endpoints)]({{< ref "/eosio/public-apis/reference/network-endpoints" >}}).
 
 {{< tabs "grpc-oauth" >}}
 {{< tab lang="go" >}}
@@ -105,7 +105,7 @@ graphqlClient := pbgraphql.NewGraphQLClient(connection)
 {{< /tabs >}}
 
 ## GraphQL Query
-- dfuse's GraphQL documentation can be found [here]({{< ref "/platform/public-apis/graphql-semantics" >}}).
+- dfuse's GraphQL documentation can be found [here]({{< ref "/platform/public-apis/graphql" >}}).
 - dfuse's GraphQL EOSIO endpoints can be found [here]({{< ref "/eosio/public-apis/reference/graphql-api" >}}).
 - If you are not familiar with GraphQL, take a look at {{< external-link href="https://graphql.org/learn/" title="Introduction to GraphQL">}}.
 - To help you construct your query visually and access our api documentation you can use {{< external-link href="https://mainnet.eos.dfuse.io/graphiql/" title="GraphiQL">}} &mdash; a graphical interactive in-browser GraphQL IDE.
@@ -150,7 +150,7 @@ Complete API documentation is accessible through {{< external-link href="https:/
 - `lowBlockNum` parameter is the lower block number boundary, inclusively. A zero or negative value means a block relative to the head or last irreversible block (depending on if your query contains the `irreversibleOnly` flag).
 - `cursor` parameter is an opaque data piece that you can pass back to continue your search if it ever becomes disconnected. Retrieve it from the cursor field in the responses of this call. It is safe to use the same cursor in BOTH directions (forward and backward).
 
-The cursors are part of each response stream from the server and should always be stored on reception. When your process/server is restarted, you should retrieve the last cursor received from the server and use it in your next query (see [Understanding Cursors]({{< ref "/platform/public-apis/understanding-cursors" >}}) for more info).
+The cursors are part of each response stream from the server and should always be stored on reception. When your process/server is restarted, you should retrieve the last cursor received from the server and use it in your next query (see [Understanding Cursors]({{< ref "/platform/public-apis/cursors" >}}) for more info).
 
 {{< tabs "load-cursor" >}}
 {{< tab lang="go" >}}
@@ -208,7 +208,7 @@ s.db.StoreCursor(cursor)
 ## Navigating Forks
 If the `irreversibleOnly` flag is not passed and you are reading results near the tip of the chain, you will
 encounter information that has not yet been deemed final. As a response you receive may be forked out of the chain,
-you will need to handle navigating these forks. See the [Navigating Forks]({{< ref "/platform/public-apis/graphql-semantics#navigating-forks" >}}) section in the [GraphQL Semantics]({{< ref "/platform/public-apis/graphql-semantics" >}}) page.
+you will need to handle navigating these forks. See the [Navigating Forks]({{< ref "/platform/public-apis/graphql#navigating-forks" >}}) section in the [GraphQL Semantics]({{< ref "/platform/public-apis/graphql" >}}) page.
 
 {{< tabs "handling-fork" >}}
 {{< tab lang="go" >}}

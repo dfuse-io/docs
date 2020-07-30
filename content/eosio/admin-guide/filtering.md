@@ -95,7 +95,7 @@ would be filtered as:
 receiver == 'eosio.token' && data.from == 'bob'
 {{< /highlight >}}
 
-See https://docs.dfuse.io/eosio/public-apis/reference/search/search-terms/ for all EOSIO terms that can be filtered.
+See the [Search Terms page]({{< ref "/eosio/public-apis/reference/search/terms" >}}) for all EOSIO terms that can be filtered.
 
 ### Examples
 

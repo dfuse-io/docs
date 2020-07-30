@@ -14,6 +14,7 @@ BookToC: true
 aliases:
   - /reference/eosio/endpoints/
   - /eosio/public-apis/reference/eosio-networks-endpoints/
+  - /eosio/public-apis/reference/available-networks-endpoints/
 
 ---
 

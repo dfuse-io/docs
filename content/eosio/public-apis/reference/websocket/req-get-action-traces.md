@@ -249,7 +249,7 @@ subscription ($cursor: String) {
 
 {{< alert type="note" >}}
 You were previously using `start_block` when reconnecting to start back where you left off? GraphQL is
-now using a [Cursor]({{< relref "/platform/public-apis/understanding-cursors" >}}) concept to perform that operation
+now using a [Cursor]({{< relref "/platform/public-apis/cursors" >}}) concept to perform that operation
 in a much more granular and safer manner.
 
 When receiving messages, record the last seen `message.searchTransactionsForward.cursor` value. When

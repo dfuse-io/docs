@@ -14,6 +14,7 @@ BookToC: true
 aliases:
   - /reference/ethereum/endpoints/
   - /ethereum/public-apis/reference/ethereum-networks-endpoints/
+  - /ethereum/public-apis/reference/available-networks-endpoints/
 
 ---
 The _dfuse_ API is available for multiple Ethereum networks. Should you need it on another network, please contact us.
