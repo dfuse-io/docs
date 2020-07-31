@@ -1,23 +1,15 @@
 <div class="book-footer">
   {{ if or .NextInSection .PrevInSection }}
     <div class="next-pages-buttons {{ if not .NextInSection }}justify-end{{ else }}justify-between{{ end }}">
-      {{if .NextInSection}}
+      {{ if .NextInSection }}
         <a class="btn-previous-page btn-outline" href="{{.NextInSection.Permalink}}">
-          <i class="fas fa-chevron-left"></i>
-          {{ if .NextInSection.Params.SideNavLinkRename }}
-            {{ .NextInSection.Params.SideNavLinkRename }}
-          {{ else }}
-            {{ .NextInSection.BaseFileName | humanize | title }}
-          {{ end }}
+            <i class="fas fa-chevron-left"></i>
+          {{ partial "docs/variables/title" .NextInSection }}
         </a>
       {{end}}
       {{if .PrevInSection}}
         <a class="btn-next-page btn-outline" href="{{.PrevInSection.Permalink}}">
-          {{ if .PrevInSection.Params.SideNavLinkRename }}
-            {{ .PrevInSection.Params.SideNavLinkRename }}
-          {{ else }}
-            {{ .PrevInSection.BaseFileName | humanize | title }}
-          {{ end }}
+          {{ partial "docs/variables/title" .PrevInSection }}
           <i class="fas fa-chevron-right"></i>
         </a>
       {{end}}
@@ -40,6 +32,3 @@
     {{ end }}
   </div>
 </div>
-
-
-

@@ -1,21 +1,10 @@
 ---
 weight: 20
-
-#TODO: Find a better title and rename file if needed
-pageTitle: Streaming Transactions
-pageTitleIcon: eth
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: Streaming Transactions
-
-BookToC: true
+title: Streaming Transactions
 release: beta
-
 aliases:
   - /guides/ethereum/tutorials/stream/
   - /ethereum/public-apis/tutorials/stream/
-
 ---
 
 In this guide we will create a simple React application that will use dfuse's javascript client library and the stream API to easily stream all transfers happening on the Ethereum Mainnet. To do that, we will be using {{< external-link href="https://reactjs.org/docs/hooks-intro.html" title="react hooks">}}.

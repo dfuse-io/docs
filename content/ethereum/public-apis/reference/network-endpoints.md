@@ -1,22 +1,13 @@
 ---
 weight: 20
-
-pageTitle: Available Ethereum Networks (Endpoints)
-pageTitleIcon: eth
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: Available Networks (Endpoints)
-
-BookToC: true
-#release: beta
-
+title: Available Ethereum Networks (Endpoints)
+sideNavTitle: Network Endpoints
 aliases:
   - /reference/ethereum/endpoints/
   - /ethereum/public-apis/reference/ethereum-networks-endpoints/
   - /ethereum/public-apis/reference/available-networks-endpoints/
-
 ---
+
 The _dfuse_ API is available for multiple Ethereum networks. Should you need it on another network, please contact us.
 
 ## Mainnet

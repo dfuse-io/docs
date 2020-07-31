@@ -1,16 +1,7 @@
 ---
 weight: 10
-
-pageTitle: Getting started with your account and API key
-pageTitleIcon: dfuse
-
-sideNav: true
-sideNavTitle: dfuse Cloud
-sideNavLinkRename: Account & API key
-
-BookToC: true
-#release: stable
-
+title: Getting started with your account and API key
+sideNavTitle: Account & API key
 aliases:
   - /guides/eosio/getting-started/how-to-work-with-your-free-account/
   - /guides/ethereum/getting-started/how-to-work-with-your-free-account/

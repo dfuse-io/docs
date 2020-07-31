@@ -1,19 +1,8 @@
 ---
 weight: 10
-
-pageTitle: Getting Started
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: Getting Started
-
-BookToC: false
-#release: stable
-
+title: Getting Started
 aliases:
   - /guides/eosio/getting-started/
-  
 ---
 
 In this section, you will find the list of quick start guides

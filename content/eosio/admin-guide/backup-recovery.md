@@ -1,16 +1,6 @@
 ---
 weight: 140
-
-pageTitle: Backup & Recovery
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: System Admin Guide
-sideNavLinkRename: Backup & Recovery
-
-BookToC: false
-#release: stable
-
+title: Backup & Recovery
 ---
 
 {{< alert type="warning" >}}

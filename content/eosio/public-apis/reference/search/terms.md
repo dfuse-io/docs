@@ -1,21 +1,11 @@
 ---
 weight: 10
-
-pageTitle: Search Terms for EOSIO
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: Terms
-
-BookToC: true
-#release: stable
-
+title: Search Terms
+sideNavTitle: Terms
 aliases:
   - /reference/eosio/search-terms/
   - /eosio/public-apis/reference/search-terms/
   - /eosio/public-apis/reference/search/search-terms/
-
 ---
 
 ## Example queries

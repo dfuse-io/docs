@@ -1,16 +1,6 @@
 ---
 weight: 70
-
-pageTitle: Data Stores & Artifacts
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: System Admin Guide
-sideNavLinkRename: Data Stores & Artifacts
-
-BookToC: false
-#release: stable
-
+title: Data Stores & Artifacts
 ---
 
 {{< alert type="note" >}}

@@ -1,20 +1,9 @@
 ---
 weight: 30
-
-pageTitle: Explore Ethereum through dfuse
-pageTitleIcon: eth
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: Explore Ethereum through dfuse
-
-BookToC: true
-#release: stable
-
+title: Explore Ethereum through dfuse
 aliases:
   - /guides/ethereum/getting-started/explore-eth-through-dfuse/
   - /ethereum/public-apis/getting-started/explore-eth-through-dfuse/
-
 ---
 
 ## Try our API from your browser

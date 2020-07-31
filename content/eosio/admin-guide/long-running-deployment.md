@@ -1,16 +1,7 @@
 ---
 weight: 90
-
-pageTitle: Simplest Long-Running Non-HA Deployment
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: System Admin Guide
-sideNavLinkRename: Long-Running Non-HA Deployment
-
-BookToC: false
-#release: stable
-
+title: Simplest Long-Running Non-HA Deployment
+sideNavTitle: Long-Running Non-HA Deployment
 ---
 
 

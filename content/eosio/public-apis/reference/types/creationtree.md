@@ -1,16 +1,6 @@
 ---
 weight: 20
-#same weight for all pages in this section to auto-order them A->Z
-pageTitle: CreationTree
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: CreationTree
-
-BookToC: true
-#release: stable
-
+title: CreationTree
 aliases:
   - /reference/eosio/types/creationtree/
 

@@ -1,19 +1,9 @@
 ---
 weight: 70
-
-pageTitle: Samples
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: Samples
-
-BookToC: true
-#release: stable
-
+title: Samples
 ---
 
-<!-- 
+<!--
 # TODO: I've renamed `main` to `eosio` here.. but that doesn't work with all the menus..
 # We need to review the `config.json`, and how we'll actually build the menu structure
 # to be able to reuse the menus in each protocol section.. can we have sub-trees or a

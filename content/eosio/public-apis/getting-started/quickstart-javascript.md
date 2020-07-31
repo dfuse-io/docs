@@ -1,19 +1,8 @@
 ---
 weight: 30
-
-pageTitle: "Quick Start: JavaScript"
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: "Quick Start: JavaScript"
-
-BookToC: true
-#release: stable
-
+title: "Quick Start: JavaScript"
 aliases:
   - /guides/eosio/getting-started/javascript-quickstart/
-
 ---
 
 In this guide we will show you how to create a basic setup so that you can benefit from the dfuse GraphQL API under

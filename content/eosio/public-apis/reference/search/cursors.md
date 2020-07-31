@@ -1,19 +1,9 @@
 ---
 weight: 20
-
-pageTitle: Search Cursors
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: Cursors
-
-BookToC: 3
-#release: stable
-
+title: Search Cursors
+sideNavTitle: Cursors
 aliases:
   - /eosio/public-apis/reference/search/search-cursors/
-
 ---
 
 ## Search Cursors

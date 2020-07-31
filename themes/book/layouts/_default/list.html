@@ -1,5 +1,5 @@
 {{ define "main" }}
-  {{ $title := .Page.Params.PageTitle }}
+  {{ $title := partial "docs/variables/title" . }}
   {{ $protocol := partial "docs/variables/protocol" . }}
   {{ $release := partial "docs/variables/release" . }}
   <article class="markdown">
@@ -13,6 +13,3 @@
 {{ define "toc" }}
     {{ partial "docs/toc" . }}
 {{ end }}
-
-
-

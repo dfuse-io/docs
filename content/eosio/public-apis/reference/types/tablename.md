@@ -1,16 +1,6 @@
 ---
 weight: 20
-#same weight for all pages in this section to auto-order them A->Z
-pageTitle: TableName
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: TableName
-
-BookToC: true
-#release: stable
-
+title: TableName
 aliases:
   - /reference/eosio/types/tablename/
 

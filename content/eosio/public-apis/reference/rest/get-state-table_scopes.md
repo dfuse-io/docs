@@ -1,19 +1,9 @@
 ---
 weight: 20
-#same weight for all pages in this section to auto-order them A->Z
-pageTitle: GET /v0/state/table_scopes
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: GET /state/table_scopes
-
-BookToC: true
+title: GET /v0/state/table_scopes
 release: stable
-
 aliases:
   - /reference/eosio/rest/state-table-scopes/
-
 ---
 
 Fetches a list of scopes, for a given table on a contract account, at any block height.

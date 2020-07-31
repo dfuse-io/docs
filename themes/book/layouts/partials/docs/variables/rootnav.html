@@ -1,0 +1,11 @@
+{{ $scratch := newScratch }}
+{{ define "recurse-parent" }}
+  {{ .scratch.Set "rootSection" .Page }}
+  {{ if not .Page.Params.SideNavRoot }}{{/* Only put `SideNavRoot` in _index.md section pages */}}
+    {{ if .Page.Parent }}
+      {{ template "recurse-parent" (dict "Page" .Page.Parent "scratch" .scratch) }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ template "recurse-parent" (dict "Page" .Page "scratch" $scratch) }}
+{{ return $scratch.Get "rootSection" }}

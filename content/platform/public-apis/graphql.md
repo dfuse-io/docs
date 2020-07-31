@@ -1,20 +1,9 @@
 ---
 weight: 20
-
-pageTitle: GraphQL Semantics
-pageTitleIcon: dfuse
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: GraphQL Semantics
-
-BookToC: true
-#release: stable
-
+title: GraphQL Semantics
 aliases:
   - /guides/core-concepts/graphql/
   - /notions/graphql-semantics/
-
 ---
 
 <!--

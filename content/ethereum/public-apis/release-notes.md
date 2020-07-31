@@ -1,16 +1,6 @@
 ---
 weight: 40
-
-pageTitle: Deprecations & Release Notes
-pageTitleIcon: eth
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: Deprecations & Release Notes
-
-BookToC: true
-#release: stable
-
+title: Deprecations & Release Notes
 ---
 
 Coming Soon&trade;

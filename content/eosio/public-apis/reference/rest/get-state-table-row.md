@@ -1,19 +1,9 @@
 ---
 weight: 20
-#same weight for all pages in this section to auto-order them A->Z
-pageTitle: GET /v0/state/table/row
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: GET /state/table/row
-
-BookToC: true
+title: GET /v0/state/table/row
 release: stable
-
 aliases:
   - /reference/eosio/rest/state-table-row/
-
 ---
 
 Fetches a single row from the state of any table, at any block height.

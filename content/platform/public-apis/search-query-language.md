@@ -1,20 +1,9 @@
 ---
 weight: 10
-
-pageTitle: Search Query Language
-pageTitleIcon: dfuse
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: Search Query Language
-
-BookToC: true
-#release: stable
-
+title: Search Query Language
 aliases:
   - /guides/core-concepts/search-query-language/
   - /notions/search-query-language/
-
 ---
 
 **dfuse Search** uses a simplified query language to reach unparalleled and predictable performances.

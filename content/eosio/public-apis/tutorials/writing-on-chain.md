@@ -1,20 +1,11 @@
 ---
 weight: 30
-
 #TODO: Find a better title and rename file if needed
-pageTitle: Writing reliably to the chain (push guarantee)
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: Writing On Chain
-
-BookToC: true
-#release: stable
-
+title: Writing reliably to the chain (push guarantee)
+sideNavTitle: Writing Reliably
 aliases:
   - /guides/eosio/tutorials/write-chain/
-  
+
 ---
 
 In this tutorial, we will demonstrate you how to setup `eosjs` to push a

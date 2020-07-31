@@ -1,19 +1,8 @@
 ---
 weight: 40
-
-pageTitle: GraphQL API
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: GraphQL API
-
-BookToC: 3
-#release: stable
-
+title: GraphQL API
 aliases:
   - /reference/eosio/graphql/
-
 ---
 
 ## Introduction

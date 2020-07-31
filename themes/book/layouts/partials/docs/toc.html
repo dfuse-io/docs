@@ -1,6 +1,5 @@
 {{ $tocLevels := default (default 6 .Site.Params.BookToC) .Params.BookToC }}
-{{ if $tocLevels }}{{/* and $tocLevels .Page.TableOfContents */}}
-  BookToC THING
+{{ if not .Params.BookToC }}
   <aside class="book-toc level-{{$tocLevels}} fixed">
     <div class="book-top-repo-button">
       {{ if .IsPage }}

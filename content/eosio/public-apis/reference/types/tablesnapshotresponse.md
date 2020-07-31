@@ -1,16 +1,6 @@
 ---
 weight: 20
-#same weight for all pages in this section to auto-order them A->Z
-pageTitle: TableSnapshotResponse
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: TableSnapshotResponse
-
-BookToC: true
-#release: stable
-
+title: TableSnapshotResponse
 aliases:
   - /reference/eosio/types/tablesnapshotresponse/
 

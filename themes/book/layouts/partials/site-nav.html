@@ -7,7 +7,7 @@
     </div>-->
 
     <div id="header" >
-        {{ if eq $currentPage.URL "/"  }}{{else}}
+        {{ if ne $currentPage.RelPermalink "/"  }}
         <div id="main-menu-mobile-wrapper">
             <div id="button-main-menu-mobile">
                 <label for="main-menu-control">
@@ -16,6 +16,7 @@
             </div>
         </div>
         {{end}}
+
         <div id="logo-main-nav">
             <a href="/">
                 <img src="/img/{{ .Site.Params.DfuseLogo }}" alt="{{ .Site.Title }}">

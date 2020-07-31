@@ -972,8 +972,8 @@ h4 + .method-list-item {
   & > .nav-expandable {
     display: flex;
     align-items: center;
-    color: $ternary-500;
-    text-transform: uppercase;
+/*    color: $ternary-500; */
+/*     text-transform: uppercase; */
     letter-spacing: 2px;
     font-weight: bold;
     font-size: 1rem;
@@ -1119,16 +1119,16 @@ $breakpoint-large: 60em; // 960px
 aside.book-menu nav {
   ul {
     li {
-      padding-top:30px;
+      padding-top: 20px;
       ul {
-        padding-left: 0px;
+        padding-left: 20px;
         padding-top:10px;
         li {
           padding-top:0px;
           padding-bottom:0px;
           .nav-expandable {
-            color: $ternary-500;
-            font-weight: normal;
+/*             color: $ternary-500; */
+            font-weight: 600;
             letter-spacing: 0px;
             font-size: .85rem;
           }

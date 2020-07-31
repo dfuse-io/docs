@@ -1,16 +1,6 @@
 ---
 weight: 20
-#same weight for all pages in this section to auto-order them A->Z
-pageTitle: RAMOp
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: RAMOp
-
-BookToC: true
-#release: stable
-
+title: RAMOp
 aliases:
   - /reference/eosio/types/ramop/
 

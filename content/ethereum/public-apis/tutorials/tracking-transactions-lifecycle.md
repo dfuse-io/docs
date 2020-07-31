@@ -1,21 +1,11 @@
 ---
 weight: 30
-
-#TODO: Find a better title and rename file if needed
-pageTitle: Tracking Transactions with Lifecycle
-pageTitleIcon: eth
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: Tracking Transactions (Lifecycle)
-
-BookToC: true
+title: Tracking Transactions with Lifecycle
+sideNavTitle: Tracking Transactions (Lifecycle)
 release: beta
-
 aliases:
   - /guides/ethereum/tutorials/lifecycle/
   - /ethereum/public-apis/tutorials/lifecycle/
-
 ---
 
 In this guide we will create a simple React application that will use dfuse's Transaction State Tracker API to keep track of the state of an Ethereum transaction in real time. To do that, we will be using {{< external-link href="https://reactjs.org/docs/hooks-intro.html" title="react hooks">}}.

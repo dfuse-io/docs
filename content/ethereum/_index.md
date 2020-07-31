@@ -1,17 +1,7 @@
 ---
 weight: 20
-
-#pageTitle: 
-#pageTitleIcon: eth
-
-sideNav: false
-#sideNavTitle: 
-#sideNavLinkRename: 
-
-BookToC: false
-#release: stable
+title: Ethereum
 layout: full-width
-  
 ---
 
 {{< partial "home-ethereum" >}}

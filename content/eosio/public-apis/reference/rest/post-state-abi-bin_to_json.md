@@ -1,19 +1,9 @@
 ---
 weight: 20
-#same weight for all pages in this section to auto-order them A->Z
-pageTitle: POST /state/abi/bin_to_json
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: POST /state/abi/bin_to_json
-
-BookToC: true
+title: POST /state/abi/bin_to_json
 release: stable
-
 aliases:
   - /reference/eosio/rest/state-abi-decode/
-
 ---
 
 Decode binary rows (in hexadecimal string) for a given table against

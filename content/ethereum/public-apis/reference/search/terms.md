@@ -1,21 +1,11 @@
 ---
 weight: 10
-
-pageTitle: Search Terms for Ethereum
-pageTitleIcon: eth
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: Terms
-
-BookToC: true
-#release: stable
-
+title: Search Terms
+sideNavTitle: Terms
 aliases:
   - /reference/ethereum/search-terms/
   - /ethereum/public-apis/reference/search-terms/
   - /ethereum/public-apis/reference/search/search-terms/
-
 ---
 
 The dfuse Search Query Language resembles the one exposed by Kibana or GitHub for sifting through issues. It is a simple, flat `key1:value1 key2:value2` string, yet allows negation clauses and combinations of `OR` clauses.

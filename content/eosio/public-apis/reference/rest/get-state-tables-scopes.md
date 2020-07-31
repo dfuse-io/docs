@@ -1,19 +1,9 @@
 ---
 weight: 20
-#same weight for all pages in this section to auto-order them A->Z
-pageTitle: GET /v0/state/tables/scopes
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: GET /state/tables/scopes
-
-BookToC: true
+title: GET /v0/state/tables/scopes
 release: stable
-
 aliases:
   - /reference/eosio/rest/state-tables-scopes/
-
 ---
 
 Fetches all rows for a table in a given contract for a group of

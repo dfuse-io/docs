@@ -1,16 +1,6 @@
 ---
 weight: 50
-
-pageTitle: Deprecations & Release Notes
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: Deprecations & Release Notes
-
-BookToC: true
-#release: stable
-
+title: Deprecations & Release Notes
 ---
 
 For the time being, please head over to https://github.com/dfuse-io/dfuse-eosio/releases for the latest release notes.

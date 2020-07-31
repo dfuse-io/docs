@@ -1,16 +1,6 @@
 ---
 weight: 80
-
-pageTitle: Filtering
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: System Admin Guide
-sideNavLinkRename: Filtering
-
-BookToC: false
-#release: stable
-
+title: Filtering
 ---
 
 {{< alert type="note" >}}

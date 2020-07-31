@@ -1,16 +1,6 @@
 ---
 weight: 30
-
-pageTitle: Getting Started
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: System Admin Guide
-sideNavLinkRename: Getting Started
-
-BookToC: false
-#release: stable
-
+title: Getting Started
 ---
 
 {{< alert type="note" >}}

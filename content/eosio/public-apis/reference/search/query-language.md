@@ -1,19 +1,9 @@
 ---
 weight: 40
-
-pageTitle: Search Query Language
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: Query Language
-
-BookToC: 3
-#release: stable
-
+title: Search Query Language
+sideNavTitle: Query Language
 aliases:
 - /eosio/public-apis/reference/search/search-query-language/
-
 ---
 
 ## Search Query Language for EOSIO

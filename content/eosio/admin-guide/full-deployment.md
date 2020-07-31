@@ -1,16 +1,7 @@
 ---
 weight: 100
-
-pageTitle: Large-Scale Highly-Available Deployment
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: System Admin Guide
-sideNavLinkRename: Large-Scale HA Deployment
-
-BookToC: false
-#release: stable
-
+title: Large-Scale Highly-Available Deployment
+sideNavTitle: Large-Scale HA Deployment
 ---
 
 {{< alert type="note" >}}

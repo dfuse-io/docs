@@ -1,21 +1,10 @@
 ---
 weight: 30
-
-pageTitle: Understanding Cursors
-pageTitleIcon: dfuse
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: Understanding Cursors
-
-BookToC: true
-#release: stable
-
+title: Understanding Cursors
 aliases:
   - /guides/core-concepts/cursors/
   - /notions/understanding-cursors/
   - /platform/public-apis/understanding-cursors/
-
 ---
 
 ## All About Cursors

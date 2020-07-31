@@ -1,16 +1,6 @@
 ---
 weight: 60
-
-pageTitle: Libraries & SDKs
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: Libraries & SDKs
-
-BookToC: true
-#release: stable
-
+title: Libraries & SDKs
 ---
 
 ## client-js

@@ -1,19 +1,8 @@
 ---
 weight: 10
-#same weight as "nodeos-proxy.md" to auto-order them A->Z first
-pageTitle: Errors
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: Errors
-
-BookToC: true
-#release: stable
-
+title: Errors
 aliases:
   - /reference/eosio/rest/errors/
-
 ---
 
 ## HTTP Codes

@@ -1,19 +1,9 @@
 ---
 weight: 40
-#same weight for all pages in this section to auto-order them A->Z
-pageTitle: unlisten
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: unlisten
-
-BookToC: true
+title: unlisten
 release: stable
-
 aliases:
   - /reference/eosio/websocket/req-unlisten/
-
 ---
 
 Allows to interrupt a stream.

@@ -1,16 +1,6 @@
 ---
 weight: 20
-#same weight for all pages in this section to auto-order them A->Z
-pageTitle: TransactionLifecycle
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: TransactionLifecycle
-
-BookToC: true
-#release: stable
-
+title: TransactionLifecycle
 aliases:
   - /reference/eosio/types/transactionlifecycle/
 

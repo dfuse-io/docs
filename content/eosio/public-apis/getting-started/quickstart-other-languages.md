@@ -1,19 +1,8 @@
 ---
 weight: 40
-
-pageTitle: "Quick Start: Other Languages"
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: "Quick Start: Other Languages"
-
-BookToC: true
-#release: stable
-
+title: "Quick Start: Other Languages"
 aliases:
   - /guides/eosio/getting-started/other-languages/
-
 ---
 
 dfuse exposes its data through a GraphQL-over-gRPC interface. The protobuf files are {{< external-link href="https://github.com/dfuse-io/graphql-over-grpc" title="in this GitHub repository">}}.

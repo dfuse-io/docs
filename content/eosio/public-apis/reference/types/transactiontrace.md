@@ -1,16 +1,6 @@
 ---
 weight: 20
-#same weight for all pages in this section to auto-order them A->Z
-pageTitle: TransactionTrace
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: TransactionTrace
-
-BookToC: true
-#release: stable
-
+title: TransactionTrace
 aliases:
   - /reference/eosio/types/transactiontrace/
 

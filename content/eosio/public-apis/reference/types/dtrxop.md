@@ -1,16 +1,6 @@
 ---
 weight: 20
-#same weight for all pages in this section to auto-order them A->Z
-pageTitle: DTrxOp
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: DTrxOp
-
-BookToC: true
-#release: stable
-
+title: DTrxOp
 aliases:
   - /reference/eosio/types/dtrxop/
 
@@ -61,4 +51,3 @@ See this {{< external-link title="source code for reference" href="https://githu
 {{< method-list-item name="trx" type="JSON" required="true" >}}
   <!-- TODO: required or not? + Add description -->
 {{< /method-list-item >}}
-	

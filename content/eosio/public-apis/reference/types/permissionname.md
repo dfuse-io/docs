@@ -1,16 +1,6 @@
 ---
 weight: 20
-#same weight for all pages in this section to auto-order them A->Z
-pageTitle: PermissionName
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: PermissionName
-
-BookToC: true
-#release: stable
-
+title: PermissionName
 aliases:
   - /reference/eosio/types/permissionname/
 

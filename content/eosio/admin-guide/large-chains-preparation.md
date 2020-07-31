@@ -1,16 +1,6 @@
 ---
 weight: 110
-
-pageTitle: Large Chains Preparation
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: System Admin Guide
-sideNavLinkRename: Large Chains Preparation
-
-BookToC: false
-#release: stable
-
+title: Large Chains Preparation
 ---
 
 {{< alert type="note" >}}

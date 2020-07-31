@@ -1,16 +1,6 @@
 ---
 weight: 40
-
-pageTitle: Installation
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: System Admin Guide
-sideNavLinkRename: Installation
-
-BookToC: false
-#release: stable
-
+title: Installation
 ---
 
 Installing `dfuse for EOSIO` requires two programs:

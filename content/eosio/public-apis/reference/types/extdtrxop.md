@@ -1,16 +1,6 @@
 ---
 weight: 20
-#same weight for all pages in this section to auto-order them A->Z
-pageTitle: ExtDTrxOp
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: ExtDTrxOp
-
-BookToC: true
-#release: stable
-
+title: ExtDTrxOp
 aliases:
   - /reference/eosio/types/extdtrxop/
 

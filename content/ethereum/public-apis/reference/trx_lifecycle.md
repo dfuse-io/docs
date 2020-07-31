@@ -1,21 +1,10 @@
 ---
 weight: 40
-
-pageTitle: Transaction Lifecycle
-pageTitleIcon: eth
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: Transaction Lifecycle
-
-BookToC: false
-#release: stable
-
+title: Transaction Lifecycle
 aliases:
   - /guides/ethereum/concepts/trx_lifecycle/
   - /ethereum/public-apis/concepts/
   - /ethereum/public-apis/concepts/trx_lifecycle/
-
 ---
 
 ## How Transaction Lifecycle Works

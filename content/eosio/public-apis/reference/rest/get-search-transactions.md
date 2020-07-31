@@ -1,19 +1,8 @@
 ---
 weight: 20
-#same weight for all pages in this section to auto-order them A->Z
-pageTitle: GET /v0/search/transactions
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: GET /search/transactions
-
-BookToC: true
-release: stable
-
+title: GET /v0/search/transactions
 aliases:
   - /reference/eosio/rest/search-transactions/
-
 ---
 
 Search an EOSIO blockchain for transactions based on free-form

@@ -1,16 +1,7 @@
 ---
 weight: 20
-#same weight for all pages in this section to auto-order them A->Z
-pageTitle: GET /v0/state/key_accounts
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: GET /state/key_accounts
-
-BookToC: true
+title: GET /v0/state/key_accounts
 release: stable
-
 aliases:
   - /reference/eosio/rest/state-key-accounts/
 

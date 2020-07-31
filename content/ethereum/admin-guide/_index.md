@@ -1,22 +1,12 @@
 ---
 weight: 20
-
-pageTitle: System Admin Guide Overview
-pageTitleIcon: eth
-
-sideNav: true
-sideNavTitle: System Admin Guide
-#sideNavLinkRename: 
-
-BookToC: false
-#release: stable
-
+title: System Admin Guide
+sideNavRoot: true
 menu:
   ethereum:
     name: System Admin Guide
     identifier: admin-guide
     weight: 20
-    
 ---
 
 Coming Soon&trade;

@@ -1,21 +1,18 @@
 ---
 weight: 20
-
-pageTitle: Authentication
-pageTitleIcon: dfuse
-
-sideNav: true
-sideNavTitle: dfuse Cloud
-sideNavLinkRename: Authentication
-
-BookToC: true
-#release: stable
-
+title: Authentication
 aliases:
   - /guides/core-concepts/authentication/
   - /notions/authentication/
-
 ---
+
+For protocol-specific ways of passing authentication, please refer to each protocol:
+
+* [EOSIO-specific authentication docs]({{< ref "/eosio/public-apis/reference/authentication" >}})
+* [Ethereum-specific authentication docs]({{< ref "/ethereum/public-apis/reference/authentication" >}})
+
+
+## Types of keys
 
 There are two sorts of keys in the dfuse ecosystem:
 
@@ -178,43 +175,6 @@ Each JWT has an expiration date, so it is important to take that into account be
 1. Call _dfuse_ with the valid JWT token.
 
 Each time you get a fresh JWT, it contains the updated expiration time and the token itself.
-
-
-
-## REST Authentication
-
-To authenticate REST requests, specify an `Authorization: Bearer [JWT token]` header in the HTTP request. See {{< external-link title="more details" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization" >}}
-
-{{< tabs "rest-auth" >}}
-{{< tab title="curl" lang="bash" >}}
-curl -H "Authorization: Bearer YOURTOKENHERE" -u https://mainnet.eos.dfuse.io/v0/state/... [ ... ]
-{{< /tab >}}
-{{< tab title="eosc" lang="bash" >}}
-eosc -H "Authorization: Bearer YOURTOKENHERE" -u https://mainnet.eos.dfuse.io [ ... ]
-{{< /tab >}}
-{{< /tabs >}}
-
-Don't forget to replace the token in the above command with a valid JWT, retrieved using [`/v1/auth/issue`](#obtaining-a-short-lived-jwt)
-
-## WebSocket Authentication
-
-This example uses the <https://github.com/hashrocket/ws> command-line WebSocket program. To authenticate with query string, use this code:
-
-{{< tabs "websocket-auth" >}}
-{{< tab lang="shell" >}}
-ws wss://mainnet.eos.dfuse.io/v1/stream?token=YOURTOKENHERE
-{{< /tab >}}
-{{< /tabs >}}
-
-With browser-based WebSocket connections, it is not possible to specify additional headers. In this situation, pass your JWT as the `token` query string parameter.
-
-You can pass the `token` query string parameter to authenticate REST or WebSocket requests.
-
-### The `Origin` Header
-
-The `Origin` header is currently not mandatory on websocket connections.
-
-It will, however, become mandatory at a later date, but only for `web_` keys. It will then need to match the origin that you registered along with your API key identity. In a web environment, this is usually added automatically from the client's browser without requiring extra work.
 
 
 ## GraphQL Authentication

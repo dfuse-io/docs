@@ -1,21 +1,10 @@
 ---
 weight: 10
-
-#TODO: Find a better title and rename file if needed
-pageTitle: Searching Transactions
-pageTitleIcon: eth
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: Searching Transactions
-
-BookToC: true
+title: Searching Transactions
 release: beta
-
 aliases:
   - /guides/ethereum/tutorials/search/
   - /ethereum/public-apis/tutorials/search/
-
 ---
 
 In this guide we will create a simple React application that will use dfuse's Search API and query language to find specific Ethereum transactions. To do that, we will be using {{< external-link href="https://reactjs.org/docs/hooks-intro.html" title="react hooks">}}.

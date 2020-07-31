@@ -1,19 +1,8 @@
 ---
 weight: 10
-
-pageTitle: "Quick Start: JavaScript"
-pageTitleIcon: eth
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: "Quick Start: JavaScript"
-
-BookToC: true
-#release: stable
-
+title: "Quick Start: JavaScript"
 aliases:
   - /guides/ethereum/getting-started/javascript-quickstart/
-
 ---
 
 In this guide we will show you how to create a basic setup so you can benefit from the dfuse GraphQL API under one of the supported JavaScript environments:

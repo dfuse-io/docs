@@ -1,16 +1,6 @@
 ---
-weight: 20
-
-pageTitle: System Requirements
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: System Admin Guide
-sideNavLinkRename: System Requirements
-
-BookToC: false
-#release: stable
-
+weight: 45
+title: System Requirements
 ---
 
 {{< alert type="note" >}}

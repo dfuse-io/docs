@@ -1,19 +1,9 @@
 ---
 weight: 20
-#same weight for all pages in this section to auto-order them A->Z
-pageTitle: GET /v0/state/permission_links
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: GET /state/permission_links
-
-BookToC: true
+title: GET /v0/state/permission_links
 release: stable
-
 aliases:
   - /reference/eosio/rest/state-permission-links/
-
 ---
 
 Fetches snapshots of any account’s linked authorizations on the blockchain, at any block height.

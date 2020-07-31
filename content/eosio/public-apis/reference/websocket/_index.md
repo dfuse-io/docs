@@ -1,19 +1,8 @@
 ---
 weight: 50
-
-pageTitle: WebSocket API
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: WebSocket API
-
-BookToC: false
-#release: stable
-
+title: WebSocket API
 aliases:
   - /reference/eosio/websocket/
-
 ---
 
 The WebSocket-based API fuses batch processing and streaming capabilities to give you one single endpoint with strong guarantees.

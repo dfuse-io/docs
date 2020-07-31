@@ -1,9 +1,11 @@
 {{ $protocol := "" }}
 
-{{ if  and .Page.Params.PageTitleIcon }}
-    {{ $protocol = .Page.Params.PageTitleIcon }}
-{{ else if .Page.CurrentSection.Params.PageTitleIcon }}
-    {{ $protocol = .Page.CurrentSection.Params.PageTitleIcon }}
-{{  end }}
+{{ if eq .Page.Type "ethereum" }}
+    {{ $protocol = "eth" }}
+{{ else if eq .Page.Type "eosio" }}
+    {{ $protocol = "eosio" }}
+{{ else }}
+    {{ $protocol = "dfuse" }}
+{{ end }}
 
 {{ return  $protocol }}

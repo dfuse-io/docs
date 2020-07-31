@@ -1,22 +1,12 @@
 ---
 weight: 30
-
-pageTitle: Search Block Ranges
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: Block Ranges
-
-BookToC: true
-#release: stable
-
+title: Search Block Ranges
+sideNavTitle: Block Ranges
 aliases:
   - /guides/eosio/concepts/
   - /guides/eosio/concepts/search-ranges/
   - /eosio/public-apis/concepts/search-ranges/
   - /eosio/public-apis/reference/search/search-ranges/
-
 ---
 
 This page gives information about the searched range for various combinations of `lowBlockNum` and

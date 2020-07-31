@@ -1,19 +1,9 @@
 ---
 weight: 20
-#same weight for all pages in this section to auto-order them A->Z
-pageTitle: POST /v1/chain/push_transaction
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: POST /chain/push_transaction
-
-BookToC: true
+title: POST /v1/chain/push_transaction
 release: stable
-
 aliases:
   - /reference/eosio/rest/push-transaction/
-
 ---
 
 Drop-in replacement for submitting a transaction to the network, but can optionally block the request until the transaction is either in a block or in an irreversible block.

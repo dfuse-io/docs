@@ -1,16 +1,6 @@
 ---
 weight: 20
-#same weight for all pages in this section to auto-order them A->Z
-pageTitle: TableOp
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: TableOp
-
-BookToC: true
-#release: stable
-
+title: TableOp
 aliases:
   - /reference/eosio/types/tableop/
 

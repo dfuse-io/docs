@@ -1,19 +1,9 @@
 ---
 weight: 20
-#same weight for all pages in this section to auto-order them A->Z
-pageTitle: GET /v0/state/tables/accounts
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: GET /state/tables/accounts
-
-BookToC: true
+title: GET /v0/state/tables/accounts
 release: stable
-
 aliases:
   - /reference/eosio/rest/state-tables-accounts/
-
 ---
 
 Fetches a table from a group of contract accounts, at any block height.

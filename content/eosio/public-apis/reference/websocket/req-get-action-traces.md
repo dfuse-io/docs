@@ -1,19 +1,9 @@
 ---
 weight: 40
-#same weight for all pages in this section to auto-order them A->Z
-pageTitle: get_action_traces
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: get_action_traces
-
-BookToC: true
+title: get_action_traces
 release: stable
-
 aliases:
   - /reference/eosio/websocket/req-get-action-traces/
-
 ---
 
 Retrieve a stream of executed actions, filtered by `receiver` and `account`

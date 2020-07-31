@@ -1,20 +1,8 @@
 ---
 weight: 20
-
-#TODO: Find a better title and rename file if needed
-pageTitle: Streaming Transactions
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: Streaming Transactions
-
-BookToC: true
-#release: stable
-
+title: Streaming Transactions
 aliases:
   - /guides/eosio/tutorials/push-notifications/
-
 ---
 
 ## Token Management

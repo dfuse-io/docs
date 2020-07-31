@@ -1,16 +1,6 @@
 ---
 weight: 20
-#same weight for all pages in this section to auto-order them A->Z
-pageTitle: DBOp
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: DBOp
-
-BookToC: true
-#release: stable
-
+title: DBOp
 aliases:
   - /reference/eosio/types/dbop/
 

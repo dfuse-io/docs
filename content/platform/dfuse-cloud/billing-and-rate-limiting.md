@@ -1,21 +1,10 @@
 ---
 weight: 30
-
-pageTitle: Billing & Rate Limiting
-pageTitleIcon: dfuse
-
-sideNav: true
-sideNavTitle: dfuse Cloud
-sideNavLinkRename: Billing & Rate Limiting
-
-BookToC: true
-#release: stable
-
+title: Billing & Rate Limiting
 aliases:
   - /guides/core-concepts/rate-limiting/
   - /guides/core-concepts/billing/
   - /notions/billing-and-rate-limiting/
-
 ---
 
 ## Subscription plans

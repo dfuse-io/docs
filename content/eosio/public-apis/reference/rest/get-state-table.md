@@ -1,19 +1,9 @@
 ---
 weight: 20
-#same weight for all pages in this section to auto-order them A->Z
-pageTitle: GET /v0/state/table
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: GET /state/table
-
-BookToC: true
+title: GET /v0/state/table
 release: stable
-
 aliases:
   - /reference/eosio/rest/state-table/
-
 ---
 
 Fetches the state of any table, at any block height.

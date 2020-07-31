@@ -1,16 +1,6 @@
 ---
 weight: 20
-#same weight for all pages in this section to auto-order them A->Z
-pageTitle: DBRow
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: DBRow
-
-BookToC: true
-#release: stable
-
+title: DBRow
 aliases:
   - /reference/eosio/types/dbrow/
 

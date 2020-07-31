@@ -1,19 +1,8 @@
 ---
 weight: 20
-
-pageTitle: "Quick Start: Other Languages"
-pageTitleIcon: eth
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: "Quick Start: Other Languages"
-
-BookToC: true
-#release: stable
-
+title: "Quick Start: Other Languages"
 aliases:
   - /guides/ethereum/getting-started/other-languages/
-
 ---
 
 The code from the examples on this page lives {{< external-link href="https://github.com/dfuse-io/docs/tree/master/quickstarts" title="in the quickstarts folder of this docs GitHub repository">}}.

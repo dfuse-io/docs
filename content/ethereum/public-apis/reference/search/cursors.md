@@ -1,22 +1,10 @@
 ---
 weight: 20
-
-pageTitle: Search Cursors
-pageTitleIcon: eth
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: Cursors
-
-BookToC: 3
-#release: stable
-
+title: Search Cursors
+sideNavTitle: Cursors
 aliases:
   - /ethereum/public-apis/reference/search/search-cursors/
-
 ---
-
-## Search Cursors
 
 <!-- turn that into a positive: the Ethereum cursors use the same general cursors available to dfuse Platform's search -->
 

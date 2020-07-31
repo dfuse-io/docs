@@ -1,16 +1,6 @@
 ---
 weight: 60
-
-pageTitle: Samples
-pageTitleIcon: eth
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: Samples
-
-BookToC: true
-#release: stable
-
+title: Samples
 ---
 
 <!-- TODO: No more GO example?

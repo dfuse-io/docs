@@ -1,22 +1,12 @@
 ---
 weight: 30
-
-pageTitle: Contributor Guide Overview
-pageTitleIcon: eth
-
-sideNav: true
-sideNavTitle: Contributor Guide
-#sideNavLinkRename: 
-
-BookToC: false
-#release: stable
-
+title: Contributor Guide
+sideNavRoot: true
 menu:
   ethereum:
     name: Contributor Guide
     identifier: contributor-guide
     weight: 30
-    
 ---
 
 Coming Soon&trade;

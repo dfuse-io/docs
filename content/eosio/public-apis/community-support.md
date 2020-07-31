@@ -1,16 +1,6 @@
 ---
 weight: 90
-
-pageTitle: Community & Support
-pageTitleIcon: eosio
-
-sideNav: true
-sideNavTitle: Public APIs
-sideNavLinkRename: Community & Support
-
-BookToC: true
-#release: stable
-
+title: Community & Support
 ---
 
 dfuse has a vibrant community to support you and our own engineers never too far to give you a hand:
