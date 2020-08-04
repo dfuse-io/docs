@@ -16,7 +16,7 @@ be/is done automatically.
 {{< /alert >}}
 
 
-// TODO: finish
+<!-- // TODO: finish
 
 ## `nodeos` node backup
 
@@ -41,4 +41,4 @@ be/is done automatically.
 
 # other components
 
-* all other components, sourcing their data from object stores, don't need backup/recovery.
+* all other components, sourcing their data from object stores, don't need backup/recovery. -->

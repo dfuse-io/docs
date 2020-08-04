@@ -33,7 +33,7 @@ If portable snapshots are not available, you will have no choice but to go linea
 **Output**: Merged blocks (100-block files) files.
 
 
-// TODO: insert concerned flags + how to
+<!-- // TODO: insert concerned flags + how to -->
 
 
 ## `fluxdb` reprocessing
@@ -52,7 +52,7 @@ After the process, the sliced data files can be deleted.
 **Produces**: Sharded and reduced merged blocks files, which contain only the data necessary to write a subset of the tables.  These files are not useful to other systems, because they are purged of what is not meaningful to fluxdb, and fluxdb is only concerned by state changes, not other block or transaction data.
 
 
-// TODO: insert concerned flags
+<!-- // TODO: insert concerned flags -->
 
 ## `trxdb` reprocessing
 
@@ -63,7 +63,7 @@ After the process, the sliced data files can be deleted.
 Block segments (ranges) can be loaded in parallel, and integrity checking (with `dfuseeos tools check merged-blocks`) can be done afterwards to make sure no holes are left in the history.
 
 
-// TODO: insert concerned flags
+<!-- // TODO: insert concerned flags -->
 
 
 ## `search` indexes reprocessing
@@ -73,4 +73,4 @@ Block segments (ranges) can be loaded in parallel, and integrity checking (with 
 **Produces**: Bleve search indexes of the shard size (number of blocks per index) specified by the reprocessing job, destined to the `search-archive` process of the same shard size.  These are written to a `dstore` object store, compressed, ready to be picked up by the `archive` that are polling for them.
 
 
-// TODO: which flags?
+<!-- // TODO: which flags? -->
