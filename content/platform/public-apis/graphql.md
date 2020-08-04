@@ -6,9 +6,7 @@ aliases:
   - /notions/graphql-semantics/
 ---
 
-<!--
-
-TODO: this article lists many examples.. disseminate the examples in the right sections.
+<!-- TODO: this article lists many examples.. disseminate the examples in the right sections.
 This should highlight only the main concepts.
 
 Eg:
@@ -20,9 +18,7 @@ Our Error codes, how we handle 429 errors, how errors are in-stream.
 How we handle pagination generally (pageInfo)
 How Connections work, etc..
 
-Steal everything from: https://developer.github.com/v4/guides/forming-calls/#the-graphql-endpoint
-
--->
+Steal everything from: https://developer.github.com/v4/guides/forming-calls/#the-graphql-endpoint -->
 
 ## Getting Started with GraphQL
 

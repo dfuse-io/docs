@@ -93,7 +93,7 @@ Simple deployments will have both in one process, in which case you do not want 
 
 ### `trxdb-loader`
 
-**Description**: TODO
+**Description**: <!-- TODO -->
 
 **High Availability considerations**: The system can sustain `trxdb-loader` being down for some time. Processes have internal buffer to cover their needs during this period.
 
@@ -101,7 +101,7 @@ Simple deployments will have both in one process, in which case you do not want 
 
 ### `eosws`
 
-**Description**: TODO
+**Description**: <!-- TODO -->
 
 **High Availability considerations**: This process is stateless, and can be scaled up or down for the desired throughput.  You want at least 2 to sustain one being down.
 
