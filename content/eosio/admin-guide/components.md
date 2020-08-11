@@ -93,7 +93,7 @@ Simple deployments will have both in one process, in which case you do not want 
 
 ### `trxdb-loader`
 
-**Description**: <!-- TODO -->
+**Description**: Takes the blockchain data and inserts it into out database instance (BigTable).
 
 **High Availability considerations**: The system can sustain `trxdb-loader` being down for some time. Processes have internal buffer to cover their needs during this period.
 
@@ -101,7 +101,7 @@ Simple deployments will have both in one process, in which case you do not want 
 
 ### `eosws`
 
-**Description**: <!-- TODO -->
+**Description**: EOSIO-specific websocket interface, REST interface, Push guarantee instrumented /v1/chain/push_transaction endpoint, and pass-through to statedb.
 
 **High Availability considerations**: This process is stateless, and can be scaled up or down for the desired throughput.  You want at least 2 to sustain one being down.
 
