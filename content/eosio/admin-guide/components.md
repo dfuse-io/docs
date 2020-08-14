@@ -1,7 +1,6 @@
 ---
 weight: 60
 title: Understanding Components
-
 ---
 
 {{< alert type="note" >}}
