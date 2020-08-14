@@ -79,6 +79,23 @@ One core feature of the merger is the capacity to merge all forks visited by any
 
 The merged block files are produced once the whole 100 blocks are collected, and after we're relatively sure no more forks will occur (bstream's _ForkableHandler_ supports seeing fork data in future merged blocks files anyway).
 
+**Detailed Behavior**
+* On boot, without merged-seen.gob file, it finds the last merged-block on storage and starts at the next bundle.
+* On boot, with merged-seen.gob file, the merger will try to start where it left off.
+* It gathers one-block-files and puts them together inside a bundle
+  * The bundle is written when the first block of the next bundle is older than 25 seconds.
+  * The bundle is only written when it contains at least one fully-linked segment of 100 blocks.
+* The merger keeps a list of all seen(merged) blocks in the last {merger-max-fixable-fork}
+  * "seen" blocks are blocks that we have either merged ourselves, or discovered by loading a bundle merged by someone else (mindreader)
+* The merger will delete one-blocks:
+  * that are older than {merger-max-fixable-fork}, or
+  * that have been seen(merged)
+* If the merger cannot complete a bundle (missing blocks, or hole...) it looks at the destination storage
+  to see if the merged block already exists. If it does, it loads the blocks in there to fill its seen-blocks
+  cache and continues to next bundle.
+* Any one-block-file that was not included in previous bundle will be included in next ones. (ex: bundle 500 might include block 429)
+  * blocks older than {merger-max-fixable-fork} will, instead, be deleted.
+
 **High Availability considerations**: This component is needed when you want highly available `mindreader` nodes. You only need one of these, because the whole system can survive downtime from the merger, and it only produces files from time to time anyway.
 
 Systems in need of blocks, when they start, will usually connect to `relayer`s, get real-time blocks and go back to merged block files only when the relayer can't satify the range. If relayers provide 200-300 blocks in RAM, then you have that time for the merger to be down, to sustain _restarts_ from other components. Once the other components are live, in general, they won't read from merged block files.
