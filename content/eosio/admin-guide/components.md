@@ -80,6 +80,7 @@ One core feature of the merger is the capacity to merge all forks visited by any
 The merged block files are produced once the whole 100 blocks are collected, and after we're relatively sure no more forks will occur (bstream's _ForkableHandler_ supports seeing fork data in future merged blocks files anyway).
 
 **Detailed Behavior**
+
 * On boot, without merged-seen.gob file, it finds the last merged-block on storage and starts at the next bundle.
 * On boot, with merged-seen.gob file, the merger will try to start where it left off.
 * It gathers one-block-files and puts them together inside a bundle
