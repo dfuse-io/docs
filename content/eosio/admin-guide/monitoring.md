@@ -24,15 +24,17 @@ Some dfuse components only expose a gRPC port, so their readiness must be checke
 
 1. Download grpc-health-probe https://github.com/grpc-ecosystem/grpc-health-probe/releases
 
-```
-curl -L -o grpc_health_probe https://github.com/grpc-ecosystem/grpc-health-probe/releases/download/v0.3.2/grpc_health_probe-linux-386 && chmod +x grpc_health_probe
-```
+{{< highlight sh >}}
+curl -L -o grpc_health_probe \
+  https://github.com/grpc-ecosystem/grpc-health-probe/releases/download/v0.3.2/grpc_health_probe-linux-386
+chmod +x grpc_health_probe
+{{< /highlight >}}
 
 2. Then, for each one of those services, you will need to run the following command on the listening gRPC port, which will respond with `SERVING` (zero exit code) or `NOT_SERVING` (non-zero exit code)
 
-```
+{{< highlight sh >}}
 ./grpc_health_probe -addr=localhost:9000
-```
+{{< /highlight >}}
 
 ### HTTP Health check
 
