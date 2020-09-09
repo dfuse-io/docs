@@ -2,7 +2,7 @@
   {
     "name": "Subscription",
     "hideChildren": false,
-    "description": "Subscription holds the top-level calls that return streams of data. Call them with the `subscription` keyword from your top-level GraphQL query",
+    "description": "",
     "fields": [
       {
         "name": "blocks",
@@ -42,7 +42,7 @@
           "reqType": true,
           "name": "TransactionEdge"
         },
-        "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\nSee the [Search Query Language](/platform/public-apis/search-query-language) page for more info.\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization.  The `undo` field is always `false` in backward searches.",
+        "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\nSee: https://docs.dfuse.io/guides/core-concepts/search-query-language\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization.  The `undo` field is always `false` in backward searches.",
         "arguments": [
           {
             "name": "indexName",
@@ -113,7 +113,7 @@
           "reqType": true,
           "name": "TransactionState"
         },
-        "description": "Subscribe to a transaction to follow its lifecycle (inclusion in a block, confirmations, etc.).\nThe transaction can be in an `unknown` or `pending` state at the time of the request.\nSee the [Transaction Lifecycle](/ethereum/public-apis/reference/trx_lifecycle/) page for more info.",
+        "description": "Subscribe to a transaction to follow its lifecycle (inclusion in a block, confirmations, etc.).\nThe transaction can be in an `unknown` or `pending` state at the time of the request\nSee https://docs.dfuse.io/guides/ethereum/concepts/trx_lifecycle/",
         "arguments": [
           {
             "name": "hash",
@@ -124,7 +124,14 @@
             "description": "hash of the transaction you want to track the state"
           }
         ]
-      },
+      }
+    ]
+  },
+  {
+    "name": "Subscription",
+    "hideChildren": false,
+    "description": "",
+    "fields": [
       {
         "name": "_alphaPendingTransactions",
         "type": {
@@ -157,7 +164,7 @@
   {
     "name": "Query",
     "hideChildren": false,
-    "description": "Query holds the top-level calls that return single responses of data. Call them with the `query` keyword from your top-level GraphQL query",
+    "description": "",
     "fields": [
       {
         "name": "block",
@@ -211,108 +218,12 @@
         ]
       },
       {
-        "name": "_alphaExecute",
-        "type": {
-          "name": "TransactionTrace"
-        },
-        "description": "ALPHA Speculatively execute a transaction and get back the TransactionTrace it produced",
-        "arguments": [
-          {
-            "name": "from",
-            "type": {
-              "reqType": true,
-              "name": "String"
-            },
-            "description": ""
-          },
-          {
-            "name": "to",
-            "type": {
-              "reqType": true,
-              "name": "String"
-            },
-            "description": ""
-          },
-          {
-            "name": "input",
-            "type": {
-              "reqType": true,
-              "name": "String"
-            },
-            "description": ""
-          },
-          {
-            "name": "gasLimit",
-            "type": {
-              "reqType": true,
-              "name": "Uint64"
-            },
-            "description": ""
-          },
-          {
-            "name": "gasPrice",
-            "type": {
-              "name": "String",
-              "default": "\"0x\""
-            },
-            "description": ""
-          },
-          {
-            "name": "value",
-            "type": {
-              "name": "String",
-              "default": "\"0x\""
-            },
-            "description": ""
-          },
-          {
-            "name": "nonce",
-            "type": {
-              "name": "Uint64",
-              "default": "0"
-            },
-            "description": ""
-          },
-          {
-            "name": "atBlock",
-            "type": {
-              "name": "BlockRef"
-            },
-            "description": "`BlockRef` defines against which block height the execution should be performed against, optional, if not present, use HEAD block (as seen by dfuse). For best precision, use the `hash`. Passing only the num will use the longest block chain for this block number."
-          }
-        ]
-      },
-      {
-        "name": "_alphaReplay",
-        "type": {
-          "name": "TransactionTrace"
-        },
-        "description": "ALPHA Speculatively replay a transaction id and get back the TransactionTrace it produced",
-        "arguments": [
-          {
-            "name": "hash",
-            "type": {
-              "reqType": true,
-              "name": "String"
-            },
-            "description": ""
-          },
-          {
-            "name": "atBlock",
-            "type": {
-              "name": "BlockRef"
-            },
-            "description": "`BlockRef` defines against which block height the execution should be performed against, optional, if not present, use the block in which the transaction was executed. For best precision, use the `hash`. Passing only the num will use the longest block chain for this block number."
-          }
-        ]
-      },
-      {
         "name": "searchTransactions",
         "type": {
           "reqType": true,
           "name": "TransactionConnection"
         },
-        "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\nSee the [Search Query Language](/platform/public-apis/search-query-language) page for more info.\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization.  The `undo` field is always `false` in backward searches.",
+        "description": "Search the blockchain forward for transaction *execution traces* based on `query`.\nSee: https://docs.dfuse.io/guides/core-concepts/search-query-language\n\nWARN: always consider the `undo` field in forward searches, which signal that the matching element\nwas in fact REMOVED from the chain because of blocks reorganization.  The `undo` field is always `false` in backward searches.",
         "arguments": [
           {
             "name": "indexName",
@@ -320,7 +231,7 @@
               "reqType": true,
               "name": "TRANSACTIONS_INDEX_NAME"
             },
-            "description": "The index that will be queried (CALLS or LOGS), see the [Search Terms for Ethereums](/ethereum/public-apis/reference/search-terms/) page for more info."
+            "description": "The index that will be queried (CALLS or LOGS), see https://docs.dfuse.io/reference/ethereum/search-terms/"
           },
           {
             "name": "query",
@@ -328,28 +239,28 @@
               "reqType": true,
               "name": "String"
             },
-            "description": "See the [Search Query Language](/platform/public-apis/search-query-language) page for more info."
+            "description": "See https://docs.dfuse.io/guides/core-concepts/search-query-language"
           },
           {
             "name": "lowBlockNum",
             "type": {
               "name": "Int64"
             },
-            "description": "Lower boundary for search. Use -1 for HEAD. See the [Search Ranges for Ethereums](/ethereum/public-apis/reference/search/block-ranges/) page for more info."
+            "description": "Lower boundary for search. Use -1 for HEAD. See https://docs.dfuse.io/guides/ethereum/concepts/search-ranges/"
           },
           {
             "name": "highBlockNum",
             "type": {
               "name": "Int64"
             },
-            "description": "Upper boundary for search. Use -1 for HEAD. See the [Search Ranges for Ethereums](/ethereum/public-apis/reference/search/block-ranges/) page for more info."
+            "description": "Upper boundary for search. Use -1 for HEAD. See https://docs.dfuse.io/guides/ethereum/concepts/search-ranges/"
           },
           {
             "name": "cursor",
             "type": {
               "name": "String"
             },
-            "description": "See the [Understanding Cursors](/platform/public-apis/cursors) page for more info."
+            "description": "See https://docs.dfuse.io/guides/core-concepts/cursors/"
           },
           {
             "name": "limit",
@@ -399,7 +310,7 @@
   {
     "name": "TransactionConnection",
     "hideChildren": true,
-    "description": "The Connection type for a Transaction. See the [GraphQL Semantics](/platform/public-apis/graphql) page for more info.",
+    "description": "The Connection type for a Transaction. See the [GraphQL core concepts](https://docs.dfuse.io/guides/core-concepts/graphql/)",
     "fields": [
       {
         "name": "edges",
@@ -465,6 +376,31 @@
     ]
   },
   {
+    "name": "Method",
+    "hideChildren": true,
+    "description": "Contains raw & decoded (if available) information about the smart contract method invoked by this transaction or EVM call.",
+    "fields": [
+      {
+        "name": "hexSignature",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
+        "description": "`hexSignature` is the first 4 bytes of the inputData which represents the smart contract method signature. If hexSignature is empty or less than 4 bytes long, it will return as `0x`.",
+        "arguments": []
+      },
+      {
+        "name": "textSignature",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
+        "description": "`textSignature` is the method signature in text form as recognized by a key/value lookup. The key is the first 4 bytes of the input data. If method signature is not found in common signatures table, textSignature will return as empty string.",
+        "arguments": []
+      }
+    ]
+  },
+  {
     "name": "Transaction",
     "hideChildren": true,
     "description": "",
@@ -511,7 +447,7 @@
           "reqType": true,
           "name": "Uint64"
         },
-        "description": "`gasLimit` is the maximum amount of gas this transaction can consume. Other Ethereum nodes often name this field simply `gas`. Alias the field name if you prefer. See the [GraphQL Queries and Mutation &mdash; Aliases](https://graphql.org/learn/queries/#aliases) section for more info about aliases.",
+        "description": "`gasLimit` is the maximum amount of gas this transaction can consume. Other Ethereum nodes often name this field simply `gas`. Alias the field name if you prefer. See: https://graphql.org/learn/queries/#aliases",
         "arguments": []
       },
       {
@@ -539,6 +475,15 @@
           "name": "String"
         },
         "description": "`inputData` is the data supplied to the target contract of the transaction. It is sometimes named `input` elsewhere.",
+        "arguments": []
+      },
+      {
+        "name": "method",
+        "type": {
+          "reqType": true,
+          "name": "Method"
+        },
+        "description": "The Method object with method signature in hex and text.",
         "arguments": []
       },
       {
@@ -685,7 +630,7 @@
           "reqType": true,
           "name": "Uint64"
         },
-        "description": "`gasLimit` is the maximum amount of gas this transaction can consume. Other Ethereum nodes often name this field simply `gas`. Alias the field name if you prefer. See the [GraphQL Queries and Mutation &mdash; Aliases](https://graphql.org/learn/queries/#aliases) page for more info about aliases.",
+        "description": "`gasLimit` is the maximum amount of gas this transaction can consume. Other Ethereum nodes often name this field simply `gas`. Alias the field name if you prefer. See: https://graphql.org/learn/queries/#aliases",
         "arguments": []
       },
       {
@@ -713,6 +658,15 @@
           "name": "String"
         },
         "description": "`inputData` is the data supplied to the target contract of the transaction. It is sometimes named `input` elsewhere.",
+        "arguments": []
+      },
+      {
+        "name": "method",
+        "type": {
+          "reqType": true,
+          "name": "Method"
+        },
+        "description": "The Method object with method signature in hex and text.",
         "arguments": []
       },
       {
@@ -1057,6 +1011,15 @@
           "name": "String"
         },
         "description": "",
+        "arguments": []
+      },
+      {
+        "name": "method",
+        "type": {
+          "reqType": true,
+          "name": "Method"
+        },
+        "description": "The Method object with method signature in hex and text.",
         "arguments": []
       },
       {

@@ -110,18 +110,25 @@ function formatDefaultValue(def) {
 }
 
 processSources([
-  '../dgraphql/eth/subscription.graphql',
-  '../dgraphql/eth/query.graphql',
-  '../dgraphql/eth/transactions.graphql',
-  '../dgraphql/eth/block.graphql',
-  '../dgraphql/eth/trx_state_tracker.graphql',
+  '../dfuse-ethereum/dgraphql/schema/subscription.graphql',
+  '../dfuse-ethereum/dgraphql/schema/subscription_alpha.graphql',
+  '../dfuse-ethereum/dgraphql/schema/query.graphql',
+//  '../dfuse-ethereum/dgraphql/schema/query_alpha.graphql',
+  '../dfuse-ethereum/dgraphql/schema/transactions.graphql',
+  '../dfuse-ethereum/dgraphql/schema/block.graphql',
+  '../dfuse-ethereum/dgraphql/schema/trx_state_tracker.graphql',
 ], 'data/eth/graphql.json')
 
 processSources([
-  '../dgraphql/eos/schema.graphql',
-  '../dgraphql/eos/search_transaction.graphql',
-  '../dgraphql/eos/transactions.graphql',
-  '../dgraphql/eos/blockmeta.graphql',
+  '../dfuse-eosio/dgraphql/schema/subscription.graphql',
+  '../dfuse-eosio/dgraphql/schema/query.graphql',
+  '../dfuse-eosio/dgraphql/schema/query_alpha.graphql',
+  '../dfuse-eosio/dgraphql/schema/block.graphql',
+  '../dfuse-eosio/dgraphql/schema/search_transaction.graphql',
+  '../dfuse-eosio/dgraphql/schema/accounthist.graphql',
+  '../dfuse-eosio/dgraphql/schema/transactions.graphql',
+  '../dfuse-eosio/dgraphql/schema/blockmeta.graphql',
+  '../dfuse-eosio/dgraphql/schema/tokenmeta.graphql',
 ], 'data/eos/graphql.json')
 
 
