@@ -23,7 +23,7 @@ If the requested `block_num` is irreversible, you will get an immutable snapshot
 
 ## ABI handling
 
-The _dfuse_ API tracks ABI changes and will the row with the ABI in effect at the `block_num` requested.
+The _dfuse_ API tracks ABI changes and will decode the row with the ABI in effect at the `block_num` requested.
 
 Row is decoded only if `json: true` is passed. Otherwise, hexadecimal of its binary data is returned instead.
 
