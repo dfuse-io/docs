@@ -19,7 +19,7 @@
   "dependencies": {
     "@dfuse/client": "^0.3.8",
     "eosjs": "^20.0.3",
-    "node-fetch": "^2.2.1",
+    "node-fetch": "^2.6.1",
     "text-encoding": "^0.7.0"
   }
 }
