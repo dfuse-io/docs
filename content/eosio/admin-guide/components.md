@@ -56,6 +56,7 @@ This is the primal source of all data that will flow in all systems
 **High Availability considerations**: It has the same HA properties as `mindreader`.
 
 
+
 ### `relayer`
 
 **Description**: The `relayer` serves executed block data to most other components.
@@ -78,6 +79,8 @@ NOTE: recent `relayer` can have _filters_ applied
 One core feature of the merger is the capacity to merge all forks visited by any backing `mindreader` node.
 
 The merged block files are produced once the whole 100 blocks are collected, and after we're relatively sure no more forks will occur (bstream's _ForkableHandler_ supports seeing fork data in future merged blocks files anyway).
+
+
 
 **Detailed Behavior**
 

@@ -64,9 +64,8 @@ func (jwt JWT) NeedRefresh() bool {
 {{< /tabs >}}
 
 ## Getting the dfuse GraphQL gRPC client
-- Take a look at gRPC {{< external-link href="https://grpc.io/docs/languages/go/quickstart/" title="Go Quick Start">}}
-- You can retrieve `graphql.proto` running `curl -O http://mainnet.eos.dfuse.io/graphql/graphql.proto`
-- execute `protoc -I pb/ pb/graphql.proto --go_out=plugins=grpc:graphql`
+
+- Follow instructions at https://github.com/dfuse-io/graphql-over-grpc
 
 
 ## Initiating dfuse Graphql Server Connection
