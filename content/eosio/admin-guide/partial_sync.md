@@ -131,7 +131,6 @@ start:
   args:
   - search-indexer
   flags:
-    config-file: ""
     log-to-file: false
     search-indexer-enable-batch-mode: true
     search-indexer-start-block: 107305500
@@ -163,7 +162,6 @@ start:
   args:
   - trxdb-loader
   flags:
-    config-file: ""
     log-to-file: false
     common-chain-id: 5fff1dae8dc8e2fc4d5b23b2c7665c97f9e9d8edf2b6485a86ba311c25639191
     trxdb-loader-start-block-num: 107305400
