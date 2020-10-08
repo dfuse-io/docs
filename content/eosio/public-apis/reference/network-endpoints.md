@@ -16,7 +16,7 @@ Chain ID: `aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906`
 
 mainnet.eos.dfuse.io has been deprecated, there are now two ways to access EOS mainnet using dfuse
 
-1. dfuse Community Edition (hosted by (EOS Nation)[https://eosnation.io/])
+1. dfuse Community Edition (hosted by [EOS Nation](https://eosnation.io/))
 
 | API       | URL                                                                                                                                   |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------- |
@@ -25,7 +25,7 @@ mainnet.eos.dfuse.io has been deprecated, there are now two ways to access EOS m
 
 2. dfuse Enterprise
 
-(Contact us)[https://www.dfuse.io/pricing] to set up your dedicated deployment
+[Contact us](https://www.dfuse.io/pricing) to set up your dedicated deployment
 
 ## EOSIO Testnet
 
