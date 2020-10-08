@@ -14,11 +14,18 @@ The _dfuse_ API is available for multiple EOSIO networks. Should you need it on 
 
 Chain ID: `aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906`
 
+mainnet.eos.dfuse.io has been deprecated, there are now two ways to access EOS mainnet using dfuse
+
+1. dfuse Community Edition (hosted by (EOS Nation)[https://eosnation.io/])
+
 | API       | URL                                                                                                                                   |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| WebSocket | wss://mainnet.eos.dfuse.io/v1/stream                                                                                                  |
-| REST      | https://mainnet.eos.dfuse.io/                                                                                                         |
-| GraphQL   | https://mainnet.eos.dfuse.io/graphql -- Test the API with our {{< external-link title="GraphiQL" href="https://mainnet.eos.dfuse.io/graphiql/" >}} visual editor |
+| WebSocket | wss://eos.dfuse.eosnation.io/v1/stream                                                                                                  |
+| REST      | https://eos.dfuse.eosnation.io/                                                                                                         |
+
+2. dfuse Enterprise
+
+(Contact us)[https://www.dfuse.io/pricing] to set up your dedicated deployment
 
 ## EOSIO Testnet
 
