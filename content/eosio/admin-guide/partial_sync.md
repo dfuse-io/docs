@@ -23,8 +23,6 @@ zstd -d kylin-snapshot.bin.zst
 ## Prepare {workspace}/kylin-phase1-blocks.yaml
 
 ### Required information
-* `mindreader-stop-block-num: {kylin current head block number, rounded to 100}`
-  * You can go to https://kylin.eosq.app/ or use this kind of shell command: `curl -s https://kylin.eos.dfuse.io/v1/chain/get_info | sed 's/.*head_block_num..\([0-9]*\),.*/\1/'`
 * `mindreader-snapshot-store-url: file:///{Current working directory}`
   * Folder where you downloaded the snapshot (output of command `pwd` in your shell)
 
@@ -35,16 +33,13 @@ start:
   args:
   - mindreader
   flags:
-    config-file: ""
     log-to-file: false
     mindreader-log-to-zap: false
-    mindreader-merge-and-store-directly: true
     mindreader-start-failure-handler: true
     mindreader-blocks-chan-capacity: 100000
     mindreader-restore-snapshot-name: snapshot.bin
-    mindreader-discard-after-stop-num: false
     mindreader-snapshot-store-url: file:///home/johndoe/workspace
-    mindreader-stop-block-num: 107367000
+    mindreader-batch-mode: true
 {{< /highlight >}}
 
 ## Prepare mindreader nodeos config
@@ -111,7 +106,9 @@ dfuseeos -c kylin-phase1-blocks.yaml start -v
 {{< /highlight >}}
 
 * You can see the 'actual' progress of block files being written by running this command from another terminal: `ls -ltr dfuse-data/storage/merged-blocks/ |tail`
-* From different terminal sessions, you can run the "search" and "trxdb" phases in parallel with this phase. They will wait for merged block files to be created. See next steps in this document.
+* From different terminal sessions, you can run the "search" and "trxdb" phases in parallel with this phase. They will wait for merged block files to be created.
+* Once the mindreader instance reaches the head block, it can be manually stopped.  A `mindreader-stop-block-num` but keep in mind the head block moves (60 * 60 * 24 * 2) 172,800 blocks per day.
+See next steps in this document.
 
 KNOWN ISSUES:
 
