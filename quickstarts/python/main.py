@@ -86,7 +86,7 @@ OPERATION_EOS = """subscription {
 # CODE:BEGIN:quickstarts_python_eos_section5
 def stream_eosio():
   	# The client can be re-used for all requests, cache it at the appropriate level
-    client = create_client('mainnet.eos.dfuse.io:443')
+    client = create_client('testnet.eos.dfuse.io:443')
     stream = client.Execute(Request(query = OPERATION_EOS))
 
     for rawResult in stream:
