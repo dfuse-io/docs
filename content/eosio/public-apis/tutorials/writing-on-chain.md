@@ -178,7 +178,7 @@ extra environment variables:
 
 <!-- Renders better with typescript -->
 {{< highlight typescript >}}
-export DFUSE_API_NETWORK="<mainnet.eos.dfuse.io OR kylin.eos.dfuse.io>"
+export DFUSE_API_NETWORK="<testnet.eos.dfuse.io OR kylin.eos.dfuse.io>"
 export TRANSFER_TO_ACCOUNT="<account name that will receive the token>"
 export TRANSFER_QUANTITY="<quantity to transfer, defaults to 0.0001 EOS if unset>"
 {{< /highlight >}}
