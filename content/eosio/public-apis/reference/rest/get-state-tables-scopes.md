@@ -23,7 +23,7 @@ The output format is slightly different too.
 
 Sample request:
 
-{{< example-request id="search-transactions" url="https://mainnet.eos.dfuse.io/v0/state/tables/scopes?account=eosio&scopes=eosio.token|eosadddddddd|tokenbyeocat|ethsidechain|epraofficial|alibabapoole|hirevibeshvt|oo1122334455|irespotokens|publytoken11|parslseed123|trybenetwork|zkstokensr4u&table=delband&block_num=25000000&json=true" >}}
+{{< example-request id="search-transactions" url="https://testnet.eos.dfuse.io/v0/state/tables/scopes?account=eosio&scopes=eosio.token|eosadddddddd|tokenbyeocat|ethsidechain|epraofficial|alibabapoole|hirevibeshvt|oo1122334455|irespotokens|publytoken11|parslseed123|trybenetwork|zkstokensr4u&table=delband&block_num=25000000&json=true" >}}
 
 ## Requesting past blocks & ABI handling
 
