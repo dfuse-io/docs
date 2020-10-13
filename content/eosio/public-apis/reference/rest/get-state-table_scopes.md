@@ -16,7 +16,7 @@ Not to be confused with [/v0/state/tables/scopes]({{< ref "./get-state-tables-sc
 
 Sample request:
 
-{{< example-request id="search-transactions" url="https://mainnet.eos.dfuse.io/v0/state/table_scopes?account=eosforumdapp&table=proposal" >}}
+{{< example-request id="search-transactions" url="https://testnet.eos.dfuse.io/v0/state/table_scopes?account=eosforumdapp&table=proposal" >}}
 
 ## Requesting past blocks
 
