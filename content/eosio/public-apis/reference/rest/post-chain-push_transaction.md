@@ -47,8 +47,8 @@ Older version of `cleos` have
 {{< external-link href="https://github.com/EOSIO/eos/pull/6265" title="an issue addressed in this PR">}}
 
 {{< highlight shell >}}
-eosc -H "Authorization: Bearer YOURTOKENHERE" -H "X-Eos-Push-Guarantee: irreversible" -u "https://mainnet.eos.dfuse.io" tx push mytx.json
-eosc -H "Authorization: Bearer YOURTOKENHERE" -H "X-Eos-Push-Guarantee: handoffs:3" -u "https://mainnet.eos.dfuse.io" transfer sourceaccount destination 5
+eosc -H "Authorization: Bearer YOURTOKENHERE" -H "X-Eos-Push-Guarantee: irreversible" -u "https://testnet.eos.dfuse.io" tx push mytx.json
+eosc -H "Authorization: Bearer YOURTOKENHERE" -H "X-Eos-Push-Guarantee: handoffs:3" -u "https://testnet.eos.dfuse.io" transfer sourceaccount destination 5
 {{< /highlight >}}
 
 You can always use `eosc` to use the feature:
