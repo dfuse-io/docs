@@ -50,7 +50,7 @@ returned value moves as the chain reorganizes.
 {{< /method-list-item >}}
 
 {{< method-list-item name="scopes" type="Array&lt;[Name](/eosio/public-apis/reference/types/name)&gt;" require="true" >}}
-  Block number used to serve your request. Will be the head `block_num` if it was not provided or `0` was passed as `block_num`, otherwise, will be the `block_num` you've passed in the request.
+  The _name-encoded_ scope of the table you are requesting.  For example, user balances for tokens live in their account name's scope. This is contract dependent, so inspect the ABI for the contract you are interested in.
 {{< /method-list-item >}}
 
 Here is a sample response, for a request at `block_num: 9000000`:
