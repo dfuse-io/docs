@@ -30,6 +30,9 @@ one of our APIs. For example, in a search stream, it's the last transaction sent
 In addition, all of our cursors are fork aware (where it makes sense). They know the exact branching where you were and are able to
 determine if the block was forked. In this eventuality, we notify you about this.
 
+### Reversible cursor
+
+A cursor that you get from a **backwards paginated** search request could be used as a starting point for a **forward streaming** search with the same terms. This allows you to get the latest transactions, grab the cursor from the first response element and start listening for live events without worrying about block numbers and chain forks/reorgs.
 <!--
 Insert JC Diagram
 -->
