@@ -9,7 +9,7 @@ aliases:
 
 ## How Transaction Lifecycle Works
 
-![](/img/eth_transaction_lifecycle_02.svg)
+![](/img/eth_transaction_lifecycle_02.svg) 
 
 ### Transaction State
 
@@ -31,6 +31,9 @@ An Ethereum transaction progresses through a series of states, starting with the
 As shown in the diagram above, the transitions between states also have names:
 
 **Pooled**: A transaction in the unknown state that enters the pool of transactions waiting to be selected by miners is said to be pooled and enters the pending state. It is also possible that a transaction in replaced state becomes pooled again, if the conditions for its replacement are no longer true (ex: in the rare case where a transaction with low gas price that was in block gets forked, and the replaced transaction with same nonce+sender with higher gas price was still floating around).
+
+
+**Speculatively Executed**: Once a transaction is in the pending state, it can be run against our Speculative Execution endpoints to decypher the deep execution traces. Depending on your needs, the results returned can be returned based on the dynamic state of the blockchain, or based on the state of the chain when it was first seen in the mempool. You can also use this endpoint to speculatively execute a transaction against the current state without having to pass through the pooled transition into the pending state. 
 
 **Mined**: A mined transaction is one that has been processed by a miner, creating a block. Once mined, a transaction is said to be in the in block state. Due to the peer-to-peer nature of the Ethereum network, from the perspective of a given node a transaction can move from the unknown state directly to the in block state without visibly passing through the pending state. For the same reason, from the perspective of a given node a transaction may also pass from the replaced state to the in block state without passing through the pending state.
 
