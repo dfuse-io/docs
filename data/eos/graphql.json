@@ -146,6 +146,13 @@
             "description": "Account name to query for actions"
           },
           {
+            "name": "contract",
+            "type": {
+              "name": "String"
+            },
+            "description": "Contract name to query for actions"
+          },
+          {
             "name": "limit",
             "type": {
               "name": "Int64",
@@ -352,7 +359,7 @@
           "reqType": true,
           "name": "TokenConnection"
         },
-        "description": "ALPHA Get a list of contract tokens",
+        "description": "ALPHA Get a list of contract tokens (at Last Irreversible Block height (LIB) only)",
         "arguments": [
           {
             "name": "tokenSymbols",
@@ -410,7 +417,7 @@
           "reqType": true,
           "name": "AccountBalanceConnection"
         },
-        "description": "ALPHA Get a list of token balances for a specific account",
+        "description": "ALPHA Get a list of token balances for a specific account (at Last Irreversible Block height (LIB) only)",
         "arguments": [
           {
             "name": "account",
@@ -485,7 +492,7 @@
           "reqType": true,
           "name": "AccountBalanceConnection"
         },
-        "description": "ALPHA Get a list of token balances for a specific contract & symbol",
+        "description": "ALPHA Get a list of token balances for a specific contract & symbol (at Last Irreversible Block height (LIB) only)",
         "arguments": [
           {
             "name": "contract",

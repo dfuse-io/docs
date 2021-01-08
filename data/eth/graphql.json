@@ -108,6 +108,42 @@
         ]
       },
       {
+        "name": "transactions",
+        "type": {
+          "reqType": true,
+          "name": "TransactionState"
+        },
+        "description": "Subscribe to transactions for which the addresses match one of the match field\nprovided. Assuming a list of addresses and a `matchAnyOf` value `[FROM, TO]`, you would\nreceive all transaction for which one of the `from` or `to` field matches one of the address\nfound in the `addresses` list.",
+        "arguments": [
+          {
+            "name": "addresses",
+            "type": {
+              "isList": true,
+              "reqType": true,
+              "name": "String"
+            },
+            "description": "list of ETH addresses that you want to subscribe to"
+          },
+          {
+            "name": "matchAnyOf",
+            "type": {
+              "isList": true,
+              "reqType": true,
+              "name": "TRANSACTION_MATCH_FIELD"
+            },
+            "description": "fields to match against the list of addresses"
+          },
+          {
+            "name": "maxConfirmations",
+            "type": {
+              "name": "Uint32",
+              "default": "8"
+            },
+            "description": "number of 'Confirmation' transitions for a matching transaction, once they are in a block (defaults to 8, set to 0 to disable those transitions)"
+          }
+        ]
+      },
+      {
         "name": "transactionLifecycle",
         "type": {
           "reqType": true,
@@ -197,6 +233,71 @@
               "name": "Uint64"
             },
             "description": ""
+          }
+        ]
+      },
+      {
+        "name": "execute",
+        "type": {
+          "name": "TransactionTrace"
+        },
+        "description": "Speculatively execute a transaction and get back the TransactionTrace it produced. If a hash is provided, it is used directly to speculatively execute the transaction. If only call details are provided, they are use to craft a transaction and speculatively execute it. If hash and call details are provided, the transaction is the one identified by hash and provided call details override fields in the transaction.",
+        "arguments": [
+          {
+            "name": "hash",
+            "type": {
+              "name": "String"
+            },
+            "description": "The hash of a transaction to speculatively execute. When provided, retrieve the transaction information from it and speculatively execute it."
+          },
+          {
+            "name": "from",
+            "type": {
+              "name": "String"
+            },
+            "description": ""
+          },
+          {
+            "name": "to",
+            "type": {
+              "name": "String"
+            },
+            "description": ""
+          },
+          {
+            "name": "input",
+            "type": {
+              "name": "String"
+            },
+            "description": ""
+          },
+          {
+            "name": "gasLimit",
+            "type": {
+              "name": "Uint64"
+            },
+            "description": ""
+          },
+          {
+            "name": "gasPrice",
+            "type": {
+              "name": "String"
+            },
+            "description": ""
+          },
+          {
+            "name": "value",
+            "type": {
+              "name": "String"
+            },
+            "description": ""
+          },
+          {
+            "name": "atBlock",
+            "type": {
+              "name": "BlockRef"
+            },
+            "description": "`BlockRef` defines against which block height the execution should be performed against, optional, if not present, use HEAD block (as seen by dfuse). For best precision, use the `hash`. Passing only the num will use the longest block chain for this block number."
           }
         ]
       },
@@ -478,6 +579,15 @@
         "arguments": []
       },
       {
+        "name": "input",
+        "type": {
+          "reqType": true,
+          "name": "Inputs"
+        },
+        "description": "`input` is the data supplied to the target contract of the transaction. It contains the raw data and the decoded data (will be null if it wasn't possible to decode it)",
+        "arguments": []
+      },
+      {
         "name": "method",
         "type": {
           "reqType": true,
@@ -658,6 +768,15 @@
           "name": "String"
         },
         "description": "`inputData` is the data supplied to the target contract of the transaction. It is sometimes named `input` elsewhere.",
+        "arguments": []
+      },
+      {
+        "name": "input",
+        "type": {
+          "reqType": true,
+          "name": "Inputs"
+        },
+        "description": "`input` is the data supplied to the target contract of the transaction. It contains the raw data and the decoded data (will be null if it wasn't possible to decode it)",
         "arguments": []
       },
       {
@@ -1010,7 +1129,16 @@
           "reqType": true,
           "name": "String"
         },
-        "description": "",
+        "description": "`inputData` is the data supplied to the target contract of the transaction. It is sometimes named `input` elsewhere.",
+        "arguments": []
+      },
+      {
+        "name": "input",
+        "type": {
+          "reqType": true,
+          "name": "Inputs"
+        },
+        "description": "`input` is the data supplied to the target contract of the transaction. It contains the raw data and the decoded data (will be null if it wasn't possible to decode it)",
         "arguments": []
       },
       {
@@ -1090,6 +1218,159 @@
             "description": ""
           }
         ]
+      },
+      {
+        "name": "analyze",
+        "type": {
+          "name": "Analyzed"
+        },
+        "description": "Provide a higher-level view of the call based on an analysis (ex. ERC20 Transfers) of its decoded data (input, output & logs).",
+        "arguments": []
+      }
+    ]
+  },
+  {
+    "name": "ERC20Transfer",
+    "hideChildren": true,
+    "description": "",
+    "fields": [
+      {
+        "name": "address",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
+        "description": "",
+        "arguments": []
+      },
+      {
+        "name": "from",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
+        "description": "",
+        "arguments": []
+      },
+      {
+        "name": "to",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
+        "description": "",
+        "arguments": []
+      },
+      {
+        "name": "amount",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
+        "description": "",
+        "arguments": [
+          {
+            "name": "encoding",
+            "type": {
+              "name": "AMOUNT_ENCODING",
+              "default": "HEX"
+            },
+            "description": ""
+          }
+        ]
+      },
+      {
+        "name": "name",
+        "type": {
+          "name": "String"
+        },
+        "description": "",
+        "arguments": []
+      },
+      {
+        "name": "symbol",
+        "type": {
+          "name": "String"
+        },
+        "description": "",
+        "arguments": []
+      },
+      {
+        "name": "decimals",
+        "type": {
+          "name": "Uint64"
+        },
+        "description": "",
+        "arguments": []
+      },
+      {
+        "name": "reverted",
+        "type": {
+          "reqType": true,
+          "name": "Boolean"
+        },
+        "description": "",
+        "arguments": []
+      }
+    ]
+  },
+  {
+    "name": "Inputs",
+    "hideChildren": true,
+    "description": "",
+    "fields": [
+      {
+        "name": "data",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
+        "description": "",
+        "arguments": []
+      },
+      {
+        "name": "json",
+        "type": {
+          "isList": true,
+          "reqList": true,
+          "reqType": true,
+          "name": "InputParameter"
+        },
+        "description": "",
+        "arguments": []
+      }
+    ]
+  },
+  {
+    "name": "InputParameter",
+    "hideChildren": true,
+    "description": "",
+    "fields": [
+      {
+        "name": "type",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
+        "description": "",
+        "arguments": []
+      },
+      {
+        "name": "name",
+        "type": {
+          "name": "String"
+        },
+        "description": "",
+        "arguments": []
+      },
+      {
+        "name": "value",
+        "type": {
+          "reqType": true,
+          "name": "JSON"
+        },
+        "description": "",
+        "arguments": []
       }
     ]
   },
@@ -1670,6 +1951,15 @@
     "description": "A single Transaction State response.",
     "fields": [
       {
+        "name": "hash",
+        "type": {
+          "reqType": true,
+          "name": "String"
+        },
+        "description": "`hash` is the hash of this transaction. It is also a universally unique pointer to this transaction.",
+        "arguments": []
+      },
+      {
         "name": "previousState",
         "type": {
           "reqType": true,
@@ -1701,7 +1991,7 @@
         "type": {
           "name": "TrackerTransition"
         },
-        "description": "transition holds the details of the specific transition. This can be one of the following types based on the specific transition:\n- TrxTransitionInit\n- TrxTransitionPooled\n- TrxTransitionMined\n- TrxTransitionForked\n- TrxTransitionConfirmed\n- TrxTransitionReplaced",
+        "description": "transition holds the details of the specific transition. This can be one of the following types based on the specific transition:\n- TrxTransitionInit\n- TrxTransitionPooled\n- TrxTransitionSpeculativelyExecuted\n- TrxTransitionMined\n- TrxTransitionForked\n- TrxTransitionConfirmed\n- TrxTransitionReplaced",
         "arguments": []
       }
     ]
@@ -1763,6 +2053,29 @@
         "name": "transaction",
         "type": {
           "name": "Transaction"
+        },
+        "description": "",
+        "arguments": []
+      }
+    ]
+  },
+  {
+    "name": "TrxTransitionSpeculativelyExecuted",
+    "hideChildren": true,
+    "description": "",
+    "fields": [
+      {
+        "name": "blockHeader",
+        "type": {
+          "name": "BlockHeader"
+        },
+        "description": "blockHeader is the block on which the transaction was speculatively executed",
+        "arguments": []
+      },
+      {
+        "name": "trace",
+        "type": {
+          "name": "TransactionTrace"
         },
         "description": "",
         "arguments": []
