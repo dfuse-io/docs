@@ -53,6 +53,6 @@ Chain ID: `1064487b3cd1a897ce03ae5b6a865651747e2e152090f99c1d19d44e01aea5a4`
 
 | API       | URL                                                                                                                                   |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| WebSocket | wss://mainnet.wax.dfuse.io/v1/stream                                                                                                  |
-| REST      | https://mainnet.wax.dfuse.io/                                                                                                         |
-| GraphQL   | https://mainnet.wax.dfuse.io/graphql -- Test the API with our {{< external-link title="GraphiQL" href="https://mainnet.wax.dfuse.io/graphiql/" >}} visual editor |
+| WebSocket | wss://wax.dfuse.eosnation.io/v1/stream                                                                                                  |
+| REST      | https://wax.dfuse.eosnation.io/                                                                                                         |
+| GraphQL   | https://wax.dfuse.eosnation.io/graphql -- Test the API with our {{< external-link title="GraphiQL" href="https://wax.dfuse.eosnation.io/graphiql/" >}} visual editor |
