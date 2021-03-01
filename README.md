@@ -21,6 +21,35 @@ To start the hugo server, run this command:
 hugo server
 ```
 
+### GraphQL API Reference
+
+The GraphQL API Reference content is generated straight from the GraphQL schema of the different products
+we support.
+
+To update them, a pre-defined project layout on disk is expected by the script. You must have the three
+following project colocated as siblings alongside the `docs` project:
+
+- `docs`
+- `dfuse-eosio`
+- `dfuse-ethereum`
+
+The later two must be named verbatim, the first one `docs` could be named whatever you like. Once the
+following layout exist on your local workstation, to update the GraphQL generate API reference data,
+first install the script dependencies:
+
+```
+npm install
+```
+
+Then run the following command:
+
+```
+node graphql.js
+```
+
+This should update the file `data/eos/graphql.json` and `data/eth/graphql.json` (and any other
+chains we now support) if the GraphQL schema has been updated.
+
 ## Content Structure
 
 All content can be found in the `/content` directory. The structure of the website is generated automatically based on the structure of that directory.
@@ -62,7 +91,7 @@ For example the example snippet is from the file:
 └── ...
 ```
 
-When hugo builds the site, the code sections are extracted and stored in the `data` folder in project root. 
+When hugo builds the site, the code sections are extracted and stored in the `data` folder in project root.
 Example code can then be referenced with the following shortcode:
 ```go
 {{< code-section "quickstarts_javascript_node_eos_section1" >}}

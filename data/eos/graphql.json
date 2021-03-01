@@ -1814,7 +1814,7 @@
   {
     "name": "DBOp",
     "hideChildren": true,
-    "description": "Represents the mutation of a row, in a contract table.",
+    "description": "Represents the change delta of a row, in a contract table.\n\nThe `operation` field can be used to determine what happened\nto the row. Was is just inserted, modified or deleted?",
     "fields": [
       {
         "name": "operation",
@@ -1822,7 +1822,7 @@
           "reqType": true,
           "name": "DB_OPERATION"
         },
-        "description": "",
+        "description": "The `operation` type should be referred to when inspecting the `oldData`, `oldJSON`, `newData`, `newJSON`\nfields. The `operation`'s value will determine what those value will contain.\n\nAssume the following example fields values (for brievity and clarity, we show the `oldJSON`\nand the `newJSON` fields, but the concept applies equally to `oldData` and `newData` which\nare the Hexadecimal binary version of the JSON):\n\n```\n   { operation: \"INS\", newJSON: { \"id\":1, \"name\": \"john\" }, oldJSON: <nil> } }\n   { operation: UPD, newJSON: { \"id\":1, \"name\": \"johnny\"}, oldJSON: { \"id\":1, \"name\": \"john\" } }\n   { operation: REM, newJSON: <nil>, oldJSON: { \"id\":1, \"name\": \"johnny\" } }\n```\n\nWhen the `operation` type is `\"INS\"`, the `oldJSON` will be `null`, since it's a new row,\nit cannot have a previous state, the `newJSON` will be set with the new value just inserted.\n\nWhen the `operation` type is `\"UPD\"`, the `newJSON` will contain the new row's value after\nthe update while the `oldJSON` will be set with the value the row had before being updated.\n\nWhen the `operation` type is `\"REM\"`, the `newJSON` will be `null`, since it's a deleted row,\nno new state exists, the `oldJSON` will be set with the value the row had before being\ndeleted.",
         "arguments": []
       },
       {

@@ -622,6 +622,14 @@
         },
         "description": "`signature` holds the V, R and S values representing the cryptographic signature for this transaction. It is based on these values that the `from` address is derived",
         "arguments": []
+      },
+      {
+        "name": "raw",
+        "type": {
+          "name": "String"
+        },
+        "description": "The raw signed transaction has sent to the network for inclusion into the chain. Can be null in circumstances where signed data was not recovered, for example when doing speculative execution from raw input parameters where signing data is not provided.",
+        "arguments": []
       }
     ]
   },
@@ -813,6 +821,14 @@
           "name": "Signature"
         },
         "description": "`signature` holds the V, R and S values representing the cryptographic signature for this transaction. It is based on these values that the `from` address is derived",
+        "arguments": []
+      },
+      {
+        "name": "raw",
+        "type": {
+          "name": "String"
+        },
+        "description": "The raw signed transaction has sent to the network for inclusion into the chain. Can be null in circumstances where signed data was not recovered, for example when doing speculative execution from raw input parameters where signing data is not provided.",
         "arguments": []
       },
       {
@@ -1895,17 +1911,6 @@
         "arguments": []
       },
       {
-        "name": "uncles",
-        "type": {
-          "isList": true,
-          "reqList": true,
-          "reqType": true,
-          "name": "BlockHeader"
-        },
-        "description": "",
-        "arguments": []
-      },
-      {
         "name": "transactionTraces",
         "type": {
           "reqType": true,
@@ -2073,11 +2078,19 @@
         "arguments": []
       },
       {
+        "name": "transaction",
+        "type": {
+          "name": "Transaction"
+        },
+        "description": "transaction holds the original transaction received from the Mempool that was used to speculatively execute the transaction.",
+        "arguments": []
+      },
+      {
         "name": "trace",
         "type": {
           "name": "TransactionTrace"
         },
-        "description": "",
+        "description": "trace holds the speculative execution trace (includes all internal calls and theirs input/output, balance & state changes, etc).",
         "arguments": []
       }
     ]
