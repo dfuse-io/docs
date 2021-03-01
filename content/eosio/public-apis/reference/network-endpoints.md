@@ -51,6 +51,10 @@ Chain ID: `5fff1dae8dc8e2fc4d5b23b2c7665c97f9e9d8edf2b6485a86ba311c25639191`
 
 Chain ID: `1064487b3cd1a897ce03ae5b6a865651747e2e152090f99c1d19d44e01aea5a4`
 
+{{< alert type="note" >}}
+WAX Mainnet is provider through dfuse Community Edition hosted by [EOS Nation](https://eosnation.io/)
+{{< /alert >}}
+
 | API       | URL                                                                                                                                   |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | WebSocket | wss://wax.dfuse.eosnation.io/v1/stream                                                                                                  |
