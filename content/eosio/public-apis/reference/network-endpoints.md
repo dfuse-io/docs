@@ -25,7 +25,7 @@ A free rate-limited access is offered by [EOS Nation](https://eosnation.io/) tea
 ### dfuse Community Edition (hosted by [EOS Nation](https://eosnation.io/))
 
 {{< alert type="note" >}}
-Access to the Official dfuse Community Edition requires authentication and is rate-limited. The service being shared with the whole community, please be mindful of your requests. To create a dfuse API key, visit [EOS Nation Account Page](https://account.eosnation.io). The authorization endpoint is to use to obtain a dfuse API Token from your API key is `auth.eosnation.io`.
+Access to the Official dfuse Community Edition does not require authentication, and is rate-limited. A higher rate limit is available to authenticatated users. The service being shared with the whole community, please be mindful of your requests. To create a dfuse API key for the dfuse Community Edition, visit [EOS Nation Account Page](https://account.eosnation.io). The authorization endpoint to use to obtain a dfuse API Token from your API key is `auth.eosnation.io`.
 {{< /alert >}}
 
 | API       | URL                                                                                                                                   |
@@ -78,7 +78,7 @@ A free rate-limited access is offered by [EOS Nation](https://eosnation.io/) tea
 ### dfuse Community Edition (hosted by [EOS Nation](https://eosnation.io/))
 
 {{< alert type="note" >}}
-Access to the Official dfuse Community Edition requires authentication and is rate-limited. The service being shared with the whole community, please be mindful of your requests. To create a dfuse API key, visit [EOS Nation Account Page](https://account.eosnation.io). The authorization endpoint is to use to obtain a dfuse API Token from your API key is `auth.eosnation.io`.
+Access to the Official dfuse Community Edition does not require authentication, and is rate-limited. A higher rate limit is available to authenticatated users. The service being shared with the whole community, please be mindful of your requests. To create a dfuse API key for the dfuse Community Edition, visit [EOS Nation Account Page](https://account.eosnation.io). The authorization endpoint to use to obtain a dfuse API Token from your API key is `auth.eosnation.io`.
 {{< /alert >}}
 
 | API       | URL                                                                                                                                   |
