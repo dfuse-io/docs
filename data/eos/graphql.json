@@ -613,6 +613,15 @@
         "arguments": []
       },
       {
+        "name": "merkleRoot",
+        "type": {
+          "reqType": true,
+          "name": "BlockRootMerkle"
+        },
+        "description": "Pointer to the incremental merkle root data structure for this block",
+        "arguments": []
+      },
+      {
         "name": "executedTransactionCount",
         "type": {
           "reqType": true,
@@ -751,6 +760,33 @@
         "name": "newProducers",
         "type": {
           "name": "ProducerSchedule"
+        },
+        "description": "",
+        "arguments": []
+      }
+    ]
+  },
+  {
+    "name": "BlockRootMerkle",
+    "hideChildren": true,
+    "description": "BlockRootMerkle",
+    "fields": [
+      {
+        "name": "nodeCount",
+        "type": {
+          "reqType": true,
+          "name": "Uint32"
+        },
+        "description": "The ID of this block in the chain.",
+        "arguments": []
+      },
+      {
+        "name": "activeNodes",
+        "type": {
+          "isList": true,
+          "reqList": true,
+          "reqType": true,
+          "name": "String"
         },
         "description": "",
         "arguments": []

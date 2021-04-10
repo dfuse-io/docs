@@ -1038,7 +1038,7 @@
           "reqType": true,
           "name": "Uint32"
         },
-        "description": "",
+        "description": "`index` is the unique sequential number of the call within the teansaction. Used to make some relationship with other calls in the tree, like the parent's index.",
         "arguments": []
       },
       {
@@ -1047,7 +1047,7 @@
           "reqType": true,
           "name": "Uint32"
         },
-        "description": "",
+        "description": "`parentIndex` is the `index` of the call that directly generated this one. Can be used to build back the full call hierarchy.",
         "arguments": []
       },
       {
@@ -1056,7 +1056,7 @@
           "reqType": true,
           "name": "Uint32"
         },
-        "description": "",
+        "description": "`depth` is the nesting value of this call in regards to the top-level transaction. Can be used in layout to place the call at the correct level of indentation.",
         "arguments": []
       },
       {
@@ -1074,7 +1074,7 @@
           "reqType": true,
           "name": "String"
         },
-        "description": "`from` is the address of the caller that will",
+        "description": "`from` is the address of the caller that is performing the actual call.",
         "arguments": []
       },
       {
@@ -1083,7 +1083,7 @@
           "reqType": true,
           "name": "String"
         },
-        "description": "`to` is the address of the contract being executed",
+        "description": "`to` is the address of the contract being executed or the recipient of the fund in the case of pure transfer that does not involve smart contract execution.",
         "arguments": []
       },
       {
@@ -1092,7 +1092,7 @@
           "reqType": true,
           "name": "String"
         },
-        "description": "",
+        "description": "`value` is the amount of Ether transferred to the `from` counterpart of this call.",
         "arguments": [
           {
             "name": "encoding",
@@ -1128,7 +1128,16 @@
           "reqType": true,
           "name": "TRANSACTION_STATUS"
         },
-        "description": "`status` represents the outcome of the execution of this Call",
+        "description": "`status` represents the outcome of the execution of this Call.\n\n*Important*: Relying solely on status of the call to determine if the state changes performed by the call were committed is wrong. The way Ethereum internal calls work is that if the callee (i.e. the parent) fails, all it's child calls are reverted even if they succeed. Refer to the `stateReverted` flag to determine if the call's changes were committed to the chain.",
+        "arguments": []
+      },
+      {
+        "name": "stateReverted",
+        "type": {
+          "reqType": true,
+          "name": "Boolean"
+        },
+        "description": "`stateReverted` determines if the following, regardless of its `status`, was committed to the chain completely.\n\nThe way Ethereum internal calls work is that if the callee (i.e. the parent) fails, all it's child calls are reverted even if they succeed. For example, assume a big transactions that performs internal calls and themselves perform other deep calls.\n\n```\nTransaction 0xe604e8...\n  Call #2\n  Call #3\n    Call #4\n    Call #5\n    Call #6\n  Call #7\n  Call #8\n    Call #9\n      Call #10\n  Call #11\n```\n\nIn this hierarchy, if Call #3 fails, the Call #4, #5 and #6 are reverted automatically by the Ethereum blockchain and the state changes performed by those calls are reverted. This means you cannot rely solely on the call's `status` to take a decision.\n\nThe `stateReverted` field on the opposite is aware of the call hierarchy and will correctly flag Call #3, #4, #5 and #6 has being `stateReverted: true` because we correctly inferred that since Call #3 failed, all its children (and children of children recursively) have been reverted by the chain. You would end up with the following fields:\n\n```\nTransaction 0xe604e8... (status: success)\n  Call #2 (status: success, stateReverted: false)\n  Call #3 (status: failed, stateReverted: true)\n    Call #4 (status: success, stateReverted: true)\n    Call #5 (status: success, stateReverted: true)\n    Call #6 (status: success, stateReverted: true)\n  Call #7 (status: success, stateReverted: false)\n  Call #8 (status: failed, stateReverted: true)\n    Call #9 (status: success, stateReverted: true)\n      Call #10 (status: success, stateReverted: true)\n  Call #11 (status: failed, stateReverted: true)\n```",
         "arguments": []
       },
       {
@@ -1183,7 +1192,7 @@
           "reqType": true,
           "name": "StorageChange"
         },
-        "description": "",
+        "description": "`storageChanges` is the list of all storage changes that happen as part of this call. A storage change is any Smart Contract variables that changed throughout the execution of the Smart Contract.\n\nBy default, if the call was reverted (as defined by the `stateReverted` flag), the storage changes will be empty. Use the `includeReverted: true` argument to get the populated list even on reverted calls.",
         "arguments": [
           {
             "name": "includeReverted",
@@ -1203,7 +1212,7 @@
           "reqType": true,
           "name": "BalanceChange"
         },
-        "description": "",
+        "description": "`balanceChanges` is the list of all balance changes that happen as part of this call. A balance change is a transfer of Ether from one entity to the other.\n\nBy default, if the call was reverted (as defined by the `stateReverted` flag), the balance changes will be empty. Use the `includeReverted: true` argument to get the populated list even on reverted calls.",
         "arguments": [
           {
             "name": "includeReverted",
@@ -1223,7 +1232,7 @@
           "reqType": true,
           "name": "EventLog"
         },
-        "description": "",
+        "description": "`logs` is the list of all logs that were emitted as part of this call.\n\nBy default, if the call was reverted (as defined by the `stateReverted` flag), the logs will be empty. Use the `includeReverted: true` argument to get the populated list even on reverted calls.",
         "arguments": [
           {
             "name": "includeReverted",
