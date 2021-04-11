@@ -23,8 +23,6 @@ zstd -d kylin-snapshot.bin.zst
 ## Prepare {workspace}/kylin-phase1-blocks.yaml
 
 ### Required information
-* `mindreader-stop-block-num: {kylin current head block number, rounded to 100}`
-  * You can go to https://kylin.eosq.app/ or use this kind of shell command: `curl -s https://kylin.eos.dfuse.io/v1/chain/get_info | sed 's/.*head_block_num..\([0-9]*\),.*/\1/'`
 * `mindreader-snapshot-store-url: file:///{Current working directory}`
   * Folder where you downloaded the snapshot (output of command `pwd` in your shell)
 
@@ -35,16 +33,14 @@ start:
   args:
   - mindreader
   flags:
-    config-file: ""
     log-to-file: false
     mindreader-log-to-zap: false
-    mindreader-merge-and-store-directly: true
     mindreader-start-failure-handler: true
     mindreader-blocks-chan-capacity: 100000
     mindreader-restore-snapshot-name: snapshot.bin
-    mindreader-discard-after-stop-num: false
     mindreader-snapshot-store-url: file:///home/johndoe/workspace
-    mindreader-stop-block-num: 107367000
+    mindreader-batch-mode: true
+    mindreader-no-blocks-log: true
 {{< /highlight >}}
 
 ## Prepare mindreader nodeos config
@@ -111,7 +107,9 @@ dfuseeos -c kylin-phase1-blocks.yaml start -v
 {{< /highlight >}}
 
 * You can see the 'actual' progress of block files being written by running this command from another terminal: `ls -ltr dfuse-data/storage/merged-blocks/ |tail`
-* From different terminal sessions, you can run the "search" and "trxdb" phases in parallel with this phase. They will wait for merged block files to be created. See next steps in this document.
+* From different terminal sessions, you can run the "search" and "trxdb" phases in parallel with this phase. They will wait for merged block files to be created.
+* Once the mindreader instance reaches the head block, it can be manually stopped.  A `mindreader-stop-block-num` may be set, but keep in mind the head block moves (60 seconds * 60 minutes * 24 hours * 2 500ms block times) 172,800 blocks per day.
+See next steps in this document.
 
 KNOWN ISSUES:
 
@@ -133,7 +131,6 @@ start:
   args:
   - search-indexer
   flags:
-    config-file: ""
     log-to-file: false
     search-indexer-enable-batch-mode: true
     search-indexer-start-block: 107305500
@@ -165,7 +162,6 @@ start:
   args:
   - trxdb-loader
   flags:
-    config-file: ""
     log-to-file: false
     common-chain-id: 5fff1dae8dc8e2fc4d5b23b2c7665c97f9e9d8edf2b6485a86ba311c25639191
     trxdb-loader-start-block-num: 107305400
@@ -201,15 +197,14 @@ start:
   - trxdb-loader
   - blockmeta
   flags:
-    config-file: ""
     log-to-file: false
     mindreader-log-to-zap: true
-    common-chain-id: 5fff1dae8dc8e2fc4d5b23b2c7665c97f9e9d8edf2b6485a86ba311c25639191
     search-indexer-shard-size: 500
     search-indexer-start-block: 107305500
     search-archive-shard-size: 500
     search-archive-start-block: 107305500
     blockmeta-eos-api-upstream-addr: https://kylin.eos.dfuse.io
+    mindreader-auto-snapshot-modulo: 1000000
 {{< /highlight >}}
 
 ### Known Issues
