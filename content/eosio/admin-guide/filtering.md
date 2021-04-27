@@ -56,9 +56,9 @@ The `trxdb-loader` component will only save transaction traces in the database t
 This means that, once filtered, the resulting `trxdb` will _not_ contain all transactions.  Will _not_ be able to resolve transaction traces requested by `dgraphql` or pointers reported by `search` unless they are _also_ in this database.
 
 
-### `fluxdb`
+### `statedb`
 
-`fluxdb` will be affected by filtered data coming from a `relayer` that relays filtered blocks.
+`statedb` will be affected by filtered data coming from a `relayer` that relays filtered blocks.
 
 You need to be diligent in what you filter, to not miss table changes that would otherwise make your view of tables inconsistent.
 

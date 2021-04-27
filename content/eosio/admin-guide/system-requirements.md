@@ -84,7 +84,7 @@ CryptoKylin:
     * Live SSDs to host **230 GB** uncompressed indexes
   * `live` nodes:
 * `trxdb` size: **560 GB**
-* `fluxdb` size: **27 GB**
+* `statedb` size: **27 GB**
 
 
 #### Large scale chains
@@ -110,7 +110,7 @@ EOS Mainnet:
 
 * Size of `trxdb` (this data includes all data, unfiltered, including "spammy" transactions): **15.1 TB**
 
-* Size of `fluxdb` key/value store (unfiltered): **454 GB**
+* Size of `statedb` key/value store (unfiltered): **454 GB**
   * This _does_ include all state changes for the whole history of the chain, rounded at the block height.
 
 The estimates for search indexes imply this search filtering:

@@ -20,7 +20,7 @@ Note that some components (ex: blockmeta) can be available (serving requests) wi
 
 ### gRPC Health check
 
-Some dfuse components only expose a gRPC port, so their readiness must be checked using the [gRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
+Some dfuse components only expose a gRPC port, so their readiness must be checked using the [gRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md).
 
 1. Download grpc-health-probe https://github.com/grpc-ecosystem/grpc-health-probe/releases
 
@@ -58,7 +58,7 @@ The following components should be checked on their "HTTP listen address" on `/h
 * dgraphql
 * eosq
 * eosws (requires the queryparam `secret={value of param --eosws-healthz-secret}`)
-* fluxdb
+* statedb
 * mindreader
 * node-manager
 * search-indexer

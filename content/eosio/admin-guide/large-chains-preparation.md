@@ -18,13 +18,13 @@ First `mindreader` app starts and controls a `nodeos` process, one that has dfus
 
 This output is processed by `mindreader` which from that, generates "dfuse blocks" file. Once those blocks are generated, they are pushed through some communication channel to other app inside the stack:
 
-- `fluxdb`
+- `statedb`
 - `trxdb-loader`
 - `search-indexer`
 
-The former first two (`fluxdb` & `trxdb-loader`) uses Badger, a local disk-based key-value database while the second creates on-disk searchable indexes that are used by the other `search` apps to serve search query & streams.
+The former first two (`statedb` & `trxdb-loader`) uses Badger, a local disk-based key-value database while the second creates on-disk searchable indexes that are used by the other `search` apps to serve search query & streams.
 
-This means after "dfuse blocks" are created by `mindreader` app, the bottleneck that is probably hit is disk throughput. We never used that setup yet to sync any "existing" chain, we are thus even unsure how everything is going to behave together and even if this setup is able to reprocess a mid-size chain in a reasonable matter. In our testing on "local test chains", we are able to roughly index ~30 blocks/s, and that was only for the `trxdb-loader` as far as I remember. This is a metric that is probably valid for `fluxdb` and `trxdb-loader`, the `search-indexer` probably goes much faster as it indexes chunk of 200 blocks.
+This means after "dfuse blocks" are created by `mindreader` app, the bottleneck that is probably hit is disk throughput. We never used that setup yet to sync any "existing" chain, we are thus even unsure how everything is going to behave together and even if this setup is able to reprocess a mid-size chain in a reasonable matter. In our testing on "local test chains", we are able to roughly index ~30 blocks/s, and that was only for the `trxdb-loader` as far as I remember. This is a metric that is probably valid for `statedb` and `trxdb-loader`, the `search-indexer` probably goes much faster as it indexes chunk of 200 blocks.
 
 Assuming all indexing apps runs at the same time, keep up a rate of 30 blocks/s, syncing a 3M blocks chain should take roughly 27 hours. This is also discarding the fact that blocks continue to be created while this happens, in 27 hours, there will be 194400 blocks created, that's another 2 hours of reprocessing approximately and so on.
 
@@ -46,7 +46,7 @@ Some users are currently trying this approach as we speak, and we will probably 
 
 For this sync, we are going to split the process in 3 different phases:
 - Phase 1 - Launch a `mindreader` app only that syncs with the existing chain and create "dfuse blocks" file
-- Phase 2 - Add to the mix the indexing apps: `fluxdb`, `trxdb-loader` and `search-indexer`
+- Phase 2 - Add to the mix the indexing apps: `statedb`, `trxdb-loader` and `search-indexer`
 - Phase 3 - Starts everything else
 
 We are going to run that in the same folder for each phase. Between each phase, we are going to start with a different config file.
@@ -131,7 +131,7 @@ Then monitor the folder `dfuse-data/storage/snapshots` until the snapshot is wri
 
 In Phase 2 we are going to still `mindreader`, but we are going to change it's configuration so it's able to deal with live blocks. For that, we will defer the block merging process to another app, the `merger`. The `relayer` app will also be started, so once indexing apps have finished indexing "historical" blocks, they will be able to be kept "warm" and process live blocks (assuming mindreader as correctly sync up to live blocks)
 
-We will also start the `fluxdb` indexer (history state information), `trxdb-loader` (transation and blocks database) and `search-indexer` (search engine indexes).
+We will also start the `statedb` indexer (history state information), `trxdb-loader` (transation and blocks database) and `search-indexer` (search engine indexes).
 
 Create a file `dfuse-phase2.yaml` in your folder with the following content:
 
@@ -141,11 +141,11 @@ start:
   - mindreader
   - merger
   - relayer
-  - fluxdb
+  - statedb
   - trxdb-loader
   - search-indexer
   flags:
-    fluxdb-enable-server-mode: false
+    statedb-enable-server-mode: false
     mindreader-start-failure-handler: true
     mindreader-blocks-chan-capacity: 100000
     mindreader-restore-snapshot-name: latest
@@ -164,8 +164,8 @@ Monitoring advancement of the indexing processed is done manually right now, ext
 We uses `zap-pretty` tool (https://github.com/maoueh/zap-pretty) to prettify the log line. Can be replaced by `jq .` also but it's less pretty and creates longer line. If you use `jq .` or nothing at all, you can avoid the `--line-buffered` in the `grep` statements, that is used to overcome a limitation of `zap-pretty` (that we will fix eventually).
 
 {{< highlight sh >}}
-# App fluxdb progress (check for `block_num` field, no insert rate given here)
-tail -f dfuse-data/dfuse.log.json| grep --line-buffered "fluxdb" | grep --line-buffered "wrote irreversible segment" | zap-pretty
+# App statedb progress (check for `block_num` field, no insert rate given here)
+tail -f dfuse-data/dfuse.log.json| grep --line-buffered "statedb" | grep --line-buffered "wrote irreversible segment" | zap-pretty
 
 # App trxdb-loader (check for `block_num` and `block_sec` (insertion rate))
 tail -f dfuse-data/dfuse.log.json| grep --line-buffered "trxdb" | grep --line-buffered "5sec AVG INSERT RATE" | zap-pretty
@@ -185,4 +185,4 @@ tail -f dfuse-data/dfuse.log.json|  grep --line-buffered mindreader | zap-pretty
 - Proton chain sync from `0 - 3M` on `8 vCPUs`, `2.6 GHz Intel Core i7`, `16gb ram`,  SSD disk
   - App `search-indexer` took roughly 35m to index all the data
   - App `trxdb-loader` took roughly 55m to index all the data
-  - App `fluxdb` took roughly 60m to index all the data
+  - App `statedb` took roughly 60m to index all the data

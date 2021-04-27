@@ -215,7 +215,7 @@ start:
 ### Known Issues
 
 * You may see some warnings like this: `found a hole in a oneblock files`, sometimes they are false positive. Watch the progression of merged-blocks in the folder like this: `ls  ./dfuse-data/storage/merged-blocks/ |tail -n 1` to make sure that the merger keeps going correctly
-* EOSQ will not work correctly without "eosws", "fluxdb", "abicodec", which do not support 'partial chain syncing' at the moment. You will need to sync the full chain to get that.
+* EOSQ will not work correctly without "eosws", "statedb", "abicodec", which do not support 'partial chain syncing' at the moment. You will need to sync the full chain to get that.
 
 ### Watch as the chain syncs its missing part up to the head
 

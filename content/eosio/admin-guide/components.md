@@ -116,11 +116,11 @@ This is useful in filtered deployments, backed by an unfiltered deployment.
 **High Availability considerations**: Similar to those of the `merger`, as they consume the same files, and produce the same sort of files (merged blocks files).
 
 
-### `fluxdb`
+### `statedb`
 
-**Description**: `fluxdb` is a special-purpose database to provide state snapshots of all blockchain state, at any block height.
+**Description**: `statedb` is a special-purpose database to provide state snapshots of all blockchain state, at any block height.
 
-`fluxdb` has two modes of operation (enabled alone or in combination through command-line flags):
+`statedb` has two modes of operation (enabled alone or in combination through command-line flags):
 
 * `inject` mode, which writes to the `kvdb` store
 * `server` mode, which receives requests from end users and serves them. It also is connected to the `kvdb` store, and holds a buffer with recent blocks.
@@ -148,7 +148,7 @@ Simple deployments will have both in one process, in which case you do not want 
 
 ### `dgraphql`
 
-**Description**: `dgraphql` is a server process serving end-user requests in the GraphQL format. It speaks GraphQL over both HTTP and gRPC. It routes most of its request to the appropriate service. In particular: `search-router` (for backward/forward searches), `fluxdb` server (for state queries), `blockmeta` (for block by time resolutions), `tokenmeta` (for token queries).
+**Description**: `dgraphql` is a server process serving end-user requests in the GraphQL format. It speaks GraphQL over both HTTP and gRPC. It routes most of its request to the appropriate service. In particular: `search-router` (for backward/forward searches), `statedb` server (for state queries), `blockmeta` (for block by time resolutions), `tokenmeta` (for token queries).
 
 **High Availability considerations**: This process is stateless, and can be scaled up or down for the desired throughput. You want at least 2 to sustain one being down.
 
@@ -157,7 +157,7 @@ Simple deployments will have both in one process, in which case you do not want 
 
 **Description**: The `tokenmeta` service is a specialized indexer for tokens, holders, and balances. It can provide clean and quick snapshots of that information. It is exposed through `dgraphql`.
 
-**High Availability considerations**: This is a stateless deployment, as it bootstraps from `fluxdb`, and streams changes from `relayers`. You will want two or more to ensure zero downtime upgrades.
+**High Availability considerations**: This is a stateless deployment, as it bootstraps from `statedb`, and streams changes from `relayers`. You will want two or more to ensure zero downtime upgrades.
 
 
 ### `abicodec`

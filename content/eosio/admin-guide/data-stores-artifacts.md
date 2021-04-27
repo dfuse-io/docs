@@ -29,7 +29,7 @@ Different databases are needed for different components of `dfuse for EOSIO`:
   * The transactions stored in this database can be [filtered (docs)]({{< ref "./filtering" >}}) to save on storage.
   * The `dfuseeos tools` command has tools to verify the integrity of such a database, to ensure a contiguous block history.
   * It is written to by the [trxdb-loader component]({{< ref "./components" >}}#trxdb-loader).
-  * See [parallel processing docs]({{< ref "./parallel-processing" >}}#fluxdb) for more info on parallel ingestion.
+  * See [parallel processing docs]({{< ref "./parallel-processing" >}}#statedb) for more info on parallel ingestion.
 
 <!--
 
@@ -39,11 +39,11 @@ We can add details when this is ready:
 
 -->
 
-2. `fluxdb`: a `kvdb`-backed key/value store, that stores state changes of the blockchain state (internal, as well as contract state), like tables, rows, and snapshots of such tables.  It uses <!-- patented? --> purpose-built algorithms to enable snapshotting of all tables, at all block heights.
+2. `statedb`: a `kvdb`-backed key/value store, that stores state changes of the blockchain state (internal, as well as contract state), like tables, rows, and snapshots of such tables.  It uses <!-- patented? --> purpose-built algorithms to enable snapshotting of all tables, at all block heights.
 
   * This database needs to be written to linearly, from a perspective of a single table.
-  * It is written to by the [fluxdb injector component]({{< ref "./components" >}}#fluxdb).
-  * See [parallel processing docs]({{< ref "./parallel-processing" >}}#fluxdb) for more info on parallel ingestion.
+  * It is written to by the [statedb injector component]({{< ref "./components" >}}#statedb).
+  * See [parallel processing docs]({{< ref "./parallel-processing" >}}#statedb) for more info on parallel ingestion.
 
 3. The `search` components require a small `etcd` cluster (typically 3 nodes) for service discovery between `search` components.  See [more details about `search-etcd`]({{< ref "./components" >}}#search-etcd)
 
