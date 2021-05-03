@@ -47,10 +47,12 @@ Each component given has a given Kubernetes name attached to it, it's the name o
 The following element below are placeholder that you will need to  find and replace in the flags provided below.
 
 - BigTable dsn `bigkv://project-id.bigtable-instance/eos-name-here-trxdb-v1`
-- Merged blocks `gs://acme-blocks/eos-name-here/v3`
-- Search indexes `gs://acme-search-indexes/eos-name-here/v3`
+- Merged blocks `gs://acme-blocks/eos-name-here/v1`
+- Search indexes `gs://acme-search-indexes/eos-name-here/v1`
 - The `etcd` cluster `etcd://etcd-cluster:2379/eos-name-here`
 {{< /alert >}}
+
+The components presented below are loosly ordered by dependencies, the most low-level dependency listed first climbing to the top of the dependencies tree up to the API level components.
 
 #### Search
 
@@ -89,7 +91,7 @@ Here the overview of the required components that should always run. The `search
 
 The naming of the search components is not required, but helps understanding what they do and improve maintenability of the different components. It has two elements, the data version and the tier level.
 
-- `d0` means the revision of the _data_, if we index new things or remove things from our indexes, we'll roll out a new series of pods, which can run the same revision of the software (`v3`), but with new data. We often can mix data revisions in the same deployment for some time, so the upgrade path is more seamless.
+- `d0` means the revision of the _data_, if we index new things or remove things from our indexes, we'll roll out a new series of pods, which can run the same revision of the software (`v1`), but with new data. We often can mix data revisions in the same deployment for some time, so the upgrade path is more seamless.
 - `t10`, `t15`, `t20`, `t99` and `t100` are the search tiers, they are all registered in the `etcd` cluster and cover different chain segments.
  - The `t10` and `t15` are fixed size tier, with blocks ranging from 0 to 90M and then to 90M to 130M, it is not written to (no moving head), and consumes respectively `25000` and `10000` blocks indexes. No live indexer of `50000` is necessary in this situation, provided they were all processed before and exist in the _search indexes object store_ already.
  - The `t20` is a tier with a moving head, with indexes 5000 blocks in size, meaning it will keep watching for new indexes produced by the `search0-indexer-5000`, with blocks ranging from 130M to the current chain head.
@@ -106,7 +108,7 @@ See [search etcd component]({{< ref "./components" >}}#search-etcd) for more det
 
 ##### `search-indexer`
 
-###### `deploy/search-v3-d0-indexer-25000`
+###### `deploy/search-v1-d0-indexer-25000`
 
 {{< alert type="note" >}}
 This deployment is actually required only once to generate the search indexed within this range. Once the indexation is completed, it does not need to run.
@@ -121,10 +123,10 @@ search-indexer \
 --config-file= \
 --log-format=stackdriver \
 --log-to-file=false \
---common-blocks-store-url=gs://acme-blocks/eos-name-here/v3 \
---common-blockstream-addr=dns:///relayer-v3:9000 \
---common-blockmeta-addr=dns:///blockmeta-v3:9000 \
---search-common-indices-store-url=gs://acme-search-indexes/eos-name-here/v3 \
+--common-blocks-store-url=gs://acme-blocks/eos-name-here/v1 \
+--common-blockstream-addr=dns:///relayer-v1:9000 \
+--common-blockmeta-addr=dns:///blockmeta-v1:9000 \
+--search-common-indices-store-url=gs://acme-search-indexes/eos-name-here/v1 \
 --search-indexer-enable-batch-mode=true \
 --search-indexer-enable-upload=true \
 --search-indexer-delete-after-upload=true \
@@ -135,7 +137,7 @@ search-indexer \
 --search-indexer-writable-path=/tmp/bleve-indexes
 {{< /highlight >}}
 
-###### `deploy/search-v3-d0-indexer-10000`
+###### `deploy/search-v1-d0-indexer-10000`
 
 {{< alert type="note" >}}
 This deployment is actually required only once to generate the search indexed within this range. Once the indexation is completed, it does not need to run.
@@ -150,10 +152,10 @@ search-indexer \
 --config-file= \
 --log-format=stackdriver \
 --log-to-file=false \
---common-blocks-store-url=gs://acme-blocks/eos-name-here/v3 \
---common-blockstream-addr=dns:///relayer-v3:9000 \
---common-blockmeta-addr=dns:///blockmeta-v3:9000 \
---search-common-indices-store-url=gs://acme-search-indexes/eos-name-here/v3 \
+--common-blocks-store-url=gs://acme-blocks/eos-name-here/v1 \
+--common-blockstream-addr=dns:///relayer-v1:9000 \
+--common-blockmeta-addr=dns:///blockmeta-v1:9000 \
+--search-common-indices-store-url=gs://acme-search-indexes/eos-name-here/v1 \
 --search-indexer-enable-batch-mode=true \
 --search-indexer-enable-upload=true \
 --search-indexer-delete-after-upload=true \
@@ -164,7 +166,7 @@ search-indexer \
 --search-indexer-writable-path=/tmp/bleve-indexes
 {{< /highlight >}}
 
-###### `sts/search-v3-d0-indexer-5000`
+###### `sts/search-v1-d0-indexer-5000`
 
 {{< alert type="note" >}}
 This statefulset has a moving head, so it must always run in the full deployment. A parallelized version can be used to reach Head, then it must run in "live" mode.
@@ -177,10 +179,10 @@ search-indexer \
 --config-file= \
 --log-format=stackdriver \
 --log-to-file=false \
---common-blocks-store-url=gs://acme-blocks/eos-name-here/v3 \
---common-blockstream-addr=dns:///relayer-v3:9000 \
---common-blockmeta-addr=dns:///blockmeta-v3:9000 \
---search-common-indices-store-url=gs://acme-search-indexes/eos-name-here/v3 \
+--common-blocks-store-url=gs://acme-blocks/eos-name-here/v1 \
+--common-blockstream-addr=dns:///relayer-v1:9000 \
+--common-blockmeta-addr=dns:///blockmeta-v1:9000 \
+--search-common-indices-store-url=gs://acme-search-indexes/eos-name-here/v1 \
 --search-indexer-http-listen-addr=:8080 \
 --search-indexer-enable-upload=true \
 --search-indexer-delete-after-upload=true \
@@ -193,7 +195,7 @@ search-indexer \
 
 ##### `search-archive`
 
-###### `sts/search-v3-d0-t10-0-90m-25000`
+###### `sts/search-v1-d0-t10-0-90m-25000`
 
 {{< highlight bash >}}
 dfuseeos \
@@ -202,10 +204,10 @@ search-archive \
 --config-file= \
 --log-format=stackdriver \
 --log-to-file=false \
---common-blockmeta-addr=dns:///blockmeta-v3:9000 \
---search-common-indices-store-url=gs://acme-search-indexes/eos-name-here/v3 \
+--common-blockmeta-addr=dns:///blockmeta-v1:9000 \
+--search-common-indices-store-url=gs://acme-search-indexes/eos-name-here/v1 \
 --search-common-mesh-dsn=etcd://etcd-cluster:2379/eos-name-here \
---search-common-mesh-service-version=v3 \
+--search-common-mesh-service-version=v1 \
 --search-common-mesh-publish-interval=1s \
 --search-archive-grpc-listen-addr=:9000 \
 --search-archive-tier-level=10 \
@@ -223,10 +225,10 @@ search-archive \
 # Local config file that contains query used to warmup the indexes, example content could be `receiver:eosio action:onblock` is those actions are indexed
 --search-archive-warmup-filepath=/etc/search/warmup-queries \
 --search-archive-enable-empty-results-cache \
---search-archive-memcache-addr=search-v3-memcache:11211
+--search-archive-memcache-addr=search-v1-memcache:11211
 {{< /highlight >}}
 
-###### `sts/search-v3-d0-t15-90m-130m-10000`
+###### `sts/search-v1-d0-t15-90m-130m-10000`
 
 {{< highlight bash >}}
 dfuseeos \
@@ -235,10 +237,10 @@ search-archive \
 --config-file= \
 --log-format=stackdriver \
 --log-to-file=false \
---common-blockmeta-addr=dns:///blockmeta-v3:9000 \
---search-common-indices-store-url=gs://acme-search-indexes/eos-name-here/v3 \
+--common-blockmeta-addr=dns:///blockmeta-v1:9000 \
+--search-common-indices-store-url=gs://acme-search-indexes/eos-name-here/v1 \
 --search-common-mesh-dsn=etcd://etcd-cluster:2379/eos-name-here \
---search-common-mesh-service-version=v3 \
+--search-common-mesh-service-version=v1 \
 --search-common-mesh-publish-interval=1s \
 --search-archive-grpc-listen-addr=:9000 \
 --search-archive-tier-level=15 \
@@ -256,10 +258,10 @@ search-archive \
 # Local config file that contains query used to warmup the indexes, example content could be `receiver:eosio action:onblock` is those actions are indexed
 --search-archive-warmup-filepath=/etc/search/warmup-queries \
 --search-archive-enable-empty-results-cache \
---search-archive-memcache-addr=search-v3-memcache:11211
+--search-archive-memcache-addr=search-v1-memcache:11211
 {{< /highlight >}}
 
-###### `sts/search-v3-d0-t20-130m-head-5000`
+###### `sts/search-v1-d0-t20-130m-head-5000`
 
 {{< highlight bash >}}
 dfuseeos \
@@ -268,10 +270,10 @@ search-archive \
 --config-file= \
 --log-format=stackdriver \
 --log-to-file=false \
---common-blockmeta-addr=dns:///blockmeta-v3:9000 \
---search-common-indices-store-url=gs://acme-search-indexes/eos-name-here/v3 \
+--common-blockmeta-addr=dns:///blockmeta-v1:9000 \
+--search-common-indices-store-url=gs://acme-search-indexes/eos-name-here/v1 \
 --search-common-mesh-dsn=etcd://etcd-cluster:2379/eos-name-here \
---search-common-mesh-service-version=v3 \
+--search-common-mesh-service-version=v1 \
 --search-common-mesh-publish-interval=1s \
 --search-archive-grpc-listen-addr=:9000 \
 --search-archive-tier-level=20 \
@@ -288,12 +290,12 @@ search-archive \
 # Local config file that contains query used to warmup the indexes, example content could be `receiver:eosio action:onblock` is those actions are indexed
 --search-archive-warmup-filepath=/etc/search/warmup-queries \
 --search-archive-enable-empty-results-cache \
---search-archive-memcache-addr=search-v3-memcache:11211
+--search-archive-memcache-addr=search-v1-memcache:11211
 {{< /highlight >}}
 
 ##### `search-hybrid` (`search-archive` + `search-live`)
 
-###### `deploy/search-v3-d0-hybrid`
+###### `deploy/search-v1-d0-hybrid`
 
 {{< highlight bash >}}
 dfuseeos \
@@ -302,12 +304,12 @@ search-live,search-archive \
 --config-file= \
 --log-format=stackdriver \
 --log-to-file=false \
---common-blocks-store-url=gs://acme-blocks/eos-name-here/v3 \
---common-blockstream-addr=dns:///relayer-v3:9000 \
---common-blockmeta-addr=dns:///blockmeta-v3:9000 \
---search-common-indices-store-url=gs://acme-search-indexes/eos-name-here/v3 \
+--common-blocks-store-url=gs://acme-blocks/eos-name-here/v1 \
+--common-blockstream-addr=dns:///relayer-v1:9000 \
+--common-blockmeta-addr=dns:///blockmeta-v1:9000 \
+--search-common-indices-store-url=gs://acme-search-indexes/eos-name-here/v1 \
 --search-common-mesh-dsn=etcd://etcd-cluster:2379/eos-name-here \
---search-common-mesh-service-version=v3 \
+--search-common-mesh-service-version=v1 \
 --search-common-mesh-publish-interval=1s \
 --search-archive-grpc-listen-addr=:9100 \
 --search-archive-tier-level=99 \
@@ -325,7 +327,7 @@ search-live,search-archive \
 # Local config file that contains query used to warmup the indexes, example content could be `receiver:eosio action:onblock` is those actions are indexed
 --search-archive-warmup-filepath=/etc/search/warmup-queries \
 --search-archive-enable-empty-results-cache \
---search-archive-memcache-addr=search-v3-memcache:11211 \
+--search-archive-memcache-addr=search-v1-memcache:11211 \
 --search-live-tier-level=100 \
 --search-live-grpc-listen-addr=:9000 \
 # Temporary folder used as a scratch space, must be unique for each instance of the hybrid, must be distinct from --search-archive-writable-path
@@ -339,7 +341,7 @@ search-live,search-archive \
 
 ##### `search-router`
 
-###### `deploy/search-v3-d0-router`
+###### `deploy/search-v1-d0-router`
 
 {{< highlight bash >}}
 dfuseeos \
@@ -348,9 +350,9 @@ search-router \
 --config-file= \
 --log-format=stackdriver \
 --log-to-file=false \
---common-blockmeta-addr=dns:///blockmeta-v3:9000 \
+--common-blockmeta-addr=dns:///blockmeta-v1:9000 \
 --search-common-mesh-dsn=etcd://etcd-cluster:2379/eos-name-here \
---search-common-mesh-service-version=v3 \
+--search-common-mesh-service-version=v1 \
 --search-router-grpc-listen-addr=:9000 \
 --search-router-enable-retry=false \
 --search-router-head-delay-tolerance=3 \
@@ -359,7 +361,7 @@ search-router \
 
 ##### `search-forkresolver`
 
-###### `deploy/search-v3-d0-forkresolver`
+###### `deploy/search-v1-d0-forkresolver`
 
 {{< highlight bash >}}
 dfuseeos \
@@ -370,7 +372,7 @@ search-forkresolver \
 --log-to-file=false \
 --common-blocks-store-url=<merged blocks remote store> \
 --search-common-mesh-dsn=etcd://etcd-cluster:2379/eos-name-here \
---search-common-mesh-service-version=v3 \
+--search-common-mesh-service-version=v1 \
 --search-forkresolver-grpc-listen-addr=:9000 \
 # Temporary folder used as a scratch space, must be unique for each instance of the fork resolver
 --search-forkresolver-indices-path=/tmp/bleve-indexes
@@ -388,7 +390,7 @@ The dfuse GraphQL API is all served by the `dgraphql` component. This component 
 
 The component is stateless and a subset of the dependencies can be provided, for example, it could only serves dfuse Search related GraphQL queries by specifying on the search router address.
 
-##### `deploy/dgraphql-v3`
+##### `deploy/dgraphql-v1`
 
 {{< highlight bash >}}
 dfuseeos \
@@ -399,16 +401,16 @@ dgraphql \
 --log-to-file=false \
 # Used for billing (not shown here) and for GraphQL examples (PR welcome to add more, see https://github.com/dfuse-io/dfuse-eosio/blob/develop/dgraphql/examples.go)
 --common-network-id=eos-name-here \
---common-blockmeta-addr=dns:///blockmeta-v3:9000 \
---common-search-addr=dns:///search-v3-d0-router:9000 \
+--common-blockmeta-addr=dns:///blockmeta-v1:9000 \
+--common-search-addr=dns:///search-v1-d0-router:9000 \
 --common-system-shutdown-signal-delay=30s \
 --common-trxdb-dsn=bigkv://project-id.bigtable-instance/eos-name-here-trxdb-v1 \
---dgraphql-abi-addr=dns:///abicodec-v3:9000 \
+--dgraphql-abi-addr=dns:///abicodec-v1:9000 \
 --dgraphql-disable-authentication=true \
 --dgraphql-grpc-addr=:9000 \
 --dgraphql-http-addr=:8080 \
 --dgraphql-protocol=EOS \
---dgraphql-tokenmeta-addr=dns:///tokenmeta-v3:9000 \
+--dgraphql-tokenmeta-addr=dns:///tokenmeta-v1:9000 \
 --dgraphql-override-trace-id=false
 {{< /highlight >}}
 
@@ -424,7 +426,7 @@ The `eosq` Block explorer is a React app that serves the `eosq` Block explorer. 
 
 The `eosws` and `dgraphql` components must be available through a public address with correct path routing set up.
 
-##### `deploy/eosq-v3`
+##### `deploy/eosq-v1`
 
 {{< highlight bash >}}
 dfuseeos \
@@ -444,6 +446,26 @@ eosq \
 --eosq-environment=production
 {{< /highlight >}}
 
+#### Routing
+
+Here the list of routing paths and to which service they should point to. Each service hostname used here should load balance internally to all replicas of the given component.
+
+- `/dfuse.eosio.v1.GraphQL/*` forwards gRPC (through HTTP2 protocol) traffic to `dgraphql-v1:9000`
+- `/dfuse.graphql.v1.GraphQL/*` forwards gRPC (through HTTP2 protocol) traffic to `dgraphql-v1:9000`
+- `/grpc.reflection.v1alpha.ServerReflection/*` forwards gRPC (through HTTP2 protocol) traffic to `dgraphql-v1:9000`
+- `/graphiql` forwards HTTP traffic to `dgraphql-v1:8080`
+- `/graphiql/*` forwards HTTP traffic to `dgraphql-v1:8080`
+- `/graphql` forwards HTTP & WebSocket traffic to `dgraphql-v1:8080`
+- `/v1/chain/*` forwards HTTP traffic to `eosws-v1:8080`
+- `/v1/stream/*` forwards HTTP & WebSocket traffic to `eosws-v1:8080`
+- `/v0/*` forwards HTTP traffic to `eosws-v1:8080`
+- `/v1/*` forwards HTTP traffic to `eosws-v1:8080`
+- `/` forwards HTTP traffic to `eosws-v1:8080`
+
+{{< alert type="note" >}}
+Ensure to make the port fit your actual deployment. The port shown here are the defaults one used in this section.
+{{< /alert >}}
+
 #### Sample Pods
 
 This is a sample Kubernetes deployment for Kylin:
@@ -453,48 +475,48 @@ This is a sample Kubernetes deployment for Kylin:
 {{< highlight bash >}}
 $ kubectl get pods
 NAME                                         READY   STATUS
-abicodec-v3-6c74fc64df-c6t56                 1/1     Running
-abicodec-v3-6c74fc64df-kqqx4                 1/1     Running
-blockmeta-v3-568bf46696-n2vmz                1/1     Running
-blockmeta-v3-568bf46696-xjvns                1/1     Running
-devproxy-v3-8656f9dfb9-4srrd                 1/1     Running
-dgraphql-v3-c76c679c9-675db                  1/1     Running
-dgraphql-v3-c76c679c9-9p795                  1/1     Running
-eosq-v3-6454d75f5d-rdhwb                     1/1     Running
-eosq-v3-6454d75f5d-zn2dk                     1/1     Running
-eosrest-v3-74d96dc95-ppq47                   1/1     Running
-eosrest-v3-74d96dc95-xldt8                   1/1     Running
-eosws-v3-5db85bb974-w66gk                    1/1     Running
-eosws-v3-5db85bb974-z7mbt                    1/1     Running
-statedb-inject-v3-0                          1/1     Running
-statedb-server-v3-5d647cc4fc-584ps           1/1     Running
-statedb-server-v3-5d647cc4fc-zsxq5           1/1     Running
-merger-v3-0                                  1/1     Running
-mindreader-v3-0                              1/1     Running
-mindreader-v3-1                              1/1     Running
+abicodec-v1-6c74fc64df-c6t56                 1/1     Running
+abicodec-v1-6c74fc64df-kqqx4                 1/1     Running
+blockmeta-v1-568bf46696-n2vmz                1/1     Running
+blockmeta-v1-568bf46696-xjvns                1/1     Running
+devproxy-v1-8656f9dfb9-4srrd                 1/1     Running
+dgraphql-v1-c76c679c9-675db                  1/1     Running
+dgraphql-v1-c76c679c9-9p795                  1/1     Running
+eosq-v1-6454d75f5d-rdhwb                     1/1     Running
+eosq-v1-6454d75f5d-zn2dk                     1/1     Running
+eosrest-v1-74d96dc95-ppq47                   1/1     Running
+eosrest-v1-74d96dc95-xldt8                   1/1     Running
+eosws-v1-5db85bb974-w66gk                    1/1     Running
+eosws-v1-5db85bb974-z7mbt                    1/1     Running
+statedb-inject-v1-0                          1/1     Running
+statedb-server-v1-5d647cc4fc-584ps           1/1     Running
+statedb-server-v1-5d647cc4fc-zsxq5           1/1     Running
+merger-v1-0                                  1/1     Running
+mindreader-v1-0                              1/1     Running
+mindreader-v1-1                              1/1     Running
 peering-0                                    1/2     Running
 peering-1                                    2/2     Running
-relayer-v3-6f77d64fb8-gx4kf                  1/1     Running
-relayer-v3-6f77d64fb8-tb5mp                  1/1     Running
-search-v3-d0-forkresolver-7457cf86c8-tr7jq   1/1     Running
-search-v3-d0-hybrid-758d7c498b-gfn8v         1/1     Running
-search-v3-d0-hybrid-758d7c498b-kvhqc         1/1     Running
-search-v3-d0-indexer-50-0                    1/1     Running
-search-v3-d0-indexer-5000-0                  1/1     Running
-search-v3-d0-router-7f85db9ff6-cnp9p         1/1     Running
-search-v3-d0-router-7f85db9ff6-kjqdd         1/1     Running
-search-v3-d0-t10-0-106m4-50000-0             1/1     Running
-search-v3-d0-t10-0-106m4-50000-1             1/1     Running
-search-v3-d0-t20-106m4-head-5000-0           1/1     Running
-search-v3-d0-t20-106m4-head-5000-1           1/1     Running
-search-v3-memcache-cb98db48-57q6k            1/1     Running
-tokenmeta-v3-0                               1/1     Running
-tokenmeta-v3-1                               1/1     Running
-trxdb-loader-v3-b9d67d857-n2vsl              1/1     Running
+relayer-v1-6f77d64fb8-gx4kf                  1/1     Running
+relayer-v1-6f77d64fb8-tb5mp                  1/1     Running
+search-v1-d0-forkresolver-7457cf86c8-tr7jq   1/1     Running
+search-v1-d0-hybrid-758d7c498b-gfn8v         1/1     Running
+search-v1-d0-hybrid-758d7c498b-kvhqc         1/1     Running
+search-v1-d0-indexer-50-0                    1/1     Running
+search-v1-d0-indexer-5000-0                  1/1     Running
+search-v1-d0-router-7f85db9ff6-cnp9p         1/1     Running
+search-v1-d0-router-7f85db9ff6-kjqdd         1/1     Running
+search-v1-d0-t10-0-106m4-50000-0             1/1     Running
+search-v1-d0-t10-0-106m4-50000-1             1/1     Running
+search-v1-d0-t20-106m4-head-5000-0           1/1     Running
+search-v1-d0-t20-106m4-head-5000-1           1/1     Running
+search-v1-memcache-cb98db48-57q6k            1/1     Running
+tokenmeta-v1-0                               1/1     Running
+tokenmeta-v1-1                               1/1     Running
+trxdb-loader-v1-b9d67d857-n2vsl              1/1     Running
 {{< /highlight >}}
 
 {{< alert type="note" >}}
 * Not shown here is a small `etcd` cluster, deployed through the `etcd-operator`.
 * The single `statedb-inject`. The individual `statedb-server`s will sustain a crash/restart of `statedb-inject` because they themselves are fed with block data, and will cover the gap between what `inject` has written, and the HEAD of the chain.
-* There is a single `merger`, which can go offline for some time. It produces merged blocks files once each 100 blocks anyway, and all processes have an internal memory with a segment of the head down to the last merged block. You don't want to keep your `merger` for too long, because it will put RAM pressure on other systems that wait for a merged block before purging their internal memory for the segment of the chain in th
+* There is a single `merger`, which can go offline for some time. It produces merged blocks files once each 100 blocks anyway, and all processes have an internal memory with a segment of the head down to the last merged block. You don't want to keep your `merger` for too long, because it will put RAM pressure on other systems that wait for a merged block before purging their internal memory for the segment of the chain.
 {{< /alert >}}
