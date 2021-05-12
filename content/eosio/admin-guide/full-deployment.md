@@ -9,16 +9,11 @@ This section is incomplete and is still being worked on. Missing components:
 
  - ABI Codec
  - Account History
- - Blockmeta
  - EOSWS
- - Firehose
- - Merger
- - Mindreader
  - Peering
- - Relayer
  - StateDB
  - TokenMeta
- - Transaction Database
+ - TrxDB (contains Blocks & Transactions)
 {{< /alert >}}
 
 {{< alert type="note" >}}
@@ -47,12 +42,214 @@ Each component given has a given Kubernetes name attached to it, it's the name o
 The following element below are placeholder that you will need to  find and replace in the flags provided below.
 
 - BigTable dsn `bigkv://project-id.bigtable-instance/eos-name-here-trxdb-v1`
+- One blocks `gs://acme-blocks/eos-name-here/v1-oneblock`
 - Merged blocks `gs://acme-blocks/eos-name-here/v1`
 - Search indexes `gs://acme-search-indexes/eos-name-here/v1`
+- Snapshots for `nodeos` `gs://acme-backups/eos-name-here/v1`
 - The `etcd` cluster `etcd://etcd-cluster:2379/eos-name-here`
+
+Do a search/replace in the config to replace all occurrences.
 {{< /alert >}}
 
 The components presented below are loosly ordered by dependencies, the most low-level dependency listed first climbing to the top of the dependencies tree up to the API level components.
+
+### Running
+
+All the example config presented here can be run by following these step:
+
+- Copy the relevant config to your working directory, use the component name like `mindreader.yaml`
+- Run `dfuseeos` binary pointing it to the config and picking a uniquer data directory
+
+    {{< highlight bash >}}
+dfuseeos start -c mindreader.yaml -d data/mindreader -v{{< /highlight >}}
+
+    {{< alert type="note" >}}
+If you run into a problem, you can add more `-vvv` to the end of the command to increase the logger verbosity. If nothing seems to standout, it's possible to also active tracing by preprending the command with `TRACE=true` (a specific component can be specified here like `TRACE=mindreader` to restrict a bit the verbosity).
+{{< /alert >}}
+
+The default logger configured for each service is to use the `json` logging format. If you are running on GCP and want to collect logs into StackDriver, you can use `log-format: stackdriver` everywhere instead.
+
+#### Mindreader
+
+The `mindreader` component is responsible of generating dfuse Blocks. When catching up with the chain and block time are earlier than 12 hours ago (customizable), `mindreader` generates merged blocks (a bundle of 100 blocks in a single compressed file) and otherwise, it generates one block that are later merged together in bundle of 100 blocks by the `merger` components.
+
+The `mindreader` component uses a node manager, which roles is to wrap and supervised `nodeos` process and providing a admin HTTP API that can be used to perform some operational task like stopping `nodeos`, restore it from a snapshost (to cover a hole of dfuse Blocks), starting back `nodeos` and other such maintenance tasks.
+
+{{< alert type="note" >}}
+To sync with high traffic chains like EOS Mainnet, a fast frequency CPU is required, the biggest clock frequency the faster transactions will be ingested by `mindreader`. A too slow CPU on a high traffic chain will make `mindreader` slowly drift or never catch up.
+{{< /alert >}}
+
+###### `sts/mindreader-v1`
+
+{{< alert type="alert" >}}
+The `config.ini` and `genesis.json` are not displayed here but should exist and be available in `/etc/nodeos` folder.
+
+The `mindreader` component **MUST** by in read only mode, i.e. that it should not accept transactions from the network. It should have the following values in the `config.ini` file
+
+{{< highlight ini >}}
+read-mode = head
+p2p-accept-transactions = false
+api-accept-transactions = false
+{{< /highlight >}}
+
+While not recommended, it's ok to use it as an API node. We recommend instead having dedicates nodes for that task, too much load on the CPU could make `mindreader` drift.
+{{< /alert >}}
+
+{{< highlight yaml >}}
+# mindreader.yaml
+start:
+  args:
+  - mindreader
+  flags:
+    log-format: json
+    log-to-file: false
+    # Optional dependency, when present, used to determine if `mindreader` is live or catching up
+    # common-blockmeta-addr: dns:///blockmeta-v1:9000
+    common-blocks-store-url: gs://acme-blocks/eos-name-here/v1
+    common-oneblock-store-url: gs://acme-blocks/eos-name-here/v1-oneblock
+    # The manager API port used to send HTTP maintenance command like `curl http://localhost:8080/v1/maintenance?sync=true` or `curl http://localhost:8080/v1/resume?sync=true`
+    mindreader-manager-api-addr: :8080
+    mindreader-number-of-snapshots-to-keep: 0
+    # This is where `nodeos` RPC API is listening to, determined by `http-server-address` value in `config.ini` file in `/etc/nodeos` folder
+    mindreader-nodeos-api-addr: localhost:8888
+    mindreader-connection-watchdog: false
+    # Mounted directory when a `config.ini` and `genesis.json` exists, managed `nodeos` process is configured to use them
+    mindreader-config-dir: /etc/nodeos
+    mindreader-nodeos-path: nodeos
+    # Persistent disk where `nodeos` blocks and state is stored, should be sized big enough to hold chain blocks & state
+    mindreader-data-dir: /nodeos-data
+    mindreader-readiness-max-latency: 5s
+    # Subfolder under persistent disk to store some metadata required by mindreader component
+    mindreader-working-dir: /nodeos-data/mindreader
+    # Address serving a live stream of blocks, usually consumed by `relayer` to multiplex blocks into a single stream
+    mindreader-grpc-listen-addr: :9000
+    mindreader-blocks-chan-capacity: 100
+    # Prints `nodoes` logs as-is unformatted to standard output, if sets to `true`, `nodeos` are instead routed inside dfuse for EOSIO logging system
+    mindreader-log-to-zap: false
+    mindreader-nodeos-args=
+    # When an error occurs on `mindreader` start up, attempt a snapshot restore from more recent snapshot available, fails if snapshot restore fails
+    mindreader-start-failure-handler: true
+    mindreader-snapshot-store-url: gs://acme-backups/eos-name-here/v1
+    mindreader-auto-restore-source: snapshot
+    mindreader-auto-snapshot-period: 0
+    # Graceful period while the mindreader is flagged unhealthy but still running, usefull to let time to orchestrator like K8S to remove the endpoint from a service
+    mindreader-shutdown-delay: 20s
+{{< /highlight >}}
+
+#### Merger
+
+The `merger` is responsible of merging one blocks generated by `mindreader` components. When near live, the `mindreader` starts to produce one block files in a folder. The merge responsibility is to scan this folder and merged 100 blocks together ensuring that all forked versions that could happen are recorded together.
+
+###### `sts/merger-v1`
+
+{{< highlight yaml >}}
+# merger.yaml
+start:
+  args:
+  - merger
+  flags:
+    log-format: json
+    log-to-file: false
+    common-blocks-store-url: gs://acme-blocks/eos-name-here/v1
+    common-oneblock-store-url: gs://acme-blocks/eos-name-here/v1-oneblock
+    merger-grpc-listen-addr: :9000
+    merger-minimal-block-num: 0
+    merger-start-block-num: 0
+    merger-stop-block-num: 0
+    merger-writers-leeway: 10s
+    # Persistent folder used to store a cache file of the blocks that where already merged
+    merger-state-file: /data/merger.seen.gob
+    merger-max-fixable-fork: 2000
+    merger-max-one-block-operations-batch-size: 2000
+{{< /highlight >}}
+
+#### Relayer
+
+The `relayer` component is a multiplexer that receives blocks from multiple `mindreader` instances and join them in order to form a single stream of live blocks. All component that consumes live blocks (which is mostly all of them) connects to the `relayer`.
+
+###### `deploy/relayer-v1`
+
+{{< highlight yaml >}}
+# relayer.yaml
+start:
+  args:
+  - relayer
+  flags:
+    log-format: json
+    log-to-file: false
+    common-blocks-store-url: gs://acme-blocks/eos-name-here/v1
+    relayer-buffer-size: 300
+    relayer-max-source-latency: 5m
+    relayer-merger-addr: dns:///merger-v1:9000
+    # Each mindreader is specified independently, we do not want to load balance here, we want to connect to each of them individually
+    relayer-source: dns:///mindreader-v1-0.mindreader-v1:9000,dns:///mindreader-v1-1.mindreader-v1:9000
+    relayer-grpc-listen-addr: :9000
+{{< /highlight >}}
+
+#### Block Meta
+
+The `blockmeta` component is used by a variety of higher-level services for:
+
+- Determines if a block is now irreversible or not
+- To determine the overall chain health (compared to only the narrow vision of the components in the deployed cluster)
+- To determine some information about blocks like the LIB of the block
+- To resolves relative block number like `-200`
+
+In most cases, block meta is optional but hinder the functionalities of the chain. As soon as you have a `relayer` deployed and a `nodeos` node fully in-sync available, the block meta component should be deployed also.
+
+###### `deploy/blockmeta-v1`
+
+{{< highlight yaml >}}
+# blockmeta.yaml
+start:
+  args:
+  - blockmeta
+  flags:
+    log-format: json
+    log-to-file: false
+    common-blockstream-addr: dns:///relayer-v1:9000
+    common-blocks-store-url: gs://acme-blocks/eos-name-here/v1
+    # Block Meta is able to function without blocks database being available, but not all services served by Block Meta will work properly
+    common-trxdb-dsn: bigkv://project-id.bigtable-instance/eos-name-here-trxdb-v1
+    # Main EOS API address to fetch info from running chain, must be in-sync, can be outside your deployment to start
+    blockmeta-eos-api-upstream-addr: http://nodeos-api-v1:9999
+    # Additional EOS API addresses for ID lookups (valid even if it is out of sync or read-only), optional but useful for more robust deployment
+    # blockmeta-eos-api-extra-addr: "<fill me>"
+    blockmeta-grpc-listen-addr: :9000
+    blockmeta-live-source: true
+{{< /highlight >}}
+
+#### Firehose
+
+Firehose consumes merged blocks for historical requests and live blocks from the `relayer` (itself connected to one or more `mindreader` instances) for live blocks.
+
+###### `deploy/firehose-v1`
+
+{{< highlight yaml >}}
+# firehose.yaml
+start:
+  args:
+  - firehose
+  flags:
+    log-format: json
+    log-to-file: false
+    common-blockstream-addr: dns:///relayer-v1:9000
+    common-blockmeta-addr: dns:///blockmeta-v1:9000
+    # When Ctrl-C is received to stop the component, the component is marked unhealthy and 30s graceful period is waited for proper orchestration in K8S and others
+    common-system-shutdown-signal-delay: 30s
+    firehose-blocks-store-urls: gs://acme-blocks/eos-name-here/v1
+    # The * at the end means to listen on a non-SSL connection, used for easy routing and to avoid SSL configuration internally
+    firehose-grpc-listen-addr: :9000*
+{{< /highlight >}}
+
+{{< alert type="note" >}}
+It's possible to have a Firehose only for historical blocks, just use the empty string `""` for the live source and the block meta:
+
+{{< highlight yaml >}}
+common-blockstream-addr: ""
+common-blockmeta-addr: ""
+{{< /highlight >}}
+{{< /alert >}}
 
 #### Search
 
@@ -116,25 +313,26 @@ This deployment is actually required only once to generate the search indexed wi
 This is actually ususally run as a first step and in parallel, generating multiple smaller range. Once the search indexes are generated and stored, they are good until the search terms of the filtering needs to be updated.
 {{< /alert >}}
 
-{{< highlight bash >}}
-dfuseeos \
-start \
-search-indexer \
---config-file= \
---log-format=stackdriver \
---log-to-file=false \
---common-blocks-store-url=gs://acme-blocks/eos-name-here/v1 \
---common-blockstream-addr=dns:///relayer-v1:9000 \
---common-blockmeta-addr=dns:///blockmeta-v1:9000 \
---search-common-indices-store-url=gs://acme-search-indexes/eos-name-here/v1 \
---search-indexer-enable-batch-mode=true \
---search-indexer-enable-upload=true \
---search-indexer-delete-after-upload=true \
---search-indexer-start-block=0 \
---search-indexer-stop-block=89999999 \
---search-indexer-shard-size=25000 \
-# Temporary folder used as a scratch space, must be unique for each instance of the indexer
---search-indexer-writable-path=/tmp/bleve-indexes
+{{< highlight yaml >}}
+# search-indexer-25k.yaml
+start:
+  args:
+  - search-indexer
+  flags:
+    log-format: json
+    log-to-file: false
+    common-blocks-store-url: gs://acme-blocks/eos-name-here/v1
+    common-blockstream-addr: dns:///relayer-v1:9000
+    common-blockmeta-addr: dns:///blockmeta-v1:9000
+    search-common-indices-store-url: gs://acme-search-indexes/eos-name-here/v1
+    search-indexer-enable-batch-mode: true
+    search-indexer-enable-upload: true
+    search-indexer-delete-after-upload: true
+    search-indexer-start-block: 0
+    search-indexer-stop-block: 89999999
+    search-indexer-shard-size: 25000
+    # Temporary folder used as a scratch space, must be unique for each instance of the indexer
+    search-indexer-writable-path: /tmp/bleve-indexes
 {{< /highlight >}}
 
 ###### `deploy/search-v1-d0-indexer-10000`
@@ -145,25 +343,26 @@ This deployment is actually required only once to generate the search indexed wi
 This is actually ususally run as a first step and in parallel, generating multiple smaller range. Once the search indexes are generated and stored, they are good until the search terms of the filtering needs to be updated.
 {{< /alert >}}
 
-{{< highlight bash >}}
-dfuseeos \
-start \
-search-indexer \
---config-file= \
---log-format=stackdriver \
---log-to-file=false \
---common-blocks-store-url=gs://acme-blocks/eos-name-here/v1 \
---common-blockstream-addr=dns:///relayer-v1:9000 \
---common-blockmeta-addr=dns:///blockmeta-v1:9000 \
---search-common-indices-store-url=gs://acme-search-indexes/eos-name-here/v1 \
---search-indexer-enable-batch-mode=true \
---search-indexer-enable-upload=true \
---search-indexer-delete-after-upload=true \
---search-indexer-start-block=90000000 \
---search-indexer-stop-block=129999999 \
---search-indexer-shard-size=10000 \
-# Temporary folder used as a scratch space, must be unique for each instance of the indexer
---search-indexer-writable-path=/tmp/bleve-indexes
+{{< highlight yaml >}}
+# search-indexer-10k.yaml
+start:
+  args:
+  - search-indexer
+  flags:
+    log-format: json
+    log-to-file: false
+    common-blocks-store-url: gs://acme-blocks/eos-name-here/v1
+    common-blockstream-addr: dns:///relayer-v1:9000
+    common-blockmeta-addr: dns:///blockmeta-v1:9000
+    search-common-indices-store-url: gs://acme-search-indexes/eos-name-here/v1
+    search-indexer-enable-batch-mode: true
+    search-indexer-enable-upload: true
+    search-indexer-delete-after-upload: true
+    search-indexer-start-block: 90000000
+    search-indexer-stop-block: 129999999
+    search-indexer-shard-size: 10000
+    # Temporary folder used as a scratch space, must be unique for each instance of the indexer
+    search-indexer-writable-path: /tmp/bleve-indexes
 {{< /highlight >}}
 
 ###### `sts/search-v1-d0-indexer-5000`
@@ -172,210 +371,218 @@ search-indexer \
 This statefulset has a moving head, so it must always run in the full deployment. A parallelized version can be used to reach Head, then it must run in "live" mode.
 {{< /alert >}}
 
-{{< highlight bash >}}
-dfuseeos \
-start \
-search-indexer \
---config-file= \
---log-format=stackdriver \
---log-to-file=false \
---common-blocks-store-url=gs://acme-blocks/eos-name-here/v1 \
---common-blockstream-addr=dns:///relayer-v1:9000 \
---common-blockmeta-addr=dns:///blockmeta-v1:9000 \
---search-common-indices-store-url=gs://acme-search-indexes/eos-name-here/v1 \
---search-indexer-http-listen-addr=:8080 \
---search-indexer-enable-upload=true \
---search-indexer-delete-after-upload=true \
---search-indexer-start-block=130000000 \
---search-indexer-shard-size=5000 \
---search-indexer-enable-index-truncation \
-# Temporary folder used as a scratch space, must be unique for each instance of the indexer
---search-indexer-writable-path=/tmp/bleve-indexes
+{{< highlight yaml >}}
+# search-indexer-5k.yaml
+start:
+  args:
+  - search-indexer
+  flags:
+    log-format: json
+    log-to-file: false
+    common-blocks-store-url: gs://acme-blocks/eos-name-here/v1
+    common-blockstream-addr: dns:///relayer-v1:9000
+    common-blockmeta-addr: dns:///blockmeta-v1:9000
+    search-common-indices-store-url: gs://acme-search-indexes/eos-name-here/v1
+    search-indexer-http-listen-addr: :8080
+    search-indexer-enable-upload: true
+    search-indexer-delete-after-upload: true
+    search-indexer-start-block: 130000000
+    search-indexer-shard-size: 5000
+    search-indexer-enable-index-truncation: true
+    # Temporary folder used as a scratch space, must be unique for each instance of the indexer
+    search-indexer-writable-path: /tmp/bleve-indexes
 {{< /highlight >}}
 
 ##### `search-archive`
 
 ###### `sts/search-v1-d0-t10-0-90m-25000`
 
-{{< highlight bash >}}
-dfuseeos \
-start \
-search-archive \
---config-file= \
---log-format=stackdriver \
---log-to-file=false \
---common-blockmeta-addr=dns:///blockmeta-v1:9000 \
---search-common-indices-store-url=gs://acme-search-indexes/eos-name-here/v1 \
---search-common-mesh-dsn=etcd://etcd-cluster:2379/eos-name-here \
---search-common-mesh-service-version=v1 \
---search-common-mesh-publish-interval=1s \
---search-archive-grpc-listen-addr=:9000 \
---search-archive-tier-level=10 \
---search-archive-shard-size=25000 \
---search-archive-start-block=0 \
---search-archive-stop-block=89999999 \
---search-archive-index-polling=true \
---search-archive-sync-from-storage=true \
---search-archive-sync-max-indexes=10000000 \
---search-archive-indices-dl-threads=20 \
---search-archive-max-query-threads=12 \
---search-archive-shutdown-delay=5s \
-# Persistent folder used to store unpacked search indexes, must be unique & persistent for each instance of the search archive
---search-archive-writable-path=/data/local-indices/d0 \
-# Local config file that contains query used to warmup the indexes, example content could be `receiver:eosio action:onblock` is those actions are indexed
---search-archive-warmup-filepath=/etc/search/warmup-queries \
---search-archive-enable-empty-results-cache \
---search-archive-memcache-addr=search-v1-memcache:11211
+{{< highlight yaml >}}
+# search-archive-t10-0-90m-25k.yaml
+start:
+  args:
+  - search-archive
+  flags:
+    log-format: json
+    log-to-file: false
+    common-blockmeta-addr: dns:///blockmeta-v1:9000
+    search-common-indices-store-url: gs://acme-search-indexes/eos-name-here/v1
+    search-common-mesh-dsn: etcd://etcd-cluster:2379/eos-name-here
+    search-common-mesh-service-version: v1
+    search-common-mesh-publish-interval: 1s
+    search-archive-grpc-listen-addr: :9000
+    search-archive-tier-level: 10
+    search-archive-shard-size: 25000
+    search-archive-start-block: 0
+    search-archive-stop-block: 89999999
+    search-archive-index-polling: true
+    search-archive-sync-from-storage: true
+    search-archive-sync-max-indexes: 10000000
+    search-archive-indices-dl-threads: 20
+    search-archive-max-query-threads: 12
+    search-archive-shutdown-delay: 5s
+    # Persistent folder used to store unpacked search indexes, must be unique & persistent for each instance of the search archive
+    search-archive-writable-path: /data/local-indices/d0
+    # Local config file that contains query used to warmup the indexes, example content could be `receiver:eosio action:onblock` is those actions are indexed
+    search-archive-warmup-filepath: /etc/search/warmup-queries
+    search-archive-enable-empty-results-cache: true
+    search-archive-memcache-addr: search-v1-memcache:11211
 {{< /highlight >}}
 
 ###### `sts/search-v1-d0-t15-90m-130m-10000`
 
-{{< highlight bash >}}
-dfuseeos \
-start \
-search-archive \
---config-file= \
---log-format=stackdriver \
---log-to-file=false \
---common-blockmeta-addr=dns:///blockmeta-v1:9000 \
---search-common-indices-store-url=gs://acme-search-indexes/eos-name-here/v1 \
---search-common-mesh-dsn=etcd://etcd-cluster:2379/eos-name-here \
---search-common-mesh-service-version=v1 \
---search-common-mesh-publish-interval=1s \
---search-archive-grpc-listen-addr=:9000 \
---search-archive-tier-level=15 \
---search-archive-shard-size=10000 \
---search-archive-start-block=90000000 \
---search-archive-stop-block=129999999 \
---search-archive-index-polling=true \
---search-archive-sync-from-storage=true \
---search-archive-sync-max-indexes=10000000 \
---search-archive-indices-dl-threads=20 \
---search-archive-max-query-threads=12 \
---search-archive-shutdown-delay=5s \
-# Persistent folder used to store unpacked search indexes, must be unique & persistent for each instance of the search archive
---search-archive-writable-path=/data/local-indices/d0 \
-# Local config file that contains query used to warmup the indexes, example content could be `receiver:eosio action:onblock` is those actions are indexed
---search-archive-warmup-filepath=/etc/search/warmup-queries \
---search-archive-enable-empty-results-cache \
---search-archive-memcache-addr=search-v1-memcache:11211
+{{< highlight yaml >}}
+# search-archive-t15-90m-130m-10k.yaml
+start:
+  args:
+  - search-archive
+  flags:
+    log-format: json
+    log-to-file: false
+    common-blockmeta-addr: dns:///blockmeta-v1:9000
+    search-common-indices-store-url: gs://acme-search-indexes/eos-name-here/v1
+    search-common-mesh-dsn: etcd://etcd-cluster:2379/eos-name-here
+    search-common-mesh-service-version: v1
+    search-common-mesh-publish-interval: 1s
+    search-archive-grpc-listen-addr: :9000
+    search-archive-tier-level: 15
+    search-archive-shard-size: 10000
+    search-archive-start-block: 90000000
+    search-archive-stop-block: 129999999
+    search-archive-index-polling: true
+    search-archive-sync-from-storage: true
+    search-archive-sync-max-indexes: 10000000
+    search-archive-indices-dl-threads: 20
+    search-archive-max-query-threads: 12
+    search-archive-shutdown-delay: 5s
+    # Persistent folder used to store unpacked search indexes, must be unique & persistent for each instance of the search archive
+    search-archive-writable-path: /data/local-indices/d0
+    # Local config file that contains query used to warmup the indexes, example content could be `receiver:eosio action:onblock` is those actions are indexed
+    search-archive-warmup-filepath: /etc/search/warmup-queries
+    search-archive-enable-empty-results-cache: true
+    search-archive-memcache-addr: search-v1-memcache:11211
 {{< /highlight >}}
 
 ###### `sts/search-v1-d0-t20-130m-head-5000`
 
-{{< highlight bash >}}
-dfuseeos \
-start \
-search-archive \
---config-file= \
---log-format=stackdriver \
---log-to-file=false \
---common-blockmeta-addr=dns:///blockmeta-v1:9000 \
---search-common-indices-store-url=gs://acme-search-indexes/eos-name-here/v1 \
---search-common-mesh-dsn=etcd://etcd-cluster:2379/eos-name-here \
---search-common-mesh-service-version=v1 \
---search-common-mesh-publish-interval=1s \
---search-archive-grpc-listen-addr=:9000 \
---search-archive-tier-level=20 \
---search-archive-shard-size=5000 \
---search-archive-start-block=130000000 \
---search-archive-index-polling=true \
---search-archive-sync-from-storage=true \
---search-archive-sync-max-indexes=10000000 \
---search-archive-indices-dl-threads=20 \
---search-archive-max-query-threads=12 \
---search-archive-shutdown-delay=5s \
-# Persistent folder used to store unpacked search indexes, must be unique & persistent for each instance of the search archive
---search-archive-writable-path=/data/local-indices/d0 \
-# Local config file that contains query used to warmup the indexes, example content could be `receiver:eosio action:onblock` is those actions are indexed
---search-archive-warmup-filepath=/etc/search/warmup-queries \
---search-archive-enable-empty-results-cache \
---search-archive-memcache-addr=search-v1-memcache:11211
+{{< highlight yaml >}}
+# search-archive-t20-130m-head-5k.yaml
+start:
+  args:
+  - search-archive
+  flags:
+    log-format: json
+    log-to-file: false
+    common-blockmeta-addr: dns:///blockmeta-v1:9000
+    search-common-indices-store-url: gs://acme-search-indexes/eos-name-here/v1
+    search-common-mesh-dsn: etcd://etcd-cluster:2379/eos-name-here
+    search-common-mesh-service-version: v1
+    search-common-mesh-publish-interval: 1s
+    search-archive-grpc-listen-addr: :9000
+    search-archive-tier-level: 20
+    search-archive-shard-size: 5000
+    search-archive-start-block: 130000000
+    search-archive-index-polling: true
+    search-archive-sync-from-storage: true
+    search-archive-sync-max-indexes: 10000000
+    search-archive-indices-dl-threads: 20
+    search-archive-max-query-threads: 12
+    search-archive-shutdown-delay: 5s
+    # Persistent folder used to store unpacked search indexes, must be unique & persistent for each instance of the search archive
+    search-archive-writable-path: /data/local-indices/d0
+    # Local config file that contains query used to warmup the indexes, example content could be `receiver:eosio action:onblock` is those actions are indexed
+    search-archive-warmup-filepath: /etc/search/warmup-queries
+    search-archive-enable-empty-results-cache: true
+    search-archive-memcache-addr: search-v1-memcache:11211
 {{< /highlight >}}
 
 ##### `search-hybrid` (`search-archive` + `search-live`)
 
 ###### `deploy/search-v1-d0-hybrid`
 
-{{< highlight bash >}}
-dfuseeos \
-start \
-search-live,search-archive \
---config-file= \
---log-format=stackdriver \
---log-to-file=false \
---common-blocks-store-url=gs://acme-blocks/eos-name-here/v1 \
---common-blockstream-addr=dns:///relayer-v1:9000 \
---common-blockmeta-addr=dns:///blockmeta-v1:9000 \
---search-common-indices-store-url=gs://acme-search-indexes/eos-name-here/v1 \
---search-common-mesh-dsn=etcd://etcd-cluster:2379/eos-name-here \
---search-common-mesh-service-version=v1 \
---search-common-mesh-publish-interval=1s \
---search-archive-grpc-listen-addr=:9100 \
---search-archive-tier-level=99 \
---search-archive-shard-size=50 \
---search-archive-start-block=-5000 \
---search-archive-enable-moving-tail=true \
---search-archive-index-polling=true \
---search-archive-sync-from-storage=true \
---search-archive-sync-max-indexes=10000000 \
---search-archive-indices-dl-threads=20 \
---search-archive-max-query-threads=12 \
---search-archive-shutdown-delay=5s \
-# Temporary folder used as a scratch space, must be unique for each instance of the hybrid, must be distinct from --search-live-live-indices-path
---search-archive-writable-path=/tmp/live-archive/bleve-indexes \
-# Local config file that contains query used to warmup the indexes, example content could be `receiver:eosio action:onblock` is those actions are indexed
---search-archive-warmup-filepath=/etc/search/warmup-queries \
---search-archive-enable-empty-results-cache \
---search-archive-memcache-addr=search-v1-memcache:11211 \
---search-live-tier-level=100 \
---search-live-grpc-listen-addr=:9000 \
-# Temporary folder used as a scratch space, must be unique for each instance of the hybrid, must be distinct from --search-archive-writable-path
---search-live-live-indices-path=/tmp/live-live/bleve-indexes \
---search-live-truncation-threshold=1 \
---search-live-realtime-tolerance=1m \
---search-live-shutdown-delay=0s \
---search-live-start-block-drift-tolerance=5200 \
---search-live-head-delay-tolerance=0
+{{< highlight yaml >}}
+# search-archive-t100-hybrid.yaml
+start:
+  args:
+  - search-archive
+  - search-live
+  flags:
+    log-format: json
+    log-to-file: false
+    common-blocks-store-url: gs://acme-blocks/eos-name-here/v1
+    common-blockstream-addr: dns:///relayer-v1:9000
+    common-blockmeta-addr: dns:///blockmeta-v1:9000
+    search-common-indices-store-url: gs://acme-search-indexes/eos-name-here/v1
+    search-common-mesh-dsn: etcd://etcd-cluster:2379/eos-name-here
+    search-common-mesh-service-version: v1
+    search-common-mesh-publish-interval: 1s
+    search-archive-grpc-listen-addr: :9100
+    search-archive-tier-level: 99
+    search-archive-shard-size: 50
+    search-archive-start-block: -5000
+    search-archive-enable-moving-tail: true
+    search-archive-index-polling: true
+    search-archive-sync-from-storage: true
+    search-archive-sync-max-indexes: 10000000
+    search-archive-indices-dl-threads: 20
+    search-archive-max-query-threads: 12
+    search-archive-shutdown-delay: 5s
+    # Temporary folder used as a scratch space, must be unique for each instance of the hybrid, must be distinct from --search-live-live-indices-path
+    search-archive-writable-path: /tmp/live-archive/bleve-indexes
+    # Local config file that contains query used to warmup the indexes, example content could be `receiver:eosio action:onblock` is those actions are indexed
+    search-archive-warmup-filepath: /etc/search/warmup-queries
+    search-archive-enable-empty-results-cache=true
+    search-archive-memcache-addr: search-v1-memcache:11211
+    search-live-tier-level: 100
+    search-live-grpc-listen-addr: :9000
+    # Temporary folder used as a scratch space, must be unique for each instance of the hybrid, must be distinct from --search-archive-writable-path
+    search-live-live-indices-path: /tmp/live-live/bleve-indexes
+    search-live-truncation-threshold: 1
+    search-live-realtime-tolerance: 1m
+    search-live-shutdown-delay: 0s
+    search-live-start-block-drift-tolerance: 5200
+    search-live-head-delay-tolerance: 0
 {{< /highlight >}}
 
 ##### `search-router`
 
 ###### `deploy/search-v1-d0-router`
 
-{{< highlight bash >}}
-dfuseeos \
-start \
-search-router \
---config-file= \
---log-format=stackdriver \
---log-to-file=false \
---common-blockmeta-addr=dns:///blockmeta-v1:9000 \
---search-common-mesh-dsn=etcd://etcd-cluster:2379/eos-name-here \
---search-common-mesh-service-version=v1 \
---search-router-grpc-listen-addr=:9000 \
---search-router-enable-retry=false \
---search-router-head-delay-tolerance=3 \
---search-router-lib-delay-tolerance=0
+{{< highlight yaml >}}
+# search-router.yaml
+start:
+  args:
+  - search-router
+  flags:
+    log-format: json
+    log-to-file: false
+    common-blockmeta-addr: dns:///blockmeta-v1:9000
+    search-common-mesh-dsn: etcd://etcd-cluster:2379/eos-name-here
+    search-common-mesh-service-version: v1
+    search-router-grpc-listen-addr: :9000
+    search-router-enable-retry: false
+    search-router-head-delay-tolerance: 3
+    search-router-lib-delay-tolerance: 0
 {{< /highlight >}}
 
 ##### `search-forkresolver`
 
 ###### `deploy/search-v1-d0-forkresolver`
 
-{{< highlight bash >}}
-dfuseeos \
-start \
-search-forkresolver \
---config-file= \
---log-format=stackdriver \
---log-to-file=false \
---common-blocks-store-url=<merged blocks remote store> \
---search-common-mesh-dsn=etcd://etcd-cluster:2379/eos-name-here \
---search-common-mesh-service-version=v1 \
---search-forkresolver-grpc-listen-addr=:9000 \
-# Temporary folder used as a scratch space, must be unique for each instance of the fork resolver
---search-forkresolver-indices-path=/tmp/bleve-indexes
+{{< highlight yaml >}}
+# search-forkresolver.yaml
+start:
+  args:
+  - search-forkresolver
+  flags:
+    log-format: json
+    log-to-file: false
+    common-blocks-store-url: <merged blocks remote store>
+    search-common-mesh-dsn: etcd://etcd-cluster:2379/eos-name-here
+    search-common-mesh-service-version: v1
+    search-forkresolver-grpc-listen-addr: :9000
+    # Temporary folder used as a scratch space, must be unique for each instance of the fork resolver
+    search-forkresolver-indices-path: /tmp/bleve-indexes
 {{< /highlight >}}
 
 ##### `search-memcached`
@@ -392,26 +599,27 @@ The component is stateless and a subset of the dependencies can be provided, for
 
 ##### `deploy/dgraphql-v1`
 
-{{< highlight bash >}}
-dfuseeos \
-start \
-dgraphql \
---config-file= \
---log-format=stackdriver \
---log-to-file=false \
-# Used for billing (not shown here) and for GraphQL examples (PR welcome to add more, see https://github.com/dfuse-io/dfuse-eosio/blob/develop/dgraphql/examples.go)
---common-network-id=eos-name-here \
---common-blockmeta-addr=dns:///blockmeta-v1:9000 \
---common-search-addr=dns:///search-v1-d0-router:9000 \
---common-system-shutdown-signal-delay=30s \
---common-trxdb-dsn=bigkv://project-id.bigtable-instance/eos-name-here-trxdb-v1 \
---dgraphql-abi-addr=dns:///abicodec-v1:9000 \
---dgraphql-disable-authentication=true \
---dgraphql-grpc-addr=:9000 \
---dgraphql-http-addr=:8080 \
---dgraphql-protocol=EOS \
---dgraphql-tokenmeta-addr=dns:///tokenmeta-v1:9000 \
---dgraphql-override-trace-id=false
+{{< highlight yaml >}}
+# dgraphql.yaml
+start:
+  args:
+  - dgraphql
+  flags:
+    log-format: json
+    log-to-file: false
+    # Used for billing (not shown here) and for GraphQL examples (PR welcome to add more, see https://github.com/dfuse-io/dfuse-eosio/blob/develop/dgraphql/examples.go)
+    common-network-id: eos-name-here
+    common-blockmeta-addr: dns:///blockmeta-v1:9000
+    common-search-addr: dns:///search-v1-d0-router:9000
+    common-system-shutdown-signal-delay: 30s
+    common-trxdb-dsn: bigkv://project-id.bigtable-instance/eos-name-here-trxdb-v1
+    dgraphql-abi-addr: dns:///abicodec-v1:9000
+    dgraphql-disable-authentication: true
+    dgraphql-grpc-addr: :9000
+    dgraphql-http-addr: :8080
+    dgraphql-protocol: EOS
+    dgraphql-tokenmeta-addr: dns:///tokenmeta-v1:9000
+    dgraphql-override-trace-id: false
 {{< /highlight >}}
 
 #### `eosq` Block Explorer
@@ -428,22 +636,23 @@ The `eosws` and `dgraphql` components must be available through a public address
 
 ##### `deploy/eosq-v1`
 
-{{< highlight bash >}}
-dfuseeos \
-start \
-eosq \
---config-file= \
---log-format=stackdriver \
---log-to-file=false \
---common-chain-core-symbol=4,EOS \
---eosq-http-listen-addr=:8001 \
-# A publicly accesible address that load balance and routes the requests to the approriate components
---eosq-api-endpoint-url=https://network.hostname.tld \
---eosq-auth-url=null:// \
---eosq-default-network=eos-name-here \
---eosq-disable-analytics=true \
---eosq-display-price=true \
---eosq-environment=production
+{{< highlight yaml >}}
+# eosq.yaml
+start:
+  args:
+  - eosq
+  flags:
+    log-format: json
+    log-to-file: false
+    common-chain-core-symbol: 4,EOS
+    eosq-http-listen-addr: :8001
+    # A publicly accesible address that load balance and routes the requests to the approriate components
+    eosq-api-endpoint-url: https://network.hostname.tld
+    eosq-auth-url: null://
+    eosq-default-network: eos-name-here
+    eosq-disable-analytics: true
+    eosq-display-price: true
+    eosq-environment: production
 {{< /highlight >}}
 
 #### Routing
