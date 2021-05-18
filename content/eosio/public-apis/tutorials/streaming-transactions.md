@@ -95,7 +95,7 @@ graphqlClient := pbgraphql.NewGraphQLClient(connection)
 - dfuse's GraphQL documentation can be found [here]({{< ref "/platform/public-apis/graphql" >}}).
 - dfuse's GraphQL EOSIO endpoints can be found [here]({{< ref "/eosio/public-apis/reference/graphql-api" >}}).
 - If you are not familiar with GraphQL, take a look at {{< external-link href="https://graphql.org/learn/" title="Introduction to GraphQL">}}.
-- To help you construct your query visually and access our api documentation you can use {{< external-link href="https://mainnet.eos.dfuse.io/graphiql/" title="GraphiQL">}} &mdash; a graphical interactive in-browser GraphQL IDE.
+- To help you construct your query visually and access our api documentation you can use {{< external-link href="https://testnet.eos.dfuse.io/graphiql/" title="GraphiQL">}} &mdash; a graphical interactive in-browser GraphQL IDE.
 
 ## Executing a Query
 {{< tabs "graphql-query" >}}
@@ -133,7 +133,7 @@ This query `account:eosio.msig action:propose` will stream transactions containi
 Take a look at our [Search Query Language specs]({{< ref "/platform/public-apis/search-query-language" >}}) for complete documentation.
 
 ## Cursor and Block Numbers Management
-Complete API documentation is accessible through {{< external-link href="https://mainnet.eos.dfuse.io/graphiql/" title="GraphiQL">}}
+Complete API documentation is accessible through {{< external-link href="https://testnet.eos.dfuse.io/graphiql/" title="GraphiQL">}}
 - `lowBlockNum` parameter is the lower block number boundary, inclusively. A zero or negative value means a block relative to the head or last irreversible block (depending on if your query contains the `irreversibleOnly` flag).
 - `cursor` parameter is an opaque data piece that you can pass back to continue your search if it ever becomes disconnected. Retrieve it from the cursor field in the responses of this call. It is safe to use the same cursor in BOTH directions (forward and backward).
 

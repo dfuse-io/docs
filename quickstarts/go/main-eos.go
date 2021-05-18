@@ -155,7 +155,7 @@ type eosioDocument struct {
 // CODE:BEGIN:quickstarts_go_eos_section5
 func streamEOSIO(ctx context.Context) {
 	/* The client can be re-used for all requests, cache it at the appropriate level */
-	client := createClient("mainnet.eos.dfuse.io:443")
+	client := createClient("testnet.eos.dfuse.io:443")
 	executor, err := client.Execute(ctx, &pb.Request{Query: operationEOS})
 	panicIfError(err)
 

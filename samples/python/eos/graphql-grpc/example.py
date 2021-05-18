@@ -27,7 +27,7 @@ def token_for_api_key(apiKey):
 
 def stub():
     credentials = grpc.access_token_call_credentials(token_for_api_key(sys.argv[1]))
-    channel = grpc.secure_channel('mainnet.eos.dfuse.io:443',
+    channel = grpc.secure_channel('testnet.eos.dfuse.io:443',
                                   credentials=grpc.composite_channel_credentials(grpc.ssl_channel_credentials(),
                                                                                  credentials))
     return graphql_pb2_grpc.GraphQLStub(channel)

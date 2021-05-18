@@ -11,7 +11,7 @@ Fetching the transaction lifecycle associated with the provided parameter `:id`.
 
 ## Usage
 
-{{< example-request id="search-transactions" url="https://mainnet.eos.dfuse.io/v0/transactions/1d5f57e9392d045ef4d1d19e6976803f06741e11089855b94efcdb42a1a41253" >}}
+{{< example-request id="search-transactions" url="https://testnet.eos.dfuse.io/v0/transactions/1d5f57e9392d045ef4d1d19e6976803f06741e11089855b94efcdb42a1a41253" >}}
 
 This method returns transaction information regardless of the actual lifecycle
 state be it deferred, executed, failed or cancelled. This means that deferred
@@ -29,13 +29,13 @@ overview of lifecycle related properties that are available in the response.
 
 #### Response
 
-Here is a sample response, for transaction id `1d5f57e9392d045ef4d1d19e6976803f06741e11089855b94efcdb42a1a41253` on EOS Mainnet:
+Here is a sample response, for transaction id `4844708BA8CBDF30F75B856BAE8A7B15A3898A1CA9F0FB9A5FBA897C1E975A5C` on EOSIO Testnet:
 
 {{< tabs "fetch-transaction-example" >}}
 {{< tab lang="json" >}}
 {
   "transaction_status": "executed",
-  "id": "1d5f57e9392d045ef4d1d19e6976803f06741e11089855b94efcdb42a1a41253",
+  "id": "4844708BA8CBDF30F75B856BAE8A7B15A3898A1CA9F0FB9A5FBA897C1E975A5C",
   "transaction": {
     "expiration": "2019-04-16T14:36:11",
     ...,
@@ -48,7 +48,7 @@ Here is a sample response, for transaction id `1d5f57e9392d045ef4d1d19e6976803f0
     ],
   },
   "execution_trace": {
-    "id": "1d5f57e9392d045ef4d1d19e6976803f06741e11089855b94efcdb42a1a41253",
+    "id": "4844708BA8CBDF30F75B856BAE8A7B15A3898A1CA9F0FB9A5FBA897C1E975A5C",
     ...,
     "receipt": {
       "status": "executed",

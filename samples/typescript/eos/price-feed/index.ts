@@ -25,12 +25,12 @@ const debug = debugFactory("dfuse:example")
 
 async function main() {
   const signatureProvider = new JsSignatureProvider([]);
-  const rpc = new JsonRpc('https://mainnet.eos.dfuse.io', { fetch: fetch as any });
+  const rpc = new JsonRpc('https://testnet.eos.dfuse.io', { fetch: fetch as any });
   const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder() as any, textEncoder: new TextEncoder() });
 
   const dfuseClient = createDfuseClient({
     apiKey: process.env.DFUSE_API_KEY!,
-    network: "mainnet",
+    network: "testnet",
   });
 
   const subscriptionClient = new SubscriptionClient(dfuseClient.endpoints.graphqlStreamUrl, {

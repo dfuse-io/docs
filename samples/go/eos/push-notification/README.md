@@ -58,7 +58,7 @@ func (jwt JWT) NeedRefresh() bool {
 ```
 ### Getting the dfuse Graphql gRPC client
 - Take a look at gRPC [Go Quick Start](https://grpc.io/docs/quickstart/go.html)
-- You can retrieve `graphql.proto` running `curl -O http://mainnet.eos.dfuse.io/graphql/graphql.proto`
+- You can retrieve `graphql.proto` running `curl -O http://testnet.eos.dfuse.io/graphql/graphql.proto`
 - execute `protoc -I pb/ pb/graphql.proto --go_out=plugins=grpc:graphql`
 
 ### Initiating dfuse Graphql Server connection
@@ -85,8 +85,8 @@ graphqlClient := pbgraphql.NewGraphQLClient(connection)
 ### GraphQL query
 - dfuse GraphQL documention can be found [here](https://docs.dfuse.io/#graphql)
 - If you are not familiar with GraphQL. Take a look at [Introduction to GraphQL](https://graphql.org/learn/) 
-- To help you construct your query and access our api documentation you can use [GraphiQL](https://mainnet.eos.dfuse.io/graphiql/) _"A graphical interactive in-browser GraphQL IDE."_ 
-https://mainnet.eos.dfuse.io/graphiql/
+- To help you construct your query and access our api documentation you can use [GraphiQL](https://testnet.eos.dfuse.io/graphiql/) _"A graphical interactive in-browser GraphQL IDE."_ 
+https://testnet.eos.dfuse.io/graphiql/
 ### Executing a query 
 ```go
 ...

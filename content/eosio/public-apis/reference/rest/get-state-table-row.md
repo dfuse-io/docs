@@ -12,7 +12,7 @@ Fetches a single row from the state of any table, at any block height.
 
 Sample request:
 
-{{< example-request id="search-transactions" url="https://mainnet.eos.dfuse.io/v0/state/table/row?account=eosio.token&scope=b1&table=accounts&primary_key=EOS&key_type=symbol_code&block_num=25000000&json=true" >}}
+{{< example-request id="search-transactions" url="https://testnet.eos.dfuse.io/v0/state/table/row?account=eosio.token&scope=b1&table=accounts&primary_key=EOS&key_type=symbol_code&block_num=25000000&json=true" >}}
 
 ## Requesting past blocks
 
