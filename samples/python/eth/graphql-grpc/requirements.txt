@@ -13,7 +13,7 @@ pyasn1==0.4.6
 pylint==2.0.0
 python-dateutil==2.8.0
 pyusb==1.0.2
-PyYAML==5.1.2
+PyYAML==5.4
 rsa==3.4.2
 s3transfer==0.2.1
 six==1.11.0
