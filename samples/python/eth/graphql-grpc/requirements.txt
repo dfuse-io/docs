@@ -17,5 +17,5 @@ PyYAML==5.1.2
 rsa==3.4.2
 s3transfer==0.2.1
 six==1.11.0
-urllib3==1.25.3
+urllib3==1.26.5
 wrapt==1.10.11
