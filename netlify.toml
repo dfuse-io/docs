@@ -8,3 +8,10 @@
 
   # Default build command.
   command = "npm run extract && hugo --gc --minify"
+
+[[redirects]]
+  from = "/*"
+  to = "https://docs.dfuse.eosnation.io/:splat"
+  status = 301
+  force = true
+  headers = {X-From = "docs.dfuse.io"}
