@@ -104,7 +104,7 @@ ul.supported-on {
   padding-left: 10px;
   font-size: 1.2em;
   width: 100%;
-  padding-top: 100px;
+  padding-top: 85px;
   background: #fff;
   z-index: 1;
   a {
@@ -153,7 +153,7 @@ ul.supported-on {
 .book-menu nav,
 .book-toc nav,
 .book-page  {
-  padding-top: 100px;
+  padding-top: 85px;
 }
 
 .book-menu nav {
@@ -505,7 +505,7 @@ article {
 .pb-6 {padding-bottom:4rem;}
 .pb-7 {padding-bottom:5rem;}
 
-.crypto-icon-wrapper {
+.icon-section-wrapper {
   margin-bottom: 0px;
   color: #fff;
   top: 0px;
@@ -513,7 +513,7 @@ article {
   margin-right: 20px;
 }
 
-.crypto-icon-content {
+.icon-section-content {
   border: 4px solid $ternary-300;
   padding: 3px;
   border-radius: 50%;
@@ -524,7 +524,7 @@ article {
   box-sizing: border-box;
 
 }
-.crypto-icon {
+.icon-section {
   width: 100%;
   height: 100%;
   padding: 10px;
@@ -558,7 +558,7 @@ article {
   height: 44px;
   box-sizing: border-box;
 
-  .crypto-icon {
+  .icon-section {
     background-size: 100%;
   }
 }
@@ -597,20 +597,16 @@ article {
   }
 }
 
-.crypto-icon-eosio {
-  background-image: url("/img/icon-crypto-currency-eosio-02.svg");
+.icon-section-operators {
+  background-image: url("/img/icon-section-operators.svg");
 }
 
-.crypto-icon-ethereum {
-  background-image: url("/img/icon-crypto-currency-ethereum-02.svg");
+.icon-section-integrators {
+  background-image: url("/img/icon-section-integrators.svg");
 }
 
-.crypto-icon-other {
-  background-image: url("/img/icon-crypto-currency-other-02.svg");
-}
-
-.crypto-icon-dfuse {
-  background-image: url("/img/dfuse-logo.svg");
+.icon-section-developers {
+  background-image: url("/img/icon-section-developers.svg");
 }
 
 button.cta {
@@ -1056,7 +1052,7 @@ $breakpoint-large: 60em; // 960px
 
 .row [class^="col"] {
   float: left;
-  margin: 0.5rem 3.5%;
+  margin: 0rem 3.5%;
   min-height: 0.125rem;
 }
 

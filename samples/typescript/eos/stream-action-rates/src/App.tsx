@@ -191,7 +191,7 @@ export class App extends Component<any, { topActions: string[] }> {
     ];
   }
   goToGithub() {
-          window.top.location.href="https://github.com/dfuse-io/example-stream-action-rates"
+          window.top.location.href="https://github.com/streamingfast/example-stream-action-rates"
   }
   render() {
     return (

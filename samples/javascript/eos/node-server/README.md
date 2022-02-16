@@ -1,6 +1,6 @@
 ## dfuse Client Library - Node.js Example
 
-This project showcases how to use [dfuse Client Library](https://github.com/dfuse-io/client-js)
+This project showcases how to use [dfuse Client Library](https://github.com/streamingfast/client-js)
 to easily stream all transfers happening in EOS Mainnet in a streaming fashion.
 
 First install all the dependencies:

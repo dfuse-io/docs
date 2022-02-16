@@ -1,7 +1,7 @@
 ## dfuse Client Library - Track Ethereum Transaction React Example
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and
-showcase how to use [dfuse Client Library](https://github.com/dfuse-io/client-js) to easily stream
+showcase how to use [dfuse Client Library](https://github.com/streamingfast/client-js) to easily stream
 all transfers happening in Mainnet in a streaming fashion.
 
 First install all the dependencies:

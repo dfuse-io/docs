@@ -4,12 +4,12 @@
 
 ### dfuse Events example
 
-This example demonstrates how to use `push_transaction` to the dfuseiohooks contract to index data fields in your smart contract. For more context, you can refer to the [contract example](https://github.com/dfuse-io/example-dfuse-events-contract).
+This example demonstrates how to use `push_transaction` to the dfuseiohooks contract to index data fields in your smart contract. For more context, you can refer to the [contract example](https://github.com/streamingfast/example-dfuse-events-contract).
 
 ### Token management and graphQL client
 
 First, head on to our self-service API management [portal](https://app.dfuse.io), after signing up you will be able to create long-term API keys.
-The token management is done by the [@dfuse/client](https://github.com/dfuse-io/client-js) library. For an example of token management implementation with graphQL, refer to the [action rates streaming example](https://github.com/dfuse-io/example-stream-action-rates).
+The token management is done by the [@dfuse/client](https://github.com/streamingfast/client-js) library. For an example of token management implementation with graphQL, refer to the [action rates streaming example](https://github.com/streamingfast/example-stream-action-rates).
 
 
 ### Connection to Scatter
@@ -100,7 +100,7 @@ fieldName1=foo&fieldName2=bar&...
 ```
 
 
-For see how the resulting transaction is queried with the dfuse graphQL API, you can refer to the source code of this project. A more detailed example of a GraghQL subscription to query transactions on the chain can also be found [here](https://github.com/dfuse-io/example-stream-action-rates).
+For see how the resulting transaction is queried with the dfuse graphQL API, you can refer to the source code of this project. A more detailed example of a GraghQL subscription to query transactions on the chain can also be found [here](https://github.com/streamingfast/example-stream-action-rates).
 
 ### Query indexed fields with dfuse search API
 

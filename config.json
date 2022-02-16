@@ -1,7 +1,7 @@
 {
   "baseURL": "/",
   "languageCode": "en-us",
-  "title": "dfuse docs",
+  "title": "Firehose Documentation",
   "theme": "book",
   "enableGitInfo": true,
   "params": {
@@ -22,7 +22,7 @@
       "topLevel": "Documentation"
     },
     "CustomCss": ["css/override.css"],
-    "BookRepo": "https://github.com/dfuse-io/docs",
+    "BookRepo": "https://github.com/streamingfast/docs",
     "BookEditPath": "edit/master/content",
     "SectionPagesMenu": "main"
   },

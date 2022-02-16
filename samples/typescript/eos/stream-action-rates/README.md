@@ -9,7 +9,7 @@ average execution rates for the top actions. A live demo is available [here](htt
 
 The following assumes you have yarn installed on your computer.
 
-    git clone https://github.com/dfuse-io/example-stream-action-rates.git
+    git clone https://github.com/streamingfast/example-stream-action-rates.git
     cd example-stream-action-rates
     yarn install
     yarn start
@@ -21,7 +21,7 @@ First, head to the dfuse self-service API management portal (https://app.dfuse.i
 will be able to create long-term API keys.
 
 We use the [Apollo Client](https://www.apollographql.com/docs/react/) as well as the
-[@dfuse/client](https://github.com/dfuse-io/client-js)
+[@dfuse/client](https://github.com/streamingfast/client-js)
 library to connect to the GraphQL server. You can install the Apollo Client and other
 required packages via:
 
@@ -29,14 +29,14 @@ required packages via:
 yarn add @dfuse/client apollo-boost apollo-client apollo-link-ws graphql react-apollo subscriptions-transport-ws
 ```
 
-The easiest way to talk to the dfuse API is to use the [@dfuse/client](https://github.com/dfuse-io/client-js)
+The easiest way to talk to the dfuse API is to use the [@dfuse/client](https://github.com/streamingfast/client-js)
 library which handles all of the heavy work of retrieving an API token, persist it to disk to avoid hitting rate limits on
 API token issuance, and ensures the token is always fresh.
 
 In our example, we instantiate the Apollo Client to leverage the power of
-[@dfuse/client](https://github.com/dfuse-io/client-js) library and let it handle API token management:
+[@dfuse/client](https://github.com/streamingfast/client-js) library and let it handle API token management:
 
-<small>See [src/client.ts](https://github.com/dfuse-io/example-stream-action-rates/tree/master/src/client.ts)</small>
+<small>See [src/client.ts](https://github.com/streamingfast/example-stream-action-rates/tree/master/src/client.ts)</small>
 
 ```typescript
 import { WebSocketLink } from "apollo-link-ws";
@@ -81,7 +81,7 @@ https://mainnet.eos.dfuse.io/graphiql/
 
 We use the [gql](https://www.apollographql.com/docs/react/essentials/queries) function to build our subscription query:
 
-<small>See [src/graphql.ts](https://github.com/dfuse-io/example-stream-action-rates/tree/master/src/graphql.ts)</small>
+<small>See [src/graphql.ts](https://github.com/streamingfast/example-stream-action-rates/tree/master/src/graphql.ts)</small>
 
 ```typescript
 import { gql } from "apollo-boost";
@@ -124,7 +124,7 @@ Apollo provides an `ApolloProvider` component to link the Apollo Client to the R
 the subscription query is as simple as passing it to the `Subscription` component (read
 [Apollo documentation](https://www.apollographql.com/docs/react/advanced/subscriptions) for more details).
 
-<small>See [src/App.tsx](https://github.com/dfuse-io/example-stream-action-rates/tree/master/src/App.tsx)</small>
+<small>See [src/App.tsx](https://github.com/streamingfast/example-stream-action-rates/tree/master/src/App.tsx)</small>
 
 ```typescript
 export class App extends Component {
@@ -154,9 +154,9 @@ export class App extends Component {
 
 The response from the server is parsed and fed into an `actionsMap` hash to hold the rates for each action contract/name pair:
 
-<small>See [src/models.ts](https://github.com/dfuse-io/example-stream-action-rates/tree/master/src/models.ts)</small>
+<small>See [src/models.ts](https://github.com/streamingfast/example-stream-action-rates/tree/master/src/models.ts)</small>
 <br>
-<small>See [src/App.tsx#105](https://github.com/dfuse-io/example-stream-action-rates/tree/master/src/App.tsx#L105)</small>
+<small>See [src/App.tsx#105](https://github.com/streamingfast/example-stream-action-rates/tree/master/src/App.tsx#L105)</small>
 
 ```typescript
 onSubscriptionData = ({ client, subscriptionData }: any) => {
