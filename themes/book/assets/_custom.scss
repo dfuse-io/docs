@@ -20,7 +20,7 @@ h1 {
 }
 
 .sub-section-title-row-h1 {
-  margin-bottom:40px;
+  margin-bottom:16px;
   margin-top:10px;
   .col-12 {
     margin:10px 0px!important;
@@ -38,7 +38,7 @@ h1 {
       padding: 0;
       font-size: 2em !important;
       margin-top: 0;
-      margin-bottom: 34px;
+      margin-bottom: 0;
     }
   }
 }
@@ -408,7 +408,7 @@ article {
       padding:0px;
       margin:0px;
       text-transform:  none;
-      font-weight: 700;
+      font-weight: 701;
       color:$ternary-1000;
       a, a:visited {
         color:$ternary-1000;
@@ -625,35 +625,6 @@ button.cta {
   }
 }
 
-.next-pages-buttons .btn-outline {
-  width:auto;
-  padding:0px 20px;
-  border:2px $primary-1000 solid;
-  color:$primary-1000;
-  font-size:14px;
-  line-height:14px;
-  border-radius: 20px;
-  height:40px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  &:hover{
-    background: $primary-100;
-  }
-}
-.next-pages-buttons .btn-outline:hover {
-  color:$ternary-1000;
-  text-decoration: none;
-}
-.next-pages-buttons .btn-previous-page.btn-outline i {
-  font-size: 1.4em!important;
-  margin-right: 15px!important;
-}
-.next-pages-buttons .btn-next-page.btn-outline i {
-  font-size: 1.4em!important;
-  margin-left: 15px!important;
-}
-
 @media (max-width: 1200px) {
   #button-main-menu-mobile {
     display: none;
@@ -833,6 +804,26 @@ button.cta {
   margin-bottom: 20px;
   border-bottom: 1px solid $gray-200;
 
+  .btn-outline {
+    width:auto;
+    padding:0px 20px;
+    border:2px $primary-1000 solid;
+    color:$primary-1000;
+    font-size:14px;
+    line-height:14px;
+    border-radius: 20px;
+    height:40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    &:hover{
+      background: $primary-100;
+      color: $ternary-1000;
+      text-decoration: none;
+    }
+  }
+
   a {
     display: flex;
     align-items: center;
@@ -841,21 +832,11 @@ button.cta {
     padding: 6px 8px;
 
     &.btn-next-page {
-      text-align: right;
-      margin-left: 10px;
-
-      .fas {
-        margin-left: 5px;
-      }
+      margin-left: 0;
     }
 
     &.btn-previous-page {
-      margin-right: 10px;
-
-      .fas {
-        font-size: 10px;
-        margin-right: 5px;
-      }
+      margin-right: 0;
     }
   }
 }
@@ -959,20 +940,6 @@ h4 + .method-list-item {
     top: -4px;
     left: 3px;
     vertical-align: text-bottom;
-  }
-}
-
-.book-menu > nav > ul > li {
-  margin: 0;
-  & > a,
-  & > .nav-expandable {
-    display: flex;
-    align-items: center;
-/*    color: $ternary-500; */
-/*     text-transform: uppercase; */
-    letter-spacing: 2px;
-    font-weight: bold;
-    font-size: 1rem;
   }
 }
 
@@ -1113,37 +1080,26 @@ $breakpoint-large: 60em; // 960px
 
 // Side Menu
 aside.book-menu nav {
+  h3 {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
   ul {
     li {
-      padding-top: 20px;
-      ul {
-        padding-left: 20px;
-        padding-top:10px;
-        li {
-          padding-top:0px;
-          padding-bottom:0px;
-          .nav-expandable {
-/*             color: $ternary-500; */
-            font-weight: 600;
-            letter-spacing: 0px;
-            font-size: .85rem;
-          }
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-top: 1rem;
 
-          a {
-            color: $ternary-900;
-            &:hover {
-              color:$color-link;
-            }
-          }
+      a {
+        align-items: center;
+        letter-spacing: 2px;
+        color: $ternary-900;
+        font-weight: 500;
+        font-size: 14px;
 
-          ul {
-            padding-left: 20px;
-            padding-top:0px;
-            li {
-              padding-top:0px;
-              padding-bottom:0px;
-            }
-          }
+        &:hover {
+          color:$color-link;
         }
       }
     }

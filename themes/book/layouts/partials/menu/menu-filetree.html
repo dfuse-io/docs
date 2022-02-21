@@ -1,8 +1,10 @@
 {{ $section := partial "docs/variables/rootnav" . }}
 
-<h2><a href="{{ $section.RelPermalink }}">
+<h3 class="side-menu-header">
+  <a href="{{ $section.RelPermalink }}">
    {{ $section.Title }}
-</a></h2>
+  </a>
+</h3>
 
 {{ template "book-section-children" (dict "Section" $section "CurrentPage" .Page) }}
 
@@ -13,7 +15,7 @@
         {{ if eq .Kind "section" }}
           {{ template "book-section" (dict "Section" . "CurrentPage" $.CurrentPage) }}
         {{ else if and (eq .Kind "page") .Content }}
-          <li class="{{ if .Params.Release }}release release-{{.Params.Release}}{{ end }}">
+          <li class="side-menu-item">
             {{- template "book-page-link" (dict "Page" . "CurrentPage" $.CurrentPage) -}}
           </li>
         {{ end }}
@@ -24,7 +26,7 @@
 
 {{ define "book-section" }}
   {{ with .Section }}
-    <li {{ if .Params.BookFlatSection}} class="book-section-flat" {{ end }}>
+    <li {{ if .Params.BookFlatSection}} class="book-section-flat side-menu-item" {{ end }}>
         <input type="checkbox" id="nav-expand-control-{{ .File }}" class="nav-expand-control" {{ if .Page.IsAncestor $.CurrentPage }}checked{{end}} />
 
         <label class="nav-expandable" for="nav-expand-control-{{ .File }}">

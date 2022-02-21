@@ -6,16 +6,14 @@ menu:
   operators:
     name: Cookbooks
     identifier: cookbooks
-    weight: 10
+    weight: 30
 ---
 
-## Cookbooks
+Various cookbooks like content like parallel chain syncing, high-availability, Grafana dashboards, tools, etc.
 
-> <Cookbooks descrition>
+## All
 
-### Links
-
-> I'm listing everything I can think of here, not fully clear all the content that we would like here
+<!-- I'm listing everything I can think of here, not fully clear all the content that we would like here -->
 
 - Debugging & Diagnosis tooling (general `sfxxx tools ...` that are available on most chain)
 - Backup strategies

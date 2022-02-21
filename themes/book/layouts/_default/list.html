@@ -1,10 +1,10 @@
 {{ define "main" }}
   {{ $title := partial "docs/variables/title" . }}
-  {{ $protocol := partial "docs/variables/protocol" . }}
-  {{ $release := partial "docs/variables/release" . }}
+  {{ $audience := partial "docs/variables/audience" . }}
+  {{ $sinceVersion := partial "docs/variables/since_version" . }}
   <article class="markdown">
     <div class="container sub-section">
-      {{ partial "section-title" (dict "Title" $title "Protocol" $protocol "Release" $release) . }}
+      {{ partial "section-title" (dict "Title" $title "Audience" $audience "SinceVersion" $sinceVersion) . }}
       {{- .Content -}}
     </div>
   </article>

@@ -8,17 +8,14 @@
     "DfuseLogo": "dfuse-logo.svg",
     "BookToC": 5,
     "BookSections": {
-      "admin-guide": "show",
-      "public-apis": "show",
-      "dev-guide": "show",
-      "eosio": "show",
-      "ethereum": "show",
-      "platform": "show"
+      "operators": "show",
+      "integrators": "show",
+      "developers": "show"
     },
     "PerSectionTagline": {
-      "eosio": "EOSIO Documentation",
-      "ethereum": "Ethereum Documentation",
-      "platform": "Platform",
+      "operators": "Operators Documentation",
+      "integrators": "Integrators Documentation",
+      "developers": "Developers Documentation",
       "topLevel": "Documentation"
     },
     "CustomCss": ["css/override.css"],

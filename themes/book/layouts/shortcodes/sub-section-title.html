@@ -1,5 +1,5 @@
 {{ $title :=  .Get "title" }}
-{{ $protocol := .Get "protocol" }}
+{{ $audience := .Get "protocol" }}
 {{ $release :=  .Get "release" }}
 
-{{ partial "section-title" (dict "Title" $title "Protocol" $protocol "Release" $release) . }}
+{{ partial "section-title" (dict "Title" $title "Protocol" $audience "Release" $release) . }}
