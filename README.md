@@ -8,7 +8,7 @@ We welcome contributions to improve the documentation. Simply open a pull reques
 - Install from source (with SCSS support) with:
 
 ```
-git checkout github.com/gohugoio/hugo
+git clone https://github.com/gohugoio/hugo.git
 cd hugo
 go install -v --tags extended
 ```
