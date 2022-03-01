@@ -9,5 +9,5 @@ menu:
     weight: 20
 ---
 
-> Paragraph about the meaning of that page, how the guide are structured, what they contain.
+Within this section, you will find various guides about how to sync your chain of choice.
 

@@ -1,27 +1,22 @@
 ---
-weight: 100
+weight: 10
 title: Ethereum
-sideNavRoot: true
-menu:
-intergrators:
-name: Walk through
-identifier: syncing-guides-ethereum
-weight: 100
+showH2InSideNav: true
 ---
 
 In this guide, we'll show you how to use [Firehose](/operators/concepts/) to sync and stream Ethereum Mainnet.
 
-## 1. Installing Instrumented GETH Binary
+## Installing Instrumented Geth Binary
 
-The first step is to install, a StreamingFast Instrumented version of  Geth. [Geth](https://github.com/ethereum/go-ethereum) is the official Golang
-implementation of 1the Ethereum Protocol. We have instrumented Geth to have the ability to extract the
+The first step is to install, a StreamingFast Instrumented version of Geth. [Geth](https://github.com/ethereum/go-ethereum) is the official Golang
+implementation of the Ethereum Protocol. We have instrumented Geth to have the ability to extract the
 raw blockchain data from the node. The instrumented version source code can be found [here](https://github.com/streamingfast/go-ethereum).
 
-Download the latest release of `Geth` here : [https://github.com/streamingfast/go-ethereum/releases/latest](https://github.com/streamingfast/go-ethereum/releases/latest) You will find a `linux` and `mac` version
+Download the latest release of [Geth for Ethereum networks](https://github.com/streamingfast/go-ethereum/releases?q=geth-&expanded=true) You will find a `linux` and `mac` version
 
 The releases for Other supported EVM chains can be found here:
-- `Polygon`: https://github.com/streamingfast/go-ethereum/releases/tag/polygon-v0.2.14-dm.2
-- `BSC`: https://github.com/streamingfast/go-ethereum/releases/tag/bsc-v1.1.8-dm
+- [Polygon](https://github.com/streamingfast/go-ethereum/releases?q=polygon-&expanded=true)
+- [BSC](https://github.com/streamingfast/go-ethereum/releases?q=bsc-&expanded=true)
 
 Once your binary downloaded you must make them into an executable
 
@@ -29,62 +24,77 @@ Once your binary downloaded you must make them into an executable
 chmod +x geth_linux
 ```
 
-*OSX Installation*
-If you are on OSX you will need to perform one last time. THe binaries are not currently signed. If you attempt to run it you will get a warning. To remove the warning run the following command against the binary
-```bash
-xattr -d com.apple.quarantine geth_mac
-```
-
 To verify the installation was successfully, run
+
 ```bash
 geth_linux version
 ```
+
 You should see an output that contains
+
 ```bash
 Geth
 Version: 1.10.16-dm-stable
 ...
 ```
-It is important to note that you may have a different version then `1.10.16`. The important thing is the `dm` in the version name. `dm` stands for DeepMind and denotes our instrumented version of GETH
 
-## 2. Installing Ethereum on StreamingFasf a.k.a sfeth
+It is important to note that you may have a different version then `1.10.16`. The important thing is the `dm` in the version name. `dm` stands for DeepMind and denotes our instrumented version of Geth.
 
-`sfeth` Is an application that runs a few small, isolated processes, that together form the Firehose pipeline. You can deep dive into the different processes and how the data flows from one to the other in [Concepts & Architecture](/operators/concepts). Needless to say
-this you must run `sfeth` to run a Firehose locally.
+{{< alert type="important" >}}
+If you are on Mac OS X you could see a warning saying the binary is not signed, or it could actually do nothing at all when ran from your terminal. To fix the problem, remove the quarantine attribute on the flile using the following command against the binary:
+
+```bash
+xattr -d com.apple.quarantine geth_mac
+```
+
+That is needed only once.
+{{< /alert >}}
+
+## Installing Ethereum on StreamingFast a.k.a sfeth
+
+`sfeth` us an application that runs a few small, isolated processes, that together form the Firehose stack. You can deep dive into the different processes and how the data flows from one to the other in [Concepts & Architecture]({{< ref "/operators/concepts" >}}). Needless to say this you must run `sfeth` to run a Firehose locally.
 
 
-You can download the latest version of `sfeth` here:[https://github.com/streamingfast/sf-ethereum/releases/latest](https://github.com/streamingfast/sf-ethereum/releases/latest)
+You can download the latest version of [`sfeth` here](https://github.com/streamingfast/sf-ethereum/releases/latest)
 
 Once downloaded you must untar the bundle
+
 ```bash
-tar -xvzf sf-ethereum_0.9.0_macOS_arm64.tar.gz
+tar -xvzf sf-ethereum_0.9.0_linux_x86_64.tar.gz
 ```
-*OSX Installation*
-If you are on OSX you will need to perform one last time. THe binaries are not currently signed. If you attempt to run it you will get a warning. To remove the warning run the following command against the binary
+
+To verify the installation was successful, run
+
+```bash
+sfeth --version
+```
+
+{{< alert type="important" >}}
+If you are on Mac OS X you could see a warning saying the binary is not signed, or it could actually do nothing at all when ran from your terminal. To fix the problem, remove the quarantine attribute on the flile using the following command against the binary:
 
 ```bash
 xattr -d com.apple.quarantine sfeth
 ```
-To verify the installation was successful, run
-```bash
-sfeth --version
-```
+
+That is needed only once.
+{{< /alert >}}
+
 Great! At this point we have installed our instrumented `Geth` application as well as our `sfeth` application. In the following steps we will setup configuration files so that you can start syncing & running a Ethereum Mainnet Firehose!
 
-## 3. Set up your configuration files
+## Set up your configuration files
 
 We will start off by creating a working directory where we will copy our 2 binaries that we have setup on the prior steps
 
 ```bash
 mkdir sf-firehose
-cp <path-to-bianry>/geth_linux ./sf-firehose/geth_linux
-cp <path-to-bianry>/sfeth ./sf-firehose/sfeth 
+cp <path-to-binary>/geth_linux ./sf-firehose/geth_linux
+cp <path-to-binary>/sfeth ./sf-firehose/sfeth
 ```
 
 *note* All future commands should be run inside the working directory we just created
 
 We are going to create a configuration file that will help us setup `sfeth`. Copy the following content to an `eth-mainnet.yaml` file in your working directory
-```yaml 
+```yaml
 start:
   args:
   - mindreader-node
@@ -103,13 +113,13 @@ start:
     # Once fully live with chain, those should be removed, they are used so that Firehose serves
     # blocks even if the chain is not live yet.
     firehose-realtime-tolerance: 999999999s
-    relayer-max-source-latency: 999999999s 
+    relayer-max-source-latency: 999999999s
 ```
 
 In the above configuration file you will notice a line that says `mindreader-node-path: ./geth_linux`. This configuration specifies the path of the `geth` binary we downloaded
 in step 1, We will go through the individual configs shortly.
 
-## 4. Running and syncing Ethereum Mainnet
+## Running and syncing Ethereum Mainnet
 
 Launch `sfeth` to start indexing the chain.
 
@@ -120,11 +130,8 @@ Launch `sfeth` to start indexing the chain.
 You should start seeing logs similar to this:
 ```bash
 2022-02-17T08:40:49.807-0500 (api) registering development exporters from environment variables (dtracing/api.go:139)
-  ...
 2022-02-17T08:40:49.809-0500 (mindreader-node) creating operator (operator/operator.go:81) {"options": {"Bootstrapper":null,"EnableSupervisorMonitoring":true,"ShutdownDelay":0}}
-  ...
 2022-02-17T08:40:49.810-0500 (dfuse) launching app (launcher/launcher.go:110) {"app": "mindreader-node"}
-  ...
 2022-02-17T08:40:50.816-0500 (mindreader-node) creating new command instance and launch read loop (superviser/superviser.go:160) {"binary": "./geth_linux", "arguments": ["--networkid=1", "--datadir=/Users/julien/codebase/sf/firehose-test/eth-data/mindreader/data", "--ipcpath=/Users/julien/codebase/sf/firehose-test/eth-data/mindreader/ipc", "--port=30305", "--http", "--http.api=eth,net,web3", "--http.port=8547", "--http.addr=0.0.0.0", "--http.vhosts=*", "--firehose-deep-mind"]}
 2022-02-17T08:40:50.816-0500 (mindreader-node) starting consume flow (mindreader/mindreader.go:252)
 2022-02-17T08:40:50.816-0500 (mindreader-node) starting one block(s) uploads (mindreader/archiver_selector.go:343)
@@ -137,10 +144,9 @@ You should start seeing logs similar to this:
 2022-02-17T08:40:50.896-0500 (mindreader-node) INFO [02-17|08:40:50.896] Set global gas cap                       cap=50,000,000 (log_plugin/to_zap_log_plugin.go:131)
 2022-02-17T08:40:50.896-0500 (mindreader-node) INFO [02-17|08:40:50.896] Allocated trie memory caches             clean=154.00MiB dirty=256.00MiB (log_plugin/to_zap_log_plugin.go:131)
 2022-02-17T08:40:50.896-0500 (mindreader-node) INFO [02-17|08:40:50.896] Allocated cache and file handles         database=/Users/julien/codebase/sf/firehose-test/eth-data/mindreader/data/geth/chaindata cache=512.00MiB handles=5120 (log_plugin/to_zap_log_plugin.go:131)
-  ...
 2022-02-17T08:41:45.834-0500 (consolereader) mindreader block stats (codec/consolereader.go:76) {"block_num": 1, "duration": 1467834, "stats": {"balance_change":1,"created_account":1,"finalize_block":1}}
 2022-02-17T08:41:45.836-0500 (consolereader) mindreader block stats (codec/consolereader.go:76) {"block_num": 2, "duration": 196333, "stats": {"balance_change":1,"created_account":1,"finalize_block":1}}
-  ....
+...
 ```
 
 After a short delay, you should start to see the blocks syncing in. Once you have synced 100,000 blocks, you can run the following command in a separate terminal to introspects the block data
@@ -148,15 +154,19 @@ After a short delay, you should start to see the blocks syncing in. Once you hav
 ./sfeth tools print blocks --store ./eth-data/storage/merged-blocks 100000
 ```
 
-*note* At any point in time you can stop the process with `ctrl+c`. The process will shutdown gracefully and on restart it will continue where it left off.
+{{< alert type="important" >}}
+At any point in time you can stop the process with `Ctrl + C`. The process will shutdown gracefully and on restart it will continue where it left off.
+{{< /alert >}}
 
-## 5. Overview and Explanation
+## Overview and Explanation
 
-As mentioned earlier `sfeth` Is an application that runs a few small, isolated processes. The command
+As mentioned earlier `sfeth` Is an application that runs a few small, isolated processes.
+
 ```bash
-./sfeth -c eth-mainnet.yaml start mindreader-node`
-``` 
-runs the `mindreader-node` process and supplies the config file `eth-mainet.yml`.
+./sfeth -c eth-mainnet.yaml start mindreader-node
+```
+
+The command above runs the `mindreader-node` process and supplies the config file `eth-mainet.yml`.
 
 Let's walk through the different flags in our `eth-mainnet.yaml` configuration file
 
@@ -175,13 +185,12 @@ The `mindreader-node` process will either write individual block data into separ
 This behaviour is configurable with the  `mindreader-node-merge-and-store-directly` flag.
 When running the `mindreader-node` process with `mindreader-node-merge-and-store-directly` flag enable, we say the "mindreader is running in merged mode". When the flag is disabled, we will refer to the mindreader as running in its normal mode of operation.
 
-
 In the scenario where the `mindreader-node` process stores one-block files. We can run a `merger` process on the side which would merge the one-block files into 100-block files. When we are syncing the chain we will run the `mindreader-node` process in merged mode.
 When we are synced we will run the `mindreader-node` in it's regular mode of operation (storing one-block files)
 
 The one-block files and 100-block files will be store in `data-dir/storage/merged-blocks` and  `data-dir/storage/one-blocks` respectively. The naming convention of the file is the number of the first block in the file.
 
-lastly, we have built tools that allows your to introspec the block files:
+Lastly, we have built tools that allows your to introspec the block files:
 
 ```bash
 ./sfeth tools print blocks --store ./eth-data/storage/merged-blocks 100000
@@ -191,7 +200,7 @@ lastly, we have built tools that allows your to introspec the block files:
 ./sfeth tools print one-block --store ./eth-data/storage/one-blocks 100000
 ```
 
-## 6. Launching And Testing Firehose
+## Launching And Testing Firehose
 
 The current state of affairs is that we have an `sfeth` running a `mindreader-node` process. The process is extract and merging 100-bock data. While still running the `mindreader-node` process in a separate terminal (still in the working directory) launch the firehose
 
@@ -213,7 +222,7 @@ grpcurl -plaintext -d '{"start_block_num": 10}' localhost:13042 sf.firehose.v1.S
 
 You should see block streaming. Like so
 
-```JSON
+```json
 {
   "block": {
     "@type": "type.googleapis.com/sf.ethereum.codec.v1.Block",
@@ -258,7 +267,5 @@ You should see block streaming. Like so
 }
 ```
 
-## 7. What's next
-
-
+## What's next
 

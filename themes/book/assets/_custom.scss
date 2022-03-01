@@ -1091,6 +1091,18 @@ aside.book-menu nav {
       margin-bottom: 0;
       padding-top: 1rem;
 
+      // For second level items
+      li {
+        padding-top: 0.25rem;
+      }
+
+      label {
+        font-weight: 500;
+        font-size: 14px;
+        letter-spacing: 2px;
+        color: $ternary-900;
+      }
+
       a {
         align-items: center;
         letter-spacing: 2px;
