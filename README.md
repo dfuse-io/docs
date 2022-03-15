@@ -18,37 +18,8 @@ go install -v --tags extended
 To start the hugo server, run this command:
 
 ```sh
-hugo server
+hugo serve
 ```
-
-### GraphQL API Reference
-
-The GraphQL API Reference content is generated straight from the GraphQL schema of the different products
-we support.
-
-To update them, a pre-defined project layout on disk is expected by the script. You must have the three
-following project colocated as siblings alongside the `docs` project:
-
-- `docs`
-- `dfuse-eosio`
-- `dfuse-ethereum`
-
-The later two must be named verbatim, the first one `docs` could be named whatever you like. Once the
-following layout exist on your local workstation, to update the GraphQL generate API reference data,
-first install the script dependencies:
-
-```
-npm install
-```
-
-Then run the following command:
-
-```
-node graphql.js
-```
-
-This should update the file `data/eos/graphql.json` and `data/eth/graphql.json` (and any other
-chains we now support) if the GraphQL schema has been updated.
 
 ## Content Structure
 
@@ -105,24 +76,3 @@ Example code can then be referenced with the following shortcode:
 - real-time
 - GraphQL
 - API
-
-## Deployment
-
-Any commit to master automatically triggers a deployment. For this reason, the master branch is locked, requiring all changes to go through an approved pull request.
-
-Reference
-ETH -=> Endpoint ALPHA
-
-<new> side menu
-
-alpha (red)
-beta (yeallo-orangy)
-stage (light gray)
-add sub-title to graphql shortcode
-fix
-
-refactor pages
-
-```
-
-```
