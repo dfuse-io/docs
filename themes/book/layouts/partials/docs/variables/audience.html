@@ -1,0 +1,13 @@
+{{ $audience := "" }}
+
+{{ if eq .Page.Type "operators" }}
+    {{ $audience = "operators" }}
+{{ else if eq .Page.Type "integrators" }}
+    {{ $audience = "integrators" }}
+{{ else if eq .Page.Type "developers" }}
+    {{ $audience = "developers" }}
+{{ else }}
+    {{ $audience = "unknown" }}
+{{ end }}
+
+{{ return  $audience }}

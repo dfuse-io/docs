@@ -1,8 +1,10 @@
 {{ $section := partial "docs/variables/rootnav" . }}
 
-<h2><a href="{{ $section.RelPermalink }}">
+<h3 class="side-menu-header">
+  <a href="{{ $section.RelPermalink }}">
    {{ $section.Title }}
-</a></h2>
+  </a>
+</h3>
 
 {{ template "book-section-children" (dict "Section" $section "CurrentPage" .Page) }}
 
@@ -11,9 +13,11 @@
     <ul>
       {{ range where .Pages "Params.bookhidden" "!=" "true" }}
         {{ if eq .Kind "section" }}
-          {{ template "book-section" (dict "Section" . "CurrentPage" $.CurrentPage) }}
+          {{ template "book-section" (dict "Section" . "CurrentPage" $.CurrentPage "File" $.File) }}
+        {{ else if and (eq .Kind "page") .Params.showH2InSideNav .Content }}
+          {{ template "book-page-nested" (dict "Content" .Content "Page" . "CurrentPage" $.CurrentPage) }}
         {{ else if and (eq .Kind "page") .Content }}
-          <li class="{{ if .Params.Release }}release release-{{.Params.Release}}{{ end }}">
+          <li class="side-menu-item">
             {{- template "book-page-link" (dict "Page" . "CurrentPage" $.CurrentPage) -}}
           </li>
         {{ end }}
@@ -24,7 +28,7 @@
 
 {{ define "book-section" }}
   {{ with .Section }}
-    <li {{ if .Params.BookFlatSection}} class="book-section-flat" {{ end }}>
+    <li {{ if .Params.BookFlatSection}} class="book-section-flat side-menu-item" {{ end }}>
         <input type="checkbox" id="nav-expand-control-{{ .File }}" class="nav-expand-control" {{ if .Page.IsAncestor $.CurrentPage }}checked{{end}} />
 
         <label class="nav-expandable" for="nav-expand-control-{{ .File }}">
@@ -37,9 +41,38 @@
   {{ end }}
 {{ end }}
 
+{{ define "book-page-nested" }}
+  {{ $permaLink := .Page.RelPermalink }}
+  {{ $currentPagePermaLink := .CurrentPage.RelPermalink }}
+
+  <li>
+    <input type="checkbox" id="nav-expand-control-{{ .File }}" class="nav-expand-control" {{ if eq $permaLink $currentPagePermaLink }}checked{{end}} />
+
+    <label class="nav-expandable" for="nav-expand-control-{{ .File }}">
+      <a href="{{ $permaLink }}" class="{{ if eq $permaLink $currentPagePermaLink }}active{{ end }}">
+      {{ partial "docs/variables/title" .Page }}
+      </a>
+      <i class="fas fa-chevron-right"></i>
+    </label>
+
+    <ul>
+      {{ range findRE "<h2 id=\"(.+)\">(.*)</h2>" (htmlUnescape .Content) }}
+        {{ $hashtag := trim (index (findRE "\"[^\"]+\"" .) 0) "\"" }}
+        {{ $title := replaceRE "</h2>" "" (replaceRE "<h2[^>]+>" "" .) }}
+
+        <li class="side-menu-item">
+          <a href="{{ $permaLink }}#{{ $hashtag }}">
+            {{ $title }}
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  </li>
+{{ end }}
+
 {{ define "book-page-link" }}
   {{ with .Page }}
-    <a href="{{ .RelPermalink }}"   class="{{ if eq $.CurrentPage.Permalink .Permalink }}active{{ end }}">
+    <a href="{{ .RelPermalink }}" class="{{ if eq $.CurrentPage.Permalink .Permalink }}active{{ end }}">
       {{ partial "docs/variables/navtitle" . }}
     </a>
   {{ end }}

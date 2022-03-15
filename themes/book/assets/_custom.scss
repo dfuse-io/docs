@@ -20,7 +20,7 @@ h1 {
 }
 
 .sub-section-title-row-h1 {
-  margin-bottom:40px;
+  margin-bottom:16px;
   margin-top:10px;
   .col-12 {
     margin:10px 0px!important;
@@ -38,7 +38,7 @@ h1 {
       padding: 0;
       font-size: 2em !important;
       margin-top: 0;
-      margin-bottom: 34px;
+      margin-bottom: 0;
     }
   }
 }
@@ -104,7 +104,7 @@ ul.supported-on {
   padding-left: 10px;
   font-size: 1.2em;
   width: 100%;
-  padding-top: 100px;
+  padding-top: 85px;
   background: #fff;
   z-index: 1;
   a {
@@ -153,7 +153,7 @@ ul.supported-on {
 .book-menu nav,
 .book-toc nav,
 .book-page  {
-  padding-top: 100px;
+  padding-top: 85px;
 }
 
 .book-menu nav {
@@ -408,7 +408,7 @@ article {
       padding:0px;
       margin:0px;
       text-transform:  none;
-      font-weight: 700;
+      font-weight: 701;
       color:$ternary-1000;
       a, a:visited {
         color:$ternary-1000;
@@ -505,7 +505,7 @@ article {
 .pb-6 {padding-bottom:4rem;}
 .pb-7 {padding-bottom:5rem;}
 
-.crypto-icon-wrapper {
+.icon-section-wrapper {
   margin-bottom: 0px;
   color: #fff;
   top: 0px;
@@ -513,7 +513,7 @@ article {
   margin-right: 20px;
 }
 
-.crypto-icon-content {
+.icon-section-content {
   border: 4px solid $ternary-300;
   padding: 3px;
   border-radius: 50%;
@@ -524,7 +524,7 @@ article {
   box-sizing: border-box;
 
 }
-.crypto-icon {
+.icon-section {
   width: 100%;
   height: 100%;
   padding: 10px;
@@ -558,7 +558,7 @@ article {
   height: 44px;
   box-sizing: border-box;
 
-  .crypto-icon {
+  .icon-section {
     background-size: 100%;
   }
 }
@@ -597,20 +597,16 @@ article {
   }
 }
 
-.crypto-icon-eosio {
-  background-image: url("/img/icon-crypto-currency-eosio-02.svg");
+.icon-section-operators {
+  background-image: url("/img/icon-section-operators.svg");
 }
 
-.crypto-icon-ethereum {
-  background-image: url("/img/icon-crypto-currency-ethereum-02.svg");
+.icon-section-integrators {
+  background-image: url("/img/icon-section-integrators.svg");
 }
 
-.crypto-icon-other {
-  background-image: url("/img/icon-crypto-currency-other-02.svg");
-}
-
-.crypto-icon-dfuse {
-  background-image: url("/img/dfuse-logo.svg");
+.icon-section-developers {
+  background-image: url("/img/icon-section-developers.svg");
 }
 
 button.cta {
@@ -627,35 +623,6 @@ button.cta {
   &:hover {
     opacity:.85;
   }
-}
-
-.next-pages-buttons .btn-outline {
-  width:auto;
-  padding:0px 20px;
-  border:2px $primary-1000 solid;
-  color:$primary-1000;
-  font-size:14px;
-  line-height:14px;
-  border-radius: 20px;
-  height:40px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  &:hover{
-    background: $primary-100;
-  }
-}
-.next-pages-buttons .btn-outline:hover {
-  color:$ternary-1000;
-  text-decoration: none;
-}
-.next-pages-buttons .btn-previous-page.btn-outline i {
-  font-size: 1.4em!important;
-  margin-right: 15px!important;
-}
-.next-pages-buttons .btn-next-page.btn-outline i {
-  font-size: 1.4em!important;
-  margin-left: 15px!important;
 }
 
 @media (max-width: 1200px) {
@@ -837,6 +804,26 @@ button.cta {
   margin-bottom: 20px;
   border-bottom: 1px solid $gray-200;
 
+  .btn-outline {
+    width:auto;
+    padding:0px 20px;
+    border:2px $primary-1000 solid;
+    color:$primary-1000;
+    font-size:14px;
+    line-height:14px;
+    border-radius: 20px;
+    height:40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    &:hover{
+      background: $primary-100;
+      color: $ternary-1000;
+      text-decoration: none;
+    }
+  }
+
   a {
     display: flex;
     align-items: center;
@@ -845,21 +832,11 @@ button.cta {
     padding: 6px 8px;
 
     &.btn-next-page {
-      text-align: right;
-      margin-left: 10px;
-
-      .fas {
-        margin-left: 5px;
-      }
+      margin-left: 0;
     }
 
     &.btn-previous-page {
-      margin-right: 10px;
-
-      .fas {
-        font-size: 10px;
-        margin-right: 5px;
-      }
+      margin-right: 0;
     }
   }
 }
@@ -966,20 +943,6 @@ h4 + .method-list-item {
   }
 }
 
-.book-menu > nav > ul > li {
-  margin: 0;
-  & > a,
-  & > .nav-expandable {
-    display: flex;
-    align-items: center;
-/*    color: $ternary-500; */
-/*     text-transform: uppercase; */
-    letter-spacing: 2px;
-    font-weight: bold;
-    font-size: 1rem;
-  }
-}
-
 .highlight pre {
   background-color: $ternary-1100 !important;
 }
@@ -1056,7 +1019,7 @@ $breakpoint-large: 60em; // 960px
 
 .row [class^="col"] {
   float: left;
-  margin: 0.5rem 3.5%;
+  margin: 0rem 3.5%;
   min-height: 0.125rem;
 }
 
@@ -1117,37 +1080,38 @@ $breakpoint-large: 60em; // 960px
 
 // Side Menu
 aside.book-menu nav {
+  h3 {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
   ul {
     li {
-      padding-top: 20px;
-      ul {
-        padding-left: 20px;
-        padding-top:10px;
-        li {
-          padding-top:0px;
-          padding-bottom:0px;
-          .nav-expandable {
-/*             color: $ternary-500; */
-            font-weight: 600;
-            letter-spacing: 0px;
-            font-size: .85rem;
-          }
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-top: 1rem;
 
-          a {
-            color: $ternary-900;
-            &:hover {
-              color:$color-link;
-            }
-          }
+      // For second level items
+      li {
+        padding-top: 0.25rem;
+      }
 
-          ul {
-            padding-left: 20px;
-            padding-top:0px;
-            li {
-              padding-top:0px;
-              padding-bottom:0px;
-            }
-          }
+      label {
+        font-weight: 500;
+        font-size: 14px;
+        letter-spacing: 2px;
+        color: $ternary-900;
+      }
+
+      a {
+        align-items: center;
+        letter-spacing: 2px;
+        color: $ternary-900;
+        font-weight: 500;
+        font-size: 14px;
+
+        &:hover {
+          color:$color-link;
         }
       }
     }

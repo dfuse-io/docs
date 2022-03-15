@@ -1,11 +1,5 @@
 {{ $currentPage := . }}
 <div id="header-wrapper">
-<!--    <div id="banner-alert">
-        <h3>Developing on EOS Mainnet?</h3>
-        <p>
-            Review our new pricing options <a href="https://www.dfuse.io/en/dedicated-option-survey-message" target="_blank">here</a>.</p>
-    </div>-->
-
     <div id="header" >
         {{ if ne $currentPage.RelPermalink "/"  }}
         <div id="main-menu-mobile-wrapper">
@@ -26,10 +20,8 @@
             </div>
         </div>
         <div id="top-nav-wrapper">
-
             {{ partial "menu/menu-top" . }}
             {{ partial "docs/search" . }}
-
         </div>
     </div>
 </div>

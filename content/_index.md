@@ -1,13 +1,7 @@
 ---
 weight: 1
-title: dfuse open-source platform for blockchain data
+title: StreamingFast - Firehose streaming blockchain's data
 layout: full-width
-aliases:
-  - /guides/
-  - /reference/
-  - /samples/
-  - /libraries/
-  - /release-notes/
 ---
 
 {{< partial "home-overview" >}}

@@ -1,28 +1,25 @@
 {
   "baseURL": "/",
   "languageCode": "en-us",
-  "title": "dfuse docs",
+  "title": "Firehose Documentation",
   "theme": "book",
   "enableGitInfo": true,
   "params": {
-    "DfuseLogo": "dfuse-logo.svg",
+    "DfuseLogo": "firehose-logo-white.png",
     "BookToC": 5,
     "BookSections": {
-      "admin-guide": "show",
-      "public-apis": "show",
-      "dev-guide": "show",
-      "eosio": "show",
-      "ethereum": "show",
-      "platform": "show"
+      "operators": "show",
+      "integrators": "show",
+      "developers": "show"
     },
     "PerSectionTagline": {
-      "eosio": "EOSIO Documentation",
-      "ethereum": "Ethereum Documentation",
-      "platform": "Platform",
+      "operators": "Operators Documentation",
+      "integrators": "Integrators Documentation",
+      "developers": "Developers Documentation",
       "topLevel": "Documentation"
     },
-    "CustomCss": ["css/override.css"],
-    "BookRepo": "https://github.com/dfuse-io/docs",
+    "CustomCss": ["css/fontawesome.all.css", "css/override.css"],
+    "BookRepo": "https://github.com/streamingfast/docs",
     "BookEditPath": "edit/master/content",
     "SectionPagesMenu": "main"
   },

@@ -1,36 +1,36 @@
 {{ $title := .Title }}
-{{ $protocol := .Protocol }}
-{{ $release := .Release }}
+{{ $audience := .Audience }}
+{{ $sinceVersion := .SinceVersion }}
 <div class="row sub-section-title-row sub-section-title-row-h1">
   <div class="col-12">
-    {{ with (eq $protocol "eth") }}
+    {{ with (eq $audience "operators") }}
       <div class="pill-icon-wrapper">
         <div class="pill-icon-content">
-          <div class="pill-icon" style="background-image: url('/img/icon-crypto-currency-ethereum-01.svg');">
+          <div class="pill-icon" style="background-image: url('/img/icon-section-operators.svg');">
           </div>
         </div>
       </div>
     {{ end }}
-    {{ with (eq $protocol "eosio") }}
+    {{ with (eq $audience "integrators") }}
       <div class="pill-icon-wrapper">
         <div class="pill-icon-content">
-          <div class="pill-icon" style="background-image: url('/img/icon-crypto-currency-eosio-01.svg');">
+          <div class="pill-icon" style="background-image: url('/img/icon-section-integrators.svg');">
           </div>
         </div>
       </div>
     {{ end }}
-    {{ with (eq $protocol "dfuse") }}
+    {{ with (eq $audience "developers") }}
       <div class="pill-icon-wrapper">
         <div class="pill-icon-content">
-          <div class="pill-icon" style="background-image: url('/img/dfuse-logo.svg');">
+          <div class="pill-icon" style="background-image: url('/img/icon-section-developers.svg');">
           </div>
         </div>
       </div>
     {{ end }}
     <h1 class="sub-section-title">
       {{ $title }}
-      {{ if $release }}
-        <div class="tag tag-h1 tag-{{ $release }}">{{ $release }}</div>
+      {{ if $sinceVersion }}
+        <div class="tag tag-h1 tag-{{ $sinceVersion }}">{{ $sinceVersion }}</div>
       {{ end }}
     </h1>
   </div>
