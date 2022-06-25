@@ -8,7 +8,7 @@
   "license": "MIT",
   "dependencies": {
     "@dfuse/client": "^0.3.7",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^2.6.7",
     "ws": "^6.2.1"
   }
 }
