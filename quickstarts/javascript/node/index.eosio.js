@@ -6,7 +6,7 @@ const { createDfuseClient } = require('@dfuse/client');
 
 const client = createDfuseClient({
   apiKey: process.env.DFUSE_API_KEY,
-  network: 'mainnet.eos.dfuse.io'
+  network: 'testnet.eos.dfuse.io'
 });
 // CODE:END:quickstarts_javascript_node_eos_section1
 // CODE:BEGIN:quickstarts_javascript_node_eos_section2

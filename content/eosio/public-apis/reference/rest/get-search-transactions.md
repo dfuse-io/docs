@@ -23,7 +23,7 @@ of this endpoint. Main advantages of using the GraphQL API of this endpoint over
 
 Sample request:
 
-{{< example-request id="search-transactions" url="https://mainnet.eos.dfuse.io/v0/search/transactions?start_block=0&block_count=10000&limit=10&sort=desc&q=receiver:eosio.token+action:transfer+data.to:someaccount1" >}}
+{{< example-request id="search-transactions" url="https://testnet.eos.dfuse.io/v0/search/transactions?start_block=0&block_count=10000&limit=10&sort=desc&q=receiver:eosio.token+action:transfer+data.to:someaccount1" >}}
 
 ## Pagination
 

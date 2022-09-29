@@ -45,7 +45,7 @@ import { InMemoryCache } from "apollo-cache-inmemory";
 import { createDfuseClient } from "@dfuse/client";
 
 const dfuseClient = createDfuseClient({
-  network: "mainnet",
+  network: "testnet",
   apiKey: "YOUR_API_KEY_HERE" // <--- Change this value for your own API Key!
 })
 
@@ -74,8 +74,8 @@ export const apolloClient = new ApolloClient({
 
 - The dfuse GraphQL documentation can be found [here](https://docs.dfuse.io/#graphql)
 - If you are not familiar with GraphQL already, take a look at [Introduction to GraphQL](https://graphql.org/learn/)
-- To help you construct your query and access our API documentation you can use [GraphiQL](https://mainnet.eos.dfuse.io/graphiql/) _"A graphical interactive in-browser GraphQL IDE."_
-https://mainnet.eos.dfuse.io/graphiql/
+- To help you construct your query and access our API documentation you can use [GraphiQL](https://testnet.eos.dfuse.io/graphiql/) _"A graphical interactive in-browser GraphQL IDE."_
+https://testnet.eos.dfuse.io/graphiql/
 
 ### Build the GraphQL subscription
 

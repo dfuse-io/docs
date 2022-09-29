@@ -17,11 +17,11 @@ Sample request:
 {{< tab lang="shell" >}}
 curl -X POST -H "Authorization: Bearer eyJhbGciOiJLTVNFUzI1Ni..." \
     -d '{"account":"eosio.token","table":"accounts","block_num":2500000,"hex_rows":["aa2c0b010000000004454f5300000000"]}' \
-    "https://mainnet.eos.dfuse.io/v0/state/abi/bin_to_json"
+    "https://testnet.eos.dfuse.io/v0/state/abi/bin_to_json"
 {{< /tab >}}
 
 {{< tab lang="javascript" >}}
-fetch("https://mainnet.eos.dfuse.io/v0/state/abi/bin_to_json", {
+fetch("https://testnet.eos.dfuse.io/v0/state/abi/bin_to_json", {
   method: "POST",
   body: JSON.stringify({
     account: "eosio.token",
@@ -45,7 +45,7 @@ headers = {
 
 data = '{"account":"eosio.token","table":"accounts","block_num":2500000,"hex_rows":["aa2c0b010000000004454f5300000000"]}'
 
-response = requests.post('https://mainnet.eos.dfuse.io/v0/state/abi/bin_to_json', headers=headers, data=data)
+response = requests.post('https://testnet.eos.dfuse.io/v0/state/abi/bin_to_json', headers=headers, data=data)
 {{< /tab >}}
 
 {{< tab lang="go" >}}
@@ -61,7 +61,7 @@ import (
 func main() {
 	client := &http.Client{}
 	var data = []byte(`{{"account":"eosio.token","table":"accounts","block_num":2500000,"hex_rows":["aa2c0b010000000004454f5300000000"]}}`)
-	req, err := http.NewRequest("POST", "https://mainnet.eos.dfuse.io/v0/state/abi/bin_to_json", data)
+	req, err := http.NewRequest("POST", "https://testnet.eos.dfuse.io/v0/state/abi/bin_to_json", data)
 	if err != nil {
 		log.Fatal(err)
 	}

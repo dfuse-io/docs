@@ -13,10 +13,10 @@ To authenticate REST requests, specify an `Authorization: Bearer [JWT token]` he
 
 {{< tabs "rest-auth" >}}
 {{< tab title="curl" lang="bash" >}}
-curl -H "Authorization: Bearer YOURTOKENHERE" -u https://mainnet.eos.dfuse.io/v0/state/... [ ... ]
+curl -H "Authorization: Bearer YOURTOKENHERE" -u https://testnet.eos.dfuse.io/v0/state/... [ ... ]
 {{< /tab >}}
 {{< tab title="eosc" lang="bash" >}}
-eosc -H "Authorization: Bearer YOURTOKENHERE" -u https://mainnet.eos.dfuse.io [ ... ]
+eosc -H "Authorization: Bearer YOURTOKENHERE" -u https://testnet.eos.dfuse.io [ ... ]
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -28,7 +28,7 @@ This example uses the <https://github.com/hashrocket/ws> command-line WebSocket 
 
 {{< tabs "websocket-auth" >}}
 {{< tab lang="shell" >}}
-ws wss://mainnet.eos.dfuse.io/v1/stream?token=YOURTOKENHERE
+ws wss://testnet.eos.dfuse.io/v1/stream?token=YOURTOKENHERE
 {{< /tab >}}
 {{< /tabs >}}
 
