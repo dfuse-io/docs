@@ -9,6 +9,6 @@
   "dependencies": {
     "@dfuse/client": "^0.2.0-rc.21",
     "node-fetch": "^2.6.1",
-    "ws": "^6.2.1"
+    "ws": "^7.4.6"
   }
 }
